@@ -1,0 +1,50 @@
+
+%%%%%%% Standard Packages
+\usepackage{amsmath}       % I think this gives me some symbols
+\usepackage{amsthm}        % Does theorem stuff
+\usepackage{amssymb}       % more symbols and fonts
+
+
+%%%%%% Adds hyperlinks
+\usepackage[colorlinks, linkcolor=black, citecolor=blue,
+	% pagebackref,
+ 	%bookmarksnumbered=true
+	]{hyperref}
+	
+	
+	
+%%%%%% Tikz !!! Commands and Macros %%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+
+%%%% These draw triple or quadruple set of arrows of length 0.5 cm
+\DeclareMathOperator{\righttriplearrows} {{\; \tikz{ \foreach \y in {0, 0.1, 0.2} { \draw [-stealth] (0, \y) -- +(0.5, 0);}} \; }}
+\DeclareMathOperator{\lefttriplearrows} {{\; \tikz{ \foreach \y in {0, 0.1, 0.2} { \draw [stealth-] (0, \y) -- +(0.5, 0);}} \; }}
+\DeclareMathOperator{\rightquadarrows} {{\; \tikz{ \foreach \y in {0, 0.1, 0.2, 0.3} { \draw [-stealth] (0, \y) -- +(0.5, 0);}} \; }}
+\DeclareMathOperator{\leftquadarrows} {{\; \tikz{ \foreach \y in {0, 0.1, 0.2, 0.3} { \draw [stealth-] (0, \y) -- +(0.5, 0);}} \; }}
+
+%%%%%%% End TikZ Commands and Macros %%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
+% These all use the same "theorem" counter. 
+\theoremstyle{plain} %%% Plain Theorem Styles.
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}          
+\newtheorem{proposition}[theorem]{Proposition}              
+\newtheorem{openproblem}[theorem]{Open Problem}     
+
+\theoremstyle{definition} %%%% Definition-like Commands  
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}  %%%% Remark-like Commands
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+%%%%%%%%%%%%%%%%%%%%%% End Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
