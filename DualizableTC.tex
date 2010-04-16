@@ -6,15 +6,63 @@
 
 \include{DualizableTC-Preamble}
 
-\title{The Title}
+\title{Some Title containing the words `fusion' and `fully-dualizable', such as this one}
 
 
 \begin{document}
 	
 \maketitle	
 	
+
+\begin{theorem}
+	Fusion Categories are fully-dualizable. 
+\end{theorem}
 	
+\begin{proof}[Proof Sketch]
+We must show the following conditions for a Fusion Category C to be fully dualizable: 
+	\begin{enumerate}
+		\item $C$ must have a dual (it is automatically both a left and right dual, since TC is symmetric monoidal).
+		\item The adjunction 1-morphisms (certain bimodule categories) used in the above duality must themselves have duals (both left and right duals), which in turn must themselves have duals, and so on.  In fact, we show that the relevant 1-morphisms have ambidextrous adjoints, so we do not need to worry about an infinite chain of adjunctions.
+		\item The adjunctions of the above 1-morphism dualities, must have duals, and their duals must have duals, and so on.  Again, we show that in fact the adjoints are ambidextrous.
+	\end{enumerate}
+
+Condition 1: The dual of $C$ is $C^{mp}$ (the one with only the tensor structure opposite). The dualizing bimodule categories are:
+\begin{equation*}
+	{}_{C \boxtimes C^{mp}} C_{Vect}, \qquad \text{ and } \qquad {}_{Vect} C_{C^{mp} \boxtimes C}	
+\end{equation*} 
+These satisfy the necessary adjunction for C to be dualizable. 
+Condition 2 will be proven by the two propositions below. Note that $C$ is indecomposable as a $C \boxtimes C^{mp}$-module.  
 	
+Condition 3 was established in the ENO Part II blip `Solution to item (1)'.  It uses the fact that C is semisimple with finitely many simples. 	
+	
+\end{proof}	
+	
+\begin{proposition}
+	Let $C$ be a fusion category, and let ${}_{C} M_D$ be a bimodule which is $C$-indecomposible. Let $C'$ be the commutant of $C$ acting on $M$, and let $i: D \to C'$ be the induced tensor functor (warning! it may not be an inclusion in the usual sense). Then, the bimodule category ${}_{C} M_{C'}$ is invertible, with inverse ${}_{C'} N_C$ (See Lemma \ref{Lma:}). In this case, 
+\begin{enumerate}
+	\item the maps of bimodules,
+	\begin{equation*}
+		{C --- M \otimes_D N ---C }  ===> {C --- M x_C' N ---C }  == {C---C ---C}
+		{D ---D--- D} ===> {D --- C' ----D} == {D --- N x_C M --- D}
+	\end{equation*}	
+	form the unit and counit of an (say "left") adjunction between $C--M--D$ and $D--N--C$.
+	\item  Moreover, if there exist maps ("conditional expectation maps")
+	\begin{align*}
+		lambda: D---C'---D  ==> D---D---D \\
+		mu: C' --- C' ---C'  ===>  C' --- C' x_D C' --- C' 
+	\end{align*}
+	making D-- C' ---C' and C' ---C' ---D into a ("right") adjunction, then the composites 
+	\begin{align*}	
+		{C --- M x_D N ---C }  <=mu== {C --- M x_C' N ---C }  == {C---C ---C}
+		{D ---D--- D} <=lambda== {D --- C' ----D} == {D --- N x_C M --- D}
+	\end{align*}
+	form the units of a ("right") adjucntion between C--M--D and D--N--C.
+\end{enumerate}	
+\end{proposition}	
+
+\begin{proof}
+	...
+\end{proof}
 	
 	
 \end{document}
