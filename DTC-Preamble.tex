@@ -3,6 +3,24 @@
 \usepackage{amsmath}       % I think this gives me some symbols
 \usepackage{amsthm}        % Does theorem stuff
 \usepackage{amssymb}       % more symbols and fonts
+\usepackage{amsfonts}
+\usepackage[all]{xy}
+\usepackage{xspace}
+\usepackage{calc}
+
+
+
+\setlength{\topskip}{0pt}
+\setlength{\footskip}{30pt}
+\headheight=0pt
+\topmargin=0pt
+\headsep=18pt
+\textheight=603pt %% 792pt to page, 648 is 9in
+\textwidth=420pt  %% 612pt to page, 468pt is 6.5in
+\oddsidemargin=25pt
+\evensidemargin=25pt
+
+\pagestyle{plain}
 
 
 %%%%%% Adds hyperlinks
@@ -31,20 +49,59 @@
 %%%%%%%%%%%%%%%%%%%%%% Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
 % These all use the same "theorem" counter. 
 \theoremstyle{plain} %%% Plain Theorem Styles.
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}          
 \newtheorem{proposition}[theorem]{Proposition}              
-\newtheorem{openproblem}[theorem]{Open Problem}     
 
 \theoremstyle{definition} %%%% Definition-like Commands  
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
 
 \theoremstyle{remark}  %%%% Remark-like Commands
 \newtheorem{remark}[theorem]{Remark}
-\newtheorem{warning}[theorem]{Warning}
+\newtheorem{example}[theorem]{Example}
 %%%%%%%%%%%%%%%%%%%%%% End Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Misc symbols %%%%%
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\nid}{\noindent}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\xla}{\xleftarrow}
+
+\newcommand{\Bord}{\mathrm{Bord}}
+\newcommand{\Vect}{\mathrm{Vect}}
+\newcommand{\TC}{\mathrm{TC}}
+
+\def\cA{\mathcal A}\def\cB{\mathcal B}\def\cC{\mathcal C}\def\cD{\mathcal D}
+\def\cE{\mathcal E}\def\cF{\mathcal F}\def\cG{\mathcal G}\def\cH{\mathcal H}
+\def\cI{\mathcal I}\def\cJ{\mathcal J}\def\cK{\mathcal K}\def\cL{\mathcal L}
+\def\cM{\mathcal M}\def\cN{\mathcal N}\def\cO{\mathcal O}\def\cP{\mathcal P}
+\def\cQ{\mathcal Q}\def\cR{\mathcal R}\def\cS{\ess}\def\cT{\mathcal T}
+\def\cU{\mathcal U}\def\cV{\mathcal V}\def\cW{\mathcal W}\def\cX{\mathcal X}
+\def\cY{\mathcal Y}\def\cZ{\mathcal Z}
+
+\def\AA{\mathbb A}\def\BB{\mathbb B}\def\CC{\mathbb C}\def\DD{\mathbb D}
+\def\EE{\mathbb E}\def\FF{\mathbb F}\def\GG{\mathbb G}\def\HH{\mathbb H}
+\def\II{\mathbb I}\def\JJ{\mathbb J}\def\KK{\mathbb K}\def\LL{\mathbb L}
+\def\MM{\mathbb M}\def\NN{\mathbb N}\def\OO{\mathbb O}\def\PP{\mathbb P}
+\def\QQ{\mathbb Q}\def\RR{\mathbb R}\def\SS{\mathbb S}\def\TT{\mathbb T}
+\def\UU{\mathbb U}\def\VV{\mathbb V}\def\WW{\mathbb W}\def\XX{\mathbb X}
+\def\YY{\mathbb Y}\def\ZZ{\mathbb Z}
+
+%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
 
 
 
