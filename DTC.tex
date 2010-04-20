@@ -97,11 +97,37 @@
 \NS{Another test: NS's comment color}
 
 
+
+
 \subsection{Linear categories}
+
+\begin{definition}
+	A linear category $C$ is a {\em retract} of a linear category $D$ if there exists linear functors $r: D \to C$ and $i: C \to D$ such that the composition $r \circ i: C \to C$ is naturally isomorphic to the identity functor of $C$. 
+\end{definition}
+
+\begin{definition}[Kapranov-Voevodsky \cite{KV94}]
+	A {\em finite 2-vector space} is a linear category isomorphic to $\bigoplus_I \Vect$,
+	 a finite direct sum of the category $\Vect$ with itself. 
+\end{definition}
 
 \subsection{Tensor products and colimits of linear categories}
 
 \subsection{Tensor category bimodules and bimodule composition}
+
+
+\CSP{convention on left/right: view S-R-bimodules as functors from R-mod to S-mod.}
+\begin{proposition}
+	Let $S$ be a tensor categories and let $M$ be a left $S$-module category.  If ${}_S M$ admits a left-adjoint as an $S$-$\Vect$-bimodule category, then $M$ is a retract of a finite 2-vector space. 
+	% There is also a version for left module cats... If $(-) \otimes_S M_R$ is a right-adjoint, then ${}_SM$ is a finitely generated projective $S$-module.
+\end{proposition}
+
+{\color{CSPcolor} This automatically implies that all homs in M are finite dimensional. I believe that it also implies that M is semi-simple with finitely many simples, hence is a finite 2-vector space (if our ground ring is $\CC$).
+
+This will be used later in the special case that $S = C \boxtimes C^{mp}$ and $M=C$ to prove that a dualizible tensor category is semi-simple with finitely many simples.}
+
+\begin{proof}
+	
+\end{proof}
 
 \subsection{The 3-category of tensor categories.}
 
@@ -220,5 +246,9 @@ Condition 3 was established in the ENO Part II blip `Solution to item (1)'.  It 
 %\marginpar{\small CD: I haven't tried to fit what CSP wrote below into the above outline structure.}
 %\marginpar{\small CD: Known how to get these margin notes to fit?}
 
+
+%% The Bibliography
+\bibliographystyle{amsalpha}
+\bibliography{DTCreferences}
 
 \end{document}
