@@ -8,7 +8,7 @@
 \usepackage{xspace}
 \usepackage{calc}
 
-
+\usepackage{ifthen}		% For if-then-else statements in making commands. 
 
 \setlength{\topskip}{0pt}
 \setlength{\footskip}{30pt}
@@ -62,6 +62,27 @@
 \newtheorem{example}[theorem]{Example}
 %%%%%%%%%%%%%%%%%%%%%% End Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%% Special Commands %%%
+
+%% Syntax:  \Mod{A}{B}
+%% Makes a math command for the category of left, right, and bimodules. If either A or B is empty, it will omit that portion. This uses the ifthen package.
+\newcommand{\Mod}[2]  
+{
+  \ifthenelse{\equal{#1}{}}{  			% If A is empty ...
+		\ifthenelse{\equal{#2}{}}		% And B is empty ...
+			{\mathrm{Mod}}{ 			% just print "Mod"
+				{\mathrrm{Mod}\textrm{-}#2}		% Else, print "Mod-B"
+			}
+	}{									% but if A is not empty,
+		\ifthenelse{\equal{#2}{}}		% and B is empty,
+			{{#1\textrm{-}\mathrm{Mod}}}{		% print "A-mod",
+				{{#1\textrm{-}\mathrrm{Mod}\textrm{-}#2}}	% otherwise print "A-Mod-B".
+			}
+	}
+}
+
+
+
 %%%% Misc symbols %%%%%
 
 \newcommand{\nn}{\nonumber}
@@ -71,7 +92,14 @@
 \newcommand{\xra}{\xrightarrow}
 \newcommand{\xla}{\xleftarrow}
 
+
+%\newcommand{\om}{\mathrm{Hom}}
+
+
+\newcommand{\Ab}{\mathrm{Ab}}
+\newcommand{\Algd}{\mathrm{Algd}}
 \newcommand{\Bord}{\mathrm{Bord}}
+\newcommand{\Cat}{\mathrm{Cat}}
 \newcommand{\Vect}{\mathrm{Vect}}
 \newcommand{\TC}{\mathrm{TC}}
 

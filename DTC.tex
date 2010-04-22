@@ -101,9 +101,44 @@
 
 \subsection{Linear categories}
 
+A category with direct sums is a category with finite products and coproducts in which the unique morphism from the initial object to the terminal object is an isomorphism (and both are hence zero objects), and for which the canonical morphism,
+\begin{equation*}
+	\left( \begin{array}{cc} id_A & 0 \\ 0 & id_B \end{array}\right) : A \coprod B \to A \prod B
+\end{equation*}
+is an isomorphism.  Here `0' denotes the unique map which factors $X \to 0 \to Y$. We call this common object the direct sum of objects $A$ and $B$.
+
+The Baer sum equips the hom sets in any category with direct sums with a commutative addition. A category with direct sums is an {\em additive category} if the hom sets are in fact abelian groups. Thus an additive category is canonically enriched in the category of abelian groups. An additive functor is a functor which preserves direct sums. 
+
 \begin{definition}
-	A linear category $C$ is a {\em retract} of a linear category $D$ if there exists linear functors $r: D \to C$ and $i: C \to D$ such that the composition $r \circ i: C \to C$ is naturally isomorphic to the identity functor of $C$. 
+	Let $R$ be a commutative ring. The 2-category of {\em $R$-algebroids} is the 2-category of categories enriched in $\Mod{R}{}$, the category of $R$-modules. An {\em $R$-linear category} is an additive category enriched in $\Mod{R}{}$ in a way extending the canonical enrichment in $\Mod{\ZZ}{} = \Ab$. These form an evident 2-category, $\Cat_R$ in which the 1-morphisms are the additive $R$-enriched functors. 
 \end{definition}
+
+\begin{remark}
+	If $R = k$ is a field, and $\cA$ is an additive category, then the enrichment in $\Vect_k = \Mod{k}{}$ is unique, if it exists. 
+\end{remark}
+
+\begin{definition}
+	An additive category A is {\em idempotent complete} \cite[1.2.1, 1.2.2]{Karoubi68} if for
+	every idempotent $p: A \to A$, i.e. $p^2 = p$, there is a decomposition $A \cong K \oplus I$ of $A$ such that $p = \left( \begin{array}{cc} 0 & 0 \\ 0 & 1 \end{array}\right)$ is projection onto $I$. 
+\end{definition}
+
+Let $\Cat_R^\text{IC}$ denote the subcategory of idempotently complete $R$-linear categories. We have adjunctions:
+\begin{align*}
+		L:  & \Algd_R   \rightleftarrows \Cat_R : U \\
+		\hat{(-)}:  & \Cat_R \rightleftarrows \Cat_R^\textrm{IC} : U. 
+\end{align*}
+where in each case $U$ denotes the forgetful functor. Both forgetful functors are faithful and $U: \Cat_R^\textrm{IC} \to \Cat_R$ is full. The functor $L$ formally adjoins direct sums. The functor $\hat{(-)}$ is known as {\em idempotent completion}. It admits an elementary description. The objects of $\hat \cA$ are pairs $(A, p)$ where $A \in \cA$ is an object and $p: A \to A$ is an idempotent. The morphisms from $(A, p)$ to $(B,q)$ are given by,
+\begin{equation*}
+	q \circ \hom_\cA(A, B) \circ p
+\end{equation*} 
+with the composition induced from $\cA$.
+add construction of idempotent completion. 
+
+%%%% Not clear we need this. 
+
+%\begin{definition}
+%	A linear category $C$ is a {\em retract} of a linear category $D$ if there exists linear functors $r: D \to C$ and $i: C \to D$ such that the composition $r \circ i: C \to C$ is naturally isomorphic to the identity functor of $C$. 
+%\end{definition}
 
 \begin{definition}[Kapranov-Voevodsky \cite{KV94}]
 	A {\em finite 2-vector space} is a linear category isomorphic to $\bigoplus_I \Vect$,
@@ -112,18 +147,48 @@
 
 \subsection{Tensor products and colimits of linear categories}
 
+{\color{CSPcolor}
+\cite{Tambara01} has a construction of the tensor product of additive categories. And the Idem. completion of this gives the tensor product 
+
+}
 \subsection{Tensor category bimodules and bimodule composition}
+
+
+\begin{proposition}
+	Let $R$ be a commutative ring and let $\cA$ be an additive category. Then the following structures are equivalent (in the case that $R= k$ is a field these are properties): 
+	\begin{enumerate}
+		\item $\cA$ is $R$-linear category,
+		\item $\cA$ is an $\Mod{R}{}^\textrm{free}$-module category, where $\Mod{R}{}^\textrm{free}$ is the category of finitely generated free $R$-modules.  
+	\end{enumerate}
+	Moreover if the above structure is present, then the following implications hold: 
+	\begin{enumerate}
+		\item [(a)] If $\cA$ is idempotent complete then it is an $\Mod{R}{}^\textrm{proj}$-module category, where $\Mod{R}{}^\textrm{proj}$ is the category of finitely generated projective $R$-modules.  
+		\item [(b)] If $\cA$ is abelian, then it is an $\Mod{R}{}^\textrm{fg}$-module category, where $\Mod{R}{}^\textrm{fp}$ is the category of finitely presented $R$-modules.
+		
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	% Note that the two notions of finitely presented by f.g. free modules and finitely presented by f.g. projective modules are the same, and in particular include the f.g. projective modules.  
+\end{proof}
+
+
 
 
 \CSP{convention on left/right: view S-R-bimodules as functors from R-mod to S-mod.}
 \begin{proposition}
-	Let $S$ be a tensor categories and let $M$ be a left $S$-module category.  If ${}_S M$ admits a left-adjoint as an $S$-$\Vect$-bimodule category, then $M$ is a retract of a finite 2-vector space. 
+	Let $S$ be a tensor categories and let $M$ be a left $S$-module category.  If ${}_S M$ admits a left-adjoint as an $S$-$\Vect$-bimodule category, then there exist linear functors  $i: M \to \oplus_I \Vect$ and $r: \oplus_I \Vect \to M$, where $I$ is a finite index set, and  a split short exact sequence of endofunctors of $M$,
+	\begin{equation*}
+		0 \to k \to ri \to id_M \to 0.
+	\end{equation*}
+	
+	
+%	$M$ is a retract of a finite 2-vector space. 
 	% There is also a version for left module cats... If $(-) \otimes_S M_R$ is a right-adjoint, then ${}_SM$ is a finitely generated projective $S$-module.
 \end{proposition}
 
-{\color{CSPcolor} This automatically implies that all homs in M are finite dimensional. I believe that it also implies that M is semi-simple with finitely many simples, hence is a finite 2-vector space (if our ground ring is $\CC$).
-
-This will be used later in the special case that $S = C \boxtimes C^{mp}$ and $M=C$ to prove that a dualizible tensor category is semi-simple with finitely many simples.}
+{\color{CSPcolor} This automatically implies that all homs in M are finite dimensional. 
+This will be used later in the special case that $S = C \boxtimes C^{mp}$ and $M=C$ to prove things about  dualizible tensor categories.}
 
 \begin{proof}
 	The bimodule category ${}_S M_\Vect$ admits a left-adjoint. This consists of a bimodule category ${}_{\Vect}N_S$ together with bimodule functors,
@@ -136,14 +201,15 @@ This will be used later in the special case that $S = C \boxtimes C^{mp}$ and $M
 		(id_M \boxtimes \varepsilon) \circ (\eta \otimes_S id_M) &\cong id_M, \\
 		(\varepsilon \boxtimes id_N) \circ (id_N \otimes_S \eta) & \cong id_N.
 	\end{align*}
-	The left-module category ${}_S S$ is cyclic, generated by the object $1 \in S$. Hence the bimodule category ${}_S S_S$ is also cyclic, generated by the same object. This implies that, up to isomorphism, the functor $\eta$ is determined by the image $\eta(1) \in M \boxtimes N $. Any object in the Deligne tensor product $X \boxtimes Y$ is a finite direct sum of primitive objects $x \boxtimes y$, with $x \in X$ and $y \in Y$. Thus the functor $\eta$ is determined by a finite direct sum,
+	The left-module category ${}_S S$ is cyclic, generated by the object $1 \in S$. Hence the bimodule category ${}_S S_S$ is also cyclic, generated by the same object. This implies that, up to isomorphism, the functor $\eta$ is determined by the image $\eta(1) \in M \boxtimes N $. Any object in the Deligne tensor product $X \boxtimes Y$ is a finite direct sum of primitive objects $(x \boxtimes y, p)$, with $x \in X$ and $y \in Y$, and $p$ and idempotent of $x \boxtimes y$.
+	 Thus the functor $\eta$ is determined by a finite direct sum,
 	\begin{equation*}
-		\eta(1) = \sum_{i \in I} m_i \boxtimes n_i 
+		\eta(1) = \sum_{i \in I} (m_i \boxtimes n_i , p_i)
 	\end{equation*} 
-	where $I$ is a finite index set and for all $i \in I$,  $m_i \in M$ and $n_i \in N$. The adjunction equations become the pair of natural isomorphisms,
+	where $I$ is a finite index set and for all $i \in I$,  $m_i \in M$, $n_i \in N$, and $p_i: m_i \boxtimes n_i \to m_i \boxtimes n_i$ an idempotent. The adjunction equations become the pair of natural isomorphisms,
 	\begin{align*}
-		\sum_{i \in I} m_i \cdot \varepsilon(n_i \otimes_S a) & \cong a, \\
-		\sum_{i \in I} \varepsilon(b \otimes_S m_i) \cdot n_i & \cong b,
+		\sum_{i \in I}   (id_M \boxtimes \varepsilon) \circ (p_i \otimes_S id_a) (m_i \boxtimes n_i \otimes_S a) & \cong a, \\
+		\sum_{i \in I}   ( \varepsilon \boxtimes id_N) \circ (id_b \otimes_S p_i) (b \otimes_S m_i \boxtimes  n_i) & \cong b,
 	\end{align*}
 	for all $a \in M$ and $b \in N$. We will only use the first of these. 
 	
@@ -157,7 +223,22 @@ and
 	r: \oplus_I \Vect & \to M \\
 	(v_i)_{i \in I} & \mapsto \sum_{i \in I} m_i \cdot v_i.
 \end{align*}	
-The first adjunction equation shows that the composition $r \circ i: M \to M$ is naturally isomorphic to the identity functor, hence $M$ is a retract of $\oplus_I \Vect$.      
+The first adjunction equation shows that the idempotents $p_i$ give rise to a split natural transformation $p: r \circ i \to id_M$. We let $k$ denote the kernel of $p$.
+\end{proof}
+
+{\color{CSPcolor} If we don't idempotently complete, the above proposition becomes stronger and says that the identity functor is equal to $r \circ i$. This should imply split semi-simplicity. However if instead we complete with respect to all sub-objects, then we just get a short exact sequence
+\begin{equation*}
+	0 \to k \to ri \to id_M \to 0.
+\end{equation*}
+It is not necessarily split. 
+ }
+
+\begin{corollary}
+	If as in the above proposition ${}_S M$ is admits a dual, and the linear functor $\varepsilon:N \otimes_S M \to \Vect $ admits a right-adjoint, then every object in $M$ is projective.
+\end{corollary}
+
+\begin{proof}
+	
 \end{proof}
 
 \subsection{The 3-category of tensor categories.}
