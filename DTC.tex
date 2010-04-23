@@ -148,8 +148,10 @@ add construction of idempotent completion.
 \subsection{Tensor products and colimits of linear categories}
 
 {\color{CSPcolor}
-\cite{Tambara01} has a construction of the tensor product of additive categories. And the Idem. completion of this gives the tensor product 
+\cite{Tambara01} has a construction of the tensor product of additive categories. And the Idem. completion of this gives the tensor product. 
+% There is an abelian completion too?
 
+%This section should be called meditations on the Deligne tensor product. 
 }
 \subsection{Tensor category bimodules and bimodule composition}
 
@@ -238,7 +240,56 @@ It is not necessarily split.
 \end{corollary}
 
 \begin{proof}
+We first show that the functor $i: M \to \oplus_I \Vect$ is right exact. It is enough to prove that each of the component functors, 
+\begin{align*}
+	i_k:  M & \to \Vect \\
+		a & \mapsto \varepsilon(n_k \otimes a)
+\end{align*}
+ is exact. Moreover we have a factorization,
+\begin{equation*}
+	i_k : M \stackrel{ n_k \otimes_S (-) }{\longrightarrow} N \otimes_S M \stackrel{\varepsilon}{\to} \Vect.
+\end{equation*}	
+The first map is right exact because the canonical balanced bilinear functor $N \times M \to  N \otimes_S M$ is right exact. The second map is right exact because $\varepsilon$ admits a right-adjoint. Thus the composite $i_k$ is right exact, and hence $i$ preserves surjections. 
 	
+Now let $Y \to Z$ be a surjective map in $M$, and let $X \to Z$ be any morphism. Consider the image in $\oplus_I \Vect$ under $i$. The morphism $i(Y) \to i(Z)$ remains surjective because $i$ is right exact. Since every object in $\oplus_I \Vect$ is projective, there exists a lift as in the following diagram,
+\begin{center}
+\begin{tikzpicture}
+	%\node (LT) at (0, 1.5) {$$};
+	\node (LB) at (0, 0) {$i(X)$};
+	\node (RT) at (1.5, 1) {$i(Y)$};
+	\node (RB) at (1.5, 0) {$i(Z)$};
+	%\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->] (LB) -- node [above left] {$\exists$} (RT);
+	\draw [->] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [below] {$$} (RB);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}.
+\end{center}
+Thus in $M$ we obtain the following diagram, which, using the functorial section $s_x: X \to ri(X)$, yields the desired section. 
+\begin{center}
+\begin{tikzpicture}
+	%\node (LT) at (0, 1.5) {$$};
+	\node (LB) at (0, 0) {$ri(X)$};
+	\node (RT) at (1.5, 1) {$ri(Y)$};
+	\node (RB) at (1.5, 0) {$ri(Z)$};
+	\node (LBX) at (0, -1) {$X$};
+	\node (RTX) at (3, 1) {$Y$};
+	\node (RBX) at (3, -1) {$Z$};
+	%\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->] (LB) -- node [above left] {$\exists$} (RT);
+	\draw [->] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [below] {$$} (RB);
+	\draw [->] (LBX) -- (RBX);
+	\draw [->] (LB) -- node [right] {$p_X$} (LBX);
+	\draw [->] (RB) -- node [above right] {$p_Z$} (RBX);
+	\draw [->] (RT) -- node [above] {$p_Y$} (RTX);
+	\draw [->] (RTX) -- (RBX);
+	\draw [->] (LBX) to [out = 120, in = -120] node [left] {$s_X$} (LB);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}.
+\end{center}  	
 \end{proof}
 
 \subsection{The 3-category of tensor categories.}
