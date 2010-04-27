@@ -90,11 +90,9 @@
 \subsection{Results}
 
 \section{Tensor categories}
-\CD{The organization of this section might well change as we decide what exactly we should include.}
-%\marginpar{\small CD: The organization of this section might well change as we decide what exactly we should include.}
-
-\CSP{A Test: CSP's comment color}
-\NS{Another test: NS's comment color}
+\CD{The organization of this section might well change as we decide what exactly we should include.  (CD's comment color)}
+\CSP{CSP's comment color}
+\NS{NS's comment color}
 
 
 
@@ -107,7 +105,8 @@ A category with direct sums is a category with finite products and coproducts in
 \end{equation*}
 is an isomorphism.  Here `0' denotes the unique map which factors $X \to 0 \to Y$. We call this common object the direct sum of objects $A$ and $B$.
 
-The Baer sum equips the hom sets in any category with direct sums with a commutative addition. A category with direct sums is an {\em additive category} if the hom sets are in fact abelian groups. Thus an additive category is canonically enriched in the category of abelian groups. An additive functor is a functor which preserves direct sums. 
+The Baer sum equips the hom sets in any category with direct sums with a commutative addition. \CD{Baer sum usually refers to a sum on Ext, so this sentence might need explanation (or omission since the sum is clear).}
+A category with direct sums is an {\em additive category} if the hom sets are in fact abelian groups. Thus an additive category is canonically enriched in the category of abelian groups. An additive functor is a functor which preserves direct sums. 
 
 \begin{definition}
 	Let $R$ be a commutative ring. The 2-category of {\em $R$-algebroids} is the 2-category of categories enriched in $\Mod{R}{}$, the category of $R$-modules. An {\em $R$-linear category} is an additive category enriched in $\Mod{R}{}$ in a way extending the canonical enrichment in $\Mod{\ZZ}{} = \Ab$. These form an evident 2-category, $\Cat_R$ in which the 1-morphisms are the additive $R$-enriched functors. 
@@ -115,6 +114,7 @@ The Baer sum equips the hom sets in any category with direct sums with a commuta
 
 \begin{remark}
 	If $R = k$ is a field, and $\cA$ is an additive category, then the enrichment in $\Vect_k = \Mod{k}{}$ is unique, if it exists. 
+	\CD{I haven't checked this.}
 \end{remark}
 
 \begin{definition}
@@ -122,17 +122,17 @@ The Baer sum equips the hom sets in any category with direct sums with a commuta
 	every idempotent $p: A \to A$, i.e. $p^2 = p$, there is a decomposition $A \cong K \oplus I$ of $A$ such that $p = \left( \begin{array}{cc} 0 & 0 \\ 0 & 1 \end{array}\right)$ is projection onto $I$. 
 \end{definition}
 
-Let $\Cat_R^\text{IC}$ denote the subcategory of idempotently complete $R$-linear categories. We have adjunctions:
+Let $\Cat_R^\text{IC}$ denote the full sub-2-category of idempotently complete $R$-linear categories. We have adjunctions:
 \begin{align*}
 		L:  & \Algd_R   \rightleftarrows \Cat_R : U \\
 		\hat{(-)}:  & \Cat_R \rightleftarrows \Cat_R^\textrm{IC} : U. 
 \end{align*}
-where in each case $U$ denotes the forgetful functor. Both forgetful functors are faithful and $U: \Cat_R^\textrm{IC} \to \Cat_R$ is full. The functor $L$ formally adjoins direct sums. The functor $\hat{(-)}$ is known as {\em idempotent completion}. It admits an elementary description. The objects of $\hat \cA$ are pairs $(A, p)$ where $A \in \cA$ is an object and $p: A \to A$ is an idempotent. The morphisms from $(A, p)$ to $(B,q)$ are given by,
+where in each case $U$ denotes the forgetful functor. Both forgetful functors are faithful and $U: \Cat_R^\textrm{IC} \to \Cat_R$ is full. \CD{We should say what full and faithful mean for functors of 2-categories.}
+The functor $L$ formally adjoins direct sums. The functor $\hat{(-)}$ is known as {\em idempotent completion}. It admits an elementary description. The objects of $\hat \cA$ are pairs $(A, p)$ where $A \in \cA$ is an object and $p: A \to A$ is an idempotent. The morphisms from $(A, p)$ to $(B,q)$ are given by,
 \begin{equation*}
 	q \circ \hom_\cA(A, B) \circ p
 \end{equation*} 
 with the composition induced from $\cA$.
-add construction of idempotent completion. 
 
 %%%% Not clear we need this. 
 
@@ -142,8 +142,9 @@ add construction of idempotent completion.
 
 \begin{definition}[Kapranov-Voevodsky \cite{KV94}]
 	A {\em finite 2-vector space} is a linear category isomorphic to $\bigoplus_I \Vect$,
-	 a finite direct sum of the category $\Vect$ with itself. 
+	 a finite direct sum of the category $\Vect$ with itself.   Here $\Vect$ is the category of finite-dimensional vector spaces.
 \end{definition}
+\CD{We should say what a direct sum of linear categories is.}
 
 \subsection{Tensor products and colimits of linear categories}
 
@@ -158,14 +159,16 @@ add construction of idempotent completion.
 
 \begin{proposition}
 	Let $R$ be a commutative ring and let $\cA$ be an additive category. Then the following structures are equivalent (in the case that $R= k$ is a field these are properties): 
+	\CD{What does the parenthetical clause mean?}
 	\begin{enumerate}
-		\item $\cA$ is $R$-linear category,
+		\item $\cA$ is an $R$-linear category,
 		\item $\cA$ is an $\Mod{R}{}^\textrm{free}$-module category, where $\Mod{R}{}^\textrm{free}$ is the category of finitely generated free $R$-modules.  
 	\end{enumerate}
 	Moreover if the above structure is present, then the following implications hold: 
 	\begin{enumerate}
 		\item [(a)] If $\cA$ is idempotent complete then it is an $\Mod{R}{}^\textrm{proj}$-module category, where $\Mod{R}{}^\textrm{proj}$ is the category of finitely generated projective $R$-modules.  
-		\item [(b)] If $\cA$ is abelian, then it is an $\Mod{R}{}^\textrm{fg}$-module category, where $\Mod{R}{}^\textrm{fp}$ is the category of finitely presented $R$-modules.
+		\item [(b)] If $\cA$ is abelian, then it is an $\Mod{R}{}^\textrm{fp}$-module category, where $\Mod{R}{}^\textrm{fp}$ is the category of finitely presented $R$-modules.
+		\CD{Does item (b) only use preabelian (really just cokernels), or did you need abelian?}
 		
 	\end{enumerate}
 \end{proposition}
@@ -175,15 +178,17 @@ add construction of idempotent completion.
 \end{proof}
 
 
-
+{\color{CDcolor} We should either indicate that $R$ is a field, or that $\Vect$ means $R-mod^{free}$.}
 
 \CSP{convention on left/right: view S-R-bimodules as functors from R-mod to S-mod.}
 \begin{proposition}
-	Let $S$ be a tensor categories and let $M$ be a left $S$-module category.  If ${}_S M$ admits a left-adjoint as an $S$-$\Vect$-bimodule category, then there exist linear functors  $i: M \to \oplus_I \Vect$ and $r: \oplus_I \Vect \to M$, where $I$ is a finite index set, and  a split short exact sequence of endofunctors of $M$,
+	Let $S$ be a tensor category and let $M$ be a left $S$-module category.  If ${}_S M$ admits a left-adjoint as an $S$-$\Vect$-bimodule category, then there exist linear functors  $i: M \to \oplus_I \Vect$ and $r: \oplus_I \Vect \to M$, where $I$ is a finite index set, and  a split short exact sequence of endofunctors of $M$,
 	\begin{equation*}
 		0 \to k \to ri \to id_M \to 0.
 	\end{equation*}
 	
+
+\CD{The category of endofunctors of M is abelian? What did that use?  If not, need to say "right split".}
 	
 %	$M$ is a retract of a finite 2-vector space. 
 	% There is also a version for left module cats... If $(-) \otimes_S M_R$ is a right-adjoint, then ${}_SM$ is a finitely generated projective $S$-module.
@@ -203,7 +208,10 @@ This will be used later in the special case that $S = C \boxtimes C^{mp}$ and $M
 		(id_M \boxtimes \varepsilon) \circ (\eta \otimes_S id_M) &\cong id_M, \\
 		(\varepsilon \boxtimes id_N) \circ (id_N \otimes_S \eta) & \cong id_N.
 	\end{align*}
-	The left-module category ${}_S S$ is cyclic, generated by the object $1 \in S$. Hence the bimodule category ${}_S S_S$ is also cyclic, generated by the same object. This implies that, up to isomorphism, the functor $\eta$ is determined by the image $\eta(1) \in M \boxtimes N $. Any object in the Deligne tensor product $X \boxtimes Y$ is a finite direct sum of primitive objects $(x \boxtimes y, p)$, with $x \in X$ and $y \in Y$, and $p$ and idempotent of $x \boxtimes y$.
+	The left-module category ${}_S S$ is cyclic, generated by the object $1 \in S$. Hence the bimodule category ${}_S S_S$ is also cyclic, generated by the same object. This implies that, up to isomorphism, the functor $\eta$ is determined by the image $\eta(1) \in M \boxtimes N $. Any object in the Deligne tensor product $X \boxtimes Y$ is a finite direct sum of primitive objects $(x \boxtimes y, p)$, with $x \in X$ and $y \in Y$, and $p$ an idempotent of $x \boxtimes y$.
+
+\CD{Remind me why you can't have an idempotent on a sum of primitive tensors?}	
+	
 	 Thus the functor $\eta$ is determined by a finite direct sum,
 	\begin{equation*}
 		\eta(1) = \sum_{i \in I} (m_i \boxtimes n_i , p_i)
