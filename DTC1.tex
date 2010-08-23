@@ -189,6 +189,28 @@ A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which se
 
 \CD{CD continues to vote for using 'fusion' rather than 'multifusion'}
 
+\begin{definition}
+A fusion category is a tensor category $\cC$ satisfying the following conditions:
+\begin{enumerate}
+\item For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
+\item The category $\cC$ is semisimple, with finitely many simple objects.
+\item For every object $a \in \cC$, there exists an object ${}^* a \in \cC$ that is a left dual for $a$ and there exists an object $a^* \in \cC$ that is a right dual for $a$.
+\end{enumerate}
+\end{definition}
+
+\CD{We need to write a macro for texing left and right duals in a way that looks nice and isn't a pain to type.}
+
+\begin{remark}
+Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
+\end{remark}
+
+\begin{proposition}
+If $\cC$ is a fusion category, then there exist monoidal functors ${}^*(-) : \cC \ra \cC^{\op}$ and $(-)* : \cC \ra \cC^{\op}$ whose values on any object $a \in \cC$ are respectively a left dual object ${}^*(a)$ and a right dual object $(a)^*$ for $a$.
+\end{proposition}
+\begin{proof}
+Define the functor ${}^*(-)$ on objects by picking for each object $a \in \cC$ a left dual object ${}^*a \in \cC$.  Also pick a unit map $u: {}^*a a \ra 1$ and a counit map $v: 1 \ra a {}^* a$ giving ${}^* a$ the structure of a left dual to $a$.  Define the functor ${}^*(-)$ on a morphism $f: a \ra b$ by ${}^*(f) := (u_b \cdot \id_{{}^*a}) (\id_{{}^*b} \cdot f \cdot \id_{{}^*a}) (\id_{{}^*b} \cdot v_a)$.  (This morphism ${}^*(f)$ is called the \emph{mate} of $F$.)  Next we want to see that this functor is monoidal.  Observe that the morphisms ${}^*b {}^*a a b \xra{u_a} {}^*b b \xra{u_b} 1$ and $1 \xra{v_a} a {}^*a \xra{v_b} a b {}^*b {}^*a$ show that $({}^*b {}^*a)$ is a left dual to $(a b)$.  There is therefore a uniquely determined isomorphism from $({}^*b {}^*a)$ to ${}^*(a b)$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
+\end{proof}
+% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
 
 
 \section{Local Field Theory in Dimension Three} \label{sec-lft}
@@ -465,25 +487,50 @@ $D_4$ (or even part of $E_6$) as small non-braided category.  $Z(D_4) = A_5 [x] 
 \section{The Serre automorphism of a fusion category} \label{sec-serre}
 
 
+\CDcomm{(1a) Any fusion category is dualizable; (1b) any dualizable category has a Serre automorphism; (2) any fusion category has a monoidal functor $*: \cC \ra \cC^{\op}$.  Therefore for any fusion category it makes sense to compare the Serre bimodule and the bimodule associated to the tensor functor $** : \cC \ra \cC$.}
+
+
 \subsection{The double dual is the Serre automorphism} \label{sec-serre-dd}
+
+
 
 \subsubsection{3-framed 1-manifolds and the Serre automorphism} \label{sec-serre-oneman}
 
+
+
+
+
+\begin{proposition}
+Let $a$ be a dualizable object of a symmetric monoidal 3-category $\cA$.  The square $\cS_a^2 : a \ra a$ of the Serre automorphism $\cS_a$ of $a$ is Morita equivalent to the identity of $a$.
+\end{proposition}
+
+\begin{proof}
+\CDcomm{It's true for the universal dualizable object.  Establish that above during discussion of 3-framed 1-manifolds}
+\end{proof}
+
+
 \subsubsection{Computing the Serre automorphism} \label{sec-serre-comp}
-\begin{theorem}
-Serre(C) = [**].
+
+\begin{theorem} \label{thm-serre}
+If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$-$\cC$ bimodule associated to the double dual monoidal functor $**: \cC \ra \cC$.
 \end{theorem}
+
+
 
 \subsection{The quadruple dual is trivial} \label{sec-serre-quad}
 
-\begin{lemma}
-[Bimodulification Lemma]
+\begin{lemma}[Bimodulification Lemma]
+Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalence as monoidal functors.
 \end{lemma}
 
-\begin{theorem} 
-If C is dualizable, that is fusion, then $****=1$.
+\begin{theorem} \label{thm-quaddual}
+If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \cC$ is naturally equivalent as a monoidal functor to the identity.
 \end{theorem}
+%\CDcomm{To state the theorem as "dualizable => ****=1", we'd need to show that a dualizable tensor category has a dualization functor $*$, which is a piece of the converse, ie of DTCII.}
 
+\begin{proof}
+...
+\end{proof}
 
 
 
