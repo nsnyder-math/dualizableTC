@@ -60,6 +60,7 @@
 \theoremstyle{remark}  %%%% Remark-like Commands
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
 %%%%%%%%%%%%%%%%%%%%%% End Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Special Commands %%%
@@ -81,6 +82,11 @@
 	}
 }
 
+%% Syntax \bimod{C}{M}{D}
+
+\newcommand{\bimod}[3]
+{{}_{#1} {#2}_{#3}}
+
 
 
 %%%% Misc symbols %%%%%
@@ -88,10 +94,17 @@
 \newcommand{\nn}{\nonumber}
 \newcommand{\nid}{\noindent}
 \newcommand{\ra}{\rightarrow}
+\newcommand{\dra}{\Rightarrow}
 \newcommand{\la}{\leftarrow}
 \newcommand{\xra}{\xrightarrow}
 \newcommand{\xla}{\xleftarrow}
+\DeclareMathOperator{\Hom}{Hom}
+\renewcommand{\mp}{mp}
 
+
+\newcommand{\dtimes}{\boxtimes} %Deligne tensor product
+\newcommand{\adj}{\dashv} % Adjoint
+\newcommand{\ambadj}{\vdash \dashv} %Ambi adjoint
 
 %\newcommand{\om}{\mathrm{Hom}}
 
@@ -134,8 +147,9 @@
 \newcommand{\CD}[1]{\marginpar{\tiny\color{CDcolor}{ #1}}}
 \newcommand{\NS}[1]{\marginpar{\tiny\color{NScolor}{ #1}}}
 
-
-
+\newcommand{\CSPcomm}[1]{{\color{CSPcolor}{#1}}}
+\newcommand{\CDcomm}[1]{{\color{CDcolor}{#1}}}
+\newcommand{\NScomm}[1]{{\color{NScolor}{#1}}}
 
 
 
