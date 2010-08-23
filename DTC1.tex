@@ -7,6 +7,7 @@
 \include{DTC-Preamble}
 
 % 0. Abstract
+%
 % 1. Introduction
 % 1.1. Background and motivation
 % 1.2. Results
@@ -80,7 +81,7 @@
 
 \author{Noah Snyder}
 \address{}
-\email{}
+\email{nsnyder@math.berkeley.edu}
 
 \maketitle	
 \tableofcontents
@@ -91,35 +92,114 @@
 % 1.1. Background and motivation
 % 1.2. Results
 % 1.3. Acknowledgments
+
+\CDcomm{The story: ``Fusion categories provided local field theories, and the structure (pivotality) of the fusion category corresponds to the structure (spinness) of the local field theory."}
+
+\CDcomm{We are aiming to keep this paper to 30 pages.}
+
+
 \subsection{Background and motivation}
 
-\subsection{Results}
+\subsection{Results}.
 
-\subsection{Acknowledgments}
+%%
+
+The first half of the paper, sections~\ref{sec-lft} and~\ref{sec-dfc}, focuses on [local field theory in dimension three and the dualizability of fusion categories].
+
+The main theorem:
+\begin{theorem}
+Fusion categories are dualizable.
+\end{theorem}
+%!% Keep this statement this short and snappy in the introduction.  In the main text it can be fleshed out with more precision about the ambient 3-category.
+
+A key application of this theorem is the construction of a plethora of local field theories:
+\begin{corollary}
+For any fusion category there is a local topological quantum field theory whose value on a point is that fusion category.
+\end{corollary}
+
+In particular, the theorem provides localizations of Turaev-Viro field theories:
+\begin{corollary}
+There is a local field theory whose value on a circle is the center of the fusion category of representations of a loop group at (any nondegenerate?) level.
+\end{corollary}
+Of course, the fusion category of representations of a loop group is merely an example, and can be replaced by any fusion category here.  This result is related to recent work of Kirillov and Balsam~\cite{kirillovbalsam}, which constructs a semi-local (that is, $1+1+1$-dimensional) version of Turaev-Viro theory.  In particular, our $0+1+1+1$-dimensional theory has the same value on a circle as the Kirillov-Balsam theory.  
+%!% Add?: Assuming widely believed statements about the classification of 123 theories, it follows that our theory agrees with KB on 123 manifolds.
+%!% Add mention of how sphericality comes in?
+
+%%
+
+The second half of the paper, sections~\ref{sec-serre} and~\ref{sec-pivot}, focuses on [Serre/doubledual/pivotality].
+
+The main theorem:
+\begin{theorem}
+The Serre automorphism of a fusion category $\cC$ is the bimodule associated to the double dual functor $**: \cC \ra \cC$.
+\end{theorem}
+
+Because the Serre automorphism is necessarily order 2, this theorem provides a simple topological proof of the following generalization (?) of a theorem of ENO:
+\begin{corollary}
+The quadruple dual functor $****: \cC \ra \cC$ on a fusion category is naturally isomorphic to the identity functor.
+\end{corollary}
+
+A key insight resulting from the field-theoretic perspective on fusion categories is that the ENO conjecture, namely that fusion categories are pivotal, is equivalent to the spin-independence of the topological field theories associated to fusion categories:
+\begin{theorem}
+A fusion category $\cC$ is pivotal if and only if the local field theory associated to $\cC$ is independent of spin structure.
+\end{theorem}
+A precise formulation of this result, in terms of a descent condition for the bordism structure group of the local field theory, is given in section~\ref{sec-pivot-...}.
+%\begin{theorem}
+%A fusion category $\cC$ is pivotal if and only if the tensor-category-valued local field theory $F_{\cC} : \StringBord_0^3 \ra \TC$ associated to $\cC$ descends to a field theory on oriented $p_1$ bordism.
+%\end{theorem}
+
+
+
+\subsection*{Acknowledgments}
 Andr\'e Henriques, Scott Morrison, Kevin Walker.
 
-
-\section{Tensor categories}
-\CD{The organization of this section might well change as we decide what exactly we should include.  (CD's comment color)}
+\CD{CD's comment color}
 \CSP{CSP's comment color}
 \NS{NS's comment color}
 
-\subsection{Linear categories}
-\subsection{Tensor products and colimits of linear categories}
-\subsection{Tensor category bimodules and bimodule composition}
-\subsection{The 3-category of tensor categories}
 
+\section{Tensor categories} \label{sec-tc}
+
+\CD{The organization of this section might well change as we decide what exactly we should include.}
+
+\CDcomm{Our goal is to define $TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $TC(i)$, which can occur in DTCII.}
+
+\subsection{Linear categories} \label{sec-tc-lincat}
+.
+
+[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]
+
+\subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
+
+\subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
+
+\subsection{The 3-category of tensor categories} \label{sec-tc-threecat}
+.
+
+\CDcomm{Formalism for 3-categories.}
+
+\CDcomm{Formalism for symmetric monoidal 3-categories.}
 A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which sends coproducts to products. A symmetric monoidal 3-category is a functor $Fin_* \to 3\text{-}\Cat$ which sends coproducts to products.
 
-\subsection{Multi-Fusion categories}
+\CDcomm{Definition of TC.}
+[Objects of TC are \emph{idempotent complete linear categories}.]
+
+
+\subsection{Multi-Fusion categories} \label{sec-tc-fusion}
+
 \CD{CD continues to vote for using 'fusion' rather than 'multifusion'}
 
 
 
-\section{Local Field Theory in Dimension Three}
+\section{Local Field Theory in Dimension Three} \label{sec-lft}
 
-\subsection{Local Field Theory in Dimension Three}
-\subsection{Dualizability in 3-categories}
+\subsection{Dualizability in 3-categories} \label{sec-lft-dual}
+.
+
+[Adjunction convention: $\bimod{C}{M}{D} \adj  \bimod{D}{N}{C}$ if there are $M \dtimes_D N \ra C$ and $D \ra N \dtimes_C M$ satisfying the S relations.] 
+
+\CSPcomm{Set up terminology for evaluation and coevaluation.}
+
 
 \CSP{This proposition is stated as a remark, without proof in Jacob's paper.}
 
@@ -131,45 +211,277 @@ A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which se
 	....
 \end{proof}
 
-\subsection{Structure groups of 3-manifolds}
+\subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
 
 
 
-\section{Dualizability and fusion categories}
+\section{Dualizability and fusion categories} \label{sec-dualfusion}
 
 %!% CD will begin prototyping this section next.
 
-\subsection{Fusion categories are dualizable}
-\subsubsection{Duals of 0-morphisms} All tensor categories have dual tensor categories.
+\subsection{Fusion categories are dualizable} \label{sec-df-fcd}
 
-{\color{CSPcolor} Set up terminology for evaluation and coevaluation.}
 
-\subsubsection{Duals of 1-morphisms} 
-\subsubsection{Duals of 2-morphisms}
-\subsection{Dualizable tensor categories are fusion}
-\CD{This section might be omitted in a future version of this paper, or the title modified as appropriate.}
+%!% CD: I forgot why we switched the outline to "Duals of 0/1/2-morphisms", so I switched it back to the geodesic ordering 2/1/0.
+
+\subsubsection{Functors of finite semisimple module categories have adjoints} \label{sec-df-functors}
+
+\CD{cf ENOPartII "Solution to item (1)"}
+
+\begin{lemma}
+Let $F: \bimod{\cC}{\cM}{\cD} \ra \bimod{\cC}{\cN}{\cD}$ be a functor of bimodule categories, and suppose the underlying functor $\tilde{F}: \cM \ra \cN$ of linear categories has an ambidextrous adjoint $\tilde{G}: \cN \ra \cM$.  Then $F$ has an ambidextrous adjoint $G: \bimod{\cC}{\cN}{\cD} \ra \bimod{\cC}{\cM}{\cD}$.
+\end{lemma}
+
+\begin{proof}
+\CDcomm{Look at the wave}
+\end{proof}
+
+\begin{lemma}
+Let $F: \bimod{\cC}{\cM}{\cD} \ra \bimod{\cC}{\cN}{\cD}$ be a functor of bimodule categories.  If $\cM$ and $\cN$ are semisimple categories with finitely many simple objects, then the functor $\tilde{F}: \cM \ra \cN$ of linear categories underlying $F$ has an ambidextrous adjoint.
+\end{lemma}
+
+\begin{proof}
+\CDcomm{The ambidextrous adjoint $F^*$ is given by the transpose of the entrywise dual of $F$.  That is, write $F$ as a matrix of vector spaces in terms of a chosen basis of simple objects for $M$ and $N$, then take the matrix of dual vector spaces, and take the transpose.}
+...
+\end{proof}
+
+\begin{proposition} \label{prop-functadj}
+A functor $F: \bimod{\cC}{\cM}{\cD} \ra \bimod{\cC}{\cN}{\cD}$ of bimodules categories has an ambidextrous adjoint if the linear categories $\cM$ and $\cN$ are semisimple with finitely many simple objects.
+\end{proposition}
+
+This proposition follows from the above two lemmas.
+
+
+\subsubsection{Indecomposable modules with braided fusion commutant have adjoints} \label{sec-df-modules}
+
+
+\begin{lemma} \label{lemma-invertible}
+Let $\cC$ be a fusion category and $\cM$ an indecomposable $\cC$-module.  Let $\cC'$ denote the commutant of $\cC$ acting on $\cM$.  In this case the bimodule $\bimod{\cC}{\cM}{\cC'}$ is invertible.
+\end{lemma}
+
+\begin{proof}
+\CDcomm{See ENOPartIII Apr 7 "Lemma: When C is fusion" for a sketch.}
+\CDcomm{Can this be shown only using that C is semisimple?}
+\end{proof}
+
+In the situation of this lemma we will denote the inverse of $\bimod{\cC}{\cM}{\cC'}$ by $\bimod{\cC'}{\cN}{\cC}$.
+
+\begin{lemma} \label{lemma-conditional}
+Let $\cC$ be a fusion category and $\cM$ an indecomposable $\cC$-module such that the commutant $\cC'$ of the $\cC$ action on $\cM$ is bradied fusion.  In this case there exist maps
+\begin{itemize}
+\item[] $\lambda : \bimod{\Vect}{\cC' \dtimes_{\cC'} \cC'}{\Vect} \dra \bimod{\Vect}{\Vect}{\Vect}$
+\item[] $\mu : \bimod{\cC'}{\cC'}{\cC'} \dra \bimod{\cC'}{\cC' \dtimes \cC'}{\cC'}$
+\end{itemize}
+that form an adjunction
+$$\bimod{\Vect}{\cC'}{\cC'} \adj \bimod{\cC'}{\cC'}{\Vect}.$$
+\end{lemma}
+\nid We refer to $\lambda$ and $\mu$ as "conditional expectation" maps.
+\CD{If we have anything to say about the existence of conditional expectations when neither tensor category is $\Vect$, then this proposition can be generalized to that case.  In that case, the theorem below might also be able to be generalized.}
+\CD{Do you need to assume fusion for the commutant, or is something weaker enough?}
+\CD{Do you need to assume $\cC$ is fusion?}
+
+\begin{proof}
+\CD{cf ENOPartIII "Proposition3".}
+The first map $\lambda : \cC' \ra \Vect$ is defined by $\lambda(x) = \Hom_{\cC'}(1,x)$.  The second map $\mu : \cC' \ra \cC' \dtimes \cC'$ is determined, using the left $\cC'$-module structure, by the condition that
+$$\mu(1) = \sum_{\sigma \in \cI} {}^*\sigma \dtimes \sigma.$$
+Here $\cI$ is a basis of simple objects of $\cC'$.
+
+By construction $\mu$ is a left module map, but we also need to give $\mu$ the structure of a right module map.  It is sufficient to check that for $\tau \in \cC'$ simple, there is an isomorphism
+$$\sum_{\sigma \in \cI} {{}^*\sigma} \dtimes \sigma \tau  \cong  \sum_{\sigma \in \cI} \tau {({}^*\sigma)} \dtimes \sigma$$
+\CD{Is that right that there is no further condition, ie you pick the module structure to be whatever iso you want on each simple, and that's it?}
+Let $N^a_{bc}$ denote the vector spaces defining the tensor structure on the tensor category $\cC'$.  We have a series of isomorphisms
+\begin{align}
+\sum_{\sigma \in \cI} {{}^*\sigma} \dtimes \sigma \tau
+& =
+\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {{}^*\sigma \dtimes \rho} \nn \\
+& \cong{(1)}
+\sum_{\sigma,\rho \in \cI} N^{{}^*\sigma}_{\tau {({}^*\rho})} {{}^*\sigma \dtimes \rho} \nn \\
+& \cong{(2)}
+\sum_{\sigma,\rho \in \cI} N^{{}^*\sigma}_{{({}^*\rho)} \tau} {{}^*\sigma \dtimes \rho} \nn \\
+& \cong{(3)}
+\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {\rho \dtimes \sigma^*} \nn \\
+& =
+\sum_{\sigma \in \cI} \sigma \tau \dtimes {\sigma^*} \nn \\
+& \cong{(4)}
+\sum_{\sigma \in \cI} \tau {({}^*\sigma)} \dtimes \sigma \nn 
+\end{align}
+The first isomorphism $N^{\rho}_{\sigma \tau} \cong N^{{}^*\sigma}_{\tau {({}^*\rho})}$ exists by the standard properties of structure constants for fusion categories. \CDcomm{say more?}
+Because $\cC'$ is braided, the constant $N^{{}^*\sigma}_{\tau {({}^*\rho})}$ is isomorphic to $N^{{}^*\sigma}_{{({}^*\rho}) \tau}$, giving the second isomorphism.  Reindexing the sum by substituting $\rho^*$ for $\sigma$ and $\sigma^*$ for $\rho$ provides the third isomorphism.  Braiding $\sigma$ and $\tau$ and then substituting ${}^*\sigma$ for $\sigma$ produces the fourth isomorphism.  \CD{Was \emph{that} the argument? Using the braiding twice?}
+
+Finally we need to know that the maps $\lambda$ and $\mu$ do indeed satisfy the adjunction S-relations.  The first relation is the composite
+$$\bimod{\Vect}{\cC'}{\cC'} = \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes_{\cC'} \cC' \dtimes \cC' \ra \Vect \dtimes \cC' = \cC'$$
+sending $1$ to $\sum_{\sigma \in \cI} \Hom(1,{}^*\sigma) \sigma = Hom(1, {}^*1) 1 = Hom(1 \cdot 1, 1) 1 = 1$.
+The second relation is the composite
+$$\bimod{\cC'}{\cC'}{\Vect} = \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes \Vect = \cC'$$
+sending $1$ to $\sum_{\sigma \in \cI} {}^*\sigma \Hom(1,\sigma) = {}^*1 = 1$.  Both maps are indeed equivalent to the identity.
+
+
+\end{proof}
+
+
+\begin{theorem} \label{thm-indecompbraided}
+Let $\cC$ be a tensor category and $\cM$ an indecomposable $\cC$-module.  If the commutant $\cC'^{\cM}$ is a braided fusion category, then the bimodule $\bimod{\cC}{\cM}{\Vect}$ has an ambidextrous adjoint.
+\end{theorem}
+
+\CD{cf ENOPartIII "Proof details" etc.}
+\begin{proof}
+Let $\bimod{\cC'}{\cN}{\cC}$ denote the inverse of the bimodule $\bimod{\cC}{\cM}{\cC'}$ provided by Lemma~\ref{lemma-invertible}.  We will construct an ambidextrous adjunction
+$$\bimod{\cC}{\cM}{\Vect} \ambadj \bimod{\Vect}{\cN}{\cC}.$$
+
+First we build the adjunction
+$$\bimod{\cC}{\cM}{\Vect} \adj \bimod{\Vect}{\cN}{\cC}$$
+as follows.  Write the bimodules $\bimod{\cC}{\cM}{\Vect}$ and $\bimod{\Vect}{\cN}{\cC}$ as tensor products:
+$$\cM = \cM \dtimes_{\cC'} \cC'$$
+$$\cN = \cC' \dtimes_{\cC'} \cN$$
+The desired adjunction is the composite of the following two adjunctions:
+\begin{enumerate}
+\item $\bimod{\cC'}{\cC'}{\Vect} \adj \bimod{\Vect}{\cC'}{\cC'}$
+\item $\bimod{\cC}{\cM}{\cC'} \adj \bimod{\cC'}{\cN}{\cC}$
+\end{enumerate}
+The bimodules $\bimod{\cC}{\cM}{\cC'}$ and $\bimod{\cC'}{\cN}{\cC}$ are inverse by construction, therefore adjoint as needed.  The unit and counit for the first adjunction are given by
+\begin{itemize}
+\item[] $\phi: \cC' \dtimes \cC' \ra \cC' \dtimes_{\cC'} \cC' = \cC'$
+\item[] $\psi: \Vect \ra \cC' = \cC' \dtimes_{\cC'} \cC'$
+\end{itemize}
+The S-relations for this unit and counit can be checked as follows:
+\begin{itemize}
+\item[] $\bimod{\cC'}{\cC'}{\Vect} = \cC' \dtimes \Vect \ra \cC' \dtimes \cC' = \cC' \dtimes \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cC' = \cC' \dtimes_{\cC'} \cC' = \cC'$
+\item[] $\bimod{\Vect}{\cC'}{\cC'} = \Vect \dtimes \cC' \ra \cC' \dtimes \cC' = \cC' \dtimes_{\cC'} \cC' \dtimes \cC' \ra \cC' \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes_{\cC'} \cC' = \cC'$
+\end{itemize}
+\CD{The above adjunction could be generalized to $\cD$ instead of $\Vect$.}
+
+Explicitly, the unit and counit for the adjunction $\bimod{\cC}{\cM}{\Vect} \adj \bimod{\Vect}{\cN}{\cC}$ are respectively the composites:
+\begin{itemize}
+\item[] $\cM \dtimes \cN = (\cM \dtimes_{\cC'} \cC') \dtimes (\cC' \dtimes_{\cC'} \cN) \xra{\phi} \cM \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cN = \cM \dtimes_{\cC'} \cN \cong \cC$
+\item[] $\Vect \xra{\psi} \cC' \dtimes_{\cC'} \cC' = \cC' \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cC' \cong \cC' \dtimes_{\cC'} \cN \dtimes_{\cC} \cM \dtimes_{\cC'} \cC' = \cN \dtimes_{\cC} \cM$
+\end{itemize}
+
+Second we construct an adjunction
+$$\bimod{\Vect}{\cN}{\cC} \adj \bimod{\cC}{\cM}{\Vect}.$$
+Again this adjunction is constructed as the composite of two adjunctions, namely
+\begin{enumerate}
+\item $\bimod{\Vect}{\cC'}{\cC'} \adj \bimod{\cC'}{\cC'}{\Vect}$
+\item $\bimod{\cC'}{\cN}{\cC} \adj \bimod{\cC}{\cM}{\cC'}$
+\end{enumerate}
+The bimodules $\bimod{\cC'}{\cN}{\cC}$ and $\bimod{\cC}{\cM}{\cC'}$ are inverse, so again adjoint as needed.  The unit and counit for the first adjunction, namely
+\begin{itemize}
+\item[] $\lambda : \bimod{\Vect}{\cC' \dtimes_{\cC'} \cC'}{\Vect} \dra \bimod{\Vect}{\Vect}{\Vect}$
+\item[] $\mu : \bimod{\cC'}{\cC'}{\cC'} \dra \bimod{\cC'}{\cC' \dtimes \cC'}{\cC'}$,
+\end{itemize}
+are provided by Lemma~\ref{lemma-conditional}.
+\CD{Since this adjunction depends on the lemma, which depends on $\cD = \Vect$, we don't know how to generalize this part at the moment.}
+\end{proof}
+
+
+     
+\subsubsection{Fusion categories have duals} \label{sec-df-categories}
+
+\begin{theorem} \label{thm-fcd}
+[... fusion categories have duals ...]
+\end{theorem}
+
+
+\begin{remark}
+In non-zero characteristic, it is not the case that all fusion categories are dualizable.  In particular, if the global dimension of a fusion category is zero, then the category cannot be dualizable.
+\end{remark}
+
+Recalling the discussion of dualizability in 3-categories from Section~\ref{sec-lft-dual}, the theorem follows from the following three propositions.
+
+\begin{proposition}
+Every tensor category $\cC \in \TC$ has a dual in the homotopy category of $\TC$, namely the monoidal opposite category $\cC^{\mp}$.
+\end{proposition}
+%\nid Here the tensor category $\cC^{\mp}$ has the same underlying category as $\cC$ but with the opposite tensor structure.
+
+\begin{proof}
+The unit of the duality is $\cC$ as a $\cC \dtimes \cC^{\mp}$--$\Vect$ bimodule.  The counit of the duality is $\cC$ as a $\Vect$--$\cC^{\mp} \dtimes \cC$ bimodule.
+\end{proof}
+
+\begin{proposition} \label{prop-moduleadj}
+Let $\cC$ be a fusion category.  The unit $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect}$ and counit $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC}$ of the duality between $\cC$ and $\cC^{\mp}$ both have ambidextrous adjoints.
+\end{proposition}
+
+\begin{proof}
+The unit category $\cC$ is indecomposable as a $\cC \dtimes \cC^{\mp}$-module, and the commutant of this module structure is the Drinfeld center $Z(\cC)$ which is braided fusion, by [...].  Theorem~\ref{thm-indecompbraided} therefore ensures that this module has an ambidextrous adjoint.  The argument for the counit is analogous.
+\end{proof}
+
+Let $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect} \ambadj \bimod{\Vect}{\cD_1}{\cC \dtimes \cC^{\mp}}$ and $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC} \ambadj \bimod{\cC^{\mp} \dtimes \cC}{\cD_2}{\Vect}$ denote the ambidextrous adjoints provided by Proposition~\ref{prop-moduleadj}.
+
+\begin{proposition}
+For $\cC$ a fusion category, the units and counits of the four adjunctions $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect} \adj \cD_1$, $\cD_1 \adj \bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect}$, $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC} \adj \cD_2$, and $\cD_2 \adj \bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC}$ all have ambidextrous adjoints.
+\end{proposition}
+
+\begin{proof}
+\CDcomm{Need to know that the inverse bimodule provided by Lemma~\ref{lemma-invertible} is finite semisimple.  Given that, this follows from Proposition~\ref{prop-functadj}. (This uses the fact that $A \dtimes_{\cC} B$ is finite semisimple if $A,B,\cC$ all are.)}
+...
+\end{proof}
+
+
+\subsection{Examples of dualization structures} \label{sec-df-examples}
+
+For a variety of fusion categories, we explicitly describe the dualization structure provided by Theorem~\ref{thm-fcd}, namely the dual categories and the adjunctions and higher adjunctions for the adjunctions, and so on.  Throughout we use implicitly that the adjunctions are all ambidextrous. 
+
+\begin{example}
+$Rep(Z/2) = \{\CC[x]/(x^2-1)\}-\mod$ (Symmetric)
+[Start this by copying the content from Wave "Rep(Z/2)", ENO Part III, on Jun 22.]
+\end{example}
+
+\begin{example}
+Here we give an example of a tensor category that is not fusion, namely $\{\CC[x]/x^2\}-\mod$ and highlight the failure of dualizability. \CDcomm{Prove that this category is not dualizable.  Cf Wave ENO Part III on May 4 search for "An example to consider", and Wave ENO Part III on Jun 17, search for "is still not fully dualizable".}
+\end{example}
+
+\begin{example}
+$Vect[G,\lambda]$ for some simple $G$ and $\lambda$?
+\end{example}
+
+\begin{example}
+Fibonacci category (Modular)
+\end{example}
+
+\begin{example}
+$D_4$ (or even part of $E_6$) as small non-braided category.  $Z(D_4) = A_5 [x] Z/3$.
+\end{example}
+
+
+%\subsubsection{Duals of 0-morphisms} All tensor categories have dual tensor categories.
+%\subsubsection{Duals of 1-morphisms} 
+%\subsubsection{Duals of 2-morphisms}
+
+%
+% CD: I have commented out this subsection, as I think it will really end up being in DTCII.
+% 
+% \subsection{Dualizable tensor categories are fusion} \label{sec-df-dtcf}
+%
+% \CD{This section might be omitted in a future version of this paper, or the title modified as appropriate.}
+
+
+
+
+
+
 
 
 %%%%%%%%%%
 
-\section{The Serre automorphism of a fusion category}
+\section{The Serre automorphism of a fusion category} \label{sec-serre}
 
 
-\subsection{The double dual is the Serre automorphism}
+\subsection{The double dual is the Serre automorphism} \label{sec-serre-dd}
 
-\subsubsection{3-framed 1-manifolds and the Serre automorphism}
+\subsubsection{3-framed 1-manifolds and the Serre automorphism} \label{sec-serre-oneman}
 
-\subsubsection{Computing the Serre automorphism}
+\subsubsection{Computing the Serre automorphism} \label{sec-serre-comp}
 \begin{theorem}
 Serre(C) = [**].
 \end{theorem}
 
-\subsection{The quadruple dual is trivial}
+\subsection{The quadruple dual is trivial} \label{sec-serre-quad}
 
+\begin{lemma}
 [Bimodulification Lemma]
+\end{lemma}
 
 \begin{theorem} 
-If C is dualizable, that is fusion, then ****=1.
+If C is dualizable, that is fusion, then $****=1$.
 \end{theorem}
 
 
@@ -177,28 +489,38 @@ If C is dualizable, that is fusion, then ****=1.
 
 %%%%%%
 
-\section{Pivotality as a descent condition}
+\section{Pivotality as a descent condition} \label{sec-pivot}
 
-\subsection{Fusion category TFTs are string}
+\subsection{Fusion category TFTs are string} \label{sec-pivot-string}
 
-\subsection{Pivotal fusion category TFTs are orpo}
+\subsection{Pivotal fusion category TFTs are orpo} \label{sec-pivot-orpo}
+
+\subsection{Structure groups of fusion category TFTs} \label{sec-pivot-struc}
 
 \begin{theorem}
 A fusion category is pivotal if and only if the associated TFT is orpo.
 \end{theorem}
 
-\subsection{Structure groups of fusion category TFTs}
-   [Conj: All TC-valued TFTs are orpo.] [This conj is equivalent to ENO.]
-   [Conj: All TC-valued orpo TFTs are oriented.] [Sketch: Drinfeld centers of pivotal fusion categories are anomaly free modular, therefore oriented 123; pushout to show oriented as 0123.]
+In particular, the ENO conjecture can be reformulated as follows:
+\begin{conjecture}
+Every local framed topological field theory with values in tensor categories descends to an oriented $p_1$ field theory.
+\end{conjecture}
+
+\begin{conjecture}
+All TC-valued orpo TFTs are oriented.
+\end{conjecture}
+\CD{Do we think we can prove this or should we leave it as a conjecture?}
+
+\begin{proof}[Sketch]
+Drinfeld centers of pivotal fusion categories are anomaly free modular (ref Mueger), therefore oriented 123; pushout to show oriented as 0123.
+\end{proof}
 
 
 %%%%%%%%
 
-\nid ---------------------\\
----------------------
 %%% I left these as demonstartion, please comment out. -CSP
-\CD{I haven't tried to fit what CSP wrote below into the above outline structure.}
-\CD{Known how to get these margin notes to fit?}
+%\CD{I haven't tried to fit what CSP wrote below into the above outline structure.}
+%\CD{Known how to get these margin notes to fit?}
 %\marginpar{\small CD: I haven't tried to fit what CSP wrote below into the above outline structure.}
 %\marginpar{\small CD: Known how to get these margin notes to fit?}
 
