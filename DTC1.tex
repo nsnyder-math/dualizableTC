@@ -194,7 +194,7 @@ A fusion category is a tensor category $\cC$ satisfying the following conditions
 \begin{enumerate}
 \item For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
 \item The category $\cC$ is semisimple, with finitely many simple objects.
-\item For every object $a \in \cC$, there exists an object ${}^* a \in \cC$ that is a left dual for $a$ and there exists an object $a^* \in \cC$ that is a right dual for $a$.
+\item For every object $a \in \cC$, there exists an object $\ld{a} \in \cC$ that is a left dual for $a$ and there exists an object $\rd{a} \in \cC$ that is a right dual for $a$.
 \end{enumerate}
 \end{definition}
 
@@ -205,10 +205,11 @@ Here for brevity we use ``fusion category" to refer to what has elsewhere gone u
 \end{remark}
 
 \begin{proposition}
-If $\cC$ is a fusion category, then there exist monoidal functors ${}^*(-) : \cC \ra \cC^{\op}$ and $(-)* : \cC \ra \cC^{\op}$ whose values on any object $a \in \cC$ are respectively a left dual object ${}^*(a)$ and a right dual object $(a)^*$ for $a$.
+If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\op}$ and $\rd{(-)} : \cC \ra \cC^{\op}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
 \end{proposition}
+
 \begin{proof}
-Define the functor ${}^*(-)$ on objects by picking for each object $a \in \cC$ a left dual object ${}^*a \in \cC$.  Also pick a unit map $u: {}^*a a \ra 1$ and a counit map $v: 1 \ra a {}^* a$ giving ${}^* a$ the structure of a left dual to $a$.  Define the functor ${}^*(-)$ on a morphism $f: a \ra b$ by ${}^*(f) := (u_b \cdot \id_{{}^*a}) (\id_{{}^*b} \cdot f \cdot \id_{{}^*a}) (\id_{{}^*b} \cdot v_a)$.  (This morphism ${}^*(f)$ is called the \emph{mate} of $F$.)  Next we want to see that this functor is monoidal.  Observe that the morphisms ${}^*b {}^*a a b \xra{u_a} {}^*b b \xra{u_b} 1$ and $1 \xra{v_a} a {}^*a \xra{v_b} a b {}^*b {}^*a$ show that $({}^*b {}^*a)$ is a left dual to $(a b)$.  There is therefore a uniquely determined isomorphism from $({}^*b {}^*a)$ to ${}^*(a b)$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
+Define the functor $\ld{(-)}$ on objects by picking for each object $a \in \cC$ a left dual object $\ld{a} \in \cC$.  Also pick a unit map $u: \ld{a} \; a \ra 1$ and a counit map $v: 1 \ra a \; \ld{a}$ giving $\ld{a}$ the structure of a left dual to $a$.  Define the functor $\ld{(-)}$ on a morphism $f: a \ra b$ by $\ld{(f)} := (u_b \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot f \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot v_a)$.  (This morphism $\ld{(f)}$ is called the \emph{mate} of $F$.)  Next we want to see that this functor is monoidal.  Observe that the morphisms $\ld{b} \; \ld{a} \; a \; b \xra{u_a} \ld{b} \; b \xra{u_b} 1$ and $1 \xra{v_a} a \; \ld{a} \xra{v_b} a \; b \; \ld{b} \; \ld{a}$ show that $(\ld{b} \; \ld{a})$ is a left dual to $(a b)$.  There is therefore a uniquely determined isomorphism from $(\ld{b} \; \ld{a})$ to $\ld{(a b)}$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
 \end{proof}
 % This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
 
@@ -263,7 +264,7 @@ Let $F: \bimod{\cC}{\cM}{\cD} \ra \bimod{\cC}{\cN}{\cD}$ be a functor of bimodul
 \end{lemma}
 
 \begin{proof}
-\CDcomm{The ambidextrous adjoint $F^*$ is given by the transpose of the entrywise dual of $F$.  That is, write $F$ as a matrix of vector spaces in terms of a chosen basis of simple objects for $M$ and $N$, then take the matrix of dual vector spaces, and take the transpose.}
+\CDcomm{The ambidextrous adjoint $\rd{F}$ is given by the transpose of the entrywise dual of $F$.  That is, write $F$ as a matrix of vector spaces in terms of a chosen basis of simple objects for $M$ and $N$, then take the matrix of dual vector spaces, and take the transpose.}
 ...
 \end{proof}
 
@@ -278,15 +279,18 @@ This proposition follows from the above two lemmas.
 
 
 \begin{lemma} \label{lemma-invertible}
-Let $\cC$ be a fusion category and $\cM$ an indecomposable $\cC$-module.  Let $\cC'$ denote the commutant of $\cC$ acting on $\cM$.  In this case the bimodule $\bimod{\cC}{\cM}{\cC'}$ is invertible.
+Let $\cC$ be a fusion category and $\cM$ an indecomposable $\cC$-module.  Let $\cC'$ denote the commutant of $\cC$ acting on $\cM$.  In this case the bimodule $\bimod{\cC}{\cM}{\cC'}$ is invertible, \CDcomm{with inverse $\bimod{\cC'}{\Hom_{\cC}(\cM,\cC)}{\cC}$}.
 \end{lemma}
 
 \begin{proof}
 \CDcomm{See ENOPartIII Apr 7 "Lemma: When C is fusion" for a sketch.}
+
 \CDcomm{Can this be shown only using that C is semisimple?}
+
+\CDcomm{Crucial point: the inverse is given by $\Hom_C(M,C)$, right?.  Emphasize this.}
 \end{proof}
 
-In the situation of this lemma we will denote the inverse of $\bimod{\cC}{\cM}{\cC'}$ by $\bimod{\cC'}{\cN}{\cC}$.
+In the situation of this lemma we will abbreviate the inverse \CDcomm{$\bimod{\cC'}{\Hom_{\cC}(\cM,\cC)}{\cC}$} of $\bimod{\cC}{\cM}{\cC'}$ by $\bimod{\cC'}{\cN}{\cC}$.
 
 \begin{lemma} \label{lemma-conditional}
 Let $\cC$ be a fusion category and $\cM$ an indecomposable $\cC$-module such that the commutant $\cC'$ of the $\cC$ action on $\cM$ is bradied fusion.  In this case there exist maps
@@ -305,49 +309,49 @@ $$\bimod{\Vect}{\cC'}{\cC'} \adj \bimod{\cC'}{\cC'}{\Vect}.$$
 \begin{proof}
 \CD{cf ENOPartIII "Proposition3".}
 The first map $\lambda : \cC' \ra \Vect$ is defined by $\lambda(x) = \Hom_{\cC'}(1,x)$.  The second map $\mu : \cC' \ra \cC' \dtimes \cC'$ is determined, using the left $\cC'$-module structure, by the condition that
-$$\mu(1) = \sum_{\sigma \in \cI} {}^*\sigma \dtimes \sigma.$$
+$$\mu(1) = \sum_{\sigma \in \cI} \ld{\sigma} \dtimes \sigma.$$
 Here $\cI$ is a basis of simple objects of $\cC'$.
 
 By construction $\mu$ is a left module map, but we also need to give $\mu$ the structure of a right module map.  It is sufficient to check that for $\tau \in \cC'$ simple, there is an isomorphism
-$$\sum_{\sigma \in \cI} {{}^*\sigma} \dtimes \sigma \tau  \cong  \sum_{\sigma \in \cI} \tau {({}^*\sigma)} \dtimes \sigma$$
+$$\sum_{\sigma \in \cI} {\ld{\sigma}} \dtimes \sigma \tau  \cong  \sum_{\sigma \in \cI} \tau {(\ld{\sigma})} \dtimes \sigma$$
 \CD{Is that right that there is no further condition, ie you pick the module structure to be whatever iso you want on each simple, and that's it?}
 Let $N^a_{bc}$ denote the vector spaces defining the tensor structure on the tensor category $\cC'$.  We have a series of isomorphisms
 \begin{align}
-\sum_{\sigma \in \cI} {{}^*\sigma} \dtimes \sigma \tau
+\sum_{\sigma \in \cI} {\ld{\sigma}} \dtimes \sigma \tau
 & =
-\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {{}^*\sigma \dtimes \rho} \nn \\
+\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {\ld{\sigma} \dtimes \rho} \nn \\
 & \cong{(1)}
-\sum_{\sigma,\rho \in \cI} N^{{}^*\sigma}_{\tau {({}^*\rho})} {{}^*\sigma \dtimes \rho} \nn \\
+\sum_{\sigma,\rho \in \cI} N^{\ld{\sigma}}_{\tau {(\ld{\rho}})} {\ld{\sigma} \dtimes \rho} \nn \\
 & \cong{(2)}
-\sum_{\sigma,\rho \in \cI} N^{{}^*\sigma}_{{({}^*\rho)} \tau} {{}^*\sigma \dtimes \rho} \nn \\
+\sum_{\sigma,\rho \in \cI} N^{\ld{\sigma}}_{{(\ld{\rho})} \tau} {\ld{\sigma} \dtimes \rho} \nn \\
 & \cong{(3)}
-\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {\rho \dtimes \sigma^*} \nn \\
+\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {\rho \dtimes \rd{\sigma}} \nn \\
 & =
-\sum_{\sigma \in \cI} \sigma \tau \dtimes {\sigma^*} \nn \\
+\sum_{\sigma \in \cI} \sigma \tau \dtimes {\rd{\sigma}} \nn \\
 & \cong{(4)}
-\sum_{\sigma \in \cI} \tau {({}^*\sigma)} \dtimes \sigma \nn 
+\sum_{\sigma \in \cI} \tau {(\ld{\sigma})} \dtimes \sigma \nn 
 \end{align}
-The first isomorphism $N^{\rho}_{\sigma \tau} \cong N^{{}^*\sigma}_{\tau {({}^*\rho})}$ exists by the standard properties of structure constants for fusion categories. \CDcomm{say more?}
-Because $\cC'$ is braided, the constant $N^{{}^*\sigma}_{\tau {({}^*\rho})}$ is isomorphic to $N^{{}^*\sigma}_{{({}^*\rho}) \tau}$, giving the second isomorphism.  Reindexing the sum by substituting $\rho^*$ for $\sigma$ and $\sigma^*$ for $\rho$ provides the third isomorphism.  Braiding $\sigma$ and $\tau$ and then substituting ${}^*\sigma$ for $\sigma$ produces the fourth isomorphism.  \CD{Was \emph{that} the argument? Using the braiding twice?}
+The first isomorphism $N^{\rho}_{\sigma \tau} \cong N^{\ld{\sigma}}_{\tau {(\ld{\rho}})}$ exists by the standard properties of structure constants for fusion categories. \CDcomm{say more?}
+Because $\cC'$ is braided, the constant $N^{\ld{\sigma}}_{\tau {(\ld{\rho}})}$ is isomorphic to $N^{\ld{\sigma}}_{{(\ld{\rho}}) \tau}$, giving the second isomorphism.  Reindexing the sum by substituting $\rd{\rho}$ for $\sigma$ and $\rd{\sigma}$ for $\rho$ provides the third isomorphism.  Braiding $\sigma$ and $\tau$ and then substituting $\ld{\sigma}$ for $\sigma$ produces the fourth isomorphism.  \CD{Was \emph{that} the argument? Using the braiding twice?}
 
 Finally we need to know that the maps $\lambda$ and $\mu$ do indeed satisfy the adjunction S-relations.  The first relation is the composite
 $$\bimod{\Vect}{\cC'}{\cC'} = \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes_{\cC'} \cC' \dtimes \cC' \ra \Vect \dtimes \cC' = \cC'$$
-sending $1$ to $\sum_{\sigma \in \cI} \Hom(1,{}^*\sigma) \sigma = Hom(1, {}^*1) 1 = Hom(1 \cdot 1, 1) 1 = 1$.
+sending $1$ to $\sum_{\sigma \in \cI} \Hom(1,\ld{\sigma}) \sigma = Hom(1, \ld{1}) 1 = Hom(1 \cdot 1, 1) 1 = 1$.
 The second relation is the composite
 $$\bimod{\cC'}{\cC'}{\Vect} = \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes \Vect = \cC'$$
-sending $1$ to $\sum_{\sigma \in \cI} {}^*\sigma \Hom(1,\sigma) = {}^*1 = 1$.  Both maps are indeed equivalent to the identity.
+sending $1$ to $\sum_{\sigma \in \cI} \ld{\sigma} \Hom(1,\sigma) = \ld{1} = 1$.  Both maps are indeed equivalent to the identity.
 
 
 \end{proof}
 
 
 \begin{theorem} \label{thm-indecompbraided}
-Let $\cC$ be a tensor category and $\cM$ an indecomposable $\cC$-module.  If the commutant $\cC'^{\cM}$ is a braided fusion category, then the bimodule $\bimod{\cC}{\cM}{\Vect}$ has an ambidextrous adjoint.
+Let $\cC$ be a tensor category and $\cM$ an indecomposable $\cC$-module.  If the commutant $\cC'^{\cM}$ is a braided fusion category, then the bimodule $\bimod{\cC}{\cM}{\Vect}$ has an ambidextrous adjoint, \CDcomm{namely $\bimod{\Vect}{\Hom_{\cC}(\cM,\cC)}{\cC}$}.
 \end{theorem}
 
 \CD{cf ENOPartIII "Proof details" etc.}
 \begin{proof}
-Let $\bimod{\cC'}{\cN}{\cC}$ denote the inverse of the bimodule $\bimod{\cC}{\cM}{\cC'}$ provided by Lemma~\ref{lemma-invertible}.  We will construct an ambidextrous adjunction
+Let $\bimod{\cC'}{\cN}{\cC}$ abbreviate the inverse \CDcomm{$\bimod{\cC'}{\Hom_{\cC}(\cM,\cC)}{\cC}$} of the bimodule $\bimod{\cC}{\cM}{\cC'}$ provided by Lemma~\ref{lemma-invertible}.  We will construct an ambidextrous adjunction
 $$\bimod{\cC}{\cM}{\Vect} \ambadj \bimod{\Vect}{\cN}{\cC}.$$
 
 First we build the adjunction
@@ -415,15 +419,15 @@ Every tensor category $\cC \in \TC$ has a dual in the homotopy category of $\TC$
 %\nid Here the tensor category $\cC^{\mp}$ has the same underlying category as $\cC$ but with the opposite tensor structure.
 
 \begin{proof}
-The unit of the duality is $\cC$ as a $\cC \dtimes \cC^{\mp}$--$\Vect$ bimodule.  The counit of the duality is $\cC$ as a $\Vect$--$\cC^{\mp} \dtimes \cC$ bimodule.
+The evaluation of the duality is $\cC$ as a $\cC \dtimes \cC^{\mp}$--$\Vect$ bimodule.  The coevaluation of the duality is $\cC$ as a $\Vect$--$\cC^{\mp} \dtimes \cC$ bimodule.
 \end{proof}
 
 \begin{proposition} \label{prop-moduleadj}
-Let $\cC$ be a fusion category.  The unit $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect}$ and counit $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC}$ of the duality between $\cC$ and $\cC^{\mp}$ both have ambidextrous adjoints.
+Let $\cC$ be a fusion category.  The evaluation $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect}$ and coevaluation $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC}$ of the duality between $\cC$ and $\cC^{\mp}$ both have ambidextrous adjoints.
 \end{proposition}
 
 \begin{proof}
-The unit category $\cC$ is indecomposable as a $\cC \dtimes \cC^{\mp}$-module, and the commutant of this module structure is the Drinfeld center $Z(\cC)$ which is braided fusion, by [...].  Theorem~\ref{thm-indecompbraided} therefore ensures that this module has an ambidextrous adjoint.  The argument for the counit is analogous.
+The evaluation category $\cC$ is indecomposable as a $\cC \dtimes \cC^{\mp}$-module, and the commutant of this module structure is the Drinfeld center $Z(\cC)$ which is braided fusion, by [...].  Theorem~\ref{thm-indecompbraided} therefore ensures that this module has an ambidextrous adjoint.  \CDcomm{The argument for the coevaluation is analogous.} \CD{It is analogous, right??}
 \end{proof}
 
 Let $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect} \ambadj \bimod{\Vect}{\cD_1}{\cC \dtimes \cC^{\mp}}$ and $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC} \ambadj \bimod{\cC^{\mp} \dtimes \cC}{\cD_2}{\Vect}$ denote the ambidextrous adjoints provided by Proposition~\ref{prop-moduleadj}.
@@ -494,34 +498,121 @@ $D_4$ (or even part of $E_6$) as small non-braided category.  $Z(D_4) = A_5 [x] 
 
 
 
-\subsubsection{3-framed 1-manifolds and the Serre automorphism} \label{sec-serre-oneman}
+\subsubsection{n-framed 1-manifolds and the Serre automorphism} \label{sec-serre-oneman}
 
+Recall that an n-framed k-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  For $m < n$, an m-framed k-manifold $(M,\tau)$ is naturally n-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  A convenient way to encode $(k+1)$-framed k-manifolds is as normally-oriented immersed k-manifolds in $\RR^{k+1}$.  That is, given an immersion $i: M^k \lra \RR^{k+1}$, the sum $TM \oplus \nu(M,\RR^{k+1})$ of the tangent and normal bundles is canonically trivialized, and a normal orientation for the immersion trivializes $\nu(M,\RR^{k+1})$, providing a trivialization of $TM \oplus \RR$ as desired.  More generally, by the same reasoning any coframed immersed k-manifold in $\RR^n$ is naturally n-framed.
 
+We now define the Serre automorphism.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-oriented point---it is an object of $\FBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ in Figure~\ref{fig-serre}.  This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal Serre automorphism}.  
 
-
+\CDcomm{[Figure of loop in R2, normally oriented] --- IMPT: for the upward normal orientation, the loop should go *down* (according to my random convention).  Is there an intrinsic way to distinguish S from its inverse?}
 
 \begin{proposition}
-Let $a$ be a dualizable object of a symmetric monoidal 3-category $\cA$.  The square $\cS_a^2 : a \ra a$ of the Serre automorphism $\cS_a$ of $a$ is Morita equivalent to the identity of $a$.
+When $n \geq 3$, the universal Serre automorphism $\cS: s \ra s$ in $\FBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.
 \end{proposition}
 
 \begin{proof}
-\CDcomm{It's true for the universal dualizable object.  Establish that above during discussion of 3-framed 1-manifolds}
+\CDcomm{[Just draw the bordisms back and forth and indicate the bordism from the two composites to the identity? Is there a clear way to say what those bordisms of 2-manifolds immersed in $\RR^3$ are?]}
 \end{proof}
+%This can be seen by observing that there is a normally-oriented immersed bordism in $\RR^3$ from the square of the Serre 1-manifold to the trivial 1-manifold.
+
+Whenever $a$ is a dualizable object in a symmetric monoidal n-category $\cA$, there is a functor $\cF_a: \FBord_0^n \ra \cA$ taking the standard positively-oriented point to $a$.  The image of the universal Serre automorphism under this functor is called the Serre automorphism of $a$ and is denoted $\cS_a : a \ra a$.  This automorphism is again an involution.
+
+\begin{corollary} \label{cor-serreinvol}
+Let $a$ be a dualizable object of a symmetric monoidal n-category $\cA$.  Provided $n \geq 3$, the square $\cS_a^2 : a \ra a$ of the Serre automorphism $\cS_a$ of $a$ is equivalent to the identity of $a$.
+\end{corollary}
+
+\CD{Do we want to sort out the precise conditions needed, ie that $a \in \cA$ only needs to be 2-dualizable, or 2.5-dualizable?  This would slightly generalize the $****=1$ result.  cf ENOII.}
 
 
 \subsubsection{Computing the Serre automorphism} \label{sec-serre-comp}
 
+
+For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\rd{\ev}: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$ and let $\ld{\coev}: a^{\vee} \otimes a \ra 1$ be the left adjoint to $\coev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
+
+\begin{proposition} \label{prop-serrecomp}
+Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to both of the following composites:
+\begin{align}
+\cS_a & \simeq (\id_a \otimes \rd{\ev}) (\tau \otimes \id_{a^{\vee}}) (\id_a \otimes \ev) \nn\\
+\cS_a & \simeq (\coev \otimes \id_a) (\id_{a^{\vee}} \otimes \tau) (\ld{\coev} \otimes \id_a) \nn
+\end{align}
+\end{proposition}
+\CD{the composition order here is geometric}
+
+The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
+
+\begin{remark}
+If $n \geq 3$, then the adjunctions of 1-morphisms are ambidextrous, and so the equations for the Serre automorphism given in the proposition could as well have used $\ld{\ev}$ and $\rd{\coev}$ instead.
+\end{remark}
+
+%%%
+
+We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
+
+%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
+
 \begin{theorem} \label{thm-serre}
-If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$-$\cC$ bimodule associated to the double dual monoidal functor $**: \cC \ra \cC$.
+If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$-$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
 \end{theorem}
 
+\begin{proof}
 
+%Recall that the evaluation and coevaluation of the duality between $\cC$ and $\cC^{\mp}$ are the bimodules $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$ and $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, these bimodules have adjoints, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{(\cC \otimes \cC^{\mp})-\mod}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$ and $\ld{\coev} = \bimod{\cC^{\mp} \otimes \cC}{\Hom_{\mod-(\cC^{\mp} \otimes \cC)}(\cC,\cC^{\mp} \otimes \cC)}{\Vect}$.
+
+Recall that the evaluation of the duality between $\cC$ and $\cC^{\mp}$ is the bimodule $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, this bimodule has an adjoint, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$.  By Proposition~\ref{prop-serrecomp}, the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ can be expressed as
+\begin{equation} \nn
+\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC \otimes \cC^{\mp}) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
+\end{equation}
+which can be compacted into the expression
+\begin{equation} \nn
+\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
+\end{equation}
+where the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp}))$ is the tensor of the expected right actions, but the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \cC)$ is given by switching the two $\cC$ factors of $\cC \otimes \cC \otimes \cC^{\mp}$ and then acting by the tensor of the expected left actions.
+
+The bimodule associated to the double dual functor $\ldd{(-)}: \cC \ra \cC$ can be written as $\bimod{\cC}{\cD}{\cC} := \bimod{\cC}{\cC \dtimes_{\cC} \cC}{\cC}$; here the $\cC$-$\cC$ bimodule structure on ${\cC \dtimes_{\cC} \cC}$ is standard, and the tensor $\dtimes_{\cC}$ occurs with respect to the standard right action of $\cC$ on $\cC$ and with respect to the \emph{right} double dual left action of $\cC$ on $\cC$, that is the left action induced by the functor $\rd{(-)}: \cC \ra \cC$.
+
+As the double dual bimodule is cyclic, the equivalence between the double dual bimodule and the Serre bimodule can be specified by its value on the unit:
+\begin{align}
+\cC \dtimes_{\cC} \cC 
+& \xra{\phi} 
+(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC, \cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC) 
+\nn\\
+1 \dtimes 1 
+& \mapsto 
+(1 \otimes (1 \mapsto \sum_{\sigma \in \cI} (\sigma \otimes \ld{\sigma}))) \dtimes (1 \otimes 1)
+\nn
+\end{align}
+As before, $\cI$ indexes the simple objects of $\cC$.  To check that this map is well defined, we need to know, since $a \otimes 1 \simeq 1 \otimes \ldd{a} \in \cC \dtimes_{\cC} \cC$, that $a \phi(1 \otimes 1) \simeq \phi(1 \otimes 1) \ldd{a}$.  \CDcomm{[Recheck the rest of this proof and add more explanation if necessary.]}  This is true provided $\sum_{\sigma \in \cI} \sigma \otimes a \; \ld{\sigma} \simeq \sum \sigma \; \ldd{a} \otimes \ld{\sigma}$.  That equivalence holds because of the isomorphism of structure constants,
+\begin{equation}
+N^{\ld{\tau}}_{a, \ld{\sigma}} = N^{\ldd{\sigma}}_{\ldd{\tau}, a} = N^{\sigma}_{\tau, \ldd{a}} \nn
+\end{equation}
+\CDcomm{[Comment about why this map is an equivalence.]}
+
+\CD{The proof is slightly sketchy on the distinction between equality and iso and how much naturality is needed of the isos.}
+
+
+\end{proof}
+
+%!% \CDcomm{Comment: The above proof uses the expression for the adjoint that is Hom over $\cC \otimes \cC^{\mp}$.  I did it this way because the proofs in section 4 produce that as the adjoint.  However, we know, I think, that when an adjoint exists, the adjoint is also equal to $Hom_{\Vect}(\cC,\Vect)$---see ENOII "Next steps on adjoints", though that is written for right adjoints, so would show that the $\Vect$-Hom is an adjoint for the coevaluation.  In any case, we could instead have explained why the $\Vect$-Hom is also an adjoint, and then used that expression to calculate Serre.  The calculation of Serre is probably more straightforward then, as some of the fiddling has been moved into comparing the two adjoint expressions.  At a minimum, we should probably add a remark, attempted below.}
+
+\begin{remark}
+The Serre automorphism of a fusion category can be identified with the double dual in a slightly different way, as follows.  Observe that $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ is a right adjoint to the coevaluation bimodule $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  \CDcomm{[sentence or more explaning why, or perhaps this fact will be a proposition earlier in the paper]}  Because the adjoints are ambidextrous, it is also a left adjoint, and so can be used in the second expression for the Serre automorphism in Proposition~\ref{serrecomp}.  This gives the equivalence
+\begin{equation} \nn
+\cS \simeq (\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect) \otimes \cC)
+\end{equation}
+Here the left action of $\cC^{\mp} \otimes \cC \otimes \cC$ is the expected one, but the right action is twisted by switching the two $\cC$ factors.  As before let $\cD = \cC \dtimes_{\cC} \cC$ be the double dual bimodule, where the right action of $\cC$ on $\cC$ is standard, but the left action of $\cC$ on $\cC$ is via the right double dual functor.  Now define an equivalence between the Serre bimodule $\cS$ and the double dual bimodule $\cD$, as follows:
+\begin{align}
+(\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom(\cC,\Vect) \otimes \cC) & \ra \cC \dtimes_{\cC} \cC \nn\\
+(m, n) \dtimes (e_p, q) & \mapsto (n \rd{p}, mq)
+\end{align}
+Here $e_p \in \Hom(\cC,\Vect)$ is defined by $e_p(r) = \Hom(p,r)$.  As in the above proof, you need to check that this map is well defined, and that it is an equivalence.
+\end{remark}
 
 \subsection{The quadruple dual is trivial} \label{sec-serre-quad}
 
 \begin{lemma}[Bimodulification Lemma]
 Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalence as monoidal functors.
 \end{lemma}
+\CD{cf "bimodulatification trivial" in ENOII.}
 
 \begin{theorem} \label{thm-quaddual}
 If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \cC$ is naturally equivalent as a monoidal functor to the identity.
