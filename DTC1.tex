@@ -254,16 +254,116 @@ In particular, if you are in a situation where you happen to know a priori that 
 
 \subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
 
+\begin{definition}
+An \emph{unstable structure} for $n$-dimensional vector bundles is a space $T$ together with a fibration $f: T \ra BO(n)$.  A $T$-structure on an n-dimensional vector bundle $V$ on $X$ is a lift of the classifying map $X \xra{V} BO(n)$ along $f$ to $T$.
+
+A \emph{stable structure} is a space $S$ together with a fibration $f: S \ra BO$.  An $S$-structure on an n-dimensional vector bundle $V$ on $X$ is a lift of the composite map $X \xra{V} BO(n) \ra BO$ along $f$ to $S$.
+\end{definition}
+\CD{Are you happy with this def? Ie without mentioning the group structure on $G \ra O$?}
+
+The discussion in this section records material that was utilized implicitly in the obstruction theory analysis of the first author with Bartels and Henriques~\cite{bdh}.
+\CD{This sentence isn't an attempt to claim credit, but to give Andre the credit he deserves for helping sort this stuff out.  There might be a better way or spot to do it.}
+
+%\subsubsection{Unstable structures}
+
+We describe six unstable structures for 3-dimensional vector bundles, namely \emph{orientation}, \emph{spin structure}, \emph{orpo structure}, \emph{2-framing}, \emph{string structure}, and \emph{framing}.
+
+\begin{definition}
+The following six spaces, together with the obvious maps to $BO(3)$, define the aforementioned unstable bundle structures:
+\begin{itemize}
+\item[Or:] $BSO(3)$
+\item[Spin:] $BSpin(3) := \hofib(BSO(3) \xra{w_2} K(\ZZ/2,2))$
+\item[Orpo:] $BOrpo(3) := \hofib(BSO(3) \ra BSO \xra{p_1} K(\ZZ,4))$
+\item[2-Frame:] $B\Omega(Spin(6)/SO(3))$
+\item[String:] $BString(3) := \hofib(BSpin(3) \ra BSpin \xra{(p_1)/2} K(\ZZ,4))$
+\item[Frame:] $*$
+\end{itemize}
+\end{definition}
+
+\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.
+
+\begin{remark}
+``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  Note that there is, however, a structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$, and that structure is itself sometimes refered to as a ``$p_1$ structure".  We won't have need for those $p_1$ structures and so do not discuss them; similarly we omit versions of $Pin$ structures.
+\end{remark}
+
+Orpo structures and 2-framings are different; for instance, the set of homotopy classes of parametrized families of the two structures on a vector bundle can be genuinely distinct.  However, as far individual tangential structures on a single 3-manifold are concerned, they are homotopically indistinguishable---this convergence no doubt has contributed to some of the confusion in the literature.
+\begin{proposition}
+There is a homotopy equivalence between the 4-coconnected covers of $BOrpo(3)$ and $B\Omega(Spin(6)/SO(3))$.  In particular, for a closed 3-manifold $M$, there is a bijection between the tangential orpo structures and the tangential 2-framings on $M$.
+\end{proposition}
+\CD{I mean the space where you killed $\pi_4$ and up --- that's ``4-coconnected"?}
+\CDcomm{[Is there a canonical map from $B\Omega(Spin(6)/SO(3))$ to $BOrpo(3)$ or vice versa? Ie is the composite $B\Omega (Spin(6)/SO(3)) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ trivial?  Is the composite $BOrpo(3) \ra BSO(3) \ra BSpin(6)$ trivial?  If so, adjust the above discussion to reflecct this.  If not, leave as is.]}
+\CD{I haven't (re)checked the k-invariant between $\pi_2$ and $\pi_3$. We better do that.}
+\CDcomm{[Ack, don't you need a 5-coconnected equivalence to get the bijection of tangential structures?  Or maybe you need a touch less than that.  Is it a 4- or 5-coconn equiv?  Maybe there is a more subtle reason why there is a bijection even if it isn't a 5-coconn equiv?]}
+
+% Omit the proof.
+
+Though the definition and analysis of these unstable structures on 3-dimensional vector bundles is elementary, there are potential pitfalls, so we record some information about them in rather pedantic detail.
+\begin{proposition} \CD{Everything in this proposition should be carefully rechecked.}
+.
+\begin{enumerate}
+%
+\item
+The homotopy groups $\pi_2$, $\pi_3$, $\pi_4$, and $\pi_5$ of the classifying spaces for the first five structure groups in question are as follows:
+\begin{itemize}
+\item[$BSO(3)$:] $\ZZ/2$, $0$, $\ZZ$, $\ZZ/2$
+\item[$BSpin(3)$:] $0$, $0$, $\ZZ$, $\ZZ/2$
+\item[$BOrpo(3)$:] $\ZZ/2$, $\ZZ/4$, $0$, $\ZZ/2$
+\item[$Spin(6)/SO(3)$:] $\ZZ/2$, $\ZZ/4$, \CDcomm{$\ZZ/2$}, \CDcomm{?}
+\item[$BString(3)$:] $0$, $0$, $0$, $\ZZ/2$
+\end{itemize}
+%
+\item
+The integral cohomology groups $H^3$, $H^4$, and $H^5$ of the stable and unstable orthogonal and spin classifying spaces are as follows:
+\begin{itemize}
+\item[$BSO(3)$:] $\ZZ/2$, $\ZZ$, $0$
+\item[$BSpin(3)$:] $0$, $\ZZ$, $0$
+\item[$BSO$:] $\ZZ/2$, $\ZZ$, $\ZZ/2$
+\item[$BSpin$:] ...
+\end{itemize}
+%
+\item 
+On fourth integral cohomology, the maps among these classifying spaces are as follows:
+\begin{itemize}
+\item[$BSO(3) \ra BSO$:] \CDcomm{1}
+\item[$BSpin(3) \ra BSO(3)$:] ...
+\item[$BSpin \ra BSO$:] ...
+\item[$BSpin(3) \ra BSpin$:] ...
+\end{itemize}
+As a result, the generator of $H^4(BSO(3);\ZZ)$ is $p_1/...$ and the generator of $H^4(BSpin(3);\ZZ)$ is $p_1/...$.
+\end{enumerate}
+\end{proposition}
+
+\CDcomm{[In all this, the following weird fact (recheck) is relevant: $\pi_4(BSO(3) \xra{p_1} K(\ZZ,4)) = 4$, even though $p_1$ is a generator of $H^4(BSO(3);\ZZ)$.]}
+
+\CDcomm{[This point of this proposition is to see what the generators of $H^4$ of $BSO(3)$ and $BSpin(3)$ are, since those determine the options for the unstable structure groups.]}
+
+%\subsubsection{Stable structures}
+
+Though in dimension 3 all the natural stable structures are equivalent, at least in unparametrized homotopy, to unstable structures, it is nevertheless worth mentioning them.  We describe the structures \emph{stable orientation}, \emph{stable spin structure}, \emph{stable orpo structure}, \emph{stable string structure}, and \emph{stably framed structure}.
+
+\begin{definition}
+The following five spaces, together with the obvious maps to $BO$, define the aforementioned stable bundle structures:
+\begin{itemize}
+\item[StOr:] $BSO$
+\item[StSpin:] $BSpin$
+\item[StOrpo:] $\hofib(BSO \xra{p_1} K(\ZZ,4))$
+\item[StString:] $\hofib(BSpin \xra{(p_1)/2} K(\ZZ,4))$
+\item[StFrame:] $*$
+\end{itemize}
+\end{definition}
+
+\nid Note that for $X \in \{\Or, \Spin, \Orpo, \String\}$, a stable $X$ structure on a 3-dimensional vector bundle is exactly the same as an $X$ structure on a 3-dimensional vector bundle, because $BX(3)$ is by construction the homotopy pullback of $BO(3) \ra BO \la BX$.  This is not, however, the case for $X = \Frame$; indeed there is a substantial difference between a framing and a stable framing.  Nevertheless, as far as individual tangential structures on 3-manifolds are concerned, there is a homotopical coincidence between stably framed structures and stable string structures, therefore between stably framed structures and string structures.
+\begin{proposition}
+For $M$ a 3-manifold, the natural forgetful map from stably framed structures to stable string structures induces a bijection between the set of homotopy classes of stable framings on $M$ to the set of homotopy classes of stable string structures on $M$.
+\end{proposition}
+
 
 
 \section{Dualizability and fusion categories} \label{sec-dualfusion}
 
-%!% CD will begin prototyping this section next.
 
 \subsection{Fusion categories are dualizable} \label{sec-df-fcd}
 
-
-%!% CD: I forgot why we switched the outline to "Duals of 0/1/2-morphisms", so I switched it back to the geodesic ordering 2/1/0.
 
 \subsubsection{Functors of finite semisimple module categories have adjoints} \label{sec-df-functors}
 
