@@ -84,6 +84,7 @@
 \email{nsnyder@math.berkeley.edu}
 
 \maketitle	
+\setcounter{tocdepth}{3}
 \tableofcontents
 %%%%%%%%
 
@@ -167,19 +168,72 @@ Andr\'e Henriques, Scott Morrison, Kevin Walker.
 \subsection{Linear categories} \label{sec-tc-lincat}
 .
 
-[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]
+\begin{definition}
+\CDcomm{[2Vect = idempotent complete additive categories enriched in Vect]}
+\end{definition}
+
+
+\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
 
 \subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
 
-\CDcomm{[...]}
-
 \begin{definition}
-\CDcomm{[Definition of a tensor category]}
+\CDcomm{[Definition of a tensor category, include all the conditions to be an object of the 3-category, ie indemp comp, etc.]}
 \end{definition}
+
+\begin{definition} \label{def-colim}
+\CDcomm{[colimits in the 2-category of (appropriate) linear categories]}
+\end{definition}
+
 
 We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  Given a tensor category $\cC$, we will denote by $\cC^{\op}$ the tensor category whose underlying linear category is opposite to the underlying linear category of $\cC$, and whose tensor structure is inherited from the tensor structure of $\cC$; we call it the "opposite tensor category".  By constrast, we will denote by $\cC^{\mp}$ the tensor category whose underlying linear category is the underlying linear category of $\cC$, and whose tensor structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the "monoidal opposite tensor category".  Finally, there is $\cC^{\mop}$, which denotes the tensor category whose underlying linear category is $\cC^{\op}$ and whose tensor structure is inherited from the tensor structure of $\cC^{\mp}$; we call this the "opposite monoidal opposite tensor category".
 
 \subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
+
+
+\begin{definition}
+\CDcomm{[Definition of bimodules between tensor categories]}
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The ``precomposite bimodule" $\bimod{A}{M \otimes_B N}{C}$ is the colimit of the three-stage two-sided bar construction:
+\begin{equation} \nn
+\bimod{A}{M \otimes_B N}{C} := \colim \left( M \dtimes A \dtimes A \dtimes N \righttriplearrows M \dtimes A \dtimes N \rightdoublearrows M \dtimes N \right)
+\end{equation}
+\end{definition}
+
+\begin{remark} \CD{This remark is not written very precisely or correctly yet---should be fixed after the Deligne tensor is spelled out earlier on.}
+By applying definition~\ref{def-colim}, one can write out explicitly the bimodule $\bimod{A}{M \otimes_B N}{C}$ given by the above colimit of the three-stage two-sided bar construction.  There is however an equivalent bimodule $\bimod{A}{M \otimes_B' N}{C}$ that admits a more compact description, as follows.  The objects of $\bimod{A}{M \otimes_B' N}{C}$ are the objects $m \otimes n$ of the tensor product $M \dtimes N$.  The morphisms are of two kinds: (m1) a morphism $\phi \otimes \psi : m \otimes n \ra m' \otimes n'$ for each pair of morphisms $\phi: m \ra m'$ in $M$ and $\psi: n \ra n'$ in $N$; (m2) a morphism $t_a : ma \otimes n \ra m \otimes an$ for each \CDcomm{triple $(m,a,n)$ ... }.  These morphisms are subject to the two relations: (r1) for each \CDcomm{triple $(\phi, \epsilon, \psi)$}, the composite $ma \otimes n \ra m \otimes an \ra m' \otimes a' n'$ equals the composite $ma \otimes n \ra m' a' \otimes n' \ra m' \otimes a' n'$; (r2) the composite $(ma)b \otimes n \ra ma \otimes bn \ra m \otimes a(bn)$ equals the composite $(ma)b \otimes n \ra m(ab) \otimes n \ra m \otimes (ab)n \ra m \otimes a(bn)$.
+\end{remark} % cf ENOII "Explicit description 1"
+
+
+
+\begin{definition}
+Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The composite bimodule $\bimod{A}{M \dtimes_B N}{C}$ is the idempotent completion of the precomposite bimodule:
+\begin{equation} \nn
+\bimod{A}{M \dtimes_B N}{C} := \IC \left( \bimod{A}{M \otimes_B N}{C} \right)
+\end{equation}
+\end{definition}
+
+\begin{example}
+\CDcomm{$\Vect \dtimes_{\Vect[\ZZ/2]} \Vect$ is $\Vect \oplus \Vect$, [cf ENOII "Example 1 (cont):"]}
+\end{example}
+
+%%%
+
+\begin{proposition} \CD{Not sure whether we need this prop or where it best belongs.}
+Let $A$ be a \CDcomm{...} monoidal indempotent complete linear category, and let $M$ and $N$ be $A$-modules.  If $N$ is idempotent complete, then $\Hom_A(M,N)$ is idempotent complete.
+\end{proposition}
+
+\begin{corollary}
+For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}{B}$ has a right adjoint, then that right adjoint is $\bimod{B}{\Hom_A(M,A)}{A}$.
+\end{corollary}
+
+\begin{proof}
+\CDcomm{[Proof sketch of corollary at ENOII "Next steps on adjoints of 1-morphisms".]}
+\end{proof}
+
+
 
 \subsection{The 3-category of tensor categories} \label{sec-tc-threecat}
 .
@@ -190,8 +244,12 @@ We will have occasion to use both the opposite of a tensor category, and the mon
 A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which sends coproducts to products. A symmetric monoidal 3-category is a functor $Fin_* \to 3\text{-}\Cat$ which sends coproducts to products.
 
 \CDcomm{Definition of TC.}
-[Objects of TC are \emph{idempotent complete linear categories}.]
+\CDcomm{[Objects of TC are \emph{idempotent complete linear categories}.  Morphisms are ..., 2-morphism are ..., 3-morphism are ...]}
 
+
+\begin{remark}
+It is worth keeping in mind, and separating, the two key conceptual differences between the setting of tensor categories and the setting of ordinary algebra.  The first difference is, obviously, that we have categorified---the underlying objects are now longer sets but categories.  The second difference is that the elements of the objects no longer have additive inverses---that is objects of a tensor category, unlike elements of an algebra, needn't be additively invertible.  For many purposes and arguments, the second is the more serious and problematic difference.
+\end{remark}
 
 \subsection{Multi-Fusion categories} \label{sec-tc-fusion}
 
@@ -234,6 +292,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 
 \subsection{Dualizability in 3-categories} \label{sec-lft-dual}
 .
+\CD{I guess the content of this section should be dictated by what we need for sections 4,5,6.  What is that?}
 
 [Adjunction convention: $\bimod{C}{M}{D} \adj  \bimod{D}{N}{C}$ if there are $M \dtimes_D N \ra C$ and $D \ra N \dtimes_C M$ satisfying the S relations.] 
 
@@ -732,7 +791,7 @@ Here $e_p \in \Hom(\cC,\Vect)$ is defined by $e_p(r) = \Hom(p,r)$.  As in the ab
 \subsection{The quadruple dual is trivial} \label{sec-serre-quad}
 
 \begin{lemma}[Bimodulification Lemma]
-Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalence as monoidal functors.
+Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalent as monoidal functors.
 \end{lemma}
 \CD{cf "bimodulatification trivial" in ENOII.}
 
@@ -754,7 +813,7 @@ If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \c
 \subsection{Fusion category TFTs are string} \label{sec-pivot-string}
 
 \begin{proposition} \label{prop-string}
-Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor categories descends to a string local field theory $\bar{\cF} : \StrBord_0^3 \ra \TC$.
+Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor categories descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TC$.
 \end{proposition}
 
 \begin{proof}
@@ -771,13 +830,13 @@ The framed local field theory associated to a fusion category descends to a stri
 \subsection{Pivotal fusion category TFTs are orpo} \label{sec-pivot-orpo}
 
 \begin{theorem} \label{thm-pivorpo}
-A fusion category $\cC \in \TC$ is pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented-$p_1$ local field theory $\bar{cF}_{\cC} : \OrpoBord_0^3 \ra \TC$.
+A fusion category $\cC \in \TC$ is pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented-$p_1$ local field theory $\overline{\cF}_{\cC} : \OrpoBord_0^3 \ra \TC$.
 \end{theorem}
 
 \begin{proof}
-\CDcomm{For pivotal => orpo: use first the result from the last section getting to String, then use pivotal to get from string to orpo [need to know that trivializing Serre is enough].}
+\CDcomm{For pivotal $\Rightarrow$ orpo: use first the result from the last section getting to String, then use pivotal to get from string to orpo [need to know that trivializing Serre is enough].}
 
-\CDcomm{For orpo => pivotal: Serre is trivial, use double dual = Serre theorem, and bimodulification lemma.}
+\CDcomm{For orpo $\Rightarrow$ pivotal: Serre is trivial, use double dual = Serre theorem, and bimodulification lemma.}
 \end{proof}
 
 
