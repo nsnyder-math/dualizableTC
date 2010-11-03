@@ -232,9 +232,54 @@ For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}
 
 \subsection{The 3-category of tensor categories} \label{sec-tc-threecat}
 
-\CSPcomm{How much background should we include on $n$-fold simplcial spaces? We need to make sense of the homotopy pull-back below. The version of complete n-fold Segal spaces that Jacob uses is constructed as a localization of the projective model structure on $n$-fold simplcial spaces. This is why we use the level-wise homotopy fiber product. Should these details be mentioned?}
+Let $\Delta$ be a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. This is the category of combinatorial simplices. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Finally, let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
+\begin{equation} \label{Eqn:Segal-Co-Map}
+\begin{tikzpicture}[baseline = 0.75cm]
+	\node (LT) at (0, 1.5) {$[0]$};
+	\node (LB) at (0, 0) {$[m]$};
+	\node (RT) at (2, 1.5) {$[n]$};
+	\node (RB) at (2, 0) {$[m+n]$};
+	\draw [->] (LT) -- node [left] {$m$} (LB);
+	\draw [->] (LT) -- node [above] {$0$} (RT);
+	\draw [->] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [below] {$$} (RB);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{equation}
+where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
 
-\CSPcomm{[Background on simplcial objects in categories, $n$-fold simplcial spaces, and $\Gamma$ objects in categories. How fiber products over a discrete base are the same as homotopy fiber products.]}
+Let $\Gamma$ be the category introduced by Segal in \cite{Segal-Categories and Cohomology Theories}. The objects of $\Gamma$ are finite (possibly empty) sets. A morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, where $P(B)$ is the power-set of $B$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$. $\Gamma^\textrm{op} = Fin_*$ is the category of finite pointed sets. There is a functor $\varphi:\Delta \to \Gamma$, which sends $[m]$ to the set $(m) = \{ 1, 2, \dots, m\}$, and sends $f: [m] \to [n]$ to the function $\varphi_f: i \in (m) \mapsto \{ j \in (n) \; | \: f(i-1) < j \leq f(i) \}$. 
+
+
+Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C)$. A {\em category internal to $C$} is such a simplicial object $X$, such that the diagrams dual to those in equation (\ref{Eqn:Segal-Co-Map}),
+\begin{center}
+\begin{tikzpicture}
+	\node (LT) at (0, 1.5) {$X_{m+n}$};
+	\node (LB) at (0, 0) {$X_m$};
+	\node (RT) at (2, 1.5) {$X_n$};
+	\node (RB) at (2, 0) {$X_0$};
+	\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->] (LT) -- node [above] {$$} (RT);
+	\draw [->] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [below] {$$} (RB);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+are a pull-back diagrams. For a general simplicial object, these commuting squares will be called {\em Segal squares}. Hence a category internal to $C$ is a simplicial object in which every Segal square is a pull-back square. 
+
+This may be contrasted with the notion of a category internal to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, spaces, small categories, any category of presheaves, and more generally any Grothendieck topos. 
+
+\begin{example}
+	A {\em strict 2-category} is a category enriched in categories.
+\end{example}
+
+
+
+%\CSPcomm{How much background should we include on $n$-fold simplcial spaces? We need to make sense of the homotopy pull-back below. The version of complete n-fold Segal spaces that Jacob uses is constructed as a localization of the projective model structure on $n$-fold simplcial spaces. This is why we use the level-wise homotopy fiber product. Should these details be mentioned?}
+
+\CSPcomm{[$n$-fold simplcial spaces, and $\Gamma$ objects in categories. How fiber products over a discrete base are homotopy equivalent to homotopy fiber products.]}
 
 \begin{definition}
 	An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal space} if the following conditions are satisfied
@@ -247,7 +292,7 @@ For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}
 			\node (RT) at (2, 1.5) {$X_k$};
 			\node (RB) at (2, 0) {$X_0$};
 			\draw [->] (LT) -- node [left] {$$} (LB);
-			\draw [right hook->] (LT) -- node [above] {$$} (RT);
+			\draw [->] (LT) -- node [above] {$$} (RT);
 			\draw [->] (RT) -- node [right] {$$} (RB);
 			\draw [->] (LB) -- node [below] {$$} (RB);
 			%\node at (0.5, 1) {$\ulcorner$};
@@ -268,7 +313,7 @@ Our construction of the $\Gamma$-$3$-fold simplcial space of Tensor Categories w
 	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
 \end{definition}
 
-A strict 2-category gives rise to a simplicial category $C_\bullet$ whose $n^\tehxt{th}$ category is given by the usual formula
+A strict 2-category gives rise to a simplicial category $C_\bullet$ whose $n^\textrm{th}$ category is given by the usual formula
 \begin{equation*}
 	C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
 \end{equation*}
