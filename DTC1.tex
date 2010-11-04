@@ -249,7 +249,7 @@ Let $\Delta$ be a skeleton of the category of finite non-empty totally ordered s
 \end{equation}
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
 
-Let $\Gamma$ be the category introduced by Segal in \cite{Segal-Categories and Cohomology Theories}. The objects of $\Gamma$ are finite (possibly empty) sets. A morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, where $P(B)$ is the power-set of $B$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$. $\Gamma^\textrm{op} = Fin_*$ is the category of finite pointed sets. There is a functor $\varphi:\Delta \to \Gamma$, which sends $[m]$ to the set $(m) = \{ 1, 2, \dots, m\}$, and sends $f: [m] \to [n]$ to the function $\varphi_f: i \in (m) \mapsto \{ j \in (n) \; | \: f(i-1) < j \leq f(i) \}$. 
+Let $\Gamma$ be the category introduced by Segal in \cite{Segal-Categories and Cohomology Theories}. The objects of $\Gamma$ are finite (possibly empty) sets. A morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, where $P(B)$ is the power-set of $B$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$. $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. There is a functor $\varphi:\Delta \to \Gamma$, which sends $[m]$ to the set $(m) = \{ 1, 2, \dots, m\}$, and sends $f: [m] \to [n]$ to the function $\varphi_f: i \in (m) \mapsto \{ j \in (n) \; | \: f(i-1) < j \leq f(i) \}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. 
 
 
 Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C)$. A {\em category internal to $C$} is such a simplicial object $X$, such that the diagrams dual to those in equation (\ref{Eqn:Segal-Co-Map}),
@@ -269,45 +269,148 @@ Let $C$ be a category. The category of {\em simplcial objects of $C$} is the fun
 \end{center}
 are a pull-back diagrams. For a general simplicial object, these commuting squares will be called {\em Segal squares}. Hence a category internal to $C$ is a simplicial object in which every Segal square is a pull-back square. 
 
-This may be contrasted with the notion of a category internal to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, spaces, small categories, any category of presheaves, and more generally any Grothendieck topos. 
+This may be contrasted with the notion of a category internal to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, spaces, small categories,\CSP{Is the category of small categories really extensive?} any category of presheaves, and more generally any Grothendieck topos. 
 
 \begin{example}
 	A {\em strict 2-category} is a category enriched in categories.
 \end{example}
 
+\begin{definition}
+	Let $Sp$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to Sp$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to Sp$.
+\end{definition}
 
+The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories respectively. This is the context in which the cobordism hypothesis has been proven and is the context in which we frame our results. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and special $\Gamma$-$n$-fold complete Segal spaces, respectively. These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
 
-%\CSPcomm{How much background should we include on $n$-fold simplcial spaces? We need to make sense of the homotopy pull-back below. The version of complete n-fold Segal spaces that Jacob uses is constructed as a localization of the projective model structure on $n$-fold simplcial spaces. This is why we use the level-wise homotopy fiber product. Should these details be mentioned?}
-
-\CSPcomm{[$n$-fold simplcial spaces, and $\Gamma$ objects in categories. How fiber products over a discrete base are homotopy equivalent to homotopy fiber products.]}
+On the other hand, many examples occurring `in nature' do not arise as $n$-fold complete Segal spaces or special $\Gamma$-$n$-fold complete Segal spaces. For example in \cite{Lurie}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. For many purposes these `Segal objects', which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold simplicial spaces, are just as good as their fibrant replacement. It is this intermediate notion to which we now turn. 
 
 \begin{definition}
-	An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal space} if the following conditions are satisfied
+	An $n$-fold simplicial space $X$ is {\em essentially constant} if, when regarded as a functor $X: (\Delta^\textrm{op})^{\times n} \to h\textrm{-}(Sp)$, it is equivalent to a constant functor. Here $h\textrm{-}(Sp)$ is the homotopy category of simplicial sets.  
+\end{definition}
+
+
+We may regard any $n$-fold simplicial space as a simplicial object in $(n-1)$-fold simplicial spaces. A $0$-fold simplicial space is simply a simplicial set. 
+
+
+\begin{definition}
+	A $0$-fold simplicial space is {\em Segal} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal space} if the following conditions are satisfied
+		\begin{enumerate}
+			\item The $(n-1)$-fold simplicial space $X_0$ is essentially constant.
+			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold Segal space.
+			\item For every $m, k$, the Segal square,
+			\begin{center}
+			\begin{tikzpicture}
+				\node (LT) at (0, 1.5) {$X_{m+n}$};
+				\node (LB) at (0, 0) {$X_m$};
+				\node (RT) at (2, 1.5) {$X_n$};
+				\node (RB) at (2, 0) {$X_0$};
+				\draw [->] (LT) -- node [left] {$$} (LB);
+				\draw [->] (LT) -- node [above] {$$} (RT);
+				\draw [->] (RT) -- node [right] {$$} (RB);
+				\draw [->] (LB) -- node [below] {$$} (RB);
+				%\node at (0.5, 1) {$\ulcorner$};
+				%\node at (1.5, 0.5) {$\lrcorner$};
+			\end{tikzpicture}
+			\end{center}
+			is a homotopy pull-back square of $(n-1)$-fold simplical spaces. \CSP{Problem: $X_{m+k}$ might only be weakly equivalent to the homotopy fiber product in the complete Segal space model structure. If the $X_n$ are complete, this is not an issue since such weak equivalences are then level-wise, but if they are not complete we have a problem.}
+		\end{enumerate}
+	\end{definition}
+
+Unfortunately, this final condition is somewhat problematic. The Segal square must realize $X_{m+n}$ as the homotopy fiber product $X_m \times_{X_0}^h X_n$. This homotopy fiber product must be computed in the $(\infty, n-1)$-category model structure on $(n-1)$-fold simplicial sets, and moreover $X_{m+n}$ may not be levelwise equivalent to this homotopy fiber product, but merely weakly equivalent in this model structure. If the $n$-fold Segal spaces $X_k$ are fibrant, that is complete, then these problems disappear. Weak equivalences between fibrant objects are computed levelwise, as are homotopy fiber products. 
+
+Thus in general we are left with the embarrassing responsibility of computing the correct homotopy fiber product $X_m \times_{X_0}^h X_n$, and showing that the canonical map from $X_{m+n}$ is a weak equivalence of $(\infty, n-1)$-categories. Fortunately there is another subclass of $n$-fold Segal spaces for which these two operations are relatively easy to perform: The {\em $n$-fold Segal categories}.
+
+\begin{definition}
+	A $0$-fold Segal category is a Kan complex. An {\em $n$-fold Segal category} is an $n$-fold Segal space which satisfies
 	\begin{enumerate}
-		\item For every $m, k$, the diagram
-		\begin{center}
-		\begin{tikzpicture}
-			\node (LT) at (0, 1.5) {$X_{m+k}$};
-			\node (LB) at (0, 0) {$X_m$};
-			\node (RT) at (2, 1.5) {$X_k$};
-			\node (RB) at (2, 0) {$X_0$};
-			\draw [->] (LT) -- node [left] {$$} (LB);
-			\draw [->] (LT) -- node [above] {$$} (RT);
-			\draw [->] (RT) -- node [right] {$$} (RB);
-			\draw [->] (LB) -- node [below] {$$} (RB);
-			%\node at (0.5, 1) {$\ulcorner$};
-			%\node at (1.5, 0.5) {$\lrcorner$};
-		\end{tikzpicture}
-		\end{center}
-		is a homotopy pull-back square (of $(n-1)$-fold simplical spaces)
-		\item The $(n-1)$-fold simplicial space $X_0$ is essentially constant.
-		\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold Segal space. 
+		\item $X_0$ is discrete, and
+		\item for each $n$, $X_n$ is an $(n-1)$-fold Segal category. 
+	\end{enumerate}
+	A {\em special $\Gamma$-$n$-fold Segal category} is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplcial spaces, such that the following conditions are satisfied. 
+	\begin{enumerate}
+		\item $X_A$ is an $n$-fold Segal category for each $A \in \Gamma$. 
+		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
+		\begin{equation*}
+			\prod_{a \in A} i_a^*: X_A \to \prod_{a \in A} X_{(1)}
+		\end{equation*}
+		is an equivalence of $n$-fold Segal categories. \CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
+	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
 	\end{enumerate}
 \end{definition}
 
+The first significant advantage of $n$-fold Segal categories follows from the fact that the homotopy fiber product over a discrete base, for example $X_m \times_{X_0}^h X_n$ when $X$ is an $n$-fold Segal category, agrees with the ordinary fiber product. Thus we many avoid a lengthly discussion of the model structure of $n$-fold complete Segal spaces and work directly with ordinary fiber products.
+
+We must also identify the weak equivalences between $n$-fold Segal categories. These admit a fairly direct inductive description in terms of the homotopy category $hX$ of an $n$-fold Segal category.
+
+----
+
+ For $n$-fold Segal categories, the homotopy category $hX$ also has an inductive description. 
+
+The homotopy category of a $0$-fold simplicial space (i.e Kan complex) is the fundamental groupoid.
+ we really need to induct on all three statements. 
+
+
+-----
+
+We will induct on the following constructions and statements
+\begin{enumerate}
+	\item A functor $h$ from $n$-fold Segal categories to categories (the homotopy category)
+	\item The definition of weak equivalence.
+	\item $h$ sends weak equivalences to equivalences of categories. 
+\end{enumerate}
+
+
+
+
+-----
+
+
+%The {\em homotopy pull-back} of $n$-fold simplicial spaces may be inductively defined as follows. For $0$-fold simplicial spaces a homotopy pull-back is a homotopy pull-back in the standard model structure on simplicial sets. For general $n$-fold simplicial spaces $W$, $X$, $Y$, and $Z$, a diagram 
+%\begin{center}
+%\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$W$};
+%	\node (LB) at (0, 0) {$X$};
+%	\node (RT) at (2, 1.5) {$Y$};
+%	\node (RB) at (2, 0) {$Z$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+%	\draw [->] (LT) -- node [above] {$$} (RT);
+%	\draw [->] (RT) -- node [right] {$$} (RB);
+%	\draw [->] (LB) -- node [below] {$$} (RB);
+%	%\node at (0.5, 1) {$\ulcorner$};
+%	%\node at (1.5, 0.5) {$\lrcorner$};
+%\end{tikzpicture}
+%\end{center}
+%is a homotopy pull-back diagram if and only if for each $n$ the diagram 
+%\begin{center}
+%\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$W_n$};
+%	\node (LB) at (0, 0) {$X_n$};
+%	\node (RT) at (2, 1.5) {$Y_n$};
+%	\node (RB) at (2, 0) {$Z_n$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+%	\draw [->] (LT) -- node [above] {$$} (RT);
+%	\draw [->] (RT) -- node [right] {$$} (RB);
+%	\draw [->] (LB) -- node [below] {$$} (RB);
+%	%\node at (0.5, 1) {$\ulcorner$};
+%	%\node at (1.5, 0.5) {$\lrcorner$};
+%\end{tikzpicture}
+%\end{center}
+%is a homotopy pull-back diagram of $(n-1)$-fold simplicial spaces. Thus homotopy fiber products are computed `levelwise'. In particular if $Z$ is a discrete $n$-fold simplicial space, then the homotopy fiber product is levelwise homotopy equivalent to the usual fiber product. 
+
+
+
+ 
+
+
+	
+	
+	We now inductively define a class of objects called {\em $n$-fold Segal spaces} as well as a collection of maps of $n$-fold Segal spaces called {\em weak equivalences}. For $0$-fold simplicial spaces Segal spaces are the Kan complexes. The weak equivalences between $0$-fold simplicial spaces are the weak equivalences of simplicial sets.  
+	
+
+	
+
 \CSPcomm{[There is a model category of $\Gamma$-$n$-fold complete Segal spaces which models symmetric monoidal $(\infty, n)$-categories]. The is a completion functor (fibrant replacement), so it is enough to produce a $\Gamma$-$n$-fold simplicial space. We produce a Segal one.}
 
-Our construction of the $\Gamma$-$3$-fold simplcial space of Tensor Categories will proceed in several stages. We will first describe how a strict 2-category gives rise to a 2-fold Segal space. This can be regarded as a 2-categorical nerve. Then we will construct explicitly $TC$ as a simplicial (strict) 2-category. Applying the previous 2-categorical nerve yields a 3-fold simplcial space which is shown to be Segal. A simple variation on these constructions yields the full $\Gamma$-3-fold Segal space $TC$. 
+Our construction of the $\Gamma$-$3$-fold simplicial space of Tensor Categories will proceed in several stages. We will first describe how a strict 2-category gives rise to a 2-fold Segal space. This can be regarded as a 2-categorical nerve. Then we will construct explicitly $TC$ as a simplicial (strict) 2-category. Applying the previous 2-categorical nerve yields a 3-fold simplcial space which is shown to be Segal. A simple variation on these constructions yields the full $\Gamma$-3-fold Segal space $TC$. 
 
 \begin{definition}
 	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
@@ -321,7 +424,19 @@ We obtain a 2-fold simplicial set by applying the standard nerve construction to
 %[Cite the Joyal Teinery paper for the Quillen equivalence between Segal spaces and Quasi-categories]
 }
 
-Now we describe the 3-category of tensor categories as a simplcial 2-category. 
+Now we describe the 3-category of tensor categories as a simplcial 2-category. For each $[n] \in \Delta$ we have a strict 2-category $TC_n$ defined as follows. The objects, 1-morphism, and 2-morphisms of $TC_n$ correspond to certain labelings of the $n$-simplex $[n]$. For the objects we have:
+\begin{itemize}
+	\item For each vertex $i$ of $[n]$ a tensor category $A_i$. 
+	\item For each edge $ij$ of $[n]$ an $A_i$-$A_j$-bimodule category $M_{ij}$
+	\item For each 2-simplex $ijk$ of $[n]$ an $A_j$-balanced functor of $A_i$-$A_k$-bimodule categories $\varphi_{ijk}: M_{ij} \times M_{jk} \to M_{ijk}$, which realizes $M_{ik}$ as the tensor product $M_{ik} \simeq M_{ij} \otimes_{A_j} M_{jk}$. 
+	\item For each 3-simplex $ijk\ell$ of $[n]$ a natural transformation of $A_j$/$A_k$-balanced $A_i$-$A_\ell$-bimodule functors $\alpha_{ijk \ell}: \varphi_{i k \ell} \circ (\varphi_{ijk} \times id_{M_{k\ell}}) \to \varphi_{ij \ell} \circ (id_{M_{ij}} \times \varphi_{jk\ell})$ inducing the identity natural isomorphism of the canonical equivalence $(M_{ij} \otimes_{A_j} M_{jk}) \otimes_{A_k} M_{k\ell} \simeq M_{ij} \otimes_{A_j}( M_{jk} \otimes_{A_k} M_{k\ell}).$
+\end{itemize}
+
+
+
+
+--------- \CSPcomm{I need to edit the below.}
+
 \begin{itemize}
 	\item The $0^\text{th}$ 2-category is the discrete collection tensor categories viewed as a discrete 2-category. 
 	\item The $1^\text{st}$ 2-category consists of the disjoint union over all pairs of tensor categories $A$ and $B$ of the 2-categories of $A$-$B$-bimodule categories, functors, and natural transformations. 
