@@ -434,43 +434,76 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 
 Our construction of the $\Gamma$-$3$-fold Segal Category of Tensor Categories will proceed in several stages. We will first describe how a strict 2-category gives rise to a 2-fold Segal category. This can be regarded as a 2-categorical nerve. Then we will construct explicitly $TC$ as a simplicial object in the category of strict 2-categories. Applying the previous 2-categorical nerve yields a 3-fold simplcial space which is shown to be a 3-fold Segal category. A variation on these constructions yields the $\Gamma$-3-fold Segal space $TC$. 
 
------- [Needs rewriting as some of these defs have already occured...] ---
-
-
-\begin{definition}
-	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
-\end{definition}
+%\begin{definition}
+%	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
+%\end{definition}
 
 
 A strict 2-category gives rise to a simplicial category $C_\bullet$ whose $n^\textrm{th}$ category is given by the usual formula
 \begin{equation*}
 	C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
 \end{equation*}
-We obtain a 2-fold simplicial set by applying the standard nerve construction to each of these categories. Finally, we obtain a 2-fold simplcial space $NC_{\bullet \bullet}$ by viewing a set as a discrete simplcial space. The nerve of a 1-category, viewed as a simplicial space, automatically satisfies the conditions to be a Segal space. Moreover $NC_{\bullet \bullet}$ is a 2-fold Segal space. \footnote{Alternatively, one may start with the simplicial category $C_\bullet$, as before and apply the {\em complete Segal space nerve} to each of the categories $C_n$. The $k^\text{th}$ space of this simplicial space $N^{CSS}_\bullet C_n$ is obtained by first constructing the functor category $Fun([k], C_n)$, then throwing away the non-invertible natural transformations, and finally applying the classifying space functor to the resulting groupoid. This alternative has the advantage that it produces a {\em complete} Segal space $N^{CSS} C_n$. However for our purposes these are equivalent constructions as the canonical map $N C_n \to N^{CSS} C_n$ is a weak equivalence in the complete Segal space model structure. 
+We obtain a 2-fold simplicial set by applying the standard nerve construction to each of these categories. Finally, we obtain a 2-fold simplcial space $NC_{\bullet \bullet}$ by viewing a set as a discrete simplicial space. The nerve of a 1-category, viewed as a simplicial space, automatically satisfies the conditions to be a Segal category. Moreover $NC_{\bullet \bullet}$ is a 2-fold Segal category. 
+
+\footnote{Alternatively, one may start with the simplicial category $C_\bullet$, as before and apply the {\em complete Segal space nerve} to each of the categories $C_n$. The $k^\text{th}$ space of this simplicial space $N^{CSS}_\bullet C_n$ is obtained by first constructing the functor category $Fun([k], C_n)$, then throwing away the non-invertible natural transformations, and finally applying the classifying space functor to the resulting groupoid. This alternative has the advantage that it produces a {\em complete} Segal space $N^{CSS} C_n$. However for our purposes these are equivalent constructions as the canonical map $N C_n \to N^{CSS} C_n$ is a weak equivalence in the complete Segal space model structure. 
 %[Cite the Joyal Teinery paper for the Quillen equivalence between Segal spaces and Quasi-categories]
 }
 
-Now we describe the 3-category of tensor categories as a simplcial 2-category. For each $[n] \in \Delta$ we have a strict 2-category $TC_n$ defined as follows. The objects, 1-morphism, and 2-morphisms of $TC_n$ correspond to certain labelings of the $n$-simplex $[n]$. For the objects we have:
+The 3-fold Segal Category of tensor categories is first constructed as a simplicial object $TC$ in the 1-category of strict 2-categories (and strict 2-functors). The 3-fold Segal category is then obtained by applying the above 2-categorical nerve levelwise. For each $[n] \in \Delta$ we have a strict 2-category $TC_n$ defined as follows. The objects, 1-morphism, and 2-morphisms of $TC_n$ correspond to certain labelings of the $n$-simplex $[n]$. The objects of $TC_n$ consist of:
 \begin{itemize}
-	\item For each vertex $i$ of $[n]$ a tensor category $A_i$. 
-	\item For each edge $ij$ of $[n]$ an $A_i$-$A_j$-bimodule category $M_{ij}$
-	\item For each 2-simplex $ijk$ of $[n]$ an $A_j$-balanced functor of $A_i$-$A_k$-bimodule categories $\varphi_{ijk}: M_{ij} \times M_{jk} \to M_{ijk}$, which realizes $M_{ik}$ as the tensor product $M_{ik} \simeq M_{ij} \otimes_{A_j} M_{jk}$. 
-	\item For each 3-simplex $ijk\ell$ of $[n]$ a natural transformation of $A_j$/$A_k$-balanced $A_i$-$A_\ell$-bimodule functors $\alpha_{ijk \ell}: \varphi_{i k \ell} \circ (\varphi_{ijk} \times id_{M_{k\ell}}) \to \varphi_{ij \ell} \circ (id_{M_{ij}} \times \varphi_{jk\ell})$ inducing the identity natural isomorphism of the canonical equivalence $(M_{ij} \otimes_{A_j} M_{jk}) \otimes_{A_k} M_{k\ell} \simeq M_{ij} \otimes_{A_j}( M_{jk} \otimes_{A_k} M_{k\ell}).$
+	\item For each vertex $i$ of $[n]$, a tensor category $A_i$. 
+	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule category $M_{ij}$.
+	\item For each 2-simplex $ijk$ of $[n]$, an $A_j$-balanced functor of $A_i$-$A_k$-bimodule categories 
+	\begin{equation*}
+		\varphi_{ijk}: M_{ij} \times M_{jk} \to M_{ijk},
+	\end{equation*}
+	 which realizes $M_{ik}$ as the tensor product $M_{ik} \simeq M_{ij} \otimes_{A_j} M_{jk}$. 
+	\item For each 3-simplex $ijk\ell$ of $[n]$, a natural transformation of $A_j$/$A_k$-balanced $A_i$-$A_\ell$-bimodule functors 
+	\begin{equation*}
+		\alpha_{ijk \ell}: \varphi_{i k \ell} \circ (\varphi_{ijk} \times id_{M_{k\ell}}) \to \varphi_{ij \ell} \circ (id_{M_{ij}} \times \varphi_{jk\ell}).
+	\end{equation*}
+	 %inducing the identity natural isomorphism of the canonical equivalence $(M_{ij} \otimes_{A_j} M_{jk}) \otimes_{A_k} M_{k\ell} \simeq M_{ij} \otimes_{A_j}( M_{jk} \otimes_{A_k} M_{k\ell}).$
+	\item such that for each $4$-simplex $ijk\ell m$ of $[n]$, the following pentagon identity is satisfied:
+	\begin{align*}
+		\text{(to be added)}  \\ [\varphi_{ijm} * (id_{M_{ij}} \times \alpha_{jk\ell m})] \circ [\alpha_{ij\ell m} * (id_{M_{ij}} \times \varphi_{jk\ell} \times id_{M_{\ell m}})] \circ [\varphi_{i \ell m} * ( \alpha_{ijk \ell} \times id_{M_{\ell m}})] = ...
+	\end{align*} \CSPcomm{Need to finish the pentagon equation.}
 \end{itemize}
-
-
-
-
---------- \CSPcomm{I need to edit the below.}
-
+Let $X$ and $Y$ be two objects in $TC_n$. The 1-morphisms of $TC_n$ from $X$ to $Y$ consist of and satisfy:
 \begin{itemize}
-	\item The $0^\text{th}$ 2-category is the discrete collection tensor categories viewed as a discrete 2-category. 
-	\item The $1^\text{st}$ 2-category consists of the disjoint union over all pairs of tensor categories $A$ and $B$ of the 2-categories of $A$-$B$-bimodule categories, functors, and natural transformations. 
-	\item The $2^\text{nd}$ 2-category consists of a disjoint union over all triples of tensor categories $A$, $B$, $C$ of certain 2-categories $TC_2(A,B,C)$. These 2-categories consists of triples of bimodules $ \bimod{A}{L}{B}$, $ \bimod{B}{M}{C}$, $ \bimod{A}{N}{C}$, together with a $B$-balanced $A$-$C$-linear functor $L \times M \to N$ inducing an equivalence $\bimod{A}{L \boxtimes_B M }{C} \cong  \bimod{A}{N }{C}$. The 1-morphisms and 2-morphisms are the obvious ones. 
-	\item The $3^\text{rd}$ 2-category consists of the disjoint union ...
+	\item For each vertex $i$ of $[n]$, the tensor category $A_i^X$ and $A^Y_i$ agree identically. 
+	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule functor 
+	\begin{equation*}
+		F_{ij}: M_{ij}^X \to M_{ij}^Y.
+	\end{equation*}
+	\item For each 2-simplex $ijk$ of $[n]$, a natural isomorphism of $A_j$-balanced $A_i$-$A_k$-bimodule functors
+	\begin{equation*}
+		\xi_{ijk}: \varphi_{ijk}^Y \circ (F_{ij} \times F_{jk}) \to F_{ik} \circ \varphi_{ijk}^X
+	\end{equation*}
+	\item Such that for each 3-simplex $ijk\ell$ of $[n]$,
+\end{itemize} 
+Let $F,G: X \to Y$ be two parallel 1-morphisms in $TC_n$. The 2-morphisms from $F$ to $G$ in $TC_n$ consist of:
+\begin{itemize}
+	\item For each edge $ij$ of $[n]$, a natural transformation of $A_i$-$A_j$-bimodule functors
+	\begin{equation*}
+		\theta_{ij}: F_{ij} \to G_{ij}.
+	\end{equation*}
 	\item 
-	\item The higher 2-categories are completely determined by their restriction to ... 
 \end{itemize}
+
+
+
+
+
+%--------- \CSPcomm{I need to edit the below.}
+%
+%\begin{itemize}
+%	\item The $0^\text{th}$ 2-category is the discrete collection tensor categories viewed as a discrete 2-category. 
+%	\item The $1^\text{st}$ 2-category consists of the disjoint union over all pairs of tensor categories $A$ and $B$ of the 2-categories of $A$-$B$-bimodule categories, functors, and natural transformations. 
+%	\item The $2^\text{nd}$ 2-category consists of a disjoint union over all triples of tensor categories $A$, $B$, $C$ of certain 2-categories $TC_2(A,B,C)$. These 2-categories consists of triples of bimodules $ \bimod{A}{L}{B}$, $ \bimod{B}{M}{C}$, $ \bimod{A}{N}{C}$, together with a $B$-balanced $A$-$C$-linear functor $L \times M \to N$ inducing an equivalence $\bimod{A}{L \boxtimes_B M }{C} \cong  \bimod{A}{N }{C}$. The 1-morphisms and 2-morphisms are the obvious ones. 
+%	\item The $3^\text{rd}$ 2-category consists of the disjoint union ...
+%	\item 
+%	\item The higher 2-categories are completely determined by their restriction to ... 
+%\end{itemize}
 
 
 
