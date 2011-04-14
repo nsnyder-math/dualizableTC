@@ -588,7 +588,45 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 \end{proposition}
 
 \begin{proof}
-\CDcomm{[Should we include a proof?]}
+\CDcomm{[Should we include a proof?]} \CSPcomm{Of Course we should include a proof. Jacob omits one, so there is none in the literature, plus we need it as a substitute for the cob hypothesis for our applications to finite tensor cats.}
+
+By assumption we are given 3-morphisms,
+\begin{align*}
+	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
+	\eta_v: id_{id_y} & \Rightarrow v \circ v^L \\
+	\varepsilon_u: u^L \circ u & \Rightarrow id_{id_x} \\
+	\eta_u: id_{f^R \circ f} & \Rightarrow  u \circ u^L
+\end{align*}
+which satisfy the Zig-Zag identities:
+\begin{align*}
+	 id_v  &= (id_v * \varepsilon_v) \circ (\eta_v * id_v)  \\
+	 id_{v^L}  &= (\varepsilon_v * id_{v^L} ) \circ (id_{v^L} * \eta_v)  \\
+	 id_u  &= (id_u * \varepsilon_u) \circ (\eta_u * id_u)  \\
+	 id_{u^L}  &= (\varepsilon_u * id_{u^L} ) \circ (id_{u^L} * \eta_u).  
+\end{align*}
+We must show that the following Zig-Zag identities hold:
+\begin{align*}
+	 (id_{f} * u^L) \circ (v^L * id_{f} ) & \cong id_{f} \\
+ 	 (u^L * id_{f^R}) \circ (id_{f^R} * v^L) & \cong id_{f^R} 
+\end{align*}
+By assumption we may also choose isomorphisms as follows:
+\begin{align*}
+	\alpha: id_f &\stackrel{\cong}{\to} (v * id_f) \circ (id_f * u) \\
+	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} * v) \circ (u * id_{f^R} ).
+\end{align*}
+Then the required isomorphisms are given by the following composites:
+\begin{align*}
+	(id_{f} * u^L) \circ (v^L * id_{f} )
+		& \cong id_f \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
+		& \stackrel{\alpha}{\cong} (v * id_f) \circ (id_f * u) \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
+		&  \stackrel{\varepsilon_u }{\Rightarrow} (v * id_f) \circ (v^L * id_{f} ) \\
+		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f},  \\
+	(u^L * id_{f^R}) \circ (id_{f^R} * v^L) 
+		& \cong  id_{f^R} \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L)  \\
+		& \stackrel{\beta}{\cong}  (id_{f^R} * v) \circ (u * id_{f^R} )  \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L) \\
+		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} * v) \circ (id_{f^R} * v^L) \\
+		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
+\end{align*}
 \end{proof}
 
 In particular, if you are in a situation where you happen to know a priori that the 2-morphisms $u$ and $v$ will have left adjoints, then you know that any adjoint to the 1-morphism $f$ will be ambidextrous.  % This proposition gets used in the Remark in the section computing the Serre automorphism.
