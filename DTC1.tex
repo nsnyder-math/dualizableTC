@@ -167,14 +167,27 @@ Andr\'e Henriques, Scott Morrison, Kevin Walker.
 \CDcomm{Our goal is to define $TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $TC(i)$, which can occur in DTCII.}
 
 \subsection{Linear categories} \label{sec-tc-lincat}
-.
 
-\begin{definition}
+
+\CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
+
 \CDcomm{[2Vect = idempotent complete additive categories enriched in Vect]}
+
+\begin{definition} % This is from EGNO Definition 1.18.2.
+	A $k$-linear abelian category $C$ is {\em finite} if 
+	\begin{enumerate}
+		\item $C$ has finite dimensional spaces of morphisms;
+		\item every object of $C$ has finite length;
+		\item $C$ has enough projectives, i.e. every simple object of $C$ has a projective cover; and
+		\item there are finitely many isomorphism classes of simple objects.  
+	\end{enumerate}
 \end{definition}
 
+It is well known that a finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$. 
 
-\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
+%\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
+
+\CSPcomm{... Deligne tensor product...}
 
 \subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
 
@@ -240,6 +253,50 @@ For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}
 
 \subsubsection*{Generalities on Symmetric Monoidal $(\infty, n)$-Categories}
 
+Let $\Gamma$ be the category introduced by Segal in \cite{Segal-Categories and Cohomology Theories}. The objects of $\Gamma$ are finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. Let $(m) = \{ 1, 2, \dots, m\}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. 
+
+Let $A$ be a finite set. We define a strict 2-category $\lincat(A)$ as follows. Let $P(A)$ denote the powerset of $A$. The objects of $\lincat(A)$ consist of  $P(A)$-tuples of objects on $\lincat$, that is a finite linear category $X(S)$ for each subset $S \subseteq A$, together with the following additional data. Whenever a subset of $A$ may be written as the disjoint union of two subsets $S$ and $S'$, we have a bilinear functor
+\begin{equation*}
+	x_{S,S'}: X(S) \times X(S') \to X(S \sqcup S')
+\end{equation*}
+which realizes $X(S \sqcup S')$ as the Deligne tensor product  $X(S) \boxtimes X(S') $. Whenever a subset of $A$ may be written as the disjoint union of three subsets $S$, $S'$, and $S''$, we have a natural isomorphism of trilinear functors 
+\begin{equation*}
+	\alpha_{S, S', S''}: x_{S \sqcup S', S''}\circ (x_{S,S'} \times 1) \cong x_{S, S' \sqcup S''} \circ (1 \times x_{S', S''}).
+\end{equation*}
+These natural isomorphisms satisfy the evident pentagon identity. Moreover we require that $X(\emptyset) \cong \Vect$, and that for each subset $S$, the bilinear functor $X(S) \times X(\emptyset) \to X(S)$ is the canonical one. 
+
+A morphism $f:X \to Y$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear functors $f_S: X(S) \to Y(S)$, together with natural isomorphisms of bilinear functors $\phi: y_{S,S'} \circ f_S \times f_{S'} \cong f_{S \sqcup S'} \circ x_{S,S'}$. These are required to satisfy the hexagon identity
+\begin{equation*}
+	\CSPcomm{add this...}
+\end{equation*}
+
+The 2-morphisms of $\lincat(A)$
+
+
+ A functor $X:P(A) \to \lincat$ thus consists of an assignment of a finite linear category $X(S)$ for each subset $S \subseteq A$,  a linear functor $x_{S,S'}:X(S) \to X(S')$ for each inclusion $S \subset S'$, and coherent natural isomorphisms $x_{S', S''} \circ x_{S, S'} \cong x_{S,S''}$ for every pair of inclusions $S \subseteq S' \subseteq S''$. These are the objects of a strict 2-category $Fun(P(A), \lincat)$. Whenever a finite set can be expressed union of subsets of $A$ we obtain a bilinear functor
+\begin{equation*}
+\end{equation*}
+
+
+Let $\lincat(A)$ denote the full sub-2-category of  $Fun(P(A), \lincat)$ consisting of those 
+
+
+The Deligne tensor product on $\lincat$ induces a symmetric monoidal structure
+
+ which is symmetric monoidal 
+
+ 
+
+There exists a functor $\lincat:\Gamma^\op \to 2\Cat $, which is defined as follows. 
+
+
+
+
+
+-----
+
+There is a functor $\varphi:\Delta \to \Gamma$, which sends $[m]$ to the set $(m) = \{ 1, 2, \dots, m\}$, and sends $f: [m] \to [n]$ to the function $\varphi_f: i \in (m) \mapsto \{ j \in (n) \; | \: f(i-1) < j \leq f(i) \}$.
+
 Let $\Delta$ be a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. This is the category of combinatorial simplices. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Finally, let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
 \begin{equation} \label{Eqn:Segal-Co-Map}
 \begin{tikzpicture}[baseline = 0.75cm]
@@ -257,7 +314,6 @@ Let $\Delta$ be a skeleton of the category of finite non-empty totally ordered s
 \end{equation}
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
 
-Let $\Gamma$ be the category introduced by Segal in \cite{Segal-Categories and Cohomology Theories}. The objects of $\Gamma$ are finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. There is a functor $\varphi:\Delta \to \Gamma$, which sends $[m]$ to the set $(m) = \{ 1, 2, \dots, m\}$, and sends $f: [m] \to [n]$ to the function $\varphi_f: i \in (m) \mapsto \{ j \in (n) \; | \: f(i-1) < j \leq f(i) \}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. 
 
 
 Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C)$. A {\em category internal to $C$} is such a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
