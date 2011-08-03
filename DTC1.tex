@@ -440,10 +440,13 @@ which realizes $X(S \sqcup S')$ as the Deligne tensor product  $X(S) \boxtimes X
 \end{equation*}
 These natural isomorphisms satisfy the evident pentagon identity. Moreover we require that $X(\emptyset) \cong \Vect$, and that for each subset $S$, the bilinear functor $X(S) \times X(\emptyset) \to X(S)$ is the canonical one. 
 
-A morphism $f:X \to Y$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear functors $f_S: X(S) \to Y(S)$, together with natural isomorphisms of bilinear functors $\phi: y_{S,S'} \circ f_S \times f_{S'} \cong f_{S \sqcup S'} \circ x_{S,S'}$. These are required to satisfy the hexagon identity
+A morphism $f:X \to Y$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear functors $f_S: X(S) \to Y(S)$, together with natural isomorphisms of bilinear functors $\phi_{S,S'}: y_{S,S'} \circ f_S \times f_{S'} \cong f_{S \sqcup S'} \circ x_{S,S'}$. For each triple $S$, $S'$, $S''$ of disjoint subset of $A$, the following hexagon identity holds,
 \begin{equation*}
-	\CSPcomm{add this...}
+	[1 * \alpha^X_{S, S', S''}] \circ [\phi_{S \sqcup S', S''} * 1] \circ [1 *(\phi_{S, S'} \times 1)] = 
+		[\phi_{S, S' \sqcup S''} * 1] \circ [1 * (1 \times \phi_{S', S''})] \circ [\alpha^Y_{S,S', S''} * 1].
 \end{equation*}
+
+
 
 \CSPcomm{
 \begin{itemize}
