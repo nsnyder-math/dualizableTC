@@ -446,11 +446,13 @@ A morphism $f:X \to Y$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear func
 		[\phi_{S, S' \sqcup S''} * 1] \circ [1 * (1 \times \phi_{S', S''})] \circ [\alpha^Y_{S,S', S''} * 1].
 \end{equation*}
 
-
+A 2-morphism $\theta: f \to g$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear natural transformations $\theta_S: f_S \to g_S$, such that for every pair of disjoint subsets $S$, $S'$ of $A$ the following identity holds: 
+\begin{equation*}
+	(\theta_{S\sqcup S'}* 1) \circ \phi^f_{S,S'} = \phi^g_{S,S'} \circ (1 * (\theta_S \times \theta_{S'})).
+\end{equation*}
 
 \CSPcomm{
 \begin{itemize}
-	\item The 2-morphisms of $\lincat(A)$ are ...
 	\item The assignment $A \mapsto \lincat(A)$ gives a strict functor from $\Gamma^\op \simeq \Fin_*$ to strict 2-categories, which we also denote by $\lincat$. 
 	\item $\lincat(A) \simeq \lincat^{\times A}$
 	
