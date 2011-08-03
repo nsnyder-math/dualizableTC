@@ -430,15 +430,24 @@ For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}
 \subsection{The symmetric monoidal 2-category of linear categories} \label{sec-tc-threecat}
 
 
-Let $A$ be a finite set. We define a strict 2-category $\lincat(A)$ as follows. Let $P(A)$ denote the powerset of $A$. The objects of $\lincat(A)$ consist of  $P(A)$-tuples of objects on $\lincat$, that is a finite linear category $X(S)$ for each subset $S \subseteq A$, together with the following additional data. Whenever a subset of $A$ may be written as the disjoint union of two subsets $S$ and $S'$, we have a bilinear functor
-\begin{equation*}
-	x_{S,S'}: X(S) \times X(S') \to X(S \sqcup S')
-\end{equation*}
-which realizes $X(S \sqcup S')$ as the Deligne tensor product  $X(S) \boxtimes X(S') $. Whenever a subset of $A$ may be written as the disjoint union of three subsets $S$, $S'$, and $S''$, we have a natural isomorphism of trilinear functors 
-\begin{equation*}
-	\alpha_{S, S', S''}: x_{S \sqcup S', S''}\circ (x_{S,S'} \times 1) \cong x_{S, S' \sqcup S''} \circ (1 \times x_{S', S''}).
-\end{equation*}
-These natural isomorphisms satisfy the evident pentagon identity. Moreover we require that $X(\emptyset) \cong \Vect$, and that for each subset $S$, the bilinear functor $X(S) \times X(\emptyset) \to X(S)$ is the canonical one. 
+Let $A$ be a finite set. We define a strict 2-category $\lincat(A)$ as follows. Let $P(A)$ denote the powerset of $A$, and let $S$, $S'$, and $S''$ denote various disjoint subsets of $A$. The objects of $\lincat(A)$ consist of  $P(A)$-tuples of objects in $\lincat$, together with some additional data. Thus we have a finite linear category $X(S)$ for each subset $S \subseteq A$. The additional data consists of bilinear functors
+\begin{align*}
+		x_{S,S'}: & \; X(S) \times X(S') \to X(S \sqcup S') \\
+		I: & \; \Vect \to X(\emptyset)
+\end{align*}
+and natural isomorphisms of multi-linear functors
+\begin{align*}
+		\alpha_{S, S', S''}:  & \; x_{S \sqcup S', S''}\circ (x_{S,S'} \times 1) \cong x_{S, S' \sqcup S''} \circ (1 \times x_{S', S''}) \\
+		r_S: & \; x_{S, \emptyset} \circ (1 \times I)  \cong  \textrm{can}^r \\
+		\ell_{S}: & \; x_{ \emptyset, S} \circ (I \times 1)  \cong  \textrm{can}^\ell
+\end{align*}
+where $\textrm{can}^r: X(S) \times \Vect \to X(S)$ is the canonical bilinear functor, and similarly for $\textrm{can}^\ell$. 
+Moreover this data is subject to the following conditions: 
+\begin{enumerate}
+	\item $x_{S,S'}$ realizes $X(S \sqcup S')$ as the Deligne tensor product  $X(S) \boxtimes X(S') $, and $I$ is an isomorphism of linear categories. 
+	\item $	\alpha_{S, S', S''}$ satisfies the evident pentagon identity. 
+	\item $\ell_S$, $r_S$, and $\alpha_{\emptyset, S, \emptyset}$ satisfy the evident triangle identity.
+\end{enumerate}
 
 A morphism $f:X \to Y$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear functors $f_S: X(S) \to Y(S)$, together with natural isomorphisms of bilinear functors $\phi_{S,S'}: y_{S,S'} \circ f_S \times f_{S'} \cong f_{S \sqcup S'} \circ x_{S,S'}$. For each triple $S$, $S'$, $S''$ of disjoint subset of $A$, the following hexagon identity holds,
 \begin{equation*}
@@ -451,11 +460,16 @@ A 2-morphism $\theta: f \to g$ in $\lincat(A)$ consists of a $P(A)$-tuple of lin
 	(\theta_{S\sqcup S'}* 1) \circ \phi^f_{S,S'} = \phi^g_{S,S'} \circ (1 * (\theta_S \times \theta_{S'})).
 \end{equation*}
 
+
+The assignment $A \mapsto \lincat(A)$ gives a strict functor from $\Gamma^\op \simeq \Fin_*$ to strict 2-categories, which by abuse of notation we will also denote by $\lincat$. 
+
+
+
 \CSPcomm{
 \begin{itemize}
-	\item The assignment $A \mapsto \lincat(A)$ gives a strict functor from $\Gamma^\op \simeq \Fin_*$ to strict 2-categories, which we also denote by $\lincat$. 
+	\item 
 	\item $\lincat(A) \simeq \lincat^{\times A}$
-	
+	\item somehow do a similar thing for tensor cats and bimodule cats?
 \end{itemize}
 
 }
