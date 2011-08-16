@@ -855,243 +855,55 @@ For $M$ a 3-manifold, the natural forgetful map from stably framed structures to
 \subsection{Fusion categories are dualizable} \label{sec-df-fcd}
 
 
-\subsubsection{Functors of finite semisimple module categories have adjoints} \label{sec-df-functors}
+\subsubsection{Adjoints of bimodule functors} \label{sec-df-functors}
 
-\CD{cf ENOPartII "Solution to item (1)"}
+In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule functor $\cF: \cM \rightarrow \cN$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has adjoints.
 
-\begin{lemma}
-Let $F: \bimod{\cC}{\cM}{\cD} \ra \bimod{\cC}{\cN}{\cD}$ be a functor of bimodule categories, and suppose the underlying functor $\tilde{F}: \cM \ra \cN$ of linear categories has an ambidextrous adjoint $\tilde{G}: \cN \ra \cM$.  Then $F$ has an ambidextrous adjoint $G: \bimod{\cC}{\cN}{\cD} \ra \bimod{\cC}{\cM}{\cD}$.
+\begin{lemma} \label{module-adjoint}
+If $\cC$ is a rigid monoidal category, $\cM$ and $\cN$ are left-module categories over $\cC$, and $\cF: \cM \rightarrow \cN$ is functor of underlying categories which has a right adjoint $\cG$, then $\cG$ has a natural module functor structure.  Similalry a left adjoint to a module functor has a natural module functor structure.  These results also hold for right module categories and bimodule categories.
 \end{lemma}
-
 \begin{proof}
-\CDcomm{Look at the wave}
+The binatural transformation $X \otimes G(n) \rightarrow G(x \otimes n)$ is given by
+$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes)$$
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ guarantees that this binatural transformation is a natural isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
 \end{proof}
-
-\begin{lemma}
-Let $F: \bimod{\cC}{\cM}{\cD} \ra \bimod{\cC}{\cN}{\cD}$ be a functor of bimodule categories.  If $\cM$ and $\cN$ are semisimple categories with finitely many simple objects, then the functor $\tilde{F}: \cM \ra \cN$ of linear categories underlying $F$ has an ambidextrous adjoint.
-\end{lemma}
-
-\begin{proof}
-\CDcomm{The ambidextrous adjoint $\rd{F}$ is given by the transpose of the entrywise dual of $F$.  That is, write $F$ as a matrix of vector spaces in terms of a chosen basis of simple objects for $M$ and $N$, then take the matrix of dual vector spaces, and take the transpose.}
-...
-\end{proof}
-
-\begin{proposition} \label{prop-functadj}
-A functor $F: \bimod{\cC}{\cM}{\cD} \ra \bimod{\cC}{\cN}{\cD}$ of bimodules categories has an ambidextrous adjoint if the linear categories $\cM$ and $\cN$ are semisimple with finitely many simple objects.
-\end{proposition}
-
-This proposition follows from the above two lemmas.
-
-
-\subsubsection{Indecomposable modules with braided fusion commutant have adjoints} \label{sec-df-modules}
-
-
-\begin{lemma} \label{lemma-invertible}
-Let $\cC$ be a fusion category and $\cM$ an indecomposable $\cC$-module.  Let $\cC'$ denote the commutant of $\cC$ acting on $\cM$.  In this case the bimodule $\bimod{\cC}{\cM}{\cC'}$ is invertible, \CDcomm{with inverse $\bimod{\cC'}{\Hom_{\cC}(\cM,\cC)}{\cC}$}.
-\end{lemma}
-
-\begin{proof}
-\CDcomm{See ENOPartIII Apr 7 "Lemma: When C is fusion" for a sketch.}
-
-\CDcomm{Can this be shown only using that C is semisimple?}
-
-\CDcomm{Crucial point: the inverse is given by $\Hom_C(M,C)$, right?.  Emphasize this.}
-\end{proof}
-
-In the situation of this lemma we will abbreviate the inverse \CDcomm{$\bimod{\cC'}{\Hom_{\cC}(\cM,\cC)}{\cC}$} of $\bimod{\cC}{\cM}{\cC'}$ by $\bimod{\cC'}{\cN}{\cC}$.
-
-\begin{lemma} \label{lemma-conditional}
-Let $\cC$ be a fusion category and $\cM$ an indecomposable $\cC$-module such that the commutant $\cC'$ of the $\cC$ action on $\cM$ is bradied fusion.  In this case there exist maps
-\begin{itemize}
-\item[] $\lambda : \bimod{\Vect}{\cC' \dtimes_{\cC'} \cC'}{\Vect} \dra \bimod{\Vect}{\Vect}{\Vect}$
-\item[] $\mu : \bimod{\cC'}{\cC'}{\cC'} \dra \bimod{\cC'}{\cC' \dtimes \cC'}{\cC'}$
-\end{itemize}
-that form an adjunction
-$$\bimod{\Vect}{\cC'}{\cC'} \adj \bimod{\cC'}{\cC'}{\Vect}.$$
-\end{lemma}
-\nid We refer to $\lambda$ and $\mu$ as "conditional expectation" maps.
-\CD{If we have anything to say about the existence of conditional expectations when neither tensor category is $\Vect$, then this proposition can be generalized to that case.  In that case, the theorem below might also be able to be generalized.}
-\CD{Do you need to assume fusion for the commutant, or is something weaker enough?}
-\CD{Do you need to assume $\cC$ is fusion?}
-
-\begin{proof}
-\CD{cf ENOPartIII "Proposition3".}
-The first map $\lambda : \cC' \ra \Vect$ is defined by $\lambda(x) = \Hom_{\cC'}(1,x)$.  The second map $\mu : \cC' \ra \cC' \dtimes \cC'$ is determined, using the left $\cC'$-module structure, by the condition that
-$$\mu(1) = \sum_{\sigma \in \cI} \ld{\sigma} \dtimes \sigma.$$
-Here $\cI$ is a basis of simple objects of $\cC'$.
-
-By construction $\mu$ is a left module map, but we also need to give $\mu$ the structure of a right module map.  It is sufficient to check that for $\tau \in \cC'$ simple, there is an isomorphism
-$$\sum_{\sigma \in \cI} {\ld{\sigma}} \dtimes \sigma \tau  \cong  \sum_{\sigma \in \cI} \tau {(\ld{\sigma})} \dtimes \sigma$$
-\CD{Is that right that there is no further condition, ie you pick the module structure to be whatever iso you want on each simple, and that's it?}
-Let $N^a_{bc}$ denote the vector spaces defining the tensor structure on the tensor category $\cC'$.  We have a series of isomorphisms
-\begin{align}
-\sum_{\sigma \in \cI} {\ld{\sigma}} \dtimes \sigma \tau
-& =
-\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {\ld{\sigma} \dtimes \rho} \nn \\
-& \cong{(1)}
-\sum_{\sigma,\rho \in \cI} N^{\ld{\sigma}}_{\tau {(\ld{\rho}})} {\ld{\sigma} \dtimes \rho} \nn \\
-& \cong{(2)}
-\sum_{\sigma,\rho \in \cI} N^{\ld{\sigma}}_{{(\ld{\rho})} \tau} {\ld{\sigma} \dtimes \rho} \nn \\
-& \cong{(3)}
-\sum_{\sigma,\rho \in \cI} N^{\rho}_{\sigma \tau} {\rho \dtimes \rd{\sigma}} \nn \\
-& =
-\sum_{\sigma \in \cI} \sigma \tau \dtimes {\rd{\sigma}} \nn \\
-& \cong{(4)}
-\sum_{\sigma \in \cI} \tau {(\ld{\sigma})} \dtimes \sigma \nn 
-\end{align}
-The first isomorphism $N^{\rho}_{\sigma \tau} \cong N^{\ld{\sigma}}_{\tau {(\ld{\rho}})}$ exists by the standard properties of structure constants for fusion categories. \CDcomm{say more?}
-Because $\cC'$ is braided, the constant $N^{\ld{\sigma}}_{\tau {(\ld{\rho}})}$ is isomorphic to $N^{\ld{\sigma}}_{{(\ld{\rho}}) \tau}$, giving the second isomorphism.  Reindexing the sum by substituting $\rd{\rho}$ for $\sigma$ and $\rd{\sigma}$ for $\rho$ provides the third isomorphism.  Braiding $\sigma$ and $\tau$ and then substituting $\ld{\sigma}$ for $\sigma$ produces the fourth isomorphism.  \CD{Was \emph{that} the argument? Using the braiding twice?}
-
-Finally we need to know that the maps $\lambda$ and $\mu$ do indeed satisfy the adjunction S-relations.  The first relation is the composite
-$$\bimod{\Vect}{\cC'}{\cC'} = \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes_{\cC'} \cC' \dtimes \cC' \ra \Vect \dtimes \cC' = \cC'$$
-sending $1$ to $\sum_{\sigma \in \cI} \Hom(1,\ld{\sigma}) \sigma = Hom(1, \ld{1}) 1 = Hom(1 \cdot 1, 1) 1 = 1$.
-The second relation is the composite
-$$\bimod{\cC'}{\cC'}{\Vect} = \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes \Vect = \cC'$$
-sending $1$ to $\sum_{\sigma \in \cI} \ld{\sigma} \Hom(1,\sigma) = \ld{1} = 1$.  Both maps are indeed equivalent to the identity.
-
-
-\end{proof}
-
-
-\begin{theorem} \label{thm-indecompbraided}
-Let $\cC$ be a tensor category and $\cM$ an indecomposable $\cC$-module.  If the commutant $\cC'^{\cM}$ is a braided fusion category, then the bimodule $\bimod{\cC}{\cM}{\Vect}$ has an ambidextrous adjoint, \CDcomm{namely $\bimod{\Vect}{\Hom_{\cC}(\cM,\cC)}{\cC}$}.
-\end{theorem}
-
-\CD{cf ENOPartIII "Proof details" etc.}
-\begin{proof}
-Let $\bimod{\cC'}{\cN}{\cC}$ abbreviate the inverse \CDcomm{$\bimod{\cC'}{\Hom_{\cC}(\cM,\cC)}{\cC}$} of the bimodule $\bimod{\cC}{\cM}{\cC'}$ provided by Lemma~\ref{lemma-invertible}.  We will construct an ambidextrous adjunction
-$$\bimod{\cC}{\cM}{\Vect} \ambadj \bimod{\Vect}{\cN}{\cC}.$$
-
-First we build the adjunction
-$$\bimod{\cC}{\cM}{\Vect} \adj \bimod{\Vect}{\cN}{\cC}$$
-as follows.  Write the bimodules $\bimod{\cC}{\cM}{\Vect}$ and $\bimod{\Vect}{\cN}{\cC}$ as tensor products:
-$$\cM = \cM \dtimes_{\cC'} \cC'$$
-$$\cN = \cC' \dtimes_{\cC'} \cN$$
-The desired adjunction is the composite of the following two adjunctions:
-\begin{enumerate}
-\item $\bimod{\cC'}{\cC'}{\Vect} \adj \bimod{\Vect}{\cC'}{\cC'}$
-\item $\bimod{\cC}{\cM}{\cC'} \adj \bimod{\cC'}{\cN}{\cC}$
-\end{enumerate}
-The bimodules $\bimod{\cC}{\cM}{\cC'}$ and $\bimod{\cC'}{\cN}{\cC}$ are inverse by construction, therefore adjoint as needed.  The unit and counit for the first adjunction are given by
-\begin{itemize}
-\item[] $\phi: \cC' \dtimes \cC' \ra \cC' \dtimes_{\cC'} \cC' = \cC'$
-\item[] $\psi: \Vect \ra \cC' = \cC' \dtimes_{\cC'} \cC'$
-\end{itemize}
-The S-relations for this unit and counit can be checked as follows:
-\begin{itemize}
-\item[] $\bimod{\cC'}{\cC'}{\Vect} = \cC' \dtimes \Vect \ra \cC' \dtimes \cC' = \cC' \dtimes \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cC' = \cC' \dtimes_{\cC'} \cC' = \cC'$
-\item[] $\bimod{\Vect}{\cC'}{\cC'} = \Vect \dtimes \cC' \ra \cC' \dtimes \cC' = \cC' \dtimes_{\cC'} \cC' \dtimes \cC' \ra \cC' \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cC' \ra \cC' \dtimes_{\cC'} \cC' = \cC'$
-\end{itemize}
-\CD{The above adjunction could be generalized to $\cD$ instead of $\Vect$.}
-
-Explicitly, the unit and counit for the adjunction $\bimod{\cC}{\cM}{\Vect} \adj \bimod{\Vect}{\cN}{\cC}$ are respectively the composites:
-\begin{itemize}
-\item[] $\cM \dtimes \cN = (\cM \dtimes_{\cC'} \cC') \dtimes (\cC' \dtimes_{\cC'} \cN) \xra{\phi} \cM \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cN = \cM \dtimes_{\cC'} \cN \cong \cC$
-\item[] $\Vect \xra{\psi} \cC' \dtimes_{\cC'} \cC' = \cC' \dtimes_{\cC'} \cC' \dtimes_{\cC'} \cC' \cong \cC' \dtimes_{\cC'} \cN \dtimes_{\cC} \cM \dtimes_{\cC'} \cC' = \cN \dtimes_{\cC} \cM$
-\end{itemize}
-
-Second we construct an adjunction
-$$\bimod{\Vect}{\cN}{\cC} \adj \bimod{\cC}{\cM}{\Vect}.$$
-Again this adjunction is constructed as the composite of two adjunctions, namely
-\begin{enumerate}
-\item $\bimod{\Vect}{\cC'}{\cC'} \adj \bimod{\cC'}{\cC'}{\Vect}$
-\item $\bimod{\cC'}{\cN}{\cC} \adj \bimod{\cC}{\cM}{\cC'}$
-\end{enumerate}
-The bimodules $\bimod{\cC'}{\cN}{\cC}$ and $\bimod{\cC}{\cM}{\cC'}$ are inverse, so again adjoint as needed.  The unit and counit for the first adjunction, namely
-\begin{itemize}
-\item[] $\lambda : \bimod{\Vect}{\cC' \dtimes_{\cC'} \cC'}{\Vect} \dra \bimod{\Vect}{\Vect}{\Vect}$
-\item[] $\mu : \bimod{\cC'}{\cC'}{\cC'} \dra \bimod{\cC'}{\cC' \dtimes \cC'}{\cC'}$,
-\end{itemize}
-are provided by Lemma~\ref{lemma-conditional}.
-\CD{Since this adjunction depends on the lemma, which depends on $\cD = \Vect$, we don't know how to generalize this part at the moment.}
-\end{proof}
-
-
-     
-\subsubsection{Fusion categories have duals} \label{sec-df-categories}
-
-\begin{theorem} \label{thm-fcd}
-[... fusion categories have duals ...]
-\end{theorem}
-
 
 \begin{remark}
-In non-zero characteristic, it is not the case that all fusion categories are dualizable.  In particular, if the global dimension of a fusion category is zero, then the category cannot be dualizable.
+If $\cC$ is not rigid the above argument only shows that the right adjoint to a lax module functor has an oplax module functor structure, while the left adjoint of an oplax module functor has a lax module functor structure.  
 \end{remark}
 
-Recalling the discussion of dualizability in 3-categories from Section~\ref{sec-lft-dual}, the theorem follows from the following three propositions.
+\begin{proposition}
+If $\cC$ and $\cD$ are finite abelian categories and $\cF: \cC \rightarrow \cD$ is a left exact functor, then $\cF$ has a right adjoint.  If $\cF$ is right exact then it has a left adjoint functor.
+\end{proposition}
+\begin{proof}
+This follows from checking the conditions of the Adjoint Functor Theorem.
+\end{proof}
 
 \begin{proposition}
-Every tensor category $\cC \in \TC$ has a dual in the homotopy category of $\TC$, namely the monoidal opposite category $\cC^{\mp}$.
-\end{proposition}
-%\nid Here the tensor category $\cC^{\mp}$ has the same underlying category as $\cC$ but with the opposite tensor structure.
-
-\begin{proof}
-The evaluation of the duality is $\cC$ as a $\cC \dtimes \cC^{\mp}$--$\Vect$ bimodule.  The coevaluation of the duality is $\cC$ as a $\Vect$--$\cC^{\mp} \dtimes \cC$ bimodule.
-\end{proof}
-
-\begin{proposition} \label{prop-moduleadj}
-Let $\cC$ be a fusion category.  The evaluation $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect}$ and coevaluation $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC}$ of the duality between $\cC$ and $\cC^{\mp}$ both have ambidextrous adjoints.
+If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are module categories over $\cC$ with $\cM$ exact, then any module category functor $\cF:\cM \rightarrow \cN$ is exact.
 \end{proposition}
 
+\begin{corollary}
+Let $\cC$ and $\cD$ be rigid monoidal categories, let $\cB$ a finite tensor category, let $\cM$ and $\cN$ be $\cC$-$\cD$ bimodules which are also left $\cB$-module categories where $\cM$ is exact as a $\cB$-module category, and let $\cF: \cM \rightarrow \cN$ be a $\cC$-$\cD$ bimodule functor which also has the structure of $\cB$-module functor.  Then $\cF$ has both a left and right adjoint as a $\cC$-$\cD$ bimodule functor.
+\end{corollary}
 \begin{proof}
-The evaluation category $\cC$ is indecomposable as a $\cC \dtimes \cC^{\mp}$-module, and the commutant of this module structure is the Drinfeld center $Z(\cC)$ which is braided fusion, by [...].  Theorem~\ref{thm-indecompbraided} therefore ensures that this module has an ambidextrous adjoint.  \CDcomm{The argument for the coevaluation is analogous.} \CD{It is analogous, right??}
+Exactness of $\cM$ as a $\cB$ module gurantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a bimodule functor.
 \end{proof}
 
-Let $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect} \ambadj \bimod{\Vect}{\cD_1}{\cC \dtimes \cC^{\mp}}$ and $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC} \ambadj \bimod{\cC^{\mp} \dtimes \cC}{\cD_2}{\Vect}$ denote the ambidextrous adjoints provided by Proposition~\ref{prop-moduleadj}.
+\begin{remark}
+In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \otimes \cD^{mp}$.
+\end{remark}
 
-\begin{proposition}
-For $\cC$ a fusion category, the units and counits of the four adjunctions $\bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect} \adj \cD_1$, $\cD_1 \adj \bimod{\cC \dtimes \cC^{\mp}}{\cC}{\Vect}$, $\bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC} \adj \cD_2$, and $\cD_2 \adj \bimod{\Vect}{\cC}{\cC^{\mp} \dtimes \cC}$ all have ambidextrous adjoints.
-\end{proposition}
-
+\begin{corollary}
+If $\cC$ and $\cD$ are fusion categories, $\cM$ and $\cN$ are semisimple linear $\cC$-$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a module category functor, then $\cF$ has both a left and a right adjoint as a module functor.
+\end{corollary}
 \begin{proof}
-\CDcomm{Need to know that the inverse bimodule provided by Lemma~\ref{lemma-invertible} is finite semisimple.  Given that, this follows from Proposition~\ref{prop-functadj}. (This uses the fact that $A \dtimes_{\cC} B$ is finite semisimple if $A,B,\cC$ all are.)}
-...
+Apply the above corollary with $\cB = \mathrm{Vec}$.
 \end{proof}
 
+\subsubsection{Adjoints of bimodules}  \label{sec-df-modules}
 
-\subsection{Examples of dualization structures} \label{sec-df-examples}
-
-For a variety of fusion categories, we explicitly describe the dualization structure provided by Theorem~\ref{thm-fcd}, namely the dual categories and the adjunctions and higher adjunctions for the adjunctions, and so on.  Throughout we use implicitly that the adjunctions are all ambidextrous. 
-
-\begin{example}
-$Rep(Z/2) = \{\CC[x]/(x^2-1)\}-\mod$ (Symmetric)
-[Start this by copying the content from Wave "Rep(Z/2)", ENO Part III, on Jun 22.]
-\end{example}
-
-\begin{example}
-Here we give an example of a tensor category that is not fusion, namely $\{\CC[x]/x^2\}-\mod$ and highlight the failure of dualizability. \CDcomm{Prove that this category is not dualizable.  Cf Wave ENO Part III on May 4 search for "An example to consider", and Wave ENO Part III on Jun 17, search for "is still not fully dualizable".}
-\end{example}
-
-\begin{example}
-$Vect[G,\lambda]$ for some simple $G$ and $\lambda$?
-\end{example}
-
-\begin{example}
-Fibonacci category (Modular)
-\end{example}
-
-\begin{example}
-$D_4$ (or even part of $E_6$) as small non-braided category.  $Z(D_4) = A_5 [x] Z/3$.
-\end{example}
-
-
-%\subsubsection{Duals of 0-morphisms} All tensor categories have dual tensor categories.
-%\subsubsection{Duals of 1-morphisms} 
-%\subsubsection{Duals of 2-morphisms}
-
-%
-% CD: I have commented out this subsection, as I think it will really end up being in DTCII.
-% 
-% \subsection{Dualizable tensor categories are fusion} \label{sec-df-dtcf}
-%
-% \CD{This section might be omitted in a future version of this paper, or the title modified as appropriate.}
-
-
-
-
-
-
+In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category to have left and right adjoints.
 
 
 %%%%%%%%%%
