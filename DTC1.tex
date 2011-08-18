@@ -153,7 +153,7 @@ A precise formulation of this result, in terms of a descent condition for the bo
 
 
 \subsection*{Acknowledgments}
-Andr\'e Henriques, Scott Morrison, Kevin Walker.
+Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morrison, Kevin Walker.
 
 \CD{CD's comment color}
 \CSP{CSP's comment color}
@@ -860,34 +860,36 @@ For $M$ a 3-manifold, the natural forgetful map from stably framed structures to
 In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule functor $\cF: \cM \rightarrow \cN$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has adjoints.
 
 \begin{lemma} \label{module-adjoint}
-If $\cC$ is a rigid monoidal category, $\cM$ and $\cN$ are left-module categories over $\cC$, and $\cF: \cM \rightarrow \cN$ is functor of underlying categories which has a right adjoint $\cG$, then $\cG$ has a natural module functor structure.  Similalry a left adjoint to a module functor has a natural module functor structure.  These results also hold for right module categories and bimodule categories.
+Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  If the underlying functor $\cF$ has a right (or left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint in $\Hom_{\TCrig}(\cN,\cM)$.
 \end{lemma}
 \begin{proof}
-The binatural transformation $X \otimes G(n) \rightarrow G(x \otimes n)$ is given by
+Suppose that $\cG$ is the right adjoint to $\cF$, we will show that $\cG$ has a natural structure of a $\cC\otimes \cD^{mp}$-module category.  The result for left adjoints is similar.
+
+The binatural transformation $\psi_{x,n} x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes)$$
-where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ guarantees that this binatural transformation is a natural isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is a natural isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
 \end{proof}
 
 \begin{remark}
-If $\cC$ is not rigid the above argument only shows that the right adjoint to a lax module functor has an oplax module functor structure, while the left adjoint of an oplax module functor has a lax module functor structure.  
+If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a lax module functor has an oplax module functor structure, while the left adjoint of an oplax module functor has a lax module functor structure.  
 \end{remark}
 
 \begin{proposition}
 If $\cC$ and $\cD$ are finite abelian categories and $\cF: \cC \rightarrow \cD$ is a left exact functor, then $\cF$ has a right adjoint.  If $\cF$ is right exact then it has a left adjoint functor.
 \end{proposition}
 \begin{proof}
-This follows from checking the conditions of the Adjoint Functor Theorem.
+
 \end{proof}
 
 \begin{proposition}
-If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are module categories over $\cC$ with $\cM$ exact, then any module category functor $\cF:\cM \rightarrow \cN$ is exact.
+If $\cB$ is a finite tensor category and $\cM$ and $\cN$ are module categories over $\cB$ with $\cM$ exact, then any module category functor $\cF:\cM \rightarrow \cN$ is exact.
 \end{proposition}
 
 \begin{corollary}
-Let $\cC$ and $\cD$ be rigid monoidal categories, let $\cB$ a finite tensor category, let $\cM$ and $\cN$ be $\cC$-$\cD$ bimodules which are also left $\cB$-module categories where $\cM$ is exact as a $\cB$-module category, and let $\cF: \cM \rightarrow \cN$ be a $\cC$-$\cD$ bimodule functor which also has the structure of $\cB$-module functor.  Then $\cF$ has both a left and right adjoint as a $\cC$-$\cD$ bimodule functor.
+Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$ module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$ module category.  If $\cM$ is exact as a $\cB$ module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
 \end{corollary}
 \begin{proof}
-Exactness of $\cM$ as a $\cB$ module gurantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a bimodule functor.
+Exactness of $\cM$ as a $\cB$ module guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$-$\cD$ bimodule functor.
 \end{proof}
 
 \begin{remark}
@@ -895,7 +897,7 @@ In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $
 \end{remark}
 
 \begin{corollary}
-If $\cC$ and $\cD$ are fusion categories, $\cM$ and $\cN$ are semisimple linear $\cC$-$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a module category functor, then $\cF$ has both a left and a right adjoint as a module functor.
+Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
 \end{corollary}
 \begin{proof}
 Apply the above corollary with $\cB = \mathrm{Vec}$.
@@ -903,8 +905,15 @@ Apply the above corollary with $\cB = \mathrm{Vec}$.
 
 \subsubsection{Adjoints of bimodules}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category to have left and right adjoints.
+In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.
 
+\begin{definition}
+Let $\cC, \cD \in \TCrig$, and let $\cM \in \Hom_\TCrig(\cC, \cD)$.  Define the left opposite module category $\cM^{R} \in  \Hom_\TCrig(\cD, \cC)$ to be $\cM^{op}$ as a category with the action $d \cdot m \cdot c$ given by $c^* \otimes m \otimes {}^*d$.   Define the right opposite module category $\cM^{L} \in  \Hom_\TCrig(\cD, \cC)$ to be $\cM^{op}$ as a category with the action $d \cdot m \cdot c$ given by ${}^*c \otimes m \otimes d^*$.
+\end{definition}
+
+\begin{proposition}
+The bimodule functor ${}_\cD \cM^L \dtimes_\cC \cN_\cD \rightarrow {}_\cD \Fun_\cC(\cM,\cN)_\cD$ given by $x \otimes y \mapsto \IHom(x,y)$ is an isomorphism.
+\end{proposition}
 
 %%%%%%%%%%
 
