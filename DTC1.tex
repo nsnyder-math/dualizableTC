@@ -905,15 +905,13 @@ Apply the above corollary with $\cB = \mathrm{Vec}$.
 
 \subsubsection{Adjoints of bimodules}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.
+In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is $\Fun_\cC(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by $\Fun_\cD(\cM, \cD)$.
 
-\begin{definition}
-Let $\cC, \cD \in \TCrig$, and let $\cM \in \Hom_\TCrig(\cC, \cD)$.  Define the left opposite module category $\cM^{R} \in  \Hom_\TCrig(\cD, \cC)$ to be $\cM^{op}$ as a category with the action $d \cdot m \cdot c$ given by $c^* \otimes m \otimes {}^*d$.   Define the right opposite module category $\cM^{L} \in  \Hom_\TCrig(\cD, \cC)$ to be $\cM^{op}$ as a category with the action $d \cdot m \cdot c$ given by ${}^*c \otimes m \otimes d^*$.
-\end{definition}
 
-\begin{proposition}
-The bimodule functor ${}_\cD \cM^L \dtimes_\cC \cN_\cD \rightarrow {}_\cD \Fun_\cC(\cM,\cN)_\cD$ given by $x \otimes y \mapsto \IHom(x,y)$ is an isomorphism.
-\end{proposition}
+
+\begin{lemma}
+If $\cC$ is a finite tensor category and $\cM$ is a finite module category over $\cC$ then $\Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM \cong \Fun_{\cC}(\cM,\cM)$.
+\end{lemma}
 
 %%%%%%%%%%
 
