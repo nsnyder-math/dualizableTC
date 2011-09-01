@@ -905,13 +905,43 @@ Apply the above corollary with $\cB = \mathrm{Vec}$.
 
 \subsubsection{Adjoints of bimodules}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is $\Fun_\cC(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by $\Fun_\cD(\cM, \cD)$.
+In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is the category of left exact left module functors $\Fun_\cC(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of left exact right module functors $\Fun_\cD(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and left exactness of the module actions.
 
+\begin{lemma}
+The map $\ev: \Fun_\cD(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ is an equivalence of $\cD$-$\cD$ bimodule categories.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_\cC(\cM, \cC) \rightarrow \cC$ is an equivalence of $\cC$-$\cC$ bimodule categories.
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+The maps $\ev$ give the counits of the adjunctions.  The units of the adjunctions are more delicate, since it is more difficult to describe maps out of a tensor product than maps into a tensor product.  In order to describe the units we first give an alternate description of the tensor product as a category of functors.
 
 
 \begin{lemma}
-If $\cC$ is a finite tensor category and $\cM$ is a finite module category over $\cC$ then $\Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM \cong \Fun_{\cC}(\cM,\cM)$.
+The map $\Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM \rightarrow \Fun_{\cC}(\cM,\cM)$ induced by $(f,m) \mapsto (x \mapsto f(x)m)$ is an equivalence of $\cD$-$\cD$ bimodules.
 \end{lemma}
+
+\begin{lemma}
+The map $\coev: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
+\end{lemma}
+
+\begin{theorem}
+$\ev$ and $\coev$ are the unit and counit of an adjunction.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+It will sometimes be convenient to have an alternative description of the left and right adjoints to $\cM$.
+
+\begin{lemma}
+Let ${}^*\cM$ denote the $\cD$-$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c m {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$-$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* m d^*$.  We have that ${}^*\cM \cong \Fun_\cD(\cM, \cD)$ and $\cM^* \cong \Fun_\cC(\cM, \cC)$.
+\end{lemma}
+
+\begin{remark}
+Combining Lemmas ??? we have  $\cM^* \boxtimes_\cC \cM \rightarrow \Fun_{\cC}(\cM,\cM)$.  This is Lemma ??? from \cite{???}, but the reader should be warned that the result stated in that paper is not correct for bimodule categories. 
+\end{remark}
 
 %%%%%%%%%%
 
