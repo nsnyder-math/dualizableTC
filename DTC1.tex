@@ -849,13 +849,10 @@ For $M$ a 3-manifold, the natural forgetful map from stably framed structures to
 
 
 
-\section{Dualizability and fusion categories} \label{sec-dualfusion}
+\section{Dualizability and tensor categories} \label{sec-dualfusion}
 
 
-\subsection{Fusion categories are dualizable} \label{sec-df-fcd}
-
-
-\subsubsection{Adjoints of bimodule functors} \label{sec-df-functors}
+\subsection{Adjoints of bimodule functors} \label{sec-df-functors}
 
 In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule functor $\cF: \cM \rightarrow \cN$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has adjoints.
 
@@ -863,11 +860,11 @@ In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule functo
 Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  If the underlying functor $\cF$ has a right (or left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint in $\Hom_{\TCrig}(\cN,\cM)$.
 \end{lemma}
 \begin{proof}
-Suppose that $\cG$ is the right adjoint to $\cF$, we will show that $\cG$ has a natural structure of a $\cC\otimes \cD^{mp}$-module category.  The result for left adjoints is similar.
+Suppose that $\cG$ is the right adjoint to $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module category.  The result for left adjoints is similar.
 
-The binatural transformation $\psi_{x,n} x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by
-$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes)$$
-where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is a natural isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
+The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by
+$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
 \end{proof}
 
 \begin{remark}
@@ -889,11 +886,11 @@ If $\cB$ is a finite tensor category and $\cM$ and $\cN$ are module categories o
 Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$ module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$ module category.  If $\cM$ is exact as a $\cB$ module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
 \end{corollary}
 \begin{proof}
-Exactness of $\cM$ as a $\cB$ module guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$-$\cD$ bimodule functor.
+Exactness of $\cM$ as a $\cB$ module guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$--$\cD$ bimodule functor.
 \end{proof}
 
 \begin{remark}
-In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \otimes \cD^{mp}$.
+In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.
 \end{remark}
 
 \begin{corollary}
@@ -903,12 +900,12 @@ Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
 Apply the above corollary with $\cB = \mathrm{Vec}$.
 \end{proof}
 
-\subsubsection{Adjoints of bimodules}  \label{sec-df-modules}
+\subsection{Adjoints of bimodules}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is the category of left exact left module functors $\Fun_\cC(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of left exact right module functors $\Fun_\cD(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and left exactness of the module actions.
+In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is the category of left exact left module functors $\Fun_{\cC\text{-mod}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of left exact right module functors $\Fun_{\text{mod}-\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and left exactness of the module actions.
 
 \begin{lemma}
-The map $\ev: \Fun_\cD(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ is an equivalence of $\cD$-$\cD$ bimodule categories.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_\cC(\cM, \cC) \rightarrow \cC$ is an equivalence of $\cC$-$\cC$ bimodule categories.
+The map $\ev: \Fun_{\text{mod}-\cD}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ is an equivalence of $\cD$--$\cD$ bimodule categories.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC\text{-mod}}(\cM, \cC) \rightarrow \cC$ is an equivalence of $\cC$--$\cC$ bimodule categories.
 \end{lemma}
 \begin{proof}
 
@@ -918,11 +915,11 @@ The maps $\ev$ give the counits of the adjunctions.  The units of the adjunction
 
 
 \begin{lemma}
-The map $\Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM \rightarrow \Fun_{\cC}(\cM,\cM)$ induced by $(f,m) \mapsto (x \mapsto f(x)m)$ is an equivalence of $\cD$-$\cD$ bimodules.
+The map $\Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cM \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cM)$ induced by $(f,m) \mapsto (x \mapsto f(x)m)$ is an equivalence of $\cD$--$\cD$ bimodules.
 \end{lemma}
 
 \begin{lemma}
-The map $\coev: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
+The map $\coev: \cD \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cM) \cong \Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$--$\cD$ bimodules.  Similarly, the map $\coev: \cC \rightarrow \Fun_{\text{mod}-\cD}(\cM,\cM) \cong \Fun_{\text{mod}-\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$--$\cC$ bimodules.
 \end{lemma}
 
 \begin{theorem}
@@ -936,14 +933,58 @@ $\ev$ and $\coev$ are the unit and counit of an adjunction.
 It will sometimes be convenient to have an alternative description of the left and right adjoints to $\cM$.
 
 \begin{lemma}
-Let ${}^*\cM$ denote the $\cD$-$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c m {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$-$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* m d^*$.  We have that ${}^*\cM \cong \Fun_\cD(\cM, \cD)$ and $\cM^* \cong \Fun_\cC(\cM, \cC)$.
+Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  We have that ${}^*\cM \cong \Fun_{\text{mod}-\cD}(\cM, \cD)$ and $\cM^* \cong \Fun_{\cC\text{-mod}}(\cM, \cC)$.
 \end{lemma}
+\begin{proof}
+The isomorphism ${}^*\cM \rightarrow \Fun_{\text{mod}-\cD}(\cM, \cD)$ is given by the internal Hom, namely $m \mapsto \underline{\Hom}(m, \bullet)$.
+\end{proof}
 
 \begin{remark}
-Combining Lemmas ??? we have  $\cM^* \boxtimes_\cC \cM \rightarrow \Fun_{\cC}(\cM,\cM)$.  This is Lemma ??? from \cite{???}, but the reader should be warned that the result stated in that paper is not correct for bimodule categories. 
+Combining Lemmas ??? we have  $\cM^* \boxtimes_\cC \cM \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cM)$.  This is Lemma ??? from \cite{???}, but the reader should be warned that the result stated in that paper is not correct for bimodule categories. 
 \end{remark}
 
+\subsection{Duals of objects} \label{sec-df-objects}
+
+In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the unit is $\cC$ as a $\mathrm{Vec}$--$\cC^\mp \boxtimes \cC$ bimodule with the obvious actions, and the counit is $\cC$ as a $\cC^\mp \boxtimes \cC$--$\mathrm{Vec}$ bimodule.
+
+\subsection{Fusion categories are fully dualizable}
+
+\begin{theorem}
+The $3$-category $\TCss$ is fully dualizable.
+\end{theorem}
+\begin{proof}
+This follows immediately from Lemmas ???.
+\end{proof}
+
+\begin{corollary}
+If $\cC$ is a multi-fusion category with non-zero global dimension then there exists a fully extended $3$-dimensional $3$-framed TFT which sends the positively framed point to $\cC$, furthermore up to isomorphism there is exactly one such TFT.
+\end{corollary}
+
+\begin{remark}
+It is worth noting that we have not assumed that the base field is algebraically closed.
+\end{remark}
+
+\subsection{Dualizability and finite tensor categories}
+
+\begin{theorem}
+The $(3,2)$ category gotten from $\TCrig$ by discarding all noninvertible $3$-morphisms is fully dualizable.
+\end{theorem}
+\begin{proof}
+This follows immediately from Lemmas ???
+\end{proof}
+
+\begin{corollary}
+If $\cC$ is a finite multi-tensor category, then there exists a fully extended categorified $2$-framed $2$-dimensional TFT which sends the positively framed point to $\cC$, furthermore up to isomorphism there is exactly one such TFT.
+\end{corollary}
+
+In fact, we can do better.  As we will see in the next section, there is a canonical lifting of this TFT to a $3$-framed $2$-dimensional TFT.  Even better, we actually can define the value of the TFT on certain non-invertible $3$-morphisms.
+
+\begin{definition}
+Let $Bord_3^{\text{nc}}$ be the $3$-category where we only allow $3$-dimensional bordisms where every connected component has nonempty intersection with the source.  As with the usual bordism category this comes in different topological flavors (oriented, $3$-framed, etc.).  A noncompact fully extended TFT is a symmetric monoidal functor from $Bord_3^{\text{nc}}$ to another symmetric monoidal $3$-category.
+\end{definition}
+
 %%%%%%%%%%
+
 
 \section{The Serre automorphism of a fusion category} \label{sec-serre}
 
@@ -1008,7 +1049,7 @@ We now specialize to our case of interest, namely where the dualizable object in
 %\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
 \begin{theorem} \label{thm-serre}
-If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$-$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
+If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
 \end{theorem}
 
 \begin{proof}
@@ -1025,7 +1066,7 @@ which can be compacted into the expression
 \end{equation}
 where the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp}))$ is the tensor of the expected right actions, but the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \cC)$ is given by switching the two $\cC$ factors of $\cC \otimes \cC \otimes \cC^{\mp}$ and then acting by the tensor of the expected left actions.
 
-The bimodule associated to the double dual functor $\ldd{(-)}: \cC \ra \cC$ can be written as $\bimod{\cC}{\cD}{\cC} := \bimod{\cC}{\cC \dtimes_{\cC} \cC}{\cC}$; here the $\cC$-$\cC$ bimodule structure on ${\cC \dtimes_{\cC} \cC}$ is standard, and the tensor $\dtimes_{\cC}$ occurs with respect to the standard right action of $\cC$ on $\cC$ and with respect to the \emph{right} double dual left action of $\cC$ on $\cC$, that is the left action induced by the functor $\rd{(-)}: \cC \ra \cC$.
+The bimodule associated to the double dual functor $\ldd{(-)}: \cC \ra \cC$ can be written as $\bimod{\cC}{\cD}{\cC} := \bimod{\cC}{\cC \dtimes_{\cC} \cC}{\cC}$; here the $\cC$--$\cC$ bimodule structure on ${\cC \dtimes_{\cC} \cC}$ is standard, and the tensor $\dtimes_{\cC}$ occurs with respect to the standard right action of $\cC$ on $\cC$ and with respect to the \emph{right} double dual left action of $\cC$ on $\cC$, that is the left action induced by the functor $\rd{(-)}: \cC \ra \cC$.
 
 As the double dual bimodule is cyclic, the equivalence between the double dual bimodule and the Serre bimodule can be specified by its value on the unit:
 \begin{align}
