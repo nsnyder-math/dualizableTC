@@ -167,9 +167,105 @@ Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morr
 
 \CDcomm{Our goal is to define $TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $TC(i)$, which can occur in DTCII.}
 
+
+
+\subsection{Linear categories} \label{sec-tc-lincat}
+
+
+.
+
+\CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
+
+\CDcomm{[2Vect = idempotent complete additive categories enriched in Vect]}
+
+\begin{definition} % This is from EGNO Definition 1.18.2.
+	A $k$-linear abelian category $C$ is {\em finite} if 
+	\begin{enumerate}
+		\item $C$ has finite dimensional spaces of morphisms;
+		\item every object of $C$ has finite length;
+		\item $C$ has enough projectives, i.e. every simple object of $C$ has a projective cover; and
+		\item there are finitely many isomorphism classes of simple objects.  
+	\end{enumerate}
+\end{definition}
+
+It is well known that a finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$. By a linear category we will mean a $k$-linear abelian category. 
+
+%\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
+
+\begin{definition}
+	Let $A$ and $B$ be linear categories. If $C$ is a linear category, a {\em bilinear functor} $A \times B \to C$ is a functor from the product category which is right-exact and linear in each variable. The {\em Deligne tensor product $A \boxtimes B$} (if it exists) is the universal linear category admitting a bilinear functor $\boxtimes: A \times B \to A \boxtimes B$. That is, there exists a bilinear functor $\boxtimes: A \times B \to A \boxtimes B$ which induces, for all linear categories $C$, an equivalence between the categories of bilinear functors $A \times B \to C$ and linear functors $A \boxtimes B \to C$. 
+\end{definition}
+
+The Deligne tensor products is unique up to an equivalence, which in turn is unique up to unique natural isomorphism. Said differently, the 2-category of linear categories representing the Deligne tensor product is contractible or empty (if no such product exists). 
+
+\begin{proposition}[Deligne (Prop 5.13)]
+	The Deligne tensor product $A \boxtimes B$ exists and is a finite linear category whenever $A$ and $B$ are finite. 
+\end{proposition}
+
+\subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
+
+\begin{definition}
+\CDcomm{[Definition of a tensor category, include all the conditions to be an object of the 3-category, ie indemp comp, etc.]}
+\end{definition}
+
+\begin{definition} \label{def-colim}
+\CDcomm{[colimits in the 2-category of (appropriate) linear categories]}
+\end{definition}
+
+
+We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  Given a tensor category $\cC$, we will denote by $\cC^{\op}$ the tensor category whose underlying linear category is opposite to the underlying linear category of $\cC$, and whose tensor structure is inherited from the tensor structure of $\cC$; we call it the "opposite tensor category".  By constrast, we will denote by $\cC^{\mp}$ the tensor category whose underlying linear category is the underlying linear category of $\cC$, and whose tensor structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the "monoidal opposite tensor category".  Finally, there is $\cC^{\mop}$, which denotes the tensor category whose underlying linear category is $\cC^{\op}$ and whose tensor structure is inherited from the tensor structure of $\cC^{\mp}$; we call this the "opposite monoidal opposite tensor category".
+
+\subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
+
+
+\begin{definition}
+\CDcomm{[Definition of bimodules between tensor categories]}
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The ``precomposite bimodule" $\bimod{A}{M \otimes_B N}{C}$ is the colimit of the three-stage two-sided bar construction:
+\begin{equation} \nn
+\bimod{A}{M \otimes_B N}{C} := \colim \left( M \dtimes A \dtimes A \dtimes N \righttriplearrows M \dtimes A \dtimes N \rightdoublearrows M \dtimes N \right)
+\end{equation}
+\end{definition}
+
+\begin{remark} \CD{This remark is not written very precisely or correctly yet---should be fixed after the Deligne tensor is spelled out earlier on.}
+By applying definition~\ref{def-colim}, one can write out explicitly the bimodule $\bimod{A}{M \otimes_B N}{C}$ given by the above colimit of the three-stage two-sided bar construction.  There is however an equivalent bimodule $\bimod{A}{M \otimes_B' N}{C}$ that admits a more compact description, as follows.  The objects of $\bimod{A}{M \otimes_B' N}{C}$ are the objects $m \otimes n$ of the tensor product $M \dtimes N$.  The morphisms are of two kinds: (m1) a morphism $\phi \otimes \psi : m \otimes n \ra m' \otimes n'$ for each pair of morphisms $\phi: m \ra m'$ in $M$ and $\psi: n \ra n'$ in $N$; (m2) a morphism $t_a : ma \otimes n \ra m \otimes an$ for each \CDcomm{triple $(m,a,n)$ ... }.  These morphisms are subject to the two relations: (r1) for each \CDcomm{triple $(\phi, \epsilon, \psi)$}, the composite $ma \otimes n \ra m \otimes an \ra m' \otimes a' n'$ equals the composite $ma \otimes n \ra m' a' \otimes n' \ra m' \otimes a' n'$; (r2) the composite $(ma)b \otimes n \ra ma \otimes bn \ra m \otimes a(bn)$ equals the composite $(ma)b \otimes n \ra m(ab) \otimes n \ra m \otimes (ab)n \ra m \otimes a(bn)$.
+\end{remark} % cf ENOII "Explicit description 1"
+
+
+
+\begin{definition}
+Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The composite bimodule $\bimod{A}{M \dtimes_B N}{C}$ is the idempotent completion of the precomposite bimodule:
+\begin{equation} \nn
+\bimod{A}{M \dtimes_B N}{C} := \IC \left( \bimod{A}{M \otimes_B N}{C} \right)
+\end{equation}
+\end{definition}
+
+\begin{example}
+\CDcomm{$\Vect \dtimes_{\Vect[\ZZ/2]} \Vect$ is $\Vect \oplus \Vect$, [cf ENOII "Example 1 (cont):"]}
+\end{example}
+
+%%%
+
+\begin{proposition} \CD{Not sure whether we need this prop or where it best belongs.}
+Let $A$ be a \CDcomm{...} monoidal indempotent complete linear category, and let $M$ and $N$ be $A$-modules.  If $N$ is idempotent complete, then $\Hom_A(M,N)$ is idempotent complete.
+\end{proposition}
+
+\begin{corollary}
+For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}{B}$ has a right adjoint, then that right adjoint is $\bimod{B}{\Hom_A(M,A)}{A}$.
+\end{corollary}
+
+\begin{proof}
+\CDcomm{[Proof sketch of corollary at ENOII "Next steps on adjoints of 1-morphisms".]}
+\end{proof}
+
+
+
 \subsection{Generalities on Symmetric Monoidal $(\infty,3)$-Categories}
 
-In this section we describe the symmetric monoidal 3-category of tensor categories. There are several different theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two combinatorial categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a brief review of these categories. 
+%In this section we describe the symmetric monoidal 3-category of tensor categories. 
+There are several different theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two combinatorial categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a brief review of these categories. 
 
 Let $\Gamma$ be the category introduced by Segal in \cite{Segal-Categories and Cohomology Theories}. The objects of $\Gamma$ are finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. Let $(m) = \{ 1, 2, \dots, m\}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. 
 
@@ -334,101 +430,108 @@ We obtain a 2-fold simplicial set by applying the standard nerve construction to
 
 
 
-\subsection{Linear categories} \label{sec-tc-lincat}
+
+\subsection{The symmetric monoidal 2-category of tensor categories} \label{sec-tc-threecat}
+
+We now describe $TC$ as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories. Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $TC(A,n)$ will be defined similarly. Morally, one should regard $TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $TC$. 
+
+The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. The solution is to enlarge $TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $TC(A,n)$ is what we now describe.
+
+As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in TC(A,n)$ in Table \ref{Table:ObjectOfTC}.
+\begin{table}[t]
+	\caption{Data of an object of $TC(A,n)$.}
+	\begin{tabular}{c |ccccc}
+	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-face $ijk$ & 3-face $ijk\ell$ & 4-face \\
+	\hline
+	$S$ 				& $X_{S;i}$ & $X_{S; ij}$ & $b_{S; ijk}$  & $\alpha_{S;ijk\ell}$ & (*) \\
+	$S, S'$ 			& $x_{S, S';i}$ & $x_{S, S';ij}$ & $\psi_{S, S'; i j k}$ & (*) & \\
+	$S, S', S''$ 		& $\alpha_{S, S', S'';i}$ & $\alpha_{S, S', S'';ij}$ & (*) &  & \\
+	\hline
+	$S, S', S'', S''' $	& (*) & (*)  &  &  & \\
+	\end{tabular}
+	
+	\vspace{1cm}
+	
+	\begin{tabular}{l p{11cm}}
+		datum & description of datum \\ \hline
+		$X_{S;i}$ & A tensor category \\
+		$X_{S;ij}$ & An $X_{S;i}$-$X_{S,j}$-bimodule category. \\
+		$b_{S; ijk}$ & An $X_{S;j}$-balanced $X_{S;i}$-$X_{S,k}$-bilinear functor from $X_{S;ij}\times X_{S;jk}$ to $X_{S;ik}$. \\
+		$\alpha_{S;ijk \ell}$  & A natural isomorphism of $X_{S;j}$/$X_{S;k}$-balanced $X_{S'i}$-$X_{S;\ell}$-bimodule functors from $b_{S;i k \ell} \circ (b_{S;ijk} \times id_{X_{S;k\ell}})$ to $b_{S;ij \ell} \circ (id_{X_{S;ij}} \times b_{S;jk\ell})$. \\ \hline
+		$x_{S, S';i}$ & A bilinear tensor functor from $X_{S;i} \times X_{S';i}$ to $X_{S \cup S'; i}$. \\
+		$x_{S, S';ij}$ & A bilinear bimodule functor from $X_{S;ij} \times X_{S';ij}$ to $X_{S \cup S'; ij}$. \\
+		$\psi_{S, S'; i j k}$ & A natural isomorphism of $X_{S;j} / X_{S';j}$-balanced bimodule functors from $x_{S,S'; ik} \circ (b_{S; ijk} \times b_{S';ijk})$ to $b_{S \cup S'; ijk} \circ (x_{S,S';ij} \times x_{S \cup S'; jk}) \circ  \tau $, where $\tau$ exchanges the middle two factors.  \\ \hline
+		$\alpha_{S, S', S'';i}$ & A natural isomorphism of multilinear tensor functors from
+		$x_{S \sqcup S', S'';i}\circ (x_{S,S';i} \times 1)$  to 
+		$x_{S, S' \sqcup S'';i} \circ (1 \times x_{S', S'';i})$. \\
+		$\alpha_{S, S', S'';ij}$ & A natural isomorphism of multilinear bimodule functors from
+		$x_{S \sqcup S', S'';ij}\circ (x_{S,S';ij} \times 1)$  to 
+		$x_{S, S' \sqcup S'';ij} \circ (1 \times x_{S', S'';ij})$. \\
+	\end{tabular}
+	\label{Table:ObjectOfTC}
+\end{table}
+This data is required to satisfy a the following conditions. 
+\begin{enumerate}
+	\item The functors $x_{S,S';i}$, $x_{S,S'; ij}$, and $b_{S;ijk}$ realize equivalences with the following Deligne tensor products:
+	\begin{align*}
+		X_{S \cup S'; i} &\cong X_{S; i} \boxtimes X_{S';i} \\ 
+		X_{S \cup S'; ij} &\cong X_{S; ij} \boxtimes X_{S';ij} \\ 
+		X_{S; ik} & \cong X_{S;ij} \boxtimes_{X_{S;j}} X_{S;jk}
+	\end{align*}
+	\item $X_{\emptyset; i} \cong \Vect$, with $X_{\emptyset; ij}$, $b_{\emptyset; ijk}$, and $\alpha_{\emptyset; ijk\ell}$ the evident identity morphisms and bimodule category. Moreover when either $S$ or $S'$ equals $\emptyset$, the functors $x_{S,S'; i}$ and $x_{S, S'; ij}$ and the transformation $\psi_{S,S'; ijk}$ are the canonical ones.  
+	\item For every 4-simplex $ijk\ell m$, $\alpha_{S; -}$ satisfies the evident pentagon equation
+	\item For every quadruple of disjoint subsets $S, S', S'', S'''$, $\alpha_{-; i}$ and $\alpha_{-; ij}$ satisfy the evident pentagon equations. When $S' = \emptyset$ then $\alpha_{S, S', S''; i}$ and $\alpha_{S, S', S''; ij}$ satisfy the evident triangle identity. 
+	\item For every pair of disjoint subsets $S, S'$ and every 3-simplex $ijk\ell$, the following `hexagon' equation is satisfied:
+\begin{center}
+	\begin{tikzpicture}
+%		\node (A) at (126:2cm) {A};
+%		\node (B) at (54:2cm) {B};
+%		\node (C) at (342:2cm) {C}; % -18 degrees
+%		\node (D) at (270:2cm) {D};
+%		\node (E) at (198:2cm) {E};		
+		\node (A) at (160:4cm) {$x_{S, S'; i\ell} \circ (b_{S, ik\ell} \times b_{S'; ik\ell}) \circ (b_{S; ijk} \times 1 \times b_{S'; ijk} \times 1)$};
+		\node (B) at (100:4cm) {$x_{S, S'; i\ell} \circ (b_{S, ij\ell} \times b_{S'; ij\ell}) \circ (1 \times b_{S; jk\ell} \times 1 \times b_{S'; jk\ell})$};
+		\node (C) at (40:4cm) {$b_{S\cup S'; ij\ell} \circ (x_{S\cup S'; ij} \times x_{S, S'; j\ell}) \circ (1 \times 1 \times b_{S, ij\ell} \times b_{S', ij\ell} ) \circ \tau_0$}; 
+		\node (D) at (340:4cm) {$b_{S\cup S'; ij\ell} \circ (1 \times b_{S \cup S'; jk\ell}) \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times x_{S, S'; k\ell}) \circ \tau_1$};
+		\node (E) at (280:4cm) {$b_{S \cup S'; ik\ell} \circ (b_{S \cup S';ijk} \times 1) \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times x_{S, S'; k\ell}) \circ \tau_3$};
+		\node (F) at (220:4cm) {$b_{S \cup S'; ik\ell} \circ (x_{S, S'; ik} \times x_{S, S'; k \ell}) \circ (b_{S;ijk} \times b_{S';ijk} \times 1 \times 1) \circ \tau_2$};
+		\draw [->] (A) to node [above left] {$1*(\alpha_{S; ijk\ell} \times \alpha_{S'; ijk\ell})$} (B);
+		\draw [->] (B) to node [right=1cm] {$\psi_{S, S'; ik\ell}*1$} (C);
+		\draw [->] (C) to node [right] {$1 * (1 \times \psi_{S,S'; jk\ell})$} (D);
+		\draw [->] (A) to node [left] {$\psi_{S, S'; ik\ell}*1$} (F);
+		\draw [->] (F) to node [below left] {$1 * (\psi_{S,S'; ijk} \times 1)$} (E);
+		\draw [->] (E) to node [below right] {$\alpha_{S \cup S';ijk\ell} * 1$} (D);
+	\end{tikzpicture}
+\end{center}
+where each $\tau_i$ represents an appropriate permutation of the factors. In other words, $(x_{S,S';-}, \psi_{S, S'; -})$ forms a structure analogous to a functor of bicategories. 
+	\item For every triple of disjoint subsets $S, S', S''$ and every 2-simplex $ijk$, the following `hexagon' identity holds:
+	\begin{center}
+		\begin{tikzpicture}
+	%		\node (A) at (126:2cm) {A};
+	%		\node (B) at (54:2cm) {B};
+	%		\node (C) at (342:2cm) {C}; % -18 degrees
+	%		\node (D) at (270:2cm) {D};
+	%		\node (E) at (198:2cm) {E};		
+			\node (A) at (160:4cm) {};
+			\node (B) at (100:4cm) {};
+			\node (C) at (40:4cm) {}; 
+			\node (D) at (340:4cm) {};
+			\node (E) at (280:4cm) {};
+			\node (F) at (220:4cm) {};
+			\draw [->] (A) to node [above left] {} (B);
+			\draw [->] (B) to node [right=1cm] {} (C);
+			\draw [->] (C) to node [right] {} (D);
+			\draw [->] (A) to node [left] {} (F);
+			\draw [->] (F) to node [below left] {} (E);
+			\draw [->] (E) to node [below right] {} (D);
+		\end{tikzpicture}
+	\end{center}
+\end{enumerate}
 
 
-.
-
-\CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
-
-\CDcomm{[2Vect = idempotent complete additive categories enriched in Vect]}
-
-\begin{definition} % This is from EGNO Definition 1.18.2.
-	A $k$-linear abelian category $C$ is {\em finite} if 
-	\begin{enumerate}
-		\item $C$ has finite dimensional spaces of morphisms;
-		\item every object of $C$ has finite length;
-		\item $C$ has enough projectives, i.e. every simple object of $C$ has a projective cover; and
-		\item there are finitely many isomorphism classes of simple objects.  
-	\end{enumerate}
-\end{definition}
-
-It is well known that a finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$. By a linear category we will mean a $k$-linear abelian category. 
-
-%\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
-
-\begin{definition}
-	Let $A$ and $B$ be linear categories. If $C$ is a linear category, a {\em bilinear functor} $A \times B \to C$ is a functor from the product category which is right-exact and linear in each variable. The {\em Deligne tensor product $A \boxtimes B$} (if it exists) is the universal linear category admitting a bilinear functor $\boxtimes: A \times B \to A \boxtimes B$. That is, there exists a bilinear functor $\boxtimes: A \times B \to A \boxtimes B$ which induces, for all linear categories $C$, an equivalence between the categories of bilinear functors $A \times B \to C$ and linear functors $A \boxtimes B \to C$. 
-\end{definition}
-
-The Deligne tensor products is unique up to an equivalence, which in turn is unique up to unique natural isomorphism. Said differently, the 2-category of linear categories representing the Deligne tensor product is contractible or empty (if no such product exists). 
-
-\begin{proposition}[Deligne (Prop 5.13)]
-	The Deligne tensor product $A \boxtimes B$ exists and is a finite linear category whenever $A$ and $B$ are finite. 
-\end{proposition}
-
-\subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
-
-\begin{definition}
-\CDcomm{[Definition of a tensor category, include all the conditions to be an object of the 3-category, ie indemp comp, etc.]}
-\end{definition}
-
-\begin{definition} \label{def-colim}
-\CDcomm{[colimits in the 2-category of (appropriate) linear categories]}
-\end{definition}
 
 
-We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  Given a tensor category $\cC$, we will denote by $\cC^{\op}$ the tensor category whose underlying linear category is opposite to the underlying linear category of $\cC$, and whose tensor structure is inherited from the tensor structure of $\cC$; we call it the "opposite tensor category".  By constrast, we will denote by $\cC^{\mp}$ the tensor category whose underlying linear category is the underlying linear category of $\cC$, and whose tensor structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the "monoidal opposite tensor category".  Finally, there is $\cC^{\mop}$, which denotes the tensor category whose underlying linear category is $\cC^{\op}$ and whose tensor structure is inherited from the tensor structure of $\cC^{\mp}$; we call this the "opposite monoidal opposite tensor category".
-
-\subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
-
-
-\begin{definition}
-\CDcomm{[Definition of bimodules between tensor categories]}
-\end{definition}
-
-\begin{definition}
-Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The ``precomposite bimodule" $\bimod{A}{M \otimes_B N}{C}$ is the colimit of the three-stage two-sided bar construction:
-\begin{equation} \nn
-\bimod{A}{M \otimes_B N}{C} := \colim \left( M \dtimes A \dtimes A \dtimes N \righttriplearrows M \dtimes A \dtimes N \rightdoublearrows M \dtimes N \right)
-\end{equation}
-\end{definition}
-
-\begin{remark} \CD{This remark is not written very precisely or correctly yet---should be fixed after the Deligne tensor is spelled out earlier on.}
-By applying definition~\ref{def-colim}, one can write out explicitly the bimodule $\bimod{A}{M \otimes_B N}{C}$ given by the above colimit of the three-stage two-sided bar construction.  There is however an equivalent bimodule $\bimod{A}{M \otimes_B' N}{C}$ that admits a more compact description, as follows.  The objects of $\bimod{A}{M \otimes_B' N}{C}$ are the objects $m \otimes n$ of the tensor product $M \dtimes N$.  The morphisms are of two kinds: (m1) a morphism $\phi \otimes \psi : m \otimes n \ra m' \otimes n'$ for each pair of morphisms $\phi: m \ra m'$ in $M$ and $\psi: n \ra n'$ in $N$; (m2) a morphism $t_a : ma \otimes n \ra m \otimes an$ for each \CDcomm{triple $(m,a,n)$ ... }.  These morphisms are subject to the two relations: (r1) for each \CDcomm{triple $(\phi, \epsilon, \psi)$}, the composite $ma \otimes n \ra m \otimes an \ra m' \otimes a' n'$ equals the composite $ma \otimes n \ra m' a' \otimes n' \ra m' \otimes a' n'$; (r2) the composite $(ma)b \otimes n \ra ma \otimes bn \ra m \otimes a(bn)$ equals the composite $(ma)b \otimes n \ra m(ab) \otimes n \ra m \otimes (ab)n \ra m \otimes a(bn)$.
-\end{remark} % cf ENOII "Explicit description 1"
-
-
-
-\begin{definition}
-Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The composite bimodule $\bimod{A}{M \dtimes_B N}{C}$ is the idempotent completion of the precomposite bimodule:
-\begin{equation} \nn
-\bimod{A}{M \dtimes_B N}{C} := \IC \left( \bimod{A}{M \otimes_B N}{C} \right)
-\end{equation}
-\end{definition}
-
-\begin{example}
-\CDcomm{$\Vect \dtimes_{\Vect[\ZZ/2]} \Vect$ is $\Vect \oplus \Vect$, [cf ENOII "Example 1 (cont):"]}
-\end{example}
-
-%%%
-
-\begin{proposition} \CD{Not sure whether we need this prop or where it best belongs.}
-Let $A$ be a \CDcomm{...} monoidal indempotent complete linear category, and let $M$ and $N$ be $A$-modules.  If $N$ is idempotent complete, then $\Hom_A(M,N)$ is idempotent complete.
-\end{proposition}
-
-\begin{corollary}
-For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}{B}$ has a right adjoint, then that right adjoint is $\bimod{B}{\Hom_A(M,A)}{A}$.
-\end{corollary}
-
-\begin{proof}
-\CDcomm{[Proof sketch of corollary at ENOII "Next steps on adjoints of 1-morphisms".]}
-\end{proof}
-
-
-
-\subsection{The symmetric monoidal 2-category of linear categories} \label{sec-tc-threecat}
-
+\subsection{CSP's dustbin}
 
 Let $A$ be a finite set. We define a strict 2-category $\lincat(A)$ as follows. Let $P(A)$ denote the powerset of $A$, and let $S$, $S'$, and $S''$ denote various disjoint subsets of $A$. The objects of $\lincat(A)$ consist of  $P(A)$-tuples of objects in $\lincat$, together with some additional data. Thus we have a finite linear category $X(S)$ for each subset $S \subseteq A$. The additional data consists of bilinear functors
 \begin{align*}
