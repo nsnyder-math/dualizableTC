@@ -438,7 +438,7 @@ We now describe $TC$ as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to s
 The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. The solution is to enlarge $TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $TC(A,n)$ is what we now describe.
 
 As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in TC(A,n)$ in Table \ref{Table:ObjectOfTC}.
-\begin{table}[t]
+\begin{table}[h]
 	\caption{Data of an object of $TC(A,n)$.}
 	\begin{tabular}{c |ccccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-face $ijk$ & 3-face $ijk\ell$ & 4-face \\
@@ -482,6 +482,7 @@ This data is required to satisfy a the following conditions.
 	\item For every 4-simplex $ijk\ell m$, $\alpha_{S; -}$ satisfies the evident pentagon equation
 	\item For every quadruple of disjoint subsets $S, S', S'', S'''$, $\alpha_{-; i}$ and $\alpha_{-; ij}$ satisfy the evident pentagon equations. When $S' = \emptyset$ then $\alpha_{S, S', S''; i}$ and $\alpha_{S, S', S''; ij}$ satisfy the evident triangle identity. 
 	\item For every pair of disjoint subsets $S, S'$ and every 3-simplex $ijk\ell$, the following `hexagon' equation is satisfied:
+	\CSP{Maybe move this diagrams to figures and clean them up?}
 \begin{center}
 	\begin{tikzpicture}
 %		\node (A) at (126:2cm) {A};
@@ -529,7 +530,45 @@ where each $\tau_i$ represents an appropriate permutation of the factors. In oth
 	where $\tau_i$ is an appropriate permutation of the factors. 
 \end{enumerate}
 
-
+Let $X$ and $Y$ be two objects in $TC(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. In this case the 1-morphisms from $X$ to $Y$ consist of collections of data as in Table \ref{Table:1MorOfTC}.
+\begin{table}[h]
+	\caption{Data of a 1-morphism of $TC(A,n)$.}
+	\begin{tabular}{c |cccc}
+	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$ & 3-simplex $ijk\ell$  \\
+	\hline
+	$S$ 				& n/a & $F_{S; ij}$ & $\xi_{S; ijk}$  &  (*) \\
+	$S, S'$ 			& n/a & $\varphi_{S, S';ij}$ &  (*) & \\
+	$S, S', S''$ 		& n/a  & (*) & & \\
+	\end{tabular}
+	
+	\vspace{1cm}
+	
+	\begin{tabular}{l p{11cm}}
+		datum & description of datum \\ \hline
+		$F_{S;ij}$ & An $X_{S;i}$-$X_{S;j}$-bimodule functor from $X_{S;ij}$ to $Y_{S;ij}$. \\
+		$\xi_{S;ijk}$ & A natural isomorphism of $X_{S;j}$-balanced $X_{S;i}$-$X_{S;k}$-bimodule functors from $b^Y_{S;ijk} \circ (F_{S;ij} \times F_{S; jk})$ to $F_{S;ik} \circ b^X_{S;ijk}$. \\
+		$\varphi_{S,S'; ij}$ & A natural isomorphism of bilinear bimodule functors from $y_{S,S'; ij} \circ (F_{S; ij} \times F_{S';ij})$ to $F_{S \cup S'; ij} \circ x_{S, S'; ij}$. 
+	\end{tabular}
+	\label{Table:1MorOfTC}
+\end{table}
+This data is required to satisfy the following axioms:
+\begin{enumerate}
+	\item If $S = \emptyset$, the $F_S;ij$ and $\xi_{S;ijk}$ are identities. If either $S$ or $S'$ is equal to $\emptyset$, then $\varphi_{S,S';ij}$ is the canonical map.
+	\item For every subset $S$ and every 3-simplex $ijk\ell$ ...
+	\item For every pair of disjoint subsets $S, S'$ and every 2-simplex $ijk$, ...
+	\item For every triple of disjoint subsets $S, S', S''$ and every edge $ij$, ...
+\end{enumerate}
+A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a collection of $\{ \theta_{S;ij} \}$ consisting of $X_{S;i}$-$X_{S;j}$-bimodule natural transformations from $F_{S;ij}$ to $G_{S;ij}$ for each subset $S \subseteq A$ and 2-simplex $ij$ in $[n]$. These are required to satisfy that $\theta_{\emptyset;ij}$ is the identity and the following pair of equations hold:
+\begin{enumerate}
+	\item For each 2-simplex $ijk$, we have
+	\begin{equation*}
+		(\theta_{S; ik} * 1) \circ \xi^F_{S; ijk} = xi^G_{S;ijk} \circ (1 * (\theta_{S; ij} \times \theta_{S; jk})).
+	\end{equation*}
+	\item For each pair of disjoint subsets $S, S'$ we have
+	\begin{equation*}
+		(\theta_{S \cups S'; ij} * 1) \circ \varphi^F_{S, S'; ij} = \varphi^G_{S,S';ij} \circ (1*(\theta_{S;ij} \times \theta_{S';ij})).
+	\end{equation*}
+\end{enumerate}
 
 
 \subsection{CSP's dustbin}
