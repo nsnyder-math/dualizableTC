@@ -512,20 +512,21 @@ where each $\tau_i$ represents an appropriate permutation of the factors. In oth
 	%		\node (C) at (342:2cm) {C}; % -18 degrees
 	%		\node (D) at (270:2cm) {D};
 	%		\node (E) at (198:2cm) {E};		
-			\node (A) at (160:4cm) {};
-			\node (B) at (100:4cm) {};
-			\node (C) at (40:4cm) {}; 
-			\node (D) at (340:4cm) {};
-			\node (E) at (280:4cm) {};
-			\node (F) at (220:4cm) {};
-			\draw [->] (A) to node [above left] {} (B);
-			\draw [->] (B) to node [right=1cm] {} (C);
-			\draw [->] (C) to node [right] {} (D);
-			\draw [->] (A) to node [left] {} (F);
-			\draw [->] (F) to node [below left] {} (E);
-			\draw [->] (E) to node [below right] {} (D);
+			\node (A) at (160:4cm) {$x_{S \cup S', S'';ik} \circ (x_{S, S'; ik} \times 1) \circ (b_{S;ijk} \times b_{S';ijk} \times b_{S'';ijk})$};
+			\node (B) at (100:4cm) {$x_{S \cup S', S'';ik} \circ (b_{S\cup S'; ijk} \times b_{S''; ijk}) \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times 1 \times 1) \circ \tau_0$};
+			\node (C) at (40:4cm) {$b_{S \cup S' \cup S''; ijk} \circ (x_{S \cup S', S''; ij} \times x_{S \cup S', S''; jk}) \circ (x_{S, S'; ij} \times 1 \times x_{S, S'; jk} \times 1 ) \circ \tau_1$}; 
+			\node (D) at (340:4cm) {$b_{S \cup S' \cup S''; ijk} \circ (x_{S , S' \cup S''; ij} \times x_{S,  S'\cup S''; jk}) \circ ( 1 \times x_{S', S''; ij} \times 1 \times x_{S', S''; jk}) \circ \tau_2$};
+			\node (E) at (280:4cm) {$x_{S, S' \cup S'';ik} \circ (b_{S;ijk} \times b_{S' \cup S''; ijk}) \circ (1 \times x_{S', S'';ij} \times x_{S', S''; jk})  \circ \tau_3$};
+			\node (F) at (220:4cm) {$x_{S, S' \cup S'';ik} \circ (1 \times x_{S', S''; ik} ) \circ (b_{S;ijk} \times b_{S';ijk} \times b_{S'';ijk})$};
+			\draw [->] (A) to node [above left] {$1* (\psi_{S, S';ijk}\times 1)$} (B);
+			\draw [->] (B) to node [right=1cm] {$\psi_{S\cup S', S''; ijk} * 1$} (C);
+			\draw [->] (C) to node [right] {$1 * (\alpha_{S,S',S''; ij} \times \alpha_{S, S', S''; jk})$} (D);
+			\draw [->] (A) to node [left] {$\alpha_{S, S', S'';ik}*1$} (F);
+			\draw [->] (F) to node [below left] {$1 * (1 \times \psi_{S', S''; ijk})$} (E);
+			\draw [->] (E) to node [below right] {$\psi_{S, S' \cup S''; ijk}*1$} (D);
 		\end{tikzpicture}
 	\end{center}
+	where $\tau_i$ is an appropriate permutation of the factors. 
 \end{enumerate}
 
 
