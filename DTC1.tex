@@ -400,7 +400,7 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 %   	\item $X_0$ is discrete, and
 %   	\item for each $n$, $X_n$ is an $(n-1)$-fold Segal category. 
 %   \end{enumerate}
-	A {\em special $\Gamma$-$n$-fold Segal category} is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplcial spaces, such that the following conditions are satisfied. 
+	A {\em symmetric monoidal 3-fold Segal category} (a.k.a. {\em special $\Gamma$-$n$-fold Segal category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplcial spaces, such that the following conditions are satisfied. 
 	\begin{enumerate}
 		\item $X_A$ is an $n$-fold Segal category for each $A \in \Gamma$. 
 		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
@@ -569,6 +569,15 @@ A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a colle
 		(\theta_{S \cups S'; ij} * 1) \circ \varphi^F_{S, S'; ij} = \varphi^G_{S,S';ij} \circ (1*(\theta_{S;ij} \times \theta_{S';ij})).
 	\end{equation*}
 \end{enumerate}
+With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $TC(A,n)$ into a strict $2$-category. It is manifestly functorial in $A$ and $[n]$ and thus gives a (strict) functor 
+\begin{equation*}
+	\TC: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to 2-\Cat.
+\end{equation*}
+into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TC$.
+
+\begin{theorem}
+	 $\TC$ is a symmetric monoidal 3-fold Segal category.  
+\end{theorem}
 
 
 \subsection{CSP's dustbin}
