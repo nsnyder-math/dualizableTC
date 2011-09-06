@@ -368,7 +368,7 @@ Let $C$ be a category. The category of {\em simplcial objects of $C$} is the fun
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-are a pullback diagrams. For a general simplicial object, these commuting squares will be called {\em Segal squares}. Hence a category internal to $C$ is a simplicial object in which every Segal square is a pullback square. 
+are a pullback diagrams. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. 
 
 This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
 
@@ -378,7 +378,7 @@ This may be contrasted with the notion of a category enriched to $C$, which cons
 
 Thus a category $C$ may equivalently be regarded as simplical set $NC_\bullet$, called the {\em nerve of $C$}. The $n^\textrm{th}$ set is given by the formula
 \begin{equation*}
-	C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
+	NC_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
 \end{equation*}
 Regarding an ordered set as a category, $C_n$ may be viewed as the set of functors from $[n]$ to $C$. 
 
@@ -392,9 +392,10 @@ Thus a strict 2-category may equivalently be regarded as a simplical object with
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
 \end{definition}
 
-The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. This is the context in which the cobordism hypothesis has been proven and is the context in which we frame our results. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and special $\Gamma$-$n$-fold complete Segal spaces, respectively. These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
+The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. This is the context in which the cobordism hypothesis has been proven and is the context in which we frame our results. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and symmetric monoidal $n$-fold complete Segal spaces, respectively (these later are sometimes called special $\Gamma$-$n$-fold complete Segal spaces).
+These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
 
-On the other hand, many examples occurring {\em in nature} do not arise as $n$-fold complete Segal spaces or special $\Gamma$-$n$-fold complete Segal spaces. For example in \cite{Lurie}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
+On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{Lurie}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
 %\begin{definition}
 %	An $n$-fold simplicial space $X$ is {\em essentially constant} if, when regarded as a functor $X: (\Delta^\textrm{op})^{\times n} \to h\textrm{-}(sSet)$, it is equivalent to a constant functor, where $h\textrm{-}(sSet)$ denotes the homotopy category of simplicial sets.  
 %\end{definition}
@@ -437,9 +438,9 @@ Inductively we will define three functorial constructions:
 	\item A category $\mathit{h}X$, called the {\em homotopy category} of $X$.
 	\item A set $\pi_0 X$, which is the set of isomorphism classes of objects of $\mathit{h}X$. 
 \end{itemize}
-Once we have these constructions, equivalences of $n$-fold Segal categories are easy to recognize: they are precisely those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ and which induce equivalences of hom $(n-1)$-fold Segal categories $Hom_X(a,b) \to Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. 
+Once we have these constructions, equivalences of $n$-fold Segal categories are easily recognized: they are precisely those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ and which induce equivalences of $(n-1)$-fold Segal categories $Hom_X(a,b) \to Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. 
 
-Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the hom $(n-1)$-fold Segal category $Hom_X(a,b)$ is defined to be the fiber over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
+Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the $(n-1)$-fold Segal category $Hom_X(a,b)$ is defined to be the fiber over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$Hom_X(a,b)$};
@@ -463,8 +464,21 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 	 Hom_{\mathit{h}X}(a,b) \times Hom_{\mathit{h}X}(b,c) \cong \pi_0 Hom_X(a,b,c)\to \pi_0 Hom_X(a,c) = Hom_{\mathit{h}X}(a,c).
 \end{equation*}
 
+\begin{example}
+	If we regard a set as a constant simplicial space, then the nerve of a category $NC$ is a 1-fold Segal category. $NC_0 = \textrm{ob}\ C$ and the space $Hom_{NC}(a,b)$ are the sets $Hom_C(a,b)$. Moreover $hNC \cong C$ is isomorphic to the category $C$. 
+\end{example}
 
-
+\begin{example}
+	A strict 2-category $C$ may be regarded as a simplical object $C_\bullet$ in $\Cat$ whose $n^\textrm{th}$ category is given by the usual formula
+	\begin{equation*}
+		C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
+	\end{equation*}
+	We obtain a 2-fold simplicial set by applying the nerve construction to each of these categories, which, by viewing a set as a discrete simplicial space, we regard as a 2-fold simplcial space $NC_{\bullet \bullet}$. Since $C_\bullet$ satisfies the Segal condition, one deduces that $NC_{\bullet \bullet}$ is a 2-fold Segal category. 
+	\footnote{Alternatively, one may start with the simplicial category $C_\bullet$, as before and apply the {\em complete Segal space nerve} to each of the categories $C_n$. The $k^\text{th}$ space of this simplicial space $N^{CSS}_\bullet C_n$ is obtained by first constructing the functor category $Fun([k], C_n)$, then throwing away the non-invertible natural transformations, and finally applying the classifying space functor to the resulting groupoid. This alternative has the advantage that it produces a {\em complete} Segal space $N^{CSS} C_n$. However for our purposes these are equivalent constructions as the canonical map $N C_n \to N^{CSS} C_n$ is a weak equivalence in the complete Segal space model structure. 
+	%[Cite the Joyal Teinery paper for the Quillen equivalence between Segal spaces and Quasi-categories]
+	} We call the association $C \mapsto NC_{\bullet \bullet}$ the {\em 2-categorical nerve}. 
+	\CSP{We should get a reference for this.}
+\end{example}
 
 %If the $n$-fold Segal spaces $X_k$ are fibrant, that is complete, then these problems disappear. Weak equivalences between fibrant objects are computed levelwise, as are homotopy fiber products. 
 
@@ -489,27 +503,21 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 \end{definition}
 
 
-Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
+%Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
 
-We now describe how a strict 2-category gives rise to a 2-fold Segal category. This can be regarded as a 2-categorical nerve. %Later we will construct explicitly $TC$ as a simplicial object in the category of strict 2-categories. Applying the previous 2-categorical nerve yields a 3-fold simplcial space which is shown to be a 3-fold Segal category. A variation on these constructions yields the $\Gamma$-3-fold Segal space $TC$. 
+%We now describe how a strict 2-category gives rise to a 2-fold Segal category. This can be regarded as a 2-categorical nerve. %Later we will construct explicitly $TC$ as a simplicial object in the category of strict 2-categories. Applying the previous 2-categorical nerve yields a 3-fold simplcial space which is shown to be a 3-fold Segal category. A variation on these constructions yields the $\Gamma$-3-fold Segal space $TC$. 
 %\begin{definition}
 %	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
 %\end{definition}
-A strict 2-category gives rise to a simplicial category $C_\bullet$ whose $n^\textrm{th}$ category is given by the usual formula
-\begin{equation*}
-	C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
-\end{equation*}
-We obtain a 2-fold simplicial set by applying the standard nerve construction to each of these categories. Finally, we obtain a 2-fold simplcial space $NC_{\bullet \bullet}$ by viewing a set as a discrete simplicial space. The nerve of a 1-category, viewed as a simplicial space, automatically satisfies the conditions to be a Segal category. Moreover $NC_{\bullet \bullet}$ is a 2-fold Segal category. 
-\footnote{Alternatively, one may start with the simplicial category $C_\bullet$, as before and apply the {\em complete Segal space nerve} to each of the categories $C_n$. The $k^\text{th}$ space of this simplicial space $N^{CSS}_\bullet C_n$ is obtained by first constructing the functor category $Fun([k], C_n)$, then throwing away the non-invertible natural transformations, and finally applying the classifying space functor to the resulting groupoid. This alternative has the advantage that it produces a {\em complete} Segal space $N^{CSS} C_n$. However for our purposes these are equivalent constructions as the canonical map $N C_n \to N^{CSS} C_n$ is a weak equivalence in the complete Segal space model structure. 
-%[Cite the Joyal Teinery paper for the Quillen equivalence between Segal spaces and Quasi-categories]
-}
+%A strict 2-category gives rise to a simplicial category 
 
 
 
 
 \subsection{The symmetric monoidal 2-category of tensor categories} \label{sec-tc-threecat}
 
-We now describe $TC$ as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories. Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $TC(A,n)$ will be defined similarly. Morally, one should regard $TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $TC$. 
+
+We now describe $\TC$ as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories. Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $TC(A,n)$ will be defined similarly. Morally, one should regard $TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $TC$. 
 
 The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. The solution is to enlarge $TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $TC(A,n)$ is what we now describe.
 
