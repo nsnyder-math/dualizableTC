@@ -945,13 +945,13 @@ For $M$ a 3-manifold, the natural forgetful map from stably framed structures to
 
 \subsection{Adjoints of bimodule functors} \label{sec-df-functors}
 
-In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule functor $\cF: \cM \rightarrow \cN$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has adjoints.
+In this section we give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint.
 
 \begin{lemma} \label{module-adjoint}
-Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  If the underlying functor $\cF$ has a right (or left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint in $\Hom_{\TCrig}(\cN,\cM)$.
+Let $\cC, \cD \in \TCrig$, let $\cC \cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  If the underlying functor of $\cF$ has a right (or left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint in $\Hom_{\TCrig}(\cN,\cM)$.
 \end{lemma}
 \begin{proof}
-Suppose that $\cG$ is the right adjoint to $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module category.  The result for left adjoints is similar.
+Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module functor.  The result for left adjoints is similar.
 
 The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
@@ -966,10 +966,10 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 If $\cC$ and $\cD$ are finite abelian categories and $\cF: \cC \rightarrow \cD$ is a left exact functor, then $\cF$ has a right adjoint.  If $\cF$ is right exact then it has a left adjoint functor.
 \end{proposition}
 \begin{proof}
-
+\cite{???}
 \end{proof}
 
-\begin{proposition}
+\begin{proposition} \cite{???}
 If $\cB$ is a finite tensor category and $\cM$ and $\cN$ are module categories over $\cB$ with $\cM$ exact, then any module category functor $\cF:\cM \rightarrow \cN$ is exact.
 \end{proposition}
 
@@ -977,7 +977,7 @@ If $\cB$ is a finite tensor category and $\cM$ and $\cN$ are module categories o
 Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$ module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$ module category.  If $\cM$ is exact as a $\cB$ module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
 \end{corollary}
 \begin{proof}
-Exactness of $\cM$ as a $\cB$ module guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$--$\cD$ bimodule functor.
+Exactness of $\cM$ as a $\cB$ module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$--$\cD$ bimodule functor.
 \end{proof}
 
 \begin{remark}
@@ -993,13 +993,13 @@ Apply the above corollary with $\cB = \mathrm{Vec}$.
 
 \subsection{Adjoints of bimodules}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a $\cC$--$\cD$ bimodule category $\cM$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is the category of left exact left module functors $\Fun_{\cC\text{-mod}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of left exact right module functors $\Fun_{\text{mod}-\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and left exactness of the module actions.
+In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is the category of left exact left module functors $\Fun_{\cC\text{-mod}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of left exact right module functors $\Fun_{\text{mod}-\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and left exactness of the module actions.
 
 \begin{lemma}
-The map $\ev: \Fun_{\text{mod}-\cD}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ is an equivalence of $\cD$--$\cD$ bimodule categories.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC\text{-mod}}(\cM, \cC) \rightarrow \cC$ is an equivalence of $\cC$--$\cC$ bimodule categories.
+The map $\ev: \Fun_{\text{mod}-\cD}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the mod-$\cD$ structure on $f$.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC\text{-mod}}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
 \end{lemma}
 \begin{proof}
-
+Straightforward.
 \end{proof}
 
 The maps $\ev$ give the counits of the adjunctions.  The units of the adjunctions are more delicate, since it is more difficult to describe maps out of a tensor product than maps into a tensor product.  In order to describe the units we first give an alternate description of the tensor product as a category of functors.
