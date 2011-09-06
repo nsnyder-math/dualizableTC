@@ -162,6 +162,21 @@ Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morr
 
 \section{Tensor categories} \label{sec-tc}
 
+\CSPcomm{
+Some things which should go in this section:
+\begin{itemize}
+	\item linear categories
+	\item finite linear categories 
+	\item The Deligne tensor product
+	\item tensor categories and their functors
+	\item module categories.
+	\item exact module categories. 
+	\item adjoint functor theorem, representable functor conditions. 
+	\item multi-fusion cats. (?)
+\end{itemize}
+
+}
+
 
 \CD{The organization of this section might well change as we decide what exactly we should include.}
 
@@ -261,16 +276,66 @@ For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}
 \end{proof}
 
 
+\subsection{Multi-Fusion categories} \label{sec-tc-fusion}
+
+\CD{CD continues to vote for using 'fusion' rather than 'multifusion'}
+
+\begin{definition}
+A \emph{fusion category} is a tensor category $\cC$ satisfying the following conditions:
+\begin{enumerate}
+\item For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
+\item The category $\cC$ is semisimple, with finitely many simple objects.
+\item For every object $a \in \cC$, there exists an object $\ld{a} \in \cC$ that is a left dual for $a$ and there exists an object $\rd{a} \in \cC$ that is a right dual for $a$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
+\end{remark}
+
+\begin{proposition}
+If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
+\end{proposition}
+
+\begin{proof}
+Define the functor $\ld{(-)}$ on objects by picking for each object $a \in \cC$ a left dual object $\ld{a} \in \cC$.  Also pick a unit map $u: \ld{a} \; a \ra 1$ and a counit map $v: 1 \ra a \; \ld{a}$ giving $\ld{a}$ the structure of a left dual to $a$.  Define the functor $\ld{(-)}$ on a morphism $f: a \ra b$ by $\ld{(f)} := (u_b \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot f \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot v_a)$.  (This morphism $\ld{(f)}$ is called the \emph{mate} of $F$.)  Next we want to see that this functor is monoidal.  Observe that the morphisms $\ld{b} \; \ld{a} \; a \; b \xra{u_a} \ld{b} \; b \xra{u_b} 1$ and $1 \xra{v_a} a \; \ld{a} \xra{v_b} a \; b \; \ld{b} \; \ld{a}$ show that $(\ld{b} \; \ld{a})$ is a left dual to $(a b)$.  There is therefore a uniquely determined isomorphism from $(\ld{b} \; \ld{a})$ to $\ld{(a b)}$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
+\end{proof}
+% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
+
+\begin{remark}
+The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
+\end{remark}
+
+\begin{definition}
+A fusion category $\cC$ is \emph{pivotal} if the double left dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ is equivalent to the identity functor as a monoidal functor.
+\end{definition}
+
+In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}: \cC \ra \cC^{\mop}$ and the right dual functor $\rd{(-)}: \cC \ra \cC^{\mop}$ are monoidally equivalent.
+
+
+\section{The Symmetric Monoidal 3-Category of Tensor Categories}
 
 \subsection{Generalities on Symmetric Monoidal $(\infty,3)$-Categories}
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
 There are several different theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two combinatorial categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a brief review of these categories. 
 
-Let $\Gamma$ be the category introduced by Segal in \cite{Segal-Categories and Cohomology Theories}. The objects of $\Gamma$ are finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. Let $(m) = \{ 1, 2, \dots, m\}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. 
+\begin{definition}
+	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
+\end{definition}
 
+This category was introduced by Segal in \cite{Segal-Categories and Cohomology Theories}.  The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. Let $(m) = \{ 1, 2, \dots, m\}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. If $C$ is a category with finite products, then the category of commutative monoids in $C$ is equivalent to the category of functors $M:\Gamma^{op} \to C$ such that for all $A\in \Gamma$ the following {\em Segal map} is an isomorphism
+\begin{equation*}
+	\prod_{a \in A} i_a^*: M(A) \to \prod_{a \in A} M(1).
+\end{equation*}
+The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$. More generally the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. 
+\CSP{Find reference for this fact.}
 
-The simplex category $\Delta$ is defined to be a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. This is the category of combinatorial simplices. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Finally, let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
+\begin{definition}
+	The simplex category $\Delta$ is a choice of skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
+\end{definition}
+
+This is the category of combinatorial simplices. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
 \begin{equation} \label{Eqn:Segal-Co-Map}
 \begin{tikzpicture}[baseline = 0.75cm]
 	\node (LT) at (0, 1.5) {$[0]$};
@@ -286,7 +351,6 @@ The simplex category $\Delta$ is defined to be a skeleton of the category of fin
 \end{tikzpicture}
 \end{equation}
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
-
 
 
 Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C)$. A {\em category internal to $C$} is such a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
@@ -306,11 +370,13 @@ Let $C$ be a category. The category of {\em simplcial objects of $C$} is the fun
 \end{center}
 are a pull-back diagrams. For a general simplicial object, these commuting squares will be called {\em Segal squares}. Hence a category internal to $C$ is a simplicial object in which every Segal square is a pull-back square. 
 
-This may be contrasted with the notion of a category internal to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, spaces, small categories,\CSP{Is the category of small categories really extensive?} any category of presheaves, and more generally any Grothendieck topos. 
+This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
 
 \begin{example}
 	A {\em strict 2-category} is a category enriched in categories.
 \end{example}
+
+Thus a strict 2-category may equivalently be regarded as a simplical object in the 
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
@@ -580,257 +646,7 @@ into the 1-category of strict 2-categories. Composing with the coherent nerve fo
 \end{theorem}
 
 
-\subsection{CSP's dustbin}
 
-Let $A$ be a finite set. We define a strict 2-category $\lincat(A)$ as follows. Let $P(A)$ denote the powerset of $A$, and let $S$, $S'$, and $S''$ denote various disjoint subsets of $A$. The objects of $\lincat(A)$ consist of  $P(A)$-tuples of objects in $\lincat$, together with some additional data. Thus we have a finite linear category $X(S)$ for each subset $S \subseteq A$. The additional data consists of bilinear functors
-\begin{align*}
-		x_{S,S'}: & \; X(S) \times X(S') \to X(S \sqcup S') \\
-		I: & \; \Vect \to X(\emptyset)
-\end{align*}
-and natural isomorphisms of multi-linear functors
-\begin{align*}
-		\alpha_{S, S', S''}:  & \; x_{S \sqcup S', S''}\circ (x_{S,S'} \times 1) \cong x_{S, S' \sqcup S''} \circ (1 \times x_{S', S''}) \\
-		r_S: & \; x_{S, \emptyset} \circ (1 \times I)  \cong  \textrm{can}^r \\
-		\ell_{S}: & \; x_{ \emptyset, S} \circ (I \times 1)  \cong  \textrm{can}^\ell
-\end{align*}
-where $\textrm{can}^r: X(S) \times \Vect \to X(S)$ is the canonical bilinear functor, and similarly for $\textrm{can}^\ell$. 
-Moreover this data is subject to the following conditions: 
-\begin{enumerate}
-	\item $x_{S,S'}$ realizes $X(S \sqcup S')$ as the Deligne tensor product  $X(S) \boxtimes X(S') $, and $I$ is an isomorphism of linear categories. 
-	\item $	\alpha_{S, S', S''}$ satisfies the evident pentagon identity. 
-	\item $\ell_S$, $r_S$, and $\alpha_{\emptyset, S, \emptyset}$ satisfy the evident triangle identity.
-\end{enumerate}
-
-A morphism $f:X \to Y$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear functors $f_S: X(S) \to Y(S)$, together with natural isomorphisms of bilinear functors $\phi_{S,S'}: y_{S,S'} \circ f_S \times f_{S'} \cong f_{S \sqcup S'} \circ x_{S,S'}$. For each triple $S$, $S'$, $S''$ of disjoint subset of $A$, the following hexagon identity holds,
-\begin{equation*}
-	[1 * \alpha^X_{S, S', S''}] \circ [\phi_{S \sqcup S', S''} * 1] \circ [1 *(\phi_{S, S'} \times 1)] = 
-		[\phi_{S, S' \sqcup S''} * 1] \circ [1 * (1 \times \phi_{S', S''})] \circ [\alpha^Y_{S,S', S''} * 1].
-\end{equation*}
-
-A 2-morphism $\theta: f \to g$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear natural transformations $\theta_S: f_S \to g_S$, such that for every pair of disjoint subsets $S$, $S'$ of $A$ the following identity holds: 
-\begin{equation*}
-	(\theta_{S\sqcup S'}* 1) \circ \phi^f_{S,S'} = \phi^g_{S,S'} \circ (1 * (\theta_S \times \theta_{S'})).
-\end{equation*}
-
-One readily verifies that $\lincat(A) \simeq \lincat^{\times A}$. Thus an object of $\lincat(A)$ can roughly be thought of as consisting of an $A$-tuple of linear categories. However the object of $\lincat(A)$ also includes choices of representatives for the possible Deligne tensor products of these linear categories. The assignment $A \mapsto \lincat(A)$ gives a strict functor from $\Gamma^\op \simeq \Fin_*$ to strict 2-categories, which by abuse of notation we will also denote by $\lincat$. 
-
-
-
-
-
-\CSPcomm{
-\begin{itemize}
-	\item levelwise $\boxtimes$ makes $\lincat(A)$ weakly monoidal, can define tensor cats, module cats etc etc.  
-\end{itemize}
-
-\subsection{The symmetric monoidal 2-categories of tensor categories and bimodule categories}
-
-Let $TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
-
-}
-
-
-
-
-%Fix a finite set $A$. This gives rise to a functor $j_A: \Delta \to \Gamma$ which sends the ordered set $[m]$ to the set $\sqcup_m A = \{ (a,i) \; | \; a \in A, \; 0 < i \leq m \} $, and sends $f: [m] \to [n]$ to the function $ (a,i) \mapsto \{ (a,j) \in \sqcup_n A \; | \; f(i-1) < j \leq f(i) \}$. Composing with $\lincat$ gives a strict simplicial 2-category. In particular for each object $X \in \lincat(\sqcup_n A)$ and each $\varphi: [m] \to [n]$ in $\Delta$, we obtain an object $\varphi^*X \in \lincat(\sqcup_m A)$.
-
-%Another important simplicial 2-category, is the terminal simplcial 2-category, which is the constant functor with value the terminal 2-category $pt$. A semi-lax natural transformation from $pt$ to $\lincat \circ j_A$ consists of a family of objects $\{ X_n \in \lincat(\sqcup_n A)\}$ together with functors $X_\varphi: \varphi^*X_n \to X_m$ and natural isomorphisms $\phi_{\varphi, \psi}: X_\varphi \circ \varphi^* X_\psi \cong X_{\psi \varphi}$ for each $\varphi: [m] \to [n]$ and $\psi: [n] \to [p]$ in $\Delta$. These natural isomorphisms are required to satisfy the pentagon identity. There is a 2-category of such natural transformations. 
-
-%For each $1 \leq i \leq n$, let $s_i: [1] \to [n]$ denote the {\em Segal inclusion} which maps $0\mapsto i-1$, and $1 \mapsto i$. 
-%
-%\begin{definition}
-%	A {\em tensor category} in $\lincat(A)$ is a semi-lax natural transformation $X: pt \to \lincat \circ j_A$ such that the functors $X_{s_i}: s_i^*X_n \to X_1$ are equivalences. 
-%\end{definition}
-%
-%In the case that $A = (1) = \{1\}$, this is essentially equivalent to the usual notion of a tensor category. 
-
-
-
-
-
-
-
-
-%There is a functor $\varphi:\Delta \to \Gamma$, which sends $[m]$ to the set $(m) = \{ 1, 2, \dots, m\}$, and sends $f: [m] \to [n]$ to the function $\varphi_f: i \in (m) \mapsto \{ j \in (n) \; | \: f(i-1) < j \leq f(i) \}$.
-
-
-%The first significant advantage of $n$-fold Segal categories follows from the fact that the homotopy fiber product over a discrete base, for example $X_m \times_{X_0}^h X_n$ when $X$ is an $n$-fold Segal category, agrees with the ordinary fiber product. Thus we many avoid a lengthly discussion of the model structure of $n$-fold complete Segal spaces and work directly with ordinary fiber products.
-
-%We must also identify the weak equivalences between $n$-fold Segal categories. These admit a fairly direct inductive description in terms of the homotopy category $hX$ of an $n$-fold Segal category.
-
-
-
-%-----
-
-
-%The {\em homotopy pull-back} of $n$-fold simplicial spaces may be inductively defined as follows. For $0$-fold simplicial spaces a homotopy pull-back is a homotopy pull-back in the standard model structure on simplicial sets. For general $n$-fold simplicial spaces $W$, $X$, $Y$, and $Z$, a diagram 
-%\begin{center}
-%\begin{tikzpicture}
-%	\node (LT) at (0, 1.5) {$W$};
-%	\node (LB) at (0, 0) {$X$};
-%	\node (RT) at (2, 1.5) {$Y$};
-%	\node (RB) at (2, 0) {$Z$};
-%	\draw [->] (LT) -- node [left] {$$} (LB);
-%	\draw [->] (LT) -- node [above] {$$} (RT);
-%	\draw [->] (RT) -- node [right] {$$} (RB);
-%	\draw [->] (LB) -- node [below] {$$} (RB);
-%	%\node at (0.5, 1) {$\ulcorner$};
-%	%\node at (1.5, 0.5) {$\lrcorner$};
-%\end{tikzpicture}
-%\end{center}
-%is a homotopy pull-back diagram if and only if for each $n$ the diagram 
-%\begin{center}
-%\begin{tikzpicture}
-%	\node (LT) at (0, 1.5) {$W_n$};
-%	\node (LB) at (0, 0) {$X_n$};
-%	\node (RT) at (2, 1.5) {$Y_n$};
-%	\node (RB) at (2, 0) {$Z_n$};
-%	\draw [->] (LT) -- node [left] {$$} (LB);
-%	\draw [->] (LT) -- node [above] {$$} (RT);
-%	\draw [->] (RT) -- node [right] {$$} (RB);
-%	\draw [->] (LB) -- node [below] {$$} (RB);
-%	%\node at (0.5, 1) {$\ulcorner$};
-%	%\node at (1.5, 0.5) {$\lrcorner$};
-%\end{tikzpicture}
-%\end{center}
-%is a homotopy pull-back diagram of $(n-1)$-fold simplicial spaces. Thus homotopy fiber products are computed `levelwise'. In particular if $Z$ is a discrete $n$-fold simplicial space, then the homotopy fiber product is levelwise homotopy equivalent to the usual fiber product. 
-
-	
-	
-%	We now inductively define a class of objects called {\em $n$-fold Segal spaces} as well as a collection of maps of $n$-fold Segal spaces called {\em weak equivalences}. For $0$-fold simplicial spaces Segal spaces are the Kan complexes. The weak equivalences between $0$-fold simplicial spaces are the weak equivalences of simplicial sets.  
-	
-
-%\CSPcomm{[There is a model category of $\Gamma$-$n$-fold complete Segal spaces which models symmetric monoidal $(\infty, n)$-categories]. The is a completion functor (fibrant replacement), so it is enough to produce a $\Gamma$-$n$-fold simplicial space. We produce a Segal one.}
-
-\subsection{The $\Gamma$-$3$-fold Segal Category of Tensor Categories}
-
-
-The 3-fold Segal Category of tensor categories is first constructed as a simplicial object $TC$ in the 1-category of strict 2-categories (and strict 2-functors). The 3-fold Segal category is then obtained by applying the above 2-categorical nerve levelwise. For each $[n] \in \Delta$ we have a strict 2-category $TC_n$ defined as follows. The objects, 1-morphism, and 2-morphisms of $TC_n$ correspond to certain labelings of the $n$-simplex $[n]$. The objects of $TC_n$ consist of:
-\begin{itemize}
-	\item For each vertex $i$ of $[n]$, a tensor category $A_i$. 
-	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule category $M_{ij}$.
-	\item For each 2-simplex $ijk$ of $[n]$, an $A_j$-balanced functor of $A_i$-$A_k$-bimodule categories 
-	\begin{equation*}
-		\varphi_{ijk}: M_{ij} \times M_{jk} \to M_{ijk},
-	\end{equation*}
-	 which realizes $M_{ik}$ as the tensor product $M_{ik} \simeq M_{ij} \otimes_{A_j} M_{jk}$. 
-	\item For each 3-simplex $ijk\ell$ of $[n]$, a natural transformation of $A_j$/$A_k$-balanced $A_i$-$A_\ell$-bimodule functors 
-	\begin{equation*}
-		\alpha_{ijk \ell}: \varphi_{i k \ell} \circ (\varphi_{ijk} \times id_{M_{k\ell}}) \to \varphi_{ij \ell} \circ (id_{M_{ij}} \times \varphi_{jk\ell}).
-	\end{equation*}
-	 %inducing the identity natural isomorphism of the canonical equivalence $(M_{ij} \otimes_{A_j} M_{jk}) \otimes_{A_k} M_{k\ell} \simeq M_{ij} \otimes_{A_j}( M_{jk} \otimes_{A_k} M_{k\ell}).$
-	\item such that for each $4$-simplex $ijk\ell m$ of $[n]$, the following pentagon identity is satisfied:
-	\begin{align*}
-		\text{(to be added)}  \\ [\varphi_{ijm} * (id_{M_{ij}} \times \alpha_{jk\ell m})] \circ [\alpha_{ij\ell m} * (id_{M_{ij}} \times \varphi_{jk\ell} \times id_{M_{\ell m}})] \circ [\varphi_{i \ell m} * ( \alpha_{ijk \ell} \times id_{M_{\ell m}})] = ...
-	\end{align*} \CSPcomm{Need to finish the pentagon equation.}
-\end{itemize}
-Let $X$ and $Y$ be two objects in $TC_n$. The 1-morphisms of $TC_n$ from $X$ to $Y$ consist of labeled $n$-simplices where:
-\begin{itemize}
-	\item For each vertex $i$ of $[n]$, the tensor category $A_i^X$ and $A^Y_i$ agree identically. 
-	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule functor 
-	\begin{equation*}
-		F_{ij}: M_{ij}^X \to M_{ij}^Y.
-	\end{equation*}
-	\item For each 2-simplex $ijk$ of $[n]$, a natural isomorphism of $A_j$-balanced $A_i$-$A_k$-bimodule functors
-	\begin{equation*}
-		\xi_{ijk}: \varphi_{ijk}^Y \circ (F_{ij} \times F_{jk}) \to F_{ik} \circ \varphi_{ijk}^X
-	\end{equation*}
-	\item Such that for each 3-simplex $ijk\ell$ of $[n]$, the equation
-	\begin{equation*}
-			\text{(to be added)}
-	\end{equation*}
-	is satisfied.
-\end{itemize} 
-Let $F,G: X \to Y$ be two parallel 1-morphisms in $TC_n$. The 2-morphisms from $F$ to $G$ in $TC_n$ consist of:
-\begin{itemize}
-	\item For each edge $ij$ of $[n]$, a natural transformation of $A_i$-$A_j$-bimodule functors
-	\begin{equation*}
-		\theta_{ij}: F_{ij} \to G_{ij}.
-	\end{equation*}
-	\item Such that for each 2-simplex $ijk$ of $[n]$, the equation
-	\begin{equation*}
-		\xi_{ijk}^G \circ (  id_{\varphi_{ijk}^Y} * \theta_{ij} \times \theta_{jk}) = (\theta_{ik} * id_{\varphi_{ijk}^X} ) \xi_{ijk}^F
-	\end{equation*}
-	is satisfied. 
-\end{itemize}
-
-
-(face and degeneracy maps. (forgetting and repeating))
-
-Let $A$ be a finite set. Let $P(A)$ denote the power set of $A$, viewed as a poset via inclusion. Define $TC(n,A)$ to be the full sub-2-category of the strict functor 2-category $Fun(P(A), TC_n)$ consisting of those functors, natural transformations, and modifications which satisfy the following conditions. If $S_0$ and $S_1$ are disjoint subsets of $A$, then the induced map 
-\begin{equation*}
-	X(S_0) \times X(S_1) \to X(S_0 \sqcup S_1) \quad \text{ (need to finish)}
-\end{equation*} 
-\CSPcomm{Wait, don't the morphism in $TC_n$ fix the vertex tensor categories by definition? So then an inclusion doesn't correspond to a map in $TC_n$?}
-
-If $f:A \to P(B)$ is a morphism in $\Gamma$, then we get a functor $f^*: TC(n, B) \to TC(n,A)$ which on objects sends $X \in TC(n,B)$ to the assignment $f^*X(S) = X( \cup_{s \in S} f(s))$. Since $f$ sends disjoint unions to disjoint unions, this formula does indeed define an object of $TC(n,A)$. 
-
-\CSPcomm{Maybe I should reverse the order of these discussions. First discuss $P(A)$ and construct "bilinear sequences" which would consist of sequences of objects linear categories index by the subsets of $A$, and satisfying the "Deligne condition" for disjoint unions. (is this the right term? Maybe Segal condition?). Then show this has its own Deligne tensor product (essentially objectwise). So then we get the notion of tensor object and also module and bimodule objects which consist of sequences of tensor categories or bimodule categories. Finally We can just export the above definition be replacing $X$ and its ilk by objects in the $A$ sequences. Lastly, we just need to observe that this gives a  Gamma simplicial 2-category.}
-
-%--------- \CSPcomm{I need to edit the below.}
-%
-%\begin{itemize}
-%	\item The $0^\text{th}$ 2-category is the discrete collection tensor categories viewed as a discrete 2-category. 
-%	\item The $1^\text{st}$ 2-category consists of the disjoint union over all pairs of tensor categories $A$ and $B$ of the 2-categories of $A$-$B$-bimodule categories, functors, and natural transformations. 
-%	\item The $2^\text{nd}$ 2-category consists of a disjoint union over all triples of tensor categories $A$, $B$, $C$ of certain 2-categories $TC_2(A,B,C)$. These 2-categories consists of triples of bimodules $ \bimod{A}{L}{B}$, $ \bimod{B}{M}{C}$, $ \bimod{A}{N}{C}$, together with a $B$-balanced $A$-$C$-linear functor $L \times M \to N$ inducing an equivalence $\bimod{A}{L \boxtimes_B M }{C} \cong  \bimod{A}{N }{C}$. The 1-morphisms and 2-morphisms are the obvious ones. 
-%	\item The $3^\text{rd}$ 2-category consists of the disjoint union ...
-%	\item 
-%	\item The higher 2-categories are completely determined by their restriction to ... 
-%\end{itemize}
-
-
-
-
----------
-
-\CDcomm{Formalism for 3-categories.}
-
-\CDcomm{Formalism for symmetric monoidal 3-categories.}
-A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which sends coproducts to products. A symmetric monoidal 3-category is a functor $Fin_* \to 3\text{-}\Cat$ which sends coproducts to products.
-
-\CDcomm{Definition of TC.}
-\CDcomm{[Objects of TC are \emph{idempotent complete linear categories}.  Morphisms are ..., 2-morphism are ..., 3-morphism are ...]}
-
-
-\begin{remark}
-It is worth keeping in mind, and separating, the two key conceptual differences between the setting of tensor categories and the setting of ordinary algebra.  The first difference is, obviously, that we have categorified---the underlying objects are now longer sets but categories.  The second difference is that the elements of the objects no longer have additive inverses---that is objects of a tensor category, unlike elements of an algebra, needn't be additively invertible.  For many purposes and arguments, the second is the more serious and problematic difference.
-\end{remark}
-
-\subsection{Multi-Fusion categories} \label{sec-tc-fusion}
-
-\CD{CD continues to vote for using 'fusion' rather than 'multifusion'}
-
-\begin{definition}
-A \emph{fusion category} is a tensor category $\cC$ satisfying the following conditions:
-\begin{enumerate}
-\item For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
-\item The category $\cC$ is semisimple, with finitely many simple objects.
-\item For every object $a \in \cC$, there exists an object $\ld{a} \in \cC$ that is a left dual for $a$ and there exists an object $\rd{a} \in \cC$ that is a right dual for $a$.
-\end{enumerate}
-\end{definition}
-
-\begin{remark}
-Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
-\end{remark}
-
-\begin{proposition}
-If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
-\end{proposition}
-
-\begin{proof}
-Define the functor $\ld{(-)}$ on objects by picking for each object $a \in \cC$ a left dual object $\ld{a} \in \cC$.  Also pick a unit map $u: \ld{a} \; a \ra 1$ and a counit map $v: 1 \ra a \; \ld{a}$ giving $\ld{a}$ the structure of a left dual to $a$.  Define the functor $\ld{(-)}$ on a morphism $f: a \ra b$ by $\ld{(f)} := (u_b \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot f \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot v_a)$.  (This morphism $\ld{(f)}$ is called the \emph{mate} of $F$.)  Next we want to see that this functor is monoidal.  Observe that the morphisms $\ld{b} \; \ld{a} \; a \; b \xra{u_a} \ld{b} \; b \xra{u_b} 1$ and $1 \xra{v_a} a \; \ld{a} \xra{v_b} a \; b \; \ld{b} \; \ld{a}$ show that $(\ld{b} \; \ld{a})$ is a left dual to $(a b)$.  There is therefore a uniquely determined isomorphism from $(\ld{b} \; \ld{a})$ to $\ld{(a b)}$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
-\end{proof}
-% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
-
-\begin{remark}
-The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
-\end{remark}
-
-\begin{definition}
-A fusion category $\cC$ is \emph{pivotal} if the double left dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ is equivalent to the identity functor as a monoidal functor.
-\end{definition}
-
-In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}: \cC \ra \cC^{\mop}$ and the right dual functor $\rd{(-)}: \cC \ra \cC^{\mop}$ are monoidally equivalent.
 
 
 \section{Local Field Theory in Dimension Three} \label{sec-lft}
@@ -1340,6 +1156,223 @@ Drinfeld centers of pivotal fusion categories are anomaly free modular (ref Mueg
 %\CD{Known how to get these margin notes to fit?}
 %\marginpar{\small CD: I haven't tried to fit what CSP wrote below into the above outline structure.}
 %\marginpar{\small CD: Known how to get these margin notes to fit?}
+
+
+\section{CSP's dustbin}
+
+Let $A$ be a finite set. We define a strict 2-category $\lincat(A)$ as follows. Let $P(A)$ denote the powerset of $A$, and let $S$, $S'$, and $S''$ denote various disjoint subsets of $A$. The objects of $\lincat(A)$ consist of  $P(A)$-tuples of objects in $\lincat$, together with some additional data. Thus we have a finite linear category $X(S)$ for each subset $S \subseteq A$. The additional data consists of bilinear functors
+\begin{align*}
+		x_{S,S'}: & \; X(S) \times X(S') \to X(S \sqcup S') \\
+		I: & \; \Vect \to X(\emptyset)
+\end{align*}
+and natural isomorphisms of multi-linear functors
+\begin{align*}
+		\alpha_{S, S', S''}:  & \; x_{S \sqcup S', S''}\circ (x_{S,S'} \times 1) \cong x_{S, S' \sqcup S''} \circ (1 \times x_{S', S''}) \\
+		r_S: & \; x_{S, \emptyset} \circ (1 \times I)  \cong  \textrm{can}^r \\
+		\ell_{S}: & \; x_{ \emptyset, S} \circ (I \times 1)  \cong  \textrm{can}^\ell
+\end{align*}
+where $\textrm{can}^r: X(S) \times \Vect \to X(S)$ is the canonical bilinear functor, and similarly for $\textrm{can}^\ell$. 
+Moreover this data is subject to the following conditions: 
+\begin{enumerate}
+	\item $x_{S,S'}$ realizes $X(S \sqcup S')$ as the Deligne tensor product  $X(S) \boxtimes X(S') $, and $I$ is an isomorphism of linear categories. 
+	\item $	\alpha_{S, S', S''}$ satisfies the evident pentagon identity. 
+	\item $\ell_S$, $r_S$, and $\alpha_{\emptyset, S, \emptyset}$ satisfy the evident triangle identity.
+\end{enumerate}
+
+A morphism $f:X \to Y$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear functors $f_S: X(S) \to Y(S)$, together with natural isomorphisms of bilinear functors $\phi_{S,S'}: y_{S,S'} \circ f_S \times f_{S'} \cong f_{S \sqcup S'} \circ x_{S,S'}$. For each triple $S$, $S'$, $S''$ of disjoint subset of $A$, the following hexagon identity holds,
+\begin{equation*}
+	[1 * \alpha^X_{S, S', S''}] \circ [\phi_{S \sqcup S', S''} * 1] \circ [1 *(\phi_{S, S'} \times 1)] = 
+		[\phi_{S, S' \sqcup S''} * 1] \circ [1 * (1 \times \phi_{S', S''})] \circ [\alpha^Y_{S,S', S''} * 1].
+\end{equation*}
+
+A 2-morphism $\theta: f \to g$ in $\lincat(A)$ consists of a $P(A)$-tuple of linear natural transformations $\theta_S: f_S \to g_S$, such that for every pair of disjoint subsets $S$, $S'$ of $A$ the following identity holds: 
+\begin{equation*}
+	(\theta_{S\sqcup S'}* 1) \circ \phi^f_{S,S'} = \phi^g_{S,S'} \circ (1 * (\theta_S \times \theta_{S'})).
+\end{equation*}
+
+One readily verifies that $\lincat(A) \simeq \lincat^{\times A}$. Thus an object of $\lincat(A)$ can roughly be thought of as consisting of an $A$-tuple of linear categories. However the object of $\lincat(A)$ also includes choices of representatives for the possible Deligne tensor products of these linear categories. The assignment $A \mapsto \lincat(A)$ gives a strict functor from $\Gamma^\op \simeq \Fin_*$ to strict 2-categories, which by abuse of notation we will also denote by $\lincat$. 
+
+
+
+
+
+\CSPcomm{
+\begin{itemize}
+	\item levelwise $\boxtimes$ makes $\lincat(A)$ weakly monoidal, can define tensor cats, module cats etc etc.  
+\end{itemize}
+
+\subsection{The symmetric monoidal 2-categories of tensor categories and bimodule categories}
+
+Let $TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
+
+}
+
+
+
+
+%Fix a finite set $A$. This gives rise to a functor $j_A: \Delta \to \Gamma$ which sends the ordered set $[m]$ to the set $\sqcup_m A = \{ (a,i) \; | \; a \in A, \; 0 < i \leq m \} $, and sends $f: [m] \to [n]$ to the function $ (a,i) \mapsto \{ (a,j) \in \sqcup_n A \; | \; f(i-1) < j \leq f(i) \}$. Composing with $\lincat$ gives a strict simplicial 2-category. In particular for each object $X \in \lincat(\sqcup_n A)$ and each $\varphi: [m] \to [n]$ in $\Delta$, we obtain an object $\varphi^*X \in \lincat(\sqcup_m A)$.
+
+%Another important simplicial 2-category, is the terminal simplcial 2-category, which is the constant functor with value the terminal 2-category $pt$. A semi-lax natural transformation from $pt$ to $\lincat \circ j_A$ consists of a family of objects $\{ X_n \in \lincat(\sqcup_n A)\}$ together with functors $X_\varphi: \varphi^*X_n \to X_m$ and natural isomorphisms $\phi_{\varphi, \psi}: X_\varphi \circ \varphi^* X_\psi \cong X_{\psi \varphi}$ for each $\varphi: [m] \to [n]$ and $\psi: [n] \to [p]$ in $\Delta$. These natural isomorphisms are required to satisfy the pentagon identity. There is a 2-category of such natural transformations. 
+
+%For each $1 \leq i \leq n$, let $s_i: [1] \to [n]$ denote the {\em Segal inclusion} which maps $0\mapsto i-1$, and $1 \mapsto i$. 
+%
+%\begin{definition}
+%	A {\em tensor category} in $\lincat(A)$ is a semi-lax natural transformation $X: pt \to \lincat \circ j_A$ such that the functors $X_{s_i}: s_i^*X_n \to X_1$ are equivalences. 
+%\end{definition}
+%
+%In the case that $A = (1) = \{1\}$, this is essentially equivalent to the usual notion of a tensor category. 
+
+
+
+
+
+
+
+
+%There is a functor $\varphi:\Delta \to \Gamma$, which sends $[m]$ to the set $(m) = \{ 1, 2, \dots, m\}$, and sends $f: [m] \to [n]$ to the function $\varphi_f: i \in (m) \mapsto \{ j \in (n) \; | \: f(i-1) < j \leq f(i) \}$.
+
+
+%The first significant advantage of $n$-fold Segal categories follows from the fact that the homotopy fiber product over a discrete base, for example $X_m \times_{X_0}^h X_n$ when $X$ is an $n$-fold Segal category, agrees with the ordinary fiber product. Thus we many avoid a lengthly discussion of the model structure of $n$-fold complete Segal spaces and work directly with ordinary fiber products.
+
+%We must also identify the weak equivalences between $n$-fold Segal categories. These admit a fairly direct inductive description in terms of the homotopy category $hX$ of an $n$-fold Segal category.
+
+
+
+%-----
+
+
+%The {\em homotopy pull-back} of $n$-fold simplicial spaces may be inductively defined as follows. For $0$-fold simplicial spaces a homotopy pull-back is a homotopy pull-back in the standard model structure on simplicial sets. For general $n$-fold simplicial spaces $W$, $X$, $Y$, and $Z$, a diagram 
+%\begin{center}
+%\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$W$};
+%	\node (LB) at (0, 0) {$X$};
+%	\node (RT) at (2, 1.5) {$Y$};
+%	\node (RB) at (2, 0) {$Z$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+%	\draw [->] (LT) -- node [above] {$$} (RT);
+%	\draw [->] (RT) -- node [right] {$$} (RB);
+%	\draw [->] (LB) -- node [below] {$$} (RB);
+%	%\node at (0.5, 1) {$\ulcorner$};
+%	%\node at (1.5, 0.5) {$\lrcorner$};
+%\end{tikzpicture}
+%\end{center}
+%is a homotopy pull-back diagram if and only if for each $n$ the diagram 
+%\begin{center}
+%\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$W_n$};
+%	\node (LB) at (0, 0) {$X_n$};
+%	\node (RT) at (2, 1.5) {$Y_n$};
+%	\node (RB) at (2, 0) {$Z_n$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+%	\draw [->] (LT) -- node [above] {$$} (RT);
+%	\draw [->] (RT) -- node [right] {$$} (RB);
+%	\draw [->] (LB) -- node [below] {$$} (RB);
+%	%\node at (0.5, 1) {$\ulcorner$};
+%	%\node at (1.5, 0.5) {$\lrcorner$};
+%\end{tikzpicture}
+%\end{center}
+%is a homotopy pull-back diagram of $(n-1)$-fold simplicial spaces. Thus homotopy fiber products are computed `levelwise'. In particular if $Z$ is a discrete $n$-fold simplicial space, then the homotopy fiber product is levelwise homotopy equivalent to the usual fiber product. 
+
+	
+	
+%	We now inductively define a class of objects called {\em $n$-fold Segal spaces} as well as a collection of maps of $n$-fold Segal spaces called {\em weak equivalences}. For $0$-fold simplicial spaces Segal spaces are the Kan complexes. The weak equivalences between $0$-fold simplicial spaces are the weak equivalences of simplicial sets.  
+	
+
+%\CSPcomm{[There is a model category of $\Gamma$-$n$-fold complete Segal spaces which models symmetric monoidal $(\infty, n)$-categories]. The is a completion functor (fibrant replacement), so it is enough to produce a $\Gamma$-$n$-fold simplicial space. We produce a Segal one.}
+
+\subsection{The $\Gamma$-$3$-fold Segal Category of Tensor Categories}
+
+
+The 3-fold Segal Category of tensor categories is first constructed as a simplicial object $TC$ in the 1-category of strict 2-categories (and strict 2-functors). The 3-fold Segal category is then obtained by applying the above 2-categorical nerve levelwise. For each $[n] \in \Delta$ we have a strict 2-category $TC_n$ defined as follows. The objects, 1-morphism, and 2-morphisms of $TC_n$ correspond to certain labelings of the $n$-simplex $[n]$. The objects of $TC_n$ consist of:
+\begin{itemize}
+	\item For each vertex $i$ of $[n]$, a tensor category $A_i$. 
+	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule category $M_{ij}$.
+	\item For each 2-simplex $ijk$ of $[n]$, an $A_j$-balanced functor of $A_i$-$A_k$-bimodule categories 
+	\begin{equation*}
+		\varphi_{ijk}: M_{ij} \times M_{jk} \to M_{ijk},
+	\end{equation*}
+	 which realizes $M_{ik}$ as the tensor product $M_{ik} \simeq M_{ij} \otimes_{A_j} M_{jk}$. 
+	\item For each 3-simplex $ijk\ell$ of $[n]$, a natural transformation of $A_j$/$A_k$-balanced $A_i$-$A_\ell$-bimodule functors 
+	\begin{equation*}
+		\alpha_{ijk \ell}: \varphi_{i k \ell} \circ (\varphi_{ijk} \times id_{M_{k\ell}}) \to \varphi_{ij \ell} \circ (id_{M_{ij}} \times \varphi_{jk\ell}).
+	\end{equation*}
+	 %inducing the identity natural isomorphism of the canonical equivalence $(M_{ij} \otimes_{A_j} M_{jk}) \otimes_{A_k} M_{k\ell} \simeq M_{ij} \otimes_{A_j}( M_{jk} \otimes_{A_k} M_{k\ell}).$
+	\item such that for each $4$-simplex $ijk\ell m$ of $[n]$, the following pentagon identity is satisfied:
+	\begin{align*}
+		\text{(to be added)}  \\ [\varphi_{ijm} * (id_{M_{ij}} \times \alpha_{jk\ell m})] \circ [\alpha_{ij\ell m} * (id_{M_{ij}} \times \varphi_{jk\ell} \times id_{M_{\ell m}})] \circ [\varphi_{i \ell m} * ( \alpha_{ijk \ell} \times id_{M_{\ell m}})] = ...
+	\end{align*} \CSPcomm{Need to finish the pentagon equation.}
+\end{itemize}
+Let $X$ and $Y$ be two objects in $TC_n$. The 1-morphisms of $TC_n$ from $X$ to $Y$ consist of labeled $n$-simplices where:
+\begin{itemize}
+	\item For each vertex $i$ of $[n]$, the tensor category $A_i^X$ and $A^Y_i$ agree identically. 
+	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule functor 
+	\begin{equation*}
+		F_{ij}: M_{ij}^X \to M_{ij}^Y.
+	\end{equation*}
+	\item For each 2-simplex $ijk$ of $[n]$, a natural isomorphism of $A_j$-balanced $A_i$-$A_k$-bimodule functors
+	\begin{equation*}
+		\xi_{ijk}: \varphi_{ijk}^Y \circ (F_{ij} \times F_{jk}) \to F_{ik} \circ \varphi_{ijk}^X
+	\end{equation*}
+	\item Such that for each 3-simplex $ijk\ell$ of $[n]$, the equation
+	\begin{equation*}
+			\text{(to be added)}
+	\end{equation*}
+	is satisfied.
+\end{itemize} 
+Let $F,G: X \to Y$ be two parallel 1-morphisms in $TC_n$. The 2-morphisms from $F$ to $G$ in $TC_n$ consist of:
+\begin{itemize}
+	\item For each edge $ij$ of $[n]$, a natural transformation of $A_i$-$A_j$-bimodule functors
+	\begin{equation*}
+		\theta_{ij}: F_{ij} \to G_{ij}.
+	\end{equation*}
+	\item Such that for each 2-simplex $ijk$ of $[n]$, the equation
+	\begin{equation*}
+		\xi_{ijk}^G \circ (  id_{\varphi_{ijk}^Y} * \theta_{ij} \times \theta_{jk}) = (\theta_{ik} * id_{\varphi_{ijk}^X} ) \xi_{ijk}^F
+	\end{equation*}
+	is satisfied. 
+\end{itemize}
+
+
+(face and degeneracy maps. (forgetting and repeating))
+
+Let $A$ be a finite set. Let $P(A)$ denote the power set of $A$, viewed as a poset via inclusion. Define $TC(n,A)$ to be the full sub-2-category of the strict functor 2-category $Fun(P(A), TC_n)$ consisting of those functors, natural transformations, and modifications which satisfy the following conditions. If $S_0$ and $S_1$ are disjoint subsets of $A$, then the induced map 
+\begin{equation*}
+	X(S_0) \times X(S_1) \to X(S_0 \sqcup S_1) \quad \text{ (need to finish)}
+\end{equation*} 
+\CSPcomm{Wait, don't the morphism in $TC_n$ fix the vertex tensor categories by definition? So then an inclusion doesn't correspond to a map in $TC_n$?}
+
+If $f:A \to P(B)$ is a morphism in $\Gamma$, then we get a functor $f^*: TC(n, B) \to TC(n,A)$ which on objects sends $X \in TC(n,B)$ to the assignment $f^*X(S) = X( \cup_{s \in S} f(s))$. Since $f$ sends disjoint unions to disjoint unions, this formula does indeed define an object of $TC(n,A)$. 
+
+\CSPcomm{Maybe I should reverse the order of these discussions. First discuss $P(A)$ and construct "bilinear sequences" which would consist of sequences of objects linear categories index by the subsets of $A$, and satisfying the "Deligne condition" for disjoint unions. (is this the right term? Maybe Segal condition?). Then show this has its own Deligne tensor product (essentially objectwise). So then we get the notion of tensor object and also module and bimodule objects which consist of sequences of tensor categories or bimodule categories. Finally We can just export the above definition be replacing $X$ and its ilk by objects in the $A$ sequences. Lastly, we just need to observe that this gives a  Gamma simplicial 2-category.}
+
+%--------- \CSPcomm{I need to edit the below.}
+%
+%\begin{itemize}
+%	\item The $0^\text{th}$ 2-category is the discrete collection tensor categories viewed as a discrete 2-category. 
+%	\item The $1^\text{st}$ 2-category consists of the disjoint union over all pairs of tensor categories $A$ and $B$ of the 2-categories of $A$-$B$-bimodule categories, functors, and natural transformations. 
+%	\item The $2^\text{nd}$ 2-category consists of a disjoint union over all triples of tensor categories $A$, $B$, $C$ of certain 2-categories $TC_2(A,B,C)$. These 2-categories consists of triples of bimodules $ \bimod{A}{L}{B}$, $ \bimod{B}{M}{C}$, $ \bimod{A}{N}{C}$, together with a $B$-balanced $A$-$C$-linear functor $L \times M \to N$ inducing an equivalence $\bimod{A}{L \boxtimes_B M }{C} \cong  \bimod{A}{N }{C}$. The 1-morphisms and 2-morphisms are the obvious ones. 
+%	\item The $3^\text{rd}$ 2-category consists of the disjoint union ...
+%	\item 
+%	\item The higher 2-categories are completely determined by their restriction to ... 
+%\end{itemize}
+
+
+
+
+---------
+
+\CDcomm{Formalism for 3-categories.}
+
+\CDcomm{Formalism for symmetric monoidal 3-categories.}
+A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which sends coproducts to products. A symmetric monoidal 3-category is a functor $Fin_* \to 3\text{-}\Cat$ which sends coproducts to products.
+
+\CDcomm{Definition of TC.}
+\CDcomm{[Objects of TC are \emph{idempotent complete linear categories}.  Morphisms are ..., 2-morphism are ..., 3-morphism are ...]}
+
+
+\begin{remark}
+It is worth keeping in mind, and separating, the two key conceptual differences between the setting of tensor categories and the setting of ordinary algebra.  The first difference is, obviously, that we have categorified---the underlying objects are now longer sets but categories.  The second difference is that the elements of the objects no longer have additive inverses---that is objects of a tensor category, unlike elements of an algebra, needn't be additively invertible.  For many purposes and arguments, the second is the more serious and problematic difference.
+\end{remark}
 
 
 %% The Bibliography
