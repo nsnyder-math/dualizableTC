@@ -353,7 +353,7 @@ This is the category of combinatorial simplices. The vertices of $[n]$ have a na
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
 
 
-Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C)$. A {\em category internal to $C$} is such a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and $X_n$ denotes the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -368,15 +368,25 @@ Let $C$ be a category. The category of {\em simplcial objects of $C$} is the fun
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-are a pull-back diagrams. For a general simplicial object, these commuting squares will be called {\em Segal squares}. Hence a category internal to $C$ is a simplicial object in which every Segal square is a pull-back square. 
+are a pullback diagrams. For a general simplicial object, these commuting squares will be called {\em Segal squares}. Hence a category internal to $C$ is a simplicial object in which every Segal square is a pullback square. 
 
 This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
+
+\begin{example}
+	An ordinary (small) category is a category enriched in sets.
+\end{example}
+
+Thus a category $C$ may equivalently be regarded as simplical set $NC_\bullet$, called the {\em nerve of $C$}. The $n^\textrm{th}$ set is given by the formula
+\begin{equation*}
+	C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
+\end{equation*}
+Regarding an ordered set as a category, $C_n$ may be viewed as the set of functors from $[n]$ to $C$. 
 
 \begin{example}
 	A {\em strict 2-category} is a category enriched in categories.
 \end{example}
 
-Thus a strict 2-category may equivalently be regarded as a simplical object in the 
+Thus a strict 2-category may equivalently be regarded as a simplical object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such the the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
