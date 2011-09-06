@@ -438,7 +438,9 @@ Inductively we will define three functorial constructions:
 	\item A category $\mathit{h}X$, called the {\em homotopy category} of $X$.
 	\item A set $\pi_0 X$, which is the set of isomorphism classes of objects of $\mathit{h}X$. 
 \end{itemize}
-Once we have these constructions, equivalences of $n$-fold Segal categories are easily recognized: they are precisely those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ and which induce equivalences of $(n-1)$-fold Segal categories $Hom_X(a,b) \to Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. 
+Once we have these constructions, equivalences of $n$-fold Segal categories are easily recognized: they are precisely those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce bijections $\pi_0 f: \pi_0 X \to \pi_0 Y$, 
+% equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ 
+and which induce equivalences of $(n-1)$-fold Segal categories $Hom_X(a,b) \to Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. Such maps also induce equivalences $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$.
 
 Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the $(n-1)$-fold Segal category $Hom_X(a,b)$ is defined to be the fiber over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
 \begin{center}
@@ -480,6 +482,24 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 	\CSP{We should get a reference for this.}
 \end{example}
 
+\begin{lemma} \label{lma:2catnervereflectsequiv}
+	A strict functor of strict 2-categories $F: C \to D$ is a weak equivalence if and only if the induced map of 2-fold Segal categories $NC_{\bullet \bullet} \to ND_{\bullet \bullet}$ is an equivalence. 
+\end{lemma}
+
+\begin{proof}
+	The functor $F$ is a weak equivalence if and only if 
+	\begin{enumerate}
+		\item it is essentially surjective on object, and
+		\item for every pair of objects $a,b \in C$,  it induces an equivalence of categories $C(a,b) \to D(Fa, Fb)$.
+	\end{enumerate}
+On the other hand, a map of 2-fold Segal spaces $X \to Y$ is an equivalence if and only if
+\begin{enumerate}
+	\item it induces a bijection $\pi_0X \to \pi_0Y$, and
+	\item for every pair of objects $a,b \in X_0$, it induces equivalences of 1-fold Segal spaces $Hom_X(a,b) \to Hom_Y(Fa, Fb)$.
+\end{enumerate}
+When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nereves it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
+\end{proof}
+
 %If the $n$-fold Segal spaces $X_k$ are fibrant, that is complete, then these problems disappear. Weak equivalences between fibrant objects are computed levelwise, as are homotopy fiber products. 
 
 %Thus in general we are left with the embarrassing responsibility of computing the correct homotopy fiber product $X_m \times_{X_0}^h X_n$, and showing that the canonical map from $X_{m+n}$ is a weak equivalence of $(\infty, n-1)$-categories. Fortunately there is another subclass of $n$-fold Segal spaces for which these two operations are relatively easy to perform: The {\em $n$-fold Segal categories}.
@@ -490,7 +510,7 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 %   	\item $X_0$ is discrete, and
 %   	\item for each $n$, $X_n$ is an $(n-1)$-fold Segal category. 
 %   \end{enumerate}
-	A {\em symmetric monoidal 3-fold Segal category} (a.k.a. {\em special $\Gamma$-$n$-fold Segal category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplcial spaces, such that the following conditions are satisfied. 
+	A {\em symmetric monoidal $n$-fold Segal category} (a.k.a. {\em special $\Gamma$-$n$-fold Segal category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplcial spaces, such that the following conditions are satisfied. 
 	\begin{enumerate}
 		\item $X_A$ is an $n$-fold Segal category for each $A \in \Gamma$. 
 		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
@@ -502,6 +522,7 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 	\end{enumerate}
 \end{definition}
 
+In the next section we will construct an example: $\TC$ the symmetric monoidal 3-fold Segal category of tensor categories. 
 
 %Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
 
@@ -517,9 +538,11 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 \subsection{The symmetric monoidal 2-category of tensor categories} \label{sec-tc-threecat}
 
 
-We now describe $\TC$ as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories. Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $TC(A,n)$ will be defined similarly. Morally, one should regard $TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $TC$. 
+We now describe the symmetric monoidal 3-fold Segal category $\TC$. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} then implies that the result is indeed a symmetric monoidal 3-fold Segal space. 
 
-The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. The solution is to enlarge $TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $TC(A,n)$ is what we now describe.
+Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $TC(A,n)$ will be defined similarly. Morally, one should regard $TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $TC$. 
+
+The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $TC(A,n)$ is what we now describe.
 
 As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in TC(A,n)$ in Table \ref{Table:ObjectOfTC}.
 \begin{table}[h]
@@ -733,6 +756,7 @@ In particular, if you are in a situation where you happen to know a priori that 
 \begin{definition}
 An \emph{unstable structure} for $n$-dimensional vector bundles is a space $T$ together with a fibration $f: T \ra BO(n)$.  A $T$-structure on an n-dimensional vector bundle $V$ on $X$ is a lift of the classifying map $X \xra{V} BO(n)$ along $f$ to $T$.
 
+\CSP{Do we need to mention stable structures?}
 A \emph{stable structure} is a space $S$ together with a fibration $f: S \ra BO$.  An $S$-structure on an n-dimensional vector bundle $V$ on $X$ is a lift of the composite map $X \xra{V} BO(n) \ra BO$ along $f$ to $S$.
 \end{definition}
 \CD{Are you happy with this def? Ie without mentioning the group structure on $G \ra O$?}
