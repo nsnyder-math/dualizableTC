@@ -169,6 +169,7 @@ Some things which should go in this section:
 	\item finite linear categories 
 	\item The Deligne tensor product
 	\item tensor categories and their functors
+	\item rigid tensor categories. 
 	\item module categories.
 	\item exact module categories. 
 	\item adjoint functor theorem, representable functor conditions. 
@@ -376,17 +377,17 @@ This may be contrasted with the notion of a category enriched to $C$, which cons
 	An ordinary (small) category is a category enriched in sets.
 \end{example}
 
-Thus a category $C$ may equivalently be regarded as simplical set $NC_\bullet$, called the {\em nerve of $C$}. The $n^\textrm{th}$ set is given by the formula
+Thus a category $C$ may equivalently be regarded as simplical set $NC_\bullet$ called the {\em nerve of $C$}. The $n^\textrm{th}$ set of $NC_{\bullet}$ is given by the formula
 \begin{equation*}
 	NC_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
 \end{equation*}
-Regarding an ordered set as a category, $C_n$ may be viewed as the set of functors from $[n]$ to $C$. 
+Regarding the ordered set $[n] \in \Delta$ as a category, $NC_n$ may be viewed as the set of functors from $[n]$ to $C$. 
 
 \begin{example}
 	A {\em strict 2-category} is a category enriched in categories.
 \end{example}
 
-Thus a strict 2-category may equivalently be regarded as a simplical object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such the the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
+Thus a strict 2-category may equivalently be regarded as a simplical object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such the the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
@@ -497,7 +498,7 @@ On the other hand, a map of 2-fold Segal spaces $X \to Y$ is an equivalence if a
 	\item it induces a bijection $\pi_0X \to \pi_0Y$, and
 	\item for every pair of objects $a,b \in X_0$, it induces equivalences of 1-fold Segal spaces $Hom_X(a,b) \to Hom_Y(Fa, Fb)$.
 \end{enumerate}
-When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nereves it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
+When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
 \end{proof}
 
 %If the $n$-fold Segal spaces $X_k$ are fibrant, that is complete, then these problems disappear. Weak equivalences between fibrant objects are computed levelwise, as are homotopy fiber products. 
@@ -535,30 +536,31 @@ In the next section we will construct an example: $\TC$ the symmetric monoidal 3
 
 
 
-\subsection{The symmetric monoidal 2-category of tensor categories} \label{sec-tc-threecat}
+\subsection{The symmetric monoidal 3-category of tensor categories} \label{sec-tc-threecat}
 
 
-We now describe the symmetric monoidal 3-fold Segal category $\TC$. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} then implies that the result is indeed a symmetric monoidal 3-fold Segal space. 
+We now describe the symmetric monoidal 3-fold Segal category $\TC$. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal 3-fold Segal category. 
 
 Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $TC(A,n)$ will be defined similarly. Morally, one should regard $TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $TC$. 
 
 The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $TC(A,n)$ is what we now describe.
 
-As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in TC(A,n)$ in Table \ref{Table:ObjectOfTC}.
-\begin{table}[h]
-	\caption{Data of an object of $TC(A,n)$.}
+As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
+\begin{table}[ht]
+	\caption{Data and Conditions for an object of $TC(A,n)$.}
 	\begin{tabular}{c |ccccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-face $ijk$ & 3-face $ijk\ell$ & 4-face \\
 	\hline
-	$S$ 				& $X_{S;i}$ & $X_{S; ij}$ & $b_{S; ijk}$  & $\alpha_{S;ijk\ell}$ & (*) \\
-	$S, S'$ 			& $x_{S, S';i}$ & $x_{S, S';ij}$ & $\psi_{S, S'; i j k}$ & (*) & \\
-	$S, S', S''$ 		& $\alpha_{S, S', S'';i}$ & $\alpha_{S, S', S'';ij}$ & (*) &  & \\
+	$S$ 				& $X_{S;i}$ & $X_{S; ij}$ & $b_{S; ijk}$  & $\alpha_{S;ijk\ell}$ & (TCO3) \\
+	$S, S'$ 			& $x_{S, S';i}$ & $x_{S, S';ij}$ & $\psi_{S, S'; i j k}$ & (TCO5) & \\
+	$S, S', S''$ 		& $\alpha_{S, S', S'';i}$ & $\alpha_{S, S', S'';ij}$ & (TCO6) &  & \\
 	\hline
-	$S, S', S'', S''' $	& (*) & (*)  &  &  & \\
+	$S, S', S'', S''' $	& (TCO4) & (TCO4)  &  &  & \\
 	\end{tabular}
-	
-	\vspace{1cm}
-	
+	\label{Table:ObjectOfTC}
+\end{table}	
+\begin{table}[ht]
+	\caption{Description of the Data of an object of $TC(A,n)$.}	
 	\begin{tabular}{l p{11cm}}
 		datum & description of datum \\ \hline
 		$X_{S;i}$ & A tensor category \\
@@ -575,67 +577,76 @@ As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor cate
 		$x_{S \sqcup S', S'';ij}\circ (x_{S,S';ij} \times 1)$  to 
 		$x_{S, S' \sqcup S'';ij} \circ (1 \times x_{S', S'';ij})$. \\
 	\end{tabular}
-	\label{Table:ObjectOfTC}
+	\label{Table:ObjectOfTC2}
 \end{table}
-This data is required to satisfy a the following conditions. 
-\begin{enumerate}
-	\item The functors $x_{S,S';i}$, $x_{S,S'; ij}$, and $b_{S;ijk}$ realize equivalences with the following Deligne tensor products:
+This data is required to satisfy a the following conditions: \\
+\newcounter{itemcounter}
+\begin{list}{(TCO\arabic{itemcounter})}{\usecounter{itemcounter}}
+%	\setlength{\leftmargin}{0pt}
+	\item  The functors $x_{S,S';i}$, $x_{S,S'; ij}$, and $b_{S;ijk}$ realize equivalences with the following Deligne tensor products:
 	\begin{align*}
 		X_{S \cup S'; i} &\cong X_{S; i} \boxtimes X_{S';i} \\ 
 		X_{S \cup S'; ij} &\cong X_{S; ij} \boxtimes X_{S';ij} \\ 
 		X_{S; ik} & \cong X_{S;ij} \boxtimes_{X_{S;j}} X_{S;jk}
 	\end{align*}
-	\item $X_{\emptyset; i} \cong \Vect$, with $X_{\emptyset; ij}$, $b_{\emptyset; ijk}$, and $\alpha_{\emptyset; ijk\ell}$ the evident identity morphisms and bimodule category. Moreover when either $S$ or $S'$ equals $\emptyset$, the functors $x_{S,S'; i}$ and $x_{S, S'; ij}$ and the transformation $\psi_{S,S'; ijk}$ are the canonical ones.  
-	\item For every 4-simplex $ijk\ell m$, $\alpha_{S; -}$ satisfies the evident pentagon equation
-	\item For every quadruple of disjoint subsets $S, S', S'', S'''$, $\alpha_{-; i}$ and $\alpha_{-; ij}$ satisfy the evident pentagon equations. When $S' = \emptyset$ then $\alpha_{S, S', S''; i}$ and $\alpha_{S, S', S''; ij}$ satisfy the evident triangle identity. 
-	\item For every pair of disjoint subsets $S, S'$ and every 3-simplex $ijk\ell$, the following `hexagon' equation is satisfied:
-	\CSP{Maybe move this diagrams to figures and clean them up?}
-\begin{center}
-	\begin{tikzpicture}
-%		\node (A) at (126:2cm) {A};
-%		\node (B) at (54:2cm) {B};
-%		\node (C) at (342:2cm) {C}; % -18 degrees
-%		\node (D) at (270:2cm) {D};
-%		\node (E) at (198:2cm) {E};		
-		\node (A) at (160:4cm) {$x_{S, S'; i\ell} \circ (b_{S, ik\ell} \times b_{S'; ik\ell}) \circ (b_{S; ijk} \times 1 \times b_{S'; ijk} \times 1)$};
-		\node (B) at (100:4cm) {$x_{S, S'; i\ell} \circ (b_{S, ij\ell} \times b_{S'; ij\ell}) \circ (1 \times b_{S; jk\ell} \times 1 \times b_{S'; jk\ell})$};
-		\node (C) at (40:4cm) {$b_{S\cup S'; ij\ell} \circ (x_{S\cup S'; ij} \times x_{S, S'; j\ell}) \circ (1 \times 1 \times b_{S, ij\ell} \times b_{S', ij\ell} ) \circ \tau_0$}; 
-		\node (D) at (340:4cm) {$b_{S\cup S'; ij\ell} \circ (1 \times b_{S \cup S'; jk\ell}) \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times x_{S, S'; k\ell}) \circ \tau_1$};
-		\node (E) at (280:4cm) {$b_{S \cup S'; ik\ell} \circ (b_{S \cup S';ijk} \times 1) \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times x_{S, S'; k\ell}) \circ \tau_3$};
-		\node (F) at (220:4cm) {$b_{S \cup S'; ik\ell} \circ (x_{S, S'; ik} \times x_{S, S'; k \ell}) \circ (b_{S;ijk} \times b_{S';ijk} \times 1 \times 1) \circ \tau_2$};
-		\draw [->] (A) to node [above left] {$1*(\alpha_{S; ijk\ell} \times \alpha_{S'; ijk\ell})$} (B);
-		\draw [->] (B) to node [right=1cm] {$\psi_{S, S'; ik\ell}*1$} (C);
-		\draw [->] (C) to node [right] {$1 * (1 \times \psi_{S,S'; jk\ell})$} (D);
-		\draw [->] (A) to node [left] {$\psi_{S, S'; ik\ell}*1$} (F);
-		\draw [->] (F) to node [below left] {$1 * (\psi_{S,S'; ijk} \times 1)$} (E);
-		\draw [->] (E) to node [below right] {$\alpha_{S \cup S';ijk\ell} * 1$} (D);
-	\end{tikzpicture}
-\end{center}
-where each $\tau_i$ represents an appropriate permutation of the factors. In other words, $(x_{S,S';-}, \psi_{S, S'; -})$ forms a structure analogous to a functor of bicategories. 
-	\item For every triple of disjoint subsets $S, S', S''$ and every 2-simplex $ijk$, the following `hexagon' identity holds:
+	\item  $X_{\emptyset; i} \cong \Vect$, with $X_{\emptyset; ij}$, $b_{\emptyset; ijk}$, and $\alpha_{\emptyset; ijk\ell}$ the evident identity morphisms and bimodule category. Moreover when either $S$ or $S'$ equals $\emptyset$, the functors $x_{S,S'; i}$ and $x_{S, S'; ij}$ and the transformation $\psi_{S,S'; ijk}$ are the canonical ones.  
+	\item  For every 4-simplex $ijk\ell m$, $\alpha_{S; -}$ satisfies the evident pentagon equation.
+	\item  For every quadruple of disjoint subsets $S, S', S'', S'''$, $\alpha_{-; i}$ and $\alpha_{-; ij}$ satisfy the evident pentagon equations. When $S' = \emptyset$ then $\alpha_{S, S', S''; i}$ and $\alpha_{S, S', S''; ij}$ satisfy the evident triangle identity. 
+	\item  For every pair of disjoint subsets $S, S'$ and every 3-simplex $ijk\ell$, the `hexagon' equation in Figure \ref{fig:EqnSSijkObject} is satisfied. 
+\begin{figure}[ht]
+	\caption{Equation for condition (TCO5) on the data of an object of $TC(A,n)$.}
 	\begin{center}
-		\begin{tikzpicture}
+		\begin{tikzpicture}[align=left]
 	%		\node (A) at (126:2cm) {A};
 	%		\node (B) at (54:2cm) {B};
 	%		\node (C) at (342:2cm) {C}; % -18 degrees
 	%		\node (D) at (270:2cm) {D};
 	%		\node (E) at (198:2cm) {E};		
-			\node (A) at (160:4cm) {$x_{S \cup S', S'';ik} \circ (x_{S, S'; ik} \times 1) \circ (b_{S;ijk} \times b_{S';ijk} \times b_{S'';ijk})$};
-			\node (B) at (100:4cm) {$x_{S \cup S', S'';ik} \circ (b_{S\cup S'; ijk} \times b_{S''; ijk}) \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times 1 \times 1) \circ \tau_0$};
-			\node (C) at (40:4cm) {$b_{S \cup S' \cup S''; ijk} \circ (x_{S \cup S', S''; ij} \times x_{S \cup S', S''; jk}) \circ (x_{S, S'; ij} \times 1 \times x_{S, S'; jk} \times 1 ) \circ \tau_1$}; 
-			\node (D) at (340:4cm) {$b_{S \cup S' \cup S''; ijk} \circ (x_{S , S' \cup S''; ij} \times x_{S,  S'\cup S''; jk}) \circ ( 1 \times x_{S', S''; ij} \times 1 \times x_{S', S''; jk}) \circ \tau_2$};
-			\node (E) at (280:4cm) {$x_{S, S' \cup S'';ik} \circ (b_{S;ijk} \times b_{S' \cup S''; ijk}) \circ (1 \times x_{S', S'';ij} \times x_{S', S''; jk})  \circ \tau_3$};
-			\node (F) at (220:4cm) {$x_{S, S' \cup S'';ik} \circ (1 \times x_{S', S''; ik} ) \circ (b_{S;ijk} \times b_{S';ijk} \times b_{S'';ijk})$};
-			\draw [->] (A) to node [above left] {$1* (\psi_{S, S';ijk}\times 1)$} (B);
+			\node  (A) at (150:3.5cm) {$x_{S, S'; i\ell} \circ (b_{S, ik\ell} \times b_{S'; ik\ell})$ \\ $\circ (b_{S; ijk} \times 1 \times b_{S'; ijk} \times 1)$};
+			\node (B) at (90:3.5cm) {$x_{S, S'; i\ell} \circ (b_{S, ij\ell} \times b_{S'; ij\ell})$\\ $ \circ (1 \times b_{S; jk\ell} \times 1 \times b_{S'; jk\ell})$};
+			\node (C) at (30:3.5cm) {$b_{S\cup S'; ij\ell} \circ (x_{S\cup S'; ij} \times x_{S, S'; j\ell}) $\\ $ \circ (1 \times 1 \times b_{S, ij\ell} \times b_{S', ij\ell} ) \circ \tau_0$}; 
+			\node (D) at (330:3.5cm) {$b_{S\cup S'; ij\ell} \circ (1 \times b_{S \cup S'; jk\ell}) $\\ $ \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times x_{S, S'; k\ell}) \circ \tau_1$};
+			\node (E) at (270:3.5cm) {$b_{S \cup S'; ik\ell} \circ (b_{S \cup S';ijk} \times 1) $\\$ \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times x_{S, S'; k\ell}) \circ \tau_3$};
+			\node (F) at (210:3.5cm) {$b_{S \cup S'; ik\ell} \circ (x_{S, S'; ik} \times x_{S, S'; k \ell}) $\\$ \circ (b_{S;ijk} \times b_{S';ijk} \times 1 \times 1) \circ \tau_2$};
+			\draw [->] (A) to node [above left] {$1*(\alpha_{S; ijk\ell} \times \alpha_{S'; ijk\ell})$} (B);
+			\draw [->] (B) to node [above right] {$\psi_{S, S'; ik\ell}*1$} (C);
+			\draw [->] (C) to node [right] {$1 * (1 \times \psi_{S,S'; jk\ell})$} (D);
+			\draw [->] (A) to node [left] {$\psi_{S, S'; ik\ell}*1$} (F);
+			\draw [->] (F) to node [below left] {$1 * (\psi_{S,S'; ijk} \times 1)$} (E);
+			\draw [->] (E) to node [below right] {$\alpha_{S \cup S';ijk\ell} * 1$} (D);
+		\end{tikzpicture}
+	\end{center}
+	\label{fig:EqnSSijkObject}
+\end{figure}
+where each $\tau_i$ represents an appropriate permutation of the factors. In other words, $(x_{S,S';-}, \psi_{S, S'; -})$ forms a structure analogous to a functor of bicategories. 
+	\item  For every triple of disjoint subsets $S, S', S''$ and every 2-simplex $ijk$, the  `hexagon' equation in Figure \ref{fig:EqnSSSijObject} holds.
+	\begin{figure}[ht]
+		\caption{Equation for condition (TCO6) on the data of an object of $TC(A,n)$.}
+	\begin{center}
+		\begin{tikzpicture}[align=left]
+	%		\node (A) at (126:2cm) {A};
+	%		\node (B) at (54:2cm) {B};
+	%		\node (C) at (342:2cm) {C}; % -18 degrees
+	%		\node (D) at (270:2cm) {D};
+	%		\node (E) at (198:2cm) {E};		
+			\node (A) at (150:3.5cm) {$x_{S \cup S', S'';ik} \circ (x_{S, S'; ik} \times 1) $\\$\circ (b_{S;ijk} \times b_{S';ijk} \times b_{S'';ijk})$};
+			\node (B) at (90:3.5cm) {$x_{S \cup S', S'';ik} \circ (b_{S\cup S'; ijk} \times b_{S''; ijk}) $\\$ \circ (x_{S, S'; ij} \times x_{S, S'; jk} \times 1 \times 1) \circ \tau_0$};
+			\node (C) at (30:3.5cm) {$b_{S \cup S' \cup S''; ijk} \circ (x_{S \cup S', S''; ij} \times x_{S \cup S', S''; jk}) $\\$ \circ (x_{S, S'; ij} \times 1 \times x_{S, S'; jk} \times 1 ) \circ \tau_1$}; 
+			\node (D) at (330:3.5cm) {$b_{S \cup S' \cup S''; ijk} \circ (x_{S , S' \cup S''; ij} \times x_{S,  S'\cup S''; jk}) $\\$ \circ ( 1 \times x_{S', S''; ij} \times 1 \times x_{S', S''; jk}) \circ \tau_2$};
+			\node (E) at (270:3.5cm) {$x_{S, S' \cup S'';ik} \circ (b_{S;ijk} \times b_{S' \cup S''; ijk}) $\\$ \circ (1 \times x_{S', S'';ij} \times x_{S', S''; jk})  \circ \tau_3$};
+			\node (F) at (210:3.5cm) {$x_{S, S' \cup S'';ik} \circ (1 \times x_{S', S''; ik} ) $\\$ \circ (b_{S;ijk} \times b_{S';ijk} \times b_{S'';ijk})$};
+			\draw [->] (A) to node [left=1cm] {$1* (\psi_{S, S';ijk}\times 1)$} (B);
 			\draw [->] (B) to node [right=1cm] {$\psi_{S\cup S', S''; ijk} * 1$} (C);
 			\draw [->] (C) to node [right] {$1 * (\alpha_{S,S',S''; ij} \times \alpha_{S, S', S''; jk})$} (D);
 			\draw [->] (A) to node [left] {$\alpha_{S, S', S'';ik}*1$} (F);
-			\draw [->] (F) to node [below left] {$1 * (1 \times \psi_{S', S''; ijk})$} (E);
-			\draw [->] (E) to node [below right] {$\psi_{S, S' \cup S''; ijk}*1$} (D);
+			\draw [->] (F) to node [ left=1cm] {$1 * (1 \times \psi_{S', S''; ijk})$} (E);
+			\draw [->] (E) to node [right=1cm] {$\psi_{S, S' \cup S''; ijk}*1$} (D);
 		\end{tikzpicture}
 	\end{center}
+		\label{fig:EqnSSSijObject}
+	\end{figure}
 	where $\tau_i$ is an appropriate permutation of the factors. 
-\end{enumerate}
+\end{list}
 
 Let $X$ and $Y$ be two objects in $TC(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. In this case the 1-morphisms from $X$ to $Y$ consist of collections of data as in Table \ref{Table:1MorOfTC}.
 \begin{table}[h]
@@ -643,12 +654,12 @@ Let $X$ and $Y$ be two objects in $TC(A,n)$. A 1-morphism from $X$ to $Y$ may on
 	\begin{tabular}{c |cccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$ & 3-simplex $ijk\ell$  \\
 	\hline
-	$S$ 				& n/a & $F_{S; ij}$ & $\xi_{S; ijk}$  &  (*) \\
-	$S, S'$ 			& n/a & $\varphi_{S, S';ij}$ &  (*) & \\
-	$S, S', S''$ 		& n/a  & (*) & & \\
+	$S$ 				& n/a & $F_{S; ij}$ & $\xi_{S; ijk}$  &  (TC1M2) \\
+	$S, S'$ 			& n/a & $\varphi_{S, S';ij}$ &  (TC1M3) & \\
+	$S, S', S''$ 		& n/a  & (TC1M4) & & \\
 	\end{tabular}
 	
-	\vspace{1cm}
+	\vspace{0.5cm}
 	
 	\begin{tabular}{l p{11cm}}
 		datum & description of datum \\ \hline
@@ -659,14 +670,74 @@ Let $X$ and $Y$ be two objects in $TC(A,n)$. A 1-morphism from $X$ to $Y$ may on
 	\label{Table:1MorOfTC}
 \end{table}
 This data is required to satisfy the following axioms:
-\begin{enumerate}
+\begin{list}{(TC1M\arabic{itemcounter})}{\usecounter{itemcounter}}
 	\item If $S = \emptyset$, the $F_S;ij$ and $\xi_{S;ijk}$ are identities. If either $S$ or $S'$ is equal to $\emptyset$, then $\varphi_{S,S';ij}$ is the canonical map.
-	\item For every subset $S$ and every 3-simplex $ijk\ell$ ...
-	\item For every pair of disjoint subsets $S, S'$ and every 2-simplex $ijk$, ...
-	\item For every triple of disjoint subsets $S, S', S''$ and every edge $ij$, ...
-\end{enumerate}
+	\item For every subset $S$ and every 3-simplex $ijk\ell$ the hexagon equation in Figure \ref{fig:EqnSijklMorphism} holds.
+	\begin{figure}[ht]
+		\caption{Equation for condition (TC1M2) on the data of a 1-morphism of $TC(A,n)$.}
+		\begin{center}
+			\begin{tikzpicture}[align=left]	
+				\node (A) at (150:3.5cm) {$b^Y_{S;ik\ell} \circ (b^Y_{S;ijk} \times 1) \circ (F_{S;ij} \times F_{S;jk} \times F_{S;k\ell})$};
+				\node (B) at (90:3.5cm) {$b^Y_{S;ik\ell} \circ (F_{S;ik} \times F_{S;k\ell}) \circ (b^X_{S;ijk} \times 1) $};
+				\node (C) at (30:3.5cm) {$F_{S;i\ell} \circ b^X_{S;ik\ell} \circ (b^X_{S;ijk} \times 1)$}; 
+				\node (D) at (330:3.5cm) {$F_{S;i\ell} \circ b^X_{S;ij\ell} \circ (1 \times b^X_{S;jk\ell})$};
+				\node (E) at (270:3.5cm) {$b^Y_{S;ij\ell} \circ (F_{S;ij} \times F_{S;j\ell}) \circ (1 \times b^X_{S;jk\ell}) $};
+				\node (F) at (210:3.5cm) {$b^Y_{S;ij\ell} \circ (1 \times b^Y_{S;jk\ell})  \circ (F_{S;ij} \times F_{S;jk} \times F_{S;k\ell})$};
+				\draw [->] (A) to node [left=1cm] {$1*\xi_{S;ijk}$} (B);
+				\draw [->] (B) to node [right=1cm] {$\xi_{S; ik\ell} * 1$} (C);
+				\draw [->] (C) to node [right] {$1*\alpha^X_{S;ijk\ell}$} (D);
+				\draw [->] (A) to node [left] {$\alpha^Y_{S;ijk\ell} * 1$} (F);
+				\draw [->] (F) to node [ left=1cm] {$1*\xi_{S;jk\ell}$} (E);
+				\draw [->] (E) to node [right=1cm] {$\xi_{S; ij\ell}*1$} (D);
+			\end{tikzpicture}
+		\end{center}
+		\label{fig:EqnSijklMorphism}
+	\end{figure}
+	\item For every pair of disjoint subsets $S, S'$ and every 2-simplex $ijk$ the hexagon equation in Figure \ref{fig:EqnSSijkMorphism} holds, where $\tau$ permutes the middle factors. 
+	\begin{figure}[ht]
+		\caption{Equation for condition (TC1M3) on the data of a 1-morphism of $TC(A,n)$.}
+		\begin{center}
+			\begin{tikzpicture}[align=left]	
+				\node (A) at (150:3.5cm) {$y_{S, S'; ik} \circ (b^Y_{S; ijk} \times b^Y_{S';ijk}) $\\$ \circ (F_{S; ij} \times F_{S; jk} \times F_{S'; ij} \times F_{S'; jk})$};
+				\node (B) at (90:3.5cm) {$y_{S, S'; ik} \circ (F_{S; ik} \times F_{S'; ik}) \circ (b^X_{S;ijk} \times b^X_{S'; ijk}) $};
+				\node (C) at (30:3.5cm) {$F_{S \cup S'; ik} \circ x_{S, S'; ik} \circ (b^X_{S;ijk} \times b^X_{S'; ijk})$}; 
+				\node (D) at (330:3.5cm) {$F_{S \cup S'; ik} \circ b^X_{S \cup S'; ijk} $\\$ \circ (x_{S,S'; ij} \times x_{S,S'; ik}) \circ \tau$};
+				\node (E) at (270:3.5cm) {$ b^Y_{S \cup S'; ijk} \circ (F_{S \cup S'; ij} \times F_{S \cup S'; jk}) \circ (x_{S,S'; ij} \times x_{S,S'; ik}) \circ \tau$};
+				\node (F) at (210:3.5cm) {$ b^Y_{S \cup S'; ijk} \circ (y_{S,S'; ij} \times y_{S, S'; jk}) $\\$  \circ (F_{S; ij} \times F_{S'; ij} \times F_{S; jk}  \times F_{S'; jk}) \circ \tau$};
+				\draw [->] (A) to node [left=1cm] {$1* (\xi_{S;ijk} \times \xi_{S';ijk})$} (B);
+				\draw [->] (B) to node [right=1cm] {$\varphi_{S,S';ik}*1$} (C);
+				\draw [->] (C) to node [right] {$1* \psi^X_{S, S'; ijk}$} (D);
+				\draw [->] (A) to node [left] {$\psi^Y_{S, S'; ijk} * 1$} (F);
+				\draw [->] (F) to node [ left=1cm] {$1* (\varphi_{S, S'; ij} \times \varphi_{S, S'; jk})$} (E);
+				\draw [->] (E) to node [right=1cm] {$\xi_{S \cup S'; ijk}*1$} (D);
+			\end{tikzpicture}
+		\end{center}
+		\label{fig:EqnSSijkMorphism}
+	\end{figure} 
+	\item For every triple of disjoint subsets $S, S', S''$ and every edge $ij$, the hexagon equation in Figure \ref{fig:EqnSSSijMorphism} holds.
+	\begin{figure}[ht]
+		\caption{Equation for condition (TC1M4) on the data of a 1-morphism of $TC(A,n)$.}
+		\begin{center}
+			\begin{tikzpicture}[align=left]	
+				\node (A) at (150:3.5cm) {$y_{S \cup S', S''; ij} \circ (y_{S, S'; ij} \times 1) $\\$ \circ (F_{S; ij} \times F_{S'; ij} \times F_{S''; ij})$};
+				\node (B) at (90:3.5cm) {$y_{S \cup S', S''; ij} \circ (F_{S \cup S'; ij} \times F_{S'';ij}) \circ (x_{S,S';ij} \times 1) $};
+				\node (C) at (30:3.5cm) {$F_{S \cup S' \cup S''; ij} \circ x_{S \cup S', S''; ij} \circ (x_{S,S';ij} \times 1)$}; 
+				\node (D) at (330:3.5cm) {$F_{S \cup S' \cup S''; ij} \circ x_{S, S'\cup S''; ij} \circ (1 \times x_{S',S'';ij})$};
+				\node (E) at (270:3.5cm) {$y_{S,  S'\cup S''; ij} \circ (F_{S;ij} \times F_{S' \cup S''; ij}) \circ (1 \times x_{S', S'';ij}) $};
+				\node (F) at (210:3.5cm) {$y_{S,  S'\cup S''; ij} \circ (1 \times y_{S', S''; ij}) $\\$ \circ (F_{S; ij} \times F_{S'; ij} \times F_{S''; ij})$};
+				\draw [->] (A) to node [left=1cm] {$1*\varphi_{S,S';ij}$} (B);
+				\draw [->] (B) to node [right=1cm] {$\varphi_{S\cup S', S''; ij}*1$} (C);
+				\draw [->] (C) to node [right] {$1 * \alpha^X_{S,S', S''; ij}$} (D);
+				\draw [->] (A) to node [left] {$\alpha^Y_{S, S', S'';ij}$} (F);
+				\draw [->] (F) to node [ left=1cm] {$1 * \varphi_{S', S''; ij}$} (E);
+				\draw [->] (E) to node [right=1cm] {$\varphi_{S, S' \cup S''; ij}*1$} (D);
+			\end{tikzpicture}
+		\end{center}
+		\label{fig:EqnSSSijMorphism}
+	\end{figure}
+\end{list}
 A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a collection of $\{ \theta_{S;ij} \}$ consisting of $X_{S;i}$-$X_{S;j}$-bimodule natural transformations from $F_{S;ij}$ to $G_{S;ij}$ for each subset $S \subseteq A$ and 2-simplex $ij$ in $[n]$. These are required to satisfy that $\theta_{\emptyset;ij}$ is the identity and the following pair of equations hold:
-\begin{enumerate}
+\begin{list}{(TC2M\arabic{itemcounter})}{\usecounter{itemcounter}}
 	\item For each 2-simplex $ijk$, we have
 	\begin{equation*}
 		(\theta_{S; ik} * 1) \circ \xi^F_{S; ijk} = xi^G_{S;ijk} \circ (1 * (\theta_{S; ij} \times \theta_{S; jk})).
@@ -675,10 +746,10 @@ A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a colle
 	\begin{equation*}
 		(\theta_{S \cup S'; ij} * 1) \circ \varphi^F_{S, S'; ij} = \varphi^G_{S,S';ij} \circ (1*(\theta_{S;ij} \times \theta_{S';ij})).
 	\end{equation*}
-\end{enumerate}
+\end{list}
 With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $TC(A,n)$ into a strict $2$-category. It is manifestly functorial in $A$ and $[n]$ and thus gives a (strict) functor 
 \begin{equation*}
-	\TC: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to 2-\Cat.
+	\TC: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to \Cat_2.
 \end{equation*}
 into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TC$.
 
@@ -686,8 +757,18 @@ into the 1-category of strict 2-categories. Composing with the coherent nerve fo
 	 $\TC$ is a symmetric monoidal 3-fold Segal category.  
 \end{theorem}
 
+\CSP{This maybe needs a little more explanation...}
+\begin{proof}
+	By Lemma \ref{lma:2catnervereflectsequiv} it is enough to show that the functor to strict 2-categories satisfies the appropriate Segal conditions, i.e. that the following Segal maps are weak equivalences of strict 2-categories:
+	\begin{align*}
+		\TC(A, m + n) & \to \TC(A, m) \times_{\TC(A, 0)} \TC(A, n), \\
+		\TC(A, n) & \to \TC(1, n)^{\times |A|}. 
+	\end{align*}
+However $TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. 
+\end{proof}
+ 
 
-
+\CSPcomm{Now maybe set up notion that will be used later in the paper? eg variations on TC, hom categories, etc?}
 
 
 \section{Local Field Theory in Dimension Three} \label{sec-lft}
