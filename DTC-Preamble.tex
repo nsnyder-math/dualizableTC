@@ -75,12 +75,12 @@
   \ifthenelse{\equal{#1}{}}{  			% If A is empty ...
 		\ifthenelse{\equal{#2}{}}		% And B is empty ...
 			{\mathrm{Mod}}{ 			% just print "Mod"
-				{\mathrrm{Mod}\textrm{-}#2}		% Else, print "Mod-B"
+				{\mathrm{Mod}\textrm{-}#2}		% Else, print "Mod-B"
 			}
 	}{									% but if A is not empty,
 		\ifthenelse{\equal{#2}{}}		% and B is empty,
 			{{#1\textrm{-}\mathrm{Mod}}}{		% print "A-mod",
-				{{#1\textrm{-}\mathrrm{Mod}\textrm{-}#2}}	% otherwise print "A-Mod-B".
+				{{#1\textrm{-}\mathrm{Mod}\textrm{-}#2}}	% otherwise print "A-Mod-B".
 			}
 	}
 }
@@ -157,6 +157,7 @@
 \newcommand{\Ab}{\mathrm{Ab}}
 \newcommand{\Algd}{\mathrm{Algd}}
 \newcommand{\Cat}{\mathrm{Cat}}
+\newcommand{\Mon}{\mathrm{Mon}}
 \newcommand{\Vect}{\mathrm{Vect}}
 \newcommand{\TC}{\mathrm{TC}}
 \newcommand{\ev}{\mathrm{ev}}
