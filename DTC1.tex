@@ -1204,38 +1204,38 @@ If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \c
 
 \section{Pivotality as a descent condition} \label{sec-pivot}
 
-\subsection{Fusion category TFTs are string} \label{sec-pivot-string}
+\subsection{Homotopically invariant notions of pivotality and sphericality.}
 
-\begin{proposition} \label{prop-string}
-Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor categories descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TC$.
-\end{proposition}
+[Definitions of h-pivotal and h-spherical.  Classification.]
 
-\begin{proof}
-This result is a direct analog of the corresponding result for conformal-net-valued local field theories, given in~\cite{bdh-lft}, and the proof is the same.  We briefly recall the structure of that proof.  \CDcomm{[Brief summary of argument.  Bousfield-Kan spectral sequence.]}
-\end{proof}
+\subsection{h-Pivotal fusion categories correspond to quadratic field theories} \label{sec-pivot-orpo}
 
-
-\begin{corollary}
-The framed local field theory associated to a fusion category descends to a string local field theory.
-\end{corollary}
-
-
-
-\subsection{Pivotal fusion category TFTs are orpo} \label{sec-pivot-orpo}
-
-\begin{theorem} \label{thm-pivorpo}
-A fusion category $\cC \in \TC$ is pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented-$p_1$ local field theory $\overline{\cF}_{\cC} : \OrpoBord_0^3 \ra \TC$.
+\begin{theorem}
+A fusion category $\cC \in \TC$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TC$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
 \end{theorem}
 
-\begin{proof}
-\CDcomm{For pivotal $\Rightarrow$ orpo: use first the result from the last section getting to String, then use pivotal to get from string to orpo [need to know that trivializing Serre is enough].}
 
-\CDcomm{For orpo $\Rightarrow$ pivotal: Serre is trivial, use double dual = Serre theorem, and bimodulification lemma.}
-\end{proof}
+\begin{conjecture}
+If a fusion category $\cC \in \TC$ is pivotal, then the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to a combed, that is $SO(2)$, local field theory.
+\end{conjecture}
 
+\CDcomm{Conjecture regarding exact structure group for pivotal?}
+
+\subsection{h-Spherical fusion categories correspond to oriented $p_1$ field theories}
+
+\begin{theorem}
+A fusion category $\cC \in \TC$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TC$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
+\end{theorem}
+
+\begin{conjecture}
+If a fusion category $\cC \in \TC$ is spherical, then the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented, that is $SO(3)$, local field theory.
+\end{conjecture}
+
+\CDcomm{Conjecture regarding exact structure group for spherical?}
 
 \subsection{Structure groups of fusion category TFTs} \label{sec-pivot-struc}
-
+.
+\CDcomm{This section is old.  Reconsider the content here.  Depending on how much there is to say, either fold into previous sections or not.}
 
 In light of Theorem~\ref{thm-pivorpo}, the ENO conjecture, that fusion categories are pivotal, can be reformulated as follows:
 \begin{conjecture}
@@ -1255,12 +1255,6 @@ Drinfeld centers of pivotal fusion categories are anomaly free modular (ref Mueg
 
 
 %%%%%%%%
-
-%%% I left these as demonstartion, please comment out. -CSP
-%\CD{I haven't tried to fit what CSP wrote below into the above outline structure.}
-%\CD{Known how to get these margin notes to fit?}
-%\marginpar{\small CD: I haven't tried to fit what CSP wrote below into the above outline structure.}
-%\marginpar{\small CD: Known how to get these margin notes to fit?}
 
 \appendix
 
@@ -1309,6 +1303,21 @@ Similarly, as far as individual tangential structures on 3-manifolds are concern
 \begin{proposition}
 For $M$ a 3-manifold, the natural forgetful map from stably framed structures to stable string structures induces a bijection between the set of homotopy classes of stable framings on $M$ to the set of homotopy classes of string structures on $M$.
 \end{proposition}
+
+\subsection{Fusion category TFTs are string} \label{sec-pivot-string}
+
+\begin{proposition} \label{prop-string}
+Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor categories descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TC$.
+\end{proposition}
+
+\begin{proof}
+This result is a direct analog of the corresponding result for conformal-net-valued local field theories, given in~\cite{bdh-lft}, and the proof is the same.  We briefly recall the structure of that proof.  \CDcomm{[Brief summary of argument.  Bousfield-Kan spectral sequence.]}
+\end{proof}
+
+
+\begin{corollary}
+The framed local field theory associated to a fusion category descends to a string local field theory.
+\end{corollary}
 
 
 
@@ -1397,7 +1406,18 @@ The following five spaces, together with the obvious maps to $BO$, define the af
 \nid Note that for $X \in \{\Or, \Spin, \Orpo, \String\}$, a stable $X$ structure on a 3-dimensional vector bundle is exactly the same as an $X$ structure on a 3-dimensional vector bundle, because $BX(3)$ is by construction the homotopy pullback of $BO(3) \ra BO \la BX$.  This is not, however, the case for $X = \Frame$; indeed there is a substantial difference between a framing and a stable framing.
 
 
+%%%%
 
+---
+\begin{theorem} \label{thm-pivorpo}
+A fusion category $\cC \in \TC$ is pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented-$p_1$ local field theory $\overline{\cF}_{\cC} : \OrpoBord_0^3 \ra \TC$.
+\end{theorem}
+
+\begin{proof}
+\CDcomm{For pivotal $\Rightarrow$ orpo: use first the result from the last section getting to String, then use pivotal to get from string to orpo [need to know that trivializing Serre is enough].}
+
+\CDcomm{For orpo $\Rightarrow$ pivotal: Serre is trivial, use double dual = Serre theorem, and bimodulification lemma.}
+\end{proof}
 
 
 %%%%%%
