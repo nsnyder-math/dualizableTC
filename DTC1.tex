@@ -1037,6 +1037,8 @@ If $\cC$ is a multi-fusion category with non-zero global dimension then there ex
 It is worth noting that we have not assumed that the base field is algebraically closed.
 \end{remark}
 
+\CDcomm{Somewhere there needs to be a subsection that describes all the elementary 3-framed bordisms, of dimensions 0,1,2,3, and what their images are under a field theory.  Maybe that happens here?  Do you want the geometric side of the story, ie the notation and conventions for 3-framings explained previously, eg as another subsection of the LFTDim3 section?  (In this case the first paragraph of the subsection "n-framed 1-manifolds" would move back to that spot.)  So then here it would just be in a way a compliation of what's been said so far, made explicit, this bordism goes here, and this one here, and ... .}
+
 \subsection{Dualizability and finite tensor categories}
 
 \begin{theorem}
@@ -1184,6 +1186,8 @@ Here $e_p \in \Hom(\cC,\Vect)$ is defined by $e_p(r) = \Hom(p,r)$.  As in the ab
 
 \subsection{The quadruple dual is trivial} \label{sec-serre-quad}
 
+\CDcomm{This section needs to include a precise statement not only that the quad dual functor is bimodule trivial, but of what exactly the canonical trivialization of that bimodule is.}
+
 \begin{lemma}[Bimodulification Lemma]
 Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalent as monoidal functors.
 \end{lemma}
@@ -1206,7 +1210,37 @@ If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \c
 
 \subsection{Homotopically invariant notions of pivotality and sphericality.}
 
-[Definitions of h-pivotal and h-spherical.  Classification.]
+Fusion categories are objects of the 3-category $\TC$ of tensor categories, but in this 3-category, pivotality and sphericality are not natural conditions on a fusion category.  Specifically they are not homotopy invariant notions; one may have a pivotal (resp. spherical) fusion category and a $\TC$-equivalent fusion category that is not pivotal (resp. spherical).  \CD{That statement should be double checked.}  We introduce the following homotopy invariant notions.
+
+Recall that a pivotal structure is a tensor trivialization of the double dual functor.
+
+\begin{definition}
+An \emph{h-pivotal} structure on a fusion category $\cC$ is an equivalence $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cD}{\cC}$ from the identify bimodule $\bimod{\cC}{\cC}{\cC}$ to the bimodule $\bimod{\cC}{\cD}{\cC}$ associated to the double right dual tensor functor $(-)**: \cC \ra \cC$.  
+\end{definition}
+
+\nid As we saw in Theorem [...] that the double dual bimodule is canonically equivalent to the Serre bimodule, an h-pivotal structure could equally well have been defined as a trivialization of the Serre bimodule.  Of course, we need to know what the morphisms between h-pivotal structures are: an equivalence from an h-pivotal structure $T$ on $\cC$ to another h-pivotal structure $T'$ is a natural equivalence of bimodule functors from $T$ to $T'$.
+
+Recall that a spherical structure is a tensor trivialization of the double dual functor whose double is the canonical tensor trivialization of the quadruple dual.  In Section [...] we explicitly described the corresponding canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the bimodule $\bimod{\cC}{\cQ}{\cC}$ associated to the quadruple right dual tensor functor $(-)****: \cC \ra \cC$. \CD{Reconsider the phrasing here after the section on the quad dual is written.}
+
+\begin{definition}
+An \emph{h-spherical} structure on a fusion category $\cC$ is a pair $(T,E)$, where $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cD}{\cC}$ is an equivalence from the identity bimodule to the bimodule associated to the double right dual tensor functor, and $E: T \btimes_{\cC} T \ra A$ is a natural equivalence of bimodule functors from $T \btimes_{\cC} T: \bimod{\cC}{\cC \btimes_{\cC} \cC}{\cC} \ra \bimod{\cC}{\cD \btimes_{\cC} \cD}{\cC} \cong \bimod{\cC}{\cQ}{\cC}$ to the canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the quadruple dual bimodule.
+\end{definition}
+
+An equivalence from an h-spherical structure $(T,E)$ on $\cC$ to another h-spherical structure $(T',E')$ is a natural equivalence $R: T \ra T'$ of bimodule functors that intertwines $E$ and $E'$ in the sense that the composite $T \btimes_{\cC} T \xra{R \btimes R} T' \btimes_{\cC} T' \xra{E'} A$ is equal to the map $T \btimes_{cC} T \xra{E} A$.
+
+Our main reason for investigating h-pivotal and h-spherical structures is, of course, that these are the notions that naturally correspond to descent properties of the corresponding field theories.  Another advantage is that because they are the homotopically natural notions, the groupoids of these structures admit particularly clean classifications, as follows.
+
+\begin{proposition}
+The groupoid of h-pivotal structures on an h-pivotal fusion category $\cC$ is a torsor for the braided monoidal category $\pi_{\leq 1} \Omega^2(\TC,\cC)$, that is the fundamental groupoid of the double loop category of $\TC$, based at $\cC$.
+\end{proposition}
+
+\begin{proposition}
+The groupoid of h-spherical structures on an h-spherical fusion category $\cC$ is a torsor for the braided monoidal category $K := \ker(\pi_{\leq 1} \Omega^2(\TC,\cC) \xra{\cdot 2} \pi_{\leq 1} \Omega^2(\TC,\cC))$.
+\end{proposition}
+
+Needless to say, the kernel in this proposition must be interpreted in a homotopy invariant manner, that is as a homotopy fiber and not a literal fiber.  Specifically, an object in the kernel $K$ is an automorphism $\phi$ of the identity bimodule $\bimod{\cC}{\cC}{\cC}$ together with a natural equivalence of bimodule functors from $\phi \btimes \phi$ to the identity functor on $\cC \btimes_{\cC} \cC$.  We refer to this tensor squaring operation $\phi \mapsto \phi \btimes \phi$ as ``$\cdot 2$", rather than as squaring, because the fundamental groupoid of the double loop space of $\TC$ is homotopy abelian.
+
+Once the somewhat intricate definitions involved in these two propositions are unpacked, they are transparent, and we omit the proofs. \CD{Check this.}
 
 \subsection{h-Pivotal fusion categories correspond to quadratic field theories} \label{sec-pivot-orpo}
 
@@ -1232,6 +1266,11 @@ If a fusion category $\cC \in \TC$ is spherical, then the framed local field the
 \end{conjecture}
 
 \CDcomm{Conjecture regarding exact structure group for spherical?}
+
+%\subsection{Examples of descent} \label{sec-egs-descent}
+
+\CDcomm{Somewhere we need to add examples of specific fusion categories, with a discussion of which structures they have and the classification of those structures.  Not sure if that is a new subsection here or just fits as examples along the way in other subsections.}
+
 
 \subsection{Structure groups of fusion category TFTs} \label{sec-pivot-struc}
 .
