@@ -165,18 +165,20 @@ Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morr
 \CSPcomm{
 Some things which should go in this section:
 \begin{itemize}
-	\item linear categories
+	\item linear categories, multilinear functors. 
+	\item tensor categories and their functors
+	\item rigid tensor categories. 
+	
 	\item finite linear categories 
 	\item The Deligne tensor product
-	\item tensor categories and their functors
 	\item rigid tensor categories. 
 	\item module categories.
 	\item exact module categories. 
 	\item adjoint functor theorem, representable functor conditions. 
 	\item multi-fusion cats. (?)
 \end{itemize}
-
 }
+
 
 
 %\CD{The organization of this section might well change as we decide what exactly we should include.}
@@ -184,15 +186,51 @@ Some things which should go in this section:
 %\CDcomm{Our goal is to define $TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $TC(i)$, which can occur in DTCII.}
 
 
-
-\subsection{Linear categories} \label{sec-tc-lincat}
-
 \CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
 \CDcomm{[2Vect = idempotent complete additive categories enriched in Vect]}
 
 
-definition
 
+\subsection{Linear Categories and Tensor Categories} \label{sec-tc-lincat}
+
+	Let $k$ be a fixed ground field. A {\em linear category} is an abelian category with a compatible enrichment over $\Vect_k$, the category of $k$-vector spaces. 
+	\CSP{What is our notational difference for finite dimensional vector spaces versus all vector spaces.}
+A {\em linear functor} is a right exact additive functor, which is also a functor of $\Vect_k$-enriched categories. 
+	\CSP{How do people feel about me putting right exactness into the definition of linear functor?}
+More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
+\begin{equation*}
+	F: \prod \cA_\alpha \to \cB
+\end{equation*}
+such that $F$ is linear in each variable separately. 
+
+\begin{definition}
+	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. 
+\end{definition}
+
+\begin{example}
+	\CSPcomm{Add examples here???}
+\end{example}
+
+Given a monoidal category $\cC$, there are three important notions of opposite. We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
+
+\begin{definition}
+	An object $x$ of a monoidal category $\cC$ {\em admits a left dual} if there exists an object $x^*$ (a {\em left dual}) and morphisms, the {\em unit} $\eta: 1 \to x \otimes x^*$ and the {\em counit} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `Zig-Zag' equations:
+	\begin{align*}
+		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
+		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
+	\end{align*}
+The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left dual in $\cC^{mp}$. Finally, a monoidal category is {\em rigid} if every object admits both left and right duals. 
+\end{definition}
+
+\begin{remark}
+	The potentially confusing notion $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  
+\end{remark}
+
+\begin{remark}
+	For a fixed object $x$ which admits a left dual, there is an obvious category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. 
+\end{remark}
+
+\subsection{Finite Linear Categories and the Deligne Tensor Product}
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A $k$-linear abelian category $C$ is {\em finite} if 
@@ -229,7 +267,7 @@ The Deligne tensor products is unique up to an equivalence, which in turn is uni
 \end{definition}
 
 
-We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  Given a tensor category $\cC$, we will denote by $\cC^{\op}$ the tensor category whose underlying linear category is opposite to the underlying linear category of $\cC$, and whose tensor structure is inherited from the tensor structure of $\cC$; we call it the "opposite tensor category".  By constrast, we will denote by $\cC^{\mp}$ the tensor category whose underlying linear category is the underlying linear category of $\cC$, and whose tensor structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the "monoidal opposite tensor category".  Finally, there is $\cC^{\mop}$, which denotes the tensor category whose underlying linear category is $\cC^{\op}$ and whose tensor structure is inherited from the tensor structure of $\cC^{\mp}$; we call this the "opposite monoidal opposite tensor category".
+We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  
 
 \subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
 
