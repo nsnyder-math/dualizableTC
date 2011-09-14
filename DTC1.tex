@@ -179,20 +179,20 @@ Some things which should go in this section:
 }
 
 
-\CD{The organization of this section might well change as we decide what exactly we should include.}
+%\CD{The organization of this section might well change as we decide what exactly we should include.}
 
-\CDcomm{Our goal is to define $TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $TC(i)$, which can occur in DTCII.}
+%\CDcomm{Our goal is to define $TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $TC(i)$, which can occur in DTCII.}
 
 
 
 \subsection{Linear categories} \label{sec-tc-lincat}
 
-
-.
-
 \CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
-
 \CDcomm{[2Vect = idempotent complete additive categories enriched in Vect]}
+
+
+definition
+
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A $k$-linear abelian category $C$ is {\em finite} if 
@@ -896,6 +896,7 @@ K(\ZZ/4,3) \ra & \; BOrpo(3) \ra K(\ZZ/2,2) \overset{\delta}{\dashrightarrow} K(
 K(\ZZ,3) \ra & \; BQuad \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \nn
 \end{align}
 \nid Here the dashed arrow indicates the k-invariant of the preceding fibration.  The class $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$ is a generator, and the class $\gamma \in H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$ is, up to sign, the integral Bockstein of $\delta$. \CD{Surely that sign is $+1$; easy way to see that?}
+\CSP{You can take it to be either one. You can always compose with an automorphism of $K(\ZZ,5)$, and this switches the two posibilities.}
 \end{proposition}
 
 \begin{proof}
@@ -903,7 +904,7 @@ The quadratic structure group is defined as the homotopy fiber of the square of 
 
 The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed.
 
-The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{The Postnikov tower is functorial, right?} \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
+The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{The Postnikov tower is functorial, right?} \CSP{Yes, it is functorial.} \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
 \end{proof}
 
 We have the following diagram of structure spaces:
@@ -988,7 +989,7 @@ The maps $\ev$ give the counits of the adjunctions.  The units of the adjunction
 If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are left exact, then the map $\Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
 \end{lemma}
 \begin{proof}
-
+\CSPcomm{This is now lemma 2.19, maybe move that here?}
 \end{proof}
 
 \begin{lemma}
