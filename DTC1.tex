@@ -1006,11 +1006,22 @@ $\ev$ and $\coev$ are the unit and counit of an adjunction.
 
 It will sometimes be convenient to have an alternative description of the left and right adjoints to $\cM$.
 
+\begin{definition}
+Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  
+\end{definition}
+
 \begin{lemma}
-Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  We have that ${}^*\cM \cong \Fun_{\text{mod}-\cD}(\cM, \cD)$ and $\cM^* \cong \Fun_{\cC\text{-mod}}(\cM, \cC)$.
+If $\cM$ is a $\cC$--$\cD$ bimodule category and $\cN$ is a $\cC$--$\cE$ bimodule category, then taking left adjoints gives an equivalence of $\cD$--$\cE$ bimodules $\Fun_{\cC-\text{mod}}(\cM, \cN) \rightarrow \Fun_{\cC-\text{mod}}(\cN, \cM)^*$.  Similarly, if $\cM$ is a $\cC$--$\cD$ bimodule category and $\cN$ is a $\cD$--$\cE$ bimodule category, then taking left adjoints gives an equivalence of $\cC$--$\cE$ bimodules $\Fun_{\text{mod}-D}(\cM, \cN) \rightarrow {}^*\Fun_{\cC-\text{mod}}(\cN, \cM)$. 
 \end{lemma}
 \begin{proof}
-The isomorphism ${}^*\cM \rightarrow \Fun_{\text{mod}-\cD}(\cM, \cD)$ is given by the internal Hom, namely $m \mapsto \underline{\Hom}(m, \bullet)$.
+We've already seen that the left adjoint has a canonical module functor structure.  To see that the actions match, note that taking adjoints interchanges precomposition and postcomposition, and the left adjoint of left multiplication by $x$ is left multiplication by $x^*$.  For the second statement, note that the left adjoint of right multiplication by $x$ is right multiplication by ${}^*x$.
+\end{proof}
+
+\begin{lemma}
+We have that ${}^*\cM \cong \Fun_{\text{mod}-\cD}(\cM, \cD)$ and $\cM^* \cong \Fun_{\cC\text{-mod}}(\cM, \cC)$.
+\end{lemma}
+\begin{proof}
+By the previous lemma, $\Fun_{\cC\text{-mod}}(\cM, \cC) \cong \Fun_{\cC\text{-mod}}(\cC, \cM)^*$  But the latter is just $\cM^*$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
 \end{proof}
 
 \begin{remark}
