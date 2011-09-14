@@ -191,11 +191,11 @@ Some things which should go in this section:
 
 
 
-\subsection{Linear Categories and Tensor Categories} \label{sec-tc-lincat}
+\subsection{Linear Categories, Tensor Categories, and Module Categories} \label{sec-tc-lincat}
 
-	Let $k$ be a fixed ground field. A {\em linear category} is an abelian category with a compatible enrichment over $\Vect_k$, the category of $k$-vector spaces. 
+	Let $k$ be a fixed ground field. A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
 	\CSP{What is our notational difference for finite dimensional vector spaces versus all vector spaces.}
-A {\em linear functor} is a right exact additive functor, which is also a functor of $\Vect_k$-enriched categories. 
+A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
 	\CSP{How do people feel about me putting right exactness into the definition of linear functor?}
 More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
 \begin{equation*}
@@ -208,7 +208,7 @@ such that $F$ is linear in each variable separately.
 \end{definition}
 
 \begin{example}
-	\CSPcomm{Add examples here???}
+	Both $\overline{\Vect}_k$ and $\Vect_k$ (the category of finite dimensional vector spaces) are examples of tensor categories. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
 \end{example}
 
 Given a monoidal category $\cC$, there are three important notions of opposite. We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
@@ -223,38 +223,123 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 \end{definition}
 
 \begin{remark}
-	The potentially confusing notion $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  
+	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  
 \end{remark}
 
 \begin{remark}
 	For a fixed object $x$ which admits a left dual, there is an obvious category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. 
 \end{remark}
 
+\begin{definition}
+	Let $\cC$ be a tensor category. A {\em left $\cC$-module category} is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+	\begin{align*}
+		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
+		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
+	\end{align*}
+	satisfying the evident pentagon and triangle identities. {\em Right $\cC$-module categories} are defined in an analogous manner. 
+\end{definition}
+
+\begin{example}
+	Every linear category is a $\Vect_k$-module category in an essentially unique way. 
+\end{example}
+
+\begin{example}
+	For any algebra object $A$ in a tensor category $\cC$, the categories  $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are, respectively, left and right $\cC$-module categories. 
+\end{example}
+
+
+\CSPcomm{ (for later...)
+\begin{itemize}
+	\item A { \em bimodule functor} includes a morphism of tensor categories as part of the data. 
+	\item An {\em $A$-$B$-bimodule functor} is one where that morphism is the identity.
+	\item the category $\fun_{\cC}(\cM, \cN)$ of (right exact) $\cC$-module functors and transformations is again a linear category. 
+\end{itemize}
+}
+
 \subsection{Finite Linear Categories and the Deligne Tensor Product}
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
-	A $k$-linear abelian category $C$ is {\em finite} if 
+	A linear category $\cC$ is {\em finite} if 
 	\begin{enumerate}
-		\item $C$ has finite dimensional spaces of morphisms;
-		\item every object of $C$ has finite length;
-		\item $C$ has enough projectives, i.e. every simple object of $C$ has a projective cover; and
+		\item $\cC$ has finite dimensional spaces of morphisms;
+		\item every object of $\cC$ has finite length;
+		\item $\cC$ has enough projectives, i.e. every simple object of $C$ has a projective cover; and
 		\item there are finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
 
-It is well known that a finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$. By a linear category we will mean a $k$-linear abelian category. 
+\begin{remark}
+	 A finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
+\end{remark}
+
+
+\begin{definition}
+	Let $\cA$ and $\cB$ be linear categories. The {\em Deligne tensor product $\cA \boxtimes \cB$} is the universal linear category admitting a multilinear functor $\boxtimes: \cA \times \cB \to \cA \boxtimes \cB$. That is, there exists a multilinear functor $\boxtimes: \cA \times \cB \to \cA \boxtimes \cB$ which induces, for all linear categories $\cC$, an equivalence between the categories of multilinear functors $\cA \times \cB \to \cC$ and linear functors $\cA \boxtimes \cB \to \cC$. 
+\end{definition}
+
+If it exists, the Deligne tensor product is unique up to an equivalence, which in turn is unique up to unique natural isomorphism. Equivalently, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
+
+\begin{proposition}[Deligne (Prop 5.13), EGNO 1.46.2]
+	Let $\cA$ and $\cB$ be finite linear categories. Then,
+	\begin{enumerate}
+		\item The Deligne tensor product $\cA \boxtimes \cB$ exists and is a finite linear category;
+		\item If $\cA = \Mod{A}{}$ and $\cB = \Mod{B}{}$, then $\cA \boxtimes \cB \simeq \Mod{A \otimes B}{}$;
+		\item The functor $\boxtimes$ is exact in each variable and satisfies 
+		\begin{equation*}
+			\hom_{\cA}(x,x') \otimes \hom_{\cB}(y, y') \cong \hom_{\cA \boxtimes \cB} (x \boxtimes y, x' \boxtimes y'),
+		\end{equation*}
+		\item If $F: \cA \times \cB \to \cC$ is a multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes \cB \to \cC$. 
+	\end{enumerate} 
+\end{proposition}
+
+
+\CSPcomm{
+\begin{itemize}
+	\item remark that a finite tensor category is a pseudo-monoid for $\boxtimes$. 
+	\item Deligne tensor product over tensor categories $\cC$
+\end{itemize}
+
+}
+
+
+\begin{theorem}[EGNO 2.11.9(i)] \label{thm:EGNO2.11.9}
+	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
+\end{theorem}
+
+
+\begin{lemma}
+	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
+	\begin{equation*}
+		\Fun_\cC(M, \cC) \boxtimes_\cC N \simeq \Fun_\cC(M,N).
+	\end{equation*}
+	Here $\Fun_\cC$ denotes the category of right exact $\cC$-module functors. 
+	Moreover, if $\cM$ and $\cN$ are bimodule categories, then the above equivalence is a bimodule equivalence. 
+\end{lemma}
+
+\begin{proof}
+	The last sentence follows since in that case the natural functor is a bimodule functor. By the theorem \ref{thm:EGNO2.11.9}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor. Given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
+	\begin{equation*}
+		M \leftarrow M \otimes A \leftleftarrows M \otimes A \otimes A
+	\end{equation*} 
+the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus the natural map  $\Mod{A}{B}(\cC) \to \Fun_\cC(\cM, \cN)$ is essentially surjective. 
+
+The above argument also shows it is fully-faithful, so that $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$, which also shows $\Fun_\cC(\cM, \cC) \simeq \Mod{}{A}(\cC)$. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced bilinear functor 
+\begin{equation*}
+	T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC). 
+\end{equation*}
+To complete the proof we must show this induces an equivalence,
+\begin{equation*}
+	\Mod{}{A}(\cC) \boxtimes_\cC \Mod{B}{}(\cC) \simeq \Mod{B}{A}(\cC).
+\end{equation*}
+When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
+\end{proof}
+
+
+
 
 %\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
 
-\begin{definition}
-	Let $A$ and $B$ be linear categories. If $C$ is a linear category, a {\em bilinear functor} $A \times B \to C$ is a functor from the product category which is right-exact and linear in each variable. The {\em Deligne tensor product $A \boxtimes B$} (if it exists) is the universal linear category admitting a bilinear functor $\boxtimes: A \times B \to A \boxtimes B$. That is, there exists a bilinear functor $\boxtimes: A \times B \to A \boxtimes B$ which induces, for all linear categories $C$, an equivalence between the categories of bilinear functors $A \times B \to C$ and linear functors $A \boxtimes B \to C$. 
-\end{definition}
 
-The Deligne tensor products is unique up to an equivalence, which in turn is unique up to unique natural isomorphism. Said differently, the 2-category of linear categories representing the Deligne tensor product is contractible or empty (if no such product exists). 
-
-\begin{proposition}[Deligne (Prop 5.13)]
-	The Deligne tensor product $A \boxtimes B$ exists and is a finite linear category whenever $A$ and $B$ are finite. 
-\end{proposition}
 
 \subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
 
@@ -354,36 +439,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 
 \subsection{Calcualtions for the Deligne Tensor product over finite tensor categories}
 
-\begin{theorem}[EGNO 2.11.9(i)]
-	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
-\end{theorem}
 
-\begin{lemma}
-	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
-	\begin{equation*}
-		\Fun_\cC(M, \cC) \boxtimes_\cC N \simeq \Fun_\cC(M,N).
-	\end{equation*}
-	Here $\Fun_\cC$ denotes the category of right exact $\cC$-module functors. 
-	Moreover, if $\cM$ and $\cN$ are bimodule categories, then the above equivalence is a bimodule equivalence. 
-\end{lemma}
-
-\begin{proof}
-	The last sentence follows since in that case the natural functor is a bimodule functor. By the above theorem, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor. Given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
-	\begin{equation*}
-		M \leftarrow M \otimes A \leftleftarrows M \otimes A \otimes A
-	\end{equation*} 
-the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus the natural map  $\Mod{A}{B}(\cC) \to \Fun_\cC(\cM, \cN)$ is essentially surjective. 
-
-The above argument also shows it is fully-faithful, so that $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$, which also shows $\Fun_\cC(\cM, \cC) \simeq \Mod{}{A}(\cC)$. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced bilinear functor 
-\begin{equation*}
-	T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC). 
-\end{equation*}
-To complete the proof we must show this induces an equivalence,
-\begin{equation*}
-	\Mod{}{A}(\cC) \boxtimes_\cC \Mod{B}{}(\cC) \simeq \Mod{B}{A}(\cC).
-\end{equation*}
-When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
-\end{proof}
 
 \section{The Symmetric Monoidal 3-Category of Tensor Categories}
 
