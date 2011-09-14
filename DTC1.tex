@@ -232,6 +232,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 
 \begin{definition}
 	Let $\cC$ be a tensor category. A {\em left $\cC$-module category} is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+	\CSP{This looks a little gross. I should change it.}
 	\begin{align*}
 		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
 		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
@@ -263,7 +264,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 	\begin{enumerate}
 		\item $\cC$ has finite dimensional spaces of morphisms;
 		\item every object of $\cC$ has finite length;
-		\item $\cC$ has enough projectives, i.e. every simple object of $C$ has a projective cover; and
+		\item $\cC$ has enough projectives, i.e. every simple object of $\cC$ has a projective cover; and
 		\item there are finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
@@ -310,9 +311,9 @@ If it exists, the Deligne tensor product is unique up to an equivalence, which i
 \begin{lemma}
 	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
 	\begin{equation*}
-		\Fun_\cC(M, \cC) \boxtimes_\cC N \simeq \Fun_\cC(M,N).
+		\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN \simeq \Fun_\cC(\cM,\cN).
 	\end{equation*}
-	Here $\Fun_\cC$ denotes the category of right exact $\cC$-module functors. 
+	Here $\Fun_\cC$ denotes the category of (right exact) $\cC$-module functors. 
 	Moreover, if $\cM$ and $\cN$ are bimodule categories, then the above equivalence is a bimodule equivalence. 
 \end{lemma}
 
