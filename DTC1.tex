@@ -393,64 +393,9 @@ When $\cC = \Vect$, this is classical. More generally we must show that the righ
 %\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
 
 
-
-\subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
-
-\begin{definition}
-\CDcomm{[Definition of a tensor category, include all the conditions to be an object of the 3-category, ie indemp comp, etc.]}
-\end{definition}
-
-\begin{definition} \label{def-colim}
-\CDcomm{[colimits in the 2-category of (appropriate) linear categories]}
-\end{definition}
+\subsection{Exact Module Categories}
 
 
-We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  
-
-\subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
-
-
-\begin{definition}
-\CDcomm{[Definition of bimodules between tensor categories]}
-\end{definition}
-
-\begin{definition}
-Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The ``precomposite bimodule" $\bimod{A}{M \otimes_B N}{C}$ is the colimit of the three-stage two-sided bar construction:
-\begin{equation} \nn
-\bimod{A}{M \otimes_B N}{C} := \colim \left( M \dtimes A \dtimes A \dtimes N \righttriplearrows M \dtimes A \dtimes N \rightdoublearrows M \dtimes N \right)
-\end{equation}
-\end{definition}
-
-\begin{remark} \CD{This remark is not written very precisely or correctly yet---should be fixed after the Deligne tensor is spelled out earlier on.}
-By applying definition~\ref{def-colim}, one can write out explicitly the bimodule $\bimod{A}{M \otimes_B N}{C}$ given by the above colimit of the three-stage two-sided bar construction.  There is however an equivalent bimodule $\bimod{A}{M \otimes_B' N}{C}$ that admits a more compact description, as follows.  The objects of $\bimod{A}{M \otimes_B' N}{C}$ are the objects $m \otimes n$ of the tensor product $M \dtimes N$.  The morphisms are of two kinds: (m1) a morphism $\phi \otimes \psi : m \otimes n \ra m' \otimes n'$ for each pair of morphisms $\phi: m \ra m'$ in $M$ and $\psi: n \ra n'$ in $N$; (m2) a morphism $t_a : ma \otimes n \ra m \otimes an$ for each \CDcomm{triple $(m,a,n)$ ... }.  These morphisms are subject to the two relations: (r1) for each \CDcomm{triple $(\phi, \epsilon, \psi)$}, the composite $ma \otimes n \ra m \otimes an \ra m' \otimes a' n'$ equals the composite $ma \otimes n \ra m' a' \otimes n' \ra m' \otimes a' n'$; (r2) the composite $(ma)b \otimes n \ra ma \otimes bn \ra m \otimes a(bn)$ equals the composite $(ma)b \otimes n \ra m(ab) \otimes n \ra m \otimes (ab)n \ra m \otimes a(bn)$.
-\end{remark} % cf ENOII "Explicit description 1"
-
-
-
-\begin{definition}
-Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The composite bimodule $\bimod{A}{M \dtimes_B N}{C}$ is the idempotent completion of the precomposite bimodule:
-\begin{equation} \nn
-\bimod{A}{M \dtimes_B N}{C} := \IC \left( \bimod{A}{M \otimes_B N}{C} \right)
-\end{equation}
-\end{definition}
-
-\begin{example}
-\CDcomm{$\Vect \dtimes_{\Vect[\ZZ/2]} \Vect$ is $\Vect \oplus \Vect$, [cf ENOII "Example 1 (cont):"]}
-\end{example}
-
-%%%
-
-\begin{proposition} \CD{Not sure whether we need this prop or where it best belongs.}
-Let $A$ be a \CDcomm{...} monoidal indempotent complete linear category, and let $M$ and $N$ be $A$-modules.  If $N$ is idempotent complete, then $\Hom_A(M,N)$ is idempotent complete.
-\end{proposition}
-
-\begin{corollary}
-For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}{B}$ has a right adjoint, then that right adjoint is $\bimod{B}{\Hom_A(M,A)}{A}$.
-\end{corollary}
-
-\begin{proof}
-\CDcomm{[Proof sketch of corollary at ENOII "Next steps on adjoints of 1-morphisms".]}
-\end{proof}
 
 
 \subsection{Multi-Fusion categories} \label{sec-tc-fusion}
@@ -490,7 +435,6 @@ A fusion category $\cC$ is \emph{pivotal} if the double left dual functor $\ldd{
 In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}: \cC \ra \cC^{\mop}$ and the right dual functor $\rd{(-)}: \cC \ra \cC^{\mop}$ are monoidally equivalent.
 
 
-\subsection{Calcualtions for the Deligne Tensor product over finite tensor categories}
 
 
 
@@ -1837,6 +1781,69 @@ A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which se
 \begin{remark}
 It is worth keeping in mind, and separating, the two key conceptual differences between the setting of tensor categories and the setting of ordinary algebra.  The first difference is, obviously, that we have categorified---the underlying objects are now longer sets but categories.  The second difference is that the elements of the objects no longer have additive inverses---that is objects of a tensor category, unlike elements of an algebra, needn't be additively invertible.  For many purposes and arguments, the second is the more serious and problematic difference.
 \end{remark}
+
+
+
+\subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
+
+\begin{definition}
+\CDcomm{[Definition of a tensor category, include all the conditions to be an object of the 3-category, ie indemp comp, etc.]}
+\end{definition}
+
+\begin{definition} \label{def-colim}
+\CDcomm{[colimits in the 2-category of (appropriate) linear categories]}
+\end{definition}
+
+
+We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  
+
+\subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
+
+
+\begin{definition}
+\CDcomm{[Definition of bimodules between tensor categories]}
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The ``precomposite bimodule" $\bimod{A}{M \otimes_B N}{C}$ is the colimit of the three-stage two-sided bar construction:
+\begin{equation} \nn
+\bimod{A}{M \otimes_B N}{C} := \colim \left( M \dtimes A \dtimes A \dtimes N \righttriplearrows M \dtimes A \dtimes N \rightdoublearrows M \dtimes N \right)
+\end{equation}
+\end{definition}
+
+\begin{remark} \CD{This remark is not written very precisely or correctly yet---should be fixed after the Deligne tensor is spelled out earlier on.}
+By applying definition~\ref{def-colim}, one can write out explicitly the bimodule $\bimod{A}{M \otimes_B N}{C}$ given by the above colimit of the three-stage two-sided bar construction.  There is however an equivalent bimodule $\bimod{A}{M \otimes_B' N}{C}$ that admits a more compact description, as follows.  The objects of $\bimod{A}{M \otimes_B' N}{C}$ are the objects $m \otimes n$ of the tensor product $M \dtimes N$.  The morphisms are of two kinds: (m1) a morphism $\phi \otimes \psi : m \otimes n \ra m' \otimes n'$ for each pair of morphisms $\phi: m \ra m'$ in $M$ and $\psi: n \ra n'$ in $N$; (m2) a morphism $t_a : ma \otimes n \ra m \otimes an$ for each \CDcomm{triple $(m,a,n)$ ... }.  These morphisms are subject to the two relations: (r1) for each \CDcomm{triple $(\phi, \epsilon, \psi)$}, the composite $ma \otimes n \ra m \otimes an \ra m' \otimes a' n'$ equals the composite $ma \otimes n \ra m' a' \otimes n' \ra m' \otimes a' n'$; (r2) the composite $(ma)b \otimes n \ra ma \otimes bn \ra m \otimes a(bn)$ equals the composite $(ma)b \otimes n \ra m(ab) \otimes n \ra m \otimes (ab)n \ra m \otimes a(bn)$.
+\end{remark} % cf ENOII "Explicit description 1"
+
+
+
+\begin{definition}
+Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The composite bimodule $\bimod{A}{M \dtimes_B N}{C}$ is the idempotent completion of the precomposite bimodule:
+\begin{equation} \nn
+\bimod{A}{M \dtimes_B N}{C} := \IC \left( \bimod{A}{M \otimes_B N}{C} \right)
+\end{equation}
+\end{definition}
+
+\begin{example}
+\CDcomm{$\Vect \dtimes_{\Vect[\ZZ/2]} \Vect$ is $\Vect \oplus \Vect$, [cf ENOII "Example 1 (cont):"]}
+\end{example}
+
+%%%
+
+\begin{proposition} \CD{Not sure whether we need this prop or where it best belongs.}
+Let $A$ be a \CDcomm{...} monoidal indempotent complete linear category, and let $M$ and $N$ be $A$-modules.  If $N$ is idempotent complete, then $\Hom_A(M,N)$ is idempotent complete.
+\end{proposition}
+
+\begin{corollary}
+For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}{B}$ has a right adjoint, then that right adjoint is $\bimod{B}{\Hom_A(M,A)}{A}$.
+\end{corollary}
+
+\begin{proof}
+\CDcomm{[Proof sketch of corollary at ENOII "Next steps on adjoints of 1-morphisms".]}
+\end{proof}
+
+
+
 
 
 %% The Bibliography
