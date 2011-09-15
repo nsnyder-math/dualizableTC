@@ -191,7 +191,7 @@ Some things which should go in this section:
 
 
 
-\subsection{Linear Categories, Tensor Categories, and Module Categories} \label{sec-tc-lincat}
+\subsection{Linear Categories and Tensor Categories} \label{sec-tc-lincat}
 
 	Let $k$ be a fixed ground field. A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
 	\CSP{What is our notational difference for finite dimensional vector spaces versus all vector spaces.}
@@ -230,15 +230,42 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 	For a fixed object $x$ which admits a left dual, there is an obvious category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. 
 \end{remark}
 
+\subsection{Bimodule Categories}
+
 \begin{definition}
-	Let $\cC$ be a tensor category. A {\em left $\cC$-module category} is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
-	\CSP{This looks a little gross. I should change it.}
+	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that
+	\begin{itemize}
+		\item all hom categories are linear categories, 
+		\item horizontal composition is multilinear, and
+		\item there are identifications of monoidal categories $\hom(x,x) \simeq \cD$, $\hom(y,y) \simeq \cC$, and $\hom(y,x) \simeq \emptyset$.
+	\end{itemize}
+	We will often abuse notation and refer to the value $\cM = \hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
+\end{definition}
+	
+Unwrapping this definition we see that a { left $\cC$-module category} is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+%	\CSP{This looks a little gross. I should change it.}
 	\begin{align*}
-		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
+		\alpha: & \;    \otimes^{\cM} \circ (\otimes \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
 		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
 	\end{align*}
-	satisfying the evident pentagon and triangle identities. {\em Right $\cC$-module categories} are defined in an analogous manner. 
+%	\begin{align*}
+%		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
+%		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
+%	\end{align*}	
+	satisfying the evident pentagon and triangle identities. 
+
+\begin{definition}
+	A {\em bimodule functor} $F:\cM \to \cN$ is a functor of bicategories such that
+	\begin{itemize}
+		\item $F$ is the identity on objects,
+		\item the restriction of $F$ to each hom category is linear. 
+	\end{itemize}
+	A {\em bimodule transformation} is a transformation of functors of bicategories, such that the component 1-cells are trivial. 
 \end{definition}
+	
+Thus a bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category $\cM'$ consists in part of tensor functors $\cC \to \cC'$ and $\cD \to \cD'$ and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. Bimodule categories, functors, and transformations form a strict 2-category. 	
+
+If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
 
 \begin{example}
 	Every linear category is a $\Vect_k$-module category in an essentially unique way. 
@@ -251,9 +278,8 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 
 \CSPcomm{ (for later...)
 \begin{itemize}
-	\item A { \em bimodule functor} includes a morphism of tensor categories as part of the data. 
-	\item An {\em $A$-$B$-bimodule functor} is one where that morphism is the identity.
 	\item the category $\Fun_{\cC}(\cM, \cN)$ of (right exact) $\cC$-module functors and transformations is again a linear category. 
+ \item balanced functors.	
 \end{itemize}
 }
 
@@ -273,6 +299,12 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 	 A finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
 \end{remark}
 
+An analog of this forms one of the main theorems of [EGNO]. 
+
+\begin{theorem}[EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
+	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
+\end{theorem}
+\CSP{Should we leave it at that? or say some more about how the thm of EGNO is proven. (via internal homs)}
 
 \begin{definition}
 	Let $\cA$ and $\cB$ be linear categories. The {\em Deligne tensor product $\cA \boxtimes \cB$} is the universal linear category admitting a multilinear functor $\boxtimes: \cA \times \cB \to \cA \boxtimes \cB$. That is, there exists a multilinear functor $\boxtimes: \cA \times \cB \to \cA \boxtimes \cB$ which induces, for all linear categories $\cC$, an equivalence between the categories of multilinear functors $\cA \times \cB \to \cC$ and linear functors $\cA \boxtimes \cB \to \cC$. 
@@ -302,6 +334,8 @@ If it exists, the Deligne tensor product is unique up to an equivalence, which i
 
 }
 
+
+
 \CSPcomm{
 \begin{theorem}
 	Let $\cC$ be a finite tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
@@ -323,9 +357,7 @@ If it exists, the Deligne tensor product is unique up to an equivalence, which i
 }
 
 
-\begin{theorem}[EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
-	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
-\end{theorem}
+
 
 
 \begin{lemma}
