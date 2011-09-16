@@ -13193,7 +13193,7 @@ Recall that a spherical structure is a tensor trivialization of the double dual 
 An \emph{h-spherical} structure on a fusion category $\cC$ is a pair $(T,E)$, where $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cD}{\cC}$ is an equivalence from the identity bimodule to the bimodule associated to the double right dual tensor functor, and $E: T \btimes_{\cC} T \ra A$ is a natural equivalence of bimodule functors from $T \btimes_{\cC} T: \bimod{\cC}{\cC \btimes_{\cC} \cC}{\cC} \ra \bimod{\cC}{\cD \btimes_{\cC} \cD}{\cC} \cong \bimod{\cC}{\cQ}{\cC}$ to the canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the quadruple dual bimodule.
 \end{definition}
 
-An equivalence from an h-spherical structure $(T,E)$ on $\cC$ to another h-spherical structure $(T',E')$ is a natural equivalence $R: T \ra T'$ of bimodule functors that intertwines $E$ and $E'$ in the sense that the composite $T \btimes_{\cC} T \xra{R \btimes R} T' \btimes_{\cC} T' \xra{E'} A$ is equal to the map $T \btimes_{cC} T \xra{E} A$.
+An equivalence from an h-spherical structure $(T,E)$ on $\cC$ to another h-spherical structure $(T',E')$ is a natural equivalence $R: T \ra T'$ of bimodule functors that intertwines $E$ and $E'$ in the sense that the composite $T \btimes_{\cC} T \xra{R \btimes R} T' \btimes_{\cC} T' \xra{E'} A$ is equal to the map $T \btimes_{\cC} T \xra{E} A$.
 
 Our main reason for investigating h-pivotal and h-spherical structures is, of course, that these are the notions that naturally correspond to descent properties of the corresponding field theories.  Another advantage is that because they are the homotopically natural notions, the groupoids of these structures admit particularly clean classifications, as follows.
 
@@ -13268,29 +13268,106 @@ Drinfeld centers of pivotal fusion categories are anomaly free modular (ref Mueg
 \setcounter{theorem}{0}
 \section*{Appendix.  Homotopy types of 3-dimensional structure groups}
 
-In this appendix we describe a few auxillary structure groups, including spin and string structures, and record a few computations regarding the homotopy and homology of the various structure spaces.
-
-%the computations needed to identify the homotopy type of the structure spaces $BOrpo(3)$ and $BQuad$, and we discuss a few other, closely related structure groups.
-
-[Computations here]
-\begin{itemize}
-\item $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ is a generator
-\item that generator induces times four in homotopy
-\item Prop with first five homotopy, homology groups of $*, BSO(2), BQuad, BSO(3), BOrpo(3), BSpin(3), Spin(6)/SO(3), BString(3), O(\infty)/O(3), BhString(3), BSO, BSpin$, along with induced maps in homotopy and homology.
-\end{itemize}
+In this appendix we describe a few auxillary structure groups, including spin and string structures, and record some computations regarding the homotopy and homology of the various structure spaces.
 
 \begin{definition}
 The following spaces, together with the obvious maps to $BO(3)$, define 3-dimensional bundle structures:
 \begin{itemize}
-\item[Spin:] $BSpin(3) := \hofib(BSO(3) \xra{w_2} K(\ZZ/2,2))$
 \item[2-Frame:] $BTwFrame(3) := \hofib(BSO(3) \ra BSpin(6)) = B\Omega(Spin(6)/SO(3))$
+\item[Spin:] $BSpin(3) := \hofib(BSO(3) \xra{w_2} K(\ZZ/2,2))$
 \item[String:] $BString(3) := \hofib(BSpin(3) \ra BSpin \xra{(p_1)/2} K(\ZZ,4))$
 \item[StFrame:] $BStFrame(3) := \hofib(BO(3) \ra BO(\infty)) = B\Omega(O(\infty)/O(3))$
 \item[hString:] $BhString(3) := \hofib(BSpin(3) \xra{(p_1)/4} K(\ZZ,4))$
 \end{itemize}
 \end{definition}
 
-\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.
+\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.  In order for the definitions of $BString(3)$ and $BhString(3)$ to be sensible, the composite $BSpin(3) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ must be uniquely 4-divisible; we will see presently that this is indeed the case.
+
+\begin{proposition}
+The diagram of structure spaces
+\begin{equation} \nn
+\xymatrix@R=5pt{
+& BSpin \ar[dr] & & \\
+BSpin(3) \ar[ur] \ar[dr] && BSO \ar[r]^{p_1} & K(\ZZ,4) \\
+& BSO(3) \ar[ur] & &
+}
+\end{equation}
+induces on fourth homotopy and fourth homology respectively the maps
+\begin{equation} \nn
+\xymatrix@R=5pt{
+\save[]+<-1cm,0cm>*{\pi_4:}\restore & \ZZ \ar[dr]^{1} & & \\
+\ZZ \ar[ur]^{2} \ar[dr]_{1} && \ZZ \ar[r]^{2} & \ZZ \\
+& \ZZ \ar[ur]_{2} & & \\
+&&& \\
+\save[]+<-1cm,0cm>*{H^4:}\restore & \ZZ \ar[dl]_{2} & & \\
+\ZZ && \ZZ \ar[ul]_{2} \ar[dl]^{1} & \ZZ \ar[l]_{1} \\
+& \ZZ \ar[ul]^{4} & &
+}
+\end{equation}
+\end{proposition}
+
+For our purposes it suffices to define first Pontryagin class $p_1 \in H^4(BSO;\ZZ)$ as a generator.  We emphasize from this proposition two facts that were directly needed for the structure group computations in Section~\ref{sec-lft-struc}: the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, which we refer to also as $p_1$, and the map $\pi_4(BSO(3)) \xra{\pi_4(p_1)} \pi_4(K(\ZZ,4))$ is multiplication by $4$.
+
+\begin{proof}
+[...]
+\end{proof}
+
+[Somewhere need to record the fact that $BSO(3) \xra{\widetilde{\phi \oplus \phi}} BSpin(6)$ is multiplication by $4$ on $\pi_4$ (assuming I have that right, must recheck).]
+
+We now record the low-dimensional homology and homotopy of the structure spaces we have considered.  All these structure spaces are simply connected.  The remaining homology and homotopy groups follow from the above proposition, along with a number of classical computations, using a flurry of interconnected spectral sequences.
+
+\begin{table}[!ht]
+\begin{tabular}{|r||c|c|c|c||c|c|c|c|}
+\hline
+& $H^2$ & $H^3$ & $H^4$ & $H^5$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ \\
+\hline
+$BSO(2)$ % is K(Z,2)
+& $\ZZ$ & $0$ & $\ZZ$ & $0$ 
+& $\ZZ$ & $0$ & $0$ & $0$ \\
+$BQuad$ % K(Z,3) --> BQuad --> BSO(2)
+& $\ZZ$ & $0$ & $0$ & $0$
+& $\ZZ$ & $\ZZ$ & $0$ & $0$ \\
+$BSO(3)$ % SO(3) --> * --> BSO(3) for Z and Z/2
+& $0$ & $\ZZ/2$ & $\ZZ$ & $0$
+& $\ZZ/2$ & $0$ & $\ZZ$ & $\ZZ/2$ \\ % Mimura
+$BSO$
+& $0$ & $\ZZ/2$ & $\ZZ$ & $\ZZ/2$ % cell structure from mod 2 cohom
+& $\ZZ/2$ & $0$ & $\ZZ$ & $0$ \\ % Bott
+$BOrpo(3)$ % K(Z,3) --> BOrpo(3) --> BSO(3)
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ 
+& $\ZZ/2$ & $\ZZ/4$ & $0$ & $\ZZ/2$  \\
+$Spin(6)/SO(3)$ % Spin(6)/SO(3) --> BSO(3) --> BSpin(6)
+& $0$ & $\ZZ/2$ & \CDcomm{x} & \CDcomm{x} %!% Need the cohom of BSpin(6); I believe BSO(3) --> BSpin(6) induces 2 on H^4. That should be enough to finish the spectral sequence.
+& $\ZZ/2$ & \CDcomm{$\ZZ/4$} & $0$ & $\ZZ/2$ \\
+$BSpin(3)$ % S^3 --> * --> BSpin(3)
+& $0$ & $0$ & $\ZZ$ & $0$
+& $0$ & $0$ & $\ZZ$ & $\ZZ/2$ \\
+$BSpin$
+& $0$ & $0$ & $\ZZ$ & $0$ % BZ/2 --> BSpin --> BSO painful
+& $0$ & $0$ & $\ZZ$ & $0$ \\ % Z/2 --> Spin --> SO
+$BString(3)$ % K(Z,3) --> BString(3) --> BSpin(3)
+& $0$ & $0$ & $\ZZ/2$ & $0$
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ \\
+$O(\infty)/O(3)$ % O/O(3) --> BSO(3) --> BSO, htpy first shows quotient is 2-connected and that pi_3 is torsion, implies cohom starts in degree 4; knowing that the gen of H^4 of BSO pulls back to a gen of BSO(3) forces H^4 of the quotient to be Z/2, killing the H^5 of BSO.  Knowing also H^6 of BSO pulls back isomorphically to BSO(3) forces the rest of the cohomology.
+& $0$ & $0$ & $\ZZ/2$ & $0$
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ \\
+$BhString(3)$ % K(Z,3) --> BhString(3) --> BSpin(3)
+& $0$ & $0$ & $0$ & $0$
+& $0$ & $0$ & $0$ & $\ZZ/2$ \\
+\hline
+\end{tabular}
+\end{table}
+% I think H^5 and pi_5 are necessary for computing H^4 and pi_5 of some of the other groups, so you can't just delete those whole columns.
+
+
+
+[Computations here]
+\begin{itemize}
+\item Prop with first five homotopy, homology groups of $*$, $BSO(2)$, $BQuad$, $BSO(3)$, $BOrpo(3)$, $BSpin(3)$, $Spin(6)/SO(3)$, $BString(3)$, $O(\infty)/O(3)$, $BhString(3)$, $BSO$, $BSpin$, along with induced maps in homotopy and homology.
+\end{itemize}
+
+
+
 
 [Begin comparison of structure groups]
 
@@ -13329,7 +13406,6 @@ The framed local field theory associated to a fusion category descends to a stri
 
 In this section:
 \begin{itemize}
-\item Introduce String, hString, StFrame, 2-frame
 \item Prove Frame -- hString, StFrame -- String, Orpo -- 2-frame
 \item Include details of homology/homotopy computations needed earlier in identifying the homotopy types of Quad and Orpo, etc.
 \item Perhaps remark on stable structures, and translating a stable to an unstable structure?
@@ -13341,49 +13417,6 @@ In this section:
 
 
 
-Though the definition and analysis of these unstable structures on 3-dimensional vector bundles is elementary, there are potential pitfalls, so we record some information about them in rather pedantic detail.
-\begin{proposition} \CD{Everything in this proposition should be carefully rechecked.}
-.
-\begin{enumerate}
-%
-\item
-The homotopy groups $\pi_2$, $\pi_3$, $\pi_4$, and $\pi_5$ of the classifying spaces for the first five structure groups in question are as follows:
-\begin{itemize}
-\item[$BSO(3)$:] $\ZZ/2$, $0$, $\ZZ$, $\ZZ/2$
-\item[$BSpin(3)$:] $0$, $0$, $\ZZ$, $\ZZ/2$
-\item[$BOrpo(3)$:] $\ZZ/2$, $\ZZ/4$, $0$, $\ZZ/2$
-\item[$Spin(6)/SO(3)$:] $\ZZ/2$, $\ZZ/4$, \CDcomm{$\ZZ/2$}, \CDcomm{?}
-\item[$BString(3)$:] $0$, $0$, $0$, $\ZZ/2$
-\end{itemize}
-%
-\item
-The integral cohomology groups $H^3$, $H^4$, and $H^5$ of the stable and unstable orthogonal and spin classifying spaces are as follows:
-\begin{itemize}
-\item[$BSO(3)$:] $\ZZ/2$, $\ZZ$, $0$
-\item[$BSpin(3)$:] $0$, $\ZZ$, $0$
-\item[$BSO$:] $\ZZ/2$, $\ZZ$, $\ZZ/2$
-\item[$BSpin$:] ...
-\end{itemize}
-%
-\item 
-On fourth integral cohomology, the maps among these classifying spaces are as follows:
-\begin{itemize}
-\item[$BSO(3) \ra BSO$:] \CDcomm{1}
-\item[$BSpin(3) \ra BSO(3)$:] ...
-\item[$BSpin \ra BSO$:] ...
-\item[$BSpin(3) \ra BSpin$:] ...
-\end{itemize}
-As a result, the generator of $H^4(BSO(3);\ZZ)$ is $p_1/...$ and the generator of $H^4(BSpin(3);\ZZ)$ is $p_1/...$.
-\end{enumerate}
-\end{proposition}
-
-\CDcomm{[In all this, the following weird fact (recheck) is relevant: $\pi_4(BSO(3) \xra{p_1} K(\ZZ,4)) = 4$, even though $p_1$ is a generator of $H^4(BSO(3);\ZZ)$.]}
-
-\CDcomm{[This point of this proposition is to see what the generators of $H^4$ of $BSO(3)$ and $BSpin(3)$ are, since those determine the options for the unstable structure groups.]}
-
-
-
----------
 
 \CSP{Do we need to mention stable structures?}
 \begin{definition}
