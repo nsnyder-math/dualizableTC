@@ -1181,7 +1181,7 @@ If $\cM$ is a $\cC$--$\cD$ bimodule category and $\cN$ is a $\cC$--$\cE$ bimodul
 We've already seen that the right adjoint has a canonical module functor structure.  To see that the actions match, note that taking adjoints interchanges precomposition and postcomposition, and the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.  For the second statement, note that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{lem:dual-formula-for-adjoints}
 We have that $\cM^* \cong \Fun_{\text{mod}-\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC\text{-mod}}(\cM, \cC)$.
 \end{lemma}
 \begin{proof}
@@ -1274,8 +1274,36 @@ Let $a$ be a dualizable object of a symmetric monoidal n-category $\cA$.  Provid
 
 \CD{Do we want to sort out the precise conditions needed, ie that $a \in \cA$ only needs to be 2-dualizable, or 2.5-dualizable?  This would slightly generalize the $****=1$ result.  cf ENOII.}
 
+\subsection{Computing the Serre automorphism}
 
-\subsubsection{Computing the Serre automorphism} \label{sec-serre-comp}
+For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
+
+\begin{proposition}
+Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to the following composite:
+$$\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$$
+\end{proposition}
+
+The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
+
+We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
+
+%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
+
+\begin{theorem} \label{thm-serre}
+If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
+\end{theorem}
+
+\begin{proof}
+We compute $\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$ in two steps.  
+
+First we consider $\tau_{a^\vee,a} \circ  \ev^*$.  By Lemma \ref{lem:dual-formula-for-adjoints}, $\ev^*$ is $\cC^{\op}$ as a $\Vect$--${\cC \boxtimes \cC^{\mp}}$ bimodule where the action is given by $m\cdot (x \boxtimes y) = {}^*y \otimes m \otimes x^*$ (here we've used that the left dual in $\cC^{\mp}$ is the right dual in $\cC$).  Hence, $\tau_{a^\vee,a} \circ  \ev^*$ is $\cC^{op}$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^*y \otimes c \otimes x^*$.  Taking right duals, we see that $\tau_{a^\vee,a} \circ  \ev^*$ equivalent to $\cC$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^{**}y \otimes c \otimes x$.
+
+Now we compose with $\ev \boxtimes \id_a$, which just turns a right $\cC^{\mp}$ action into a left $\cC$ action.  So $\cS_a$ is equivalent to $\cC$ as a  $\cC$--$\cC$ bimodule, where the action is given by $y \cdot c \cdot x=  {}^{**}y \otimes c \otimes x$.
+\end{proof}
+
+
+
+\subsection{(Old) Computing the Serre automorphism} \label{sec-serre-comp}
 
 
 For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\rd{\ev}: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$ and let $\ld{\coev}: a^{\vee} \otimes a \ra 1$ be the left adjoint to $\coev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
