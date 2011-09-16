@@ -67,7 +67,8 @@ The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensio
 \email{cdouglas@math.berkeley.edu}
 	
 \author{Christopher Schommer-Pries}
-\address{Department of Mathematics \\
+\address{
+% Department of Mathematics, MIT \\
 %	Harvard University\\
 %	1 Oxford St.\\
 %	Cambridge, MA 02138
@@ -77,6 +78,9 @@ The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensio
 \author{Noah Snyder}
 \address{}
 \email{nsnyder@math.columbia.edu}
+
+\thanks{The second author was partially supported by NSF fellowship DMS-0902808.}
+
 
 \maketitle	
 \setcounter{tocdepth}{3}
@@ -238,7 +242,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 	For a fixed object $x$ which admits a left dual, there is an obvious category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
 \end{remark}
 
-\begin{lemma}
+\begin{lemma} \label{lma:RigidIsExact}
 	Let $(\cC, \otimes)$ be a rigid tensor category. Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
 \end{lemma}
 
@@ -251,7 +255,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 \end{proof}
 
 \begin{remark}
-	The assignment $x \mapsto x^*$ gives rise to an equivalence of rigid tensor categories $\cC \to \cC^{mop}$.
+	The assignment $x \mapsto x^*$ gives rise to an equivalence of rigid tensor categories $**: \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
 \end{remark}
 
 \subsection{Bimodule Categories}
@@ -334,12 +338,12 @@ An analog of this forms one of the main theorems of [EGNO].
 \CSP{Should we leave it at that? or say some more about how the thm of EGNO is proven. (via internal homs)}
 
 \begin{definition}
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balannce transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in cC$, and $N \in cN$:
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balannce transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
 \begin{center}
 \begin{tikzpicture}
-	\node (LT) at (0, 1.5) {$F(M \otimes^{\cM} C, N)$};
+	\node (LT) at (0, 1) {$F(M \otimes^{\cM} C, N)$};
 	\node (LB) at (0, 0) {$G(M \otimes^{\cM} C, N)$};
-	\node (RT) at (3, 1.5) {$F(M, C \otimes^{\cN} N)$};
+	\node (RT) at (3, 1) {$F(M, C \otimes^{\cN} N)$};
 	\node (RB) at (3, 0) {$G(M, C \otimes^{\cN} N)$};
 	\draw [->] (LT) -- node [left] {$$} (LB);
 	\draw [->] (LT) -- node [above] {$$} (RT);
@@ -366,18 +370,30 @@ If it exists, the Deligne tensor product is unique up to an equivalence, which i
 	\end{enumerate} 
 Moreover if $\cC$ is rigid, then 	
 	\begin{enumerate}
-		\item[(3)] The functor $\boxtimes$ is exact in each variable and satisfies 
+		\item[(3)] The functor $\boxtimes_{\cC}$ is exact in each variable and satisfies 
 		\begin{equation*}
-			\hom_{\cA}(x,x') \otimes \hom_{\cB}(y, y') \cong \hom_{\cA \boxtimes \cB} (x \boxtimes y, x' \boxtimes y'),
+			\hom_{\cA}(x,x') \otimes \hom_{\cB}(y, y') \cong \hom_{\cA \boxtimes_{\cC} \cB} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
 		\end{equation*}
 		\item[(4)] If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
 	\end{enumerate} 
 \end{theorem}
 
 \begin{proof}
-	When $\cC = \Vect_k$, this is [Deligne (Prop 5.13)] (see also [EGNO 1.46.2]).
+	When $\cC = \Vect_k$, this is classical [Deligne (Prop 5.13)] (see also [EGNO 1.46.2]).
+	By Theorem \ref{thm:EGNO2.11.6} to show (1) and (2) it is enough to assume that $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$ and show that $\Mod{A }{B}(\cC)$ has the desired universal property. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced multilinear functor 
+		\begin{equation*}
+			T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC),  
+		\end{equation*}
+and we will show that $T$ induces an equivalence between $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and linear functors out of $\Mod{A}{B}(\cC)$.
 	
+	To this end, let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cD$ be a $\cC$-balanced multilinear functor.  
+	There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since  every $A$-$B$-bimodule $X$ is a coequalizer of free $A$-$B$-bimodules, namely the coequalizer  
+	\begin{equation*}
+		X \leftarrow A \otimes X \otimes B \leftleftarrows A \otimes A \otimes X \otimes B \otimes B,
+	\end{equation*}
+	and since $\overline{F}$ is right exact the result follows.
 	
+	If $\cC$ is rigid, then by Lemma \ref{lma:RigidIsExact} the functor $T = \boxtimes_{\cC}$ is exact in each variable. 
 	
 	...
 \end{proof}
@@ -402,13 +418,6 @@ Moreover if $\cC$ is rigid, then
 	\item remark that a finite tensor category is a pseudo-monoid for $\boxtimes$. 
 	\item Deligne tensor product over tensor categories $\cC$
 \end{itemize}
-
-}
-
-
-
-\CSPcomm{
-
 
 }
 
