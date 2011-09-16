@@ -1143,7 +1143,28 @@ The map $\coev: \cD \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cM) \cong \Fun_{\cC\t
 $\ev$ and $\coev$ are the unit and counit of an adjunction.
 \end{theorem}
 \begin{proof}
+The following diagram commutes.
+		\begin{center}
+			\begin{tikzpicture}[align=left]	
+				\node (A) at (0in,2in) {${}_\cC \cM_\cD$};
+				\node (B) at (0in,1.5in) {${}_\cC \cM \boxtimes_\cD \cD_\cD$};
+				\node (C) at (0in,1in) {${}_\cC \cM \boxtimes_\cD \Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cM_\cD$};
+				\node (D) at (2in,1.5in) {${}_\cC \cM \boxtimes_D \Fun_{\cC\text{-mod}}(\cM,\cM)_\cD$};
+				\node (E) at (0in, .5in) {${}_\cC \cC \boxtimes_\cC \cM_\cD$};
+				\node (F) at (0in,0in) {${}_\cC \cM_\cD$};
+				\draw [<->] (A) to node [left=.1cm] {} (B);
+				\draw [->] (B) to node [left=.1cm] {$\id \boxtimes \coev$}  (C);
+				\draw [->] (B) to node [above=.1cm]{$\id \boxtimes (d \mapsto \bullet \otimes d)$} (D);
+				\draw [<->] (C) to node {} (D);
+				\draw [->] (C) to node [left=.1cm]{$\ev \boxtimes \id$} (E);
+				\draw [<->] (E) to node {} (F);
+				\draw [->] (D) to node [right=.1cm]{$m \boxtimes \cF \mapsto \cF(m)$} (F);
+			\end{tikzpicture}
+		\end{center}
 
+Thus instead of computing along the left side of the diagram, we can compute along the right side of the diagram to see that the composition ${}_\cC \cM_\cD \rightarrow {}_\cC \cM_\cD$ is given by right multiplication by $1$, and hence is the identity.
+
+The other three calculations are similar.
 \end{proof}
 
 
