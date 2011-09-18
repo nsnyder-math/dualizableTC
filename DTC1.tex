@@ -101,7 +101,7 @@ The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensio
 
 An $n+1$-dimensional topological field theory, according to Atiyah and Segal, is a symmetric monoidal functor from the category of $n+1$-dimensional bordisms to the category of vector spaces.  So, a TFT assigns to any closed $n$-manifold a vector space, and to any bordism it assigns a linear function between the corresponding vector spaces.  In particular, to a closed $n+1$-manifold a TFT assigns an endomorphism of the trivial vector space, that is a scalar.  Thus, TFTs can be thought of as topological invariants which can be computed by chopping the manifold up into smaller pieces.  A fully local (or fully extended) TFT allows one to cut the manifold not just along codimension one boundaries, but allows boundaries with corners of arbitrary codimension.  To state this rigorously we must understand the structure of cobordisms with corners.  Just as ordinary bordisms from a symmetric monoidal category, bordisms with corners  form a symmetric monoidal $n$-category.  Rigorously, a fully local TFT is a functor of symmetric $n$-categories from the $n$-category of bordisms with corners to another symmetric monoidal $n$-category.  
 
-The Turaev-Viro construction (as generalized by Ocneanu and Barrett--Westbury) assigns to any spherical fusion category a 3-dimensional topological field theory.  We generalize this construction in two ways.  First we construct a fully local $0123$ extended TFT.  This local TFT takes values in the $3$-category $\mathcal{TC}$ (whose whose objects, $1$-morphisms, $2$-morphisms, and $3$-morphisms are tensor categories, bimodule categories, functors, and natural transformations, respectively) and the fusion category arises as the image of a point.  Second, we relax the assumption of sphericality on the fusion category.  TFTs come in flavors depending on the topological structure put on the bordism category (e.g. orientation, spin structure, etc.).  An arbitrary fusion category gives a $3$-framed TFT while the additional choice of spherical structure gives an oriented TFT.  Third we relax semisimplicity, to get a ``non-compact" fully local $3$-framed $3$-dimensional TFT.  Non-compact means that the TFT is only defined on $3$-dimensional bordism where each connected component intersects the incoming boundary nontrivially.
+The Turaev-Viro construction (as generalized by Ocneanu and Barrett--Westbury) assigns to any spherical fusion category a 3-dimensional topological field theory.  We generalize this construction in two ways.  First we construct a fully local $0123$ extended TFT.  This local TFT takes values in the $3$-category $\TC$ (whose whose objects, $1$-morphisms, $2$-morphisms, and $3$-morphisms are tensor categories, bimodule categories, functors, and natural transformations, respectively) and the fusion category arises as the image of a point.  Second, we relax the assumption of sphericality on the fusion category.  TFTs come in flavors depending on the topological structure put on the bordism category (e.g. orientation, spin structure, etc.).  An arbitrary fusion category gives a $3$-framed TFT while the additional choice of spherical structure gives an oriented TFT.  Third we relax semisimplicity, to get a ``non-compact" fully local $3$-framed $3$-dimensional TFT.  Non-compact means that the TFT is only defined on $3$-dimensional bordism where each connected component intersects the incoming boundary nontrivially.
 
 Each of these generalizations is inspired by the cobordism hypothesis (originally proposed by Baez-Dolan, but improved and proved by Lurie) which gives a classification of local TFTs.  This classification states that an $n$-dimensional $n$-framed local field theory is determined (up to isomorphism) by the image of a point, and furthermore the possible images of points are exactly the ``fully dualizable" objects in the target $n$-category.  Finally, other flavors of $n$-dimensional local field theories are given by homotopy fixed points of actions of certain groups on the fully dualizable objects.  In particular, being fully dualizable is a {\bf property} while being a homotopy fixed point is a {\bf choice of structure}.  Note that being fusion is a property (semisimple, finitely many simple objects, tensor product is exact), while being spherical is a structure (choice of natural isomorphism between the identity and the double dual).  Finite tensor categories satisfy all but one of the conditions of being fully dualizable, this condition corresponds exactly to the $3$-handle, and so the proof of the cobordism hypothesis gives a non-compact field theory.
 
@@ -191,7 +191,7 @@ Some things which should go in this section:
 
 %\CD{The organization of this section might well change as we decide what exactly we should include.}
 
-%\CDcomm{Our goal is to define $TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $TC(i)$, which can occur in DTCII.}
+%\CDcomm{Our goal is to define $\TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $\TC(i)$, which can occur in DTCII.}
 
 
 \CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
@@ -794,7 +794,7 @@ In the next section we will construct an example: $\TC$ the symmetric monoidal 3
 
 %Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
 
-%We now describe how a strict 2-category gives rise to a 2-fold Segal category. This can be regarded as a 2-categorical nerve. %Later we will construct explicitly $TC$ as a simplicial object in the category of strict 2-categories. Applying the previous 2-categorical nerve yields a 3-fold simplcial space which is shown to be a 3-fold Segal category. A variation on these constructions yields the $\Gamma$-3-fold Segal space $TC$. 
+%We now describe how a strict 2-category gives rise to a 2-fold Segal category. This can be regarded as a 2-categorical nerve. %Later we will construct explicitly $\TC$ as a simplicial object in the category of strict 2-categories. Applying the previous 2-categorical nerve yields a 3-fold simplcial space which is shown to be a 3-fold Segal category. A variation on these constructions yields the $\Gamma$-3-fold Segal space $\TC$. 
 %\begin{definition}
 %	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
 %\end{definition}
@@ -808,13 +808,13 @@ In the next section we will construct an example: $\TC$ the symmetric monoidal 3
 
 We now describe the symmetric monoidal 3-fold Segal category $\TC$. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal 3-fold Segal category. 
 
-Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $TC(A,n)$ will be defined similarly. Morally, one should regard $TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $TC$. 
+Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $\TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $\TC(A,n)$ will be defined similarly. Morally, one should regard $\TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $\TC$. 
 
-The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $TC(A,n)$ is what we now describe.
+The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $\TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $\TC(A,n)$ is what we now describe.
 
-As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
+As we mentioned, the objects of $\TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
 \begin{table}[ht]
-	\caption{Data and Conditions for an object of $TC(A,n)$.}
+	\caption{Data and Conditions for an object of $\TC(A,n)$.}
 	\begin{tabular}{c |ccccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-face $ijk$ & 3-face $ijk\ell$ & 4-face \\
 	\hline
@@ -827,7 +827,7 @@ As we mentioned, the objects of $TC(A,n)$ are certain collections of tensor cate
 	\label{Table:ObjectOfTC}
 \end{table}	
 \begin{table}[ht]
-	\caption{Description of the Data of an object of $TC(A,n)$.}	
+	\caption{Description of the Data of an object of $\TC(A,n)$.}	
 	\begin{tabular}{l p{11cm}}
 		datum & description of datum \\ \hline
 		$X_{S;i}$ & A tensor category \\
@@ -861,7 +861,7 @@ This data is required to satisfy a the following conditions: \\
 
 	\item  For every pair of disjoint subsets $S, S'$ and every 3-simplex $ijk\ell$, the `hexagon' equation in Figure \ref{fig:EqnSSijkObject} is satisfied. 
 \begin{figure}[ht]
-	\caption{Equation for condition (TCO5) on the data of an object of $TC(A,n)$.}
+	\caption{Equation for condition (TCO5) on the data of an object of $\TC(A,n)$.}
 	\begin{center}
 		\begin{tikzpicture}[align=left]
 	%		\node (A) at (126:2cm) {A};
@@ -888,7 +888,7 @@ This data is required to satisfy a the following conditions: \\
 where each $\tau_i$ represents an appropriate permutation of the factors. In other words, $(x_{S,S';-}, \psi_{S, S'; -})$ forms a structure analogous to a functor of bicategories. 
 	\item  For every triple of disjoint subsets $S, S', S''$ and every 2-simplex $ijk$, the  `hexagon' equation in Figure \ref{fig:EqnSSSijObject} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TCO6) on the data of an object of $TC(A,n)$.}
+		\caption{Equation for condition (TCO6) on the data of an object of $\TC(A,n)$.}
 	\begin{center}
 		\begin{tikzpicture}[align=left]
 	%		\node (A) at (126:2cm) {A};
@@ -916,9 +916,9 @@ where each $\tau_i$ represents an appropriate permutation of the factors. In oth
 	\item  For every quadruple of disjoint subsets $S, S', S'', S'''$, $\alpha_{-; i}$ and $\alpha_{-; ij}$ satisfy the evident pentagon equations. When $S' = \emptyset$ then $\alpha_{S, S', S''; i}$ and $\alpha_{S, S', S''; ij}$ satisfy the evident triangle identity. 
 \end{list}
 
-Let $X$ and $Y$ be two objects in $TC(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. In this case the 1-morphisms from $X$ to $Y$ consist of collections of data as in Table \ref{Table:1MorOfTC}.
+Let $X$ and $Y$ be two objects in $\TC(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. In this case the 1-morphisms from $X$ to $Y$ consist of collections of data as in Table \ref{Table:1MorOfTC}.
 \begin{table}[h]
-	\caption{Data of a 1-morphism of $TC(A,n)$.}
+	\caption{Data of a 1-morphism of $\TC(A,n)$.}
 	\begin{tabular}{c |cccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$ & 3-simplex $ijk\ell$  \\
 	\hline
@@ -942,7 +942,7 @@ This data is required to satisfy the following axioms:
 	\item If $S = \emptyset$, the $F_S;ij$ and $\xi_{S;ijk}$ are identities. If either $S$ or $S'$ is equal to $\emptyset$, then $\varphi_{S,S';ij}$ is the canonical map.
 	\item For every subset $S$ and every 3-simplex $ijk\ell$ the hexagon equation in Figure \ref{fig:EqnSijklMorphism} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M2) on the data of a 1-morphism of $TC(A,n)$.}
+		\caption{Equation for condition (TC1M2) on the data of a 1-morphism of $\TC(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$b^Y_{S;ik\ell} \circ (b^Y_{S;ijk} \times 1) \circ (F_{S;ij} \times F_{S;jk} \times F_{S;k\ell})$};
@@ -963,7 +963,7 @@ This data is required to satisfy the following axioms:
 	\end{figure}
 	\item For every pair of disjoint subsets $S, S'$ and every 2-simplex $ijk$ the hexagon equation in Figure \ref{fig:EqnSSijkMorphism} holds, where $\tau$ permutes the middle factors. 
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M3) on the data of a 1-morphism of $TC(A,n)$.}
+		\caption{Equation for condition (TC1M3) on the data of a 1-morphism of $\TC(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$y_{S, S'; ik} \circ (b^Y_{S; ijk} \times b^Y_{S';ijk}) $\\$ \circ (F_{S; ij} \times F_{S; jk} \times F_{S'; ij} \times F_{S'; jk})$};
@@ -984,7 +984,7 @@ This data is required to satisfy the following axioms:
 	\end{figure} 
 	\item For every triple of disjoint subsets $S, S', S''$ and every edge $ij$, the hexagon equation in Figure \ref{fig:EqnSSSijMorphism} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M4) on the data of a 1-morphism of $TC(A,n)$.}
+		\caption{Equation for condition (TC1M4) on the data of a 1-morphism of $\TC(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$y_{S \cup S', S''; ij} \circ (y_{S, S'; ij} \times 1) $\\$ \circ (F_{S; ij} \times F_{S'; ij} \times F_{S''; ij})$};
@@ -1006,7 +1006,7 @@ This data is required to satisfy the following axioms:
 \end{list}
 A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a collection of $\{ \theta_{S;ij} \}$ consisting of $X_{S;i}$-$X_{S;j}$-bimodule natural transformations from $F_{S;ij}$ to $G_{S;ij}$ for each subset $S \subseteq A$ and 2-simplex $ij$ in $[n]$. For completeness we record this in Table \ref{Table:2MorOfTC}.
 \begin{table}[h]
-	\caption{Data of a 2-morphism of $TC(A,n)$.}
+	\caption{Data of a 2-morphism of $\TC(A,n)$.}
 	\begin{tabular}{c |ccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$   \\
 	\hline
@@ -1033,7 +1033,7 @@ These are required to satisfy that $\theta_{\emptyset;ij}$ is the identity and t
 		(\theta_{S \cup S'; ij} * 1) \circ \varphi^F_{S, S'; ij} = \varphi^G_{S,S';ij} \circ (1*(\theta_{S;ij} \times \theta_{S';ij})).
 	\end{equation*}
 \end{list}
-With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $TC(A,n)$ into a strict $2$-category. It is manifestly functorial in $A$ and $[n]$ and thus gives a (strict) functor 
+With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $\TC(A,n)$ into a strict $2$-category. It is manifestly functorial in $A$ and $[n]$ and thus gives a (strict) functor 
 \begin{equation*}
 	\TC: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to \Cat_2.
 \end{equation*}
@@ -1050,7 +1050,7 @@ into the 1-category of strict 2-categories. Composing with the coherent nerve fo
 		\TC(A, m + n) & \to \TC(A, m) \times_{\TC(A, 0)} \TC(A, n), \\
 		\TC(A, n) & \to \TC(1, n)^{\times |A|}. 
 	\end{align*}
-However $TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. 
+However $\TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. 
 \end{proof}
  
 
@@ -1827,7 +1827,7 @@ One readily verifies that $\lincat(A) \simeq \lincat^{\times A}$. Thus an object
 
 \subsection{The symmetric monoidal 2-categories of tensor categories and bimodule categories}
 
-Let $TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
+Let $\TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
 
 }
 
@@ -1903,100 +1903,6 @@ Let $TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha,
 	
 
 %\CSPcomm{[There is a model category of $\Gamma$-$n$-fold complete Segal spaces which models symmetric monoidal $(\infty, n)$-categories]. The is a completion functor (fibrant replacement), so it is enough to produce a $\Gamma$-$n$-fold simplicial space. We produce a Segal one.}
-
-\subsection{The $\Gamma$-$3$-fold Segal Category of Tensor Categories}
-
-
-The 3-fold Segal Category of tensor categories is first constructed as a simplicial object $TC$ in the 1-category of strict 2-categories (and strict 2-functors). The 3-fold Segal category is then obtained by applying the above 2-categorical nerve levelwise. For each $[n] \in \Delta$ we have a strict 2-category $TC_n$ defined as follows. The objects, 1-morphism, and 2-morphisms of $TC_n$ correspond to certain labelings of the $n$-simplex $[n]$. The objects of $TC_n$ consist of:
-\begin{itemize}
-	\item For each vertex $i$ of $[n]$, a tensor category $A_i$. 
-	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule category $M_{ij}$.
-	\item For each 2-simplex $ijk$ of $[n]$, an $A_j$-balanced functor of $A_i$-$A_k$-bimodule categories 
-	\begin{equation*}
-		\varphi_{ijk}: M_{ij} \times M_{jk} \to M_{ijk},
-	\end{equation*}
-	 which realizes $M_{ik}$ as the tensor product $M_{ik} \simeq M_{ij} \otimes_{A_j} M_{jk}$. 
-	\item For each 3-simplex $ijk\ell$ of $[n]$, a natural transformation of $A_j$/$A_k$-balanced $A_i$-$A_\ell$-bimodule functors 
-	\begin{equation*}
-		\alpha_{ijk \ell}: \varphi_{i k \ell} \circ (\varphi_{ijk} \times id_{M_{k\ell}}) \to \varphi_{ij \ell} \circ (id_{M_{ij}} \times \varphi_{jk\ell}).
-	\end{equation*}
-	 %inducing the identity natural isomorphism of the canonical equivalence $(M_{ij} \otimes_{A_j} M_{jk}) \otimes_{A_k} M_{k\ell} \simeq M_{ij} \otimes_{A_j}( M_{jk} \otimes_{A_k} M_{k\ell}).$
-	\item such that for each $4$-simplex $ijk\ell m$ of $[n]$, the following pentagon identity is satisfied:
-	\begin{align*}
-		\text{(to be added)}  \\ [\varphi_{ijm} * (id_{M_{ij}} \times \alpha_{jk\ell m})] \circ [\alpha_{ij\ell m} * (id_{M_{ij}} \times \varphi_{jk\ell} \times id_{M_{\ell m}})] \circ [\varphi_{i \ell m} * ( \alpha_{ijk \ell} \times id_{M_{\ell m}})] = ...
-	\end{align*} \CSPcomm{Need to finish the pentagon equation.}
-\end{itemize}
-Let $X$ and $Y$ be two objects in $TC_n$. The 1-morphisms of $TC_n$ from $X$ to $Y$ consist of labeled $n$-simplices where:
-\begin{itemize}
-	\item For each vertex $i$ of $[n]$, the tensor category $A_i^X$ and $A^Y_i$ agree identically. 
-	\item For each edge $ij$ of $[n]$, an $A_i$-$A_j$-bimodule functor 
-	\begin{equation*}
-		F_{ij}: M_{ij}^X \to M_{ij}^Y.
-	\end{equation*}
-	\item For each 2-simplex $ijk$ of $[n]$, a natural isomorphism of $A_j$-balanced $A_i$-$A_k$-bimodule functors
-	\begin{equation*}
-		\xi_{ijk}: \varphi_{ijk}^Y \circ (F_{ij} \times F_{jk}) \to F_{ik} \circ \varphi_{ijk}^X
-	\end{equation*}
-	\item Such that for each 3-simplex $ijk\ell$ of $[n]$, the equation
-	\begin{equation*}
-			\text{(to be added)}
-	\end{equation*}
-	is satisfied.
-\end{itemize} 
-Let $F,G: X \to Y$ be two parallel 1-morphisms in $TC_n$. The 2-morphisms from $F$ to $G$ in $TC_n$ consist of:
-\begin{itemize}
-	\item For each edge $ij$ of $[n]$, a natural transformation of $A_i$-$A_j$-bimodule functors
-	\begin{equation*}
-		\theta_{ij}: F_{ij} \to G_{ij}.
-	\end{equation*}
-	\item Such that for each 2-simplex $ijk$ of $[n]$, the equation
-	\begin{equation*}
-		\xi_{ijk}^G \circ (  id_{\varphi_{ijk}^Y} * \theta_{ij} \times \theta_{jk}) = (\theta_{ik} * id_{\varphi_{ijk}^X} ) \xi_{ijk}^F
-	\end{equation*}
-	is satisfied. 
-\end{itemize}
-
-
-(face and degeneracy maps. (forgetting and repeating))
-
-Let $A$ be a finite set. Let $P(A)$ denote the power set of $A$, viewed as a poset via inclusion. Define $TC(n,A)$ to be the full sub-2-category of the strict functor 2-category $Fun(P(A), TC_n)$ consisting of those functors, natural transformations, and modifications which satisfy the following conditions. If $S_0$ and $S_1$ are disjoint subsets of $A$, then the induced map 
-\begin{equation*}
-	X(S_0) \times X(S_1) \to X(S_0 \sqcup S_1) \quad \text{ (need to finish)}
-\end{equation*} 
-\CSPcomm{Wait, don't the morphism in $TC_n$ fix the vertex tensor categories by definition? So then an inclusion doesn't correspond to a map in $TC_n$?}
-
-If $f:A \to P(B)$ is a morphism in $\Gamma$, then we get a functor $f^*: TC(n, B) \to TC(n,A)$ which on objects sends $X \in TC(n,B)$ to the assignment $f^*X(S) = X( \cup_{s \in S} f(s))$. Since $f$ sends disjoint unions to disjoint unions, this formula does indeed define an object of $TC(n,A)$. 
-
-\CSPcomm{Maybe I should reverse the order of these discussions. First discuss $P(A)$ and construct "bilinear sequences" which would consist of sequences of objects linear categories index by the subsets of $A$, and satisfying the "Deligne condition" for disjoint unions. (is this the right term? Maybe Segal condition?). Then show this has its own Deligne tensor product (essentially objectwise). So then we get the notion of tensor object and also module and bimodule objects which consist of sequences of tensor categories or bimodule categories. Finally We can just export the above definition be replacing $X$ and its ilk by objects in the $A$ sequences. Lastly, we just need to observe that this gives a  Gamma simplicial 2-category.}
-
-%--------- \CSPcomm{I need to edit the below.}
-%
-%\begin{itemize}
-%	\item The $0^\text{th}$ 2-category is the discrete collection tensor categories viewed as a discrete 2-category. 
-%	\item The $1^\text{st}$ 2-category consists of the disjoint union over all pairs of tensor categories $A$ and $B$ of the 2-categories of $A$-$B$-bimodule categories, functors, and natural transformations. 
-%	\item The $2^\text{nd}$ 2-category consists of a disjoint union over all triples of tensor categories $A$, $B$, $C$ of certain 2-categories $TC_2(A,B,C)$. These 2-categories consists of triples of bimodules $ \bimod{A}{L}{B}$, $ \bimod{B}{M}{C}$, $ \bimod{A}{N}{C}$, together with a $B$-balanced $A$-$C$-linear functor $L \times M \to N$ inducing an equivalence $\bimod{A}{L \boxtimes_B M }{C} \cong  \bimod{A}{N }{C}$. The 1-morphisms and 2-morphisms are the obvious ones. 
-%	\item The $3^\text{rd}$ 2-category consists of the disjoint union ...
-%	\item 
-%	\item The higher 2-categories are completely determined by their restriction to ... 
-%\end{itemize}
-
-
-
-
----------
-
-\CDcomm{Formalism for 3-categories.}
-
-\CDcomm{Formalism for symmetric monoidal 3-categories.}
-A symmetric monoidal category is the same as a functor $Fin_* \to \Cat$ which sends coproducts to products. A symmetric monoidal 3-category is a functor $Fin_* \to 3\text{-}\Cat$ which sends coproducts to products.
-
-\CDcomm{Definition of TC.}
-\CDcomm{[Objects of TC are \emph{idempotent complete linear categories}.  Morphisms are ..., 2-morphism are ..., 3-morphism are ...]}
-
-
-\begin{remark}
-It is worth keeping in mind, and separating, the two key conceptual differences between the setting of tensor categories and the setting of ordinary algebra.  The first difference is, obviously, that we have categorified---the underlying objects are now longer sets but categories.  The second difference is that the elements of the objects no longer have additive inverses---that is objects of a tensor category, unlike elements of an algebra, needn't be additively invertible.  For many purposes and arguments, the second is the more serious and problematic difference.
-\end{remark}
 
 
 
