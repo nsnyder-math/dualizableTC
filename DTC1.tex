@@ -508,7 +508,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 \subsection{Generalities on Symmetric Monoidal $(\infty,3)$-Categories}
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
-There are several different theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two combinatorial categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a brief review of these categories. 
+There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two combinatorial categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a brief review of these categories. 
 
 \begin{definition}
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
@@ -518,8 +518,25 @@ This category was introduced by Segal in \cite{Segal-Categories and Cohomology T
 \begin{equation*}
 	\prod_{a \in A} i_a^*: M(A) \to \prod_{a \in A} M(1).
 \end{equation*}
-The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$. More generally the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. 
-\CSP{Find reference for this fact.}
+It will be instructive to spell this out explicitly. The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$. More generally $M(A) \cong M^{\times |A|}$. A maps in $\Gamma$ express ways to combine a $B$-tuple of elements of $M$ into an $A$-tuple of elements in $M$. Explicitly $f: A \to P(B)$
+induces a map $f^*: M^{\times |B|} \to M^{\times |A|}$ which sends the $B$-tuple $(m_b)_{b \in B}$ to the $A$-tuple $(n_a)_{a \in A}$ where the element $n_a \in M$ is obtained by multiplying together all the elements $m_b$ where $b$ ranges over the elements in $f(a) \subseteq B$.  
+
+This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ giving rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, if $(M, \otimes)$ is not a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
+
+This leaves us with two possible avenues of pursuit:
+\begin{enumerate}
+	\item We relax our goal of obtaining a {\em strict} functor. The functor $f^*$ described above are not compatible with composition of maps in $\Gamma$, but they are compatible up to natural isomorphism of functor. In fact there are canonical natural isomorphisms and we obtain a {\em weak} functor from $\Gamma^\text{op}$ to the 2-category $\Cat$. 
+	\item We realize that our initial guess that $A \mapsto M^{\times |A|}$ may have been overly optimistic. We content ourselves to have strict functor $M: \Gamma^\text{op} \to \Cat$ where $M(A)$ is merely {\em equivalent} to  $M^{\times |A|}$. 
+\end{enumerate}
+Both of this options may be used and give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, and there is a well established and usable such theory. This option is entirely reasonable in that case. 
+
+However in this paper we ultimately wish to describe a symmetric monoidal 3-category. This generally requires a robust theory of 4-categories and their weak functors. It is possible to do this using the theory of iterated complete Segal spaces, which we will describe shortly, but it just as easy (and perhaps more explicit) to pursue the later option from the start. 
+
+In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly tractable solution. Again, it is instructive to consider the 1-categorical case first. To this end we will now describe how the symmetric monoidal category of vector spaces may be obtained 
+
+
+\CSPcomm{[adding example of symetric mondoidal category. ]}
+
 
 \begin{definition}
 	The simplex category $\Delta$ is a choice of skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
