@@ -600,7 +600,7 @@ This is easily seen to be strictly compatible with composition in $\Gamma^\text{
 \subsection{Symmetric Monoidal $(\infty,3)$-Categories}
 
 \begin{definition}
-	The simplex category $\Delta$ is a choice of skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
+	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
 \end{definition}
 
 This is the category of combinatorial simplices. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
@@ -621,7 +621,7 @@ This is the category of combinatorial simplices. The vertices of $[n]$ have a na
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
 
 
-Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and $X_n$ denotes the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -632,7 +632,7 @@ Let $C$ be a category. The category of {\em simplcial objects of $C$} is the fun
 	\draw [->] (LT) -- node [above] {$$} (RT);
 	\draw [->] (RT) -- node [right] {$$} (RB);
 	\draw [->] (LB) -- node [below] {$$} (RB);
-	%\node at (0.5, 1) {$\ulcorner$};
+	\node at (0.5, 1) {$\ulcorner$};
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
@@ -663,7 +663,7 @@ Thus a strict 2-category may equivalently be regarded as a simplical object with
 The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. This is the context in which the cobordism hypothesis has been proven and is the context in which we frame our results. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and symmetric monoidal $n$-fold complete Segal spaces, respectively (these later are sometimes called special $\Gamma$-$n$-fold complete Segal spaces).
 These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
 
-On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{Lurie}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
+On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{Lurie}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number of classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
 %\begin{definition}
 %	An $n$-fold simplicial space $X$ is {\em essentially constant} if, when regarded as a functor $X: (\Delta^\textrm{op})^{\times n} \to h\textrm{-}(sSet)$, it is equivalent to a constant functor, where $h\textrm{-}(sSet)$ denotes the homotopy category of simplicial sets.  
 %\end{definition}
@@ -1003,7 +1003,25 @@ This data is required to satisfy the following axioms:
 		\label{fig:EqnSSSijMorphism}
 	\end{figure}
 \end{list}
-A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a collection of $\{ \theta_{S;ij} \}$ consisting of $X_{S;i}$-$X_{S;j}$-bimodule natural transformations from $F_{S;ij}$ to $G_{S;ij}$ for each subset $S \subseteq A$ and 2-simplex $ij$ in $[n]$. These are required to satisfy that $\theta_{\emptyset;ij}$ is the identity and the following pair of equations hold:
+A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a collection of $\{ \theta_{S;ij} \}$ consisting of $X_{S;i}$-$X_{S;j}$-bimodule natural transformations from $F_{S;ij}$ to $G_{S;ij}$ for each subset $S \subseteq A$ and 2-simplex $ij$ in $[n]$. For completeness we record this in Table \ref{Table:2MorOfTC}.
+\begin{table}[h]
+	\caption{Data of a 2-morphism of $TC(A,n)$.}
+	\begin{tabular}{c |ccc}
+	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$   \\
+	\hline
+	$S$ 				& n/a & $\theta_{S; ij}$ &     (TC2M1) \\
+	$S, S'$ 			& n/a &  (TC2M2)  &    \\
+	\end{tabular}
+%	
+%	\vspace{0.5cm}
+%	
+%	\begin{tabular}{l p{11cm}}
+%		datum & description of datum \\ \hline
+%		$\theta_{S;ij}$ & An $X_{S;i}$-$X_{S;j}$-bimodule natural transformation from $X_{S;ij}$ to $Y_{S;ij}$. 
+%	\end{tabular}
+	\label{Table:2MorOfTC}
+\end{table}
+These are required to satisfy that $\theta_{\emptyset;ij}$ is the identity and the following pair of equations hold:
 \begin{list}{(TC2M\arabic{itemcounter})}{\usecounter{itemcounter}}
 	\item For each 2-simplex $ijk$, we have
 	\begin{equation*}
