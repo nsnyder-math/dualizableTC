@@ -510,7 +510,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
-There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two combinatorial categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a brief review of these categories. 
+There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
 \subsection{Symmetric monoidal structures via the category $\Gamma$}
 
@@ -522,29 +522,80 @@ This category was introduced by Segal in \cite{Segal-Categories and Cohomology T
 \begin{equation*}
 	\prod_{a \in A} i_a^*: M(A) \to \prod_{a \in A} M(1).
 \end{equation*}
-It will be instructive to spell this out explicitly. The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$. More generally $M(A) \cong M^{\times |A|}$. A maps in $\Gamma$ express ways to combine a $B$-tuple of elements of $M$ into an $A$-tuple of elements in $M$. Explicitly $f: A \to P(B)$
-induces a map $f^*: M^{\times |B|} \to M^{\times |A|}$ which sends the $B$-tuple $(m_b)_{b \in B}$ to the $A$-tuple $(n_a)_{a \in A}$ where the element $n_a \in M$ is obtained by multiplying together all the elements $m_b$ where $b$ ranges over the elements in $f(a) \subseteq B$.  
+It will be instructive to spell this out explicitly. The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$. More generally $M(A) \cong M^{\times |A|}$. Maps in $\Gamma$ express ways to combine a $B$-tuple of elements of $M$ into an $A$-tuple of elements in $M$. Explicitly $f: A \to P(B)$
+induces a map $f^*: M^{\times |B|} \to M^{\times |A|}$ which sends the $B$-tuple $(m_b)_{b \in B}$ to the $A$-tuple $(n_a)_{a \in A}$ where the element $n_a \in M$ is obtained by multiplying together all the elements $m_b$ where $b$ ranges over the elements in $f(a) \subseteq B$. This is a well-defined operation when $M$ is a commutative monoid, and conversely every such functor arises from a monoid in this manner. 
 
-This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ giving rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, if $(M, \otimes)$ is not a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
+This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ should give rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, if $(M, \otimes)$ is not a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
 
 This leaves us with two possible avenues of pursuit:
 \begin{enumerate}
 	\item We relax our goal of obtaining a {\em strict} functor. The functors $f^*$ described above are not compatible with composition of maps in $\Gamma$, but they are compatible up to natural isomorphism of functor. In fact there are canonical coherent families of such natural isomorphisms and we obtain a {\em weak} functor from $\Gamma^\text{op}$ to the 2-category $\Cat$. 
-	\item We realize that our initial guess that $A \mapsto M^{\times |A|}$ may have been overly optimistic. We content ourselves to have strict functor $M: \Gamma^\text{op} \to \Cat$ where $M(A)$ is merely {\em equivalent} to  $M^{\times |A|}$. 
+	\item We realize that our initial guess that $A \mapsto M^{\times |A|}$ may have been overly optimistic. We content ourselves to have a strict functor $M: \Gamma^\text{op} \to \Cat$ where $M(A)$ is merely {\em equivalent} to  $M^{\times |A|}$. 
 \end{enumerate}
-Both of these options may be used and give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, where there is a well established and usable theory. This option is entirely reasonable in that case. 
+Either of these options may be employed, and both give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, and indeed there is a well established and usable theory. This option is entirely reasonable in that case. 
 
-However in this paper we ultimately wish to describe a symmetric monoidal 3-category. This generally requires a robust theory of 4-categories and their weak functors. It is possible to do this using the theory of iterated complete Segal spaces, which we will describe in the next section, but it just as easy (and perhaps more explicit) to pursue the later option from the start. 
+However in this paper we ultimately wish to describe a symmetric monoidal 3-category. Option (1) would generally require a robust theory of 4-categories and their weak functors. It is possible to do this using the theory of iterated complete Segal spaces, a model of $(\infty, n)$-categories which we will describe in the next section, but it is just as easy (and perhaps more explicit) to pursue the later option from the start. 
 
-In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly tractable solution. Again, it is instructive to consider the 1-categorical case first. To this end we will now describe how the symmetric monoidal category of vector spaces may be obtained as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
+In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly tractable solution. Again, it is instructive to consider the 1-categorical case first. To this end we will now describe how the symmetric monoidal category of vector spaces may be encoded as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
 
-\CSPcomm{[adding example of symetric mondoidal category. ]
+The modoidal structure in $\Vect$ is given by the tensor product of vector spaces, which is defined by a well-known universal property. The tensor product of $V_1$ and $ V_2$ is a universal vector space receiving a bilinear map from $V_1 \times V_2$. In other words, the tensor product $V_{12}$ comes equipped with a bilinear map  $V_1 \times V_2 \to V_{12}$, inducing for all vector spaces $W$ a natural bijection between bilinear maps $V_1 \times V_2 \to W$ and linear maps $V_{12} \to W$. We will say that the bilinear map  $V_1 \times V_2 \to V_{12}$ {\em realizes $V_{12}$ as a tensor product}. As with all universal properties, if the tensor product exists then it is unique up to unique isomorphism, and so it is common practice to write $V_{12} = V_1 \otimes V_2$ for any choice of tensor product.
+
+To define $\otimes$ as an honest functor, though, we must choose a specific representative for each pair $V_1$ and $V_2$. The standard method is to {\em define} the vector space $V_1 \otimes V_2$ as the vector space of linear combinations of formal expressions $v_1 \otimes v_2$ with $v_i \in V_i$, modulo the obvious relations. This operation is not strictly associative (for example the underlying sets of $(V_1 \otimes V_2) \otimes V_3$ and $V_1 \otimes (V_2 \otimes V_3)$ are distinct), but the universal property ensures it is associative up to canonical coherent natural isomorphism.
+
+We will now describe how to encode this symmetric monoidal structure as a strict functor,
+\begin{equation*}
+	\Vect: \Gamma^\text{op} \to \Cat.
+\end{equation*}  
+In our initial naive attempt at constructing such a functor we identified the key difficulty: given a $B$-tuple of vector spaces, and a map $f: A \to P(B)$ in $\Gamma$ (i.e. a certain collection of subsets $f(a) \subseteq B$) we need to choose a way to take the tensor product of each of the corresponding subtuples. Rather then make such a choice for each $f$ (which yields only a weak functor $\Gamma^\text{op} \to \Cat$) we will enlarge $\Vect^{\times |B|}$ to include choices of these tensor products for each subset of $B$. 
+
+The most canonical way to do this is to define $\Vect(B)$ to include all possible representatives of the tensor product for each of the subsets of $B$. Thus we obtain the following definition of the category $\Vect(B)$: 
 \begin{itemize}
-	\item tensor product as universal property
-	\item $A$ goes to category of assignments of data. 
-	\item strictness of the construction and segal conditions. 
+	\item The objects consist of a pair of collections, one of vector spaces $\{ V_S \}$ indexed by the subsets $S \subseteq B$, 
+	the other of bilinear maps $ \{ v_{S,S'}: V_S \times V_{S'} \to V_{S \cup S'} \} $ 
+	indexed by pairs of disjoint subsets $S, S' \subseteq B$. These are required to satisfy the following conditions:
+	\begin{enumerate}
+		\item $V_{\emptyset} = k$; 
+		\item $v_{S,S'}$ realizes $V_{S \cup S'}$ as the tensor product of $V_S$ and $V_{S'}$;
+		\item If $S, S', S'' \subseteq B$ are three pairwise disjoint subsets, then the following square of multilinear maps commutes:
+	\begin{center}
+	\begin{tikzpicture}
+		\node (LT) at (0, 1.5) {$V_S \times V_{S'} \times V_{S''}$};
+		\node (LB) at (0, 0) {$V_{S \cup S'} \times V_{S''}$};
+		\node (RT) at (5, 1.5) {$V_S \times V_{S' \cup S''}$};
+		\node (RB) at (5, 0) {$V_{S \cup S' \cup S''}$};
+		\draw [->] (LT) -- node [left] {$v_{S,S'} \times id$} (LB);
+		\draw [->] (LT) -- node [above] {$id \times v_{S', S''}$} (RT);
+		\draw [->] (RT) -- node [right] {$v_{S, S' \cup S''}$} (RB);
+		\draw [->] (LB) -- node [below] {$v_{S \cup S', S''}$} (RB);
+		%\node at (0.5, 1) {$\ulcorner$};
+		%\node at (1.5, 0.5) {$\lrcorner$};
+	\end{tikzpicture}
+	\end{center}
+	\end{enumerate} 
+	\item The morphisms from $\{ V_S, v_{S, S'} \} \to \{ W_S, w_{S, S'} \}$ consist of collections of linear maps $\{ \phi_S: V_S \to W_S \}$, such that $\phi_{\emptyset} = id$ and for each pair of disjoint subsets $S, S' \subseteq B$ the following square commutes:
+	\begin{center}
+	\begin{tikzpicture}
+		\node (LT) at (0, 1.5) {$V_S \times V_{S'}$};
+		\node (LB) at (0, 0) {$V_{S \cup S'}$};
+		\node (RT) at (4, 1.5) {$W_S \times W_{S'}$};
+		\node (RB) at (4, 0) {$ W_{S \cup S'}$};
+		\draw [->] (LT) -- node [left] {$v_{S,S'}$} (LB);
+		\draw [->] (LT) -- node [above] {$\phi_S \times \phi_{S'}$} (RT);
+		\draw [->] (RT) -- node [right] {$w_{S,S'}$} (RB);
+		\draw [->] (LB) -- node [below] {$\phi_{S \cup S'}$} (RB);
+		%\node at (0.5, 1) {$\ulcorner$};
+		%\node at (1.5, 0.5) {$\lrcorner$};
+	\end{tikzpicture}.
+	\end{center}
 \end{itemize}
-}
+Thus an object of $\Vect(A)$ consist partly of an $A$-tuple of vector spaces, namely $ (V_{\{a\}})_{a \in A}$. Each vector space $V_S$ should then be thought of as a {\em choice} of simultaneous tensor product of all the $V_{\{a\}}$ where $a \in S$. The data and conditions of an object of $\Vect(A)$ make this philosophical viewpoint precise, and similarly for the morphisms of $\Vect(A)$. 
+
+The assignment $A \mapsto \Vect(A)$ gives a functor $\Vect: \Gamma^{op} \to \Cat$, for if $f: A \to P(B)$, then we obtain a functor $f^*: \Vect(B) \to \Vect(A)$ as follows. If $T \subseteq A$, let $f(T) = \cup_{a \in T} f(a) \subseteq B$. Then an object $\{ V_S, v_{S,S'} \}_{S, S' \subseteq B}$ of $\Vect(B)$ is sent via $f^*$ to the object $\{ W_T, w_{T, T'} \}_{T, T' \subseteq A} \in \Vect(A)$, where 
+\begin{equation*}
+	W_T = V_{f(T)} \quad \textrm{and} \quad  w_{T, T'} = v_{f(T), f(T')}.
+\end{equation*}
+This is easily seen to be strictly compatible with composition in $\Gamma^\text{op}$. Moreover, since the tensor product is defined by a universal property, the forgetful functor $\Vect(A) \to \Vect^{\times |A|}$ is an equivalence of categories, as desired.  
+
 
 \subsection{Symmetric Monoidal $(\infty,3)$-Categories}
 
