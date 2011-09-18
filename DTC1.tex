@@ -505,10 +505,12 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 
 \section{The Symmetric Monoidal 3-Category of Tensor Categories}
 
-\subsection{Generalities on Symmetric Monoidal $(\infty,3)$-Categories}
+
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
 There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two combinatorial categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a brief review of these categories. 
+
+\subsection{Symmetric monoidal structures via the category $\Gamma$}
 
 \begin{definition}
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
@@ -525,18 +527,24 @@ This generalizes to higher categories as well; the 2-category of symmetric monoi
 
 This leaves us with two possible avenues of pursuit:
 \begin{enumerate}
-	\item We relax our goal of obtaining a {\em strict} functor. The functor $f^*$ described above are not compatible with composition of maps in $\Gamma$, but they are compatible up to natural isomorphism of functor. In fact there are canonical natural isomorphisms and we obtain a {\em weak} functor from $\Gamma^\text{op}$ to the 2-category $\Cat$. 
+	\item We relax our goal of obtaining a {\em strict} functor. The functors $f^*$ described above are not compatible with composition of maps in $\Gamma$, but they are compatible up to natural isomorphism of functor. In fact there are canonical coherent families of such natural isomorphisms and we obtain a {\em weak} functor from $\Gamma^\text{op}$ to the 2-category $\Cat$. 
 	\item We realize that our initial guess that $A \mapsto M^{\times |A|}$ may have been overly optimistic. We content ourselves to have strict functor $M: \Gamma^\text{op} \to \Cat$ where $M(A)$ is merely {\em equivalent} to  $M^{\times |A|}$. 
 \end{enumerate}
-Both of this options may be used and give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, and there is a well established and usable such theory. This option is entirely reasonable in that case. 
+Both of these options may be used and give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, where there is a well established and usable theory. This option is entirely reasonable in that case. 
 
-However in this paper we ultimately wish to describe a symmetric monoidal 3-category. This generally requires a robust theory of 4-categories and their weak functors. It is possible to do this using the theory of iterated complete Segal spaces, which we will describe shortly, but it just as easy (and perhaps more explicit) to pursue the later option from the start. 
+However in this paper we ultimately wish to describe a symmetric monoidal 3-category. This generally requires a robust theory of 4-categories and their weak functors. It is possible to do this using the theory of iterated complete Segal spaces, which we will describe in the next section, but it just as easy (and perhaps more explicit) to pursue the later option from the start. 
 
-In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly tractable solution. Again, it is instructive to consider the 1-categorical case first. To this end we will now describe how the symmetric monoidal category of vector spaces may be obtained 
+In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly tractable solution. Again, it is instructive to consider the 1-categorical case first. To this end we will now describe how the symmetric monoidal category of vector spaces may be obtained as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
 
+\CSPcomm{[adding example of symetric mondoidal category. ]
+\begin{itemize}
+	\item tensor product as universal property
+	\item $A$ goes to category of assignments of data. 
+	\item strictness of the construction and segal conditions. 
+\end{itemize}
+}
 
-\CSPcomm{[adding example of symetric mondoidal category. ]}
-
+\subsection{Symmetric Monoidal $(\infty,3)$-Categories}
 
 \begin{definition}
 	The simplex category $\Delta$ is a choice of skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
