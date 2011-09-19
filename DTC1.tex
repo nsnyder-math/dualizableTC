@@ -1654,7 +1654,7 @@ For our purposes it suffices to define first Pontryagin class $p_1 \in H^4(BSO;\
 [...]
 \end{proof}
 
-\CDcomm{[Somewhere need to record the fact that $BSO(3) \xra{\widetilde{\phi \oplus \phi}} BSpin(6)$ is multiplication by $4$ on $\pi_4$ (assuming I have that right, must recheck).]}
+% No, don't need this other than it will come up in the proof of the first proposition below. \CDcomm{[Somewhere need to record the fact that $BSO(3) \xra{\widetilde{\phi \oplus \phi}} BSpin(6)$ is multiplication by $4$ on $\pi_4$.]}
 
 We now record the low-dimensional homology and homotopy of the structure spaces we have considered.  All these structure spaces are simply connected.  The remaining homology and homotopy groups follow from the above proposition, along with a number of classical computations, using a flurry of interconnected spectral sequences.
 
@@ -1678,9 +1678,9 @@ $BSO$
 $BOrpo(3)$ % K(Z,3) --> BOrpo(3) --> BSO(3)
 & $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ 
 & $\ZZ/2$ & $\ZZ/4$ & $0$ & $\ZZ/2$  \\
-$Spin(6)/SO(3)$ % Spin(6)/SO(3) --> BSO(3) --> BSpin(6)
+$Spin(6)/SO(3)$ % SO(3) --> Spin(6) --> Spin(6)/SO(3) in htpy; Spin(6)/SO(3) --> BSO(3) --> BSpin(6) in cohom
 & $0$ & $\ZZ/2$ & \CDcomm{x} & \CDcomm{x} %!% Need the cohom of BSpin(6); I believe BSO(3) --> BSpin(6) induces 2 on H^4. That should be enough to finish the spectral sequence.
-& $\ZZ/2$ & \CDcomm{$\ZZ/4$} & $0$ & $\ZZ/2$ \\
+& $\ZZ/2$ & $\ZZ/4$ & $0$ & \CDcomm{$??$} \\
 $BSpin(3)$ % S^3 --> * --> BSpin(3)
 & $0$ & $0$ & $\ZZ$ & $0$
 & $0$ & $0$ & $\ZZ$ & $\ZZ/2$ \\
@@ -1710,21 +1710,23 @@ The above table suggests three homotopical coincidences.  The most apparent is t
 
 Orpo structures and 2-framings are different; for instance, the set of homotopy classes of parametrized families of the two structures on a vector bundle can be genuinely distinct.  However, as far individual tangential structures on a single 3-manifold are concerned, they are homotopically indistinguishable---this convergence no doubt has contributed to some of the confusion in the literature.
 \begin{proposition}
-There is a homotopy equivalence between the 4-coconnected covers of $BOrpo(3)$ and $B\Omega(Spin(6)/SO(3))$. \CDcomm{Probably change to "the map ... is ... connected".}  In particular, for a closed 3-manifold $M$, there is a bijection between the orpo structures and the 2-framings on $M$.
-\end{proposition}
-\CD{I mean the space where you killed $\pi_4$ and up --- that's ``4-coconnected"?}
-\CDcomm{[Is there a canonical map from $B\Omega(Spin(6)/SO(3))$ to $BOrpo(3)$ or vice versa? Ie is the composite $B\Omega (Spin(6)/SO(3)) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ trivial?  Is the composite $BOrpo(3) \ra BSO(3) \ra BSpin(6)$ trivial?  If so, adjust the above discussion to reflecct this.  If not, leave as is.]}
-\CD{I haven't (re)checked the k-invariant between $\pi_2$ and $\pi_3$. We better do that.}
-\CDcomm{[Ack, don't you need a 5-coconnected equivalence to get the bijection of tangential structures?  Or maybe you need a touch less than that.  Is it a 4- or 5-coconn equiv?  Maybe there is a more subtle reason why there is a bijection even if it isn't a 5-coconn equiv?]}
-
-% Omit the proof.
-
-\CDcomm{Think again about whether there is a good \emph{map} between stably framed and string, and assuming so, rewrite this next proposition to reflect that.}
+There is a 4-connected map $Spin(6)/SO(3) \ra BOrpo(3)$ lifting the natural map $Spin(6)/SO(3) \ra BSO(3)$.  In particular, for a closed 3-manifold $M$, there is a bijection between the orpo structures and the 2-framings on $M$. 
+\end{proposition}  % It seems the lift isn't unique.
+\begin{proof}
+... 
+\CDcomm{In fact the choice of lift is canonical, using the null homotopy of $Spin(6)/SO(3) \ra BSO(3) \ra BSpin(6)$.  Indicate this.}
+% Fill in this proof after finishing the computation of the cohomology of Spin(6)/SO(3).  Use email June 7.
+\end{proof}
 
 Similarly, as far as individual tangential structures on 3-manifolds are concerned, there is a homotopical coincidence between stably framed structures and string structures.
 \begin{proposition}
-For $M$ a 3-manifold, the natural forgetful map from stably framed structures to stable string structures induces a bijection between the set of homotopy classes of stable framings on $M$ to the set of homotopy classes of string structures on $M$.
-\end{proposition}
+There is a 4-connected map $O(\infty)/O(3) \ra BString(3)$ lifting the natural map $O(\infty)/O(3) \ra BO(3)$.  In particular, for a closed 3-manifold $M$, there is a bijection between the stable framings and the string structures on $M$.
+\end{proposition} % It seems the lift isn't unique, though I haven't done the full calculation to be sure.
+% We've omited mention of the fact that there is a natural forgetful map from stable framings to stable string structures, which happen to be equivalent to string structures, so in fact there is a preferred choice here.
+\begin{proof}
+...
+\CDcomm{This map should also be canonical.  How best to say it homotopy theoretically?}
+\end{proof}
 
 In the main text, we have concentrated on the structure groups $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$.  As above, $hString(3)$-structures are essentially just framings, but $String(3)$-structures seem to be rather different.  It turns out, though, that provided we focus on fusion categories over the complex numbers, all $\TC$-valued field theories are in fact string:
 
