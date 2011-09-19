@@ -477,7 +477,7 @@ Here for brevity we use ``fusion category" to refer to what has elsewhere gone u
 
 \begin{proposition}
 If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
-\end{proposition}
+\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
 
 \begin{proof}
 Define the functor $\ld{(-)}$ on objects by picking for each object $a \in \cC$ a left dual object $\ld{a} \in \cC$.  Also pick a unit map $u: \ld{a} \; a \ra 1$ and a counit map $v: 1 \ra a \; \ld{a}$ giving $\ld{a}$ the structure of a left dual to $a$.  Define the functor $\ld{(-)}$ on a morphism $f: a \ra b$ by $\ld{(f)} := (u_b \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot f \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot v_a)$.  (This morphism $\ld{(f)}$ is called the \emph{mate} of $F$.)  Next we want to see that this functor is monoidal.  Observe that the morphisms $\ld{b} \; \ld{a} \; a \; b \xra{u_a} \ld{b} \; b \xra{u_b} 1$ and $1 \xra{v_a} a \; \ld{a} \xra{v_b} a \; b \; \ld{b} \; \ld{a}$ show that $(\ld{b} \; \ld{a})$ is a left dual to $(a b)$.  There is therefore a uniquely determined isomorphism from $(\ld{b} \; \ld{a})$ to $\ld{(a b)}$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
