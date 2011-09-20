@@ -274,9 +274,29 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 	A semisimple linear category is one in which every object is projective, in particular the unit object. Thus it is enough to show if $1 \in \cC$ is projective, then every object is projective. This follows since $\hom(P, -) = \hom( 1, (-) \otimes P^*)$ is an exact functor. 
 \end{proof}
 
-\begin{remark}
-	The assignment $x \mapsto x^*$ gives rise to an equivalence of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
-\end{remark}
+\begin{lemma}
+	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
+\end{lemma}
+
+
+%\begin{proposition}
+%If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
+%\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
+
+\begin{proof}
+Define the functor ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}:
+\begin{equation*}
+	{(f)^*} := (\varepsilon_b * \id_{\rd{a}}) (\id_{\rd{b}} \cdot f \cdot \id_{\rd{a}}) (\id_{\rd{b}} * \eta_a).
+\end{equation*}
+Next we want to see that this functor is monoidal. 
+ 
+Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \; \rd{a} \xra{\eta_b} a \; b \; \rd{b} \; \rd{a}$ show that $(\rd{b} \; \rd{a})$ is a left dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a b)}$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
+\end{proof}
+% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
+
+%\begin{remark}
+%The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
+%\end{remark}
 
 \subsection{Bimodule Categories}
 
@@ -533,7 +553,7 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 
 
 
-\subsection{Exact Module Categories and Adjunction of Module Functors}
+\subsection{Exact Module Categories and Adjoints of Module Functors}
 We will now specialize to the theory of finite rigid tensor categories. 
 
 \begin{definition}
@@ -549,7 +569,7 @@ We will now specialize to the theory of finite rigid tensor categories.
 \end{example}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
-\begin{theorem}[ENGO]
+\begin{theorem}[ENGO] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, $\cM''$ be exact $\cC$-module categories, and $\cN$ an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
 		\item $\cM$ has enough projectives [EGNO lemma 2.7.1]
@@ -602,18 +622,7 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
 \end{remark}
 
-\begin{proposition}
-If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
-\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
 
-\begin{proof}
-Define the functor $\ld{(-)}$ on objects by picking for each object $a \in \cC$ a left dual object $\ld{a} \in \cC$.  Also pick a unit map $u: \ld{a} \; a \ra 1$ and a counit map $v: 1 \ra a \; \ld{a}$ giving $\ld{a}$ the structure of a left dual to $a$.  Define the functor $\ld{(-)}$ on a morphism $f: a \ra b$ by $\ld{(f)} := (u_b \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot f \cdot \id_{\ld{a}}) (\id_{\ld{b}} \cdot v_a)$.  (This morphism $\ld{(f)}$ is called the \emph{mate} of $F$.)  Next we want to see that this functor is monoidal.  Observe that the morphisms $\ld{b} \; \ld{a} \; a \; b \xra{u_a} \ld{b} \; b \xra{u_b} 1$ and $1 \xra{v_a} a \; \ld{a} \xra{v_b} a \; b \; \ld{b} \; \ld{a}$ show that $(\ld{b} \; \ld{a})$ is a left dual to $(a b)$.  There is therefore a uniquely determined isomorphism from $(\ld{b} \; \ld{a})$ to $\ld{(a b)}$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
-\end{proof}
-% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
-
-\begin{remark}
-The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
-\end{remark}
 
 \begin{definition}
 A fusion category $\cC$ is \emph{pivotal} if the double left dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ is equivalent to the identity functor as a monoidal functor.
@@ -1176,7 +1185,13 @@ However $\TC$ is constructed in such a way that these Segal maps are manifestly 
 
 \CSPcomm{Now maybe set up notion that will be used later in the paper? eg variations on TC, hom categories, etc?}
 
-$\TCfin$, $\TCrig$, $\TCss$
+\begin{itemize}
+	\item $\TCfin$  finite tensor and bimodule categories.
+	\item $\TCrig$ rigid finite tensor categories, and finite bimodule categories. 
+	\item $\TCss$  finite semisimple tensor categories (i.e. multi-fusion), and finite semisimple bimodule categories. 
+\end{itemize}
+
+
 
 
 \section{Local Field Theory in Dimension Three} \label{sec-lft}
@@ -1308,9 +1323,9 @@ In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the uni
 	$\TCfin$ is fully $1$-dualizable. 
 \end{theorem}
 
-\subsection{Adjoints of bimodules}  \label{sec-df-modules}
+\subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of $\cM$ is the category of right exact left module functors 
+In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is right exact (which we have been assuming throughout), then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of $\cM$ is the category of right exact left module functors 
 $\Fun_{{\cC}}(\cM, \cC)$
  where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
 
@@ -1321,17 +1336,17 @@ The map $\ev: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induce
 Straightforward.
 \end{proof}
 
-The maps $\ev$ give the counits of the adjunctions.  The units of the adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product.  In order to describe the units we first give an alternate description of the tensor product as a category of functors.
+The maps $\ev$ give the counits of the adjunctions.  The units of the adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product. Fortunately Lemma \ref{Lma:FunctorsAsATensorPdt} provides an alternate description of the tensor product as a category of functors, making it straightforward  to describe the units.
+
+%\begin{lemma}
+%If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are right exact, then the map $\Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
+%\end{lemma}
+%\begin{proof}
+%\CSPcomm{This is now  move that here?}
+%\end{proof}
 
 \begin{lemma}
-If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are right exact, then the map $\Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
-\end{lemma}
-\begin{proof}
-\CSPcomm{This is now lemma \ref{Lma:FunctorsAsATensorPdt}, maybe move that here?}
-\end{proof}
-
-\begin{lemma}
-The map $\coev: \cD \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cM) \cong \Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$--$\cD$ bimodules.  Similarly, the map $\coev: \cC \rightarrow \Fun_{\text{mod}-\cD}(\cM,\cM) \cong \Fun_{\text{mod}-\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$--$\cC$ bimodules.
+The map $\coev: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
 \end{lemma}
 
 \begin{theorem}
@@ -1344,63 +1359,82 @@ The following diagram commutes.
 				\node (A) at (0in,2in) {${}_\cC \cM_\cD$};
 				\node (B) at (0in,1.5in) {${}_\cC \cM \boxtimes_\cD \cD_\cD$};
 				\node (C) at (0in,1in) {${}_\cC \cM \boxtimes_\cD \Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cM_\cD$};
-				\node (D) at (2in,1.5in) {${}_\cC \cM \boxtimes_D \Fun_{\cC\text{-mod}}(\cM,\cM)_\cD$};
+				\node (D) at (2.5in,1in) {${}_\cC \cM \boxtimes_D \Fun_{\cC\text{-mod}}(\cM,\cM)_\cD$};
 				\node (E) at (0in, .5in) {${}_\cC \cC \boxtimes_\cC \cM_\cD$};
 				\node (F) at (0in,0in) {${}_\cC \cM_\cD$};
 				\draw [<->] (A) to node [left=.1cm] {} (B);
 				\draw [->] (B) to node [left=.1cm] {$\id \boxtimes \coev$}  (C);
-				\draw [->] (B) to node [above=.1cm]{$\id \boxtimes (d \mapsto \bullet \otimes d)$} (D);
+				\draw [->] (B) to [bend left] node [above=.1cm]{$\id \boxtimes (d \mapsto \bullet \otimes d)$} (D);
 				\draw [<->] (C) to node {} (D);
 				\draw [->] (C) to node [left=.1cm]{$\ev \boxtimes \id$} (E);
 				\draw [<->] (E) to node {} (F);
-				\draw [->] (D) to node [right=.1cm]{$m \boxtimes \cF \mapsto \cF(m)$} (F);
+				\draw [->] (D) to [bend left] node [right=.1cm]{$m \boxtimes \cF \mapsto \cF(m)$} (F);
 			\end{tikzpicture}
 		\end{center}
 
-Thus instead of computing along the left side of the diagram, we can compute along the right side of the diagram to see that the composition ${}_\cC \cM_\cD \rightarrow {}_\cC \cM_\cD$ is given by right multiplication by $1$, and hence is the identity.
-
+Thus instead of computing along the left side of the diagram, we can compute along the right side of the diagram to see that the composition ${}_\cC \cM_\cD \rightarrow {}_\cC \cM_\cD$ is given by right multiplication by $1 \in \cD$, and hence is the identity.
 The other three calculations are similar.
 \end{proof}
 
+Thus we have proven
+\begin{theorem}
+	$\TCfin$ is fully 2-dualizable. 
+\end{theorem}
 
-It will sometimes be convenient to have an alternative description of the left and right adjoints to $\cM$.
+\CSP{What do we mean by `categorified'?}
+\begin{corollary}
+If $\cC$ is a finite tensor category, then there exists a fully extended categorified $2$-framed $2$-dimensional TFT which sends the positively framed point to $\cC$, furthermore up to isomorphism there is exactly one such TFT.
+\end{corollary}
+
+For rigid tensor categories, it will sometimes be convenient to have an alternative description of the left and right adjoints to $\cM$.
 
 \begin{definition}
 Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  
 \end{definition}
 
 \begin{lemma}
-If $\cM$ is a $\cC$--$\cD$ bimodule category and $\cN$ is a $\cC$--$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$--$\cE$ bimodules $\Fun_{\cC-\text{mod}}(\cM, \cN) \rightarrow {}^*\Fun_{\cC-\text{mod}}(\cN, \cM)$.  Similarly, if $\cM$ is a $\cC$--$\cD$ bimodule category and $\cN$ is a $\cD$--$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$--$\cE$ bimodules $\Fun_{\text{mod}-D}(\cM, \cN) \rightarrow \Fun_{\cC-\text{mod}}(\cN, \cM)^*$. 
+If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN) \rightarrow {}^*\Fun_{\cC}(\cN, \cM)$.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun_{\cC}(\cN, \cM)^*$. 
 \end{lemma}
 \begin{proof}
 We've already seen that the right adjoint has a canonical module functor structure.  To see that the actions match, note that taking adjoints interchanges precomposition and postcomposition, and the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.  For the second statement, note that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
-We have that $\cM^* \cong \Fun_{\text{mod}-\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC\text{-mod}}(\cM, \cC)$.
+We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
 \end{lemma}
 \begin{proof}
 By the previous lemma, $\Fun_{\cC\text{-mod}}(\cM, \cC) \cong {}^*\Fun_{\cC\text{-mod}}(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
 \end{proof}
 
 \begin{remark}
-Combining Lemmas ??? we have that if $\cM$ is a finite $\cD$--$\cC$ bimodule and $\cN$ is a finite $\cD$--$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)$ as $\cD$--$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_\cC \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)$ as $\cD$--$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} which is incorrect as stated for bimodule categories.
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cD$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_\cC \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} 
+\CSP{NS, is this citation supposed to be ENO?}
+which is incorrect as stated for bimodule categories.
 \end{remark}
 
+\CSPcomm{
+[This is a  great spot to explain the 2D TQFT values for some of the low dimensional cobordisms. I guess that in principle we have invertible 3D cobordisms e.g. the diffeos of the pants which induces the braiding on the center of the finite tensor category.]
+}
+
+\vspace{0.5cm}
+
+\CSPcomm{
+This is also probably a great spot to mention `dimensional reduction'. More specifically how we can try (and fail!) to decategorify these tqfts to get 2D tqfts in Alg-Bimod-Maps.   
+(Maybe this only makes sense for semisimple tensor categories? maybe rigid is okay?)
+}
 
 
+\subsection{Adjoints of bimodule functors: Fusion categories are fully dualizable} \label{sec-df-functors}
 
-\subsection{Adjoints of bimodule functors} \label{sec-df-functors}
-
-In this section we give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint.
+In this section we specialize to $\TCrig$ and give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint. 
 
 %%% Stuff moved to section 2  -CSP
 
-\begin{corollary}
-Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$ module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$ module category.  If $\cM$ is exact as a $\cB$ module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
-\end{corollary}
+\begin{lemma} \label{lma:2morAdjunction}
+Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$-module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$-module functor.  If $\cM$ is exact as a $\cB$-module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
+\end{lemma}
 \begin{proof}
-Exactness of $\cM$ as a $\cB$ module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$--$\cD$ bimodule functor.
+Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor (Theorem \ref{Thm:ExactModCatOmnibus} (5)).  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$-$\cD$ bimodule functor.
 \end{proof}
 
 \begin{remark}
@@ -1414,47 +1448,64 @@ Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
 Apply the above corollary with $\cB = \mathrm{Vec}$.
 \end{proof}
 
-
-
-\subsection{Fusion categories are fully dualizable}
+Thus we have proven:
 
 \begin{theorem}
-The $3$-category $\TCss$ is fully dualizable.
+ $\TCss$ is fully 3-dualizable.
 \end{theorem}
-\begin{proof}
-This follows immediately from Lemmas ???.
-\end{proof}
+
+
+%\subsection{Fusion categories are fully dualizable}
+
 
 \begin{corollary}
 If $\cC$ is a multi-fusion category with non-zero global dimension then there exists a fully extended $3$-dimensional $3$-framed TFT which sends the positively framed point to $\cC$, furthermore up to isomorphism there is exactly one such TFT.
+\CSP{How/where do we use the non-zero global dimension? It must be in the semisimplicity assumption?}
 \end{corollary}
 
 \begin{remark}
-It is worth noting that we have not assumed that the base field is algebraically closed.
+It is worth noting that we have not assumed that the base field is characteristic zero or algebraically closed.
 \end{remark}
 
 \CDcomm{Somewhere there needs to be a subsection that describes all the elementary 3-framed bordisms, of dimensions 0,1,2,3, and what their images are under a field theory.  Maybe that happens here?  Do you want the geometric side of the story, ie the notation and conventions for 3-framings explained previously, eg as another subsection of the LFTDim3 section?  (In this case the first paragraph of the subsection "n-framed 1-manifolds" would move back to that spot.)  So then here it would just be in a way a compliation of what's been said so far, made explicit, this bordism goes here, and this one here, and ... .}
 
-\subsection{Dualizability and finite tensor categories}
+\CSPcomm{Here should go a discussion of the basic 3-framed bordisms and their images under the tqft. It should build off of the discussion in the last section of the 2-framed 2D cobordisms. }
 
-\begin{theorem}
-The $(3,2)$ category gotten from $\TCrig$ by discarding all noninvertible $3$-morphisms is fully dualizable.
-\end{theorem}
-\begin{proof}
-This follows immediately from Lemmas ???
-\end{proof}
+\subsection{Noncompact TQFTs and dualizability of finite tensor categories beyond dimension two}
 
-\begin{corollary}
-If $\cC$ is a finite multi-tensor category, then there exists a fully extended categorified $2$-framed $2$-dimensional TFT which sends the positively framed point to $\cC$, furthermore up to isomorphism there is exactly one such TFT.
-\end{corollary}
+%\begin{theorem}
+%The $(3,2)$ category gotten from $\TCrig$ by discarding all noninvertible $3$-morphisms is fully dualizable.
+%\end{theorem}
+%\begin{proof}
+%This follows immediately from Lemmas ???
+%\end{proof}
 
-In fact, we can do better.  As we will see in the next section, there is a canonical lifting of this TFT to a $3$-framed $2$-dimensional TFT.  Even better, we actually can define the value of the TFT on certain non-invertible $3$-morphisms.
+We saw previously that every finite tensor category gave rise to a 2-dimensional 2-framed TFT. In fact, we can do better.  As we will see there is a canonical lifting of this TFT to a $3$-framed $2$-dimensional TFT.  Even better, we actually can define the value of the TFT on certain non-invertible $3$-morphisms, the so-called {\em non-compact bordisms}.
 
 \begin{definition}
 Let $Bord_3^{\text{nc}}$ be the $3$-category where we only allow $3$-dimensional bordisms where every connected component has nonempty intersection with the source.  As with the usual bordism category this comes in different topological flavors (oriented, $3$-framed, etc.).  A noncompact fully extended TFT is a symmetric monoidal functor from $Bord_3^{\text{nc}}$ to another symmetric monoidal $3$-category.
 \end{definition}
 
-%%%%%%%%%%
+\begin{theorem}
+	For each finite tensor category there is a canonical essentially unique extension of the corresponding 2-framed 2D tqft to a 3-framed non-compact 3D tqft.
+\end{theorem}
+
+\begin{remark}
+	To our knowledge this is the first non-trivial construction of 3-dimensional non-compact topological field theories. 
+\end{remark}
+
+\begin{proof} 
+	\CSPcomm{ sketch:
+	\begin{itemize}
+		\item Cite Cobord hypothesis (discussed earlier in section 4) that to give a non-compact tqft is to give a 2D tqft + a certain `non-compactly' non-degenerate morphism.
+		\item Note that by Lemma \ref{lma:2morAdjunction} and discsussion of bordisms, we have all the adjoints necessary to get this  `non-compactly' non-degenerate morphism.
+	\end{itemize}
+	}
+\end{proof}
+
+\CSPcomm{Perhaps we speculate/comment on the relation of these new manifold invariants to others comming from non-semisimple sources?
+
+Perhaps we carry out an explicit non-semisimple example? e.g. Sweedler's 4D Hopf algebra?}
 
 
 \section{The Serre automorphism of a fusion category} \label{sec-serre}
