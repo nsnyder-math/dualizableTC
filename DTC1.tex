@@ -215,11 +215,13 @@ More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories the
 \begin{equation*}
 	F: \prod \cA_\alpha \to \cB
 \end{equation*}
-such that $F$ is linear in each variable separately. 
+such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. 
 
 \begin{warning}
 	All linear functors considered in this paper are {\em right exact} functors.
 \end{warning}
+
+
 
 \begin{definition}
 	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear.
@@ -262,6 +264,14 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
  	\hom(x \otimes y, z) \cong \hom( x, z \otimes y^*) \cong \hom(y, {}^*x \otimes z).
  \end{equation*}
 	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
+\end{proof}
+
+\begin{corollary}
+	A $\cC$ a rigid tensor category is semisimple if and only if $1 \in \cC$ is a projective object. 
+\end{corollary}
+
+\begin{proof}
+	A semisimple linear category is one in which every object is projective, in particular the unit object. Thus it is enough to show if $1 \in \cC$ is projective, then every object is projective. This follows since $\hom(P, -) = \hom( 1, (-) \otimes P^*)$ is an exact functor. 
 \end{proof}
 
 \begin{remark}
@@ -322,6 +332,13 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
 \end{remark}
 
 
+\subsection{Exact Module Categories}
+
+\begin{definition}
+	Let $\cC$ be a tensor category with enough projectives. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
+\end{definition}
+
+
 
 
 \subsection{The Deligne Tensor Product and Finite Linear Categories}
@@ -336,11 +353,63 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
 	\end{enumerate}
 \end{definition}
 
-\begin{remark}
-	 A finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
-\end{remark}
 
-An analog of this forms one of the main theorems of [EGNO]. 
+We have the following finite analog of the adjoint functor theorem. 
+
+\begin{proposition}
+	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\overline{\Vect}$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
+	\begin{enumerate}
+		\item $\cG$ is left exact;  
+		\item $\cG$ is left exact and satisfies the following \\ {\em Solution Set Condition:} For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
+		\item $\cG$ admits an (additive, $\overline{\Vect}$-enriched) left adjoint.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(This is a variation of the proof given in [MacLane Cat for working, V.6.Thm 2]).)
+\cite{???}
+Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically additive, and as the unit and counit maps are linear maps of vector spaces, $\cF$ is also $\overline{\Vect}$-enriched. 
+
+
+To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$)
+\CSP{Do I need to explain what `comma category' means?}
+ for then the left adjoint may be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
+\begin{equation*}
+	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
+\end{equation*}
+The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus by a straightforward calculation [MacLane V.6.Thm 1], we see that $v$ is initial. 
+
+Finally, if $\cG$ is left exact, then it satisfies the solution set condition. To see this note that each object $d \in \cD$  has a finite number of distinct quotients in $\cD$, hence also a finite number quotients of the form  $\cG(c)$ for some $c \in \cC$. Thus we may choose a finite index set $I$ and objects  $c_i \in \cC$, together with maps $d \to \cG(c_i)$ exhausting the finite collection of possible quotients of $d$. Since any map $d \to \cG(c)$ must factor through one of these quotients, we have construct a solution set.   
+\end{proof}
+
+\begin{corollary}
+	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as it may fail to be right exact). If the linear functor is left exact, then it also admits a left adjoint which is also a linear functor. 
+\end{corollary}
+
+\begin{proof}
+	The second statement is just a rephrasing of the above proposition; the first follows by passing to the opposite linear category.  
+\end{proof}
+
+
+\begin{corollary}
+ A functor $G: \cC^\textrm{op} \to \Vect$ is representable if and only if it is left exact. 
+\end{corollary}
+
+\begin{proof}
+	A representable functor $\hom(-, x):\cC^\text{op} \to \Vect$ is sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
+%
+% 0 <-- C <--  B <--- A <-- 0 in C/C^op
+% 0 -->  Hom(c,x) ---> hom(b,x) ---> hom(a, x)
+%		
+Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
+	\begin{equation*}
+		G(c) \cong \hom_{\Vect_k}( k, G(c)) \cong \hom_{\cC^op}( F(k), c) = \hom_{\cC}(c, F(k) ).
+	\end{equation*}
+	In other words,  the object $F(k)$ represents the functor $G$. 
+\end{proof}
+
+	
+	It can be shown (for example by constructing a projective generator) that a finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
+This is in fact a special one of the main theorems of [EGNO]: 
 
 \begin{theorem}[EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -439,7 +508,7 @@ and we will show that $T$ induces an equivalence between $\cC$-balanced multilin
 \end{lemma}
 
 \begin{proof}
-	The last sentence follows since in that case the natural functor is a bimodule functor. By the Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor, and given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
+	The last sentence follows since in that case the natural functor is a bimodule functor. By the Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ (\cite[Prop 2.12.2]{EGNO}) can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor, and given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
 	\begin{equation*}
 		M \leftarrow M \otimes A \leftleftarrows M \otimes A \otimes A
 	\end{equation*} 
@@ -461,7 +530,6 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 %\CD{[Fix the ground ring to be $\CC$?  Linear categories will mean linear over $\CC$?]}
 
 
-\subsection{Exact Module Categories}
 
 
 
@@ -1197,12 +1265,6 @@ where the first map is the unit of the adjunction, the second map is the binatur
 If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a lax module functor has an oplax module functor structure, while the left adjoint of an oplax module functor has a lax module functor structure.  
 \end{remark}
 
-\begin{proposition}
-If $\cC$ and $\cD$ are finite abelian categories and $\cF: \cC \rightarrow \cD$ is a left exact functor, then $\cF$ has a right adjoint.  If $\cF$ is right exact then it has a left adjoint functor.
-\end{proposition}
-\begin{proof}
-\cite{???}
-\end{proof}
 
 \begin{proposition} \cite{???}
 If $\cB$ is a finite tensor category and $\cM$ and $\cN$ are module categories over $\cB$ with $\cM$ exact, then any module category functor $\cF:\cM \rightarrow \cN$ is exact.
