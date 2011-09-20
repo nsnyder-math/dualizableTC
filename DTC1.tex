@@ -1623,15 +1623,16 @@ In this appendix we describe a few auxillary structure groups, including spin an
 \begin{definition}
 The following spaces, together with the obvious maps to $BO(3)$, define 3-dimensional bundle structures:
 \begin{itemize}
-\item[2-Frame:] $BTwFrame(3) := \hofib(BSO(3) \ra BSpin(6)) = B\Omega(Spin(6)/SO(3))$
 \item[Spin:] $BSpin(3) := \hofib(BSO(3) \xra{w_2} K(\ZZ/2,2))$
-\item[String:] $BString(3) := \hofib(BSpin(3) \ra BSpin \xra{(p_1)/2} K(\ZZ,4))$
-\item[StFrame:] $BStFrame(3) := \hofib(BO(3) \ra BO(\infty)) = B\Omega(O(\infty)/O(3))$
+\item[Spinpo:] $BSpinpo(3) := \hofib(BSpin(3) \xra{p_1} K(\ZZ,4)$
+\item[String:] $BString(3) := \hofib(BSpin(3) \xra{(p_1)/2} K(\ZZ,4))$
 \item[hString:] $BhString(3) := \hofib(BSpin(3) \xra{(p_1)/4} K(\ZZ,4))$
+\item[2-Frame:] $BTwFrame(3) := \hofib(BSO(3) \ra BSpin(6)) = B\Omega(Spin(6)/SO(3))$
+\item[StFrame:] $BStFrame(3) := \hofib(BO(3) \ra BO(\infty)) = B\Omega(O(\infty)/O(3))$
 \end{itemize}
 \end{definition}
 
-\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.  In order for the definitions of $BString(3)$ and $BhString(3)$ to be sensible, the composite $BSpin(3) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ must be uniquely 4-divisible; we will see presently that this is indeed the case.
+\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.  In order for the definitions of $BString(3)$ and $BhString(3)$ to be sensible, the composite $BSpin(3) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, which we have refered to simply as $p_1$, must be uniquely 4-divisible; we will see presently that this is indeed the case.
 
 \begin{proposition} \label{prop-H4}
 The diagram of structure spaces
@@ -1661,6 +1662,24 @@ For our purposes it suffices to define first Pontryagin class $p_1 \in H^4(BSO;\
 \begin{proof}
 \CDcomm{[proof here]}
 \end{proof}
+
+Figure~\ref{fig-structuregroups} organizes some of the 3-dimensional structure groups we have considered.
+\begin{figure}[!ht]
+\begin{equation} \nn
+\xymatrix@!R@!C@R=10pt@C=5pt{
+&& \ast \ar[dl] \ar[ddrr] && \\
+& BString(3) \ar[dl] &&& \\
+BSpinpo(3) \ar[ddrr] \ar[dddd] &&&& BQuad \ar[ddll] \ar[dddd] \\
+&&&& \\
+&& BOrpo(3) \ar[dddd] && \\
+&&&& \\
+BSpin(3) \ar[ddrr] &&&& BSO(2) \ar[ddll] \\
+&&&& \\
+&& BSO(3) &&
+}
+\end{equation}
+\caption{Three-dimensional structure groups} \label{fig-structuregroups}
+\end{figure}
 
 In Table~\ref{table-structurecalc}, we record the low-dimensional homology and homotopy of the structure spaces we have considered.  All these structure spaces are simply connected.  The remaining homology and homotopy groups follow from the above proposition, along with a number of classical computations, using a flurry of interconnected spectral sequences.  
 
@@ -1693,6 +1712,9 @@ $BSpin(3)$ % S^3 --> * --> BSpin(3)
 $BSpin$
 & $0$ & $0$ & $\ZZ$ & $0$ % BZ/2 --> BSpin --> BSO painful
 & $0$ & $0$ & $\ZZ$ & $0$ \\ % Z/2 --> Spin --> SO
+$BSpinpo(3)$
+& $0$ & $0$ & $\ZZ/4$ & $0$
+& $0$ & $\ZZ/4$ & $0$ & $\ZZ/2$ \\
 $BString(3)$ % K(Z,3) --> BString(3) --> BSpin(3)
 & $0$ & $0$ & $\ZZ/2$ & $0$
 & $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ \\
@@ -1702,13 +1724,13 @@ $O(\infty)/O(3)$ % O/O(3) --> BSO(3) --> BSO, htpy first shows quotient is 2-con
 $BhString(3)$ % K(Z,3) --> BhString(3) --> BSpin(3)
 & $0$ & $0$ & $0$ & $0$
 & $0$ & $0$ & $0$ & $\ZZ/2$ \\
-\hline
-\end{tabular}
+\hline 
+\end{tabular} \vspace*{8pt}
 \caption{Low-dimensional cohomology and homotopy of structure spaces.} \label{table-structurecalc}
 \end{table} \CD{Someone should recheck the cohomology of $Spin(6)/SO(3)$.}
 % H^5 and pi_5 are necessary for computing H^4 and pi_5 of some of the other groups, so you can't just delete those whole columns.
 
-The maps on $H^{\leq 4}$ and $\pi_{\leq 4}$, induced by maps between the structure spaces in the table, are as expected, aside from those already recorded in Proposition~\ref{prop-H4}.  Specifically, in addition to the homotopy of the maps between $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$ recorded in Section~\ref{sec-lft-struc}, we have the following: $H^2(BQuad \ra BSO(2))$ is iso; $H^4(BSO(2) \ra BSO(3))$ is iso; $H^3(BSO(3) \ra BSO)$ is iso; $H^3(BOrpo(3) \ra BSO(3))$ is iso; $H^4(BString(3) \ra BSpin(3))$ is surjective; and $\pi_3(BString(3) \ra BOrpo(3))$ is injective.
+The maps on $H^{\leq 4}$ and $\pi_{\leq 4}$, induced by maps between the structure spaces in the table, are as expected, aside from those already recorded in Proposition~\ref{prop-H4}.  Specifically, in addition to the homotopy of the maps between $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$ recorded in Section~\ref{sec-lft-struc}, we have the following: $H^2(BQuad \ra BSO(2))$ is iso; $H^4(BSO(2) \ra BSO(3))$ is iso; $H^3(BSO(3) \ra BSO)$ is iso; $H^3(BOrpo(3) \ra BSO(3))$ is iso; $H^4(BString(3) \ra BSpinpo(3))$ and $H^4(BSpinpo(3) \ra BSpin(3))$ are surjective; $\pi_3(BString(3) \ra BSpinpo(3))$ is injective; and $\pi_3(BSpinpo(3) \ra BOrpo(3))$ is iso.
 
 Note that in this table $BSO$ and $BSpin$ are not, per se, 3-dimensional structure spaces, as they do not map to $BO(3)$, and we mention them only as useful intermediary spaces.  One could define a \emph{stable} $BSO$-structure or $BSpin$-structure on a 3-dimensional vector bundle $M \ra BO(3)$ as a lift to $BSO$, respectively $BSpin$, of the composite $M \ra BO(3) \ra BO$; these might be called a stable orientation and stable spin structure respectively.  Note, though, that the pullback $\holim(BO(3) \ra BO \la BSO)$ is $BSO(3)$ and the pullback $\holim(BO(3) \ra BO \la BSpin)$ is $BSpin(3)$; it follows that a stable orientation is the same data as an orientation, and a stable spin structure is the same data as a spin structure.  (Though we will not need this fact, the same is true for orpo structures and stable orpo structures.)  This is certainly not the relation between stable framing, which is an $O(\infty)/O(3)$-structure, and framing, which is a $*$-structure.
 
