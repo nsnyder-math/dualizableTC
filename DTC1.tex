@@ -303,11 +303,12 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 	satisfying the evident pentagon and triangle identities. 
 
 \begin{definition}
-	A {\em bimodule functor} $F:\cM \to \cN$ is a functor of bicategories such that
+	A {\em bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that
 %	\begin{itemize}
 		 $F$ is the identity on objects and 
 		 the restriction of $F$ to each hom category is linear. 
 %	\end{itemize}
+A {\em lax} (resp. {\em oplax}) bidmodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
 	A {\em bimodule transformation} is a transformation of functors of bicategories, such that the component 1-cells are trivial. 
 \end{definition}
 	
@@ -532,9 +533,8 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 
 
 
-\subsection{Exact Module Categories}
-
-We will now specialize to the case that $\cC$ is a finite rigid tensor category. 
+\subsection{Exact Module Categories and Adjunction of Module Functors}
+We will now specialize to the theory of finite rigid tensor categories. 
 
 \begin{definition}
 	Let $\cC$ be a finite rigid tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
@@ -555,10 +555,35 @@ The following omnibus theorem summarizes the key properties of exact module cate
 		\item $\cM$ has enough projectives [EGNO lemma 2.7.1]
 		\item Every projective object in $\cM$  is injective, and vice versa. [EGNO Cor 2.7.4]
 		\item $\Fun_{\cC}(\cM, \cM')$ is finite [EGNO Prop 2.13.5]; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
-		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fuc_{\cC}(\cM, \cM'')$ is exact in each variable. [EGNO Lemma 2.13.2]		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
+		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. [EGNO Lemma 2.13.2]		
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact [EGNO 2.7.8]. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
 	\end{enumerate}
 \end{theorem}
+
+\begin{lemma}
+	Let $\cC$ be a rigid tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
+\end{lemma}
+
+\begin{proof}
+	\CSPcomm{ [To be filled in by NS or CSP]}
+\end{proof}
+
+
+\begin{lemma} \label{module-adjoint}
+Let $\cC$ and $\cD$ be rigid tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimdodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
+\end{lemma}
+\begin{proof}
+Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module functor.  The result for left adjoints is similar.
+
+The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by
+$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
+\end{proof}
+
+\begin{remark}
+If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a (lax module functor has only an oplax module functor structure, while the left adjoint of an (oplax) module functor has only a lax module functor structure.  
+\end{remark}
+
 
 \subsection{Multi-Fusion categories} \label{sec-tc-fusion}
 
@@ -1151,6 +1176,8 @@ However $\TC$ is constructed in such a way that these Segal maps are manifestly 
 
 \CSPcomm{Now maybe set up notion that will be used later in the paper? eg variations on TC, hom categories, etc?}
 
+$\TCfin$, $\TCrig$, $\TCss$
+
 
 \section{Local Field Theory in Dimension Three} \label{sec-lft}
 
@@ -1271,55 +1298,24 @@ By construction, the four maps of structure spaces above induce the `obvious' ma
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
+\subsection{Duals of objects} \label{sec-df-objects}
 
-\subsection{Adjoints of bimodule functors} \label{sec-df-functors}
+In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the unit is $\cC$ as a $\mathrm{Vec}$--$\cC^\mp \boxtimes \cC$ bimodule with the obvious actions, and the counit is $\cC$ as a $\cC^\mp \boxtimes \cC$--$\mathrm{Vec}$ bimodule.
 
-In this section we give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint.
+\NScomm{This proof is so trivial that I don't know what to write.}
 
-\begin{lemma} \label{module-adjoint}
-Let $\cC, \cD \in \TCrig$, let $\cC \cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  If the underlying functor of $\cF$ has a right (or left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint in $\Hom_{\TCrig}(\cN,\cM)$.
-\end{lemma}
-\begin{proof}
-Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module functor.  The result for left adjoints is similar.
-
-The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by
-$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
-where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
-\end{proof}
-
-\begin{remark}
-If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a lax module functor has an oplax module functor structure, while the left adjoint of an oplax module functor has a lax module functor structure.  
-\end{remark}
-
-
-\begin{proposition} \cite{???}
-If $\cB$ is a finite tensor category and $\cM$ and $\cN$ are module categories over $\cB$ with $\cM$ exact, then any module category functor $\cF:\cM \rightarrow \cN$ is exact.
-\end{proposition}
-
-\begin{corollary}
-Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$ module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$ module category.  If $\cM$ is exact as a $\cB$ module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
-\end{corollary}
-\begin{proof}
-Exactness of $\cM$ as a $\cB$ module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$--$\cD$ bimodule functor.
-\end{proof}
-
-\begin{remark}
-In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.
-\end{remark}
-
-\begin{corollary}
-Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
-\end{corollary}
-\begin{proof}
-Apply the above corollary with $\cB = \mathrm{Vec}$.
-\end{proof}
+\begin{theorem}
+	$\TCfin$ is fully $1$-dualizable. 
+\end{theorem}
 
 \subsection{Adjoints of bimodules}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of of $\cM$ is the category of right exact left module functors $\Fun_{\cC\text{-mod}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\text{mod}-\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
+In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is left exact, then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of $\cM$ is the category of right exact left module functors 
+$\Fun_{{\cC}}(\cM, \cC)$
+ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
 
 \begin{lemma}
-The map $\ev: \Fun_{\text{mod}-\cD}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the mod-$\cD$ structure on $f$.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC\text{-mod}}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
+The map $\ev: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
 \end{lemma}
 \begin{proof}
 Straightforward.
@@ -1391,11 +1387,34 @@ By the previous lemma, $\Fun_{\cC\text{-mod}}(\cM, \cC) \cong {}^*\Fun_{\cC\text
 Combining Lemmas ??? we have that if $\cM$ is a finite $\cD$--$\cC$ bimodule and $\cN$ is a finite $\cD$--$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)$ as $\cD$--$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_\cC \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)$ as $\cD$--$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} which is incorrect as stated for bimodule categories.
 \end{remark}
 
-\subsection{Duals of objects} \label{sec-df-objects}
 
-In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the unit is $\cC$ as a $\mathrm{Vec}$--$\cC^\mp \boxtimes \cC$ bimodule with the obvious actions, and the counit is $\cC$ as a $\cC^\mp \boxtimes \cC$--$\mathrm{Vec}$ bimodule.
 
-\NScomm{This proof is so trivial that I don't know what to write.}
+
+\subsection{Adjoints of bimodule functors} \label{sec-df-functors}
+
+In this section we give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint.
+
+%%% Stuff moved to section 2  -CSP
+
+\begin{corollary}
+Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$ module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$ module category.  If $\cM$ is exact as a $\cB$ module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
+\end{corollary}
+\begin{proof}
+Exactness of $\cM$ as a $\cB$ module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor.  Then Lemma \ref{module-adjoint} shows that it has left and right adjoints as a $\cC$--$\cD$ bimodule functor.
+\end{proof}
+
+\begin{remark}
+In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.
+\end{remark}
+
+\begin{corollary}
+Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
+\end{corollary}
+\begin{proof}
+Apply the above corollary with $\cB = \mathrm{Vec}$.
+\end{proof}
+
+
 
 \subsection{Fusion categories are fully dualizable}
 
