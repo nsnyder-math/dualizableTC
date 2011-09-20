@@ -534,10 +534,31 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 
 \subsection{Exact Module Categories}
 
+We will now specialize to the case that $\cC$ is a finite rigid tensor category. 
+
 \begin{definition}
-	Let $\cC$ be a tensor category with enough projectives. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
+	Let $\cC$ be a finite rigid tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
 \end{definition}
 
+\begin{example}
+	If $\cC$ is semisimple (e.g. $\cC = \Vect$), then $\cM$ is an exact module category if and only if it is also semisimple.
+\end{example}
+
+\begin{example}
+	$\cC$ is exact considered as a $\cC$-, $\cC^{mp}$-, or $\cC \otimes \cC^{mp}$-module category. 
+\end{example}
+
+The following omnibus theorem summarizes the key properties of exact module categories: 
+\begin{theorem}
+	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM_2$, $\cM_3$ be exact $\cC$-module categories, and $\cN$ an arbitrary $\cC$-module category. Then,
+	\begin{enumerate}
+		\item $\cM$ has enough projectives [EGNO lemma 2.7.1]
+		\item In $\cM$ every projective object is injective, and vice versa. [EGNO Cor 2.7.4]
+		\item Every functor $F \in \Fun_{\cC}(\cM, \cN)$ is exact. [EGNO prop 2.7.8]; Every additive enriched functor $F \in \Fun_{\cC}(\cM, \cM_2)$ is exact, and hence it has exact left and right adjoint.
+		\item Composition $\Fun_{\cC}(\cM, \cM_2) \times \Fun_{\cC}(\cM_2, \cM_3) \to \Fuc_{\cC}(\cM, \cM_3)$ is exact in each variable. 
+		\item $\Fun_{\cC}(\cM, \cM_2)$ is finite [EGNO Prop 2.13.5]; Hence $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
+	\end{enumerate}
+\end{theorem}
 
 \subsection{Multi-Fusion categories} \label{sec-tc-fusion}
 
