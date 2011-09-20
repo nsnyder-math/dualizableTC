@@ -1725,7 +1725,8 @@ Drinfeld centers of pivotal fusion categories are anomaly free modular (ref Mueg
 \setcounter{theorem}{0}
 \section*{Appendix.  Homotopy types of 3-dimensional structure groups}
 
-In this appendix we describe a few auxillary structure groups, including spin and string structures, and record some computations regarding the homotopy and homology of the various structure spaces.
+In this appendix we describe a few auxillary structure groups, including the spin and string groups, and record some computations regarding the homotopy and homology of the various structure spaces.
+%!% Need to credit Andre with helping understand all this.
 
 \begin{definition}
 The following spaces, together with the obvious maps to $BO(3)$, define 3-dimensional bundle structures:
@@ -1739,7 +1740,7 @@ The following spaces, together with the obvious maps to $BO(3)$, define 3-dimens
 \end{itemize}
 \end{definition}
 
-\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.  In order for the definitions of $BString(3)$ and $BhString(3)$ to be sensible, the composite $BSpin(3) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, which we have refered to simply as $p_1$, must be uniquely 4-divisible; we will see presently that this is indeed the case.
+\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.  In order for the definitions of $BString(3)$ and $BhString(3)$ to be sensible, the composite $BSpin(3) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, which we have refered to simply as $p_1$, must be uniquely 4-divisible; we will see presently that this is indeed the case.  Note that for our purposes it suffices to define the first Pontryagin class $p_1 \in H^4(BSO;\ZZ)$ as a generator.
 
 \begin{proposition} \label{prop-H4}
 The diagram of structure spaces
@@ -1764,10 +1765,15 @@ induces on fourth homotopy and fourth homology respectively the maps
 \end{equation}
 \end{proposition}
 
-For our purposes it suffices to define first Pontryagin class $p_1 \in H^4(BSO;\ZZ)$ as a generator.  We emphasize from this proposition two facts that were directly needed for the structure group computations in Section~\ref{sec-lft-struc}: the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, which we refer to also as $p_1$, and the map $\pi_4(BSO(3)) \xra{\pi_4(p_1)} \pi_4(K(\ZZ,4))$ is multiplication by $4$.
+We emphasize from this proposition two facts that were directly needed for the structure group computations in Section~\ref{sec-lft-struc}: the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, which we refer to also as $p_1$, and the map $\pi_4(BSO(3)) \xra{\pi_4(p_1)} \pi_4(K(\ZZ,4))$ is multiplication by $4$.
 
 \begin{proof}
-\CDcomm{[proof here]}
+The defining long exact sequences show that $\pi_4(BSpin(3) \ra BSO(3))$ and $\pi_4(BSpin \ra BSO)$ are isomorphisms.  The map $\pi_4(BSpin(3) \ra BSpin)$ is the same as $\pi_3(Spin(3) \ra Spin(5))$; the map $\pi_3(Spin(3) \ra Spin(4))$ is diagonal, and $\pi_3(Spin(4) \ra Spin(5))$ is addition. %!% Is there a nice clean way to see those two facts?
+The map $\pi_4(BSO(3) \ra BSO)$ follows by commutativity, and the map $H^4(BSpin(3) \ra BSpin)$ follows by Hurewicz.
+
+That the map $H^4(BSpin \ra BSO)$ is multiplication by 2 can be seen in the integral cohomology Serre spectral sequence for the fibration $BSpin \ra BSO \ra K(\ZZ/2,2)$, given knowledge of the cohomology of $BSO$ and $BSpin$.  Similarly that $H^4(BSpin(3) \ra BSO(3))$ is multiplication by 4 follows from the fibration $BSpin(3) \ra BSO(3) \ra K(\ZZ/2,2)$.  That $H^4(BSO(3) \ra BSO)$ is an isomorphism follows by commutativity.
+
+The map $H^4(BSO \xra{p_1} K(\ZZ,4))$ is an isomorphism by definition of $p_1$.  The map $H^4(BSpin \xra{p_1} K(\ZZ,4))$ is thus multiplication by 2.  By Hurewicz it follows that $\pi_4(BSpin \xra{p_1} K(\ZZ,4)$ is multiplication by 2, and therefore that $\pi_4(BSO \xra{p_1} K(\ZZ,4))$ is also multiplication by 2.
 \end{proof}
 
 Figure~\ref{fig-structuregroups} organizes some of the 3-dimensional structure groups we have considered.
@@ -1879,43 +1885,6 @@ Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor c
 
 \section{CD's dustbin/workbin}
 
-
-The discussion in this section records material that was utilized implicitly in the obstruction theory analysis of the first author with Bartels and Henriques~\cite{bdh}.
-\CD{This sentence isn't an attempt to claim credit, but to give Andre the credit he deserves for helping sort this stuff out.  There might be a better way or spot to do it.}
-
-%\subsubsection{Stable structures}
-
-Though in dimension 3 all the natural stable structures are equivalent, at least in unparametrized homotopy, to unstable structures, it is nevertheless worth mentioning them.  We describe the structures \emph{stable orientation}, \emph{stable spin structure}, \emph{stable orpo structure}, \emph{stable string structure}, and \emph{stably framed structure}.
-
-\begin{definition}
-The following five spaces, together with the obvious maps to $BO$, define the aforementioned stable bundle structures:
-\begin{itemize}
-\item[StOr:] $BSO$
-\item[StSpin:] $BSpin$
-\item[StOrpo:] $\hofib(BSO \xra{p_1} K(\ZZ,4))$
-\item[StString:] $\hofib(BSpin \xra{(p_1)/2} K(\ZZ,4))$
-\item[StFrame:] $*$
-\end{itemize}
-\end{definition}
-
-\nid Note that for $X \in \{\Or, \Spin, \Orpo, \String\}$, a stable $X$ structure on a 3-dimensional vector bundle is exactly the same as an $X$ structure on a 3-dimensional vector bundle, because $BX(3)$ is by construction the homotopy pullback of $BO(3) \ra BO \la BX$.  This is not, however, the case for $X = \Frame$; indeed there is a substantial difference between a framing and a stable framing.
-
-
-%%%%
-
----
-\begin{theorem} \label{thm-pivorpo}
-A fusion category $\cC \in \TC$ is pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented-$p_1$ local field theory $\overline{\cF}_{\cC} : \OrpoBord_0^3 \ra \TC$.
-\end{theorem}
-
-\begin{proof}
-\CDcomm{For pivotal $\Rightarrow$ orpo: use first the result from the last section getting to String, then use pivotal to get from string to orpo [need to know that trivializing Serre is enough].}
-
-\CDcomm{For orpo $\Rightarrow$ pivotal: Serre is trivial, use double dual = Serre theorem, and bimodulification lemma.}
-\end{proof}
-
-
-%%%%%%
 
 \section{CSP's dustbin}
 
