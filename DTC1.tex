@@ -332,14 +332,6 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
 \end{remark}
 
 
-\subsection{Exact Module Categories}
-
-\begin{definition}
-	Let $\cC$ be a tensor category with enough projectives. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
-\end{definition}
-
-
-
 
 \subsection{The Deligne Tensor Product and Finite Linear Categories}
 
@@ -407,6 +399,15 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
+\CSPcomm{ Wait, is this next one even true???
+\begin{corollary}
+	A finite tensor category $(\cC, \otimes)$ is rigid if and only if $\otimes$ is exact in each variable. 
+\end{corollary}
+
+\begin{proof}
+	Lemma \ref{lma:RigidIsExact} shows that rigidity implies the exactness of $\otimes$. Conversely,  \CSPcomm{[.....]} \CSP{Get proof for this.}
+\end{proof}
+}
 	
 	It can be shown (for example by constructing a projective generator) that a finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
 This is in fact a special one of the main theorems of [EGNO]: 
@@ -531,7 +532,11 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 
 
 
+\subsection{Exact Module Categories}
 
+\begin{definition}
+	Let $\cC$ be a tensor category with enough projectives. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
+\end{definition}
 
 
 \subsection{Multi-Fusion categories} \label{sec-tc-fusion}
