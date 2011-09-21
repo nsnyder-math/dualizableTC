@@ -1206,7 +1206,7 @@ However $\TC$ is constructed in such a way that these Segal maps are manifestly 
 \begin{itemize}
 	\item $\TCfin$  finite tensor and bimodule categories.
 	\item $\TCrig$ rigid finite tensor categories, and finite bimodule categories. 
-	\item $\TCss$  finite semisimple tensor categories (i.e. multi-fusion), and finite semisimple bimodule categories. 
+	\item $\TCss$  finite semisimple tensor categories (i.e. multi-fusion), and finite semisimple bimodule categories. (non-zero global dimension???)
 \end{itemize}
 
 
@@ -1214,9 +1214,78 @@ However $\TC$ is constructed in such a way that these Segal maps are manifestly 
 
 \section{Local Field Theory in Dimension Three} \label{sec-lft}
 
+\subsection{The Cobordism Hypothesis}
+
+In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{Lurie???}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
+\begin{enumerate}
+	\item Prove the cobordism hypothesis for the symmetric monoidal $(\infty,n)$-category of bordisms equipped with {\em framed generalized Morse functions} in the sense of Igusa.
+	\item Prove that the forgetful functor from this symmetric monoidal $(\infty,n)$-category to the usual symmetric monoidal $(\infty,n)$-category of bordisms is an equivalence. To accomplish this he
+	\begin{enumerate}
+		\item Uses Igusa's connectivity result on the connectivity of the space of framed generalized Morse functions to conclude that the forgetful functor is `an $(n+1, n)$-equivalence';
+		\item Uses a generalization of the theorem of Galatius-Madsen-Tillmann-Weiss to conclude that the forgetful functor induces an equivalence in cohomology for every `twisted coefficient system'; and 
+		\item Uses obstruction theory for symmetric monoidal $(\infty,n)$-categories to deduce that the forgetful functor is an equivalence. 
+	\end{enumerate}
+\end{enumerate}
+The first step is given a fairly detailed treatment in Lurie's exposition.
+The second stage of his proof is an elaborate (and highly original) way to prove the equivalent result that the space of framed generalized Morse functions is contractible for any manifold. Fortunately, the second part of the proof can be entirely circumvented by showing directly that Igusa's space of framed generalized Morse functions is contractible. This has now been done by several authors: [Igusa, unpublished], [Galatius, unpublished], and [Eliashberg-Mishachev] (on the arxiv).  
+
+
+
+
+
+\CSPcomm{This is all "under construction". To Do:
+\begin{itemize}
+	\item Intoduce various terminology for the various bordism categories.
+	\item Introduce the Index Filtration.
+	\item Introduce the families of bordisms $\alpha_k$. For $X$-structures these families are parametrized using the pull-back of $X$ to $BO(n-k)$. 
+	\item define $\cF_{k}$-non-degenerate for $1 \leq k \leq n$. 
+	\item review Jacob's theorems regarding the bordism category with framed functions. 
+	\item cite results that the space of generalized framed functions is contractible. [Lurie], [Igusa, unpublished], [Galatius, unpublished], and [Eliashberg-Mishachev] (on the arxiv). 
+\end{itemize}
+
+}
+
+
+Notation:
+\begin{itemize}
+	\item $\Bord_{n,d}$ the unoriented bordism $(\infty, n-d)$-category of $n$-dimensional cobordisms (you can cut only to codimension $d$). $\Bord_{n,d}^{f.f.}$ the generalzed framed function version of this category. 
+	\item $\Bord_{n,d}^{(X,\xi)}$ where $\xi:X \to BO(n)$. The $\xi$-structured version of this bordism category.
+	\item $\cF_k \Bord_{n,d}^{f.f.}$ the Index filtration of the bordism category. Only framed functions of index less then or equal to $k$ are allowed. $-1\leq k \leq \infty$.  
+\end{itemize}
+
+
+
+\begin{theorem}
+	Symmetric monoidal functors $Z: \Bord^{(X,\xi)}_n \to \cC$ are classified by 
+	\begin{enumerate}
+		\item A symmetric monoidal functor $Z_0: \Bord^{(X_0,\xi_0)}_{n-1} \to \cC$.
+		\item A family of non-degenerate morphisms $\eta_x: 1 \to Z(S^{\xi_x})$ parametrized by $x \in X$. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[alternate]
+	Symmetric monoidal functors $Z: \cF_{k}\Bord^{(X,\xi)}_n \to \cC$, $1 \leq k \leq n$ are classified by 
+	\begin{enumerate}
+		\item A symmetric monoidal functor $Z_0: \Bord^{(X_0,\xi_0)}_{n-1} \to \cC$.
+		\item A family of $\cF_k$-non-degenerate morphisms $\eta_x: 1 \to Z(S^{\xi_x})$ parametrized by $x \in X$. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	Symmetric monodial functors $Z_0: \cF_{0}\Bord_n \to \cC$ are classified by a symmetric monoidal functor $Z_{-1}:\Bord_{n-1} \to \cC$ together with $BO(n)$ family of morphisms $\eta_x: 1 \to Z_{-1}(S^{\xi_x})$. For $1 \leq k \leq n$, symmetric monodial functors $Z_k: \cF_{k}\Bord_n \to \cC$ are equivalent to symmetric monoiadal functor $Z_{k-1}: \cF_{k-1}\Bord_n \to \cC $ such that the canonical $BO(n-k)$ family of morphisms 
+	\begin{equation*}
+		\alpha_k: id_{D^{k-1} \times S^{n-k -1}} \to ?????
+	\end{equation*}
+	is the unit of a $BO(n-k)$-family of adjunctions. 
+\end{theorem}
+
+
 \subsection{Dualizability in 3-categories} \label{sec-lft-dual}
 .
 \CD{I guess the content of this section should be dictated by what we need for sections 4,5,6.  What is that?}
+
+\CSPcomm{maybe move this part to section 3?}
+
 
 [Adjunction convention: $\bimod{C}{M}{D} \adj  \bimod{D}{N}{C}$ if there are $M \dtimes_D N \ra C$ and $D \ra N \dtimes_C M$ satisfying the S relations.] 
 
@@ -1473,7 +1542,7 @@ Thus we have proven:
 \end{corollary}
 
 \begin{proof}
-	An fusion category of non-zero global dimension satisfies the assumptions of the previous theorem. 
+	An fusion category of non-zero global dimension satisfies the assumptions of the previous theorem. \CSPcomm{[get reference, ENO?]}
 \end{proof}
 
 
