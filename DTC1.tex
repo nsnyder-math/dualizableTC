@@ -620,17 +620,20 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
 \end{remark}
 
+The following result, which is a generalization of Redford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in [ENO] appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
+
+\begin{theorem}[\cite{???} ENO]
+	A fusion category $\cC$ admits a canonical monoidal equivalence between the identity functor and the quadruple dual functor $\ldddd{(-)}$.
+\end{theorem}
+
 
 
 \begin{definition}
-A fusion category $\cC$ is \emph{pivotal} if it admits a {\em pivotal structure}, i.e. a monoidal equivalence between the double right dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ and identity functor.
+A fusion category $\cC$ is \emph{pivotal} if it admits a {\em pivotal structure}: a monoidal equivalence between the double right dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ and identity functor.
 \end{definition}
 
 In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}: \cC \ra \cC^{\mop}$ and the right dual functor $\rd{(-)}: \cC \ra \cC^{\mop}$ are monoidally equivalent.
 
-\begin{theorem}[\cite{???}]
-	\CSPcomm{A fusion category $\cC$ admits a canonical monoidal equivalence between the identity functor and the quadruple dual functor $\ldddd{(-)}$}.
-\end{theorem}
 
 \begin{definition}
 	A pivotal structure is {\em spherical} if it induces a monoidal equivalence between the identity functor and the quadruple dual functor which agrees with the canonical equivalence. A fusion category is {\em spherical} if it admits a spherical pivotal structure.  
@@ -1462,8 +1465,16 @@ Apply the above corollary with $\cB = \mathrm{Vec}$.
 Thus we have proven:
 
 \begin{theorem}
- $\TCss$ is fully 3-dualizable.
+	If $\cC$ is a finite rigid tensor category such that $Z(\cC)$ is semisimple, then $\cC$ is 3-dualizable in $\TCfin$. 
 \end{theorem}
+
+\begin{corollary}
+ $\TCss$ is fully 3-dualizable.
+\end{corollary}
+
+\begin{proof}
+	An fusion category of non-zero global dimension satisfies the assumptions of the previous theorem. 
+\end{proof}
 
 
 %\subsection{Fusion categories are fully dualizable}
