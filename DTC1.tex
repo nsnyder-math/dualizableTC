@@ -201,16 +201,14 @@ Also the results that are newish:
 
 
 \CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
-\CDcomm{[2Vect = idempotent complete additive categories enriched in Vect]}
-
 
 
 \subsection{Linear Categories and Tensor Categories} \label{sec-tc-lincat}
 
 	Let $k$ be a fixed ground field. A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
-	\CSP{What is our notational difference for finite dimensional vector spaces versus all vector spaces.}
+	\CSP{What is our notational difference for finite dimensional vector spaces versus all vector spaces.} \CD{I like the notation you picked.}
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
-	\CSP{How do people feel about me putting right exactness into the definition of linear functor?}
+	\CSP{How do people feel about me putting right exactness into the definition of linear functor?} \CD{Can we add here a word about why, that might assuage readers who think it odd?}
 More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
 \begin{equation*}
 	F: \prod \cA_\alpha \to \cB
@@ -284,7 +282,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 %\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
 
 \begin{proof}
-Define the functor ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: \CD{In this proof, $a^*$ is used for the left dual?}
+Define the functor ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: \CD{In this proof, $a^*$ is used for the left dual? I'm guessing this just came from copying the text from my old proof while rewriting the formulas?}
 \begin{equation*}
 	{(f)^*} := (\varepsilon_b \cdot \id_{\rd{a}}) (\id_{\rd{b}} \cdot f \cdot \id_{\rd{a}}) (\id_{\rd{b}} \cdot \eta_a).
 \end{equation*}
@@ -644,7 +642,7 @@ Some other  things that might be added?
 \begin{itemize}
 	\item This notion of spherical agrees with the standard one (left trace = right trace). NS, I think you had a proof of that? \CDcomm{I think it's in the Wave around June 10, in a post by Noah.}
 	\item tensor product of semisimples is semisimple if over fusion cats which have {\em non-zero global dimension}. 
-	\item introduce other terminology that will come into play in section 6? e.g. Morita Spherical, Morita Pivotal, etc, etc. 
+	\item introduce other terminology that will come into play in section 6? e.g. Morita Spherical, Morita Pivotal, etc, etc. \CDcomm{As mentioned by email, I think these items should not be introduced here.}
 \end{itemize}
 
 
@@ -1229,8 +1227,6 @@ However $\TC$ is constructed in such a way that these Segal maps are manifestly 
 \end{proposition}
 
 \begin{proof}
-\CDcomm{[Should we include a proof?]} \CSPcomm{Of Course we should include a proof. Jacob omits one, so there is none in the literature, plus we need it as a substitute for the cob hypothesis for our applications to finite tensor cats.}
-
 By assumption we are given 3-morphisms,
 \begin{align*}
 	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
@@ -1291,7 +1287,7 @@ The following two spaces, together with the obvious maps to $BO(3)$, define the 
 ``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  We reserve the name "$p_1$ structure" for the structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$.  The terminology "quadratic" refers to the fact that the single k-invariant of the structure space $BQuad$ is the fundamental quadratic map.
 \end{remark}
 
-[discussion: recall meaning of 4-type and 4-equivalence, 3.5-equivalence; sufficient to understand 4-type of the structure spaces.  cf wave]
+\CDcomm{[discussion: recall meaning of 4-type and 4-equivalence, 3.5-equivalence; sufficient to understand 4-type of the structure spaces.  cf wave]}
 
 We now precisely identify the 4-homotopy type of the structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
 
@@ -1302,8 +1298,7 @@ K(\ZZ,4) \ra & \; BSO(3) \ra K(\ZZ/2,2) \overset{\gamma}{\dashrightarrow} K(\ZZ,
 K(\ZZ/4,3) \ra & \; BOrpo(3) \ra K(\ZZ/2,2) \overset{\delta}{\dashrightarrow} K(\ZZ/4,4) \nn \\
 K(\ZZ,3) \ra & \; BQuad \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \nn
 \end{align}
-\nid Here the dashed arrow indicates the k-invariant of the preceding fibration.  The class $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$ is a generator, and the class $\gamma \in H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$ is, up to sign, the integral Bockstein of $\delta$. \CD{Surely that sign is $+1$; easy way to see that?}
-\CSP{You can take it to be either one. You can always compose with an automorphism of $K(\ZZ,5)$, and this switches the two posibilities.}
+\nid Here the dashed arrow indicates the k-invariant of the preceding fibration.  The class $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$ is a generator, and the class $\gamma \in H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$ is, up to sign, the integral Bockstein of $\delta$. % The sign is not well defined, because you can always modify \gamma by an automorphism of K(Z,5); ie this is the best you can do.
 \end{proposition}
 
 \begin{proof}
@@ -1311,7 +1306,7 @@ The quadratic structure group is defined as the homotopy fiber of the square of 
 
 The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed.
 
-The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{The Postnikov tower is functorial, right?} \CSP{Yes, it is functorial.} \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
+The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $\pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
 \end{proof}
 
 We have the following diagram of structure spaces:
@@ -1323,8 +1318,7 @@ BOrpo(3)_{K(\ZZ/2,2)}^{K(\ZZ/4,3)} \ar[r] & BSO(3)_{K(\ZZ/2,2)}^{K(\ZZ,4)}
 \end{equation}
 Here we have indicated in the subscripts and superscripts the stages of the respective Postnikov towers of the homotopy 4-types.  The two horizontal maps exist by definition, and the righthand vertical map is the standard inclusion.  The lefthand vertical map may be constructed as follows.  At the first layer of the Postnikov tower, the map $\pi: K(\ZZ,2) \ra K(\ZZ/2,2)$ is induced by the projection $\ZZ \ra \ZZ/2$.  To produce a map $BQuad \ra BOrpo(3)$ it suffices to factor the composite $K(\ZZ,2) \xra{\pi} K(\ZZ/2,2) \xra{\delta} K(\ZZ/4,4)$ through the map $K(\ZZ,2) \xra{c_1^2} K(\ZZ,4)$; this is accomplished by (plus or minus) the projection $K(\ZZ,4) \ra K(\ZZ/4,4)$.  %%% {This is because the path loop construction is functorial so any map K(\ZZ,4) \ra K(\ZZ/4,4) induces a map of fibrations, which pulls back across c_1^2, resp \delta, to give a map of fibrations whose total spaces are BQuad and BOrpo(3) respectively.  To check the factorization, just look at the induced maps in cohomology.
 
-By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is the identity, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both the standard projections, $\pi_2(BSO(2) \ra BSO(3))$ is the standard projection, and $\pi_2(BOrpo(3) \ra BSO(3))$ is the identity.  \CD{This paragraph is stated on the nose, whereas previous statements were up to sign.  Should fix this.}
-
+By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
 
 
