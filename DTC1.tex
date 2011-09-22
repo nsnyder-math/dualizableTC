@@ -1284,7 +1284,7 @@ Notation:
 .
 \CD{I guess the content of this section should be dictated by what we need for sections 4,5,6.  What is that?}
 
-\CSPcomm{maybe move this part to section 3?}
+\CSPcomm{maybe move this part to section 3?} \CDcomm{I don't think this belongs in the current section 3 (TC is SM3C).  Maybe it gets merged with the section on the cobordism hypothesis, unless there is other stuff that goes here.}
 
 
 [Adjunction convention: $\bimod{C}{M}{D} \adj  \bimod{D}{N}{C}$ if there are $M \dtimes_D N \ra C$ and $D \ra N \dtimes_C M$ satisfying the S relations.] 
@@ -1392,7 +1392,9 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
+\subsection{Notation for 3-framed manifolds}
 
+\CD{I will write down here the precise conventions for drawing 3-framed manifolds.  Once I've done that, we'll be able to delete section 6.1.1.}
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
@@ -1405,6 +1407,11 @@ In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the uni
 \begin{proposition}
 	$\TCfin$ is fully $1$-dualizable. 
 \end{proposition}
+
+%%%
+
+\subsubsection{Invariants of elementary 1-framed bordisms}
+\CD{I'm not sure this, and the other similar subsections, should really be subsections.  But I'm just breaking them out for now and we can weave them into the text once the text of the sections is more complete.}
 
 To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor category $\cC$ takes the following values on the elementary 0- and 1-bordisms:
 \begin{table}[!h]
@@ -1511,12 +1518,32 @@ Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATen
 which is incorrect as stated for bimodule categories.
 \end{remark}
 
-\subsubsection{Invariants of elementary framed 0-, 1-, \& 2-bordisms}
+\subsubsection{Invariants of elementary 2-framed bordisms}
 
 As we have seen above, associated to a finite tensor category $\cC$, there is a 2-dimensional 2-framed field theory $F_{\cC}$.  We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.
 
-\begin{example}
-\end{example}
+A representative collection of 2-framed 1-manifolds, along with their invariants, are given in the following table:
+\CD{I am reading left to right and top to bottom.  If you want a bottom to top convention, scream now.}
+\begin{table}[!h]
+\begin{tabular}{c|c}
+right arc fuzz out & $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ \\
+left arc fuzz out & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\mp}$ \\
+right arc fuzz in & $\bimod{\cC^\mp \btimes \cC}{\cC}{\Vec}$ \\
+left arc fuzz in & $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ \\
+loop down fuzz up bordism & ... \\
+loop up fuzz up bordism & ... \\
+loop down fuzz down bordism & ... \\
+loop down fuzz down bordism & ... \\
+circle fuzz out & ... \\
+circle fuzz in & ... \\
+circle with inward loop, fuzz out & ... \\
+circle with outward loop, fuzz out & ...  
+\end{tabular}
+\end{table}
+\CD{Should we add the two circles with loops but with fuzz in?}
+
+\CDcomm{Next add table for 2-framed 2-manifolds}
+
 
 \CSPcomm{
 [This is a  great spot to explain the 2D TQFT values for some of the low dimensional cobordisms. I guess that in principle we have invertible 3D cobordisms e.g. the diffeos of the pants which induces the braiding on the center of the finite tensor category.]
@@ -1582,6 +1609,8 @@ It is worth noting that we have not assumed that the base field is characteristi
 \end{remark}
 
 \CDcomm{Somewhere there needs to be a subsection that describes all the elementary 3-framed bordisms, of dimensions 0,1,2,3, and what their images are under a field theory.  Maybe that happens here?  Do you want the geometric side of the story, ie the notation and conventions for 3-framings explained previously, eg as another subsection of the LFTDim3 section?  (In this case the first paragraph of the subsection "n-framed 1-manifolds" would move back to that spot.)  So then here it would just be in a way a compliation of what's been said so far, made explicit, this bordism goes here, and this one here, and ... .}
+
+\subsubsection{Invariants of elementary 3-framed bordisms}
 
 \CSPcomm{Here should go a discussion of the basic 3-framed bordisms and their images under the tqft. It should build off of the discussion in the last section of the 2-framed 2D cobordisms. }
 
