@@ -35,6 +35,17 @@
 \usepackage{tikz}
 \usetikzlibrary{matrix}
 
+\tikzset{
+fuzzleft/.style={thick}
+}
+\tikzset{
+fuzzright/.style={thick}
+}
+
+\newcommand{\lilarrow}{
+\draw[->] (0,0) -- (1,0);
+}
+
 
 %%%% These draw triple or quadruple set of arrows of length 0.5 cm
 \DeclareMathOperator{\rightdoublearrows} {{\; \tikz{ \foreach \y in {0.05, 0.15} { \draw [-stealth] (0, \y) -- +(0.5, 0);}} \; }}
@@ -159,6 +170,7 @@
 \newcommand{\String}{String}
 \newcommand{\Frame}{Frame}
 
+\renewcommand{\Vec}{\mathrm{Vec}}
 \newcommand{\Ab}{\mathrm{Ab}}
 \newcommand{\Algd}{\mathrm{Algd}}
 \newcommand{\Cat}{\mathrm{Cat}}
