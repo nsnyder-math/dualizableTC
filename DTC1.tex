@@ -1386,9 +1386,41 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
-\subsection{Notation for 3-framed manifolds}
+\subsection{Notation for $n$-framed manifolds}
 
-\CD{I will write down here the precise conventions for drawing 3-framed manifolds.  Once I've done that, we'll be able to delete section 6.1.1.}
+Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \hra \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
+\[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq M \times \RR^n.\]
+Here the first isomorphism is provided by the inverse of the normal framing $\phi$, and the second isomorphism is given by the standard (``blackboard") identification of the sum of the tangent bundle and the normal bundle with the trivial bundle.
+
+For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \hra \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \hra \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
+
+The association of an $n$-framed manifold to a normally framed immersion works just as well for manifolds with boundary or manifolds with corners.  Moreover, when these manifolds are bordisms, we can fix conventions for how a normal framing (therefore $n$-framing) of the bulk induces a normal framing (therefore $n$-framing) of the boundary.  Given a bordism $M$ without corners, each boundary component of $M$ is labelled either ``in" or ``out", according to whether it is part of the source or target of the bordism.  Now suppose $M$ is equipped with a normally framed immersion $(\iota,\phi)$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is the restriction of the immersion of $M$, and the framing is $(j, s) \subset \nu(N,\RR^n)$, where $j$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Given a higher bordism, that is a manifold $M$ with corners representing a morphism in $\Bord_0^n$, that is equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension zero submanifolds of the boundary of $M$) inherit normal framings exactly as for the boundaries of ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this procedure for inducing normal framings on the boundaries provides consistently defined normal framings to every corner of the original bordism $M$.
+
+When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, as in the codimension-1 case this corona can propogate without ambiguity, it may be indicated only at one point of the manifold.
+
+In drawing manifolds with boundary and corners, we also need to specify which parts of the boundary are incoming and outgoing.  Outgoing pieces of the boundary will be indicated by a small arrow pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary.  At corners, a combination of these indications will be used.  For instance, an arrow together with a corona on a codimension 2 corner indicates respectively the first and second vectors of the induced framing on the corner.
+
+\begin{example} \label{eg-framenot0}
+The following four pictures specify respectively a $0$-framed, a $1$-framed, and two $2$-framed 0-manifolds:
+\[\textrm{point, point with neg arrow, point with two +45 rotated arrows labelled 1,2, point with two +45 rotate arrows labelled 2,1}\]
+\end{example}
+
+\begin{example}
+Here is a picture of a $1$-framed manifold:
+\[\textrm{picture of horizontal line, corona on left}\]
+The right point is incoming, and the left point is outgoing.  Both boundary points inherit framings isomorphic to the second picture in example~\ref{eg-framenot0}.  Here is a picture of a $2$-framed manifold:
+\[\textrm{picture of curve in plane with boundary at +45 and -45, with two loops and upward corona}\]
+Both boundary points are incoming, and the induced framing on these points are, left to right, respectively the last two points pictured in example~\ref{eg-framenot0}.
+\end{example}
+
+\begin{example}
+Here is a picture of a $2$-framed manifold:
+\[\textrm{filled in disc with corona}\]
+The boundary is outgoing and is a circle with outward normal framing.
+Here is a picture of another $2$-framed manifold, specifically a 2-morphism in the 2-category of 2-framed $0$-, $1$-, and $2$-manifolds:
+\[\textrm{four point cusped star with corona on top and bottom and arrow point out of the right two points; all points at 45 degrees} : \textrm{source} \ra \textrm{target}\]
+The source and target of this bordism are as indicated.  Notice that the source of the source (a pair of $2$-framed points) is indeed the source of the target, and similarly the target of the source is the target of the target.
+\end{example}
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
@@ -1651,17 +1683,12 @@ Perhaps we carry out an explicit non-semisimple example? e.g. Sweedler's 4D Hopf
 \CDcomm{(1a) Any fusion category is dualizable; (1b) any dualizable category has a Serre automorphism; (2) any fusion category has a monoidal functor $*: \cC \ra \cC^{\op}$.  Therefore for any fusion category it makes sense to compare the Serre bimodule and the bimodule associated to the tensor functor $** : \cC \ra \cC$.}
 
 
-\subsection{The double dual is the Serre automorphism} \label{sec-serre-dd}
+\subsection{The universal Serre automorphism} \label{sec-univserre}
 
-
-
-\subsubsection{n-framed 1-manifolds and the Serre automorphism} \label{sec-serre-oneman}
-
-Recall that an n-framed k-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  For $m < n$, an m-framed k-manifold $(M,\tau)$ is naturally n-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  A convenient way to encode $(k+1)$-framed k-manifolds is as normally-oriented immersed k-manifolds in $\RR^{k+1}$.  That is, given an immersion $i: M^k \lra \RR^{k+1}$, the sum $TM \oplus \nu(M,\RR^{k+1})$ of the tangent and normal bundles is canonically trivialized, and a normal orientation for the immersion trivializes $\nu(M,\RR^{k+1})$, providing a trivialization of $TM \oplus \RR$ as desired.  More generally, by the same reasoning any coframed immersed k-manifold in $\RR^n$ is naturally n-framed.
 
 We now define the Serre automorphism.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-oriented point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ in Figure~\ref{fig-serre}.  This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal Serre automorphism}.  
 
-\CDcomm{[Figure of loop in R2, normally oriented] --- IMPT: for the upward normal orientation, the loop should go *down* (according to my random convention).  Is there an intrinsic way to distinguish S from its inverse?}
+\CDcomm{[Figure of loop in R2, normally oriented] --- IMPT: for the upward normal orientation, the loop should go down.}
 
 \begin{proposition}
 When $n \geq 3$, the universal Serre automorphism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.
@@ -1680,7 +1707,7 @@ Let $a$ be a dualizable object of a symmetric monoidal n-category $\cA$.  Provid
 
 \CD{Do we want to sort out the precise conditions needed, ie that $a \in \cA$ only needs to be 2-dualizable, or 2.5-dualizable?  This would slightly generalize the $****=1$ result.  cf ENOII.}
 
-\subsection{Computing the Serre automorphism}
+\subsection{The Serre automorphism is the double dual}
 
 For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
 
