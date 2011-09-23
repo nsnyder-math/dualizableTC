@@ -365,8 +365,9 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
 	\end{enumerate}
 \end{definition}
 
-It can be shown (for example by constructing a projective generator) that a linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
-
+\begin{remark}
+A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
+\end{remark}
 
 We have the following finite analog of the adjoint functor theorem. 
 
@@ -386,6 +387,7 @@ Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right ad
 
 To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$)
 \CSP{Do I need to explain what `comma category' means?}
+\NS{Nah.  Anyone who doesn't know what it means is going to skip this proof anyway, right?}
  for then the left adjoint may be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
 \begin{equation*}
 	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
@@ -409,7 +411,7 @@ Finally, if $\cG$ is left exact, then it satisfies the solution set condition. T
 \end{corollary}
 
 \begin{proof}
-	A representable functor $\hom(-, x):\cC^\text{op} \to \Vect$ is sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
+	A representable functor $\hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
 %
 % 0 <-- C <--  B <--- A <-- 0 in C/C^op
 % 0 -->  Hom(c,x) ---> hom(b,x) ---> hom(a, x)
@@ -421,7 +423,7 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of [EGNO], and is essentially to the structure theory of finite tensor categories.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of [EGNO], and is essential to the structure theory of finite tensor categories.
 
 \begin{theorem}[EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -429,7 +431,7 @@ Just as any finite tensor category is a category of modules over an algebra, any
 \CSP{Should we leave it at that? or say some more about how the thm of EGNO is proven. (via internal homs)}
 
 \begin{definition}
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balannce transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1) {$F(M \otimes^{\cM} C, N)$};
