@@ -105,6 +105,7 @@ The Turaev-Viro construction (as generalized by Ocneanu and Barrett--Westbury) a
 
 Each of these generalizations is inspired by the cobordism hypothesis (originally proposed by Baez-Dolan, but improved and proved by Lurie) which gives a classification of local TFTs.  This classification states that an $n$-dimensional $n$-framed local field theory is determined (up to isomorphism) by the image of a point, and furthermore the possible images of points are exactly the ``fully dualizable" objects in the target $n$-category.  Finally, other flavors of $n$-dimensional local field theories are given by homotopy fixed points of actions of certain groups on the fully dualizable objects.  In particular, being fully dualizable is a {\bf property} while being a homotopy fixed point is a {\bf choice of structure}.  Note that being fusion is a property (semisimple, finitely many simple objects, tensor product is exact), while being spherical is a structure (choice of natural isomorphism between the identity and the double dual).  Finite tensor categories satisfy all but one of the conditions of being fully dualizable, this condition corresponds exactly to the $3$-handle, and so the proof of the cobordism hypothesis gives a non-compact field theory.
 
+In addition to the local TFT story, there are two other narratives that this work fits into.  The early history of fusion categories was heavily topological.  However, the topological approach seemed to require extra assumptions (like sphericality for fusion categories or ribbon for braided tensor categories).  In part to avoid these unnecessary assumptions, a more purely algebraic approach to the theory of fusion categories was developed by Etingof, Nikshych, Ostrik, and others.  One of the main points of this paper is that this algebraic approach can be brought back in touch with topology.  In fact, many of the algebraic results turn out to be well motivated from the topological point of view.   The second narrative is that this paper can be thought of as a category theoretic approach to the theory of fusion categories.  The main philosophy of category theory is that instead of studying something by looking inside them at their elements, you can instead study objects by looking outside them at their relationship to other objects.  Thus the category theoretic perspective on fusion categories, should avoid looking inside the category at the object and morphisms, and instead concentrate on the bimodules between fusion categories.
 
 \subsection{Background and motivation}
 
@@ -159,7 +160,7 @@ A precise formulation of this result, in terms of a descent condition for the bo
 
 
 \subsection*{Acknowledgments}
-Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morrison, Kevin Walker.
+Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morrison, Kevin Walker, Google Wave.
 
 The first author would like to especially thank Andr\'e Henriques for general enlightment and specific ideas regarding, among other topics, the structure of the 3-category of tensor categories, the classification of structure spaces in dimension 3,  the homotopy theory of those structure spaces, and the corresponding obstruction theory for structured field theories.
 
@@ -245,7 +246,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 \end{definition}
 
 \begin{remark}
-	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  
+	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.
 \end{remark}
 
 \begin{remark}
@@ -282,7 +283,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 %\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
 
 \begin{proof}
-Define the functor ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: \CD{In this proof, $a^*$ is used for the left dual? I'm guessing this just came from copying the text from my old proof while rewriting the formulas?}
+Define the functor ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: \CD{In this proof, $a^*$ is used for the left dual? I'm guessing this just came from copying the text from my old proof while rewriting the formulas?}  \NS{I'm really confused by the notation here, why are there $\otimes$ some places and not others?}
 \begin{equation*}
 	{(f)^*} := (\varepsilon_b \cdot \id_{\rd{a}}) (\id_{\rd{b}} \cdot f \cdot \id_{\rd{a}}) (\id_{\rd{b}} \cdot \eta_a).
 \end{equation*}
@@ -326,11 +327,11 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 		 $F$ is the identity on objects and 
 		 the restriction of $F$ to each hom category is linear. 
 %	\end{itemize}
-A {\em lax} (resp. {\em oplax}) bidmodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
+A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
 	A {\em bimodule transformation} is a transformation of functors of bicategories, such that the component 1-cells are trivial. 
 \end{definition}
 	
-Thus a bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category $\cM'$ consists in part of tensor functors $\cC \to \cC'$ and $\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. Bimodule categories, functors, and transformations form a strict 2-category. 	
+Thus a bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category \NS{Is there a good reason for allowing this much generality here?  I find it confusing that a bimodule functor from a $\cC$-$\cD$ bimodule to another one is not the same thing as a $\cC$-$\cD$ bimodule functor} $\cM'$ consists in part of tensor functors $\cC \to \cC'$ and $\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. Bimodule categories, functors, and transformations form a strict 2-category.
 If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
 
 \begin{example}
@@ -343,7 +344,7 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
 
 \begin{example}
 	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors is a tensor category. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category. 
-	\CSP{Do I have the right convention for the actions here?}
+	\CSP{Do I have the right convention for the actions here?} \NS{I think you got it backwards.  $\Fun(\cM,\cM)$ left acts on $\cM$ and so its action by precompostion should be a right action}
 \end{example}
 
 \begin{remark}
@@ -363,6 +364,8 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
 		\item there are finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
+
+It can be shown (for example by constructing a projective generator) that a linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
 
 
 We have the following finite analog of the adjoint functor theorem. 
@@ -418,18 +421,7 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-\CSPcomm{ Wait, is this next one even true???
-\begin{corollary}
-	A finite tensor category $(\cC, \otimes)$ is rigid if and only if $\otimes$ is exact in each variable. 
-\end{corollary}
-
-\begin{proof}
-	Lemma \ref{lma:RigidIsExact} shows that rigidity implies the exactness of $\otimes$. Conversely,  \CSPcomm{[.....]} \CSP{Get proof for this.}
-\end{proof}
-}
-	
-	It can be shown (for example by constructing a projective generator) that a finite linear category is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
-This is in fact a special one of the main theorems of [EGNO]: 
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of [EGNO], and is essentially to the structure theory of finite tensor categories.
 
 \begin{theorem}[EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
