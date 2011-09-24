@@ -1861,12 +1861,12 @@ Fusion categories are objects of the 3-category $\TC$ of tensor categories, but 
 Recall that a pivotal structure is a tensor trivialization of the double dual functor.
 
 \begin{definition}
-An \emph{h-pivotal} structure on a fusion category $\cC$ is an equivalence $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cD}{\cC}$ from the identify bimodule $\bimod{\cC}{\cC}{\cC}$ to the bimodule $\bimod{\cC}{\cD}{\cC}$ associated to the double right dual tensor functor $(-)**: \cC \ra \cC$.  
+An \emph{h-pivotal} structure on a fusion category $\cC$ is an equivalence $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cD}{\cC}$ from the identify bimodule $\bimod{\cC}{\cC}{\cC}$ to the bimodule $\bimod{\cC}{\cD}{\cC}$ associated to the double right dual tensor functor $(-)^{**}: \cC \ra \cC$.  
 \end{definition}
 
 \nid As we saw in Theorem [...] that the double dual bimodule is canonically equivalent to the Serre bimodule, an h-pivotal structure could equally well have been defined as a trivialization of the Serre bimodule.  Of course, we need to know what the morphisms between h-pivotal structures are: an equivalence from an h-pivotal structure $T$ on $\cC$ to another h-pivotal structure $T'$ is a natural equivalence of bimodule functors from $T$ to $T'$.
 
-Recall that a spherical structure is a tensor trivialization of the double dual functor whose double is the canonical tensor trivialization of the quadruple dual.  In Section [...] we explicitly described the corresponding canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the bimodule $\bimod{\cC}{\cQ}{\cC}$ associated to the quadruple right dual tensor functor $(-)****: \cC \ra \cC$. \CD{Reconsider the phrasing here after the section on the quad dual is written.}
+Recall that a spherical structure is a tensor trivialization of the double dual functor whose double is the canonical tensor trivialization of the quadruple dual.  In Section [...] we explicitly described the corresponding canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the bimodule $\bimod{\cC}{\cQ}{\cC}$ associated to the quadruple right dual tensor functor $(-)^{****}: \cC \ra \cC$. \CD{Reconsider the phrasing here after the section on the quad dual is written.}
 
 \begin{definition}
 An \emph{h-spherical} structure on a fusion category $\cC$ is a pair $(T,E)$, where $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cD}{\cC}$ is an equivalence from the identity bimodule to the bimodule associated to the double right dual tensor functor, and $E: T \btimes_{\cC} T \ra A$ is a natural equivalence of bimodule functors from $T \btimes_{\cC} T: \bimod{\cC}{\cC \btimes_{\cC} \cC}{\cC} \ra \bimod{\cC}{\cD \btimes_{\cC} \cD}{\cC} \cong \bimod{\cC}{\cQ}{\cC}$ to the canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the quadruple dual bimodule.
@@ -1890,7 +1890,7 @@ Once the somewhat intricate definitions involved in these two propositions are u
 
 \subsection{h-Pivotal fusion categories correspond to quadratic field theories} \label{sec-pivot-orpo}
 
-\begin{theorem}
+\begin{theorem} \label{thm-hpivotal}
 A fusion category $\cC \in \TC$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TC$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
 \end{theorem}
 
@@ -1903,7 +1903,7 @@ If a fusion category $\cC \in \TC$ is pivotal, then the framed local field theor
 
 \subsection{h-Spherical fusion categories correspond to oriented $p_1$ field theories}
 
-\begin{theorem}
+\begin{theorem} \label{thm-hspherical}
 A fusion category $\cC \in \TC$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TC$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
 \end{theorem}
 
@@ -1917,27 +1917,26 @@ If a fusion category $\cC \in \TC$ is spherical, then the framed local field the
 
 \CDcomm{Somewhere we need to add examples of specific fusion categories, with a discussion of which structures they have and the classification of those structures.  Not sure if that is a new subsection here or just fits as examples along the way in other subsections.}
 
+\subsection{Field theory descent conjectures}
 
-\subsection{Structure groups of fusion category TFTs} \label{sec-pivot-struc}
-.
-\CDcomm{This section is old.  Reconsider the content here.  Depending on how much there is to say, either fold into previous sections or not.}
-
-In light of Theorem~\ref{thm-pivorpo}, the ENO conjecture, that fusion categories are pivotal, can be reformulated as follows:
+Etignof, Nikshych, and Ostrik conjectured that all fusion categories are pivotal.  In light of Theorem~\ref{thm-hpivotal}, a topological analog of this pivotality conjecture is the following:
 \begin{conjecture}
-Every framed local field theory with values in tensor categories descends to an oriented-$p_1$ local field theory.
+Every framed local field theory with values in tensor categories descends to a $\Quad$ local field theory.
 \end{conjecture}
-This formulation means that it is possible to approach the ENO conjecture both with geometric and obstruction-theoretic techniques.
+In fact we believe rather more:
+\begin{conjecture}
+Every framed local field theory with values in tensor categories descends to an oriented local field theory.
+\end{conjecture}
+\CDcomm{We know that this conjecture actually implies the ENO conjecture, right? [ie that oriented implies spherical]}
+Note that it is not possible to prove this conjecture ``in stages" by passing from framed field theories to $\Quad$ field theories to $\Orpo$ field theories to oriented field theories.  Indeed, there are, for instance, $\TC$-valued $\Orpo$ field theories that do not descend to oriented field theories.  \CDcomm{[Right?]}
 
-Perhaps surprisingly, even more may be true:
+
+\subsection{This section to be removed after comment addressed} \label{sec-pivot-struc}
+
 \begin{conjecture}
 Every oriented-$p_1$ local field theory with values in tensor categories descends to an oriented local field theory.
 \end{conjecture}
-\CD{Do we think we can prove this or should we leave it as a conjecture?}
-
-\begin{proof}[Sketch]
-Drinfeld centers of pivotal fusion categories are anomaly free modular (ref Mueger), therefore oriented 123; pushout to show oriented as 0123.
-\end{proof}
-
+\CDcomm{[9/24/11] We now know that this conjecture is false, right?  That is, it is possible to pick Morita spherical structures with nontrivial anomaly.}
 
 %%%%%%%%
 
