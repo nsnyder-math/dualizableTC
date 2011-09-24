@@ -1350,19 +1350,26 @@ The following two spaces, together with the obvious maps to $BO(3)$, define the 
 \end{definition}
 
 \begin{remark}
-``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  We reserve the name "$p_1$ structure" for the structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$.  The terminology "quadratic" refers to the fact that the single k-invariant of the structure space $BQuad$ is the fundamental quadratic map.
+``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  We reserve the name ``$p_1$ structure" for the structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$.  The terminology ``quadratic" refers to the fact that the single k-invariant of the structure space $BQuad$ is the fundamental quadratic map.
 \end{remark}
 
-\CDcomm{[discussion: recall meaning of 4-type and 4-equivalence, 3.5-equivalence; sufficient to understand 4-type of the structure spaces.  cf wave]}
+Because we are concentrating on structures on manifolds of low dimension, the full homotopy type of the structure spaces is not relevant---it suffices to keep track only of the low-dimensional homotopical information of $BO(3)$ and the other structure spaces.  Recall that the $k$-homotopy type (or simply the ``$k$-type") of a space $X$ refers to the homotopical information contained in the $k$-Postnikov section $P_k X$ of the space; the $k$-Postnikov section $P_k X$ is the initial space in the category of spaces $Y$ equipped with a map $X \ra Y$ inducing an isomorphism on $\pi_i$ for $i \leq k$ and such that $\pi_i(Y) = 0$ for $i > k$.  \CD{Prefer to define $P_k X$ otherwise?} Said directly, the $k$-Postnikov section is the space you get by killing all the homotopy groups above dimension $k$.
 
-We now precisely identify the 4-homotopy type of the structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
+The following proposition explains how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories:
+\begin{proposition}
+Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the structure map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map $\phi^*: \Hom(\mathrm{TBord}_0^n,\cC) \ra \Hom(\mathrm{SBord}_0^n,\cC)$ is a homotopy equivalence of spaces.
+\end{proposition}
+
+\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+
+We now precisely identify the 4-homotopy type of the four nontrivial structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
 
 \begin{proposition}
 The following fibrations consistute the Postnikov towers of the 4-homotopy types of the structure spaces $BSO(3)$, $BOrpo(3)$, and $BQuad$.
 \begin{align}
-K(\ZZ,4) \ra & \; BSO(3) \ra K(\ZZ/2,2) \overset{\gamma}{\dashrightarrow} K(\ZZ,5) \nn \\
-K(\ZZ/4,3) \ra & \; BOrpo(3) \ra K(\ZZ/2,2) \overset{\delta}{\dashrightarrow} K(\ZZ/4,4) \nn \\
-K(\ZZ,3) \ra & \; BQuad \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \nn
+K(\ZZ,4) \ra & \; BSO(3)_4 \ra K(\ZZ/2,2) \overset{\gamma}{\dashrightarrow} K(\ZZ,5) \nn \\
+K(\ZZ/4,3) \ra & \; BOrpo(3)_4 \ra K(\ZZ/2,2) \overset{\delta}{\dashrightarrow} K(\ZZ/4,4) \nn \\
+K(\ZZ,3) \ra & \; BQuad_4 \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \nn
 \end{align}
 \nid Here the dashed arrow indicates the k-invariant of the preceding fibration.  The class $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$ is a generator, and the class $\gamma \in H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$ is, up to sign, the integral Bockstein of $\delta$. % The sign is not well defined, because you can always modify \gamma by an automorphism of K(Z,5); ie this is the best you can do.
 \end{proposition}
@@ -1370,7 +1377,7 @@ K(\ZZ,3) \ra & \; BQuad \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \
 \begin{proof}
 The quadratic structure group is defined as the homotopy fiber of the square of the first chern class, so in that case there is nothing to prove.
 
-The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed.
+The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed. \CD{Is that semidirect product symbol facing the right direction?}
 
 The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $\pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
 \end{proof}
