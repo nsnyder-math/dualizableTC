@@ -1446,7 +1446,7 @@ In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the uni
 \subsubsection{Invariants of elementary 1-framed bordisms}
 \CD{I'm not sure this, and the other similar subsections, should really be subsections.  But I'm just breaking them out for now and we can weave them into the text once the text of the sections is more complete.}
 
-To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor category $\cC$ takes the following values on the elementary 0- and 1-bordisms:\NS{For the lines don't you need to specify which direction the fuzz is going?} \CD{Not here, because these are immersed in $\RR^1$, so the normal bundle is zero-dimensional.}
+To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor category $\cC$ takes the following values on the elementary 0- and 1-bordisms:
 \begin{table}[!h]
 \begin{tabular}{c|c}
 point right fuzz & $\cC$ \\
@@ -1456,7 +1456,7 @@ line arrows out & $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$
 \end{tabular}
 \end{table}
 
-\nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary component are incoming (when the arrows point into the bulk manifold) and which are outgoing (when the arrows point out of the bulk manifold).
+\nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
@@ -1555,25 +1555,49 @@ which is incorrect as stated for bimodule categories.
 
 As we have seen above, associated to a finite tensor category $\cC$, there is a 2-dimensional 2-framed field theory $F_{\cC}$.  We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.
 
-A representative collection of 2-framed 1-manifolds, along with their invariants, are given in the following table:
-\CD{I am reading left to right and top to bottom.  If you want a bottom to top convention, scream now.}
+The following table lists four standard 2-framed 0-manifolds along with their associated invariants:
 \begin{table}[!h]
-\begin{tabular}{c|c}
-right arc fuzz out & $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ \\
-left arc fuzz out & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\mp}$ \\
-right arc fuzz in & $\bimod{\cC^\mp \btimes \cC}{\cC}{\Vec}$ \\
-left arc fuzz in & $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ \\
-loop down fuzz up bordism & ... \\
-loop up fuzz up bordism & ... \\
-loop down fuzz down bordism & ... \\
-loop down fuzz up bordism & ... \\
-circle fuzz out & ... \\
-circle fuzz in & ... \\
-circle with inward loop, fuzz out & ... \\
-circle with outward loop, fuzz out & ...  
+\begin{tabular}{c|cl}
+point [right, up] & $\cC$ &\\
+point [left, up] & $\cC^\mp$ &\\
+point [right, down] & $\cC^\op$ &\\
+point [left, down] & $\cC^\mop$ &
+\end{tabular}
+\end{table} %!% line up the separating line in the various tables.
+
+\nid Notice that the first and fourth (and similarly the second and third) are equivalent, but not canonically equivalent, framed manifolds; their invariants are thus also equivalent, but not canonically so.
+
+A generating collection of 2-framed 1-manifolds, along with a few simple composites, have invariants as follows:
+\begin{table}[!h]
+\begin{tabular}{c|cl}
+right arc fuzz out & $\bimod{\cC \btimes \cC^\op}{\cC}{\Vec}$ 
+& via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
+left arc fuzz out & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
+& via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
+right arc fuzz in & $\bimod{\cC^\op \btimes \cC}{\cC}{\Vec}$ 
+& via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
+left arc fuzz in & $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
+& via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
+loop down fuzz up bordism & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
+loop up fuzz up bordism & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
+loop down fuzz down bordism & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
+loop down fuzz up bordism & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
+circle fuzz out & ... &\\
+circle fuzz in & ... &\\
+circle with inward loop, fuzz out & ... &\\
+circle with outward loop, fuzz out & ... & 
 \end{tabular}
 \end{table}
+\CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
 \CD{Should we add the two circles with loops but with fuzz in?}
+
+\nid A few sample 2-framed 2-manifolds, together with their invariants, are listed in the following table:
+\begin{table}[!h]
+\begin{tabular}{c|cl}
+&&
+\end{tabular}
+\end{table}
+
 
 \CDcomm{Next add table for 2-framed 2-manifolds}
 
