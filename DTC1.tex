@@ -1451,12 +1451,13 @@ To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor 
 \begin{tabular}{c|c}
 point right fuzz & $\cC$ \\
 point left fuzz & $\cC^\mp$ \\
-line arrows in & $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ \\
-line arrows out & $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$
+line no arrows & $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ \\
+line arrows out & $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ \\
+circle with framing arrow & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$
 \end{tabular}
 \end{table}
 
-\nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).
+\nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).  Note that the circle here is not depicted as an immersed normally-framed manifold, but directly as a framed manifold; indeed this depicts the unique 1-framing on the circle.  As indicated, the invariant of this circle is $\cC \btimes_{\cC \btimes \cC^\mp} \cC$, where both actions are the naive ones; we will denote this cyclic self-tensor product by $\cT(\cC)$.
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
@@ -1572,34 +1573,39 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \begin{tabular}{c|cl}
 right arc fuzz out & $\bimod{\cC \btimes \cC^\op}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
-left arc fuzz out & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
+left arc fuzz out, arrows right & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
 right arc fuzz in & $\bimod{\cC^\op \btimes \cC}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
-left arc fuzz in & $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
+left arc fuzz in, arrows right & $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
-loop down fuzz up bordism & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
-loop up fuzz up bordism & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
-loop down fuzz down bordism & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
-loop down fuzz up bordism & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
-circle fuzz out & ... &\\
-circle fuzz in & ... &\\
-circle with inward loop, fuzz out & ... &\\
-circle with outward loop, fuzz out & ... & 
+loop down fuzz up bordism, arrow right & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
+loop up fuzz up bordism, arrow right & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
+loop down fuzz down bordism, arrow right & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
+loop up fuzz down bordism, arrow right & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
+circle fuzz out & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ \\
+circle fuzz in & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ \\
+circle with outward loop, fuzz out on top & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ \\
+circle with inward loop, fuzz out & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ \\
+circle with inward loop, fuzz in & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$
 \end{tabular}
 \end{table}
-\CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
-\CD{Should we add the two circles with loops but with fuzz in?}
 
-\nid A few sample 2-framed 2-manifolds, together with their invariants, are listed in the following table:
+\CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
+
+\nid Throughout the table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  For the various circles, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariant in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively.
+
+We now depict a few 2-framed 2-manifolds, together with their invariants:
 \begin{table}[!h]
 \begin{tabular}{c|cl}
-&&
+disc fuzz out & & \\
+four point saddle star, fuzz top and bot, arrows right & & \\
+disc fuzz in & & \\
+disc fuzz out with two discs removed & & 
 \end{tabular}
 \end{table}
 
-
-\CDcomm{Next add table for 2-framed 2-manifolds}
+\CDcomm{Can add to this table: annulus with fuzz out fuzz out; annulus with no fuzz; torus with any framing it is sane to draw ...}
 
 
 \CSPcomm{
