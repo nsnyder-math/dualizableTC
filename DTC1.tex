@@ -553,6 +553,37 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 %When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
 \end{proof}
 
+\begin{remark}
+If $\cM$ and $\cN$ are right $\cC$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\text{mod-}\cD}(\cM,\cD) \simeq \Fun_{\text{mod-}\cD}(\cM,\cD)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence.
+\end{remark}
+
+For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
+
+\begin{definition}
+Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  
+\end{definition}
+
+\begin{lemma}
+If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and ${}^*\Fun^L_{\cC}(\cN, \cM)$ where $\Fun^L_\cC$ denotes \em{left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)^*$. 
+\end{lemma}
+\begin{proof}
+We've already seen that the right adjoint has a canonical module functor structure.  To see that the actions match, note that taking adjoints interchanges precomposition and postcomposition, and the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.  For the second statement, note that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
+\end{proof}
+
+\begin{lemma} \label{lem:dual-formula-for-adjoints}
+We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
+\end{lemma}
+\begin{proof}
+By the previous lemma, $\Fun_{\cC\text{-mod}}(\cM, \cC) \cong {}^*\Fun_{\cC\text{-mod}}^L(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
+\end{proof}
+
+\begin{remark}
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cD$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_\cC \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} 
+\CSP{NS, is this citation supposed to be ENO?}
+\NS{Indeed, the homotopy theory paper}
+which is incorrect as stated for bimodule categories.
+\end{remark}
+
 
 
 
@@ -561,7 +592,7 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 
 
 \subsection{Exact module categories and adjoints of module functors}
-We will now specialize to the theory of finite rigid tensor categories. 
+We will now specialize to the theory of finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories.
 
 \begin{definition}
 	Let $\cC$ be a finite rigid tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
@@ -576,7 +607,7 @@ We will now specialize to the theory of finite rigid tensor categories.
 \end{example}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
-\begin{theorem}[ENGO] \label{Thm:ExactModCatOmnibus}
+\begin{theorem}[EGNO] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, $\cM''$ be exact $\cC$-module categories, and $\cN$ an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
 		\item $\cM$ has enough projectives [EGNO lemma 2.7.1]
@@ -587,12 +618,14 @@ The following omnibus theorem summarizes the key properties of exact module cate
 	\end{enumerate}
 \end{theorem}
 
+The following result is well-known, but no proof has appeared in the literature.
+
 \begin{lemma}
 	Let $\cC$ be a rigid tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
 \end{lemma}
 
 \begin{proof}
-	\CSPcomm{ [To be filled in by NS or CSP]}
+Suppose that $f_{c,m}: \cF(c \otimes m) \rightarrow c \otimes \cF(m)$ is a binatural transformation making $\cF$ into lax module functor.  Let $\text{mult}_c: \cM \rightarrow \cM$ be the left multiplication functor, note that $f$ is a natural transformation $\cF \circ \text{mult}_c \rightarrow \text{mult}_c \circ \cF$.  The inverse to this natural transformation is given explicitly by its mate, which exists since $\text{mult}_c$ is left adjoint to $\text{mult}_{{}^*c}$.  \NS{Still need to fill in details and draw picture}
 \end{proof}
 
 
@@ -1537,35 +1570,6 @@ Thus we have proven
 \begin{corollary}
 If $\cC$ is a finite tensor category, then there exists a fully extended categorified $2$-framed $2$-dimensional TFT which sends the positively framed point to $\cC$, furthermore up to isomorphism there is exactly one such TFT.
 \end{corollary}
-
-For rigid tensor categories, it will sometimes be convenient to have an alternative description of the left and right adjoints to $\cM$.
-
-\begin{definition}
-Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  
-\end{definition}
-
-\NS{This lemma might only be true with some exactness assumptions.  Otherwise the right adjoint might not be right exact, right?}
-\begin{lemma}
-If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN) \rightarrow {}^*\Fun_{\cC}(\cN, \cM)$.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun_{\cC}(\cN, \cM)^*$. 
-\end{lemma}
-\begin{proof}
-We've already seen that the right adjoint has a canonical module functor structure.  To see that the actions match, note that taking adjoints interchanges precomposition and postcomposition, and the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.  For the second statement, note that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
-\end{proof}
-
-\NS{I think this lemma is still fine though, because $\Fun_{\cC\text{mod}}(\cC,\cM)$ is $\cC$ regardless of whether $\Fun$ means right exact functors or left exact functors.}
-\begin{lemma} \label{lem:dual-formula-for-adjoints}
-We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
-\end{lemma}
-\begin{proof}
-By the previous lemma, $\Fun_{\cC\text{-mod}}(\cM, \cC) \cong {}^*\Fun_{\cC\text{-mod}}(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
-\end{proof}
-
-\begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cD$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_\cC \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} 
-\CSP{NS, is this citation supposed to be ENO?}
-\NS{Indeed, the homotopy theory paper}
-which is incorrect as stated for bimodule categories.
-\end{remark}
 
 \subsubsection{Invariants of elementary 2-framed bordisms}
 
