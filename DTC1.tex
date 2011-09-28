@@ -369,6 +369,8 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 
 \subsection{The Deligne tensor product and finite linear categories}
 
+The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  This tensor product only makes sense for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
+
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A linear category $\cC$ is {\em finite} if 
 	\begin{enumerate}
@@ -383,10 +385,10 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
 \end{remark}
 
-We have the following finite analog of the adjoint functor theorem. 
+The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
 
 \begin{proposition}
-	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\overline{\Vect}$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
+	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\overline{\Vect}$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:\NS{Why is this $\overline{\Vect}$ enriched instead of $\Vect$ enriched?}
 	\begin{enumerate}
 		\item $\cG$ is left exact;  
 		\item $\cG$ is left exact and satisfies the following \\ {\em Solution Set Condition:} For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
@@ -399,10 +401,10 @@ We have the following finite analog of the adjoint functor theorem.
 Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically additive, and as the unit and counit maps are linear maps of vector spaces, $\cF$ is also $\overline{\Vect}$-enriched. 
 
 
-To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$)
+To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$),
 \CSP{Do I need to explain what `comma category' means?}
-\NS{Nah.  Anyone who doesn't know what it means is going to skip this proof anyway, right?}
- for then the left adjoint may be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
+\NS{Nah.  Anyone who doesn't know what it means is going to skip this proof anyway, right?} 
+as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
 \begin{equation*}
 	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
 \end{equation*}
@@ -421,7 +423,7 @@ Finally, if $\cG$ is left exact, then it satisfies the solution set condition. T
 
 
 \begin{corollary}
- A functor $G: \cC^\textrm{op} \to \Vect$ is representable if and only if it is left exact. 
+If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if and only if it is left exact. 
 \end{corollary}
 
 \begin{proof}
@@ -437,12 +439,11 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of [EGNO], and is essential to the structure theory of finite tensor categories.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of [EGNO], and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
 
 \begin{theorem}[EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
 \end{theorem}
-\CSP{Should we leave it at that? or say some more about how the thm of EGNO is proven. (via internal homs)}
 
 \begin{definition}
 	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
