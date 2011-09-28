@@ -194,6 +194,9 @@ Also the results that are newish:
 \end{itemize}
 }
 
+\CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
+
+In this section we quickly review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the works of Etingof, Gelaki, Nikshych and Ostrik.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature.
 
 
 %\CD{The organization of this section might well change as we decide what exactly we should include.}
@@ -201,15 +204,13 @@ Also the results that are newish:
 %\CDcomm{Our goal is to define $\TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $\TC(i)$, which can occur in DTCII.}
 
 
-\CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
-
 
 \subsection{Linear categories and tensor categories} \label{sec-tc-lincat}
 
-	Let $k$ be a fixed ground field. A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
-	\CSP{What is our notational difference for finite dimensional vector spaces versus all vector spaces.} \CD{I like the notation you picked.}
+\CSP{How do people feel about me putting right exactness into the definition of linear functor?} \CD{Can we add here a word about why, that might assuage readers who think it odd?} \NS{I'm somewhat unhappy about it.}
+	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
-	\CSP{How do people feel about me putting right exactness into the definition of linear functor?} \CD{Can we add here a word about why, that might assuage readers who think it odd?}
+	
 More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
 \begin{equation*}
 	F: \prod \cA_\alpha \to \cB
@@ -220,8 +221,6 @@ such that $F$ is linear in each variable separately. A linear category will be s
 	All linear functors considered in this paper are {\em right exact} functors.
 \end{warning}
 
-
-
 \begin{definition}
 	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear.
 \end{definition}
@@ -231,10 +230,11 @@ such that $F$ is linear in each variable separately. A linear category will be s
 \end{example}
 
 \begin{example}
-	If $\cM$ is a linear categories, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
+	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
 \end{example}
 
-Given a monoidal category $\cC$, there are three important notions of opposite. We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
+Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).
+%We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
 
 \begin{definition}
 	An object $x$ of a monoidal category $\cC$ {\em admits a left dual} if there exists an object $x^*$ (a {\em left dual}) and morphisms, the {\em unit} $\eta: 1 \to x \otimes x^*$ and the {\em counit} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `Zig-Zag' equations:
@@ -246,7 +246,7 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 \end{definition}
 
 \begin{remark}
-	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.
+	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  A convenient mnemonic is to think of the $*$ as eating things.
 \end{remark}
 
 \begin{remark}
@@ -258,8 +258,8 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 \end{lemma}
 
 \begin{proof}
-	The units and counits give rise to natural isomorphisms
- \begin{equation*}
+	The units and counits give rise to natural isomorphisms \NS{Currently we have both $\hom$ and $\Hom$ in the paper.  We should pick one.}
+ \begin{equation*} 
  	\hom(x \otimes y, z) \cong \hom( x, z \otimes y^*) \cong \hom(y, {}^*x \otimes z).
  \end{equation*}
 	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
@@ -277,21 +277,31 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
 \end{lemma}
 
-
 %\begin{proposition}
 %If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
 %\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
 
 \begin{proof}
-Define the functor ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: \CD{In this proof, $a^*$ is used for the left dual? I'm guessing this just came from copying the text from my old proof while rewriting the formulas?}  \NS{I'm really confused by the notation here, why are there $\otimes$ some places and not others?}
+Let $\otimes$ denote the tensor product on $\cC$ and $\cdot$ the tensor product on $\cC^{\mop}$, so that $x \cdot y = y \otimes x$.
+
+First we construct the functor ${(-)^*}$.  Define ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta_a: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon_a: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: 
+\NS{I cleaned up the notation in this proof, hopefully I didn't introduce any errors.}
 \begin{equation*}
-	{(f)^*} := (\varepsilon_b \cdot \id_{\rd{a}}) (\id_{\rd{b}} \cdot f \cdot \id_{\rd{a}}) (\id_{\rd{b}} \cdot \eta_a).
+	{(f)^*} := (\varepsilon_b \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes f \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes \eta_a).
 \end{equation*}
-Next we want to see that this functor is monoidal. 
- 
-Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \; \rd{a} \xra{\eta_b} a \; b \; \rd{b} \; \rd{a}$ show that $(\rd{b} \; \rd{a})$ is a left dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a b)}$.  These isomorphisms provide the left dual functor with a monoidal structure.  The right dual functor is analogous.  % In principle, need to check naturality and hexagon for those isos.
+
+Next we want to construct a monoidal functor structure on $(-)^*$, that is we need natural transformations $f_{a,b}: (a \otimes b)^* \rightarrow a^* \cdot b^* = b^* \otimes a^*$.  Since the left dual is unique up to unique isomorphism, it is enough to check that $b^* \otimes a^*$ is a left dual to $b \otimes a$.  Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \otimes \rd{a} \xra{\eta_b} a \otimes b \otimes \rd{b} \; \rd{a}$ show that $(\rd{b} \otimes \rd{a})$ is a left dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a \otimes b)}$.  It is straightforward to check that this satisfies the necessary hexagon relation.
+
+The right dual functor is analogous.  Since the left and right duals are quasi-inverse to each other, they're each equivalences.
+% In principle, need to check naturality and hexagon for those isos.
 \end{proof}
+\begin{remark}
+Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
+\end{remark}
+
+
 % This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
+
 
 %\begin{remark}
 %The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
@@ -322,17 +332,21 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 	satisfying the evident pentagon and triangle identities. 
 
 \begin{definition}
-	A {\em bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that
+A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that \NS{I got rid of the more general definition, if you had a reason you needed it, feel free to change it back}
 %	\begin{itemize}
-		 $F$ is the identity on objects and 
-		 the restriction of $F$ to each hom category is linear. 
+		 $F$ is the identity on objects,
+		 the restriction of $F$ to each hom category is linear,
+		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
 %	\end{itemize}
+
 A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
+
 	A {\em bimodule transformation} is a transformation of functors of bicategories, such that the component 1-cells are trivial. 
 \end{definition}
 	
-Thus a bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category \NS{Is there a good reason for allowing this much generality here?  I find it confusing that a bimodule functor from a $\cC$-$\cD$ bimodule to another one is not the same thing as a $\cC$-$\cD$ bimodule functor} $\cM'$ consists in part of tensor functors $\cC \to \cC'$ and $\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. Bimodule categories, functors, and transformations form a strict 2-category.
-If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
+%Thus a bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category \NS{Is there a good reason for allowing this much generality here?  I find it confusing that a bimodule functor from a $\cC$-$\cD$ bimodule to another one is not the same thing as a $\cC$-$\cD$ bimodule functor} $\cM'$ consists in part of tensor functors $\cC \to \cC'$ and $\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. 
+Bimodule categories, functors, and transformations form a strict 2-category.
+%If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
 
 \begin{example}
 	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. 
@@ -1592,6 +1606,7 @@ circle with inward loop, fuzz in & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via
 \end{table}
 
 \CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
+\NS{Note that you've written the 0-framed circle twice on that list.  I think we should only list it once.}
 
 \nid Throughout the table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  For the various circles, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariant in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively.
 
