@@ -713,6 +713,10 @@ Some other  things that might be added?
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
 There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
+\begin{warning}
+Many important concepts in this section are named after Segal, and the reader should not assume that because two concepts both have ``Segal" in the name that they refer to closely related concepts.  In particular, Segal's category $\Gamma$ and the Segal map will come up in relation to symmetric monoidal structure, while Segal spaces and Segal squares come up in relation to $n$-category structures.
+\end{warning}
+
 \subsection{Symmetric monoidal structures via the category $\Gamma$}
 
 \begin{definition}
@@ -799,6 +803,8 @@ This is easily seen to be strictly compatible with composition in $\Gamma^\text{
 
 
 \subsection{Symmetric monoidal $(\infty,3)$-categories}
+
+\NScomm{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
 \begin{definition}
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
@@ -1453,17 +1459,31 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
-\subsection{Notation for $n$-framed manifolds}
+\subsection{Notation for $n$-framed manifolds} \NS{I think this subsection should come earlier in the section}
 
-Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \hra \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
-\[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq M \times \RR^n.\]
+Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.   A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \hra \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
+\[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\] \NS{I deleted a $M \times$ in the last expression because I think it was a typo}
 Here the first isomorphism is provided by the inverse of the normal framing $\phi$, and the second isomorphism is given by the standard (``blackboard") identification of the sum of the tangent bundle and the normal bundle with the trivial bundle.
+
+When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, as in the codimension-1 case this corona can propogate without ambiguity, it may be indicated only at one point of the manifold.
+
+\begin{example}\NS{I added some examples earlier on, because having a picture on the first page of the subsection will encourage people to read it.}
+The $2$-framings on the circle are naturally identified with $\mathbb{Z}$, and can be described by the following immersions:
+
+\NScomm{Image of the various framed circles with the corresponding number written below them.  Don't forget that 0 corresponds to the figure $8$.}
+\end{example}  
+
+\begin{warning}  \NS{What about in nonzero codimension?  Is there a theorem saying those always come from immersions?}
+Not every $n$-framed $n$-manifold can be specified in this way, for example the circle has no immersion into $\RR^1$ but does have a unique $1$-framing.
+\end{warning}
 
 For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \hra \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \hra \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
 
-The association of an $n$-framed manifold to a normally framed immersion works just as well for manifolds with boundary or manifolds with corners.  Moreover, when these manifolds are bordisms, we can fix conventions for how a normal framing (therefore $n$-framing) of the bulk induces a normal framing (therefore $n$-framing) of the boundary.  Given a bordism $M$ without corners, each boundary component of $M$ is labelled either ``in" or ``out", according to whether it is part of the source or target of the bordism.  Now suppose $M$ is equipped with a normally framed immersion $(\iota,\phi)$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is the restriction of the immersion of $M$, and the framing is $(j, s) \subset \nu(N,\RR^n)$, where $j$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Given a higher bordism, that is a manifold $M$ with corners representing a morphism in $\Bord_0^n$, that is equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension zero submanifolds of the boundary of $M$) inherit normal framings exactly as for the boundaries of ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this procedure for inducing normal framings on the boundaries provides consistently defined normal framings to every corner of the original bordism $M$.
+\begin{example}
+The unique $1$-framing on the circle induces a $2$-framing on the circle, this $2$-framing agrees with the $2$-framing induced by the immersion labelled $0$ above. 
+\end{example}
 
-When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, as in the codimension-1 case this corona can propogate without ambiguity, it may be indicated only at one point of the manifold.
+The association of an $n$-framed manifold to a normally framed immersion works just as well for manifolds with boundary or manifolds with corners.  Moreover, when these manifolds are bordisms, we can fix conventions for how a normal framing (therefore $n$-framing) of the bulk induces a normal framing (therefore $n$-framing) of the boundary.  Given a bordism $M$ without corners, each boundary component of $M$ is labelled either ``in" or ``out", according to whether it is part of the source or target of the bordism.  Now suppose $M$ is equipped with a normally framed immersion $(\iota,\phi)$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is the restriction of the immersion of $M$, and the framing is $(j, s) \subset \nu(N,\RR^n)$, where $j$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Given a higher bordism, that is a manifold $M$ with corners representing a morphism in $\Bord_0^n$, that is equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension zero submanifolds of the boundary of $M$) inherit normal framings exactly as for the boundaries of ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this procedure for inducing normal framings on the boundaries provides consistently defined normal framings to every corner of the original bordism $M$.
 
 In drawing manifolds with boundary and corners, we also need to specify which parts of the boundary are incoming and outgoing.  Outgoing pieces of the boundary will be indicated by a small arrow pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary.  At corners, a combination of these indications will be used.  For instance, an arrow together with a corona on a codimension 2 corner indicates respectively the first and second vectors of the induced framing on the corner.
 
@@ -1490,6 +1510,8 @@ The source and target of this bordism are as indicated.  Notice that the source 
 \end{example}
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
+
+In this section we prove the main theorem, that multi-fusion categories of non-zero global dimension are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, considerably weaker assumptions (relaxing semisimplicity, non-zero global dimension, and even part of rigidity) suffice to construct a fully local categorified $2$-dimensional TFT.
 
 \subsection{Duals of objects} \label{sec-df-objects}
 
