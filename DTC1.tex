@@ -1489,23 +1489,109 @@ In drawing manifolds with boundary and corners, we also need to specify which pa
 
 \begin{example} \label{eg-framenot0}
 The following four pictures specify respectively a $0$-framed, a $1$-framed, and two $2$-framed 0-manifolds:
-\[\textrm{point, point with neg arrow, point with two +45 rotated arrows labelled 1,2, point with two +45 rotate arrows labelled 2,1}\]
+\[
+\begin{tikzpicture}
+\filldraw (0,0) circle (\pointrad);
+\filldraw (1,0) circle (\pointrad); 
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (1,0) -- +(-\arrowlength,0);
+\end{pgfonlayer}
+\filldraw (2,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (2,0) -- +(45:\arrowlength) node[anchor=south] {\tiny 1};
+\draw[->,outstyle] (2,0) -- +(135:\arrowlength) node[anchor=south] {\tiny 2};
+\end{pgfonlayer}
+\filldraw (3,0) circle (\pointrad); 
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (3,0) -- +(45:\arrowlength) node[anchor=south] {\tiny 2};
+\draw[->,outstyle] (3,0) -- +(135:\arrowlength) node[anchor=south] {\tiny 1};
+\end{pgfonlayer}
+\end{tikzpicture}
+\]
 \end{example}
 
 \begin{example}
 Here is a picture of a $1$-framed manifold:
-\[\textrm{picture of horizontal line, corona on left}\]
+\[
+\begin{tikzpicture}
+\draw[linestyle] (0,0) -- (1.5,0);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(180:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+\]
 The right point is incoming, and the left point is outgoing.  Both boundary points inherit framings isomorphic to the second picture in example~\ref{eg-framenot0}.  Here is a picture of a $2$-framed manifold:
-\[\textrm{picture of curve in plane with boundary at +45 and -45, with two loops and upward corona}\]
+\[
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft] 
+(0,0) .. controls (1.1,1.1) and (1.25,.65) .. (1.25,.5)
+	.. controls (1.25,.25) and (.875,.25) .. (.875,.5)
+	.. controls (.875,.9) and (1.875,.9) .. (1.875,.5)
+	.. controls (1.875,.25) and (1.5,.25) .. (1.5,.5)
+	.. controls (1.5,.65) and (1.65,1.1) .. (2.75,0);
+\end{tikzpicture}
+\]
 Both boundary points are incoming, and the induced framing on these points are, left to right, respectively the last two points pictured in example~\ref{eg-framenot0}.
 \end{example}
 
 \begin{example}
 Here is a picture of a $2$-framed manifold:
-\[\textrm{filled in disc with corona}\]
+\[
+\begin{tikzpicture}
+\filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
+\end{tikzpicture}
+\]
 The boundary is outgoing and is a circle with outward normal framing.
 Here is a picture of another $2$-framed manifold, specifically a 2-morphism in the 2-category of 2-framed $0$-, $1$-, and $2$-manifolds:
-\[\textrm{four point cusped star with corona on top and bottom and arrow point out of the right two points; all points at 45 degrees} : \textrm{source} \ra \textrm{target}\]
+\[
+\cb{
+\begin{tikzpicture}
+\filldraw[linestyle,fill=\fillcolor] 
+	(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0)
+		.. controls (.75,.25) and (.75,.75) .. (1,1)
+		.. controls (.75,.75) and (.25,.75) .. (0,1)
+		.. controls (.25,.75) and (.25,.25) .. (0,0);
+\draw[linestyle,fuzzright]
+	(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0);
+\draw[linestyle,fuzzleft]
+	(0,1) .. controls (.25,.75) and (.75,.75) .. (1,1);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (1,1) -- +(45:\arrowlength);
+	\draw[->,outstyle] (1,0) -- +(-45:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+\quad
+: 
+\quad
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright]
+	(0,0) .. controls (.25,.25) and (.25,.75) .. (0,1);
+\draw[linestyle,fuzzleft]
+	(1,0) .. controls (.75,.25) and (.75,.75) .. (1,1);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (1,1) -- +(45:\arrowlength);
+	\draw[->,outstyle] (1,0) -- +(-45:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+\quad
+\ra
+\quad
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright]
+	(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0);
+\draw[linestyle,fuzzleft]
+	(0,1) .. controls (.25,.75) and (.75,.75) .. (1,1);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (1,1) -- +(45:\arrowlength);
+	\draw[->,outstyle] (1,0) -- +(-45:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+\]
 The source and target of this bordism are as indicated.  Notice that the source of the source (a pair of $2$-framed points) is indeed the source of the target, and similarly the target of the source is the target of the target.
 \end{example}
 
@@ -1778,6 +1864,7 @@ Let $Bord_3^{\text{nc}}$ be the $3$-category where we only allow $3$-dimensional
 
 Perhaps we carry out an explicit non-semisimple example? e.g. Sweedler's 4D Hopf algebra?}
 
+\end{document} %!%
 
 \section{The Serre automorphism of a fusion category} \label{sec-serre}
 

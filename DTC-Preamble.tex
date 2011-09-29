@@ -34,17 +34,43 @@
 %%%%%% Tikz !!! Commands and Macros %%%%%%%%%%%%%
 \usepackage{tikz}
 \usetikzlibrary{matrix}
+\usetikzlibrary{arrows,backgrounds,patterns,
+    decorations.pathreplacing,
+    decorations.pathmorphing
+}
+
+\newlength{\arrowlength}
+\setlength{\arrowlength}{8pt}
+\newlength{\arrowwidth}
+\setlength{\arrowwidth}{.75pt}
+\newlength{\pointrad}
+\setlength{\pointrad}{1.5pt}
+\newlength{\linewid}
+\setlength{\linewid}{1.5pt}
+\newlength{\circlerad}
+\setlength{\circlerad}{16pt}
+\newcommand{\fillcolor}{black!60}
+\newcommand{\fuzzcolor}{black!25}
+\newcommand{\arrowcolor}{black!25}
 
 \tikzset{
-fuzzleft/.style={thick}
-}
-\tikzset{
-fuzzright/.style={thick}
+        fuzzright/.style={
+        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-1pt}}},
+        fuzzleft/.style={
+        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=1pt}}},
+        fuzzrightpre/.style={ %%% Doesn't work
+        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-1pt,pre=moveto,pre length=12pt}}},
+        fuzzleftpre/.style={ %%% Doesn't work
+        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,post=moveto,post length=32pt,amplitude=0,raise=1pt}}},        
+        outstyle/.style={\arrowcolor, line width=\arrowwidth},
+        linestyle/.style={line width=\linewid}
 }
 
 \newcommand{\lilarrow}{
 \draw[->] (0,0) -- (1,0);
 }
+
+\newcommand{\cb}{\raisebox{.6ex-.5\height}}
 
 
 %%%% These draw triple or quadruple set of arrows of length 0.5 cm
