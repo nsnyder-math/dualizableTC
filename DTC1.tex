@@ -567,7 +567,7 @@ Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying categor
 If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and ${}^*\Fun^L_{\cC}(\cN, \cM)$ where $\Fun^L_\cC$ denotes \em{left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)^*$. 
 \end{lemma}
 \begin{proof}
-We've already seen that the right adjoint has a canonical module functor structure.  To see that the actions match, note that taking adjoints interchanges precomposition and postcomposition, and the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.  For the second statement, note that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
+We've already seen that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking adjoints is clearly an equivalence because the right adjoint is quasi-inverse to the left adjoint and vice-versa.  So we need only check that the module structures agree.  First note that taking adjoints interchanges precomposition and postcomposition.  Second, in the former case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$, while in the latter case we have that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
@@ -674,7 +674,7 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
 \end{remark}
 
-The following result, which is a generalization of Redford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in [ENO] appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
+The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in [ENO] appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
 
 \begin{theorem}[\cite{???} ENO]
 	A fusion category $\cC$ admits a canonical monoidal equivalence between the identity functor and the quadruple dual functor $\ldddd{(-)}$.
@@ -714,7 +714,7 @@ Some other  things that might be added?
 There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
 \begin{warning}
-Many important concepts in this section are named after Segal, and the reader should not assume that because two concepts both have ``Segal" in the name that they refer to closely related concepts.  In particular, Segal's category $\Gamma$ and the Segal map will come up in relation to symmetric monoidal structure, while Segal spaces and Segal squares come up in relation to $n$-category structures.
+Many important concepts in this section are named after Segal, and the reader should not assume that because two concepts both have ``Segal" in the name that they refer to closely related concepts.  In particular, Segal's category $\Gamma$ and the Segal map will come up in formalizing symmetric monoidal structures, while Segal spaces and Segal squares come up in formalizing $n$-categories.
 \end{warning}
 
 \subsection{Symmetric monoidal structures via the category $\Gamma$}
@@ -1515,9 +1515,14 @@ In this section we prove the main theorem, that multi-fusion categories of non-z
 
 \subsection{Duals of objects} \label{sec-df-objects}
 
-In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the unit is $\cC$ as a $\mathrm{\Vec}$--$(\cC^\mp \boxtimes \cC)$ bimodule with the obvious actions, and the counit is $\cC$ as a $(\cC \boxtimes \cC^\mp)$--$\mathrm{\Vec}$ bimodule. 
+In this section we show that $\cC^\mp$ is the dual of $\cC$. 
 
-\NScomm{This proof is so trivial that I don't know what to write.}
+\begin{theorem}
+The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}{\cC^\mp \boxtimes \cC} \cC_{\Vec}$ (each with the obvious actions) give the coevaluation and evaluation of a duality.
+\end{theorem}
+\begin{proof}
+We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bxc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally just $\cC$.
+\end{proof}
 
 \begin{proposition}
 	$\TCfin$ is fully $1$-dualizable. 
@@ -1540,6 +1545,10 @@ circle with framing arrow & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$
 \end{table}
 
 \nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).  Note that the circle here is not depicted as an immersed normally-framed manifold, but directly as a framed manifold; indeed this depicts the unique 1-framing on the circle.  As indicated, the invariant of this circle is $\cC \btimes_{\cC \btimes \cC^\mp} \cC$, where both actions are the naive ones; we will denote this cyclic self-tensor product by $\cT(\cC)$.
+
+\begin{warning}
+Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center.  Indeed $\cT(\cC)$ need not even be a tensor category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  See the next subsection for more detail.
+\end{warning}
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
