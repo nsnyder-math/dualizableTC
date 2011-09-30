@@ -1809,16 +1809,30 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \btikz
 \draw[linestyle,fuzzright] (0,0) arc (90:270:\smcirclerad);
 \begin{pgfonlayer}{background}
-	\draw[->,outstyle] (0,\smcirclerad) -- +(0:\arrowlength);
-	\draw[->,outstyle] (0,-\smcirclerad) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
 \end{pgfonlayer}
 \etikz
 }
 & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
-right arc fuzz in & $\bimod{\cC^\op \btimes \cC}{\cC}{\Vec}$ 
+\cb{
+\btikz
+\draw[linestyle,fuzzleft] (0,0) arc (-90:90:\smcirclerad);
+\etikz
+} 
+& $\bimod{\cC^\op \btimes \cC}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
-left arc fuzz in, arrows right & $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
+\cb{
+\btikz
+\draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\etikz
+}
+& $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
 loop down fuzz up bordism, arrow right & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
 loop up fuzz up bordism, arrow right & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
