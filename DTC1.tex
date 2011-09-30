@@ -1487,6 +1487,10 @@ The association of an $n$-framed manifold to a normally framed immersion works j
 
 In drawing manifolds with boundary and corners, we also need to specify which parts of the boundary are incoming and outgoing.  Outgoing pieces of the boundary will be indicated by a small arrow pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  \NS{I vote for decorating all boundaries.  It's clearer and shouldn't be substantially more work.}  \CD{I wanted to as well, but in practice I don't think it looks nice, which is why I went with this.} When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary.  At corners, a combination of these indications will be used.  For instance, an arrow together with a corona on a codimension 2 corner indicates respectively the first and second vectors of the induced framing on the corner.
 
+\begin{warning}
+If $M$ is an $n$-manifold with boundary immersed in $\RR^n$ the corona indicates which boundaries are outgoing, while if $M$ is an $n-1$ manifold with boundary immersed in $\RR^n$ the corona indicates the conormal bundle which determines the framing.  These two usages are entirely compatible: the $n$-framing on the outgoing boundary is in fact given by the conormal bundle which is outgoing from the boundary (while incoming boundaries have their coronas point into the manifold, and thus cannot be seen).  This is explained further in an example below.
+\end{warning}
+
 \begin{example} \label{eg-framenot0}
 The following four pictures specify respectively a $0$-framed, a $1$-framed, and two $2$-framed 0-manifolds:
 \[
@@ -1531,7 +1535,7 @@ The right point is incoming, and the left point is outgoing.  Both boundary poin
 	.. controls (1.5,.65) and (1.65,1.1) .. (2.75,0);
 \end{tikzpicture}
 \]
-Both boundary points are incoming, and the induced framing on these points are, left to right, respectively the last two points pictured in example~\ref{eg-framenot0}.
+Both boundary points are incoming, and the induced framing on these points are, left to right, respectively the last two points pictured in example~\ref{eg-framenot0}.  Note that corona in this example specifies the framing.
 \end{example}
 
 \begin{example}
@@ -1541,7 +1545,8 @@ Here is a picture of a $2$-framed manifold:
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
 \]
-The boundary is outgoing and is a circle with outward normal framing.
+Note that here the corona denotes that the boundary is outgoing.  This boundary is the circle with the outward normal framing, thus the two uses of the corona are consistent.
+
 Here is a picture of another $2$-framed manifold, specifically a 2-morphism in the 2-category of 2-framed $0$-, $1$-, and $2$-manifolds:
 \[
 \cb{
@@ -1616,7 +1621,7 @@ We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{
 
 %%%
 
-\subsubsection{Invariants of elementary 1-framed bordisms}
+\subsubsection{Invariants of elementary 1-framed bordisms}\NS{We need to say something about the non-well-definedness of what we're saying here.  There is no ``the TFT."}
 \CD{I'm not sure this, and the other similar subsections, should really be subsections.  But I'm just breaking them out for now and we can weave them into the text once the text of the sections is more complete.}
 
 To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor category $\cC$ takes the following values on the elementary 0- and 1-bordisms:
