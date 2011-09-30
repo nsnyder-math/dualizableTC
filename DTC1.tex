@@ -567,7 +567,7 @@ Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying categor
 If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and ${}^*\Fun^L_{\cC}(\cN, \cM)$ where $\Fun^L_\cC$ denotes \em{left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)^*$. 
 \end{lemma}
 \begin{proof}
-We've already seen that the right adjoint has a canonical module functor structure.  To see that the actions match, note that taking adjoints interchanges precomposition and postcomposition, and the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.  For the second statement, note that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
+We've already seen that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking adjoints is clearly an equivalence because the right adjoint is quasi-inverse to the left adjoint and vice-versa.  So we need only check that the module structures agree.  First note that taking adjoints interchanges precomposition and postcomposition.  Second, in the former case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$, while in the latter case we have that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
@@ -625,7 +625,15 @@ The following result is well-known, but no proof has appeared in the literature.
 \end{lemma}
 
 \begin{proof}
-Suppose that $f_{c,m}: \cF(c \otimes m) \rightarrow c \otimes \cF(m)$ is a binatural transformation making $\cF$ into lax module functor.  Let $\text{mult}_c: \cM \rightarrow \cM$ be the left multiplication functor, note that $f$ is a natural transformation $\cF \circ \text{mult}_c \rightarrow \text{mult}_c \circ \cF$.  The inverse to this natural transformation is given explicitly by its mate, which exists since $\text{mult}_c$ is left adjoint to $\text{mult}_{{}^*c}$.  \NS{Still need to fill in details and draw picture}
+We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ \NS{Is there a terminology convention for right mates versus left mates?}
+$$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
+where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
+
+\NScomm{Insert diagram here}
+
+We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagram illustrates this calculation.
+
+\NScomm{Insert diagram here}
 \end{proof}
 
 
@@ -635,9 +643,13 @@ Let $\cC$ and $\cD$ be rigid tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$
 \begin{proof}
 Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module functor.  The result for left adjoints is similar.
 
-The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by
+The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
-where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  Rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the previous one.
+
+\NScomm{Insert diagram here}
+
+Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
 \end{proof}
 
 \begin{remark}
@@ -662,7 +674,7 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
 \end{remark}
 
-The following result, which is a generalization of Redford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in [ENO] appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
+The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in [ENO] appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
 
 \begin{theorem}[\cite{???} ENO]
 	A fusion category $\cC$ admits a canonical monoidal equivalence between the identity functor and the quadruple dual functor $\ldddd{(-)}$.
@@ -701,6 +713,10 @@ Some other  things that might be added?
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
 There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
+\begin{warning}
+Many important concepts in this section are named after Segal, and the reader should not assume that because two concepts both have ``Segal" in the name that they refer to closely related concepts.  In particular, Segal's category $\Gamma$ and the Segal map will come up in formalizing symmetric monoidal structures, while Segal spaces and Segal squares come up in formalizing $n$-categories.
+\end{warning}
+
 \subsection{Symmetric monoidal structures via the category $\Gamma$}
 
 \begin{definition}
@@ -711,7 +727,7 @@ This category was introduced by Segal in \cite{Segal-Categories and Cohomology T
 \begin{equation*}
 	\prod_{a \in A} i_a^*: M(A) \to \prod_{a \in A} M(1).
 \end{equation*}
-It will be instructive to spell this out explicitly. The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$. More generally $M(A) \cong M^{\times |A|}$. Maps in $\Gamma$ express ways to combine a $B$-tuple of elements of $M$ into an $A$-tuple of elements in $M$. Explicitly $f: A \to P(B)$
+It will be instructive to spell this out explicitly. The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$.  Let $M$ denote $M(1)$, then we have $M(A) \cong M^{\times |A|}$. Maps in $\Gamma$ express ways to combine a $B$-tuple of elements of $M$ into an $A$-tuple of elements in $M$. Explicitly $f: A \to P(B)$
 induces a map $f^*: M^{\times |B|} \to M^{\times |A|}$ which sends the $B$-tuple $(m_b)_{b \in B}$ to the $A$-tuple $(n_a)_{a \in A}$ where the element $n_a \in M$ is obtained by multiplying together all the elements $m_b$ where $b$ ranges over the elements in $f(a) \subseteq B$. This is a well-defined operation when $M$ is a commutative monoid, and conversely every such functor arises from a monoid in this manner. 
 
 This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ should give rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, unless $(M, \otimes)$ is a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
@@ -788,6 +804,8 @@ This is easily seen to be strictly compatible with composition in $\Gamma^\text{
 
 \subsection{Symmetric monoidal $(\infty,3)$-categories}
 
+\NScomm{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
+
 \begin{definition}
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
 \end{definition}
@@ -810,7 +828,7 @@ This is the category of combinatorial simplices. The vertices of $[n]$ have a na
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
 
 
-Let $C$ be a category. The category of {\em simplcial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+Let $C$ be a category. The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -1441,19 +1459,33 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
-\subsection{Notation for $n$-framed manifolds}
+\subsection{Notation for $n$-framed manifolds} \NS{I think this subsection should come earlier in the section}
 
 Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \hra \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
-\[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq M \times \RR^n.\]
+\[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\] \NS{I deleted a $M \times$ in the last expression because I think it was a typo}
 Here the first isomorphism is provided by the inverse of the normal framing $\phi$, and the second isomorphism is given by the standard (``blackboard") identification of the sum of the tangent bundle and the normal bundle with the trivial bundle.
-
-For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \hra \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \hra \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
-
-The association of an $n$-framed manifold to a normally framed immersion works just as well for manifolds with boundary or manifolds with corners.  Moreover, when these manifolds are bordisms, we can fix conventions for how a normal framing (therefore $n$-framing) of the bulk induces a normal framing (therefore $n$-framing) of the boundary.  Given a bordism $M$ without corners, each boundary component of $M$ is labelled either ``in" or ``out", according to whether it is part of the source or target of the bordism.  Now suppose $M$ is equipped with a normally framed immersion $(\iota,\phi)$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is the restriction of the immersion of $M$, and the framing is $(j, s) \subset \nu(N,\RR^n)$, where $j$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Given a higher bordism, that is a manifold $M$ with corners representing a morphism in $\Bord_0^n$, that is equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension zero submanifolds of the boundary of $M$) inherit normal framings exactly as for the boundaries of ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this procedure for inducing normal framings on the boundaries provides consistently defined normal framings to every corner of the original bordism $M$.
 
 When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, as in the codimension-1 case this corona can propogate without ambiguity, it may be indicated only at one point of the manifold.
 
-In drawing manifolds with boundary and corners, we also need to specify which parts of the boundary are incoming and outgoing.  Outgoing pieces of the boundary will be indicated by a small arrow pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary.  At corners, a combination of these indications will be used.  For instance, an arrow together with a corona on a codimension 2 corner indicates respectively the first and second vectors of the induced framing on the corner.
+\begin{example}\NS{I added some examples earlier on, because having a picture on the first page of the subsection will encourage people to read it.}
+The $2$-framings on the circle are naturally identified with $\mathbb{Z}$, and can be described by the following immersions:
+
+\NScomm{Image of the various framed circles with the corresponding number written below them.  Don't forget that 0 corresponds to the figure $8$.}
+\end{example}  
+
+\begin{warning}  \NS{What about in nonzero codimension?  Is there a theorem saying those always come from immersions?}
+Not every $n$-framed $n$-manifold can be specified in this way, for example the circle has no immersion into $\RR^1$ but does have a unique $1$-framing.
+\end{warning}
+
+For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \hra \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \hra \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
+
+\begin{example}
+The unique $1$-framing on the circle induces a $2$-framing on the circle, this $2$-framing agrees with the $2$-framing induced by the immersion labelled $0$ above. 
+\end{example}
+
+The association of an $n$-framed manifold to a normally framed immersion works just as well for manifolds with boundary or manifolds with corners.  Moreover, when these manifolds are bordisms, we can fix conventions for how a normal framing (therefore $n$-framing) of the bulk induces a normal framing (therefore $n$-framing) of the boundary.  Given a bordism $M$ without corners, each boundary component of $M$ is labelled either ``in" or ``out", according to whether it is part of the source or target of the bordism.  Now suppose $M$ is equipped with a normally framed immersion $(\iota,\phi)$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is the restriction of the immersion of $M$, and the framing is $(j, s) \subset \nu(N,\RR^n)$, where $j$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Given a higher bordism, that is a manifold $M$ with corners representing a morphism in $\Bord_0^n$, that is equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension zero submanifolds of the boundary of $M$) inherit normal framings exactly as for the boundaries of ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this procedure for inducing normal framings on the boundaries provides consistently defined normal framings to every corner of the original bordism $M$.
+
+In drawing manifolds with boundary and corners, we also need to specify which parts of the boundary are incoming and outgoing.  Outgoing pieces of the boundary will be indicated by a small arrow pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  \NS{I vote for decorating all boundaries.  It's clearer and shouldn't be substantially more work.}  When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary.  At corners, a combination of these indications will be used.  For instance, an arrow together with a corona on a codimension 2 corner indicates respectively the first and second vectors of the induced framing on the corner.
 
 \begin{example} \label{eg-framenot0}
 The following four pictures specify respectively a $0$-framed, a $1$-framed, and two $2$-framed 0-manifolds:
@@ -1466,13 +1498,13 @@ The following four pictures specify respectively a $0$-framed, a $1$-framed, and
 \end{pgfonlayer}
 \filldraw (2,0) circle (\pointrad);
 \begin{pgfonlayer}{background}
-\draw[->,outstyle] (2,0) -- +(45:\arrowlength) node[anchor=south] {\tiny 1};
-\draw[->,outstyle] (2,0) -- +(135:\arrowlength) node[anchor=south] {\tiny 2};
+\draw[->,outstyle] (2,0) -- +(45:\arrowlength) node[anchor=south,inner sep=2pt] {\tiny 1};
+\draw[->,outstyle] (2,0) -- +(135:\arrowlength) node[anchor=south,inner sep=2pt] {\tiny 2};
 \end{pgfonlayer}
 \filldraw (3,0) circle (\pointrad); 
 \begin{pgfonlayer}{background}
-\draw[->,outstyle] (3,0) -- +(45:\arrowlength) node[anchor=south] {\tiny 2};
-\draw[->,outstyle] (3,0) -- +(135:\arrowlength) node[anchor=south] {\tiny 1};
+\draw[->,outstyle] (3,0) -- +(45:\arrowlength) node[anchor=south,inner sep=2pt] {\tiny 2};
+\draw[->,outstyle] (3,0) -- +(135:\arrowlength) node[anchor=south,inner sep=2pt] {\tiny 1};
 \end{pgfonlayer}
 \end{tikzpicture}
 \]
@@ -1565,15 +1597,17 @@ The source and target of this bordism are as indicated.  Notice that the source 
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
+In this section we prove the main theorem, that multi-fusion categories of non-zero global dimension are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, considerably weaker assumptions (relaxing semisimplicity, non-zero global dimension, and even part of rigidity) suffice to construct a fully local categorified $2$-dimensional TFT.
+
 \subsection{Duals of objects} \label{sec-df-objects}
 
-In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the unit is $\cC$ as a $\mathrm{\Vec}$--$(\cC^\mp \boxtimes \cC)$ bimodule with the obvious actions, and the counit is $\cC$ as a $(\cC \boxtimes \cC^\mp)$--$\mathrm{\Vec}$ bimodule. 
+In this section we show that $\cC^\mp$ is the dual of $\cC$. 
 
 \begin{theorem}
 The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{\cC^\mp \boxtimes \cC} \cC_{\Vec}$ (each with the obvious actions) give the coevaluation and evaluation of a duality.
 \end{theorem}
 \begin{proof}
-We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced linear functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced linear functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bxc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally identified with $\cC$.
+We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bxc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally identified with $\cC$.
 \end{proof}
 
 \begin{proposition}
@@ -1588,33 +1622,68 @@ We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{
 To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor category $\cC$ takes the following values on the elementary 0- and 1-bordisms:
 \begin{table}[!h]
 \begin{tabular}{c|c}
+\cb{
 \btikz
 \filldraw (0,0) circle (\pointrad); 
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(\arrowlength,0);
 \end{pgfonlayer}
 \etikz
+}
 & $\cC$ \\
+\cb{
 \btikz
 \filldraw (0,0) circle (\pointrad); 
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(-\arrowlength,0);
 \end{pgfonlayer}
 \etikz
+}
 & $\cC^\mp$ \\
-line no arrows & $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ \\
-line arrows out & $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ \\
-circle with framing arrow & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$
+\cb{
+\btikz
+\draw[linestyle] (0,0) -- (1,0);
+\etikz
+}
+& $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ \\
+\cb{
+\btikz
+\draw[linestyle] (0,0) -- (1,0);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(180:\arrowlength);
+\draw[->,outstyle] (1,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\etikz
+}
+& $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ \\
+\cb{
+\btikz
+\draw[linestyle] (0,0) circle (\circlerad);
+\begin{pgfonlayer}{background}
+\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (\circlerad,0) -- +(-90:1.6*\arrowlength);
+\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (-\circlerad,0) -- +(90:1.6*\arrowlength);
+\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (0,\circlerad) -- +(0:1.6*\arrowlength);
+\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (0,-\circlerad) -- +(180:1.6*\arrowlength);
+\end{pgfonlayer}
+\etikz
+}
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$
 \end{tabular}
 \end{table}
 
 \nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).  Note that the circle here is not depicted as an immersed normally-framed manifold, but directly as a framed manifold; indeed this depicts the unique 1-framing on the circle.  As indicated, the invariant of this circle is $\cC \btimes_{\cC \btimes \cC^\mp} \cC$, where both actions are the naive ones; we will denote this cyclic self-tensor product by $\cT(\cC)$.
+
+\begin{warning}
+Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a tensor category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  See the next subsection for more detail.
+\end{warning}
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
 In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is right exact (which we have been assuming throughout), then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of $\cM$ is the category of right exact left module functors 
 $\Fun_{{\cC}}(\cM, \cC)$
  where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
+
+Recall from the background section that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by ${}^*\cdot$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.
 
 \begin{lemma}
 The map $\ev: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
@@ -1680,11 +1749,47 @@ As we have seen above, associated to a finite tensor category $\cC$, there is a 
 
 The following table lists four standard 2-framed 0-manifolds along with their associated invariants:
 \begin{table}[!h]
-\begin{tabular}{c|cl}
-point [right, up] & $\cC$ &\\
-point [left, up] & $\cC^\mp$ &\\
-point [right, down] & $\cC^\op$ &\\
-point [left, down] & $\cC^\mop$ &
+\begin{tabular}{c|ll}
+\cb{
+\btikz
+\filldraw (0,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 1};
+\draw[->,outstyle] (0,0) -- +(90:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 2};
+\end{pgfonlayer}
+\etikz
+}
+& $\cC$ & \\[6pt]
+\cb{
+\btikz
+\filldraw (0,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(180:\arrowlength) node[anchor=south east,inner sep=1pt] {\tiny 1};
+\draw[->,outstyle] (0,0) -- +(90:\arrowlength) node[anchor=south east,inner sep=1pt] {\tiny 2};
+\end{pgfonlayer}
+\etikz
+}
+& $\cC^\mp$ &\\[6pt]
+\cb{
+\btikz
+\filldraw (0,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 1};
+\draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
+\end{pgfonlayer}
+\etikz
+}
+& $\cC^\op$ &\\[6pt]
+\cb{
+\btikz
+\filldraw (0,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(180:\arrowlength) node[anchor=north east,inner sep=1pt] {\tiny 1};
+\draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north east,inner sep=1pt] {\tiny 2};
+\end{pgfonlayer}
+\etikz
+}
+& $\cC^\mop$ &
 \end{tabular}
 \end{table} %!% line up the separating line in the various tables.
 
@@ -1693,9 +1798,23 @@ point [left, down] & $\cC^\mop$ &
 A generating collection of 2-framed 1-manifolds, along with a few simple composites, have invariants as follows:
 \begin{table}[!h]
 \begin{tabular}{c|cl}
-right arc fuzz out & $\bimod{\cC \btimes \cC^\op}{\cC}{\Vec}$ 
+\cb{
+\btikz
+\draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
+\etikz
+}
+& $\bimod{\cC \btimes \cC^\op}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
-left arc fuzz out, arrows right & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
+\cb{
+\btikz
+\draw[linestyle,fuzzright] (0,0) arc (90:270:\smcirclerad);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,\smcirclerad) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-\smcirclerad) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\etikz
+}
+& $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
 right arc fuzz in & $\bimod{\cC^\op \btimes \cC}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
@@ -1835,8 +1954,6 @@ Let $Bord_3^{\text{nc}}$ be the $3$-category where we only allow $3$-dimensional
 \CSPcomm{Perhaps we speculate/comment on the relation of these new manifold invariants to others comming from non-semisimple sources?
 
 Perhaps we carry out an explicit non-semisimple example? e.g. Sweedler's 4D Hopf algebra?}
-
-\end{document} %!%
 
 \section{The Serre automorphism of a fusion category} \label{sec-serre}
 
