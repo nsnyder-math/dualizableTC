@@ -1608,7 +1608,7 @@ In this section we prove the main theorem, that multi-fusion categories of non-z
 
 In this section we show that $\cC^\mp$ is the dual of $\cC$. 
 
-\begin{theorem}
+\begin{theorem} \label{thm:objduals}
 The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{\cC^\mp \boxtimes \cC} \cC_{\Vec}$ (each with the obvious actions) give the coevaluation and evaluation of a duality.
 \end{theorem}
 \begin{proof}
@@ -1621,10 +1621,12 @@ We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{
 
 %%%
 
-\subsubsection{Invariants of elementary 1-framed bordisms}\NS{We need to say something about the non-well-definedness of what we're saying here.  There is no ``the TFT."}
+\subsubsection{Invariants of elementary 1-framed bordisms}
 \CD{I'm not sure this, and the other similar subsections, should really be subsections.  But I'm just breaking them out for now and we can weave them into the text once the text of the sections is more complete.}
 
-To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor category $\cC$ takes the following values on the elementary 0- and 1-bordisms:
+By the cobordism hypothesis, the previous theorem shows that there is a $1$-dimensional TFT attached to every finite tensor category, and that this TFT is unique up to equivalence.  Note that this TFT is ``twice categorified" in the sense that it's a functor of $(3,1)$-categories, not $1$-categories.  For example, this gives an action of the mapping class group on the invariant attached to a circle.  The reader should always remember that the TFT associated to $\cC$ is only well-defined up to equivalence, nonetheless we will pick a nice representative and often call that ``the TFT assigned to $\cC$."
+
+Explicitly the 1-framed field theory $F_\cC$ associated to the finite tensor category $\cC$ takes the following values on the elementary 0- and 1-bordisms:
 \begin{table}[!h]
 \begin{tabular}{c|c}
 \cb{
@@ -1679,8 +1681,12 @@ To summarize, the 1-framed field theory $F_\cC$ associated to the finite tensor 
 \nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).  Note that the circle here is not depicted as an immersed normally-framed manifold, but directly as a framed manifold; indeed this depicts the unique 1-framing on the circle.  As indicated, the invariant of this circle is $\cC \btimes_{\cC \btimes \cC^\mp} \cC$, where both actions are the naive ones; we will denote this cyclic self-tensor product by $\cT(\cC)$.
 
 \begin{warning}
-Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a tensor category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  See the next subsection for more detail.
+Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a tensor category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  This will be explained in more detail when we discuss the $2$-dimensional $2$-framed theory.
 \end{warning}
+
+\begin{remark}
+Since this is a twice categorified TFT, there is more data involved in describing it fully than what we have given above.  For example, we could ask for explicit formulas for the cusp generator or for the mapping class group action on the invariant of a circle.  In this case, there is nothing interesting in this additional data.  This is because the image of the bordism $(3,1)$-category lands in a subcategory of $\TCfin$ which is equivalent to an ordinary $1$-category.  In particular, the image of the cusp generator can be taken to be the explicit functor constructed via universal properties in Theorem \ref{thm:objduals}, and the mapping class group action on the circle is trivial.
+\end{remark}
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
