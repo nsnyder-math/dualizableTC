@@ -1569,7 +1569,12 @@ The source and target of this bordism are as indicated.  Notice that the source 
 
 In this section we show that $\cC^\mp$ is the dual of $\cC$.  Explicitly the unit is $\cC$ as a $\mathrm{\Vec}$--$(\cC^\mp \boxtimes \cC)$ bimodule with the obvious actions, and the counit is $\cC$ as a $(\cC \boxtimes \cC^\mp)$--$\mathrm{\Vec}$ bimodule. 
 
-\NScomm{This proof is so trivial that I don't know what to write.}
+\begin{theorem}
+The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{\cC^\mp \boxtimes \cC} \cC_{\Vec}$ (each with the obvious actions) give the coevaluation and evaluation of a duality.
+\end{theorem}
+\begin{proof}
+We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced linear functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced linear functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bxc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally identified with $\cC$.
+\end{proof}
 
 \begin{proposition}
 	$\TCfin$ is fully $1$-dualizable. 
