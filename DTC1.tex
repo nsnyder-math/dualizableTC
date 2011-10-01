@@ -1472,7 +1472,7 @@ When drawing $n$-framed manifolds using the normally framed notation described a
 The set of 2-framings on a circle is a torsor for $\pi_1(SO(2))$.  We use our immersion notation to depict, as follows, a series of 2-framings on the standard circle that represent the elements of this torsor:
 \[\cdots\quad
 \cb{
-\btikz
+\begin{tikzpicture}
 { [xshift=-3cm]
 \draw[linestyle,fuzzleft]
 (.5,0) to [out=-90, in=25] (.3,-.3)
@@ -1528,7 +1528,7 @@ The set of 2-framings on a circle is a torsor for $\pi_1(SO(2))$.  We use our im
 	to [out=155, in=-90] (-.5,0)
 	.. controls (-.5,.66) and (.5,.66) .. (.5,0);	
 }
-\etikz
+\end{tikzpicture}
 }
 \quad \cdots
 \]
@@ -1696,41 +1696,41 @@ Explicitly the 1-framed field theory $F_\cC$ associated to the finite tensor cat
 \begin{table}[!h]
 \begin{tabular}{c|c}
 \cb{
-\btikz
+\begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad); 
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(\arrowlength,0);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\cC$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad); 
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(-\arrowlength,0);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\cC^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle] (0,0) -- (1,0);
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle] (0,0) -- (1,0);
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(180:\arrowlength);
 \draw[->,outstyle] (1,0) -- +(0:\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle] (0,0) circle (\circlerad);
 \begin{pgfonlayer}{background}
 \draw[->,line width=1.25*\arrowwidth,\arrowcolor] (\circlerad,0) -- +(-90:1.6*\arrowlength);
@@ -1738,7 +1738,7 @@ Explicitly the 1-framed field theory $F_\cC$ associated to the finite tensor cat
 \draw[->,line width=1.25*\arrowwidth,\arrowcolor] (0,\circlerad) -- +(0:1.6*\arrowlength);
 \draw[->,line width=1.25*\arrowwidth,\arrowcolor] (0,-\circlerad) -- +(180:1.6*\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$
 \end{tabular}
@@ -1826,43 +1826,43 @@ The following table lists four standard 2-framed 0-manifolds along with their as
 \begin{table}[!h]
 \begin{tabular}{c|ll}
 \cb{
-\btikz
+\begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(90:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\cC$ & \\[6pt]
 \cb{
-\btikz
+\begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(180:\arrowlength) node[anchor=south east,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(90:\arrowlength) node[anchor=south east,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\cC^\mp$ &\\[6pt]
 \cb{
-\btikz
+\begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\cC^\op$ &\\[6pt]
 \cb{
-\btikz
+\begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(180:\arrowlength) node[anchor=north east,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north east,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\cC^\mop$ &
 \end{tabular}
@@ -1874,43 +1874,43 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \begin{table}[!h]
 \begin{tabular}{c|cl}
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\cC \btimes \cC^\op}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) arc (90:270:\smcirclerad);
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
 	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzleft] (0,0) arc (-90:90:\smcirclerad);
-\etikz
+\end{tikzpicture}
 } 
 & $\bimod{\cC^\op \btimes \cC}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
 	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzright] 
 (.7,0) to [out=180, in=20] (0,-.1)
 	to [looseness=1.6, out=-160, in=180] (0,-.4)
@@ -1919,11 +1919,11 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 } 
 & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzright] 
 (.7,0) to [out=180, in=-20] (0,.1)
 	to [looseness=1.6, out=160, in=180] (0,.4)
@@ -1932,11 +1932,11 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzleft] 
 (.7,0) to [out=180, in=20] (0,-.1)
 	to [looseness=1.6, out=-160, in=180] (0,-.4)
@@ -1945,11 +1945,11 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzleft] 
 (.7,0) to [out=180, in=-20] (0,.1)
 	to [looseness=1.6, out=160, in=180] (0,.4)
@@ -1958,51 +1958,51 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
 \end{pgfonlayer}
-\etikz
+\end{tikzpicture}
 }
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) circle (\smcirclerad);
-\etikz
+\end{tikzpicture}
 }
 & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzleft] (0,0) circle (\smcirclerad);
-\etikz
+\end{tikzpicture}
 }
 & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzleft,looseness=2]
 (0,.5) to [out=0, in=10] (0,0)
 	to [out=-170, in=180] (0,-.5)
 	to [out=0, in=-10] (0,0)
 	to [out=170, in=180] (0,.5);
-\etikz
+\end{tikzpicture}
 }
 & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzleft]
 (.5,0) to [out=-90, in=-20] (0,-.4)
 	to [looseness=1.6, out=160, in=180] (0,-.1)
 	to [looseness=1.6, out=0, in=20] (0,-.4)
 	to [out=-160, in=-90] (-.5,0)
 	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
-\etikz
+\end{tikzpicture}
 }
 & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ \\
 \cb{
-\btikz
+\begin{tikzpicture}
 \draw[linestyle,fuzzright]
 (.5,0) to [out=-90, in=-20] (0,-.4)
 	to [looseness=1.6, out=160, in=180] (0,-.1)
 	to [looseness=1.6, out=0, in=20] (0,-.4)
 	to [out=-160, in=-90] (-.5,0)
 	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
-\etikz
+\end{tikzpicture}
 }
 & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$
 \end{tabular}
