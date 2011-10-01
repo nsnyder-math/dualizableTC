@@ -1886,6 +1886,31 @@ This is also probably a great spot to mention `dimensional reduction'. More spec
 
 In this section we specialize to $\TCrig$ and give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint. 
 
+Recall from Lemma \ref{module-adjoint} that in order to check that a bimodule functor between bimodules over rigid tensor categories has an adjoint as a bimodule category, it's enough to check that the underlying functor has an adjoint.  In particular, for finite tensor categories, it's enough to check that the underlying functor is exact.
+
+\begin{theorem}
+Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
+\end{theorem}
+\begin{proof}
+Any functor out of a semisimple category is exact.
+\end{proof}
+
+\begin{corollary}
+ $\TCss$ is fully 3-dualizable.
+\end{corollary}
+\begin{proof}
+This follows immediately from Theorems \ref{???}
+\end{proof}
+
+\begin{remark}
+It is worth noting that we have not assumed that the base field is characteristic zero (although in characteristic $p$ we do need that the global dimension is nonzero), that the field is algebraically closed, or that the category is split semisimple.  
+
+The latter observation has some consequences, as it shows that if $\cC$ has an incomplete rational form over a field $k$ (see \cite{???}), then the Turaev-Viro invariants attached to $\cC$ lie in this smaller field.  Previous constructions require that $\cC$ have a complete (or split) rational form.  For example, $\Rep(G)$ has an incomplete rational form over $\QQ$, and thus the invariants lie in $\QQ$.  (In that specific case, we can see that more directly since $\Rep(G)$ is Morita equivalent to $\Vec(G)$ and the latter has a complete rational form over $\QQ$.)
+\end{remark}
+
+Although the last step of this argument looks very straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCss$ is a subcategory of $\TC$, that is to say on the theorem of ENO that the Deligne tensor product of semisimple module categories over a semisimple category of nonzero global dimension is semisimple.\NS{We should think through the multi-fusion version of this statement, the right condition is probably nonzero global dimension of all the component fusion categories.}  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
+
+
 %%% Stuff moved to section 2  -CSP
 
 \begin{lemma} \label{lma:2morAdjunction}
@@ -1896,44 +1921,22 @@ Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying fun
 \end{proof}
 
 \begin{remark}
-In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.
+In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.  When $\cB = \Vec$ this theorem is just the fact that functors out of semisimple categories are exact.
 \end{remark}
 
-\begin{corollary}
-Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
-\end{corollary}
-\begin{proof}
-Apply the above corollary with $\cB = \mathrm{Vec}$.
-\end{proof}
-
-Thus we have proven:
+\begin{lemma}
+The following bimodules are exact \NScomm{fill them in}.  If in addition $Z(\cC)$ is semisimple, then \NS{fill in} is also exact.
+\end{lemma}
 
 \begin{theorem}
-	If $\cC$ is a finite rigid tensor category such that $Z(\cC)$ is semisimple, then $\cC$ is 3-dualizable in $\TCfin$. 
+If $\cC$ is a rigid finite tensor category such that $Z(\cC)$ is semisimple, then $\cC$ is fully dualizable.
 \end{theorem}
-
-\begin{corollary}
- $\TCss$ is fully 3-dualizable.
-\end{corollary}
-
 \begin{proof}
-	An fusion category of non-zero global dimension satisfies the assumptions of the previous theorem. \CSPcomm{[get reference, ENO?]}
 \end{proof}
 
-
-%\subsection{Fusion categories are fully dualizable}
-
-
-\begin{corollary}
-If $\cC$ is a multi-fusion category with non-zero global dimension then there exists a fully extended $3$-dimensional $3$-framed TFT which sends the positively framed point to $\cC$, furthermore up to isomorphism there is exactly one such TFT.
-\CSP{How/where do we use the non-zero global dimension? It must be in the semisimplicity assumption?}
-\end{corollary}
-
 \begin{remark}
-It is worth noting that we have not assumed that the base field is characteristic zero or algebraically closed.
+Semisimplicity of $Z(\cC)$ implies semisimplicity of $\cC$, since $\cC$ is exact as a $Z(\cC)$ module.  Thus the previous theorem is strictly weaker than the earlier theorem.  Nonetheless, it separates out the ``formal" part of the theorem, from the less formal proof that $Z(\cC)$ is semisimple.  In addition, this argument better shows what goes wrong in the non-semisimple case: we have no guarantee that functors out of ${}_\Vec Z(\cC)_\Vec$ have adjoints.  In particular, for non-semisimple categories there are problems defining the $3$-handles.
 \end{remark}
-
-\CDcomm{Somewhere there needs to be a subsection that describes all the elementary 3-framed bordisms, of dimensions 0,1,2,3, and what their images are under a field theory.  Maybe that happens here?  Do you want the geometric side of the story, ie the notation and conventions for 3-framings explained previously, eg as another subsection of the LFTDim3 section?  (In this case the first paragraph of the subsection "n-framed 1-manifolds" would move back to that spot.)  So then here it would just be in a way a compliation of what's been said so far, made explicit, this bordism goes here, and this one here, and ... .}
 
 \subsubsection{Invariants of elementary 3-framed bordisms}
 
@@ -1941,39 +1944,24 @@ It is worth noting that we have not assumed that the base field is characteristi
 
 \subsection{Noncompact TQFTs and dualizability of finite tensor categories beyond dimension two}
 
-%\begin{theorem}
-%The $(3,2)$ category gotten from $\TCrig$ by discarding all noninvertible $3$-morphisms is fully dualizable.
-%\end{theorem}
-%\begin{proof}
-%This follows immediately from Lemmas ???
-%\end{proof}
-
-We saw previously that every finite tensor category gave rise to a 2-dimensional 2-framed TFT. In fact, we can do better.  As we will see there is a canonical lifting of this TFT to a $3$-framed $2$-dimensional TFT.  Even better, we actually can define the value of the TFT on certain non-invertible $3$-morphisms, the so-called {\em non-compact bordisms}.
-
-\begin{definition}
-Let $Bord_3^{\text{nc}}$ be the $3$-category where we only allow $3$-dimensional bordisms where every connected component has nonempty intersection with the source.  As with the usual bordism category this comes in different topological flavors (oriented, $3$-framed, etc.).  A noncompact fully extended TFT is a symmetric monoidal functor from $Bord_3^{\text{nc}}$ to another symmetric monoidal $3$-category.
-\end{definition}
+We saw previously that every finite tensor category gave rise to a 2-dimensional 2-framed TFT.  This TFT is categorified, in the sense that diffeomorphisms of $2$-framed surfaces  with boundary give rise to automorphisms of the corresponding bimodule functors.  In fact, we can do better.  If $\cC$ is rigid there is a canonical lifting of this TFT to a $3$-framed $2$-dimensional TFT.  This fact is essentially equivalent to Radford's theorem for the quadruple dual of a finite tensor category.  This suggests that there should be a $3$-dimensional version of this TFT.  In fact, one can define the value of the TFT on certain non-invertible $3$-morphisms, getting some sort of ``non-compact" TFT.  We plan to address this in more detail in a later paper, so we will be brief in this section and not try for the strongest results.
 
 \begin{theorem}
-	For each finite tensor category there is a canonical essentially unique extension of the corresponding 2-framed 2D tqft to a 3-framed non-compact 3D tqft.
+The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category to a $3$-framed $2$-dimensional TFT has a canonical lift to a $2$-framed theory given by the canonical trivialization $\cdot * * * * \rightarrow D \cdot D^{-1}$ where $D$ is the canonical invertibale object.
 \end{theorem}
-
-\begin{remark}
-	To our knowledge this is the first non-trivial construction of 3-dimensional non-compact topological field theories. 
-\end{remark}
-
-\begin{proof} 
-	\CSPcomm{ sketch:
-	\begin{itemize}
-		\item Cite Cobord hypothesis (discussed earlier in section 4) that to give a non-compact tqft is to give a 2D tqft + a certain `non-compactly' non-degenerate morphism.
-		\item Note that by Lemma \ref{lma:2morAdjunction} and discsussion of bordisms, we have all the adjoints necessary to get this  `non-compactly' non-degenerate morphism.
-	\end{itemize}
-	}
+\begin{proof}
 \end{proof}
 
-\CSPcomm{Perhaps we speculate/comment on the relation of these new manifold invariants to others comming from non-semisimple sources?
+The above result is unsatisfactory in two ways.  First, it does not give a topological reason for the appearance of $3$-framings.  We would prefer to have a partially defined $3$-dimensional theory which explains the appearance of a structure group which is naturally attached to $3$-dimensional theories.  Second, it relies on a non-topological proof of Radford's theorem.  These two defects are closely related: a partially defined $3$-dimensional TFT would be automatically $3$-framed and thus would give a topological proof of Radford's theorem.  In fact, as we saw in the last section, most of the $2$-handles automatically have adjoints.  This suggests that most of the $3$-handles can be defined, in particular enough of them to give a topological proof of Radford's theorem.
 
-Perhaps we carry out an explicit non-semisimple example? e.g. Sweedler's 4D Hopf algebra?}
+The following argument can be thought of as a way to make precise the intuition that ``we have enough adjoints of $2$-morphisms to get a $3$-framed theory."
+
+\begin{theorem}
+Left Serre is canonically isomorphic to the right Serre with the iso given by the adjoints whose units have enough adjoints are biadjoints theorem.  \NS{clean this up}
+\end{theorem}
+
+
+
 
 \section{The Serre automorphism and the quadruple dual} \label{sec-serre}
 
