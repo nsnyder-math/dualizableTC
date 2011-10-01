@@ -1589,7 +1589,7 @@ Here is a picture of a $1$-framed manifold:
 \draw[->,outstyle] (0,0) -- +(180:\arrowlength);
 \end{pgfonlayer}
 \end{tikzpicture}
-\]
+\] \CD{Notice that the arrow looks clipped here.  That is because tikzexternalize isn't adding enough margin when it creates pdf, or some such.  This problem will go away when we stop externalizing, and in any case should not be fixed by changing the arrows themselves.}
 The right point is incoming, and the left point is outgoing.  Both boundary points inherit framings isomorphic to the second picture in example~\ref{eg-framenot0}.  Here is a picture of a $2$-framed manifold:
 \[
 \begin{tikzpicture}
@@ -1723,8 +1723,8 @@ Explicitly the 1-framed field theory $F_\cC$ associated to the finite tensor cat
 \begin{tikzpicture}
 \draw[linestyle] (0,0) -- (1,0);
 \begin{pgfonlayer}{background}
-\draw[->,outstyle] (0,0) -- +(180:\arrowlength);
-\draw[->,outstyle] (1,0) -- +(0:\arrowlength);
+\draw[->,outstyle] (0,0) -- +(-\arrowlength,0);
+\draw[->,outstyle] (1,0) -- +(\arrowlength,0);
 \end{pgfonlayer}
 \end{tikzpicture}
 }
@@ -2022,7 +2022,7 @@ We now depict a few 2-framed 2-manifolds, together with their invariants:
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
 }
-& & \\
+& $\Vect \xra{1 \btimes 1} {\cC \btimes_{\cC \btimes \cC^\mp} \cC}$ & \\
 \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fill=\fillcolor] 
