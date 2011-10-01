@@ -1733,10 +1733,10 @@ Explicitly the 1-framed field theory $F_\cC$ associated to the finite tensor cat
 \begin{tikzpicture}
 \draw[linestyle] (0,0) circle (\circlerad);
 \begin{pgfonlayer}{background}
-\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (\circlerad,0) -- +(-90:1.6*\arrowlength);
-\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (-\circlerad,0) -- +(90:1.6*\arrowlength);
-\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (0,\circlerad) -- +(0:1.6*\arrowlength);
-\draw[->,line width=1.25*\arrowwidth,\arrowcolor] (0,-\circlerad) -- +(180:1.6*\arrowlength);
+\draw[-left to,line width=1.25*\arrowwidth,black!50] (\circlerad,0) -- +(-90:1.6*\arrowlength);
+\draw[-left to,line width=1.25*\arrowwidth,black!50] (-\circlerad,0) -- +(90:1.6*\arrowlength);
+\draw[-left to,line width=1.25*\arrowwidth,black!50] (0,\circlerad) -- +(0:1.6*\arrowlength);
+\draw[-left to,line width=1.25*\arrowwidth,black!50] (0,-\circlerad) -- +(180:1.6*\arrowlength);
 \end{pgfonlayer}
 \end{tikzpicture}
 }
@@ -2017,10 +2017,43 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 We now depict a few 2-framed 2-manifolds, together with their invariants:
 \begin{table}[!h]
 \begin{tabular}{c|cl}
-disc fuzz out & & \\
-four point saddle star, fuzz top and bot, arrows right & & \\
-disc fuzz in & & \\
-disc fuzz out with two discs removed & & 
+\cb{
+\begin{tikzpicture}
+\filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
+\end{tikzpicture}
+}
+& & \\
+\cb{
+\begin{tikzpicture}
+\filldraw[linestyle,fill=\fillcolor] 
+	(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0)
+		.. controls (.75,.25) and (.75,.75) .. (1,1)
+		.. controls (.75,.75) and (.25,.75) .. (0,1)
+		.. controls (.25,.75) and (.25,.25) .. (0,0);
+\draw[linestyle,fuzzright]
+	(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0);
+\draw[linestyle,fuzzleft]
+	(0,1) .. controls (.25,.75) and (.75,.75) .. (1,1);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (1,1) -- +(45:\arrowlength);
+	\draw[->,outstyle] (1,0) -- +(-45:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+& & \\
+\cb{
+\begin{tikzpicture}
+\filldraw[linestyle,fill=\fillcolor] (0,0) circle (\circlerad);
+\end{tikzpicture}
+}& & \\
+\cb{
+\begin{tikzpicture}
+\filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
+\filldraw[linestyle,fill=white] (-.4*\circlerad,0) circle (.22*\circlerad);
+\filldraw[linestyle,fill=white] (.4*\circlerad,0) circle (.22*\circlerad);
+\end{tikzpicture}
+}
+& & 
 \end{tabular}
 \end{table}
 
