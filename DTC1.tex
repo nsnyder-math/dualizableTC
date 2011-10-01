@@ -59,7 +59,7 @@
 \title{$3$-dimensional topology and finite tensor categories}
 
 \begin{abstract}
-The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensional topological field theory.  We generalize this construction in three ways. First we construct a fully local 0123 extended TFT (improving on Balsam and Kirillov's 123 TFT).  Second, we relax the assumption of sphericality on the fusion category; an arbitrary fusion category gives a $3$-framed TFT while an additional choice of spherical structure yields an oriented TFT.  Finally, we show that finite tensor categories give fully extended theories which are only defined on certain $3$-dimensional bordisms.  This correspondence between finite tensor categories and TFTs allows one to translate algebraic statements and arguments into topology and vice-versa.  We give two main examples of this correspondence.  We explain how various adjectives describing fusion categories (e.g. spherical) relate to topological adjectives describing the TFT.  Also, we reprove the fact that the quadruple dual functor is trivial by showing that it is essentially equivalent to the fact that $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$.
+The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensional topological field theory.  We generalize this construction in three ways. First we construct a fully local 0123 extended TFT.  Second, we relax the assumption of sphericality on the fusion category; an arbitrary fusion category gives a $3$-framed TFT.  Finally, we show that finite tensor categories give fully extended theories which are only defined on certain $3$-dimensional bordisms.  This correspondence between finite tensor categories and TFTs allows one to translate algebraic statements and arguments into topology and vice-versa.  We give two main examples of this correspondence.  We explain how various adjectives describing fusion categories (e.g. spherical) relate to topological adjectives describing the TFT.  Also, we reprove several theorems about the quadruple dual functor by relating them to the fact that $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$.
 \end{abstract}
 	
 \author{Christopher L. Douglas}
@@ -94,16 +94,13 @@ The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensio
 % 1.1. Background and motivation
 % 1.2. Results
 % 1.3. Acknowledgments
+An $n$-dimensional topological field theory, according to Atiyah and Segal, is a symmetric monoidal functor from the category of $n$-dimensional bordisms to the category of vector spaces.  Thus, a TFT assigns to any closed $(n-1)$-manifold a vector space, and to any $n$-dimensional bordism it assigns a linear function between the corresponding vector spaces.  In particular, to a closed $n$-manifold a TFT assigns an endomorphism of the trivial vector space, that is a scalar.  Thus, TFTs can be thought of as topological invariants which can be computed by chopping the manifold up into smaller pieces.  A fully local (or fully extended) TFT allows one to cut the manifold not just along codimension one boundaries, but allows boundaries with corners of arbitrary codimension.  To state this rigorously we must understand the structure of cobordisms with corners.  Just as ordinary bordisms from a symmetric monoidal category, bordisms with corners  form a symmetric monoidal $n$-category.  Rigorously, a fully local TFT is a functor of symmetric $n$-categories from the $n$-category of bordisms with corners to another symmetric monoidal $n$-category.  Because points are much simpler than $(n-1)$-manifolds, fully local theories can be easier to understand than ordinary TFTs.
 
-\CDcomm{The story: ``Fusion categories provided local field theories, and the structure (pivotality) of the fusion category corresponds to the structure (spinness) of the local field theory."}
-
-\CDcomm{We are aiming to keep this paper to 30 pages.}
-
-An $n+1$-dimensional topological field theory, according to Atiyah and Segal, is a symmetric monoidal functor from the category of $n+1$-dimensional bordisms to the category of vector spaces.  So, a TFT assigns to any closed $n$-manifold a vector space, and to any bordism it assigns a linear function between the corresponding vector spaces.  In particular, to a closed $n+1$-manifold a TFT assigns an endomorphism of the trivial vector space, that is a scalar.  Thus, TFTs can be thought of as topological invariants which can be computed by chopping the manifold up into smaller pieces.  A fully local (or fully extended) TFT allows one to cut the manifold not just along codimension one boundaries, but allows boundaries with corners of arbitrary codimension.  To state this rigorously we must understand the structure of cobordisms with corners.  Just as ordinary bordisms from a symmetric monoidal category, bordisms with corners  form a symmetric monoidal $n$-category.  Rigorously, a fully local TFT is a functor of symmetric $n$-categories from the $n$-category of bordisms with corners to another symmetric monoidal $n$-category.  
-
-The Turaev-Viro construction (as generalized by Ocneanu and Barrett--Westbury) assigns to any spherical fusion category a 3-dimensional topological field theory.  We generalize this construction in two ways.  First we construct a fully local $0123$ extended TFT.  This local TFT takes values in the $3$-category $\TC$ (whose whose objects, $1$-morphisms, $2$-morphisms, and $3$-morphisms are tensor categories, bimodule categories, functors, and natural transformations, respectively) and the fusion category arises as the image of a point.  Second, we relax the assumption of sphericality on the fusion category.  TFTs come in flavors depending on the topological structure put on the bordism category (e.g. orientation, spin structure, etc.).  An arbitrary fusion category gives a $3$-framed TFT while the additional choice of spherical structure gives an oriented TFT.  Third we relax semisimplicity, to get a ``non-compact" fully local $3$-framed $3$-dimensional TFT.  Non-compact means that the TFT is only defined on $3$-dimensional bordism where each connected component intersects the incoming boundary nontrivially.
+The Turaev--Viro construction (as generalized by Ocneanu and Barrett--Westbury) assigns to any spherical fusion category a 3-dimensional topological field theory.  We generalize this construction in three ways.  First we construct a fully local $0123$ extended TFT which extends the Turaev-Viro theory.  This local TFT takes values in the $3$-category $\TC$ (whose whose objects, $1$-morphisms, $2$-morphisms, and $3$-morphisms are tensor categories, bimodule categories, functors, and natural transformations, respectively) and the fusion category arises as the image of a point.  Second, we relax the assumption of sphericality on the fusion category.  TFTs come in flavors depending on the topological structure put on the bordism category (e.g. orientation, spin structure, etc.).  An arbitrary fusion category gives a $3$-framed TFT while the additional choice of spherical structure gives an oriented TFT.  Third we relax semisimplicity, to get a ``non-compact" fully local $3$-framed $3$-dimensional TFT.  Non-compact means that the TFT is only defined on $3$-dimensional bordism where each connected component intersects the incoming boundary nontrivially.
 
 Each of these generalizations is inspired by the cobordism hypothesis (originally proposed by Baez-Dolan, but improved and proved by Lurie) which gives a classification of local TFTs.  This classification states that an $n$-dimensional $n$-framed local field theory is determined (up to isomorphism) by the image of a point, and furthermore the possible images of points are exactly the ``fully dualizable" objects in the target $n$-category.  Finally, other flavors of $n$-dimensional local field theories are given by homotopy fixed points of actions of certain groups on the fully dualizable objects.  In particular, being fully dualizable is a {\bf property} while being a homotopy fixed point is a {\bf choice of structure}.  Note that being fusion is a property (semisimple, finitely many simple objects, tensor product is exact), while being spherical is a structure (choice of natural isomorphism between the identity and the double dual).  Finite tensor categories satisfy all but one of the conditions of being fully dualizable, this condition corresponds exactly to the $3$-handle, and so the proof of the cobordism hypothesis gives a non-compact field theory.
+
+The generator of $\pi_1(\mathrm{SO}_3)$ corresponds to the interval with a nontrivial $3$-framing.  Lurie calls the image of this generator under the TFT the Serre automorphism.  For our TFT the Serre automorphism is $\cC$ as $\cC$--$\cC$ module category where one of the actions has been twisted by the double dual.  Thus, the fact that $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$ says something about the quadruple dual functor.  In particular, if $\cC$ is a finite tensor category, this gives a topological proof of the generalization of Radford's formula stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories it is easy to see from the topological proof that $D \cong 1$, and thus that the quadruple dual for fusion categories is trivial.  This makes rigorous the intuition (stated in \cite{}) that Radford's theorem is related to the belt trick.    In addition, since this framing on the interval induces the same orientation as the usual framing, finding an oriented field theory requires picking a trivialization of the of Serre.  This explains the appearance of the sphericality condition in the study of oriented field theories.
 
 In addition to the local TFT story, there are two other narratives that this work fits into.  The early history of fusion categories was heavily topological.  However, the topological approach seemed to require extra assumptions (like sphericality for fusion categories or ribbon for braided tensor categories).  In part to avoid these unnecessary assumptions, a more purely algebraic approach to the theory of fusion categories was developed by Etingof, Nikshych, Ostrik, and others.  One of the main points of this paper is that this algebraic approach can be brought back in touch with topology.  In fact, many of the algebraic results turn out to be well motivated from the topological point of view.   The second narrative is that this paper can be thought of as a category theoretic approach to the theory of fusion categories.  The main philosophy of category theory is that instead of studying something by looking inside them at their elements, you can instead study objects by looking outside them at their relationship to other objects.  Thus the category theoretic perspective on fusion categories, should avoid looking inside the category at the object and morphisms, and instead concentrate on the bimodules between fusion categories.
 
@@ -804,7 +801,7 @@ This is easily seen to be strictly compatible with composition in $\Gamma^\text{
 
 \subsection{Symmetric monoidal $(\infty,3)$-categories}
 
-\NScomm{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
+\NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
 \begin{definition}
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
@@ -1978,169 +1975,7 @@ Let $Bord_3^{\text{nc}}$ be the $3$-category where we only allow $3$-dimensional
 
 Perhaps we carry out an explicit non-semisimple example? e.g. Sweedler's 4D Hopf algebra?}
 
-\section{The Serre automorphism of a fusion category} \label{sec-serre}
-
-
-\CDcomm{(1a) Any fusion category is dualizable; (1b) any dualizable category has a Serre automorphism; (2) any fusion category has a monoidal functor $*: \cC \ra \cC^{\op}$.  Therefore for any fusion category it makes sense to compare the Serre bimodule and the bimodule associated to the tensor functor $** : \cC \ra \cC$.}
-
-
-\subsection{The universal Serre automorphism} \label{sec-univserre}
-
-
-We now define the Serre automorphism.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-oriented point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ in Figure~\ref{fig-serre}.  This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal Serre automorphism}.  
-
-\CDcomm{[Figure of loop in R2, normally oriented] --- IMPT: for the upward normal orientation, the loop should go down.}
-
-\begin{proposition}
-When $n \geq 3$, the universal Serre automorphism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.
-\end{proposition}
-
-\begin{proof}
-\CDcomm{[Just draw the bordisms back and forth and indicate the bordism from the two composites to the identity? Is there a clear way to say what those bordisms of 2-manifolds immersed in $\RR^3$ are?]}
-\end{proof}
-%This can be seen by observing that there is a normally-oriented immersed bordism in $\RR^3$ from the square of the Serre 1-manifold to the trivial 1-manifold.
-
-Whenever $a$ is a dualizable object in a symmetric monoidal n-category $\cA$, there is a functor $\cF_a: \FrBord_0^n \ra \cA$ taking the standard positively-oriented point to $a$.  The image of the universal Serre automorphism under this functor is called the Serre automorphism of $a$ and is denoted $\cS_a : a \ra a$.  This automorphism is again an involution.
-
-\begin{corollary} \label{cor-serreinvol}
-Let $a$ be a dualizable object of a symmetric monoidal n-category $\cA$.  Provided $n \geq 3$, the square $\cS_a^2 : a \ra a$ of the Serre automorphism $\cS_a$ of $a$ is equivalent to the identity of $a$.
-\end{corollary}
-
-\CD{Do we want to sort out the precise conditions needed, ie that $a \in \cA$ only needs to be 2-dualizable, or 2.5-dualizable?  This would slightly generalize the $****=1$ result.  cf ENOII.}
-
-\subsection{The Serre automorphism is the double dual}
-
-For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
-
-\begin{proposition}
-Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to the following composite:
-$$\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$$
-\end{proposition}
-
-The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
-
-We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
-
-%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
-
-\begin{theorem} \label{thm-serre}
-If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
-\end{theorem}
-
-\begin{proof}
-We compute $\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$ in two steps.  
-
-First we consider $\tau_{a^\vee,a} \circ  \ev^*$.  By Lemma \ref{lem:dual-formula-for-adjoints}, $\ev^*$ is $\cC^{\op}$ as a $\Vect$--${\cC \boxtimes \cC^{\mp}}$ bimodule where the action is given by $m\cdot (x \boxtimes y) = {}^*y \otimes m \otimes x^*$ (here we've used that the left dual in $\cC^{\mp}$ is the right dual in $\cC$).  Hence, $\tau_{a^\vee,a} \circ  \ev^*$ is $\cC^{op}$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^*y \otimes c \otimes x^*$.  Taking right duals, we see that $\tau_{a^\vee,a} \circ  \ev^*$ equivalent to $\cC$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^{**}y \otimes c \otimes x$.
-
-Now we compose with $\ev \boxtimes \id_a$, which just turns a right $\cC^{\mp}$ action into a left $\cC$ action.  So $\cS_a$ is equivalent to $\cC$ as a  $\cC$--$\cC$ bimodule, where the action is given by $y \cdot c \cdot x=  {}^{**}y \otimes c \otimes x$.
-\end{proof}
-
-
-
-\subsection{(Old) Computing the Serre automorphism} \label{sec-serre-comp}
-
-
-For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\rd{\ev}: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$ and let $\ld{\coev}: a^{\vee} \otimes a \ra 1$ be the left adjoint to $\coev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
-
-\begin{proposition} \label{prop-serrecomp}
-Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to both of the following composites:
-\begin{align}
-\cS_a & \simeq (\id_a \otimes \rd{\ev}) (\tau \otimes \id_{a^{\vee}}) (\id_a \otimes \ev) \nn\\
-\cS_a & \simeq (\coev \otimes \id_a) (\id_{a^{\vee}} \otimes \tau) (\ld{\coev} \otimes \id_a) \nn
-\end{align}
-\end{proposition}
-\CD{the composition order here is geometric}
-
-The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
-
-\begin{remark}
-If $n \geq 3$, then the adjunctions of 1-morphisms are ambidextrous, and so the equations for the Serre automorphism given in the proposition could as well have used $\ld{\ev}$ and $\rd{\coev}$ instead.
-\end{remark}
-
-%%%
-
-We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
-
-%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
-
-\begin{theorem} \label{thm-serre}
-If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
-\end{theorem}
-
-\begin{proof}
-
-%Recall that the evaluation and coevaluation of the duality between $\cC$ and $\cC^{\mp}$ are the bimodules $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$ and $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, these bimodules have adjoints, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{(\cC \otimes \cC^{\mp})-\mod}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$ and $\ld{\coev} = \bimod{\cC^{\mp} \otimes \cC}{\Hom_{\mod-(\cC^{\mp} \otimes \cC)}(\cC,\cC^{\mp} \otimes \cC)}{\Vect}$.
-
-Recall that the evaluation of the duality between $\cC$ and $\cC^{\mp}$ is the bimodule $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, this bimodule has an adjoint, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$.  By Proposition~\ref{prop-serrecomp}, the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ can be expressed as
-\begin{equation} \nn
-\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC \otimes \cC^{\mp}) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
-\end{equation}
-which can be compacted into the expression
-\begin{equation} \nn
-\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
-\end{equation}
-where the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp}))$ is the tensor of the expected right actions, but the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \cC)$ is given by switching the two $\cC$ factors of $\cC \otimes \cC \otimes \cC^{\mp}$ and then acting by the tensor of the expected left actions.
-
-The bimodule associated to the double dual functor $\ldd{(-)}: \cC \ra \cC$ can be written as $\bimod{\cC}{\cD}{\cC} := \bimod{\cC}{\cC \dtimes_{\cC} \cC}{\cC}$; here the $\cC$--$\cC$ bimodule structure on ${\cC \dtimes_{\cC} \cC}$ is standard, and the tensor $\dtimes_{\cC}$ occurs with respect to the standard right action of $\cC$ on $\cC$ and with respect to the \emph{right} double dual left action of $\cC$ on $\cC$, that is the left action induced by the functor $\rd{(-)}: \cC \ra \cC$.
-
-As the double dual bimodule is cyclic, the equivalence between the double dual bimodule and the Serre bimodule can be specified by its value on the unit:
-\begin{align}
-\cC \dtimes_{\cC} \cC 
-& \xra{\phi} 
-(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC, \cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC) 
-\nn\\
-1 \dtimes 1 
-& \mapsto 
-(1 \otimes (1 \mapsto \sum_{\sigma \in \cI} (\sigma \otimes \ld{\sigma}))) \dtimes (1 \otimes 1)
-\nn
-\end{align}
-As before, $\cI$ indexes the simple objects of $\cC$.  To check that this map is well defined, we need to know, since $a \otimes 1 \simeq 1 \otimes \ldd{a} \in \cC \dtimes_{\cC} \cC$, that $a \phi(1 \otimes 1) \simeq \phi(1 \otimes 1) \ldd{a}$.  \CDcomm{[Recheck the rest of this proof and add more explanation if necessary.]}  This is true provided $\sum_{\sigma \in \cI} \sigma \otimes a \; \ld{\sigma} \simeq \sum \sigma \; \ldd{a} \otimes \ld{\sigma}$.  That equivalence holds because of the isomorphism of structure constants,
-\begin{equation} \nn
-N^{\ld{\tau}}_{a, \ld{\sigma}} = N^{\ldd{\sigma}}_{\ldd{\tau}, a} = N^{\sigma}_{\tau, \ldd{a}}
-\end{equation}
-\CDcomm{[Comment about why this map is an equivalence.]}
-
-\CD{The proof is slightly sketchy on the distinction between equality and iso and how much naturality is needed of the isos.}
-
-
-\end{proof}
-
-%!% \CDcomm{Comment: The above proof uses the expression for the adjoint that is Hom over $\cC \otimes \cC^{\mp}$.  I did it this way because the proofs in section 4 produce that as the adjoint.  However, we know, I think, that when an adjoint exists, the adjoint is also equal to $Hom_{\Vect}(\cC,\Vect)$---see ENOII "Next steps on adjoints", though that is written for right adjoints, so would show that the $\Vect$-Hom is an adjoint for the coevaluation.  In any case, we could instead have explained why the $\Vect$-Hom is also an adjoint, and then used that expression to calculate Serre.  The calculation of Serre is probably more straightforward then, as some of the fiddling has been moved into comparing the two adjoint expressions.  At a minimum, we should probably add a remark, attempted below.}
-
-\begin{remark}
-The Serre automorphism of a fusion category can be identified with the double dual in a slightly different way, as follows.  Observe that $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ is a right adjoint to the coevaluation bimodule $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  \CDcomm{[sentence or more explaning why, or perhaps this fact will be a proposition earlier in the paper]}  
-
-Both the coevaluation bimodule $\coev_{\cC}$ and its right adjoint $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ are semisimple with finitely many simple objects.  By Proposition~\ref{prop-functadj}, both the unit and counit of the adjunction between them will have left adjoints.  Proposition~\ref{prop-ambiadjoints} therefore ensures that $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ is also a left adjoint to $\coev_{\cC}$, and so can be used in the second expression for the Serre automorphism given in Proposition~\ref{prop-serrecomp}.  This gives the equivalence
-\begin{equation} \nn
-\cS \simeq (\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect) \otimes \cC)
-\end{equation}
-Here the left action of $\cC^{\mp} \otimes \cC \otimes \cC$ is the expected one, but the right action is twisted by switching the two $\cC$ factors.  As before let $\cD = \cC \dtimes_{\cC} \cC$ be the double dual bimodule, where the right action of $\cC$ on $\cC$ is standard, but the left action of $\cC$ on $\cC$ is via the right double dual functor.  
-
-Now define an equivalence between the Serre bimodule $\cS$ and the double dual bimodule $\cD$, as follows:
-\begin{align}
-(\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom(\cC,\Vect) \otimes \cC) & \ra \cC \dtimes_{\cC} \cC \nn\\
-(m, n) \dtimes (e_p, q) & \mapsto (n \rd{p}, mq)
-\end{align}
-Here $e_p \in \Hom(\cC,\Vect)$ is defined by $e_p(r) = \Hom(p,r)$.  As in the above proof, you need to check that this map is well defined, and that it is an equivalence.
-\end{remark}
-
-\subsection{The quadruple dual is trivial} \label{sec-serre-quad}
-
-\CDcomm{This section needs to include a precise statement not only that the quad dual functor is bimodule trivial, but of what exactly the canonical trivialization of that bimodule is.}
-
-\begin{lemma}[Bimodulification Lemma]
-Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalent as monoidal functors.
-\end{lemma}
-\CD{cf "bimodulatification trivial" in ENOII.}
-
-\begin{theorem} \label{thm-quaddual}
-If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \cC$ is naturally equivalent as a monoidal functor to the identity.
-\end{theorem}
-%\CDcomm{To state the theorem as "dualizable => ****=1", we'd need to show that a dualizable tensor category has a dualization functor $*$, which is a piece of the converse, ie of DTCII.}
-
-\begin{proof}
-...
-\end{proof}
+\section{The Serre automorphism and the quadruple dual} \label{sec-serre}
 
 
 
@@ -2399,6 +2234,170 @@ Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor c
 
 
 \section{CD's dustbin/workbin}
+
+\section{NS's dustbin/workbin}
+
+\CDcomm{(1a) Any fusion category is dualizable; (1b) any dualizable category has a Serre automorphism; (2) any fusion category has a monoidal functor $*: \cC \ra \cC^{\op}$.  Therefore for any fusion category it makes sense to compare the Serre bimodule and the bimodule associated to the tensor functor $** : \cC \ra \cC$.}
+
+
+\subsection{The universal Serre automorphism} \label{sec-univserre}
+
+
+We now define the Serre automorphism.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-oriented point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ in Figure~\ref{fig-serre}.  This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal Serre automorphism}.  
+
+\CDcomm{[Figure of loop in R2, normally oriented] --- IMPT: for the upward normal orientation, the loop should go down.}
+
+\begin{proposition}
+When $n \geq 3$, the universal Serre automorphism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.
+\end{proposition}
+
+\begin{proof}
+\CDcomm{[Just draw the bordisms back and forth and indicate the bordism from the two composites to the identity? Is there a clear way to say what those bordisms of 2-manifolds immersed in $\RR^3$ are?]}
+\end{proof}
+%This can be seen by observing that there is a normally-oriented immersed bordism in $\RR^3$ from the square of the Serre 1-manifold to the trivial 1-manifold.
+
+Whenever $a$ is a dualizable object in a symmetric monoidal n-category $\cA$, there is a functor $\cF_a: \FrBord_0^n \ra \cA$ taking the standard positively-oriented point to $a$.  The image of the universal Serre automorphism under this functor is called the Serre automorphism of $a$ and is denoted $\cS_a : a \ra a$.  This automorphism is again an involution.
+
+\begin{corollary} \label{cor-serreinvol}
+Let $a$ be a dualizable object of a symmetric monoidal n-category $\cA$.  Provided $n \geq 3$, the square $\cS_a^2 : a \ra a$ of the Serre automorphism $\cS_a$ of $a$ is equivalent to the identity of $a$.
+\end{corollary}
+
+\CD{Do we want to sort out the precise conditions needed, ie that $a \in \cA$ only needs to be 2-dualizable, or 2.5-dualizable?  This would slightly generalize the $****=1$ result.  cf ENOII.}
+
+\subsection{The Serre automorphism is the double dual}
+
+For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
+
+\begin{proposition}
+Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to the following composite:
+$$\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$$
+\end{proposition}
+
+The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
+
+We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
+
+%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
+
+\begin{theorem} \label{thm-serre}
+If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
+\end{theorem}
+
+\begin{proof}
+We compute $\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$ in two steps.  
+
+First we consider $\tau_{a^\vee,a} \circ  \ev^*$.  By Lemma \ref{lem:dual-formula-for-adjoints}, $\ev^*$ is $\cC^{\op}$ as a $\Vect$--${\cC \boxtimes \cC^{\mp}}$ bimodule where the action is given by $m\cdot (x \boxtimes y) = {}^*y \otimes m \otimes x^*$ (here we've used that the left dual in $\cC^{\mp}$ is the right dual in $\cC$).  Hence, $\tau_{a^\vee,a} \circ  \ev^*$ is $\cC^{op}$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^*y \otimes c \otimes x^*$.  Taking right duals, we see that $\tau_{a^\vee,a} \circ  \ev^*$ equivalent to $\cC$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^{**}y \otimes c \otimes x$.
+
+Now we compose with $\ev \boxtimes \id_a$, which just turns a right $\cC^{\mp}$ action into a left $\cC$ action.  So $\cS_a$ is equivalent to $\cC$ as a  $\cC$--$\cC$ bimodule, where the action is given by $y \cdot c \cdot x=  {}^{**}y \otimes c \otimes x$.
+\end{proof}
+
+
+
+\subsection{(Old) Computing the Serre automorphism} \label{sec-serre-comp}
+
+
+For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\rd{\ev}: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$ and let $\ld{\coev}: a^{\vee} \otimes a \ra 1$ be the left adjoint to $\coev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
+
+\begin{proposition} \label{prop-serrecomp}
+Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to both of the following composites:
+\begin{align}
+\cS_a & \simeq (\id_a \otimes \rd{\ev}) (\tau \otimes \id_{a^{\vee}}) (\id_a \otimes \ev) \nn\\
+\cS_a & \simeq (\coev \otimes \id_a) (\id_{a^{\vee}} \otimes \tau) (\ld{\coev} \otimes \id_a) \nn
+\end{align}
+\end{proposition}
+\CD{the composition order here is geometric}
+
+The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
+
+\begin{remark}
+If $n \geq 3$, then the adjunctions of 1-morphisms are ambidextrous, and so the equations for the Serre automorphism given in the proposition could as well have used $\ld{\ev}$ and $\rd{\coev}$ instead.
+\end{remark}
+
+%%%
+
+We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
+
+%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
+
+\begin{theorem} \label{thm-serre}
+If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
+\end{theorem}
+
+\begin{proof}
+
+%Recall that the evaluation and coevaluation of the duality between $\cC$ and $\cC^{\mp}$ are the bimodules $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$ and $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, these bimodules have adjoints, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{(\cC \otimes \cC^{\mp})-\mod}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$ and $\ld{\coev} = \bimod{\cC^{\mp} \otimes \cC}{\Hom_{\mod-(\cC^{\mp} \otimes \cC)}(\cC,\cC^{\mp} \otimes \cC)}{\Vect}$.
+
+Recall that the evaluation of the duality between $\cC$ and $\cC^{\mp}$ is the bimodule $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, this bimodule has an adjoint, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$.  By Proposition~\ref{prop-serrecomp}, the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ can be expressed as
+\begin{equation} \nn
+\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC \otimes \cC^{\mp}) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
+\end{equation}
+which can be compacted into the expression
+\begin{equation} \nn
+\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
+\end{equation}
+where the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp}))$ is the tensor of the expected right actions, but the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \cC)$ is given by switching the two $\cC$ factors of $\cC \otimes \cC \otimes \cC^{\mp}$ and then acting by the tensor of the expected left actions.
+
+The bimodule associated to the double dual functor $\ldd{(-)}: \cC \ra \cC$ can be written as $\bimod{\cC}{\cD}{\cC} := \bimod{\cC}{\cC \dtimes_{\cC} \cC}{\cC}$; here the $\cC$--$\cC$ bimodule structure on ${\cC \dtimes_{\cC} \cC}$ is standard, and the tensor $\dtimes_{\cC}$ occurs with respect to the standard right action of $\cC$ on $\cC$ and with respect to the \emph{right} double dual left action of $\cC$ on $\cC$, that is the left action induced by the functor $\rd{(-)}: \cC \ra \cC$.
+
+As the double dual bimodule is cyclic, the equivalence between the double dual bimodule and the Serre bimodule can be specified by its value on the unit:
+\begin{align}
+\cC \dtimes_{\cC} \cC 
+& \xra{\phi} 
+(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC, \cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC) 
+\nn\\
+1 \dtimes 1 
+& \mapsto 
+(1 \otimes (1 \mapsto \sum_{\sigma \in \cI} (\sigma \otimes \ld{\sigma}))) \dtimes (1 \otimes 1)
+\nn
+\end{align}
+As before, $\cI$ indexes the simple objects of $\cC$.  To check that this map is well defined, we need to know, since $a \otimes 1 \simeq 1 \otimes \ldd{a} \in \cC \dtimes_{\cC} \cC$, that $a \phi(1 \otimes 1) \simeq \phi(1 \otimes 1) \ldd{a}$.  \CDcomm{[Recheck the rest of this proof and add more explanation if necessary.]}  This is true provided $\sum_{\sigma \in \cI} \sigma \otimes a \; \ld{\sigma} \simeq \sum \sigma \; \ldd{a} \otimes \ld{\sigma}$.  That equivalence holds because of the isomorphism of structure constants,
+\begin{equation} \nn
+N^{\ld{\tau}}_{a, \ld{\sigma}} = N^{\ldd{\sigma}}_{\ldd{\tau}, a} = N^{\sigma}_{\tau, \ldd{a}}
+\end{equation}
+\CDcomm{[Comment about why this map is an equivalence.]}
+
+\CD{The proof is slightly sketchy on the distinction between equality and iso and how much naturality is needed of the isos.}
+
+
+\end{proof}
+
+%!% \CDcomm{Comment: The above proof uses the expression for the adjoint that is Hom over $\cC \otimes \cC^{\mp}$.  I did it this way because the proofs in section 4 produce that as the adjoint.  However, we know, I think, that when an adjoint exists, the adjoint is also equal to $Hom_{\Vect}(\cC,\Vect)$---see ENOII "Next steps on adjoints", though that is written for right adjoints, so would show that the $\Vect$-Hom is an adjoint for the coevaluation.  In any case, we could instead have explained why the $\Vect$-Hom is also an adjoint, and then used that expression to calculate Serre.  The calculation of Serre is probably more straightforward then, as some of the fiddling has been moved into comparing the two adjoint expressions.  At a minimum, we should probably add a remark, attempted below.}
+
+\begin{remark}
+The Serre automorphism of a fusion category can be identified with the double dual in a slightly different way, as follows.  Observe that $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ is a right adjoint to the coevaluation bimodule $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  \CDcomm{[sentence or more explaning why, or perhaps this fact will be a proposition earlier in the paper]}  
+
+Both the coevaluation bimodule $\coev_{\cC}$ and its right adjoint $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ are semisimple with finitely many simple objects.  By Proposition~\ref{prop-functadj}, both the unit and counit of the adjunction between them will have left adjoints.  Proposition~\ref{prop-ambiadjoints} therefore ensures that $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ is also a left adjoint to $\coev_{\cC}$, and so can be used in the second expression for the Serre automorphism given in Proposition~\ref{prop-serrecomp}.  This gives the equivalence
+\begin{equation} \nn
+\cS \simeq (\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect) \otimes \cC)
+\end{equation}
+Here the left action of $\cC^{\mp} \otimes \cC \otimes \cC$ is the expected one, but the right action is twisted by switching the two $\cC$ factors.  As before let $\cD = \cC \dtimes_{\cC} \cC$ be the double dual bimodule, where the right action of $\cC$ on $\cC$ is standard, but the left action of $\cC$ on $\cC$ is via the right double dual functor.  
+
+Now define an equivalence between the Serre bimodule $\cS$ and the double dual bimodule $\cD$, as follows:
+\begin{align}
+(\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom(\cC,\Vect) \otimes \cC) & \ra \cC \dtimes_{\cC} \cC \nn\\
+(m, n) \dtimes (e_p, q) & \mapsto (n \rd{p}, mq)
+\end{align}
+Here $e_p \in \Hom(\cC,\Vect)$ is defined by $e_p(r) = \Hom(p,r)$.  As in the above proof, you need to check that this map is well defined, and that it is an equivalence.
+\end{remark}
+
+\subsection{The quadruple dual is trivial} \label{sec-serre-quad}
+
+\CDcomm{This section needs to include a precise statement not only that the quad dual functor is bimodule trivial, but of what exactly the canonical trivialization of that bimodule is.}
+
+\begin{lemma}[Bimodulification Lemma]
+Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalent as monoidal functors.
+\end{lemma}
+\CD{cf "bimodulatification trivial" in ENOII.}
+
+\begin{theorem} \label{thm-quaddual}
+If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \cC$ is naturally equivalent as a monoidal functor to the identity.
+\end{theorem}
+%\CDcomm{To state the theorem as "dualizable => ****=1", we'd need to show that a dualizable tensor category has a dualization functor $*$, which is a piece of the converse, ie of DTCII.}
+
+\begin{proof}
+...
+\end{proof}
+
 
 
 \section{CSP's dustbin}
