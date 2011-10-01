@@ -7,6 +7,7 @@
 \usepackage[all]{xy}
 \usepackage{xspace}
 \usepackage{calc}
+\usepackage{comment}
 
 \usepackage{ifthen}		% For if-then-else statements in making commands. 
 
@@ -22,6 +23,8 @@
 
 \pagestyle{plain}
 
+% Useful for commenting out large chunks of code
+\newcommand\ignore[1]{}
 
 %%%%%% Adds hyperlinks
 \usepackage[colorlinks, linkcolor=black, citecolor=blue,
@@ -34,11 +37,14 @@
 %%%%%% Tikz !!! Commands and Macros %%%%%%%%%%%%%
 \usepackage{tikz}
 \usetikzlibrary{matrix}
-\usetikzlibrary{arrows,backgrounds,patterns,
+\usetikzlibrary{arrows,backgrounds,patterns,scopes,external,
     decorations.pathreplacing,
     decorations.pathmorphing
 }
+%\tikzexternalize
 
+\newlength{\fuzzwidth}
+\setlength{\fuzzwidth}{2.5pt}
 \newlength{\arrowlength}
 \setlength{\arrowlength}{8pt}
 \newlength{\arrowwidth}
@@ -57,9 +63,9 @@
 
 \tikzset{
         fuzzright/.style={
-        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-1pt}}},
+        preaction={draw,line width=\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-.5*\fuzzwidth}}},
         fuzzleft/.style={
-        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=1pt}}},
+        preaction={draw,line width=\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=.5*\fuzzwidth}}},
         fuzzrightpre/.style={ %%% Doesn't work
         preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-1pt,pre=moveto,pre length=12pt}}},
         fuzzleftpre/.style={ %%% Doesn't work

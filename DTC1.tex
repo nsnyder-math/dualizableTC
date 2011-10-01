@@ -89,6 +89,8 @@ The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensio
 \tableofcontents
 %%%%%%%%
 
+\ignore{ %!%
+
 \section{Introduction}
 % 1. Introduction
 % 1.1. Background and motivation
@@ -1397,6 +1399,8 @@ Then the required isomorphisms are given by the following composites:
 
 In particular, if you are in a situation where you happen to know a priori that the 2-morphisms $u$ and $v$ will have left adjoints, then you know that any adjoint to the 1-morphism $f$ will be ambidextrous.  % This proposition gets used in the Remark in the section computing the Serre automorphism.
 
+} %!% end ignore
+
 \subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
 
 \begin{definition}
@@ -1456,7 +1460,7 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
-\subsection{Notation for $n$-framed manifolds} \NS{I think this subsection should come earlier in the section} \CD{It's more or less independent, so could go anywhere.  But where would you put it and why?}
+\subsection{Notation for $n$-framed manifolds} \NS{I think this subsection should come earlier in the section} \CD{It's more or less independent, so could go anywhere.  Probably it will move to either just before or after the section on the CH.}
 
 Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \hra \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
 \[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\]
@@ -1465,9 +1469,74 @@ Here the first isomorphism is provided by the inverse of the normal framing $\ph
 When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, because in the codimension-1 case this corona can propogate without ambiguity, it may be indicated only at one point of the manifold.
 
 \begin{example}
-The $2$-framings on the circle are naturally identified with $\mathbb{Z}$, and can be described by the following immersions:
+The set of 2-framings on a circle is a torsor for $\pi_1(SO(2))$.  We use our immersion notation to depict, as follows, a series of 2-framings on the standard circle that represent the elements of this torsor:
+\[\cdots\quad
+\cb{
+\btikz
+{ [xshift=-3cm]
+\draw[linestyle,fuzzleft]
+(.5,0) to [out=-90, in=25] (.3,-.3)
+	to [looseness=1.6, out=-155, in=225] (.15,-.15)
+	to [looseness=1.6, out=45, in=65] (.3,-.3)
+	to [out=245, in=-65] (-.3,-.3)
+	to [looseness=1.6, out=115, in=135] (-.15,-.15)
+	to [looseness=1.6, out=-45, in=-25] (-.3,-.3)
+	to [out=155, in=-90] (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);	
+}
+{ [xshift=-1.5cm]
+\draw[linestyle,fuzzleft]
+(.5,0) to [out=-90, in=-20] (0,-.4)
+	to [looseness=1.6, out=160, in=180] (0,-.1)
+	to [looseness=1.6, out=0, in=20] (0,-.4)
+	to [out=-160, in=-90] (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
+}
+{ [xshift=0cm]
+\draw[linestyle,fuzzleft]
+(.5,0) .. controls (.5,-.66) and (-.5,-.66) .. (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
+}
+{ [xshift=1.5cm]
+\draw[linestyle,fuzzleft,looseness=2]
+(0,.5) to [out=0, in=10] (0,0)
+	to [out=-170, in=180] (0,-.5)
+	to [out=0, in=-10] (0,0)
+	to [out=170, in=180] (0,.5);
+}
+{ [xshift=3cm]
+\draw[linestyle,fuzzright]
+(.5,0) .. controls (.5,-.66) and (-.5,-.66) .. (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
+}
+{ [xshift=4.5cm]
+\draw[linestyle,fuzzright]
+(.5,0) to [out=-90, in=-20] (0,-.4)
+	to [looseness=1.6, out=160, in=180] (0,-.1)
+	to [looseness=1.6, out=0, in=20] (0,-.4)
+	to [out=-160, in=-90] (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
+}
+{ [xshift=6cm]
+\draw[linestyle,fuzzright]
+(.5,0) to [out=-90, in=25] (.3,-.3)
+	to [looseness=1.6, out=-155, in=225] (.15,-.15)
+	to [looseness=1.6, out=45, in=65] (.3,-.3)
+	to [out=245, in=-65] (-.3,-.3)
+	to [looseness=1.6, out=115, in=135] (-.15,-.15)
+	to [looseness=1.6, out=-45, in=-25] (-.3,-.3)
+	to [out=155, in=-90] (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);	
+}
+\etikz
+}
+\quad \cdots
+\]
 
-\NScomm{Image of the various framed circles with the corresponding number written below them.  Don't forget that 0 corresponds to the figure $8$.}
+\nid Note that because a 2-framing induces an orientation, each of these circles may be identified with the standard circle up to orientation preserving diffeomorphism.
+\NS{``The $2$-framings on the circle are naturally identified with $\mathbb{Z}$, and can be described by the following immersions:"}
+\NS{Write the corresponding number below these.  Don't forget that 0 corresponds to the figure $8$.}
+\CD{Sorry, Noah, I'm still not convinced that it is $\ZZ$ rather than a $\ZZ$-torsor.  It's isn't even a $\ZZ$-torsor until you pick a generator of $\pi_1(SO(2))$ but I presume we are doing that globally.}
 \end{example}  
 
 \begin{warning}  \NS{What about in nonzero codimension?  Is there a theorem saying those always come from immersions?}
@@ -1477,7 +1546,7 @@ Not every $n$-framed $n$-manifold can be specified in this way. For example the 
 For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \hra \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \hra \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
 
 \begin{example}
-The unique $1$-framing on the circle induces a $2$-framing on the circle, this $2$-framing agrees with the $2$-framing induced by the immersion labelled $0$ above. 
+The unique $1$-framing on the circle induces a $2$-framing on the circle; that $2$-framing agrees with the $2$-framing induced by the figure 8 immersion above. 
 \end{example}
 
 The association of an $n$-framed manifold to a normally framed immersion works just as well for manifolds with boundary or manifolds with corners.  Moreover, when these manifolds are bordisms, we can fix conventions for how a normal framing (therefore $n$-framing) of the bulk induces a normal framing (therefore $n$-framing) of the boundary.  Given a bordism $M$ without corners, each boundary component of $M$ is labelled either ``in" or ``out", according to whether it is part of the source or target of the bordism.  Now suppose $M$ is equipped with a normally framed immersion $(\iota,\phi)$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is the restriction of the immersion of $M$, and the framing is $(j, s) \subset \nu(N,\RR^n)$, where $j$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Given a higher bordism, that is a manifold $M$ with corners representing a morphism in $\Bord_0^n$, that is equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension zero submanifolds of the boundary of $M$) inherit normal framings exactly as for the boundaries of ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this procedure for inducing normal framings on the boundaries provides consistently defined normal framings to every corner of the original bordism $M$.
@@ -1485,7 +1554,7 @@ The association of an $n$-framed manifold to a normally framed immersion works j
 In drawing manifolds with boundary and corners, we also need to specify which parts of the boundary are incoming and outgoing.  Outgoing pieces of the boundary will be indicated by a small arrow pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  \NS{I vote for decorating all boundaries.  It's clearer and shouldn't be substantially more work.}  \CD{I wanted to as well, but in practice I don't think it looks nice, which is why I went with this.} When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary.  At corners, a combination of these indications will be used.  For instance, an arrow together with a corona on a codimension 2 corner indicates respectively the first and second vectors of the induced framing on the corner.
 
 \begin{warning}
-If $M$ is an $n$-manifold with boundary immersed in $\RR^n$ the corona indicates which boundaries are outgoing, while if $M$ is an $n-1$ manifold with boundary immersed in $\RR^n$ the corona indicates the conormal bundle which determines the framing.  These two usages are entirely compatible: the $n$-framing on the outgoing boundary is in fact given by the conormal bundle which is outgoing from the boundary (while incoming boundaries have their coronas point into the manifold, and thus cannot be seen).  This is explained further in an example below.
+If $M$ is an $n$-manifold with boundary immersed in $\RR^n$ the corona indicates which boundaries are outgoing, while if $M$ is an $n-1$ manifold with boundary immersed in $\RR^n$ the corona indicates the trivialization of the normal bundle.  These two usages are compatible: the induced trivialization of the normal bundle of the outgoing boundary is indeed the outward trivialization, therefore indicated by an outward corona.  By constrast, the trivialization of the normal bundle of an incoming boundary is the inward trivialization, therefore would be indicated by a corona pointing into the bulk manifold; this type of corona is covered by the bulk and therefore cannot be seen.
 \end{warning}
 
 \begin{example} \label{eg-framenot0}
@@ -1532,7 +1601,7 @@ The right point is incoming, and the left point is outgoing.  Both boundary poin
 	.. controls (1.5,.65) and (1.65,1.1) .. (2.75,0);
 \end{tikzpicture}
 \]
-Both boundary points are incoming, and the induced framing on these points are, left to right, respectively the last two points pictured in example~\ref{eg-framenot0}.  Note that corona in this example specifies the framing.
+Both boundary points are incoming, and the induced framing on these points are, left to right, respectively the last two points pictured in example~\ref{eg-framenot0}.  Note that corona in this example specifies the trivialization of the normal bundle.
 \end{example}
 
 \begin{example}
@@ -1542,7 +1611,7 @@ Here is a picture of a $2$-framed manifold:
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
 \]
-Note that here the corona denotes that the boundary is outgoing.  This boundary is the circle with the outward normal framing, thus the two uses of the corona are consistent.
+Note that here the corona denotes that the boundary is outgoing.  This boundary is the circle with the outward trivialization of its normal bundle.  The two uses of the corona are therefore consistent.
 
 Here is a picture of another $2$-framed manifold, specifically a 2-morphism in the 2-category of 2-framed $0$-, $1$-, and $2$-manifolds:
 \[
@@ -1840,20 +1909,108 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 }
 & $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
-loop down fuzz up bordism, arrow right & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
-loop up fuzz up bordism, arrow right & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
-loop down fuzz down bordism, arrow right & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
-loop up fuzz down bordism, arrow right & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
-circle fuzz out & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ \\
-circle fuzz in & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ \\
-circle with outward loop, fuzz out on top & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ \\
-circle with inward loop, fuzz out & $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ \\
-circle with inward loop, fuzz in & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$
+\cb{
+\btikz
+\draw[linestyle,fuzzright] 
+(.7,0) to [out=180, in=20] (0,-.1)
+	to [looseness=1.6, out=-160, in=180] (0,-.4)
+	to [looseness=1.6, out=0, in=-20] (0,-.1)
+	to [out=160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\etikz
+} 
+& $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
+\cb{
+\btikz
+\draw[linestyle,fuzzright] 
+(.7,0) to [out=180, in=-20] (0,.1)
+	to [looseness=1.6, out=160, in=180] (0,.4)
+	to [looseness=1.6, out=0, in=20] (0,.1)
+	to [out=-160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\etikz
+}
+& $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
+\cb{
+\btikz
+\draw[linestyle,fuzzleft] 
+(.7,0) to [out=180, in=20] (0,-.1)
+	to [looseness=1.6, out=-160, in=180] (0,-.4)
+	to [looseness=1.6, out=0, in=-20] (0,-.1)
+	to [out=160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\etikz
+}
+& $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
+\cb{
+\btikz
+\draw[linestyle,fuzzleft] 
+(.7,0) to [out=180, in=-20] (0,.1)
+	to [looseness=1.6, out=160, in=180] (0,.4)
+	to [looseness=1.6, out=0, in=20] (0,.1)
+	to [out=-160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\etikz
+}
+& $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
+\cb{
+\btikz
+\draw[linestyle,fuzzright] (0,0) circle (\smcirclerad);
+\etikz
+}
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ \\
+\cb{
+\btikz
+\draw[linestyle,fuzzleft] (0,0) circle (\smcirclerad);
+\etikz
+}
+& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ \\
+\cb{
+\btikz
+\draw[linestyle,fuzzleft,looseness=2]
+(0,.5) to [out=0, in=10] (0,0)
+	to [out=-170, in=180] (0,-.5)
+	to [out=0, in=-10] (0,0)
+	to [out=170, in=180] (0,.5);
+\etikz
+}
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ \\
+\cb{
+\btikz
+\draw[linestyle,fuzzleft]
+(.5,0) to [out=-90, in=-20] (0,-.4)
+	to [looseness=1.6, out=160, in=180] (0,-.1)
+	to [looseness=1.6, out=0, in=20] (0,-.4)
+	to [out=-160, in=-90] (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
+\etikz
+}
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ \\
+\cb{
+\btikz
+\draw[linestyle,fuzzright]
+(.5,0) to [out=-90, in=-20] (0,-.4)
+	to [looseness=1.6, out=160, in=180] (0,-.1)
+	to [looseness=1.6, out=0, in=20] (0,-.4)
+	to [out=-160, in=-90] (-.5,0)
+	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
+\etikz
+}
+& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$
 \end{tabular}
 \end{table}
 
 \CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
 \NS{Note that you've written the 0-framed circle twice on that list.  I think we should only list it once.}
+\CD{I'm pretty sure all the circles on the list are (and were) distinct.}
 
 \nid Throughout the table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  For the various circles, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariant in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively.
 
@@ -1962,6 +2119,8 @@ Left Serre is canonically isomorphic to the right Serre with the iso given by th
 
 
 
+
+\end{document}
 
 \section{The Serre automorphism and the quadruple dual} \label{sec-serre}
 
@@ -2222,6 +2381,17 @@ Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor c
 
 
 \section{CD's dustbin/workbin}
+
+\ignore{
+{ [xshift=1.5cm]
+\draw[linestyle,fuzzleft]
+(0,.5) .. controls (.5,.5) and (.5,.05) .. (0,0)
+	.. controls (-.5,-.05) and (-.5,-.5) .. (0,-.5)
+	.. controls (.5,-.5) and (.5,-.05) .. (0,0)
+	.. controls (-.5,.05) and (-.5,.5) .. (0,.5);
+}
+}
+
 
 \section{NS's dustbin/workbin}
 
