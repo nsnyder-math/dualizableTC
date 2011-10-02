@@ -2055,6 +2055,8 @@ We now depict a few 2-framed 2-manifolds, together with their invariants:
 
 \CDcomm{Can add to this table: annulus with fuzz out fuzz out; annulus with no fuzz; torus with any framing it is sane to draw ...}
 
+\NScomm{Should we explain what happens in the exact tensor product but not rigid case?}
+
 \CSPcomm{
 [This is a  great spot to explain the 2D TQFT values for some of the low dimensional cobordisms. I guess that in principle we have invertible 3D cobordisms e.g. the diffeos of the pants which induces the braiding on the center of the finite tensor category.]
 }
@@ -2151,6 +2153,76 @@ Left Serre is canonically isomorphic to the right Serre with the iso given by th
 %\end{document} % ignore rest
 
 \section{The Serre automorphism and the quadruple dual} \label{sec-serre}
+
+
+\subsection{The universal Serre automorphism}
+We now define the universal right Serre automorphism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ in Figure~\ref{fig-serre}.  This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal right Serre automorphism}.  
+
+\begin{center}
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft] 
+(.7,0) to [out=180, in=20] (0,-.1)
+	to [looseness=1.6, out=-160, in=180] (0,-.4)
+	to [looseness=1.6, out=0, in=-20] (0,-.1)
+	to [out=160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+
+\begin{remark}
+Consider the interval with one endpoint incoming, the other endpoint outgoing, and both endpoints being the standard positively framed point.  Framings on this interval form a group under composition and can be canonically identified with $\pi_1(\mathbb{SO}_n)$ (with the positively framed point as the basepoint).  When $n=2$, framings on the interval can be canonically identified with $\mathbb{Z}$.  The right universal Serre automorphism corresponds to $+1$ in this group, while the left Serre automorphism corresponds to $-1$.  When we refer to just the Serre automorphism, we mean the right Serre automorphism.
+\end{remark}
+
+The name is motivated by the following example.
+
+\begin{example}
+\NScomm{Take example from Lurie Remark 4.2.4}
+\end{example}
+
+When $n>2$ we have that $\pi_1(\mathrm{SO}_n) \cong \mathbb{Z}/2$, which implies the following fact.
+
+\begin{proposition}
+When $n \geq 3$, the universal right Serre automorphism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism. 
+\end{proposition}
+
+Even better, there is a unique $3$-framed $2$-dimensional bordism of minimal genus from $\cS \circ \cS$ to the trivial, which we call the canonical trivialization of the square of the Serre.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$ where the coorientation is out of the page and the bottom boundary is incoming while the top boundary is outgoing.
+
+\begin{center}
+\includegraphics{cobordism.pdf}
+\end{center}
+
+\NScomm{This diagram should be fixed up a bit.  First we need to indicate the incoming and outgoing boundaries, and second I think with our notation the left and right sides should be contracted down to a point.}
+
+\subsection{The Serre automorphism of $\TC$}
+
+Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the universal Serre automorphism gives an automorphism $\cS_a: a \rightarrow a$.  
+
+We would like to make this definition more explicit.  Let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
+
+\begin{proposition}
+Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to the following composite:
+$$\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$$
+\end{proposition}
+
+We now specialize to our case of interest, namely where the object in question is a finite tensor categroy (which is a dualizable object in the $(3,2)$-category $\TCrig$).
+
+%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
+
+\begin{theorem} \label{thm-serre}
+If $\cC$ is a finite tensor category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
+\end{theorem}
+
+\begin{proof}
+We compute $\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$ in two steps.  
+
+First we consider $\tau_{a^\vee,a} \circ  \ev^*$.  By Lemma \ref{lem:dual-formula-for-adjoints}, $\ev^*$ is $\cC^{\op}$ as a $\Vect$--${\cC \boxtimes \cC^{\mp}}$ bimodule where the action is given by $m\cdot (x \boxtimes y) = {}^*y \otimes m \otimes x^*$ (here we've used that the left dual in $\cC^{\mp}$ is the right dual in $\cC$).  Hence, $\tau_{a^\vee,a} \circ  \ev^*$ is $\cC^{op}$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^*y \otimes c \otimes x^*$.  Taking right duals, we see that $\tau_{a^\vee,a} \circ  \ev^*$ equivalent to $\cC$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^{**}y \otimes c \otimes x$.
+
+Now we compose with $\ev \boxtimes \id_a$, which just turns a right $\cC^{\mp}$ action into a left $\cC$ action.  So $\cS_a$ is equivalent to $\cC$ as a  $\cC$--$\cC$ bimodule, where the action is given by $y \cdot c \cdot x=  {}^{**}y \otimes c \otimes x$.
+\end{proof}
+
+
 
 
 
@@ -2423,43 +2495,7 @@ Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor c
 
 \section{NS's dustbin/workbin}
 
-\CDcomm{(1a) Any fusion category is dualizable; (1b) any dualizable category has a Serre automorphism; (2) any fusion category has a monoidal functor $*: \cC \ra \cC^{\op}$.  Therefore for any fusion category it makes sense to compare the Serre bimodule and the bimodule associated to the tensor functor $** : \cC \ra \cC$.}
-
-
-\subsection{The universal Serre automorphism} \label{sec-univserre}
-
-
-We now define the Serre automorphism.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-oriented point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ in Figure~\ref{fig-serre}.  This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal Serre automorphism}.  
-
-\CDcomm{[Figure of loop in R2, normally oriented] --- IMPT: for the upward normal orientation, the loop should go down.}
-
-\begin{proposition}
-When $n \geq 3$, the universal Serre automorphism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.
-\end{proposition}
-
-\begin{proof}
-\CDcomm{[Just draw the bordisms back and forth and indicate the bordism from the two composites to the identity? Is there a clear way to say what those bordisms of 2-manifolds immersed in $\RR^3$ are?]}
-\end{proof}
-%This can be seen by observing that there is a normally-oriented immersed bordism in $\RR^3$ from the square of the Serre 1-manifold to the trivial 1-manifold.
-
-Whenever $a$ is a dualizable object in a symmetric monoidal n-category $\cA$, there is a functor $\cF_a: \FrBord_0^n \ra \cA$ taking the standard positively-oriented point to $a$.  The image of the universal Serre automorphism under this functor is called the Serre automorphism of $a$ and is denoted $\cS_a : a \ra a$.  This automorphism is again an involution.
-
-\begin{corollary} \label{cor-serreinvol}
-Let $a$ be a dualizable object of a symmetric monoidal n-category $\cA$.  Provided $n \geq 3$, the square $\cS_a^2 : a \ra a$ of the Serre automorphism $\cS_a$ of $a$ is equivalent to the identity of $a$.
-\end{corollary}
-
-\CD{Do we want to sort out the precise conditions needed, ie that $a \in \cA$ only needs to be 2-dualizable, or 2.5-dualizable?  This would slightly generalize the $****=1$ result.  cf ENOII.}
-
 \subsection{The Serre automorphism is the double dual}
-
-For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
-
-\begin{proposition}
-Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to the following composite:
-$$\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$$
-\end{proposition}
-
-The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
 
 We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
 
