@@ -2172,7 +2172,7 @@ We now define the universal right Serre automorphism, which is a particular $1$-
 \end{center}
 
 \begin{remark}
-Consider the interval with one endpoint incoming, the other endpoint outgoing, and both endpoints being the standard positively framed point.  Framings on this interval form a group under composition and can be canonically identified with $\pi_1(\mathbb{SO}_n)$ (with the positively framed point as the basepoint).  When $n=2$, framings on the interval can be canonically identified with $\mathbb{Z}$.  The right universal Serre automorphism corresponds to $+1$ in this group, while the left Serre automorphism corresponds to $-1$.  When we refer to just the Serre automorphism, we mean the right Serre automorphism.
+Consider the interval with one endpoint incoming, the other endpoint outgoing, and both endpoints being the standard positively framed point.  Framings on this interval form a group under composition and can be canonically identified with $\pi_1(\mathrm{SO}_n)$ (with the standard positively framed point as the basepoint).  When $n=2$, framings on the interval can be canonically identified with $\mathbb{Z}$.  The right universal Serre automorphism corresponds to $+1$ in this group, while the left Serre automorphism corresponds to $-1$.  When we refer to just the Serre automorphism, we mean the right Serre automorphism.
 \end{remark}
 
 The name is motivated by the following example.
@@ -2197,7 +2197,7 @@ Even better, there is a unique $3$-framed $2$-dimensional bordism of minimal gen
 
 \subsection{The Serre automorphism of $\TC$}
 
-Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the universal Serre automorphism gives an automorphism $\cS_a: a \rightarrow a$.  
+Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the universal Serre automorphism gives an automorphism $\cS_a: a \rightarrow a$.
 
 We would like to make this definition more explicit.  Let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
 
@@ -2206,12 +2206,16 @@ Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA
 $$\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$$
 \end{proposition}
 
-We now specialize to our case of interest, namely where the object in question is a finite tensor categroy (which is a dualizable object in the $(3,2)$-category $\TCrig$).
+We now specialize to our case of interest, namely where the object in question is a finite tensor categroy (which is a dualizable object in the $(3,2)$-category $\TCrig$).  The answer to this calculation appears in the table in the previous section, but we make the calculation more explicit here.
 
 %\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
+\begin{definition}
+Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is a automorphism of tensor categories.  Let ${}_\cC \cC(\cF)_\cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$.  \NS{Say something about the natural transformation}
+\end{definition}
+
 \begin{theorem} \label{thm-serre}
-If $\cC$ is a finite tensor category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
+If $\cC$ is a finite tensor category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to $\cC(\ldd{(-)})$.
 \end{theorem}
 
 \begin{proof}
