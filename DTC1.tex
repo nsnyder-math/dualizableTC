@@ -1760,7 +1760,7 @@ Recall from the background section that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent a
 
 \begin{lemma}
 The map $\ev: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
-\end{lemma}
+\end{lemma} \CD{I love the adjunction conventions used in this lemma, which probably means they are wrong ...}
 \begin{proof}
 Straightforward.
 \end{proof}
@@ -1866,7 +1866,7 @@ The following table lists four standard 2-framed 0-manifolds along with their as
 
 \nid Notice that the first and fourth (and similarly the second and third) are equivalent, but not canonically equivalent, framed manifolds; their invariants are thus also equivalent, but not canonically so.  Of course, one could write down an equivalent TFT where all positive points are sent to $\cC$ and all negative points are sent to $\cC^{\mp}$, but this would break certain symmetries (in particular, you need to choose which way to identify the second and third points above, and there are two such natural choices).
 
-A generating collection of 2-framed 1-manifolds, along with a few simple composites, have invariants as follows:
+A generating collection of 2-framed 1-manifolds have invariants as follows:
 \begin{table}[!h]
 \begin{tabular}{c|cl}
 \cb{
@@ -1957,18 +1957,30 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 \end{tikzpicture}
 }
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
+\end{tabular}
+\end{table}
+
+\CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
+\NS{Note that you've written the 0-framed circle twice on that list.  I think we should only list it once.}
+\CD{I'm pretty sure all the circles on the list are (and were) distinct.}
+
+\nid Throughout the table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  
+
+These generators can be combined into various closed manifolds, such as the following:
+\begin{table}[!h]
+\begin{tabular}{c|cl|c}
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) circle (\smcirclerad);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ \\
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ & \CDcomm{$\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$} \\
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft] (0,0) circle (\smcirclerad);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ \\
+& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ & \\
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft,looseness=2]
@@ -1978,7 +1990,7 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 	to [out=170, in=180] (0,.5);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ \\
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ & \\
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft]
@@ -1989,7 +2001,7 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ \\
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ & \\
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright]
@@ -2000,15 +2012,11 @@ A generating collection of 2-framed 1-manifolds, along with a few simple composi
 	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$
+& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$ & 
 \end{tabular}
 \end{table}
 
-\CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
-\NS{Note that you've written the 0-framed circle twice on that list.  I think we should only list it once.}
-\CD{I'm pretty sure all the circles on the list are (and were) distinct.}
-
-\nid Throughout the table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  For the various circles, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariant in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively.
+For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariant in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively.
 
 We now depict a few 2-framed 2-manifolds, together with their invariants: 
 \begin{table}[!h] 
