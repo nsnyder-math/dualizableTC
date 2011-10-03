@@ -1469,7 +1469,7 @@ Here the first isomorphism is provided by the inverse of the normal framing $\ph
 When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, because in the codimension-1 case this corona can propogate without ambiguity, it may be indicated only at one point of the manifold.
 
 \begin{example}
-A $2$-framing on an oriented circle induces a $2$-framing on each point on that circle (by using the orientation to identify the tangent bundle with $\RR$).  Furthermore, for one of the orientations on a given circle the $2$-framing induced on each point is positive, while for the other it's negative.  Thus $2$-framings of a given circle can be naturally identified with maps from that circle with the positive orientation to the space of positively oriented points.   Since the space of framed points is canonically oriented, $2$-framings on a circle can be naturally identified with $\mathbb{Z}$ via the winding number.  We use our immersion notation to depict, as follows, a series of circles corresponding to each element of $\mathbb{Z}$:\NS{I think this is stated rigorously now, but I think the diagrams currently are $3, 2, 1, 0, -1, -2, -3$}
+A $2$-framing on an oriented circle induces a $2$-framing on each point on that circle (by using the orientation to identify the tangent bundle with $\RR$).  Furthermore, for one of the orientations on a given circle the $2$-framing induced on each point is positive, while for the other it's negative.  Thus $2$-framings of a given circle can be naturally identified with maps from that circle with the positive orientation to the space of positively oriented points.   Since the space of framed points is canonically oriented, $2$-framings on a circle can be naturally identified with $\mathbb{Z}$ via the winding number.  We use our immersion notation to depict, as follows, a series of circles corresponding to each element of $\mathbb{Z}$:\NS{I think this is stated rigorously now, but I think the diagrams currently are $3, 2, 1, 0, -1, -2, -3$} \CD{CD will consider this example again, regarding the identification with $\ZZ$ and the sign.}
 \[\cdots\quad
 \cb{
 \begin{tikzpicture}
@@ -2170,6 +2170,7 @@ We now define the universal right Serre automorphism, which is a particular $1$-
 \end{pgfonlayer}
 \end{tikzpicture}
 \end{center}
+\CD{This picture is the automorphism of the negatively oriented point.}
 
 \begin{remark}
 Consider the interval with one endpoint incoming, the other endpoint outgoing, and both endpoints being the standard positively framed point.  Framings on this interval form a group under composition and can be canonically identified with $\pi_1(\mathrm{SO}_n)$ (with the standard positively framed point as the basepoint).  When $n=2$, framings on the interval can be canonically identified with $\mathbb{Z}$.  The right universal Serre automorphism corresponds to $+1$ in this group, while the left Serre automorphism corresponds to $-1$.  When we refer to just the Serre automorphism, we mean the right Serre automorphism.
@@ -2193,7 +2194,7 @@ Even better, there is a unique $3$-framed $2$-dimensional bordism of minimal gen
 \includegraphics{cobordism.pdf}
 \end{center}
 
-\NScomm{This diagram should be fixed up a bit.  First we need to indicate the incoming and outgoing boundaries, and second I think with our notation the left and right sides should be contracted down to a point.}
+\NScomm{This diagram should be fixed up a bit.  First we need to indicate the incoming and outgoing boundaries, and second I think with our notation the left and right sides should be contracted down to a point.} \CD{We do not need to try to have the ``left and right" edges contracted to points in all the graphics.  It's conventional to allow squashing or expanding those edges to go between the two notations.}
 
 \subsection{The Serre automorphism of $\TC$}
 
@@ -2211,7 +2212,7 @@ We now specialize to our case of interest, namely where the object in question i
 %\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
 \begin{definition}
-Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is a automorphism of tensor categories.  Let ${}_\cC \cC(\cF)_\cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$.  \NS{Say something about the natural transformation}
+Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_\cC \cC(\cF)_\cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$.  \NS{Say something about the natural transformation} \CD{I think this notation is slightly suboptimal.  What about ${}_{\cF}{\cC}$?  No, I guess that's no better.  How about ${}_{\langle \cF \rangle}{\cC}$?}
 \end{definition}
 
 \begin{theorem} \label{thm-serre}
