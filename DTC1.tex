@@ -1339,68 +1339,6 @@ Notation:
 \end{theorem}
 
 
-\subsection{Dualizability in 3-categories} \label{sec-lft-dual}
-.
-\CD{I guess the content of this section should be dictated by what we need for sections 4,5,6.  What is that?}
-
-\CSPcomm{maybe move this part to section 3?} \CDcomm{I don't think this belongs in the current section 3 (TC is SM3C).  Maybe it gets merged with the section on the cobordism hypothesis, unless there is other stuff that goes here.}
-
-
-[Adjunction convention: $\bimod{C}{M}{D} \adj  \bimod{D}{N}{C}$ if there are $M \dtimes_D N \ra C$ and $D \ra N \dtimes_C M$ satisfying the S relations.] 
-
-\CSPcomm{Set up terminology for evaluation and coevaluation.}
-
-
-%\CSP{This proposition is stated as a remark, without proof in Jacob's paper.}
-
-\begin{proposition}[Lurie, Remark 3.4.22] \label{prop-ambiadjoints}
-	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
-\end{proposition}
-
-\begin{proof}
-By assumption we are given 3-morphisms,
-\begin{align*}
-	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
-	\eta_v: id_{id_y} & \Rightarrow v \circ v^L \\
-	\varepsilon_u: u^L \circ u & \Rightarrow id_{id_x} \\
-	\eta_u: id_{f^R \circ f} & \Rightarrow  u \circ u^L
-\end{align*}
-which satisfy the Zig-Zag identities:
-\begin{align*}
-	 id_v  &= (id_v * \varepsilon_v) \circ (\eta_v * id_v)  \\
-	 id_{v^L}  &= (\varepsilon_v * id_{v^L} ) \circ (id_{v^L} * \eta_v)  \\
-	 id_u  &= (id_u * \varepsilon_u) \circ (\eta_u * id_u)  \\
-	 id_{u^L}  &= (\varepsilon_u * id_{u^L} ) \circ (id_{u^L} * \eta_u).  
-\end{align*}
-We must show that the following Zig-Zag identities hold:
-\begin{align*}
-	 (id_{f} * u^L) \circ (v^L * id_{f} ) & \cong id_{f} \\
- 	 (u^L * id_{f^R}) \circ (id_{f^R} * v^L) & \cong id_{f^R} 
-\end{align*}
-By assumption we may also choose isomorphisms as follows:
-\begin{align*}
-	\alpha: id_f &\stackrel{\cong}{\to} (v * id_f) \circ (id_f * u) \\
-	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} * v) \circ (u * id_{f^R} ).
-\end{align*}
-Then the required isomorphisms are given by the following composites:
-\begin{align*}
-	(id_{f} * u^L) \circ (v^L * id_{f} )
-		& \cong id_f \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
-		& \stackrel{\alpha}{\cong} (v * id_f) \circ (id_f * u) \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
-		&  \stackrel{\varepsilon_u }{\Rightarrow} (v * id_f) \circ (v^L * id_{f} ) \\
-		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f},  \\
-	(u^L * id_{f^R}) \circ (id_{f^R} * v^L) 
-		& \cong  id_{f^R} \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L)  \\
-		& \stackrel{\beta}{\cong}  (id_{f^R} * v) \circ (u * id_{f^R} )  \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L) \\
-		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} * v) \circ (id_{f^R} * v^L) \\
-		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
-\end{align*}
-\end{proof}
-
-In particular, if you are in a situation where you happen to know a priori that the 2-morphisms $u$ and $v$ will have left adjoints, then you know that any adjoint to the 1-morphism $f$ will be ambidextrous.  % This proposition gets used in the Remark in the section computing the Serre automorphism.
-
-%} %!% end ignore
-
 \subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
 
 \begin{definition}
@@ -2137,26 +2075,6 @@ Semisimplicity of $Z(\cC)$ implies semisimplicity of $\cC$, since $\cC$ is exact
 
 \CSPcomm{Here should go a discussion of the basic 3-framed bordisms and their images under the tqft. It should build off of the discussion in the last section of the 2-framed 2D cobordisms. }
 
-\subsection{Noncompact TQFTs and dualizability of finite tensor categories beyond dimension two}
-
-We saw previously that every finite tensor category gave rise to a 2-dimensional 2-framed TFT.  This TFT is categorified, in the sense that diffeomorphisms of $2$-framed surfaces  with boundary give rise to automorphisms of the corresponding bimodule functors.  In fact, we can do better.  If $\cC$ is rigid there is a canonical lifting of this TFT to a $3$-framed $2$-dimensional TFT.  This fact is essentially equivalent to Radford's theorem for the quadruple dual of a finite tensor category.  This suggests that there should be a $3$-dimensional version of this TFT.  In fact, one can define the value of the TFT on certain non-invertible $3$-morphisms, getting some sort of ``non-compact" TFT.  We plan to address this in more detail in a later paper, so we will be brief in this section and not try for the strongest results.
-
-\begin{theorem}
-The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category to a $3$-framed $2$-dimensional TFT has a canonical lift to a $2$-framed theory given by the canonical trivialization $\cdot * * * * \rightarrow D \cdot D^{-1}$ where $D$ is the canonical invertibale object.
-\end{theorem}
-\begin{proof}
-\end{proof}
-
-The above result is unsatisfactory in two ways.  First, it does not give a topological reason for the appearance of $3$-framings.  We would prefer to have a partially defined $3$-dimensional theory which explains the appearance of a structure group which is naturally attached to $3$-dimensional theories.  Second, it relies on a non-topological proof of Radford's theorem.  These two defects are closely related: a partially defined $3$-dimensional TFT would be automatically $3$-framed and thus would give a topological proof of Radford's theorem.  In fact, as we saw in the last section, most of the $2$-handles automatically have adjoints.  This suggests that most of the $3$-handles can be defined, in particular enough of them to give a topological proof of Radford's theorem.
-
-The following argument can be thought of as a way to make precise the intuition that ``we have enough adjoints of $2$-morphisms to get a $3$-framed theory."
-
-\begin{theorem}
-Left Serre is canonically isomorphic to the right Serre with the iso given by the adjoints whose units have enough adjoints are biadjoints theorem.  \NS{clean this up}
-\end{theorem}
-
-
-
 
 %\end{document} % ignore rest
 
@@ -2204,7 +2122,18 @@ Even better, there is a unique $3$-framed $2$-dimensional bordism of minimal gen
 
 \NScomm{This diagram should be fixed up a bit.  First we need to indicate the incoming and outgoing boundaries, and second I think with our notation the left and right sides should be contracted down to a point.} \CD{We do not need to try to have the ``left and right" edges contracted to points in all the graphics.  It's conventional to allow squashing or expanding those edges to go between the two notations.}
 
-\subsection{The Serre automorphism of $\TC$}
+We call this bordism $\cR$ and call it the universal Radford map.
+
+\begin{lemma}
+The universal Radford map is given by the following formula.  \NScomm{Write it as a composition of basic bordisms}
+\end{lemma}
+
+\begin{remark}
+Note that although the universal Radford map is a $2$-dimensional bordism, it does not have a $2$-framing only a $3$-framing.  This fact is reflected in the above explicit formula,
+which includes an adjoint of one of the basic $2$-morphisms.  Thus, even though it's a $2$-dimensional bordism, it requires at least part of $3$-dimensional theory to write down.  
+\end{remark}
+
+\subsection{The Serre automorphism of for fusion categories}
 
 Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the universal Serre automorphism gives an automorphism $\cS_a: a \rightarrow a$.
 
@@ -2252,7 +2181,7 @@ $\cF(1)$ is invertible because is generates $\cC$ as a right module category.  T
 The quadruple dual is equivalent to conjugation by some invertible object $X$.
 \end{corollary}
 
-Recall that not only do we know that $\cC({}^{****}(-)) \cong \cC(\id)$, we actually have a canonical natural isomorphism given by the image of the canonical minimal genus surface described in the last section.  This gives us a canonical value for $X$, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
+Recall that not only do we know that $\cC({}^{****}(-)) \cong \cC(\id)$, we actually have a canonical natural isomorphism given by the image of the universal Radford map.  We call the image of this map the Radford map $\cR_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The Radford map $\cR_\cC$ gives a canonical choice of invertible object $X$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
 
 \begin{theorem}
 For a fusion category $\cC$ the canonical invertible is trivial.
@@ -2264,6 +2193,76 @@ For a fusion category $\cC$ the canonical invertible is trivial.
 \begin{theorem}
 The canonical isomorphism betweeen the quadruple dual and the trivial is characterized by ???.
 \end{theorem}
+
+\subsection{The Serre automorphism for finite tensor categories}
+
+Recall that although finite tensor categories are not fully dualizable, they are fully $2$-dualizable and furthermore most of the basic $3$-morphisms have adjoints.  The latter fact suggests that there should be a fully extended $3$-dimensional field theory which is only defined on certain $3$-morphisms (this is called a ``non-compact" field theory in Lurie).  In particular, we should expect that the $2$-framed $2$-dimensional field theory attached to a finite tensor category has a canonical descent to a $3$-framed theory.  We plan to address this in more detail in a later paper, so we will be brief in this section and not try for the strongest results.
+
+\begin{theorem}
+The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category to a $3$-framed $2$-dimensional TFT has a canonical lift to a $2$-framed theory given by the canonical trivialization $\cdot^{****} \rightarrow D \cdot D^{-1}$ where $D$ is the canonical invertibale object.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+The above result is unsatisfactory in two ways.  First, it does not give a topological reason for the appearance of $3$-framings.  We would prefer to have a partially defined $3$-dimensional theory which explains the appearance of a structure group which is naturally attached to $3$-dimensional theories.  Second, it relies on a non-topological proof of Radford's theorem.  These two defects are closely related: a partially defined $3$-dimensional TFT would be automatically $3$-framed and thus would give a topological proof of Radford's theorem.  In fact, as we saw in the last section, most of the $2$-handles automatically have adjoints.  This suggests that most of the $3$-handles can be defined, in particular enough of them to give a topological proof of Radford's theorem.
+
+It is an important philosophical point that algebraic applications of the cobordism hypothesis do not rely on the full strength of the cobordism hypothesis.  Any given application uses specific relationships between specific bordisms, and thus only relies on a very small part of the full topological field theory.  In particular, if you look at the explicit formula for the universal Radford map, we don't need a full $3$-dimensional field theory, we only need that the $2$-framed saddle has an adjoint.  Thus, rather than rigorously constructing a non-compact field theory, if all we want is Radford's theorem we can just write down formulas for the particular bordisms that we need and check that those formulas work.
+
+\begin{theorem}
+If $\cC$ is a finite tensor category, then the formula ??? gives an isomorphism between $\cC$ and $\cS \boxtimes_\cC \cS$.  Furthermore, under this map the image of $1$ is the canonical invertible $X$, and we have that the quadruple dual is canonical equivalent to conjugation by $X$ via a map satisfying the following property.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+Another way to think of Radford's theorem is that it states that there's an equivalence between the left Serre automorphism and the right Serre automorphism.  Recalling the definitions of these two automorphisms, that's the same as saying that the left adjoint of blah is canonically equivalent to the right adjoint of blah.  This version of the statement has a vast generalization which again is inspired by the cobordism hypothesis but does not rely on the proof of the cobordism hypothesis.
+
+%\CSP{This proposition is stated as a remark, without proof in Jacob's paper.}
+
+\begin{proposition}[Lurie, Remark 3.4.22] \label{prop-ambiadjoints}
+	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
+\end{proposition}
+
+\begin{proof}
+By assumption we are given 3-morphisms,
+\begin{align*}
+	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
+	\eta_v: id_{id_y} & \Rightarrow v \circ v^L \\
+	\varepsilon_u: u^L \circ u & \Rightarrow id_{id_x} \\
+	\eta_u: id_{f^R \circ f} & \Rightarrow  u \circ u^L
+\end{align*}
+which satisfy the Zig-Zag identities:
+\begin{align*}
+	 id_v  &= (id_v * \varepsilon_v) \circ (\eta_v * id_v)  \\
+	 id_{v^L}  &= (\varepsilon_v * id_{v^L} ) \circ (id_{v^L} * \eta_v)  \\
+	 id_u  &= (id_u * \varepsilon_u) \circ (\eta_u * id_u)  \\
+	 id_{u^L}  &= (\varepsilon_u * id_{u^L} ) \circ (id_{u^L} * \eta_u).  
+\end{align*}
+We must show that the following Zig-Zag identities hold:
+\begin{align*}
+	 (id_{f} * u^L) \circ (v^L * id_{f} ) & \cong id_{f} \\
+ 	 (u^L * id_{f^R}) \circ (id_{f^R} * v^L) & \cong id_{f^R} 
+\end{align*}
+By assumption we may also choose isomorphisms as follows:
+\begin{align*}
+	\alpha: id_f &\stackrel{\cong}{\to} (v * id_f) \circ (id_f * u) \\
+	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} * v) \circ (u * id_{f^R} ).
+\end{align*}
+Then the required isomorphisms are given by the following composites:
+\begin{align*}
+	(id_{f} * u^L) \circ (v^L * id_{f} )
+		& \cong id_f \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
+		& \stackrel{\alpha}{\cong} (v * id_f) \circ (id_f * u) \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
+		&  \stackrel{\varepsilon_u }{\Rightarrow} (v * id_f) \circ (v^L * id_{f} ) \\
+		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f},  \\
+	(u^L * id_{f^R}) \circ (id_{f^R} * v^L) 
+		& \cong  id_{f^R} \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L)  \\
+		& \stackrel{\beta}{\cong}  (id_{f^R} * v) \circ (u * id_{f^R} )  \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L) \\
+		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} * v) \circ (id_{f^R} * v^L) \\
+		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
+\end{align*}
+\end{proof}
+
+
 
 %%%%%%
 
