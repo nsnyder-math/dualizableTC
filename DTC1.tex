@@ -1338,67 +1338,9 @@ Notation:
 	is the unit of a $BO(n-k)$-family of adjunctions. 
 \end{theorem}
 
+\subsection{Notation for $n$-framed manifolds} 
 
-\subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
-
-\begin{definition}
-An \emph{structure} for $n$-dimensional vector bundles is a space $T$ together with a fibration $f: T \ra BO(n)$.  A $T$-structure on an n-dimensional vector bundle $V$ on $X$ is a lift of the classifying map $X \xra{V} BO(n)$ along $f$ to $T$.
-\end{definition}
-
-We will be primarily interested in five structures for 3-dimensional vector bundles, namely \emph{orientation}, \emph{combing}, \emph{oriented $p_1$ structure}, \emph{quadratic structure}, and \emph{framing}.  The structure spaces for an orientation, combing, and framing are respectively $BSO(3)$, $BSO(2)$, and $BSO(1) = *$, all with the obvious maps to $BO(3)$.  The structure spaces for oriented $p_1$ structure and quadratic structure are as follows:
-\begin{definition}
-The following two spaces, together with the obvious maps to $BO(3)$, define the aforementioned bundle structures:
-\begin{itemize}
-\item[Orpo:] $BOrpo(3) := \hofib(BSO(3) \ra BSO \xra{p_1} K(\ZZ,4))$
-\item[Quad:] $BQuad := \hofib(BSO(2) = BU(1) \xra{c_1^2} K(\ZZ,4))$
-\end{itemize}
-\end{definition}
-
-\begin{remark}
-``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  We reserve the name ``$p_1$ structure" for the structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$.  The terminology ``quadratic" refers to the fact that the single k-invariant of the structure space $BQuad$ is the fundamental quadratic map.
-\end{remark}
-
-Because we are concentrating on structures on manifolds of low dimension, the full homotopy type of the structure spaces is not relevant---it suffices to keep track only of the low-dimensional homotopical information of $BO(3)$ and the other structure spaces.  Recall that the $k$-homotopy type (or simply the ``$k$-type") of a space $X$ refers to the homotopical information contained in the $k$-Postnikov section $P_k X$ of the space; the $k$-Postnikov section $P_k X$ is the initial space in the category of spaces $Y$ equipped with a map $X \ra Y$ inducing an isomorphism on $\pi_i$ for $i \leq k$ and such that $\pi_i(Y) = 0$ for $i > k$.  \CD{Prefer to define $P_k X$ otherwise?} Said directly, the $k$-Postnikov section is the space you get by killing all the homotopy groups above dimension $k$.
-
-The following proposition explains how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories:
-\begin{proposition}
-Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the structure map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map $\phi^*: \Hom(\mathrm{TBord}_0^n,\cC) \ra \Hom(\mathrm{SBord}_0^n,\cC)$ is a homotopy equivalence of spaces.
-\end{proposition}
-
-\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
-
-We now precisely identify the 4-homotopy type of the four nontrivial structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
-
-\begin{proposition}
-The following fibrations consistute the Postnikov towers of the 4-homotopy types of the structure spaces $BSO(3)$, $BOrpo(3)$, and $BQuad$.
-\begin{align}
-K(\ZZ,4) \ra & \; BSO(3)_4 \ra K(\ZZ/2,2) \overset{\gamma}{\dashrightarrow} K(\ZZ,5) \nn \\
-K(\ZZ/4,3) \ra & \; BOrpo(3)_4 \ra K(\ZZ/2,2) \overset{\delta}{\dashrightarrow} K(\ZZ/4,4) \nn \\
-K(\ZZ,3) \ra & \; BQuad_4 \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \nn
-\end{align}
-\nid Here the dashed arrow indicates the k-invariant of the preceding fibration.  The class $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$ is a generator, and the class $\gamma \in H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$ is, up to sign, the integral Bockstein of $\delta$. % The sign is not well defined, because you can always modify \gamma by an automorphism of K(Z,5); ie this is the best you can do.
-\end{proposition}
-
-\begin{proof}
-The quadratic structure group is defined as the homotopy fiber of the square of the first chern class, so in that case there is nothing to prove.
-
-The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed. \CD{Is that semidirect product symbol facing the right direction?}
-
-The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $\pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
-\end{proof}
-
-We have the following diagram of structure spaces:
-\begin{equation} \nn
-\xymatrix{
-BQuad_{K(\ZZ,2)}^{K(\ZZ,3)} \ar[r] \ar[d] & BSO(2)_{K(\ZZ,2)} \ar[d] \\
-BOrpo(3)_{K(\ZZ/2,2)}^{K(\ZZ/4,3)} \ar[r] & BSO(3)_{K(\ZZ/2,2)}^{K(\ZZ,4)}
-}
-\end{equation}
-Here we have indicated in the subscripts and superscripts the stages of the respective Postnikov towers of the homotopy 4-types.  The two horizontal maps exist by definition, and the righthand vertical map is the standard inclusion.  The lefthand vertical map may be constructed as follows.  At the first layer of the Postnikov tower, the map $\pi: K(\ZZ,2) \ra K(\ZZ/2,2)$ is induced by the projection $\ZZ \ra \ZZ/2$.  To produce a map $BQuad \ra BOrpo(3)$ it suffices to factor the composite $K(\ZZ,2) \xra{\pi} K(\ZZ/2,2) \xra{\delta} K(\ZZ/4,4)$ through the map $K(\ZZ,2) \xra{c_1^2} K(\ZZ,4)$; this is accomplished by (plus or minus) the projection $K(\ZZ,4) \ra K(\ZZ/4,4)$.  %%% {This is because the path loop construction is functorial so any map K(\ZZ,4) \ra K(\ZZ/4,4) induces a map of fibrations, which pulls back across c_1^2, resp \delta, to give a map of fibrations whose total spaces are BQuad and BOrpo(3) respectively.  To check the factorization, just look at the induced maps in cohomology.
-
-By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
-
-\subsection{Notation for $n$-framed manifolds} \NS{I think this subsection should come earlier in the section} \CD{It's more or less independent, so could go anywhere.  Probably it will move to either just before or after the section on the CH.}
+Since $n$-framed manifolds play a fundamental role in the cobordism hypothesis it will be important to have convenient notation to denote $n$-framed manifolds.  We describe one such notation involving immersions in this section.
 
 Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \hra \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
 \[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\]
@@ -1599,6 +1541,68 @@ Here is a picture of another $2$-framed manifold, specifically a 2-morphism in t
 \]
 The source and target of this bordism are as indicated.  Notice that the source of the source (a pair of $2$-framed points) is indeed the source of the target, and similarly the target of the source is the target of the target.
 \end{example}
+
+
+\subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
+
+The second half of the cobordism hypothesis says that TFTs with other topological structures correspond to homotopy fixed points of certain group actions on the space of fully dualizable objects.  Thus different topological structures correspond to different kinds of structures on dualizable tensor categories.  In this section we discuss several specific topological structures which will come up later in the paper.
+
+\begin{definition}
+An \emph{structure} for $n$-dimensional vector bundles is a space $T$ together with a fibration $f: T \ra BO(n)$.  A $T$-structure on an n-dimensional vector bundle $V$ on $X$ is a lift of the classifying map $X \xra{V} BO(n)$ along $f$ to $T$.
+\end{definition}
+
+We will be primarily interested in five structures for 3-dimensional vector bundles, namely \emph{orientation}, \emph{combing}, \emph{oriented $p_1$ structure}, \emph{quadratic structure}, and \emph{framing}.  The structure spaces for an orientation, combing, and framing are respectively $BSO(3)$, $BSO(2)$, and $BSO(1) = *$, all with the obvious maps to $BO(3)$.  The structure spaces for oriented $p_1$ structure and quadratic structure are as follows:
+\begin{definition}
+The following two spaces, together with the obvious maps to $BO(3)$, define the aforementioned bundle structures:
+\begin{itemize}
+\item[Orpo:] $BOrpo(3) := \hofib(BSO(3) \ra BSO \xra{p_1} K(\ZZ,4))$
+\item[Quad:] $BQuad := \hofib(BSO(2) = BU(1) \xra{c_1^2} K(\ZZ,4))$
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  We reserve the name ``$p_1$ structure" for the structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$.  The terminology ``quadratic" refers to the fact that the single k-invariant of the structure space $BQuad$ is the fundamental quadratic map.
+\end{remark}
+
+Because we are concentrating on structures on manifolds of low dimension, the full homotopy type of the structure spaces is not relevant---it suffices to keep track only of the low-dimensional homotopical information of $BO(3)$ and the other structure spaces.  Recall that the $k$-homotopy type (or simply the ``$k$-type") of a space $X$ refers to the homotopical information contained in the $k$-Postnikov section $P_k X$ of the space; the $k$-Postnikov section $P_k X$ is the initial space in the category of spaces $Y$ equipped with a map $X \ra Y$ inducing an isomorphism on $\pi_i$ for $i \leq k$ and such that $\pi_i(Y) = 0$ for $i > k$.  \CD{Prefer to define $P_k X$ otherwise?} Said directly, the $k$-Postnikov section is the space you get by killing all the homotopy groups above dimension $k$.
+
+The following proposition explains how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories:
+\begin{proposition}
+Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the structure map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map $\phi^*: \Hom(\mathrm{TBord}_0^n,\cC) \ra \Hom(\mathrm{SBord}_0^n,\cC)$ is a homotopy equivalence of spaces.
+\end{proposition}
+
+\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+
+We now precisely identify the 4-homotopy type of the four nontrivial structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
+
+\begin{proposition}
+The following fibrations consistute the Postnikov towers of the 4-homotopy types of the structure spaces $BSO(3)$, $BOrpo(3)$, and $BQuad$.
+\begin{align}
+K(\ZZ,4) \ra & \; BSO(3)_4 \ra K(\ZZ/2,2) \overset{\gamma}{\dashrightarrow} K(\ZZ,5) \nn \\
+K(\ZZ/4,3) \ra & \; BOrpo(3)_4 \ra K(\ZZ/2,2) \overset{\delta}{\dashrightarrow} K(\ZZ/4,4) \nn \\
+K(\ZZ,3) \ra & \; BQuad_4 \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \nn
+\end{align}
+\nid Here the dashed arrow indicates the k-invariant of the preceding fibration.  The class $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$ is a generator, and the class $\gamma \in H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$ is, up to sign, the integral Bockstein of $\delta$. % The sign is not well defined, because you can always modify \gamma by an automorphism of K(Z,5); ie this is the best you can do.
+\end{proposition}
+
+\begin{proof}
+The quadratic structure group is defined as the homotopy fiber of the square of the first chern class, so in that case there is nothing to prove.
+
+The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed. \CD{Is that semidirect product symbol facing the right direction?}
+
+The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $\pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
+\end{proof}
+
+We have the following diagram of structure spaces:
+\begin{equation} \nn
+\xymatrix{
+BQuad_{K(\ZZ,2)}^{K(\ZZ,3)} \ar[r] \ar[d] & BSO(2)_{K(\ZZ,2)} \ar[d] \\
+BOrpo(3)_{K(\ZZ/2,2)}^{K(\ZZ/4,3)} \ar[r] & BSO(3)_{K(\ZZ/2,2)}^{K(\ZZ,4)}
+}
+\end{equation}
+Here we have indicated in the subscripts and superscripts the stages of the respective Postnikov towers of the homotopy 4-types.  The two horizontal maps exist by definition, and the righthand vertical map is the standard inclusion.  The lefthand vertical map may be constructed as follows.  At the first layer of the Postnikov tower, the map $\pi: K(\ZZ,2) \ra K(\ZZ/2,2)$ is induced by the projection $\ZZ \ra \ZZ/2$.  To produce a map $BQuad \ra BOrpo(3)$ it suffices to factor the composite $K(\ZZ,2) \xra{\pi} K(\ZZ/2,2) \xra{\delta} K(\ZZ/4,4)$ through the map $K(\ZZ,2) \xra{c_1^2} K(\ZZ,4)$; this is accomplished by (plus or minus) the projection $K(\ZZ,4) \ra K(\ZZ/4,4)$.  %%% {This is because the path loop construction is functorial so any map K(\ZZ,4) \ra K(\ZZ/4,4) induces a map of fibrations, which pulls back across c_1^2, resp \delta, to give a map of fibrations whose total spaces are BQuad and BOrpo(3) respectively.  To check the factorization, just look at the induced maps in cohomology.
+
+By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
@@ -2532,132 +2536,6 @@ Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor c
 
 
 \section{NS's dustbin/workbin}
-
-\subsection{The Serre automorphism is the double dual}
-
-We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
-
-%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
-
-\begin{theorem} \label{thm-serre}
-If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
-\end{theorem}
-
-\begin{proof}
-We compute $\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$ in two steps.  
-
-First we consider $\tau_{a^\vee,a} \circ  \ev^*$.  By Lemma \ref{lem:dual-formula-for-adjoints}, $\ev^*$ is $\cC^{\op}$ as a $\Vect$--${\cC \boxtimes \cC^{\mp}}$ bimodule where the action is given by $m\cdot (x \boxtimes y) = {}^*y \otimes m \otimes x^*$ (here we've used that the left dual in $\cC^{\mp}$ is the right dual in $\cC$).  Hence, $\tau_{a^\vee,a} \circ  \ev^*$ is $\cC^{op}$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^*y \otimes c \otimes x^*$.  Taking right duals, we see that $\tau_{a^\vee,a} \circ  \ev^*$ equivalent to $\cC$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^{**}y \otimes c \otimes x$.
-
-Now we compose with $\ev \boxtimes \id_a$, which just turns a right $\cC^{\mp}$ action into a left $\cC$ action.  So $\cS_a$ is equivalent to $\cC$ as a  $\cC$--$\cC$ bimodule, where the action is given by $y \cdot c \cdot x=  {}^{**}y \otimes c \otimes x$.
-\end{proof}
-
-
-
-\subsection{(Old) Computing the Serre automorphism} \label{sec-serre-comp}
-
-
-For $a \in \cA$ be a dualizable object of a symmetric monoidal n-category, let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\rd{\ev}: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$ and let $\ld{\coev}: a^{\vee} \otimes a \ra 1$ be the left adjoint to $\coev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
-
-\begin{proposition} \label{prop-serrecomp}
-Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to both of the following composites:
-\begin{align}
-\cS_a & \simeq (\id_a \otimes \rd{\ev}) (\tau \otimes \id_{a^{\vee}}) (\id_a \otimes \ev) \nn\\
-\cS_a & \simeq (\coev \otimes \id_a) (\id_{a^{\vee}} \otimes \tau) (\ld{\coev} \otimes \id_a) \nn
-\end{align}
-\end{proposition}
-\CD{the composition order here is geometric}
-
-The expressions given hold in the universal case of framed bordism, and we leave the proof as an excercise in adjunctions of 2-framed 1-manifolds.
-
-\begin{remark}
-If $n \geq 3$, then the adjunctions of 1-morphisms are ambidextrous, and so the equations for the Serre automorphism given in the proposition could as well have used $\ld{\ev}$ and $\rd{\coev}$ instead.
-\end{remark}
-
-%%%
-
-We now specialize to our case of interest, namely where the dualizable object in question is a fusion category $\cC \in \TC$.
-
-%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
-
-\begin{theorem} \label{thm-serre}
-If $\cC$ is a fusion category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is Morita equivalent to the $\cC$--$\cC$ bimodule associated to the left double dual monoidal functor $\ldd{(-)}: \cC \ra \cC$.
-\end{theorem}
-
-\begin{proof}
-
-%Recall that the evaluation and coevaluation of the duality between $\cC$ and $\cC^{\mp}$ are the bimodules $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$ and $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, these bimodules have adjoints, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{(\cC \otimes \cC^{\mp})-\mod}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$ and $\ld{\coev} = \bimod{\cC^{\mp} \otimes \cC}{\Hom_{\mod-(\cC^{\mp} \otimes \cC)}(\cC,\cC^{\mp} \otimes \cC)}{\Vect}$.
-
-Recall that the evaluation of the duality between $\cC$ and $\cC^{\mp}$ is the bimodule $\ev_{\cC} = \bimod{\cC \otimes \cC^{\mp}}{\cC}{\Vect}$.  By Theorem~\ref{thm-indecompbraided} and Proposition~\ref{prop-moduleadj}, this bimodule has an adjoint, namely $\rd{\ev} = \bimod{\Vect}{\Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})}{\cC \otimes \cC^{\mp}}$.  By Proposition~\ref{prop-serrecomp}, the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ can be expressed as
-\begin{equation} \nn
-\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC \otimes \cC^{\mp}) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
-\end{equation}
-which can be compacted into the expression
-\begin{equation} \nn
-\cS \simeq (\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC)
-\end{equation}
-where the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC,\cC \otimes \cC^{\mp}))$ is the tensor of the expected right actions, but the $\cC \otimes \cC \otimes \cC^{\mp}$ action on $(\cC \otimes \cC)$ is given by switching the two $\cC$ factors of $\cC \otimes \cC \otimes \cC^{\mp}$ and then acting by the tensor of the expected left actions.
-
-The bimodule associated to the double dual functor $\ldd{(-)}: \cC \ra \cC$ can be written as $\bimod{\cC}{\cD}{\cC} := \bimod{\cC}{\cC \dtimes_{\cC} \cC}{\cC}$; here the $\cC$--$\cC$ bimodule structure on ${\cC \dtimes_{\cC} \cC}$ is standard, and the tensor $\dtimes_{\cC}$ occurs with respect to the standard right action of $\cC$ on $\cC$ and with respect to the \emph{right} double dual left action of $\cC$ on $\cC$, that is the left action induced by the functor $\rd{(-)}: \cC \ra \cC$.
-
-As the double dual bimodule is cyclic, the equivalence between the double dual bimodule and the Serre bimodule can be specified by its value on the unit:
-\begin{align}
-\cC \dtimes_{\cC} \cC 
-& \xra{\phi} 
-(\cC \otimes \Hom_{\cC \otimes \cC^{\mp}}(\cC, \cC \otimes \cC^{\mp})) \dtimes_{\cC \otimes \cC \otimes \cC^{\mp}} (\cC \otimes \cC) 
-\nn\\
-1 \dtimes 1 
-& \mapsto 
-(1 \otimes (1 \mapsto \sum_{\sigma \in \cI} (\sigma \otimes \ld{\sigma}))) \dtimes (1 \otimes 1)
-\nn
-\end{align}
-As before, $\cI$ indexes the simple objects of $\cC$.  To check that this map is well defined, we need to know, since $a \otimes 1 \simeq 1 \otimes \ldd{a} \in \cC \dtimes_{\cC} \cC$, that $a \phi(1 \otimes 1) \simeq \phi(1 \otimes 1) \ldd{a}$.  \CDcomm{[Recheck the rest of this proof and add more explanation if necessary.]}  This is true provided $\sum_{\sigma \in \cI} \sigma \otimes a \; \ld{\sigma} \simeq \sum \sigma \; \ldd{a} \otimes \ld{\sigma}$.  That equivalence holds because of the isomorphism of structure constants,
-\begin{equation} \nn
-N^{\ld{\tau}}_{a, \ld{\sigma}} = N^{\ldd{\sigma}}_{\ldd{\tau}, a} = N^{\sigma}_{\tau, \ldd{a}}
-\end{equation}
-\CDcomm{[Comment about why this map is an equivalence.]}
-
-\CD{The proof is slightly sketchy on the distinction between equality and iso and how much naturality is needed of the isos.}
-
-
-\end{proof}
-
-%!% \CDcomm{Comment: The above proof uses the expression for the adjoint that is Hom over $\cC \otimes \cC^{\mp}$.  I did it this way because the proofs in section 4 produce that as the adjoint.  However, we know, I think, that when an adjoint exists, the adjoint is also equal to $Hom_{\Vect}(\cC,\Vect)$---see ENOII "Next steps on adjoints", though that is written for right adjoints, so would show that the $\Vect$-Hom is an adjoint for the coevaluation.  In any case, we could instead have explained why the $\Vect$-Hom is also an adjoint, and then used that expression to calculate Serre.  The calculation of Serre is probably more straightforward then, as some of the fiddling has been moved into comparing the two adjoint expressions.  At a minimum, we should probably add a remark, attempted below.}
-
-\begin{remark}
-The Serre automorphism of a fusion category can be identified with the double dual in a slightly different way, as follows.  Observe that $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ is a right adjoint to the coevaluation bimodule $\coev_{\cC} = \bimod{\Vect}{\cC}{\cC^{\mp} \otimes \cC}$.  \CDcomm{[sentence or more explaning why, or perhaps this fact will be a proposition earlier in the paper]}  
-
-Both the coevaluation bimodule $\coev_{\cC}$ and its right adjoint $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ are semisimple with finitely many simple objects.  By Proposition~\ref{prop-functadj}, both the unit and counit of the adjunction between them will have left adjoints.  Proposition~\ref{prop-ambiadjoints} therefore ensures that $\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect)$ is also a left adjoint to $\coev_{\cC}$, and so can be used in the second expression for the Serre automorphism given in Proposition~\ref{prop-serrecomp}.  This gives the equivalence
-\begin{equation} \nn
-\cS \simeq (\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom_{(\Vect)-\mathrm{mod}}(\cC,\Vect) \otimes \cC)
-\end{equation}
-Here the left action of $\cC^{\mp} \otimes \cC \otimes \cC$ is the expected one, but the right action is twisted by switching the two $\cC$ factors.  As before let $\cD = \cC \dtimes_{\cC} \cC$ be the double dual bimodule, where the right action of $\cC$ on $\cC$ is standard, but the left action of $\cC$ on $\cC$ is via the right double dual functor.  
-
-Now define an equivalence between the Serre bimodule $\cS$ and the double dual bimodule $\cD$, as follows:
-\begin{align}
-(\cC \otimes \cC) \dtimes_{\cC^{\mp} \otimes \cC \otimes \cC} (\Hom(\cC,\Vect) \otimes \cC) & \ra \cC \dtimes_{\cC} \cC \nn\\
-(m, n) \dtimes (e_p, q) & \mapsto (n \rd{p}, mq)
-\end{align}
-Here $e_p \in \Hom(\cC,\Vect)$ is defined by $e_p(r) = \Hom(p,r)$.  As in the above proof, you need to check that this map is well defined, and that it is an equivalence.
-\end{remark}
-
-\subsection{The quadruple dual is trivial} \label{sec-serre-quad}
-
-\CDcomm{This section needs to include a precise statement not only that the quad dual functor is bimodule trivial, but of what exactly the canonical trivialization of that bimodule is.}
-
-\begin{lemma}[Bimodulification Lemma]
-Let $f: \cC \ra \cD$ and $g: \cC \ra \cD$ be tensor functors with associated bimodules $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$.  If there is a Morita equivalence between $\bimod{\cC}{\cM(f)}{\cD}$ and $\bimod{\cC}{\cM(g)}{\cD}$ such that [\CDcomm{what conditions go here?}], then $f$ and $g$ are naturally equivalent as monoidal functors.
-\end{lemma}
-\CD{cf "bimodulatification trivial" in ENOII.}
-
-\begin{theorem} \label{thm-quaddual}
-If $\cC$ is a fusion category, then the quadruple dual functor $****: \cC \ra \cC$ is naturally equivalent as a monoidal functor to the identity.
-\end{theorem}
-%\CDcomm{To state the theorem as "dualizable => ****=1", we'd need to show that a dualizable tensor category has a dualization functor $*$, which is a piece of the converse, ie of DTCII.}
-
-\begin{proof}
-...
-\end{proof}
-
 
 
 \section{CSP's dustbin}
