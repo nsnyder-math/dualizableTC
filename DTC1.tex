@@ -843,11 +843,15 @@ This is easily seen to be strictly compatible with composition in $\Gamma^\text{
 
 \NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
+In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section will will describe a similar process in which a the composition in a category may be described through the use the combinatorial simplex category $\Delta$. Iterating this idea leads to the notion of {\em $n$-fold Segal category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  
+
 \begin{definition}
-	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. A {\em $k$-simplex} of $[n]$ is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
+	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. 
 \end{definition}
 
-This is the category of combinatorial simplices. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
+The simplex category plays a dual role which sometimes results in confusing terminology. On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
+
+But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
 \begin{equation} \label{Eqn:Segal-Co-Map}
 \begin{tikzpicture}[baseline = 0.75cm]
 	\node (LT) at (0, 1.5) {$[0]$};
@@ -862,10 +866,33 @@ This is the category of combinatorial simplices. The vertices of $[n]$ have a na
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{equation}
-where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. 
+where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. This square will play an important role in what follows. 
 
+Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. This well-known construction proceeds as follows: each of ordered sets $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ is $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
+The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
+\begin{equation*}
+	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \hom_X(x_0, x_1) \times \hom_X(x_1, x_2) \times \cdots \times \hom_X(x_{n-1}, x_n).
+\end{equation*}
+In other words $NC_n$ consists of all length $n$ strings of composable morphisms of $X$.
 
-Let $C$ be a category. The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+The nerve construction $N$ is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+\begin{center}
+\begin{tikzpicture}
+	\node (LT) at (0, 1.5) {$X_{m+n}$};
+	\node (LB) at (0, 0) {$X_m$};
+	\node (RT) at (2, 1.5) {$X_n$};
+	\node (RB) at (2, 0) {$X_0$};
+	\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->] (LT) -- node [above] {$$} (RT);
+	\draw [->] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [below] {$$} (RB);
+	\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+are a pullback diagrams. 
+
+This can be extended to categories internal to a category $C$. The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$}\footnote{This is easily checked to be equivalent to the standard definition.} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -888,31 +915,33 @@ This may be contrasted with the notion of a category enriched to $C$, which cons
 	An ordinary (small) category is a category enriched in sets.
 \end{example}
 
-Thus a category $C$ may equivalently be regarded as simplical set $NC_\bullet$ called the {\em nerve of $C$}. The $n^\textrm{th}$ set of $NC_{\bullet}$ is given by the formula
-\begin{equation*}
-	NC_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
-\end{equation*}
-Regarding the ordered set $[n] \in \Delta$ as a category, $NC_n$ may be viewed as the set of functors from $[n]$ to $C$. 
-
 \begin{example}
 	A {\em strict 2-category} is a category enriched in categories.
 \end{example}
 
 Thus a strict 2-category may equivalently be regarded as a simplical object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such the the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
 
+We would now like to use this to insight to describe higher categories. Philosophically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a presheaf on $\Delta$ with values in the category of $(n-1)$-categories. Moreover this should mimic the nerve. The element $[n] \in Delta$ should be mapped to the $(n-1)$-category of all length $n$ composable strings of $1$-morphisms. 
+
+However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are completely analogous to the previous situation of symmetric monoidal structures. However, the insight gained from the previous section also suggests a possible solution. Rather then require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
+\CSP{Get references/check references for this.}
+Following this reasoning gives rise to the notion of weak $n$-category constructed by Simpson and Tamsamani. In what follows we will describe $(\infty,n)$-versions of this construction, where sets are replaced by spaces.  
+
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
 \end{definition}
 
-The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. This is the context in which the cobordism hypothesis has been proven and is the context in which we frame our results. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and symmetric monoidal $n$-fold complete Segal spaces, respectively (these later are sometimes called special $\Gamma$-$n$-fold complete Segal spaces).
+The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. 
+\CSP{Find reference.}
+The Hopkins-Lurie proof of the cobordism hypothesis has been proven using this machinery, and so it is natural to  frame our results in this language as well. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and symmetric monoidal $n$-fold complete Segal spaces, respectively (these later are sometimes called special $\Gamma$-$n$-fold complete Segal spaces).
 These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
 
-On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{Lurie}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number of classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
+On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{MR2555928}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number of classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
 %\begin{definition}
 %	An $n$-fold simplicial space $X$ is {\em essentially constant} if, when regarded as a functor $X: (\Delta^\textrm{op})^{\times n} \to h\textrm{-}(sSet)$, it is equivalent to a constant functor, where $h\textrm{-}(sSet)$ denotes the homotopy category of simplicial sets.  
 %\end{definition}
 %
-We may regard any $n$-fold simplicial space as a simplicial object in $(n-1)$-fold simplicial spaces. A $0$-fold simplicial space is understood to be a simplicial set. 
+We may regard any $n$-fold simplicial space as a simplicial object in $(n-1)$-fold simplicial spaces. A $0$-fold simplicial space is understood to be a simplicial set.
 
 \begin{definition}
 	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold Segal category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal category} if the following conditions are satisfied
@@ -1034,7 +1063,7 @@ When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $Hom_X(a,b) \cong NC(
 	\end{enumerate}
 \end{definition}
 
-In the next section we will construct an example: $\TC$ the symmetric monoidal 3-fold Segal category of tensor categories. 
+In the next section we will construct several examples describing versions of the symmetric monoidal 3-fold Segal category of tensor categories. 
 
 %Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
 
@@ -1052,11 +1081,18 @@ In the next section we will construct an example: $\TC$ the symmetric monoidal 3
 
 We now describe the symmetric monoidal 3-fold Segal category $\TC$. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal 3-fold Segal category. 
 
-Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $\TC(A,n)$ will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $\TC(A,n)$ will be defined similarly. Morally, one should regard $\TC(A,n)$ as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $\TC$. 
+Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $\TC(A,n)$ should morally be regarded as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $\TC$. 
 
-The problem with implementing this straightforward idea is that one almost invariably fails to produce a functor from $(\Gamma \times \Delta)^\textrm{op}$ to a category. This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $\TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $\TC(A,n)$ is what we now describe.
+As we have seen, the problem with implementing this straightforward idea is that one fails to produce a (strict) functor from $(\Gamma \times \Delta)^\textrm{op}$ to a strict $2$-categories. This is due to the fact that both the symmetric tensor product and the composition of bimodule categories are defined via universal properties and are not strictly associative. Thus $\TC(A,n)$ consists of an enlarged version which includes, in addition to the 
+$A$-tuples of length $n$ strings of composable bimodule categories, choices of all the possible composites and tensor products that arise. The most canonical way to do this is to define $\TC(A,n)$ to include all such possible choices. 
 
-As we mentioned, the objects of $\TC(A,n)$ are certain collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
+
+%will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $\TC(A,n)$ will be defined similarly. 
+
+% This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $\TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $\TC(A,n)$ is what we now describe.
+
+
+ Thus the objects of $\TC(A,n)$ are certain compatible collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
 \begin{table}[ht]
 	\caption{Data and Conditions for an object of $\TC(A,n)$.}
 	\begin{tabular}{c |ccccc}
@@ -1066,7 +1102,7 @@ As we mentioned, the objects of $\TC(A,n)$ are certain collections of tensor cat
 	$S, S'$ 			& $x_{S, S';i}$ & $x_{S, S';ij}$ & $\psi_{S, S'; i j k}$ & (TCO4) & \\
 	$S, S', S''$ 		& $\alpha_{S, S', S'';i}$ & $\alpha_{S, S', S'';ij}$ & (TCO5) &  & \\
 	\hline
-	$S, S', S'', S''' $	& \multicolumn{2}{c}{ \tikz[baseline=-0.1cm]{\draw [->] (0,0) -| (-0.2, 0.15);} (TCO6) \tikz[baseline=-0.1cm]{\draw [->] (0,0) -| (0.2, 0.15);}}  &  &  & \\
+	$S, S', S'', S''' $	& \multicolumn{2}{c}{ \begin{tikzpicture}[baseline=-0.1cm]\draw [->] (0,0) -| (-0.2, 0.15);\end{tikzpicture} (TCO6) \begin{tikzpicture}[baseline=-0.1cm]\draw [->] (0,0) -| (0.2, 0.15);\end{tikzpicture} } &  &  & \\
 	\end{tabular}
 	\label{Table:ObjectOfTC}
 \end{table}	
@@ -2729,6 +2765,7 @@ We will have occasion to use both the opposite of a tensor category, and the mon
 \begin{definition}
 \CDcomm{[Definition of bimodules between tensor categories]}
 \end{definition}
+
 
 \begin{definition}
 Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimod{B}{N}{C}$ be bimodules.  The ``precomposite bimodule" $\bimod{A}{M \otimes_B N}{C}$ is the colimit of the three-stage two-sided bar construction:
