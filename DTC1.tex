@@ -1701,13 +1701,13 @@ $\Fun_{{\cC}}(\cM, \cC)$
 Recall from the background section that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by ${}^*\cdot$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.
 
 \begin{lemma}
-The map $\ev: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
-\end{lemma} \CD{I love the adjunction conventions used in this lemma, which probably means they are wrong ...}
+The map $\ev_R: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev_L: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
+\end{lemma} 
 \begin{proof}
-Straightforward.
+Straightforward. \CD{At some point we should replace or remove the non-proofs.}
 \end{proof}
 
-The maps $\ev$ give the counits of the adjunctions.  The units of the adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product. Fortunately Lemma \ref{Lma:FunctorsAsATensorPdt} provides an alternate description of the tensor product as a category of functors, making it straightforward  to describe the units.
+The maps $\ev_R$ and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$ and $\Fun_{\cC}(\cM,\cC) \dashv \cM$ respectively.  The units of the adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product. Fortunately Lemma \ref{Lma:FunctorsAsATensorPdt} provides an alternate description of the tensor product as a category of functors, making it straightforward  to describe the units.
 
 %\begin{lemma}
 %If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are right exact, then the map $\Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
@@ -1717,11 +1717,11 @@ The maps $\ev$ give the counits of the adjunctions.  The units of the adjunction
 %\end{proof}
 
 \begin{lemma}
-The map $\coev: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
+The map $\coev_L: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev_R: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
 \end{lemma}
 
 \begin{theorem}
-$\ev$ and $\coev$ are the unit and counit of an adjunction.
+The pairs $(\ev_R$, $\coev_R)$ and $(\ev_L, \coev_L)$ each provide the unit and counit of an adjunction.
 \end{theorem}
 \begin{proof}
 The following diagram commutes.
@@ -1734,10 +1734,10 @@ The following diagram commutes.
 				\node (E) at (0in, .5in) {${}_\cC \cC \boxtimes_\cC \cM_\cD$};
 				\node (F) at (0in,0in) {${}_\cC \cM_\cD$};
 				\draw [<->] (A) to node [left=.1cm] {} (B);
-				\draw [->] (B) to node [left=.1cm] {$\id \boxtimes \coev$}  (C);
+				\draw [->] (B) to node [left=.1cm] {$\id \boxtimes \coev_L$}  (C);
 				\draw [->] (B) to [bend left] node [above=.1cm]{$\id \boxtimes (d \mapsto \bullet \otimes d)$} (D);
 				\draw [<->] (C) to node {} (D);
-				\draw [->] (C) to node [left=.1cm]{$\ev \boxtimes \id$} (E);
+				\draw [->] (C) to node [left=.1cm]{$\ev_L \boxtimes \id$} (E);
 				\draw [<->] (E) to node {} (F);
 				\draw [->] (D) to [bend left] node [right=.1cm]{$m \boxtimes \cF \mapsto \cF(m)$} (F);
 			\end{tikzpicture}
