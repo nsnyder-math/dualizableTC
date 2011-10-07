@@ -255,7 +255,7 @@ More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories the
 such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. 
 
 \begin{warning}
-	All linear functors considered in this paper are {\em right exact} functors.
+	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such that the Deligne tensor product of linear categories, and the composition of bimodule categories are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
 \end{warning}
 
 \begin{definition}
@@ -397,7 +397,7 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
 
 \begin{example}
 	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors is a tensor category. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cN, \cN)$-$\Fun_{\cC}(\cM, \cM)$-bimodule category. 
-	\CSP{Do I have the right convention for the actions here?} \NS{I think you got it backwards.  $\Fun(\cM,\cM)$ left acts on $\cM$ and so its action by precompostion should be a right action} 
+	%\CSP{Do I have the right convention for the actions here?} \NS{I think you got it backwards.  $\Fun(\cM,\cM)$ left acts on $\cM$ and so its action by precompostion should be a right action} 
 \end{example}
 
 \begin{remark}
@@ -427,22 +427,18 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
 
 \begin{proposition}
-	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\overline{\Vect}$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:\NS{Why is this $\overline{\Vect}$ enriched instead of $\Vect$ enriched?}
+	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
 	\begin{enumerate}
 		\item $\cG$ is left exact;  
-		\item $\cG$ is left exact and satisfies the following \\ {\em Solution Set Condition:} For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
-		\item $\cG$ admits an (additive, $\overline{\Vect}$-enriched) left adjoint.
+		\item $\cG$ is left exact and satisfies the following {\em Solution Set Condition:} \\  For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
+		\item $\cG$ admits an (additive, ${\Vect}$-enriched) left adjoint.
 	\end{enumerate}
 \end{proposition}
-\begin{proof}
-	(This is a variation of the proof given in [MacLane Cat for working, V.6.Thm 2]).)
-\cite{???}
+\begin{proof} This is a variation of the proof given in \cite[V.6.Thm 2]{MR0354798}.
 Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically additive, and as the unit and counit maps are linear maps of vector spaces, $\cF$ is also $\overline{\Vect}$-enriched. 
 
 
 To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$),
-\CSP{Do I need to explain what `comma category' means?}
-\NS{Nah.  Anyone who doesn't know what it means is going to skip this proof anyway, right?} 
 as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
 \begin{equation*}
 	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
@@ -469,7 +465,7 @@ If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if
 	A representable functor $\hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
 %
 % 0 <-- C <--  B <--- A <-- 0 in C/C^op
-% 0 -->  Hom(c,x) ---> hom(b,x) ---> hom(a, x)
+% 0 -->  \Hom(c,x) ---> hom(b,x) ---> hom(a, x)
 %		
 Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
 	\begin{equation*}
@@ -526,7 +522,7 @@ Moreover if $\cC$ is rigid, then
 \end{theorem}
 
 \begin{proof}
-	When $\cC = \Vect_k$, this is classical [Deligne (Prop 5.13)] (see also [EGNO 1.46.2]).
+	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite{???}[EGNO 1.46.2]).
 	By Theorem \ref{thm:EGNO2.11.6} to show (1) and (2) it is enough to assume that $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$ and show that $\Mod{A }{B}(\cC)$ has the desired universal property. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced multilinear functor 
 		\begin{equation*}
 			T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC),  
@@ -911,7 +907,7 @@ This can be extended to categories internal to a category $C$. The category of {
 \end{center}
 are a pullback diagrams. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. 
 
-This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
+This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $\Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
 
 \begin{example}
 	An ordinary (small) category is a category enriched in sets.
@@ -977,18 +973,18 @@ This final condition requires some explanation. The Segal square must realize $X
 Moreover equivalences between $n$-fold Segal categories admit a fairly tractable inductive recognition principle. To describe this me must introduce a few auxiliary concepts. Let $X$ be an $n$-fold Segal category. Recall that $X_0$ is a constant discrete simplicial space, and so may be regarded as a set. We call the elements of $X_0$ objects of $X$. 
 Inductively we will define three functorial constructions:
 \begin{itemize}
-	\item For every pair of objects $a,b \in X_0$, an $(n-1)$-fold Segal category $Hom_X(a,b)$.
+	\item For every pair of objects $a,b \in X_0$, an $(n-1)$-fold Segal category $\Hom_X(a,b)$.
 	\item A category $\mathit{h}X$, called the {\em homotopy category} of $X$.
 	\item A set $\pi_0 X$, which is the set of isomorphism classes of objects of $\mathit{h}X$. 
 \end{itemize}
 Once we have these constructions, equivalences of $n$-fold Segal categories are easily recognized: they are precisely those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce bijections $\pi_0 f: \pi_0 X \to \pi_0 Y$, 
 % equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ 
-and which induce equivalences of $(n-1)$-fold Segal categories $Hom_X(a,b) \to Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. Such maps also induce equivalences $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$.
+and which induce equivalences of $(n-1)$-fold Segal categories $\Hom_X(a,b) \to \Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. Such maps also induce equivalences $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$.
 
-Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the $(n-1)$-fold Segal category $Hom_X(a,b)$ is defined to be the fiber over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
+Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the $(n-1)$-fold Segal category $\Hom_X(a,b)$ is defined to be the fiber over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
 \begin{center}
 \begin{tikzpicture}
-	\node (LT) at (0, 1.5) {$Hom_X(a,b)$};
+	\node (LT) at (0, 1.5) {$\Hom_X(a,b)$};
 	\node (LB) at (0, 0) {$pt$};
 	\node (RT) at (3, 1.5) {$X_1$};
 	\node (RB) at (3, 0) {$X_0\times X_0$};
@@ -1000,17 +996,17 @@ Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the $(n-1)
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-The homotopy category $\mathit{h}X$ has the same object set $X_0$, and the morphisms set between two objects is given as the set $Hom_{\mathit{h}X}(a,b) := \pi_0 Hom_X(a,b)$. For every triple of objects $a,b,c \in X_0$ we have a similar $(n-1)$-fold Segal category $Hom_X(a,b,c)$ which is defined as the fiber in $X_2$ over the point $(a,b,c)$ in $X_0 \times X_0 \times X_0$. Since $X$ is an $n$-fold Segal category we have induced maps of $(n-1)$-fold Segal categories,
+The homotopy category $\mathit{h}X$ has the same object set $X_0$, and the morphisms set between two objects is given as the set $\Hom_{\mathit{h}X}(a,b) := \pi_0 \Hom_X(a,b)$. For every triple of objects $a,b,c \in X_0$ we have a similar $(n-1)$-fold Segal category $\Hom_X(a,b,c)$ which is defined as the fiber in $X_2$ over the point $(a,b,c)$ in $X_0 \times X_0 \times X_0$. Since $X$ is an $n$-fold Segal category we have induced maps of $(n-1)$-fold Segal categories,
 \begin{equation*}
-	Hom_X(a,b) \times Hom_X(b,c) \stackrel{\simeq}{\longleftarrow} Hom_X(a,b,c) \stackrel{}{\longrightarrow} Hom_X(a,c).
+	\Hom_X(a,b) \times \Hom_X(b,c) \stackrel{\simeq}{\longleftarrow} \Hom_X(a,b,c) \stackrel{}{\longrightarrow} \Hom_X(a,c).
 \end{equation*}
 Composition in $\mathit{h}X$ is given by the induced map of sets,
 \begin{equation*}
-	 Hom_{\mathit{h}X}(a,b) \times Hom_{\mathit{h}X}(b,c) \cong \pi_0 Hom_X(a,b,c)\to \pi_0 Hom_X(a,c) = Hom_{\mathit{h}X}(a,c).
+	 \Hom_{\mathit{h}X}(a,b) \times \Hom_{\mathit{h}X}(b,c) \cong \pi_0 \Hom_X(a,b,c)\to \pi_0 \Hom_X(a,c) = \Hom_{\mathit{h}X}(a,c).
 \end{equation*}
 
 \begin{example}
-	If we regard a set as a constant simplicial space, then the nerve of a category $NC$ is a 1-fold Segal category. $NC_0 = \textrm{ob}\ C$ and the space $Hom_{NC}(a,b)$ are the sets $Hom_C(a,b)$. Moreover $hNC \cong C$ is isomorphic to the category $C$. 
+	If we regard a set as a constant simplicial space, then the nerve of a category $NC$ is a 1-fold Segal category. $NC_0 = \textrm{ob}\ C$ and the space $\Hom_{NC}(a,b)$ are the sets $\Hom_C(a,b)$. Moreover $hNC \cong C$ is isomorphic to the category $C$. 
 \end{example}
 
 \begin{example}
@@ -1038,9 +1034,9 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 On the other hand, a map of 2-fold Segal spaces $X \to Y$ is an equivalence if and only if
 \begin{enumerate}
 	\item it induces a bijection $\pi_0X \to \pi_0Y$, and
-	\item for every pair of objects $a,b \in X_0$, it induces equivalences of 1-fold Segal spaces $Hom_X(a,b) \to Hom_Y(Fa, Fb)$.
+	\item for every pair of objects $a,b \in X_0$, it induces equivalences of 1-fold Segal spaces $\Hom_X(a,b) \to \Hom_Y(Fa, Fb)$.
 \end{enumerate}
-When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
+When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $\Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
 \end{proof}
 
 %If the $n$-fold Segal spaces $X_k$ are fibrant, that is complete, then these problems disappear. Weak equivalences between fibrant objects are computed levelwise, as are homotopy fiber products. 
@@ -2299,7 +2295,7 @@ Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA
 
 We now specialize to our case of interest, namely where the object in question is a finite tensor categroy (which is a dualizable object in the $(3,2)$-category $\TCrig$).  The value of the Serre automorphism of such a tensor category was listed in a table in the previous section---we now make the calculation of the automorphism more explicit.
 
-%\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
+%\CD{Where did we establish that $\Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
 \begin{definition}
 Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_\cC \cC(\cF)_\cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$.  \NS{Say something about the natural transformation} \CD{I think this notation is slightly suboptimal.  What about ${}_{\cF}{\cC}$?  No, I guess that's no better.  How about ${}_{\langle \cF \rangle}{\cC}$?}
