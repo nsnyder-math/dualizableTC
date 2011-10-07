@@ -336,7 +336,6 @@ The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left d
 Let $\otimes$ denote the tensor product on $\cC$ and $\cdot$ the tensor product on $\cC^{\mop}$, so that $x \cdot y = y \otimes x$.
 
 First we construct the functor ${(-)^*}$.  Define ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta_a: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon_a: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: 
-\NS{I cleaned up the notation in this proof, hopefully I didn't introduce any errors.}
 \begin{equation*}
 	{(f)^*} := (\varepsilon_b \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes f \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes \eta_a).
 \end{equation*}
@@ -463,7 +462,7 @@ Finally, if $\cG$ is left exact, then it satisfies the solution set condition. T
 \end{proof}
 
 \begin{corollary}
-	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as it may fail to be right exact). If the linear functor is left exact, then it also admits a left adjoint which is also a linear functor. 
+	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it also admits a left adjoint which is also a linear functor. 
 \end{corollary}
 
 \begin{proof}
@@ -488,9 +487,9 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of [EGNO], and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{???}[EGNO], and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
 
-\begin{theorem}[EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
+\begin{theorem}[ \cite{???}EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
 \end{theorem}
 
@@ -603,7 +602,7 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 \end{proof}
 
 \begin{remark} \label{remark-tensorasfunctors}
-If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\text{mod-}\cD}(\cM,\cD) \simeq \Fun_{\text{mod-}\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. \CD{I corrected this remark.  Make sure you still agree.}
+If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\cD}(\cM,\cD) \simeq \Fun_{\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. 
 \end{remark}
 
 For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
@@ -623,11 +622,11 @@ We've already seen that the adjoint of a module functor has a canonical module f
 We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
 \end{lemma}
 \begin{proof}
-By the previous lemma, $\Fun_{\cC\text{-mod}}(\cM, \cC) \cong {}^*\Fun_{\cC\text{-mod}}^L(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
+By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
 \end{proof}
 
 \begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\text{mod-}\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} 
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} 
 \CSP{NS, is this citation supposed to be ENO?}
 \NS{Indeed, the homotopy theory paper}
 which is incorrect as stated for bimodule categories.
@@ -656,14 +655,14 @@ We will now specialize to the theory of finite rigid tensor categories.  The goa
 \end{example}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
-\begin{theorem}[EGNO] \label{Thm:ExactModCatOmnibus}
+\begin{theorem}[ \cite{???} EGNO] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, $\cM''$ be exact $\cC$-module categories, and $\cN$ an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
-		\item $\cM$ has enough projectives [EGNO lemma 2.7.1]
-		\item Every projective object in $\cM$  is injective, and vice versa. [EGNO Cor 2.7.4]
-		\item $\Fun_{\cC}(\cM, \cM')$ is finite [EGNO Prop 2.13.5]; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
-		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. [EGNO Lemma 2.13.2]		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact [EGNO 2.7.8]. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
+		\item $\cM$ has enough projectives \cite[EGNO lemma 2.7.1]{???}
+		\item Every projective object in $\cM$  is injective, and vice versa. \cite[EGNO Cor 2.7.4]{???}
+		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[EGNO Prop 2.13.5]{???}; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
+		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[EGNO Lemma 2.13.2]{???}		
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[EGNO 2.7.8]{???}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
 	\end{enumerate}
 \end{theorem}
 
@@ -723,13 +722,13 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
 \end{remark}
 
-The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in [ENO] appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
+The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in \cite[ENO]{???} appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
 
 \begin{theorem}[\cite{???} ENO]
 	A fusion category $\cC$ admits a canonical monoidal equivalence between the identity functor and the quadruple dual functor $\ldddd{(-)}$.
 \end{theorem}
 
-
+\CSPcomm{We will give a new proof of this theorem based on the fact that fusion categories are fully dualizable objects in a certain symmetric monoidal 3-category.}
 
 \begin{definition}
 A fusion category $\cC$ is \emph{pivotal} if it admits a {\em pivotal structure}: a monoidal equivalence between the double right dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ and identity functor.
@@ -741,6 +740,11 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 \begin{definition}
 	A pivotal structure is {\em spherical} if it induces a monoidal equivalence between the identity functor and the quadruple dual functor which agrees with the canonical equivalence. A fusion category is {\em spherical} if it admits a spherical pivotal structure.  
 \end{definition}
+
+\CSP{NS, can you double check this again? I get lost with the calucalations.}
+\begin{remark}
+	It follows from \cite[Cor. 7.4]{MR2097289} that for fusion categories the above notion of spherical coincides with the usual notion: the left and right traces induced from the pivotal structure agree.
+\end{remark}
 
  
 \CSPcomm{
@@ -1793,7 +1797,7 @@ Straightforward. \CD{At some point we should replace or remove the non-proofs.}
 The maps $\ev_R$ and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$ and $\Fun_{\cC}(\cM,\cC) \dashv \cM$ respectively.  The units of the adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product. Fortunately Lemma \ref{Lma:FunctorsAsATensorPdt} provides an alternate description of the tensor product as a category of functors, making it straightforward  to describe the units.
 
 %\begin{lemma}
-%If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are right exact, then the map $\Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC\text{-mod}}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
+%If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are right exact, then the map $\Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
 %\end{lemma}
 %\begin{proof}
 %\CSPcomm{This is now  move that here?}
@@ -2347,7 +2351,7 @@ The quadruple dual is equivalent to conjugation by some invertible object $X$.
 
 Recall that not only do we know that $\cC({}^{****}(-)) \cong \cC(\id)$, we actually have a canonical natural isomorphism given by the image of the universal belt map.  We call the image of this map the belt map $\cB_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The belt map $\cB_\cC$ gives a canonical choice of invertible object $X$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
 
-\begin{theorem}
+\begin{theorem} 
 For a fusion category $\cC$ the canonical invertible object is trivial.
 \end{theorem}
 \begin{proof}
