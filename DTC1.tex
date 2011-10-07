@@ -2086,11 +2086,10 @@ Semisimplicity of $Z(\cC)$ implies semisimplicity of $\cC$, since $\cC$ is exact
 
 
 \subsection{The universal Serre automorphism}
-We now define the universal right Serre automorphism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ in Figure~\ref{fig-serre}.  This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal right Serre automorphism}.  
-
+We now define the universal right Serre automorphism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
 \begin{center}
 \begin{tikzpicture}
-\draw[linestyle,fuzzleft] 
+\draw[linestyle,fuzzright] 
 (.7,0) to [out=180, in=20] (0,-.1)
 	to [looseness=1.6, out=-160, in=180] (0,-.4)
 	to [looseness=1.6, out=0, in=-20] (0,-.1)
@@ -2100,13 +2099,13 @@ We now define the universal right Serre automorphism, which is a particular $1$-
 \end{pgfonlayer}
 \end{tikzpicture}
 \end{center}
-\CD{This picture is the automorphism of the negatively oriented point.}
+\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal right Serre automorphism}.  
 
 \begin{remark}
-Consider the interval with one endpoint incoming, the other endpoint outgoing, and both endpoints being the standard positively framed point.  Framings on this interval form a group under composition and can be canonically identified with $\pi_1(\mathrm{SO}_n)$ (with the standard positively framed point as the basepoint).  When $n=2$, framings on the interval can be canonically identified with $\mathbb{Z}$.  The right universal Serre automorphism corresponds to $+1$ in this group, while the left Serre automorphism corresponds to $-1$.  When we refer to just the Serre automorphism, we mean the right Serre automorphism.
+Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming and one outgoing boundary point.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the obvious shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$.  The right universal Serre automorphism is the framing corresponding to $+1$, while the left universal Serre automorphism is the framing corresponding to $-1$.  When we use the unspecified term ``Serre automorphism" we will always mean the right Serre automorphism.
 \end{remark}
 
-The name is motivated by the following example.
+The name ``Serre automorphism" is motivated by the following example.
 
 \begin{example}
 \NScomm{Take example from Lurie Remark 4.2.4}
@@ -2118,35 +2117,36 @@ When $n>2$ we have that $\pi_1(\mathrm{SO}_n) \cong \mathbb{Z}/2$, which implies
 When $n \geq 3$, the universal right Serre automorphism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism. 
 \end{proposition}
 
-Even better, there is a unique $3$-framed $2$-dimensional bordism of minimal genus from $\cS \circ \cS$ to the trivial, which we call the canonical trivialization of the square of the Serre.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$ where the coorientation is out of the page and the bottom boundary is incoming while the top boundary is outgoing.
+Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS \circ \cS$ to the trivial bordism; we call this genus zero bordism the canonical trivialization of the square of the Serre.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the bottom boundary is incoming, the top boundary is outgoing, and the coorientation points out of the page toward the reader near the bottom boundary.
 
 \begin{center}
 \includegraphics{cobordism.png}
 \end{center}
 
-We call this bordism $\cR$ and call it the universal Radford map.
+We denote this bordism $\cB$ and call it the universal belt map---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.
 
 \begin{lemma}
-The universal Radford map is given by the following formula.  \NScomm{Write it as a composition of basic bordisms}
+The universal belt map is given by the following formula.  \NScomm{Write it as a composition of basic bordisms} 
 \end{lemma}
 
 \begin{remark}
-Note that although the universal Radford map is a $2$-dimensional bordism, it does not have a $2$-framing only a $3$-framing.  This fact is reflected in the above explicit formula,
-which includes an adjoint of one of the basic $2$-morphisms.  Thus, even though it's a $2$-dimensional bordism, it requires at least part of $3$-dimensional theory to write down.  
+Note that although the universal belt map is a $2$-dimensional bordism, it does not have a $2$-framing, but only a $3$-framing.  This fact is reflected in the above explicit formula, which includes an adjoint of one of the basic $2$-morphisms.  Thus, even though it's a $2$-dimensional bordism, it requires at least part of a $3$-dimensional theory to define.  
 \end{remark}
 
-\subsection{The Serre automorphism of for fusion categories}
+\subsection{The Serre automorphism of a fusion category}
 
 Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the universal Serre automorphism gives an automorphism $\cS_a: a \rightarrow a$.
 
-We would like to make this definition more explicit.  Let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual object $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.
+We would like to make this definition more explicit.  Let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.  \CD{We should change all the $\vee$'s to $*$s everywhere for consistency, right?  (Even though the distinction serves a purpose at moments like this one.)}
 
 \begin{proposition}
 Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to the following composite:
-$$\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$$
+\[
+\cS_a \simeq (\ev \btimes \id_a) \circ (\id_{a^{\vee}} \btimes \tau) \circ (\ev^{*} \btimes \id_a)
+\]
 \end{proposition}
 
-We now specialize to our case of interest, namely where the object in question is a finite tensor categroy (which is a dualizable object in the $(3,2)$-category $\TCrig$).  The answer to this calculation appears in the table in the previous section, but we make the calculation more explicit here.
+We now specialize to our case of interest, namely where the object in question is a finite tensor categroy (which is a dualizable object in the $(3,2)$-category $\TCrig$).  The value of the Serre automorphism of such a tensor category was listed in a table in the previous section---we now make the calculation of the automorphism more explicit.
 
 %\CD{Where did we establish that $Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
@@ -2159,7 +2159,7 @@ If $\cC$ is a finite tensor category, then the Serre bimodule $\bimod{\cC}{\cS}{
 \end{theorem}
 
 \begin{proof}
-We compute $\cS_a \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$ in two steps.  
+We compute $\cS_a \simeq (\ev \btimes \id_a) \circ (\id_{a^{\vee}} \btimes \tau) \circ (\ev^{*} \btimes \id_a) \simeq (\ev \boxtimes \id_a) \circ (\id_a \boxtimes (\tau_{a^\vee,a} \circ  \ev^*))$ in two steps.  
 
 First we consider $\tau_{a^\vee,a} \circ  \ev^*$.  By Lemma \ref{lem:dual-formula-for-adjoints}, $\ev^*$ is $\cC^{\op}$ as a $\Vect$--${\cC \boxtimes \cC^{\mp}}$ bimodule where the action is given by $m\cdot (x \boxtimes y) = {}^*y \otimes m \otimes x^*$ (here we've used that the left dual in $\cC^{\mp}$ is the right dual in $\cC$).  Hence, $\tau_{a^\vee,a} \circ  \ev^*$ is $\cC^{op}$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^*y \otimes c \otimes x^*$.  Taking right duals, we see that $\tau_{a^\vee,a} \circ  \ev^*$ equivalent to $\cC$ as a $\Vect$--$\cC^{mp} \boxtimes \cC$ bimodule, where the action is given by $c \cdot (y \boxtimes x) =  {}^{**}y \otimes c \otimes x$.
 
@@ -2173,20 +2173,21 @@ If $\cC$ is a fusion category, then $\cC({}^{****}(-)) \cong \cC(\id)$.
 We would like to turn this into a statement about the functor ${}^{****}(-)$.
 
 \begin{lemma}
-Suppose that $\cF$ is a $\cC$--$\cC$ bimodule equivalence $\cC(\id) \rightarrow \cC(\alpha)$, then $\cF(1)$ is invertible and $\alpha$ is naturally isomorphic as a monoidal functor to $\cF(1)^{-1} \cdot \cF(1)$.  Explicitly the natural transformation is given by $$c = \cF(1)^{-1} \cF(1) c \mapsto \cF(1)^{-1} \cF(c) \mapsto \cF(1)^{-1} \alpha(c) \cF(1),$$ where the first map is the natural transformation coming from left module functor structure on $\cF$ and the second map is the natural transformation coming from the right module structure on $\cF$.
+Suppose that $\cF$ is a $\cC$--$\cC$ bimodule equivalence $\cC(\id) \rightarrow \cC(\alpha)$, then $\cF(1)$ is invertible and $\alpha$ is naturally isomorphic as a monoidal functor to the conjugation functor $c \mapsto \cF(1) c \cF(1)^{-1}$.  
 \end{lemma}
 \begin{proof}
-$\cF(1)$ is invertible because is generates $\cC$ as a right module category.  The rest is clear.
+$\cF(1)$ is invertible because it generates $\cC$ as a right module category.  The natural transformation from $\alpha$ to conjugation by $\cF(1)$ is determined by the composite $$c = \cF(1)^{-1} \cF(1) c \mapsto \cF(1)^{-1} \cF(c) \mapsto \cF(1)^{-1} \alpha(c) \cF(1),$$ where the first map is the natural transformation coming from right module functor structure on $\cF$ and the second map is the natural transformation coming from the left module structure on $\cF$.  This natural isomorphism is monoidal, as required.  \CDcomm{Why not write the above transformation directly as
+$$\alpha(c) = \alpha(c) \cF(1) \cF(1)^{-1} \mapsto \cF(c) \cF(1)^{-1} \mapsto \cF(1) c \cF(1)^{-1}$$?}
 \end{proof}
 
 \begin{corollary}
 The quadruple dual is equivalent to conjugation by some invertible object $X$.
 \end{corollary}
 
-Recall that not only do we know that $\cC({}^{****}(-)) \cong \cC(\id)$, we actually have a canonical natural isomorphism given by the image of the universal Radford map.  We call the image of this map the Radford map $\cR_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The Radford map $\cR_\cC$ gives a canonical choice of invertible object $X$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
+Recall that not only do we know that $\cC({}^{****}(-)) \cong \cC(\id)$, we actually have a canonical natural isomorphism given by the image of the universal belt map.  We call the image of this map the belt map $\cB_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The belt map $\cB_\cC$ gives a canonical choice of invertible object $X$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
 
 \begin{theorem}
-For a fusion category $\cC$ the canonical invertible is trivial.
+For a fusion category $\cC$ the canonical invertible object is trivial.
 \end{theorem}
 \begin{proof}
 \NS{Look at CSP's proof}
@@ -2208,7 +2209,7 @@ The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category to
 
 The above result is unsatisfactory in two ways.  First, it does not give a topological reason for the appearance of $3$-framings.  We would prefer to have a partially defined $3$-dimensional theory which explains the appearance of a structure group which is naturally attached to $3$-dimensional theories.  Second, it relies on a non-topological proof of Radford's theorem.  These two defects are closely related: a partially defined $3$-dimensional TFT would be automatically $3$-framed and thus would give a topological proof of Radford's theorem.  In fact, as we saw in the last section, most of the $2$-handles automatically have adjoints.  This suggests that most of the $3$-handles can be defined, in particular enough of them to give a topological proof of Radford's theorem.
 
-It is an important philosophical point that algebraic applications of the cobordism hypothesis do not rely on the full strength of the cobordism hypothesis.  Any given application uses specific relationships between specific bordisms, and thus only relies on a very small part of the full topological field theory.  In particular, if you look at the explicit formula for the universal Radford map, we don't need a full $3$-dimensional field theory, we only need that the $2$-framed saddle has an adjoint.  Thus, rather than rigorously constructing a non-compact field theory, if all we want is Radford's theorem we can just write down formulas for the particular bordisms that we need and check that those formulas work.
+It is an important philosophical point that algebraic applications of the cobordism hypothesis do not rely on the full strength of the cobordism hypothesis.  Any given application uses specific relationships between specific bordisms, and thus only relies on a very small part of the full topological field theory.  In particular, if you look at the explicit formula for the universal belt map, we don't need a full $3$-dimensional field theory, we only need that the $2$-framed saddle has an adjoint.  Thus, rather than rigorously constructing a non-compact field theory, if all we want is Radford's theorem we can just write down formulas for the particular bordisms that we need and check that those formulas work.
 
 \begin{theorem}
 If $\cC$ is a finite tensor category, then the formula ??? gives an isomorphism between $\cC$ and $\cS \boxtimes_\cC \cS$.  Furthermore, under this map the image of $1$ is the canonical invertible $X$, and we have that the quadruple dual is canonical equivalent to conjugation by $X$ via a map satisfying the following property.
