@@ -1760,8 +1760,8 @@ By the cobordism hypothesis, the previous theorem shows that there is a $2$-dime
 
 We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, we pick a particularly nice representative.
 
-The following table lists four standard 2-framed 0-manifolds along with their associated invariants:
-\begin{table}[!h]
+Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with their associated invariants.
+\begin{table}[ht]
 \begin{tabular}{c|ll}
 \cb{
 \begin{tikzpicture}
@@ -1804,12 +1804,13 @@ The following table lists four standard 2-framed 0-manifolds along with their as
 }
 & $\cC^\mop$ &
 \end{tabular}
-\end{table} %!% line up the separating line in the various tables.
+\caption{Invariants associated to 2-framed 0-manifolds.} \label{table-points}
+\end{table} 
 
 \nid Notice that the first and fourth (and similarly the second and third) are equivalent, but not canonically equivalent, framed manifolds; their invariants are thus also equivalent, but not canonically so.  Of course, one could write down an equivalent TFT where all positive points are sent to $\cC$ and all negative points are sent to $\cC^{\mp}$, but this would break certain symmetries (in particular, you need to choose which way to identify the second and third points above, and there are two such natural choices).
 
-A generating collection of 2-framed 1-manifolds have invariants as follows:
-\begin{table}[!h]
+A generating collection of 2-framed 1-manifolds have invariants as listed in Table~\ref{table-intervals}:
+\begin{table}[ht]
 \begin{tabular}{c|cl}
 \cb{
 \begin{tikzpicture}
@@ -1900,16 +1901,17 @@ A generating collection of 2-framed 1-manifolds have invariants as follows:
 }
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
 \end{tabular}
+\caption{Invariants associated to 2-framed intervals.} \label{table-intervals}
 \end{table}
 
 \CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
 \NS{Note that you've written the 0-framed circle twice on that list.  I think we should only list it once.}
 \CD{I'm pretty sure all the circles on the list are (and were) distinct.}
 
-\nid Throughout the table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  
+\nid Throughout that table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  
 
-These generators can be combined into various closed manifolds, such as the following:
-\begin{table}[!h]
+These generators can be combined into various closed manifolds, such as those depicted in Table~\ref{table-circles}:
+\begin{table}[ht]
 \begin{tabular}{c|cl|c}
 \cb{
 \begin{tikzpicture}
@@ -1956,12 +1958,13 @@ These generators can be combined into various closed manifolds, such as the foll
 }
 & $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$ & 
 \end{tabular}
+\caption{Invariants associated to 2-framed circles.} \label{table-circles}
 \end{table}
 
 For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariant in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively.
 
-We now depict a few 2-framed 2-manifolds, together with their invariants: 
-\begin{table}[!h] 
+In Table~\ref{table-discs}, we depict the invariants associated to 2-framed discs. 
+\begin{table}[ht] 
 \begin{tabular}{c|cl}
 \cb{
 \begin{tikzpicture}
@@ -1991,7 +1994,13 @@ We now depict a few 2-framed 2-manifolds, together with their invariants:
 \begin{tikzpicture}
 \filldraw[linestyle,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
-}& & \\
+}& & 
+\end{tabular}
+\caption{Invariants associated to 2-framed discs.} \label{table-discs}
+\end{table}
+
+\begin{table}[ht] 
+\begin{tabular}{c|cl}
 \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
@@ -2001,7 +2010,9 @@ We now depict a few 2-framed 2-manifolds, together with their invariants:
 }
 & & 
 \end{tabular}
+\caption{Invariants associated to 2-framed surfaces.} \label{table-surfaces}
 \end{table}
+
 
 \CDcomm{Can add to this table: annulus with fuzz out fuzz out; annulus with no fuzz; torus with any framing it is sane to draw ...}
 
