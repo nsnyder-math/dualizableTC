@@ -1880,10 +1880,9 @@ Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with the
 \end{tabular}
 \caption{Invariants associated to 2-framed 0-manifolds.} \label{table-points}
 \end{table} 
+Notice that the first and fourth (and similarly the second and third) are equivalent, but not canonically equivalent, framed manifolds; their invariants are thus also equivalent, but not canonically so.  Of course, one could write down an equivalent TFT where all positive points are sent to $\cC$ and all negative points are sent to $\cC^{\mp}$, but this would break certain symmetries (in particular, you need to choose which way to identify the second and third points above, and there are two such natural choices).
 
-\nid Notice that the first and fourth (and similarly the second and third) are equivalent, but not canonically equivalent, framed manifolds; their invariants are thus also equivalent, but not canonically so.  Of course, one could write down an equivalent TFT where all positive points are sent to $\cC$ and all negative points are sent to $\cC^{\mp}$, but this would break certain symmetries (in particular, you need to choose which way to identify the second and third points above, and there are two such natural choices).
-
-A generating collection of 2-framed 1-manifolds have invariants as listed in Table~\ref{table-intervals}:
+A generating collection of 2-framed 1-manifolds have invariants as listed in Table~\ref{table-intervals}.
 \begin{table}[ht]
 \begin{tabular}{c|cl}
 \cb{
@@ -1977,28 +1976,28 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{tabular}
 \caption{Invariants associated to 2-framed intervals.} \label{table-intervals}
 \end{table}
-
 \CD{Is the dual in the right arc fuzz out a right or left dual?  This is determined by knowing which loop Serre is, and whether Serre is left or right double dual.  The remaining duals are then determined indicated.}
 \NS{Note that you've written the 0-framed circle twice on that list.  I think we should only list it once.}
 \CD{I'm pretty sure all the circles on the list are (and were) distinct.}
+Throughout that table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  
 
-\nid Throughout that table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  
-
-These generators can be combined into various closed manifolds, such as those depicted in Table~\ref{table-circles}:
+These generators can be combined into various closed manifolds, such as those depicted in Table~\ref{table-circles}.
 \begin{table}[ht]
-\begin{tabular}{c|cl|c}
+\begin{tabular}{c|cl|cl}
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) circle (\smcirclerad);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ & \CDcomm{$\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$} \\
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ & $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ \\
+%
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft] (0,0) circle (\smcirclerad);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ & \\
+& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ & $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ \\
+%
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft,looseness=2]
@@ -2008,7 +2007,8 @@ These generators can be combined into various closed manifolds, such as those de
 	to [out=170, in=180] (0,.5);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ & \\
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{\id} \cC_2^\mp$ & $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ & via $\cC^\mp \xra{(-)^{**}} \cC_2^\mp$ \\
+%
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft]
@@ -2019,7 +2019,8 @@ These generators can be combined into various closed manifolds, such as those de
 	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ & \\
+& $\cC \btimes_{\cC \btimes \cC^\mp} \cC$ & via $\cC^\mp \xra{(-)^{****}} \cC_2^\mp$ & $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ & via $\cC^\mp \xra{{}^{**}(-)} \cC_2^\mp$ \\
+%
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright]
@@ -2030,12 +2031,13 @@ These generators can be combined into various closed manifolds, such as those de
 	.. controls (-.5,.66) and (.5,.66) .. (.5,0);
 \end{tikzpicture}
 }
-& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$ & 
+& $\cC \btimes_{\cC^\mp \btimes \cC} \cC$ & via $\cC^\mp \xra{{}^{****}(-)} \cC_2^\mp$ & $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ & via $\cC^\mp \xra{(-)^{******}} \cC_2^\mp$ 
 \end{tabular}
 \caption{Invariants associated to 2-framed circles.} \label{table-circles}
 \end{table}
-
-For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariant in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively.
+%
+\CD{Add remark about the invariants of the circles in the non-rigid case.}
+The middle and right columns present two different, equivalent, formulations of the associated invariants.  For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariants in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively---these expressions dervie their names from the invariants in the first column.  The invariant $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ in the first row is called the Drinfeld center of $\cC$ and is often denoted $\cZ(\cC)$.
 
 In Table~\ref{table-discs}, we depict the invariants associated to 2-framed discs. 
 \begin{table}[ht] 
@@ -2045,7 +2047,8 @@ In Table~\ref{table-discs}, we depict the invariants associated to 2-framed disc
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
 }
-& $\Vect \xra{k \mapsto \id} {\Fun_{\cC \boxtimes \cC^{\mp}}(\cC,\cC)}$ & \\
+& $\Vec \xra{k \mapsto \id} {\Fun_{\cC \boxtimes \cC^{\mp}}(\cC,\cC)}$ & \\
+%
 \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fill=\fillcolor] 
@@ -2064,6 +2067,26 @@ In Table~\ref{table-discs}, we depict the invariants associated to 2-framed disc
 \end{tikzpicture}
 }
 & & \\
+%
+\cb{
+\begin{tikzpicture}
+\filldraw[linestyle,fill=\fillcolor] 
+	(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0)
+		.. controls (.75,.25) and (.75,.75) .. (1,1)
+		.. controls (.75,.75) and (.25,.75) .. (0,1)
+		.. controls (.25,.75) and (.25,.25) .. (0,0);
+\draw[linestyle, fuzzleft]
+	(0,0) .. controls (.25,.25) and (.25,.75) .. (0,1);
+\draw[linestyle, fuzzright]
+	(1,0) .. controls (.75,.25) and (.75,.75) .. (1,1);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (1,1) -- +(45:\arrowlength);
+	\draw[->,outstyle] (1,0) -- +(-45:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+& \CDcomm{$\cC^\mp \btimes \cC \xra{1 \btimes 1 \mapsto \id} \Fun_{\Vec}(\cC,\cC)$} & \\
+%
 \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fill=\fillcolor] (0,0) circle (\circlerad);
@@ -2088,10 +2111,9 @@ In Table~\ref{table-discs}, we depict the invariants associated to 2-framed disc
 \end{table}
 
 
+
 \CDcomm{Can add to this table: annulus with fuzz out fuzz out; annulus with no fuzz; torus with any framing it is sane to draw ...}
-
 \NScomm{Should we explain what happens in the exact tensor product but not rigid case?}
-
 \CSPcomm{
 [This is a  great spot to explain the 2D TQFT values for some of the low dimensional cobordisms. I guess that in principle we have invertible 3D cobordisms e.g. the diffeos of the pants which induces the braiding on the center of the finite tensor category.]
 }
