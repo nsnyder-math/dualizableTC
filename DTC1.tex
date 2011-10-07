@@ -1682,7 +1682,7 @@ By construction, the four maps of structure spaces above induce the `obvious' ma
 
 In this section we prove the main theorem, that multi-fusion categories of non-zero global dimension are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, considerably weaker assumptions (relaxing semisimplicity, non-zero global dimension, and even part of rigidity) suffice to construct a fully local categorified $2$-dimensional TFT.
 
-\subsection{Duals of objects} \label{sec-df-objects}
+\subsection{Duals of objects and invariants of elementary 1-framed bordisms} \label{sec-df-objects}
 
 In this section we show that $\cC^\mp$ is the dual of $\cC$. 
 
@@ -1698,9 +1698,6 @@ We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{
 \end{proposition}
 
 %%%
-
-\subsubsection{Invariants of elementary 1-framed bordisms}
-\CD{I'm not sure this, and the other similar subsections, should really be subsections.  But I'm just breaking them out for now and we can weave them into the text once the text of the sections is more complete.}
 
 By the cobordism hypothesis, the previous theorem shows that there is a $1$-dimensional TFT attached to every finite tensor category, and that this TFT is unique up to equivalence.  Note that this TFT is ``twice categorified" in the sense that it's a functor of $(3,1)$-categories, not $1$-categories.  For example, this gives an action of the mapping class group on the invariant attached to a circle.  The reader should always remember that the TFT associated to $\cC$ is only well-defined up to equivalence, nonetheless we will pick a nice representative and often call that ``the TFT assigned to $\cC$."
 
@@ -1828,7 +1825,7 @@ Thus we have proven
 
 \NScomm{We should modify the above to reflect the fact that we only need exactness of tensor product, not rigidity}
 
-\subsubsection{Invariants of elementary 2-framed bordisms}
+\subsection{Invariants of elementary 2-framed bordisms}
 
 By the cobordism hypothesis, the previous theorem shows that there is a $2$-dimensional $2$-framed TFT attached to every finite tensor category with exact tensor product, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
 
@@ -1892,6 +1889,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 }
 & $\bimod{\cC \btimes \cC^\op}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
+%
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) arc (90:270:\smcirclerad);
@@ -1903,6 +1901,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 }
 & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
+%
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft] (0,0) arc (-90:90:\smcirclerad);
@@ -1981,6 +1980,52 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \CD{I'm pretty sure all the circles on the list are (and were) distinct.}
 Throughout that table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  
 
+\begin{remark}
+Though the invariants listed in Table~\ref{table-intervals} represent the most natural choices, it is possible to modify these invariants up to equivalence into less natural and less symmetrical, but sometimes more computationally convenient, forms.  For example, we may associate the invariant $\cC^\mp$ to the point
+\cb{
+\begin{tikzpicture}
+\filldraw (0,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 1};
+\draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+rather than $\cC^\op$ as we did before.  Given that choice, we may associate the bimodule ${}_\Vec \cC_{\cC \btimes \cC^\mp}$, with the naive action, to the bordism
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] (0,0) arc (90:270:\smcirclerad);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}.
+At the same time we associate the invariant ${}_{\cC^\mp \btimes \cC} \cC_{\Vec}$, again with the naive action, to the bordism
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft] (0,0) arc (-90:90:\smcirclerad);
+\end{tikzpicture}
+}.
+Given these choices, the bordism
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
+\end{tikzpicture}
+}
+is forced to have as invariant the bimodule ${}_{\cC \btimes \cC^\mp} \cC_\Vec$, where the action of $\cC^\mp$ is the naive action precomposed with the tensor functor $\cC^\mp \xra{(-)^{**}} \cC^\mp$.  That bimodule is equivalent to the bimodule $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC \btimes \cC^\mp)$ with the naive actions.  Similarly the bordism
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+is forced to have as invariant the bimodule ${}_{\Vec} \cC_{\cC^\mp \btimes \cC}$, where the action of $\cC^\mp$ is the naive action precomposed with again the tensor functor $\cC^\mp \xra{(-)^{**}} \cC^\mp$.  That bimodule is equivalent to the bimodule $\Fun_{\Vec}(\cC,\Vec)$ with the naive actions.
+\end{remark}
+
 These generators can be combined into various closed manifolds, such as those depicted in Table~\ref{table-circles}.
 \begin{table}[ht]
 \begin{tabular}{c|cl|cl}
@@ -2037,17 +2082,17 @@ These generators can be combined into various closed manifolds, such as those de
 \end{table}
 %
 \CD{Add remark about the invariants of the circles in the non-rigid case.}
-The middle and right columns present two different, equivalent, formulations of the associated invariants.  For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$ and so have reexpressed the invariants in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively---these expressions dervie their names from the invariants in the first column.  The invariant $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ in the first row is called the Drinfeld center of $\cC$ and is often denoted $\cZ(\cC)$.
+The middle and right columns present two different, equivalent, formulations of the associated invariants.  For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$, as discussed in the above remark, and so have reexpressed the invariants in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively---these expressions dervie their names from the invariants in the first column.  The invariant $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ in the first row is called the Drinfeld center of $\cC$ and is often denoted $\cZ(\cC)$.
 
 In Table~\ref{table-discs}, we depict the invariants associated to 2-framed discs. 
 \begin{table}[ht] 
-\begin{tabular}{c|cl}
+\begin{tabular}{c|l}
 \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
 }
-& $\Vec \xra{k \mapsto \id} {\Fun_{\cC \boxtimes \cC^{\mp}}(\cC,\cC)}$ & \\
+& $\Vec \xra{k \mapsto \id} {\Fun_{\cC \boxtimes \cC^{\mp}}(\cC,\cC)}$ \\
 %
 \cb{
 \begin{tikzpicture}
@@ -2066,7 +2111,7 @@ In Table~\ref{table-discs}, we depict the invariants associated to 2-framed disc
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& & \\
+& $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC \btimes \cC^\mp) \btimes \cC \xra{\mathrm{eval}} \cC \btimes \cC^\mp$ \\
 %
 \cb{
 \begin{tikzpicture}
@@ -2085,13 +2130,13 @@ In Table~\ref{table-discs}, we depict the invariants associated to 2-framed disc
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& \CDcomm{$\cC^\mp \btimes \cC \xra{1 \btimes 1 \mapsto \id} \Fun_{\Vec}(\cC,\cC)$} & \\
+& $\cC^\mp \btimes \cC \xra{1 \btimes 1 \mapsto \id} \Fun_{\Vec}(\cC,\cC)$ \\
 %
 \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
-}& & 
+}& $\Fun_{\Vec}(\cC,\Vec) \btimes_{\cC \btimes \cC^\mp} \cC \xra{\mathrm{eval}} \Vec$
 \end{tabular}
 \caption{Invariants associated to 2-framed discs.} \label{table-discs}
 \end{table}
@@ -2182,7 +2227,7 @@ If $\cC$ is a rigid finite tensor category such that $Z(\cC)$ is semisimple, the
 Semisimplicity of $Z(\cC)$ implies semisimplicity of $\cC$, since $\cC$ is exact as a $Z(\cC)$ module.  Thus the previous theorem is strictly weaker than the earlier theorem.  Nonetheless, it separates out the ``formal" part of the theorem, from the less formal proof that $Z(\cC)$ is semisimple.  In addition, this argument better shows what goes wrong in the non-semisimple case: we have no guarantee that functors out of ${}_\Vec Z(\cC)_\Vec$ have adjoints.  In particular, for non-semisimple categories there are problems defining the $3$-handles.
 \end{remark}
 
-\subsubsection{Invariants of elementary 3-framed bordisms}
+\subsection{Invariants of elementary 3-framed bordisms}
 
 \CSPcomm{Here should go a discussion of the basic 3-framed bordisms and their images under the tqft. It should build off of the discussion in the last section of the 2-framed 2D cobordisms. }
 
