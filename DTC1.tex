@@ -123,11 +123,7 @@ The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-c
 
 In Section \ref{sec-lft} we discuss local field theory, recall Lurie's statement of the Baez-Dolan cobordism hypothesis, and discuss several topological notions which come up in $3$-dimensional field theory.  We briefly recall the outline of Lurie's proof, indicating how some aspects of it have been simplified by more recent results.  Since the $n$-framed bordisms are critical to the cobordism hypothesis, we then fix some convenient notation for $n$-framings and gives some examples of that notation.  Finally, we discuss some groups which come up as other $3$-dimensional structure groups.  Although parts of this section can be skipped on a first read, we highly recommend that the reader look at the section on notation for $n$-framings  as the diagrams in the rest of the paper are otherwise unintelligible.
 
-In Section \ref{sec-dualfusion} we prove our main results (see Theorem \ref{???} and Theorem \ref{???}) for more detailed statements}.
-
-\begin{theorem}
-Finite monoidal categories whose tensor product is biexact, are twice dualizable (that is, fully dualizable in the (3,2) truncation of the $3$-category of finite monoidal categories).
-\end{theorem}
+In Section \ref{sec-dualfusion} we prove our main result (Theorem \ref{???}) for a more detailed statements}.
 
 \begin{theorem}
 Fusion categories of nonzero global dimension are fully dualizable.
@@ -152,15 +148,35 @@ For any fusion category there is a local topological quantum field theory whose 
 
 %%
 
-The end of the paper, Sections~\ref{sec-serre} and~\ref{sec-pivot}, focuses on applications of the main result.
+We also prove several intermediate results showing that parts of duality do not require the full fusion assumption.  The most important of these intermediate results is the following.
 
 \begin{theorem}
-The Serre automorphism of a fusion category $\cC$ is the bimodule associated to the double dual functor $**: \cC \ra \cC$.
+Finite monoidal categories whose tensor product is biexact, are twice dualizable (that is, fully dualizable in the (3,2) truncation of the $3$-category of finite monoidal categories).
 \end{theorem}
 
-Because the Serre automorphism is necessarily order 2, this theorem provides a simple topological proof of the following generalization Radford's theorem to fusion categories (originally due to ENO):
+This shows that finite monoidal categories give $2$-framed local $2$-dimensional TFTs, which are categorified in the sense that they take values in a $(3,2)$-category instead of a discrete $2$-category.
+
+The end of the paper, Sections~\ref{sec-serre} and~\ref{sec-pivot}, focuses on applications of the main result.  The key player in this section is the Serre automorphism, which roughly measures the dependence of the field theory on spin structures.
+
+\begin{theorem}
+The Serre automorphism of a finite monoidal category $\cC$ is the bimodule associated to the double dual functor $**: \cC \ra \cC$.
+\end{theorem}
+
+In $3$-dimensions, the Serre automorphism is necessarily order 2 (since $\pi_1(\mathrm{SO}_3) \cont \mathbb{Z}/2$), this theorem provides a simple topological proof of the following generalization Radford's theorem to fusion categories (originally due to ENO).
 \begin{corollary}
 The quadruple dual functor $****: \cC \ra \cC$ on a fusion category is naturally isomorphic to the identity functor.
+\end{corollary}
+
+We then address how this result generalizes to finite tensor categories.  Morally, the key point is that enough of the $2$-morphisms related to finite tensor categories have adjoints that we can define an action of $O(3)$ on these objects instead of just $O(2)$.
+
+\begin{theorem}
+There is a canonical $3$-framed local $2$-dimensional field theory attached to a finite tensor category.
+\end{theorem}
+
+Indeed we can give a topologically inspired proof of the generalization of Radford' theorem to finite tensor categories (again due to ENO).
+
+\begin{corollary}
+The quadruple dual functor $****: \cC \ra \cC$ on a finite tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
 \end{corollary}
 
 A key insight resulting from the field-theoretic perspective on fusion categories is that the ENO conjecture, namely that fusion categories are pivotal, is equivalent to the spin-independence of the topological field theories associated to fusion categories:
@@ -174,7 +190,7 @@ A precise formulation of this result, in terms of a descent condition for the bo
 
 \subsection{Relationship to other work}
 
-
+The history of 
 
 \subsection*{Acknowledgments}
 Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morrison, Kevin Walker, Google Wave.
