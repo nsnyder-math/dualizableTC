@@ -590,7 +590,7 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 %When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
 \end{proof}
 
-\begin{remark}
+\begin{remark} \label{remark-tensorasfunctors}
 If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\text{mod-}\cD}(\cM,\cD) \simeq \Fun_{\text{mod-}\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. \CD{I corrected this remark.  Make sure you still agree.}
 \end{remark}
 
@@ -1791,7 +1791,7 @@ The maps $\ev_R$ and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fu
 The map $\coev_L: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev_R: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
 \end{lemma}
 
-\begin{theorem}
+\begin{theorem} \label{thm-evcoev}
 The pairs $(\ev_R$, $\coev_R)$ and $(\ev_L, \coev_L)$ each provide the unit and counit of an adjunction.
 \end{theorem}
 \begin{proof}
@@ -1977,7 +1977,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{table}
 Throughout that table, the actions not specifically described are the naive actions.  In the first four cases, the indicated map is a tensor functor to $\cC^\mp$, therefore specifies a left action of $\cC^\op$ on $\cC$ via the natural left action of $\cC^\mp$ on $\cC$, which is to say the natural right action of $\cC$ on $\cC$.  In next set of four cases, the indicated map specifies the left action.  
 
-\begin{remark}
+\begin{remark} \label{remark-altintervals}
 Though the invariants listed in Table~\ref{table-intervals} represent the most natural choices, it is possible to modify these invariants up to equivalence into less natural and less symmetrical, but sometimes more computationally convenient, forms.  For example, we may associate the invariant $\cC^\mp$ to the point
 \cb{
 \begin{tikzpicture}
@@ -2079,7 +2079,7 @@ These generators can be combined into various closed manifolds, such as those de
 \end{table}
 %
 \CD{Add remark about the invariants of the circles in the non-rigid case.}
-The middle and right columns present two different, equivalent, formulations of the associated invariants.  For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$, as discussed in the above remark, and so have reexpressed the invariants in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively---these expressions dervie their names from the invariants in the first column.  The invariant $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ in the first row is called the Drinfeld center of $\cC$ and is often denoted $\cZ(\cC)$.
+The middle and right columns present two different, equivalent, formulations of the associated invariants.  For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$, as discussed in the above remark, and so have reexpressed the invariants in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively---these expressions dervie their names from the invariants in the first column.  The invariant $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ in the first row is called the Drinfeld center of $\cC$ and is often denoted $\cZ(\cC)$.  Computing the invariants in the right column makes use of Theorem~\ref{thm-evcoev} and Remark~\ref{remark-altintervals} above, as well as Lemma~\ref{Lma:FunctorsAsATensorPdt} and Remark~\ref{remark-tensorasfunctors}.
 
 In Table~\ref{table-discs}, we depict the invariants associated to 2-framed discs. 
 \begin{table}[ht] 
