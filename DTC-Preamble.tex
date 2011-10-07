@@ -80,13 +80,17 @@
 
 \newcommand{\cb}{\raisebox{.6ex-.5\height}}
 
+
+
+
+
 %%%% These draw triple or quadruple set of arrows of length 0.5 cm
-\DeclareMathOperator{\rightdoublearrows} {{\; \tikz{ \foreach \y in {0.05, 0.15} { \draw [-stealth] (0, \y) -- +(0.5, 0);}} \; }}
-\DeclareMathOperator{\leftdoublearrows} {{\; \tikz{ \foreach \y in {0.05, 0.15} { \draw [stealth-] (0, \y) -- +(0.5, 0);}} \; }}
-\DeclareMathOperator{\righttriplearrows} {{\; \tikz{ \foreach \y in {0, 0.1, 0.2} { \draw [-stealth] (0, \y) -- +(0.5, 0);}} \; }}
-\DeclareMathOperator{\lefttriplearrows} {{\; \tikz{ \foreach \y in {0, 0.1, 0.2} { \draw [stealth-] (0, \y) -- +(0.5, 0);}} \; }}
-\DeclareMathOperator{\rightquadarrows} {{\; \tikz{ \foreach \y in {-0.05, 0.05, 0.15, 0.25} { \draw [-stealth] (0, \y) -- +(0.5, 0);}} \; }}
-\DeclareMathOperator{\leftquadarrows} {{\; \tikz{ \foreach \y in {-0.05, 0.05, 0.15, 0.25} { \draw [stealth-] (0, \y) -- +(0.5, 0);}} \; }}
+\DeclareMathOperator{\rightdoublearrows} {{\; \begin{tikzpicture} \foreach \y in {0.05, 0.15} { \draw [-stealth] (0, \y) -- +(0.5, 0);} \; \end{tikzpicture}}}
+\DeclareMathOperator{\leftdoublearrows} {{\; \begin{tikzpicture} \foreach \y in {0.05, 0.15} { \draw [stealth-] (0, \y) -- +(0.5, 0);} \; \end{tikzpicture}}}
+\DeclareMathOperator{\righttriplearrows} {{\; \begin{tikzpicture} \foreach \y in {0, 0.1, 0.2} { \draw [-stealth] (0, \y) -- +(0.5, 0);} \; \end{tikzpicture}}}
+\DeclareMathOperator{\lefttriplearrows} {{\; \begin{tikzpicture} \foreach \y in {0, 0.1, 0.2} { \draw [stealth-] (0, \y) -- +(0.5, 0);} \; \end{tikzpicture}}}
+\DeclareMathOperator{\rightquadarrows} {{\; \begin{tikzpicture} \foreach \y in {-0.05, 0.05, 0.15, 0.25} { \draw [-stealth] (0, \y) -- +(0.5, 0);} \; \end{tikzpicture}}}
+\DeclareMathOperator{\leftquadarrows} {{\; \begin{tikzpicture} \foreach \y in {-0.05, 0.05, 0.15, 0.25} { \draw [stealth-] (0, \y) -- +(0.5, 0);} \; \end{tikzpicture}}}
 
 %%%%%%% End TikZ Commands and Macros %%%%%%%%%%%%%
 
