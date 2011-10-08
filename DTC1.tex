@@ -729,14 +729,29 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 
 \CD{CD continues to vote for using 'fusion' rather than 'multifusion'}
 
+%\begin{definition}
+%A \emph{fusion category} is a tensor category $\cC$ satisfying the following conditions:
+%\begin{enumerate}
+%\item For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
+%\item The category $\cC$ is semisimple, with finitely many simple objects.
+%\item For every object $a \in \cC$, there exists an object $\ld{a} \in \cC$ that is a left dual for $a$ and there exists an object $\rd{a} \in \cC$ that is a right dual for $a$.
+%\end{enumerate}
+%\end{definition}
+
 \begin{definition}
 A \emph{fusion category} is a tensor category $\cC$ satisfying the following conditions:
 \begin{enumerate}
-\item For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
+\item $\cC$ is finite. %(cf. )
+\item $\cC$ is rigid. 
+\item $\cC$ is semisimple. 
+For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
 \item The category $\cC$ is semisimple, with finitely many simple objects.
-\item For every object $a \in \cC$, there exists an object $\ld{a} \in \cC$ that is a left dual for $a$ and there exists an object $\rd{a} \in \cC$ that is a right dual for $a$.
+\item For 
 \end{enumerate}
 \end{definition}
+
+Thus a fusion category has finite dimensional hom vectorspace, has finitely many isomorphism classes of simple objects, and every object $a \in \cC$, there exists an object ${a^*} \in \cC$ that is a left dual for $a$ and there exists an object ${}^{*}a \in \cC$ that is a right dual for $a$.
+
 
 \begin{remark}
 Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
@@ -748,7 +763,8 @@ The following result, which is a generalization of Radford's `$S^4$ formula' for
 	A fusion category $\cC$ admits a canonical monoidal equivalence between the identity functor and the quadruple dual functor $\ldddd{(-)}$.
 \end{theorem}
 
-\CSPcomm{We will give a new proof of this theorem based on the fact that fusion categories are fully dualizable objects in a certain symmetric monoidal 3-category.}
+\CSP{cite which theorem of ours does this.}
+We will give a new proof of this theorem based on the fact that fusion categories are fully dualizable objects in a the symmetric monoidal 3-category of tensor categories (described later in this paper).
 
 \begin{definition}
 A fusion category $\cC$ is \emph{pivotal} if it admits a {\em pivotal structure}: a monoidal equivalence between the double right dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ and identity functor.
@@ -767,12 +783,37 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 \end{remark}
 
  
+
+\subsection{Separable Module Categories} \label{sec-tc-separable}
+
+\CSPcomm{[Maybe move this to section 5? It is totally new material, as far as I know.]}
+
+\begin{definition}
+	Let $A$ be an algebra object in a finite tensor category $\cC$. The multiplication map $\mu: A \otimes A \to A$ may be viewed as a morphism of $A$-$A$-bimodule objects in $\cC$. We will say that $A$ is {\em separable} if the multiplication map splits as a map of $A$-$A$-bimodules. 
+\end{definition}
+
+\begin{theorem}
+	Let $\cC$ be a finite semisimple tensor category (not necessarily rigid) and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
+	\begin{enumerate}
+		\item $\cM_\cC \simeq \Mod{}{A}(\cC)$, where $A$ is a separable algebra in $\cC$;
+		\item $\cM_\cC \simeq \Mod{}{A}(\cC)$, where $A$ is an algebra in $\cC$ which is projective as an $A$-$A$-bimodule;
+		\item The identity functor is a projective object of $\Fun_\cC(\cM, \cM)$;
+		\item $\Fun_\cC(\cM, \cM)$ is a semisimple category. 
+	\end{enumerate}
+	and $\cM$ is semisimple. 
+	Moreover, if $\cC$ is rigid, then $\cM$ is an exact $\cC$-module category. 
+\end{theorem}
+
+\begin{proof}
+	...
+\end{proof}
+
+
 \CSPcomm{
 Some other  things that might be added?
 \begin{itemize}
 	\item This notion of spherical agrees with the standard one (left trace = right trace). NS, I think you had a proof of that? \CDcomm{The reference is on Wave at the very start of ENO Part V.}
 	\item tensor product of semisimples is semisimple if over fusion cats which have {\em non-zero global dimension}. 
-	\item introduce other terminology that will come into play in section 6? e.g. Morita Spherical, Morita Pivotal, etc, etc. \CDcomm{As mentioned by email, I think these items should not be introduced here.}
 \end{itemize}
 
 
