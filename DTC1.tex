@@ -269,7 +269,7 @@ More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories the
 such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. 
 
 \begin{warning}
-	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such that the Deligne tensor product of linear categories, and the composition of bimodule categories are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
+	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
 \end{warning}
 
 \begin{definition}
@@ -384,21 +384,19 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 \begin{definition}		
 A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that 
 \NS{I got rid of the more general definition, if you had a reason you needed it, feel free to change it back}
-\CSP{Yes we need this generality to express the universl property of the tensor product of a $\cC$-$\cD$-bimodule  and a $\cC'$-$\cD'$-bimodule.}
+\CSP{Yes we need this generality to express the universal property of the tensor product of a $\cC$-$\cD$-bimodule  and a $\cC'$-$\cD'$-bimodule.}
 %	\begin{itemize}
 		 $F$ is the identity on objects,
-		 and the restriction of $F$ to each hom category is linear.
-%		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
+		  the restriction of $F$ to each hom category is linear,
+		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
 %	\end{itemize}
-
 A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
-
-	A {\em bimodule transformation} is a transformation of functors of bicategories, such that the component 1-cells are trivial. 
+	A {\em bimodule transformation} is a transformation of functors of bicategories, which restricts to the identity on $\Hom(x,x)$ and $\Hom(y,y)$, and such that the component 1-cells are trivial.  
 \end{definition}
 	
-Thus a bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category \NS{Is there a good reason for allowing this much generality here?  I find it confusing that a bimodule functor from a $\cC$-$\cD$ bimodule to another one is not the same thing as a $\cC$-$\cD$ bimodule functor} $\cM'$ consists in part of tensor functors $\cC \to \cC'$ and $\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. 
+%
 Bimodule categories, functors, and transformations form a strict 2-category.
-If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
+%If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
 
 \begin{example}
 	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. 
@@ -417,7 +415,29 @@ If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule fun
  	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. 
 \end{remark}
 
+We will also need a slightly more general notion of bimodule morphism to make sense of multilinear bimodule maps. These in turn are used to define the external Deligne tensor product of bimodule categories and, later,  in defining the symmetric monoidal 3-category of tensor categories. 
 
+\begin{definition}
+	A {\em twisted bimodule functor} from a $\cC$-$\cD$-bimodule category $\cM$  to $\cC'$-$\cD'$-bimodule category $\cM'$ is a functor of bicatgories from $\cM$ to $\cM'$ which restricts to the identity on objects and is linear on hom categories. A {\em twisted bimodule transformation} between twisted bimodule functors is a transformation of functors of bicategories such that the component 1-cells are trivial.
+\end{definition}
+
+Thus a twisted bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category $\cM'$ consists in part of tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. We will say the the twisted bimodule functor {\em extends the tensor functors $f$ and $g$}. 
+
+If we are given a $\cC'$-$\cD'$-bimodule category $\cM'$ and tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, then we may also form the {\em twisted bimodule category} ${}_f{\cM'}_g$.
+\CSP{This notation should made compatible with section 6, once we've settled what to do. }
+The underlying linear category of ${}_f{\cM'}_g$ is $\cM'$, but the actions are by $\cC$ and $\cD$ via the tensor functors $f$ and $g$. A twisted bimodule functor $\cM \to \cM'$ extending $f$ and $g$ is the same as a $\cC$-$\cD$-bimodule functor $\cM \to {}_f{\cM'}_g$. 
+
+With twisted bimodule functors as morphisms, there exists a terminal bimodule category $\cT$. As a bicategory, each of its non-empty hom categories is the terminal linear category. The product of bimodule categories $\cM \times_{\cT} \cM'$ is defined as the fiber product of bicategories over $\cT$. We will abuse notation and write this as $\cM \times \cM'$. This is again a bicategory with precisely two objects $x$ and $y$. Moreover
+\begin{equation*}
+	\Hom_{\cM \times \cM'}(a,b) = \Hom_\cM(a,b) \times \Hom_{\cM'}(a,b)
+\end{equation*}
+for all pairs $a,b \in \{ x,y \}$.
+
+If $\{ \cM_\alpha \}$ is a collection of bimodule categories then a {\em twisted multilinear bimodule functor} from $\{ \cM_\alpha \}$ into a bimodule category $\cN$ is a functor of bicategories
+\begin{equation*}
+	\prod_{\alpha} \cM_\alpha \to \cN
+\end{equation*}
+which is the identity on objects, and which is a twisted bimodule functor in each variable. 
 
 \subsection{The Deligne tensor product and finite linear categories}
 
@@ -572,7 +592,7 @@ and we will show that $T$ induces an equivalence between $\cC$-balanced multilin
 \end{remark}
 
 \begin{remark}
-	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. 
+	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced, twisted bilinear bimodule functors. 
 \end{remark}
 
 \begin{lemma} \label{Lma:FunctorsAsATensorPdt}
