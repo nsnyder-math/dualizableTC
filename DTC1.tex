@@ -792,7 +792,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 	Let $A$ be an algebra object in a finite tensor category $\cC$. The multiplication map $\mu: A \otimes A \to A$ may be viewed as a morphism of $A$-$A$-bimodule objects in $\cC$. We will say that $A$ is {\em separable} if the multiplication map splits as a map of $A$-$A$-bimodules. 
 \end{definition}
 
-\begin{theorem}
+\begin{theorem} \label{thm:SepModCats}
 	Let $\cC$ be a finite semisimple tensor category (not necessarily rigid) and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
 	\begin{enumerate}
 		\item $\cM_\cC \simeq \Mod{}{A}(\cC)$, where $A$ is a separable algebra in $\cC$;
@@ -800,13 +800,36 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 		\item The identity functor is a projective object of $\Fun_\cC(\cM, \cM)$;
 		\item $\Fun_\cC(\cM, \cM)$ is a semisimple category. 
 	\end{enumerate}
-	and $\cM$ is semisimple. 
-	Moreover, if $\cC$ is rigid, then $\cM$ is an exact $\cC$-module category. 
+	Moreover $\cM$ is semisimple. \\
+	Furthermore, if $\cC$ is rigid, then $\cM$ is an exact $\cC$-module category. The analogous results hold for left module categories as well. 
+\end{theorem}
+
+
+\begin{proof}
+	The proof of Lemma \ref{Lma:FunctorsAsATensorPdt} shows that $\Fun_\cC(\cM, \cM) \simeq \Mod{A}{A}(\cC)$, thus we have clear implications (4) $\Rightarrow$ (3) $\Leftrightarrow$ (2) $\Rightarrow$ (1). We will show that (1) $\Rightarrow$ (4), that is if $A$ is separable, then $\Mod{A}{A}(\cC)$ is a semisimple category. 
+	
+	To see this recall the following general fact: if $F: \cA \leftrightarrows \cB: G$ is an adjunction between abelian categories and the right adjoint $G$ is also right exact, then $F$ sends projective objects to projective objects. This is clear as
+	\begin{equation*}
+		\Hom(F(P), -) = \Hom(P, U(-))
+	\end{equation*}
+	is a right-exact functor. 
+	
+	
+	...
+\end{proof}
+
+\begin{definition}
+	If any of the equivalent conditions of Theorem \ref{thm:SepModCats} are satisfied, then we will say that $\cM$ is a {\em separable} module category. If $\cM$ is a $\cC$-$\cD$-bimodule category then we will say $\cM$ is separable if it is separable over both $\cC$ and $\cD$ separately. 
+\end{definition}
+
+\begin{theorem}
+	If ${}_\cB\cM_\cC$ and ${}_\cC\cN_\cD$ are separable bimodule categories over semisimple tensor categories, then $\cM \boxtimes_{\cC} \cN$ is a separable $\cB$-$\cD$-bimodule category.
 \end{theorem}
 
 \begin{proof}
-	...
+	[...]
 \end{proof}
+
 
 
 \CSPcomm{
