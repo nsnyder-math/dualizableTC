@@ -744,9 +744,6 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 \item $\cC$ is finite. %(cf. )
 \item $\cC$ is rigid. 
 \item $\cC$ is semisimple. 
-For all objects $a, b \in \cC$, the vector space $\Hom(a,b)$ is finite dimensional.
-\item The category $\cC$ is semisimple, with finitely many simple objects.
-\item For 
 \end{enumerate}
 \end{definition}
 
@@ -792,6 +789,10 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 	Let $A$ be an algebra object in a finite tensor category $\cC$. The multiplication map $\mu: A \otimes A \to A$ may be viewed as a morphism of $A$-$A$-bimodule objects in $\cC$. We will say that $A$ is {\em separable} if the multiplication map splits as a map of $A$-$A$-bimodules. 
 \end{definition}
 
+\begin{remark}
+	A (right exact) monad $T$ acting on a $\cC$-module category $\cM$ is an algebra object in the tensor category $\Fun_\cC(\cM, \cM)$. Thus above definition yields the notion of {\em separable monad}. 
+\end{remark}
+
 \begin{theorem} \label{thm:SepModCats}
 	Let $\cC$ be a finite semisimple tensor category (not necessarily rigid) and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
 	\begin{enumerate}
@@ -810,13 +811,14 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 	
 	To see this, recall the following general fact: if $F: \cA \leftrightarrows \cB: G$ is an adjunction between abelian categories and the right adjoint $G$ is also right exact, then $F$ sends projective objects to projective objects. This is clear as
 	\begin{equation*}
-		\Hom(F(P), -) = \Hom(P, U(-))
+		\Hom(F(P), -) \cong \Hom(P, U(-))
 	\end{equation*}
 	is a right-exact functor. In particular this applies the free-forget adjunction between $A$-$A$-bimodules and objects of $\cC$. As every object of $\cC$ is projective (it is semisimple) we have that every free $A$-$A$-bimodule is also projective in $\Mod{A}{A}(\cC)$. 
 	
 Let $s: {}_AA_A \to {}_AA \otimes A_A$ be a bimodule splitting of the multiplication map. For every $A$-$A$-bimodule $X$ we have an induced $A$-$A$-bimodule map
 \begin{equation*}
-	X \cong A \otimes_A X \otimes_A A \staackrel{s \otimes_A 1 \otimes_A s}{\longrightarrow} (A \otimes A) \otimes_A X \otimes_A (A \otimes A) \cong A \otimes X \otimes A,
+	X \cong A \otimes_A X \otimes_A A 
+	\xra{s \otimes_A 1 \otimes_A s} (A \otimes A) \otimes_A X \otimes_A (A \otimes A) \cong A \otimes X \otimes A,
 \end{equation*}  	
 which splits the canonical action map. Thus $X$ is a direct summand of the free bimodule $A \otimes X \otimes A$. As this latter is projective, $X$ is projective. Thus $\Mod{A}{A}(\cC)$ is semisimple, and (1) $\Rightarrow$ (4). 
 	
@@ -832,9 +834,27 @@ Similarly if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \ot
 \end{theorem}
 
 \begin{proof}
+	As separability is a condition on each module structure separately, is is enough to check that $\cM \boxtimes_{\cC} \cN$ is a separable as a $\cB$-module category. 
+	
+	\CSPcomm{ \begin{itemize}
+		\item $\cM = \Mod{}{A}(\cB)$ for a separable algebra $A$.
+		\item $\cM = \Mod{B}{}(\cC)$ for a separable algebra $B$, and $\cN = \Mod{}{C}(\cC)$ for a separable algebra $C$. 
+		\item $\cM \boxtimes_{\cC} \cN = \Mod{B}{C}(\cC)$, i.e. they are objects of $\Mod{B}{}(\cC)$ which are algebras for the monad $(-) \otimes C$. 
+		\item Hence there is a monad $T$ on $\cM$ such that the $T$-algebras in $\cM$ are the same as $\cM \boxtimes_{\cC} \cN$. This monad lives in $\Fun_{\cD}(\cM, \cM)$. 
+		\item Thus $T(A)$ is an algebra object in $\cD$, and moreover we have $\cM \boxtimes_{\cC} \cN \simeq \Mod{}{T(A)}$ as right $\cD$-module categories. 
+		\item As $A$ and $T$ are separable, we have that $\cM \boxtimes_{\cC} \cN $ is separable.   
+	\end{itemize}}
+	
 	[...]
 \end{proof}
 
+\begin{definition}
+	An semisimple tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$-module category. 
+\end{definition}
+
+\begin{example}
+	A fusion category of non-zero global dimension is separable. \CSPcomm{add references}
+\end{example}
 
 
 \CSPcomm{
