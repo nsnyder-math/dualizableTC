@@ -800,22 +800,27 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 		\item The identity functor is a projective object of $\Fun_\cC(\cM, \cM)$;
 		\item $\Fun_\cC(\cM, \cM)$ is a semisimple category. 
 	\end{enumerate}
-	Moreover $\cM$ is semisimple. \\
-	Furthermore, if $\cC$ is rigid, then $\cM$ is an exact $\cC$-module category. The analogous results hold for left module categories as well. 
+	Moreover $\cM$ is semisimple, hence exact as a $\cC$-module category. The analogous results hold for left $\cC$-module categories as well. 
 \end{theorem}
 
 
 \begin{proof}
+	The last sentence is clear since we may switch left/right actions by taking the monoidally-opposite category.
 	The proof of Lemma \ref{Lma:FunctorsAsATensorPdt} shows that $\Fun_\cC(\cM, \cM) \simeq \Mod{A}{A}(\cC)$, thus we have clear implications (4) $\Rightarrow$ (3) $\Leftrightarrow$ (2) $\Rightarrow$ (1). We will show that (1) $\Rightarrow$ (4), that is if $A$ is separable, then $\Mod{A}{A}(\cC)$ is a semisimple category. 
 	
-	To see this recall the following general fact: if $F: \cA \leftrightarrows \cB: G$ is an adjunction between abelian categories and the right adjoint $G$ is also right exact, then $F$ sends projective objects to projective objects. This is clear as
+	To see this, recall the following general fact: if $F: \cA \leftrightarrows \cB: G$ is an adjunction between abelian categories and the right adjoint $G$ is also right exact, then $F$ sends projective objects to projective objects. This is clear as
 	\begin{equation*}
 		\Hom(F(P), -) = \Hom(P, U(-))
 	\end{equation*}
-	is a right-exact functor. 
+	is a right-exact functor. In particular this applies the free-forget adjunction between $A$-$A$-bimodules and objects of $\cC$. As every object of $\cC$ is projective (it is semisimple) we have that every free $A$-$A$-bimodule is also projective in $\Mod{A}{A}(\cC)$. 
 	
+Let $s: {}_AA_A \to {}_AA \otimes A_A$ be a bimodule splitting of the multiplication map. For every $A$-$A$-bimodule $X$ we have an induced $A$-$A$-bimodule map
+\begin{equation*}
+	X \cong A \otimes_A X \otimes_A A \staackrel{s \otimes_A 1 \otimes_A s}{\longrightarrow} (A \otimes A) \otimes_A X \otimes_A (A \otimes A) \cong A \otimes X \otimes A,
+\end{equation*}  	
+which splits the canonical action map. Thus $X$ is a direct summand of the free bimodule $A \otimes X \otimes A$. As this latter is projective, $X$ is projective. Thus $\Mod{A}{A}(\cC)$ is semisimple, and (1) $\Rightarrow$ (4). 
 	
-	...
+Similarly if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \otimes_A 1: Y \cong A \otimes_A Y \to (A \otimes A) \otimes_A Y \cong A \otimes Y$ realizes $Y$ as a direct summand of a free $A$-module. Again since $\cC$ is semisimple, free $A$-modules are necessarily projective. Thus $Y$ is projective. Hence $\cM$ itself is semisimple.  	
 \end{proof}
 
 \begin{definition}
