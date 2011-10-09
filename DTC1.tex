@@ -247,13 +247,54 @@ Also the results that are newish:
 
 \CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
 
-In this section we quickly review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the works of Etingof, Gelaki, Nikshych and Ostrik.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature.
+In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the works of Etingof, Gelaki, Nikshych and Ostrik.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. 
+We begin with a brief discussion of our conventions regarding duality.
 
 
 %\CD{The organization of this section might well change as we decide what exactly we should include.}
 
 %\CDcomm{Our goal is to define $\TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $\TC(i)$, which can occur in DTCII.}
 
+
+\subsection{Conventions for Duality}
+
+There are several different sorts of duality which appear in this work. These different notions of duality layer themselves together in a complex fashion. Moreover many of these dualities have been recognized previous, but brining them together has the potential for contradictory notation or terminology. The purpose of this section is to clarify our conventions.
+
+\begin{definition}
+	A functor $G: \cA \to \cB$ {\em admits a left adjoint} if there exists a functor $F: \cB \to \cA$ and natural transformations the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `Zig-Zag' equations:
+	\begin{align*}
+		(id_{G} * \varepsilon  ) \circ (  \eta * id_{G}) &= id_{G} \\
+		(\varepsilon * id_{F}) \circ (id_{F} * \eta) &= id_{F}.
+	\end{align*}
+We say $F$ is the {\em left adjoint} if $G$ and $G$ is the {\em right adjoint} of $F$. 
+\end{definition}
+
+Similarly we have:
+
+\begin{definition} \label{def:duals}
+	An object $x$ of a monoidal category $\cC$ {\em admits a left dual} if there exists an object $x^*$ (a {\em left dual}) and morphisms, the {\em unit} $\eta: 1 \to x \otimes x^*$ and the {\em counit} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `Zig-Zag' equations:
+	\begin{align*}
+		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
+		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
+	\end{align*}
+The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left dual in $\cC^{mp}$. 
+\end{definition}
+
+\begin{remark}
+	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the combination of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  A convenient mnemonic is to think of the $*$ as eating things.
+\end{remark}
+
+\begin{remark}
+	For a fixed object $x$ which admits a left dual, there is an obvious category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
+The same observation applies to adjoint functors. 
+\end{remark}
+
+We extend this notation to bimodules as well.
+\begin{definition}
+	A bimodule ${}_A M_B$ {\em admits a left dual} if there is a bimodule ${}_B M^*_A$ (a {\em left dual}) and bimodule morphisms, the {\em unit} $\eta: {}_AA_A \to {}_AM \otimes_B M^*_A$ and the {\em counit} $\varepsilon: {}_BM^* \otimes_A M_B \to {}_B B_B$, satisfying the analogous pair of `Zig-Zag' equations. 
+\end{definition}
+
+This convention forces us to consider an $A$-$B$-bimodule as a morphism from $B$ to $A$. 
 
 
 \subsection{Linear categories and tensor categories} \label{sec-tc-lincat}
@@ -287,22 +328,17 @@ such that $F$ is linear in each variable separately. A linear category will be s
 Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).
 %We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
 
+
+%%%%%%%%%%%
+%
+%  Here is where the definition of left/right duals and rigidity were initially. 
+%
+%%%%%%%%%%%%
+
 \begin{definition}
-	An object $x$ of a monoidal category $\cC$ {\em admits a left dual} if there exists an object $x^*$ (a {\em left dual}) and morphisms, the {\em unit} $\eta: 1 \to x \otimes x^*$ and the {\em counit} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `Zig-Zag' equations:
-	\begin{align*}
-		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
-		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
-	\end{align*}
-The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left dual in $\cC^{mp}$. Finally, a monoidal category is {\em rigid} if every object admits both left and right duals. 
+	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
 \end{definition}
 
-\begin{remark}
-	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the confluence of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  A convenient mnemonic is to think of the $*$ as eating things.
-\end{remark}
-
-\begin{remark}
-	For a fixed object $x$ which admits a left dual, there is an obvious category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
-\end{remark}
 
 \begin{lemma} \label{lma:RigidIsExact}
 	Let $(\cC, \otimes)$ be a rigid tensor category. Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
