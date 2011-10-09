@@ -258,21 +258,21 @@ We begin with a brief discussion of our conventions regarding duality.
 
 \subsection{Conventions for Duality}
 
-There are several different sorts of duality which appear in this work. These different notions of duality layer themselves together in a complex fashion. Moreover many of these dualities have been recognized previous, but brining them together has the potential for contradictory notation or terminology. The purpose of this section is to clarify our conventions.
+There are several different kinds of duality which appear in this paper. These different notions of duality layer together in a complex fashion. Moreover many of these dualities have been recognized previously, and bringing them together has the potential for contradictory notation or terminology. The purpose of this section is to clarify our conventions.
 
 \begin{definition}
-	A functor $G: \cA \to \cB$ {\em admits a left adjoint} if there exists a functor $F: \cB \to \cA$ and natural transformations the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `Zig-Zag' equations:
+	A functor $G: \cA \to \cB$ {\em admits a left adjoint} if there exists a functor $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
 		(id_{G} * \varepsilon  ) \circ (  \eta * id_{G}) &= id_{G} \\
 		(\varepsilon * id_{F}) \circ (id_{F} * \eta) &= id_{F}.
 	\end{align*}
-We say $F$ is the {\em left adjoint} if $G$ and $G$ is the {\em right adjoint} of $F$. 
+We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$. \CD{Shall we use $\times$ instead of $\ast$ in those duality equations?}
 \end{definition}
 
 Similarly we have:
 
 \begin{definition} \label{def:duals}
-	An object $x$ of a monoidal category $\cC$ {\em admits a left dual} if there exists an object $x^*$ (a {\em left dual}) and morphisms, the {\em unit} $\eta: 1 \to x \otimes x^*$ and the {\em counit} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `Zig-Zag' equations:
+	An object $x$ of a monoidal category $\cC$ {\em admits a left dual} if there exists an object $x^*$ (a {\em left dual}) and morphisms, the {\em unit} $\eta: 1 \to x \otimes x^*$ and the {\em counit} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
 		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
@@ -291,7 +291,7 @@ The same observation applies to adjoint functors.
 
 We extend this notation to bimodules as well.
 \begin{definition}
-	A bimodule ${}_A M_B$ {\em admits a left dual} if there is a bimodule ${}_B M^*_A$ (a {\em left dual}) and bimodule morphisms, the {\em unit} $\eta: {}_AA_A \to {}_AM \otimes_B M^*_A$ and the {\em counit} $\varepsilon: {}_BM^* \otimes_A M_B \to {}_B B_B$, satisfying the analogous pair of `Zig-Zag' equations. 
+	A bimodule ${}_A M_B$ {\em admits a left dual} if there is a bimodule ${}_B M^*_A$ (a {\em left dual}) and bimodule morphisms, the {\em unit} $\eta: {}_AA_A \to {}_AM \otimes_B M^*_A$ and the {\em counit} $\varepsilon: {}_BM^* \otimes_A M_B \to {}_B B_B$, satisfying the analogous pair of `zig-zag' equations. 
 \end{definition}
 
 This convention forces us to consider an $A$-$B$-bimodule as a morphism from $B$ to $A$. 
