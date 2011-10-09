@@ -628,7 +628,7 @@ and we will show that $T$ induces an equivalence between $\cC$-balanced multilin
 \end{remark}
 
 \begin{remark}
-	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced, twisted bilinear bimodule functors. 
+	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced twisted bilinear bimodule functors. 
 \end{remark}
 
 \begin{lemma} \label{Lma:FunctorsAsATensorPdt}
@@ -783,12 +783,12 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 \end{enumerate}
 \end{definition}
 
-Thus a fusion category has finite dimensional hom vectorspace, has finitely many isomorphism classes of simple objects, and every object $a \in \cC$, there exists an object ${a^*} \in \cC$ that is a left dual for $a$ and there exists an object ${}^{*}a \in \cC$ that is a right dual for $a$.
+Thus a fusion category has finite dimensional hom vector spaces, has finitely many isomorphism classes of simple objects, and for every object $a \in \cC$ there exists an object ${a^*} \in \cC$ that is a left dual for $a$ and also an object ${}^{*}a \in \cC$ that is a right dual for $a$.
 
 
-\begin{remark}
-Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category".
-\end{remark}
+\begin{warning}
+Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category". In particular we do not assume that the unit object is simple. 
+\end{warning}
 
 The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in \cite[ENO]{???} appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
 
@@ -826,7 +826,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 \end{definition}
 
 \begin{remark}
-	A (right exact) monad $T$ acting on a $\cC$-module category $\cM$ is an algebra object in the tensor category $\Fun_\cC(\cM, \cM)$. Thus above definition yields the notion of {\em separable monad}. 
+	A (right exact) monad $T$ acting on a $\cC$-module category $\cM$ is an algebra object in the tensor category $\Fun_\cC(\cM, \cM)$. Thus the above definition also yields the notion of {\em separable monad}. 
 \end{remark}
 
 \begin{theorem} \label{thm:SepModCats}
@@ -837,7 +837,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 		\item The identity functor is a projective object of $\Fun_\cC(\cM, \cM)$;
 		\item $\Fun_\cC(\cM, \cM)$ is a semisimple category. 
 	\end{enumerate}
-	Moreover $\cM$ is semisimple, hence exact as a $\cC$-module category. The analogous results hold for left $\cC$-module categories as well. 
+	Moreover if any of these conditions is satisfied, then $\cM$ is semisimple, hence exact as a $\cC$-module category. The analogous results hold for left $\cC$-module categories as well. 
 \end{theorem}
 
 
@@ -849,7 +849,7 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 	\begin{equation*}
 		\Hom(F(P), -) \cong \Hom(P, U(-))
 	\end{equation*}
-	is a right-exact functor. In particular this applies the free-forget adjunction between $A$-$A$-bimodules and objects of $\cC$. As every object of $\cC$ is projective (it is semisimple) we have that every free $A$-$A$-bimodule is also projective in $\Mod{A}{A}(\cC)$. 
+	is a right-exact functor. In particular this applies to the free-forget adjunction between $A$-$A$-bimodules and objects of $\cC$. As every object of $\cC$ is projective (since it is semisimple) we have that every free $A$-$A$-bimodule is also projective in $\Mod{A}{A}(\cC)$. 
 	
 Let $s: {}_AA_A \to {}_AA \otimes A_A$ be a bimodule splitting of the multiplication map. For every $A$-$A$-bimodule $X$ we have an induced $A$-$A$-bimodule map
 \begin{equation*}
@@ -870,26 +870,44 @@ Similarly if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \ot
 \end{theorem}
 
 \begin{proof}
-	As separability is a condition on each module structure separately, is is enough to check that $\cM \boxtimes_{\cC} \cN$ is a separable as a $\cB$-module category. 
-	
-	\CSPcomm{ \begin{itemize}
-		\item $\cM = \Mod{}{A}(\cB)$ for a separable algebra $A$.
-		\item $\cM = \Mod{B}{}(\cC)$ for a separable algebra $B$, and $\cN = \Mod{}{C}(\cC)$ for a separable algebra $C$. 
-		\item $\cM \boxtimes_{\cC} \cN = \Mod{B}{C}(\cC)$, i.e. they are objects of $\Mod{B}{}(\cC)$ which are algebras for the monad $(-) \otimes C$. 
-		\item Hence there is a monad $T$ on $\cM$ such that the $T$-algebras in $\cM$ are the same as $\cM \boxtimes_{\cC} \cN$. This monad lives in $\Fun_{\cD}(\cM, \cM)$. 
-		\item Thus $T(A)$ is an algebra object in $\cD$, and moreover we have $\cM \boxtimes_{\cC} \cN \simeq \Mod{}{T(A)}$ as right $\cD$-module categories. 
-		\item As $A$ and $T$ are separable, we have that $\cM \boxtimes_{\cC} \cN $ is separable.   
-	\end{itemize}}
-	
-	[...]
+	As separability is a condition on each module structure separately, is is enough to check that $\cM \boxtimes_{\cC} \cN$ is a separable as a $\cB$-module category. Our assumptions give the following identifications:
+\begin{itemize}
+	\item $\cM \simeq \Mod{}{A}(\cB)$ as left $\cB$-module categories for a separable algebra $A$ in $\cB$;
+	\item $\cM \simeq \Mod{B}{}(\cC)$ as right $\cC$-module categories for a separable algebra $B$ in $\cC$;
+	\item $\cN \simeq \Mod{}{C}(\cC)$ as left $\cC$-module categories for a separable algebra $C$ in $\cC$;
+	\item $\cM \boxtimes_{\cC} \cN \simeq \Mod{B}{C}(\cC)$
+\end{itemize}
+Thus $\cM \boxtimes_{\cC} \cN$ is equivalent to the category of algebras for the separable monad $T = (-) \otimes C$ acting on $\cM$. Moreover $T$ is a monad in $\Fun_{\cB}(\cM, \cM)$ (this follows as the left $\cB$-action on $\cM$ commutes up to coherent natural isomorphism with the right $\cC$-action), and this induces the structure of an algebra on the object $T(A) \in \cB$. The multiplication given by,
+\begin{equation*}
+	T(A) \otimes T(A)  \simeq T( T(A) \otimes A)  \xra{T(\textrm{action})} T^2(A) \to T(A),
+\end{equation*}
+where the first equivalence comes from left $\cB$-linearity of $T$, the next map comes from the action map on $T(A)$ ($T(A) \in \cM \simeq \Mod{}{A}(\cB)$ has a right $A$-action), and the final map is one of the structure maps of the monad $T$. The unit of $T(A)$ is defined similarly. 
+
+One readily verifies that the the unit map $A \to T(A)$ is an homomorphism of algebras in $\cB$. Moreover as $T$ is right exact and $\cB$-linear, we have $T(m) \cong m \otimes_A T(A)$ for all $m \in \Mod{}{A}(\cB) \simeq \cM$. Thus the category of $T$-algebras in $\Mod{}{A}(\cB)$ is nothing more then the category of right $T(A)$-modules in $\cB$.  Hence we have shown $\cM \boxtimes_{\cC} \cN \simeq \Mod{}{T(A)}(\cB)$ as left $\cB$-module categories. Finally as both $A$ and $T$ are separable, we have splittings of the canonical multiplication maps, $s: A  \to A \otimes A$, and $\sigma:T \to T^2$. These induce a splitting of the $T(A)$-multiplication map:
+\begin{equation*}
+	T(A) \stackrel{\sigma}{\to} T^2(A) \xra{T(1 \otimes_A s)} T( T(A) \otimes A) \cong T(A) \otimes T(A).
+\end{equation*}
+Thus $T(A)$ is separable and so is  ${}_\cB (\cM \boxtimes_{\cC} \cN)$. 
 \end{proof}
 
 \begin{definition}
 	An semisimple tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$-module category. 
 \end{definition}
 
+\begin{definition}
+	Let $\cC$ be a finite tensor category. The {\em center} of $\cC$ is the linear category $\cZ(\cC) \simeq \Fun_{\cC \boxtimes \cC^\mp}(\cC, \cC)$.
+\end{definition}
+
+\begin{corollary}
+	The following are equivalent for a finite semisimple tensor category $\cC$ (for example if $\cC$ is fusion):
+	\begin{enumerate}
+		\item $\cC$ is separable;
+		\item The center $\cZ(\cC)$ is semisimple.
+	\end{enumerate} 
+\end{corollary}
+
 \begin{example}
-	A fusion category of non-zero global dimension is separable. \CSPcomm{add references}
+	A fusion category of non-zero global dimension is separable. \CSPcomm{add references/sketch of the proof.}
 \end{example}
 
 
@@ -1508,70 +1526,7 @@ However $\TC$ is constructed in such a way that these Segal maps are manifestly 
 
 \section{Local field theory in dimension three} \label{sec-lft}
 
-\subsection{The cobordism hypothesis}
 
-In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{Lurie???}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
-\begin{enumerate}
-	\item Prove the cobordism hypothesis for the symmetric monoidal $(\infty,n)$-category of bordisms equipped with {\em framed generalized Morse functions} in the sense of Igusa.
-	\item Prove that the forgetful functor from this symmetric monoidal $(\infty,n)$-category to the usual symmetric monoidal $(\infty,n)$-category of bordisms is an equivalence. To accomplish this he
-	\begin{enumerate}
-		\item Uses Igusa's connectivity result on the connectivity of the space of framed generalized Morse functions to conclude that the forgetful functor is `an $(n+1, n)$-equivalence';
-		\item Uses a generalization of the theorem of Galatius-Madsen-Tillmann-Weiss to conclude that the forgetful functor induces an equivalence in cohomology for every `twisted coefficient system'; and 
-		\item Uses obstruction theory for symmetric monoidal $(\infty,n)$-categories to deduce that the forgetful functor is an equivalence. 
-	\end{enumerate}
-\end{enumerate}
-The first step is given a fairly detailed treatment in Lurie's exposition.
-The second stage of his proof is an elaborate (and highly original) way to prove the equivalent result that the space of framed generalized Morse functions is contractible for any manifold. Fortunately, the second part of the proof can be entirely circumvented by showing directly that Igusa's space of framed generalized Morse functions is contractible. This has now been done by several authors: [Igusa, unpublished], [Galatius, unpublished], and [Eliashberg-Mishachev] (on the arxiv).  
-
-
-
-
-
-\CSPcomm{This is all "under construction". To Do:
-\begin{itemize}
-	\item Intoduce various terminology for the various bordism categories.
-	\item Introduce the Index Filtration.
-	\item Introduce the families of bordisms $\alpha_k$. For $X$-structures these families are parametrized using the pull-back of $X$ to $BO(n-k)$. 
-	\item define $\cF_{k}$-non-degenerate for $1 \leq k \leq n$. 
-	\item review Jacob's theorems regarding the bordism category with framed functions. 
-	\item cite results that the space of generalized framed functions is contractible. [Lurie], [Igusa, unpublished], [Galatius, unpublished], and [Eliashberg-Mishachev] (on the arxiv). 
-\end{itemize}
-
-}
-
-
-Notation:
-\begin{itemize}
-	\item $\Bord_{n,d}$ the unoriented bordism $(\infty, n-d)$-category of $n$-dimensional cobordisms (you can cut only to codimension $d$). $\Bord_{n,d}^{f.f.}$ the generalzed framed function version of this category. 
-	\item $\Bord_{n,d}^{(X,\xi)}$ where $\xi:X \to BO(n)$. The $\xi$-structured version of this bordism category.
-	\item $\cF_k \Bord_{n,d}^{f.f.}$ the Index filtration of the bordism category. Only framed functions of index less then or equal to $k$ are allowed. $-1\leq k \leq \infty$.  
-\end{itemize}
-
-
-
-\begin{theorem}
-	Symmetric monoidal functors $Z: \Bord^{(X,\xi)}_n \to \cC$ are classified by 
-	\begin{enumerate}
-		\item A symmetric monoidal functor $Z_0: \Bord^{(X_0,\xi_0)}_{n-1} \to \cC$.
-		\item A family of non-degenerate morphisms $\eta_x: 1 \to Z(S^{\xi_x})$ parametrized by $x \in X$. 
-	\end{enumerate}
-\end{theorem}
-
-\begin{theorem}[alternate]
-	Symmetric monoidal functors $Z: \cF_{k}\Bord^{(X,\xi)}_n \to \cC$, $1 \leq k \leq n$ are classified by 
-	\begin{enumerate}
-		\item A symmetric monoidal functor $Z_0: \Bord^{(X_0,\xi_0)}_{n-1} \to \cC$.
-		\item A family of $\cF_k$-non-degenerate morphisms $\eta_x: 1 \to Z(S^{\xi_x})$ parametrized by $x \in X$. 
-	\end{enumerate}
-\end{theorem}
-
-\begin{theorem}
-	Symmetric monodial functors $Z_0: \cF_{0}\Bord_n \to \cC$ are classified by a symmetric monoidal functor $Z_{-1}:\Bord_{n-1} \to \cC$ together with $BO(n)$ family of morphisms $\eta_x: 1 \to Z_{-1}(S^{\xi_x})$. For $1 \leq k \leq n$, symmetric monodial functors $Z_k: \cF_{k}\Bord_n \to \cC$ are equivalent to symmetric monoiadal functor $Z_{k-1}: \cF_{k-1}\Bord_n \to \cC $ such that the canonical $BO(n-k)$ family of morphisms 
-	\begin{equation*}
-		\alpha_k: id_{D^{k-1} \times S^{n-k -1}} \to ?????
-	\end{equation*}
-	is the unit of a $BO(n-k)$-family of adjunctions. 
-\end{theorem}
 
 \subsection{Notation for $n$-framed manifolds} 
 
@@ -1839,6 +1794,72 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
+\subsection{The cobordism hypothesis}
+
+In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{Lurie???}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
+\begin{enumerate}
+	\item Prove the cobordism hypothesis for the symmetric monoidal $(\infty,n)$-category of bordisms equipped with {\em framed generalized Morse functions} in the sense of Igusa.
+	\item Prove that the forgetful functor from this symmetric monoidal $(\infty,n)$-category to the usual symmetric monoidal $(\infty,n)$-category of bordisms is an equivalence. To accomplish this he
+	\begin{enumerate}
+		\item Uses Igusa's connectivity result on the connectivity of the space of framed generalized Morse functions to conclude that the forgetful functor is `an $(n+1, n)$-equivalence';
+		\item Uses a generalization of the theorem of Galatius-Madsen-Tillmann-Weiss to conclude that the forgetful functor induces an equivalence in cohomology for every `twisted coefficient system'; and 
+		\item Uses obstruction theory for symmetric monoidal $(\infty,n)$-categories to deduce that the forgetful functor is an equivalence. 
+	\end{enumerate}
+\end{enumerate}
+The first step is given a fairly detailed treatment in Lurie's exposition.
+The second stage of his proof is an elaborate (and highly original) way to prove the equivalent result that the space of framed generalized Morse functions is contractible for any manifold. Fortunately, the second part of the proof can be entirely circumvented by showing directly that Igusa's space of framed generalized Morse functions is contractible. This has now been done by several authors: [Igusa, unpublished], [Galatius, unpublished], and [Eliashberg-Mishachev] (on the arxiv).  
+
+
+
+
+
+\CSPcomm{This is all "under construction". To Do:
+\begin{itemize}
+	\item Intoduce various terminology for the various bordism categories.
+	\item Introduce the Index Filtration.
+	\item Introduce the families of bordisms $\alpha_k$. For $X$-structures these families are parametrized using the pull-back of $X$ to $BO(n-k)$. 
+	\item define $\cF_{k}$-non-degenerate for $1 \leq k \leq n$. 
+	\item review Jacob's theorems regarding the bordism category with framed functions. 
+	\item cite results that the space of generalized framed functions is contractible. [Lurie], [Igusa, unpublished], [Galatius, unpublished], and [Eliashberg-Mishachev] (on the arxiv). 
+\end{itemize}
+
+}
+
+
+Notation:
+\begin{itemize}
+	\item $\Bord_{n,d}$ the unoriented bordism $(\infty, n-d)$-category of $n$-dimensional cobordisms (you can cut only to codimension $d$). $\Bord_{n,d}^{f.f.}$ the generalzed framed function version of this category. 
+	\item $\Bord_{n,d}^{(X,\xi)}$ where $\xi:X \to BO(n)$. The $\xi$-structured version of this bordism category.
+	\item $\cF_k \Bord_{n,d}^{f.f.}$ the Index filtration of the bordism category. Only framed functions of index less then or equal to $k$ are allowed. $-1\leq k \leq \infty$.  
+\end{itemize}
+
+
+
+\begin{theorem}
+	Symmetric monoidal functors $Z: \Bord^{(X,\xi)}_n \to \cC$ are classified by 
+	\begin{enumerate}
+		\item A symmetric monoidal functor $Z_0: \Bord^{(X_0,\xi_0)}_{n-1} \to \cC$.
+		\item A family of non-degenerate morphisms $\eta_x: 1 \to Z(S^{\xi_x})$ parametrized by $x \in X$. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[alternate]
+	Symmetric monoidal functors $Z: \cF_{k}\Bord^{(X,\xi)}_n \to \cC$, $1 \leq k \leq n$ are classified by 
+	\begin{enumerate}
+		\item A symmetric monoidal functor $Z_0: \Bord^{(X_0,\xi_0)}_{n-1} \to \cC$.
+		\item A family of $\cF_k$-non-degenerate morphisms $\eta_x: 1 \to Z(S^{\xi_x})$ parametrized by $x \in X$. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	Symmetric monodial functors $Z_0: \cF_{0}\Bord_n \to \cC$ are classified by a symmetric monoidal functor $Z_{-1}:\Bord_{n-1} \to \cC$ together with $BO(n)$ family of morphisms $\eta_x: 1 \to Z_{-1}(S^{\xi_x})$. For $1 \leq k \leq n$, symmetric monodial functors $Z_k: \cF_{k}\Bord_n \to \cC$ are equivalent to symmetric monoiadal functor $Z_{k-1}: \cF_{k-1}\Bord_n \to \cC $ such that the canonical $BO(n-k)$ family of morphisms 
+	\begin{equation*}
+		\alpha_k: id_{D^{k-1} \times S^{n-k -1}} \to ?????
+	\end{equation*}
+	is the unit of a $BO(n-k)$-family of adjunctions. 
+\end{theorem}
+
+
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
 In this section we prove the main theorem, that multi-fusion categories of non-zero global dimension are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, considerably weaker assumptions (relaxing semisimplicity, non-zero global dimension, and even part of rigidity) suffice to construct a fully local categorified $2$-dimensional TFT.
@@ -1933,7 +1954,7 @@ $\Fun_{{\cC}}(\cM, \cC)$
 Recall from the background section that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by ${}^*\cdot$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.
 
 \begin{lemma}
-The map $\ev_R: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $f(m d_1) d_2 \mapsto f(m) d_1 d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev_L: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
+The map $\ev_R: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $d_1 f(m d_2)  \mapsto d_1 f(m) d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev_L: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
 \end{lemma} 
 \begin{proof}
 Straightforward. \CD{At some point we should replace or remove the non-proofs.}
@@ -1984,7 +2005,7 @@ Thus we have proven
 	$\TCfin$ is fully 2-dualizable. 
 \end{theorem}
 
-\NScomm{We should modify the above to reflect the fact that we only need exactness of tensor product, not rigidity}
+\NScomm{We should modify the above to reflect the fact that we only need exactness of tensor product, not rigidity} \CSPcomm{Unless I am mistaken, I don't think we even need that, just right exactness of the tensor product. When I wrote $\TCfin$ I really meant all finite tensor categories}
 
 \subsection{Invariants of elementary 2-framed bordisms}
 
