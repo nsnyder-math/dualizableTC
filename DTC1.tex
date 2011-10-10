@@ -257,7 +257,7 @@ We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} o
 \CSP{trying out $\circledcirc$}
 \end{definition}
 With this standard convention we have a canonical natural isomorphisms $\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y))$. 
-\begin{definition} [Convention B] \label{def:duals}
+\begin{definition} [Convention B] \label{def:rigid}
 	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
@@ -269,26 +269,24 @@ A convenient mnemonic for this notation is to think of the $*$ as eating things.
 	For any category $\cA$, the functor category $\Fun(\cA, \cA)$ is a monoidal category with tensor product given by composition of functors $\circ$. 
 \end{example}
 
-We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. 
+We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. This forces us to consider the object $x^*$ as the {\em left adjoint} (or {\em left dual}) of $x$, despite the fact that the ``$*$'' occurs on the right of the symbol ``$x$''. This has the following natural consequences:
+\begin{itemize}
+	\item The left dual acts on the left of the object $x$ to produce a map to the unit. 
+	\item These notions extend the duals for the 2-category $Alg$ of algebras, bimodules, and bimodule maps: An $A$-$B$-bimodule $M$ with a left adjoint (or left dual) ${}_BM^L_A$ has evaluation and coevaluation maps:
+	\begin{equation*}
+		ev: {}_BM^L \otimes_A M_{B} \to {}_B B_B, \quad \quad coev: {}_AA_A \to {}_A M \otimes_B M^L_A.
+	\end{equation*}
+	\item Thus an $A$-$B$-bimodule should be considered a morphism from $B$ to $A$, for then there is a functor $Alg \to \Cat$ sending an algebra $A$ to its category $\Mod{A}{}$ of left modules, whcih sends left duals to left adjoint functors, and similarly for right duals. 
+	\item Moreover way we typically write composition of bimodules then agrees with the way we write composition of their corresponding functors. 
+\end{itemize}
 
-
+If one insists on the opposite convention, calling $x^*$ the right dual of $x$, then one must also deny Convention (C) and these consequences. We end with a final well-known observation. 
 
 
 \begin{remark}
-	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the combination of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  A convenient mnemonic is to think of the $*$ as eating things.
+	For a fixed object $x$ which admits a left dual, there is a category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
+The same observation applies to adjoint functors, and duals of bimodules.  
 \end{remark}
-
-\begin{remark}
-	For a fixed object $x$ which admits a left dual, there is an obvious category whose objects $(x^*, \eta, \varepsilon)$ consist of those left duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a left dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
-The same observation applies to adjoint functors. 
-\end{remark}
-
-We extend this notation to bimodules as well.
-\begin{definition}
-	A bimodule ${}_A M_B$ {\em admits a left dual} if there is a bimodule ${}_B M^*_A$ (a {\em left dual}) and bimodule morphisms, the {\em unit} $\eta: {}_AA_A \to {}_AM \otimes_B M^*_A$ and the {\em counit} $\varepsilon: {}_BM^* \otimes_A M_B \to {}_B B_B$, satisfying the analogous pair of `zig-zag' equations. 
-\end{definition}
-
-This convention forces us to consider an $A$-$B$-bimodule as a morphism from $B$ to $A$. 
 
 
 \subsection{Linear categories and tensor categories} \label{sec-tc-lincat}
@@ -329,13 +327,13 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 %
 %%%%%%%%%%%%
 
-\begin{definition}
-	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
-\end{definition}
+%\begin{definition}
+%	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
+%\end{definition}
 
 
 \begin{lemma} \label{lma:RigidIsExact}
-	Let $(\cC, \otimes)$ be a rigid tensor category. Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
+	Let $(\cC, \otimes)$ be a rigid tensor category (cf. Def. \ref{def:rigid}). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
 \end{lemma}
 
 \begin{proof}
@@ -351,7 +349,7 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{corollary}
 
 \begin{proof}
-	A semisimple linear category is one in which every object is projective, in particular the unit object. Thus it is enough to show if $1 \in \cC$ is projective, then every object is projective. This follows since $\hom(P, -) = \hom( 1, (-) \otimes P^*)$ is an exact functor. 
+	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\hom(P, -) = \hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
 \end{proof}
 
 \begin{lemma}
