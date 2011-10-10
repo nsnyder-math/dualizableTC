@@ -222,30 +222,14 @@ The first author would like to especially thank Andr\'e Henriques for general en
 
 \section{Tensor categories} \label{sec-tc}
 
-\CSPcomm{
-Some things which should go in this section:
-\begin{itemize}
-	\item linear categories, multilinear functors. 
-	\item tensor categories and their functors
-	\item rigid tensor categories. 
-	
-	\item finite linear categories 
-	\item The Deligne tensor product
-	\item rigid tensor categories. 
-	\item module categories.
-	\item exact module categories. 
-	\item adjoint functor theorem, representable functor conditions. 
-	\item multi-fusion cats. (?)
-\end{itemize}
-
-Also the results that are newish:
-\begin{itemize}
-	\item Theorem \ref{thm:DelignePrdtOverATCExists}
-	\item Lemma \ref{Lma:FunctorsAsATensorPdt}
-\end{itemize}
-}
-
-\CSPcomm{I think we should just restrict  $\lincat$ to mean finite linear categories}
+%\CSPcomm{
+%The results that are new(ish):
+%\begin{itemize}
+%	\item Theorem \ref{thm:DelignePrdtOverATCExists}
+%	\item Lemma \ref{Lma:FunctorsAsATensorPdt}
+%	\item everything about separability.
+%\end{itemize}
+%}
 
 In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the works of Etingof, Gelaki, Nikshych and Ostrik.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. 
 We begin with a brief discussion of our conventions regarding duality.
@@ -257,28 +241,38 @@ We begin with a brief discussion of our conventions regarding duality.
 
 
 \subsection{Conventions for Duality}
+In this paper we ultimately consider a certain 3-category in which several different kinds of duality appear simultaneously. These dualities arise from differing mathematical points of view and so we have been tasked with finding a sensible and consistent notation in which to speak about these various forms of duality. This is no easy task as the literature has well established conventions which are at times contradictory.  The purpose of this section is to explain a compromise and clarify the conventions we will use.
 
-There are several different kinds of duality which appear in this paper. These different notions of duality layer together in a complex fashion. Moreover many of these dualities have been recognized previously, and bringing them together has the potential for contradictory notation or terminology. The purpose of this section is to clarify our conventions.
-
-\begin{definition}
+There are two conventions which we perceive as fundamental: those for adjoint functors and those for rigid monoidal categories. 
+\begin{definition} [Convention A]
 	A functor $G: \cA \to \cB$ {\em admits a left adjoint} if there exists a functor $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
-		(id_{G} * \varepsilon  ) \circ (  \eta * id_{G}) &= id_{G} \\
-		(\varepsilon * id_{F}) \circ (id_{F} * \eta) &= id_{F}.
+		(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
+		(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
 	\end{align*}
-We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$. \CD{Shall we use $\times$ instead of $\ast$ in those duality equations?}
+Here $\circledcirc$ denotes the horizontal composite of natural transformations.
+We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$. 
+\CD{Shall we use $\times$ instead of $\ast$ in those duality equations?}
+\CSP{This is the whiskering of nat. transformations. I agree $*$ is not the best, but $\times$ is no good either. The `$\eta * id_{G}$' is a natural transformation with $G\circ F \circ F$ as source, so $\circ$ is a candidate, but that usually means vertical composition. }
+\CSP{trying out $\circledcirc$}
 \end{definition}
-
-Similarly we have:
-
-\begin{definition} \label{def:duals}
-	An object $x$ of a monoidal category $\cC$ {\em admits a left dual} if there exists an object $x^*$ (a {\em left dual}) and morphisms, the {\em unit} $\eta: 1 \to x \otimes x^*$ and the {\em counit} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zig-zag' equations:
+With this standard convention we have a canonical natural isomorphisms $\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y))$. 
+\begin{definition} [Convention B] \label{def:duals}
+	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
 		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
 	\end{align*}
-The object $x$ {\em admits a right dual} (denoted ${}^*x$) if it admits a left dual in $\cC^{mp}$. 
 \end{definition}
+A convenient mnemonic for this notation is to think of the $*$ as eating things. Consider the following example:
+\begin{example}
+	For any category $\cA$, the functor category $\Fun(\cA, \cA)$ is a monoidal category with tensor product given by composition of functors $\circ$. 
+\end{example}
+
+We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. 
+
+
+
 
 \begin{remark}
 	The potentially confusing notation $x^*$ for the {\em left} dual of $x$ is a product of the combination of two equivalent notions of duality, one coming from work on monoidal categories and the other coming from the notion of adjoint functor.  A convenient mnemonic is to think of the $*$ as eating things.
@@ -706,8 +700,8 @@ We will now specialize to the theory of finite rigid tensor categories.  The goa
 	If $\cC$ is semisimple (e.g. $\cC = \Vect$), then $\cM$ is an exact module category if and only if it is also semisimple.
 \end{example}
 
-\begin{example}
-	$\cC$ is exact considered as a $\cC$-, $\cC^{mp}$-, or $\cC \otimes \cC^{mp}$-module category. 
+\begin{example}[{\cite[Example 2.6.5]{EGNO}}]
+	The finite rigid tensor category $\cC$ is exact considered as a $\cC$-, $\cC^{mp}$-, or $\cC \otimes \cC^{mp}$-module category. 
 \end{example}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
@@ -829,11 +823,16 @@ In other words, a fusion category is pivotal if the left dual functor $\ld{(-)}:
 	A (right exact) monad $T$ acting on a $\cC$-module category $\cM$ is an algebra object in the tensor category $\Fun_\cC(\cM, \cM)$. Thus the above definition also yields the notion of {\em separable monad}. 
 \end{remark}
 
+\begin{remark}
+	When $\cC = \Vect_k$, then a separable algebra $A$ is separable in the classical sense. Over a perfect field --- such as a finite field, an algebraically closed field, or a field of characteristic zero --- this is equivalent to $A$ being a finite dimensional semisimple $k$-algebra; more generally it is a stronger condition. 
+	\CSP{get references to classical notion of separability}.
+\end{remark}
+
 \begin{theorem} \label{thm:SepModCats}
 	Let $\cC$ be a finite semisimple tensor category (not necessarily rigid) and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
 	\begin{enumerate}
-		\item $\cM_\cC \simeq \Mod{}{A}(\cC)$, where $A$ is a separable algebra in $\cC$;
-		\item $\cM_\cC \simeq \Mod{}{A}(\cC)$, where $A$ is an algebra in $\cC$ which is projective as an $A$-$A$-bimodule;
+		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is a separable algebra in $\cC$;
+		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is an algebra in $\cC$ which is projective as an $A$-$A$-bimodule;
 		\item The identity functor is a projective object of $\Fun_\cC(\cM, \cM)$;
 		\item $\Fun_\cC(\cM, \cM)$ is a semisimple category. 
 	\end{enumerate}
@@ -877,21 +876,23 @@ Similarly if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \ot
 	\item $\cN \simeq \Mod{}{C}(\cC)$ as left $\cC$-module categories for a separable algebra $C$ in $\cC$;
 	\item $\cM \boxtimes_{\cC} \cN \simeq \Mod{B}{C}(\cC)$
 \end{itemize}
-Thus $\cM \boxtimes_{\cC} \cN$ is equivalent to the category of algebras for the separable monad $T = (-) \otimes C$ acting on $\cM$. Moreover $T$ is a monad in $\Fun_{\cB}(\cM, \cM)$ (this follows as the left $\cB$-action on $\cM$ commutes up to coherent natural isomorphism with the right $\cC$-action), and this induces the structure of an algebra on the object $T(A) \in \cB$. The multiplication given by,
+Thus $\cM \boxtimes_{\cC} \cN$ is equivalent to the category of algebras for the separable monad $T = (-) \otimes C$ acting on $\cM$. Moreover $T$ is an algebra (monad) in $\Fun_{\cB}(\cM, \cM)$ (this follows as the left $\cB$-action on $\cM$ commutes up to coherent natural isomorphism with the right $\cC$-action), and this induces the structure of an algebra on the object $T(A) \in \cB$. The multiplication is given by,
 \begin{equation*}
 	T(A) \otimes T(A)  \simeq T( T(A) \otimes A)  \xra{T(\textrm{action})} T^2(A) \to T(A),
 \end{equation*}
 where the first equivalence comes from left $\cB$-linearity of $T$, the next map comes from the action map on $T(A)$ ($T(A) \in \cM \simeq \Mod{}{A}(\cB)$ has a right $A$-action), and the final map is one of the structure maps of the monad $T$. The unit of $T(A)$ is defined similarly. 
 
-One readily verifies that the the unit map $A \to T(A)$ is an homomorphism of algebras in $\cB$. Moreover as $T$ is right exact and $\cB$-linear, we have $T(m) \cong m \otimes_A T(A)$ for all $m \in \Mod{}{A}(\cB) \simeq \cM$. Thus the category of $T$-algebras in $\Mod{}{A}(\cB)$ is nothing more then the category of right $T(A)$-modules in $\cB$.  Hence we have shown $\cM \boxtimes_{\cC} \cN \simeq \Mod{}{T(A)}(\cB)$ as left $\cB$-module categories. Finally as both $A$ and $T$ are separable, we have splittings of the canonical multiplication maps, $s: A  \to A \otimes A$, and $\sigma:T \to T^2$. These induce a splitting of the $T(A)$-multiplication map:
+One readily verifies that the the unit map $A \to T(A)$ is an homomorphism of algebras in $\cB$. Moreover as $T$ is right exact and $\cB$-linear, we have $T(m) \cong m \otimes_A T(A)$ for all $m \in \Mod{}{A}(\cB) \simeq \cM$. Thus the category of $T$-algebras in $\Mod{}{A}(\cB)$ is nothing more then the category of right $T(A)$-modules in $\cB$.  Hence we have shown $\cM \boxtimes_{\cC} \cN \simeq \Mod{}{T(A)}(\cB)$ as left $\cB$-module categories. It remains to show that $T(A)$ is a separable algebra in $\cB$.
+
+As both $A$ and $T$ are separable, we have splittings of the canonical multiplication maps, $s: A  \to A \otimes A$, and $\sigma:T \to T^2$. These induce a splitting of the $T(A)$-multiplication map:
 \begin{equation*}
 	T(A) \stackrel{\sigma}{\to} T^2(A) \xra{T(1 \otimes_A s)} T( T(A) \otimes A) \cong T(A) \otimes T(A).
 \end{equation*}
-Thus $T(A)$ is separable and so is  ${}_\cB (\cM \boxtimes_{\cC} \cN)$. 
+Thus $T(A)$ is separable.
 \end{proof}
 
 \begin{definition}
-	An semisimple tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$-module category. 
+	A tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$-$\Vect$-bimodule category.  
 \end{definition}
 
 \begin{definition}
@@ -899,27 +900,20 @@ Thus $T(A)$ is separable and so is  ${}_\cB (\cM \boxtimes_{\cC} \cN)$.
 \end{definition}
 
 \begin{corollary}
-	The following are equivalent for a finite semisimple tensor category $\cC$ (for example if $\cC$ is fusion):
+	The following are equivalent for a finite tensor category $\cC$ which is $\Vect$-separable.
 	\begin{enumerate}
 		\item $\cC$ is separable;
 		\item The center $\cZ(\cC)$ is semisimple.
 	\end{enumerate} 
 \end{corollary}
 
+Thus a fusion category over a perfect field is separable if and only if its center is semisimple. 
+
 \begin{example}
 	A fusion category of non-zero global dimension is separable. \CSPcomm{add references/sketch of the proof.}
 \end{example}
 
-
-\CSPcomm{
-Some other  things that might be added?
-\begin{itemize}
-	\item This notion of spherical agrees with the standard one (left trace = right trace). NS, I think you had a proof of that? \CDcomm{The reference is on Wave at the very start of ENO Part V.}
-	\item tensor product of semisimples is semisimple if over fusion cats which have {\em non-zero global dimension}. 
-\end{itemize}
-
-
-}
+\CSPcomm{Add some closure properties for separable. Example: the external Deligne tensor product of separable bimodules, the tensor product of separable tensor categories, functor categories, etc.}
 
 
 \section{The symmetric monoidal 3-category of tensor categories} \label{sec-sym-mon}
@@ -1294,7 +1288,7 @@ $A$-tuples of length $n$ strings of composable bimodule categories, choices of a
 		$b_{S; ijk}$ & An $X_{S;j}$-balanced $X_{S;i}$-$X_{S,k}$-bilinear functor from $X_{S;ij}\times X_{S;jk}$ to $X_{S;ik}$. \\
 		$\alpha_{S;ijk \ell}$  & A natural isomorphism of $X_{S;j}$/$X_{S;k}$-balanced $X_{S'i}$-$X_{S;\ell}$-bimodule functors from $b_{S;i k \ell} \circ (b_{S;ijk} \times id_{X_{S;k\ell}})$ to $b_{S;ij \ell} \circ (id_{X_{S;ij}} \times b_{S;jk\ell})$. \\ \hline
 		$x_{S, S';i}$ & A bilinear tensor functor from $X_{S;i} \times X_{S';i}$ to $X_{S \cup S'; i}$. \\
-		$x_{S, S';ij}$ & A bilinear bimodule functor from $X_{S;ij} \times X_{S';ij}$ to $X_{S \cup S'; ij}$. \\
+		$x_{S, S';ij}$ & A twisted bilinear bimodule functor from $X_{S;ij} \times X_{S';ij}$ to $X_{S \cup S'; ij}$, extending $x_{S, S';i}$ and $x_{S, S';j}$. \\
 		$\psi_{S, S'; i j k}$ & A natural isomorphism of $X_{S;j} / X_{S';j}$-balanced bimodule functors from $x_{S,S'; ik} \circ (b_{S; ijk} \times b_{S';ijk})$ to $b_{S \cup S'; ijk} \circ (x_{S,S';ij} \times x_{S \cup S'; jk}) \circ  \tau $, where $\tau$ exchanges the middle two factors.  \\ \hline
 		$\alpha_{S, S', S'';i}$ & A natural isomorphism of multilinear tensor functors from
 		$x_{S \sqcup S', S'';i}\circ (x_{S,S';i} \times 1)$  to 
