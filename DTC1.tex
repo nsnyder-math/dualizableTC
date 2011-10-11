@@ -106,7 +106,7 @@ Since the most interesting topological information in a TFT are the invariants a
 \includegraphics{cobordism.png}
 \end{center}
 
-If $\cC$ is a finite tensor category, the image of this bordism gives a topological proof of the generalization of Radford's formula stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories it is easy to see from the topological proof that $D \cong 1$, and thus that the quadruple dual for fusion categories is trivial.  This makes rigorous the intuition (stated in \cite{}) that Radford's theorem is related to the belt trick.    In addition, since this framing on the interval induces the same orientation as the usual framing, finding an oriented field theory requires picking a trivialization of the of Serre.  This explains the appearance of the sphericality condition in the study of oriented field theories.
+If $\cC$ is a finite tensor category, the image of this bordism gives a topological proof of the generalization of Radford's formula stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories it is easy to see from the topological proof that $D \cong 1$, and thus that the quadruple dual for fusion categories is trivial.  This makes rigorous the intuition (stated in \cite{bartlett}) that Radford's theorem is related to the belt trick.    In addition, since this framing on the interval induces the same orientation as the usual framing, finding an oriented field theory requires picking a trivialization of the of Serre.  This explains the appearance of the sphericality condition in the study of oriented field theories.
 
 In addition to the local TFT story, there are two other narratives that this work fits into.  The early history of fusion categories was heavily topological.  However, the topological approach seemed to require extra assumptions (like sphericality for fusion categories or ribbon for braided tensor categories).  In part to avoid these unnecessary assumptions, a more purely algebraic approach to the theory of fusion categories was developed by Etingof, Nikshych, Ostrik, and others.  One of the main points of this paper is that this algebraic approach can be brought back in touch with topology.  In fact, many of the algebraic results turn out to be well motivated from the topological point of view.   The second narrative is that this paper can be thought of as a category theoretic approach to the theory of fusion categories.  The main philosophy of category theory is that instead of studying something by looking inside them at their elements, you can instead study objects by looking outside them at their relationship to other objects.  Thus the category theoretic perspective on fusion categories avoids looking inside the category at the object and morphisms, and instead concentrate on the bimodules between fusion categories.  In this work we fully embrace this perspective, and only look inside the categories to establish a few key results, while the main results are proved by looking at bimodule categories, functors, and natural transformations.
 
@@ -533,9 +533,9 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{???}[EGNO], and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{egno}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
 
-\begin{theorem}[ \cite{???}EGNO 2.11.6(i)] \label{thm:EGNO2.11.6}
+\begin{theorem}[\cite{egno}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
 \end{theorem}
 
@@ -581,7 +581,7 @@ Moreover if $\cC$ is rigid, then
 \end{theorem}
 
 \begin{proof}
-	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite{???}[EGNO 1.46.2]).
+	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite[Prop 1.46.2]{egno}).
 	By Theorem \ref{thm:EGNO2.11.6} to show (1) and (2) it is enough to assume that $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$ and show that $\Mod{A }{B}(\cC)$ has the desired universal property. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced multilinear functor 
 		\begin{equation*}
 			T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC),  
@@ -696,19 +696,19 @@ We will now specialize to the theory of finite rigid tensor categories.  The goa
 	If $\cC$ is semisimple (e.g. $\cC = \Vect$), then $\cM$ is an exact module category if and only if it is also semisimple.
 \end{example}
 
-\begin{example}[{\cite[Example 2.6.5]{EGNO}}]
+\begin{example}[{\cite[Example 2.6.5]{egno}}]
 	The finite rigid tensor category $\cC$ is exact considered as a $\cC$-, $\cC^{mp}$-, or $\cC \otimes \cC^{mp}$-module category. 
 \end{example}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
-\begin{theorem}[ \cite{???} EGNO] \label{Thm:ExactModCatOmnibus}
+\begin{theorem}[ \cite{egno}] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, $\cM''$ be exact $\cC$-module categories, and $\cN$ an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
-		\item $\cM$ has enough projectives \cite[EGNO lemma 2.7.1]{???}
-		\item Every projective object in $\cM$  is injective, and vice versa. \cite[EGNO Cor 2.7.4]{???}
-		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[EGNO Prop 2.13.5]{???}; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
-		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[EGNO Lemma 2.13.2]{???}		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[EGNO 2.7.8]{???}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
+		\item $\cM$ has enough projectives \cite[Lemma 2.7.1]{egno}
+		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor 2.7.4]{egno}
+		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{egno}; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
+		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 2.13.2]{egno}		
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{egno}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
 	\end{enumerate}
 \end{theorem}
 
@@ -780,9 +780,9 @@ Thus a fusion category has finite dimensional hom vector spaces, has finitely ma
 Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category". In particular we do not assume that the unit object is simple. 
 \end{warning}
 
-The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in \cite[ENO]{???} appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
+The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in \cite{eno} appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
 
-\begin{theorem}[\cite{???} ENO]
+\begin{theorem}[\cite{eno}]
 	A fusion category $\cC$ admits a canonical monoidal equivalence between the identity functor and the quadruple dual functor $\ldddd{(-)}$.
 \end{theorem}
 
@@ -929,7 +929,7 @@ Many important concepts in this section are named after Segal, and the reader sh
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
 \end{definition}
 
-This category was introduced by Segal in \cite{Segal-Categories and Cohomology Theories}.  The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. Let $(m) = \{ 1, 2, \dots, m\}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. If $C$ is a category with finite products, then the category of commutative monoids in $C$ is equivalent to the category of functors $M:\Gamma^{op} \to C$ such that for all $A\in \Gamma$ the following {\em Segal map} is an isomorphism
+This category was introduced by Segal in \cite{segal-cct}.  The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. Let $(m) = \{ 1, 2, \dots, m\}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. If $C$ is a category with finite products, then the category of commutative monoids in $C$ is equivalent to the category of functors $M:\Gamma^{op} \to C$ such that for all $A\in \Gamma$ the following {\em Segal map} is an isomorphism
 \begin{equation*}
 	\prod_{a \in A} i_a^*: M(A) \to \prod_{a \in A} M(1).
 \end{equation*}
@@ -1786,7 +1786,7 @@ By construction, the four maps of structure spaces above induce the `obvious' ma
 
 \subsection{The cobordism hypothesis}
 
-In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{Lurie???}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
+In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{lurie-ch}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
 \begin{enumerate}
 	\item Prove the cobordism hypothesis for the symmetric monoidal $(\infty,n)$-category of bordisms equipped with {\em framed generalized Morse functions} in the sense of Igusa.
 	\item Prove that the forgetful functor from this symmetric monoidal $(\infty,n)$-category to the usual symmetric monoidal $(\infty,n)$-category of bordisms is an equivalence. To accomplish this he
@@ -3048,7 +3048,7 @@ For $A$ and $B$ tensor categories, and $M$ an $A$-$B$ bimodule, if $\bimod{A}{M}
 
 
 %% The Bibliography
-\bibliographystyle{amsalpha}
+\bibliographystyle{abbrv}
 \bibliography{DTCrefs}
 
 \end{document}
