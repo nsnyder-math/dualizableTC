@@ -106,32 +106,34 @@ Since the most interesting topological information in a TFT are the invariants a
 \includegraphics{cobordism.png}
 \end{center}
 
-If $\cC$ is a finite tensor category, the image of this bordism gives a topological proof of the generalization of Radford's formula stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories it is easy to see from the topological proof that $D \cong 1$, and thus that the quadruple dual for fusion categories is trivial.  This makes rigorous the intuition (stated in \cite{bartlett}) that Radford's theorem is related to the belt trick.    In addition, since this framing on the interval induces the same orientation as the usual framing, finding an oriented field theory requires picking a trivialization of the of Serre.  This explains the appearance of the sphericality condition in the study of oriented field theories.
+If $\cC$ is a finite tensor category, the image of this bordism gives a topological proof of the generalization of Radford's formula stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories it is easy to see from the topological proof that $D \cong 1$, and thus that the quadruple dual for fusion categories is trivial.  This makes rigorous the intuition (stated in \cite{0901.3975}) that Radford's theorem is related to the belt trick.    In addition, since this framing on the interval induces the same orientation as the usual framing, finding an oriented field theory requires picking a trivialization of the of Serre.  This explains the appearance of the sphericality condition in the study of oriented field theories.
 
-In addition to the local TFT story, there are two other narratives that this work fits into.  The early history of fusion categories was heavily topological.  However, the topological approach seemed to require extra assumptions (like sphericality for fusion categories or ribbon for braided tensor categories).  In part to avoid these unnecessary assumptions, a more purely algebraic approach to the theory of fusion categories was developed by Etingof, Nikshych, Ostrik, and others.  One of the main points of this paper is that this algebraic approach can be brought back in touch with topology.  In fact, many of the algebraic results turn out to be well motivated from the topological point of view.   The second narrative is that this paper can be thought of as a category theoretic approach to the theory of fusion categories.  The main philosophy of category theory is that instead of studying something by looking inside them at their elements, you can instead study objects by looking outside them at their relationship to other objects.  Thus the category theoretic perspective on fusion categories avoids looking inside the category at the object and morphisms, and instead concentrate on the bimodules between fusion categories.  In this work we fully embrace this perspective, and only look inside the categories to establish a few key results, while the main results are proved by looking at bimodule categories, functors, and natural transformations.
+In addition to the local TFT story, there are two other narratives that this work fits into.  The early history of fusion categories was heavily topological.  However, the topological approach seemed to require extra assumptions (like sphericality for fusion categories or ribbon for braided tensor categories).  In part to avoid these unnecessary assumptions, a more purely algebraic approach to the theory of fusion categories was developed by Etingof, Nikshych, Ostrik, and others (e.g. \cite{EGNO, MR2183279,0906.0620,MR2097289}).  One of the main points of this paper is that this algebraic approach can be brought back in touch with topology.  In fact, many of the algebraic results turn out to be well motivated from the topological point of view.   The second narrative is that this paper can be thought of as a category theoretic approach to the theory of fusion categories.  The main philosophy of category theory is that instead of studying something by looking inside them at their elements, you can instead study objects by looking outside them at their relationship to other objects.  Thus the category theoretic perspective on fusion categories avoids looking inside the category at the object and morphisms, and instead concentrate on the bimodules between fusion categories.  In this work we fully embrace this perspective, and only look inside the categories to establish a few key results, while the main results are proved by looking at bimodule categories, functors, and natural transformations.
 
 \subsection{Outline and results}
 
 The heart of this paper is Section \ref{sec-dualfusion}, which contains the main results.  The sections prior to that are mostly background, while the sections after that are mostly applications.
 
-In the Section \ref{sec-tc} we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik, but we do need a few new modifications of their results.  Readers are encouraged to only skim this section on a first reading, referring back to it when it's applied in the main arguments.
+In the Section \ref{sec-tc} we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively worked through in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one section of genuinely new material on seperable algebra objects and seperable module categories.  Readers are encouraged to only skim this section on a first reading, referring back to it when it's applied in the main arguments.
 
 The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-category whose objects are finite tensor categories, morphisms are bimodule categories, $2$-morphisms are functors, and $3$-morphisms are natural transformations.  This result should be a surprise to no one, but even stating this claim requires a robust theory of symmetric monoidal $n$-categories.  We use the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof.  This is the version of $n$-categories used in Lurie's proof of the cobordism hypothesis, so we can apply his results directly without worrying about whether different notions of $n$-category agree.  This section has a significant amount of expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra.  Readers willing to take the theory of symmetric monoidal $3$-categories as a black box can happily skip this section.
 %%
 
-In Section \ref{sec-lft} we discuss local field theory, recall Lurie's statement of the Baez-Dolan cobordism hypothesis, and discuss several topological notions which come up in $3$-dimensional field theory.  We briefly recall the outline of Lurie's proof, indicating how some aspects of it have been simplified by more recent results.  Since the $n$-framed bordisms are critical to the cobordism hypothesis, we then fix some convenient notation for $n$-framings and gives some examples of that notation.  Finally, we discuss some groups which come up as other $3$-dimensional structure groups.  Although parts of this section can be skipped on a first read, we highly recommend that the reader look at the section on notation for $n$-framings  as the diagrams in the rest of the paper are otherwise unintelligible.
+In Section \ref{sec-lft} we discuss local field theory, recall Lurie's statement of the Baez-Dolan cobordism hypothesis \cite[Theorem 2.4.18]{0905.0465}, and discuss several topological notions which come up in $3$-dimensional field theory.  We briefly recall the outline of Lurie's proof, indicating how some aspects of it have been simplified by more recent results.  Since the $n$-framed bordisms are critical to the cobordism hypothesis, we then fix some convenient notation for $n$-framings and gives some examples of that notation.  Finally, we discuss some groups which come up as other $3$-dimensional structure groups.  Although parts of this section can be skipped on a first read, we highly recommend that the reader look at the section on notation for $n$-framings as the diagrams in the rest of the paper are otherwise unintelligible.
 
 In Section \ref{sec-dualfusion} we prove our main result (Theorem \ref{???} for a more detailed statements).
 
 \begin{theorem}
-Fusion categories of nonzero global dimension are fully dualizable.
+Seperable fusion categories are fully dualizable.
 \end{theorem}
+
+Seperability is a technical condition which is automatic over an algebraically closed field, and implied by non-zero global dimension over a perfect a field.
 
 %!% Keep this statement this short and snappy in the introduction.  In the main text it can be fleshed out with more precision about the ambient 3-category.
 
 A key application of this theorem is the construction of a plethora of local field theories:
 \begin{corollary}
-For any fusion category there is a local topological quantum field theory whose value on a point is that fusion category.  Furthermore, this TFT is unique up to equivalence.
+For any seperable fusion category there is a local topological quantum field theory whose value on a point is that fusion category.  Furthermore, this TFT is unique up to equivalence.
 \end{corollary}
 
 \NScomm{Figure out what to say about the relationship to Turaev-Viro}
@@ -533,9 +535,9 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{egno}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
 
-\begin{theorem}[\cite{egno}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
+\begin{theorem}[\cite{EGNO}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
 \end{theorem}
 
@@ -581,7 +583,7 @@ Moreover if $\cC$ is rigid, then
 \end{theorem}
 
 \begin{proof}
-	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite[Prop 1.46.2]{egno}).
+	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite[Prop 1.46.2]{EGNO}).
 	By Theorem \ref{thm:EGNO2.11.6} to show (1) and (2) it is enough to assume that $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$ and show that $\Mod{A }{B}(\cC)$ has the desired universal property. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced multilinear functor 
 		\begin{equation*}
 			T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC),  
@@ -696,19 +698,19 @@ We will now specialize to the theory of finite rigid tensor categories.  The goa
 	If $\cC$ is semisimple (e.g. $\cC = \Vect$), then $\cM$ is an exact module category if and only if it is also semisimple.
 \end{example}
 
-\begin{example}[{\cite[Example 2.6.5]{egno}}]
+\begin{example}[{\cite[Example 2.6.5]{EGNO}}]
 	The finite rigid tensor category $\cC$ is exact considered as a $\cC$-, $\cC^{mp}$-, or $\cC \otimes \cC^{mp}$-module category. 
 \end{example}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
-\begin{theorem}[ \cite{egno}] \label{Thm:ExactModCatOmnibus}
+\begin{theorem}[ \cite{EGNO}] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, $\cM''$ be exact $\cC$-module categories, and $\cN$ an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
-		\item $\cM$ has enough projectives \cite[Lemma 2.7.1]{egno}
-		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor 2.7.4]{egno}
-		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{egno}; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
-		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 2.13.2]{egno}		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{egno}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
+		\item $\cM$ has enough projectives \cite[Lemma 2.7.1]{EGNO}
+		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor 2.7.4]{EGNO}
+		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
+		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 2.13.2]{EGNO}		
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
 	\end{enumerate}
 \end{theorem}
 
