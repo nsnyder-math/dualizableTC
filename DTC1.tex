@@ -119,7 +119,7 @@ In addition to the local TFT story, there are two other narratives that this wor
 
 The heart of this paper is Section \ref{sec-dualfusion}, which contains the main results.  The sections prior to that are mostly background, while the sections after that are mostly applications.
 
-In the Section \ref{sec-tc} we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when it's applied in the main arguments.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively worked through in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of genuinely new material on separable algebra objects and separable module categories.  
+In the Section \ref{sec-tc} we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when it's applied in the main arguments, or to check notational conventions.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively worked through in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of genuinely new material on separable algebra objects and separable module categories.  
 
 The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-category whose objects are finite tensor categories, morphisms are bimodule categories, $2$-morphisms are functors, and $3$-morphisms are natural transformations.  This result should be a surprise to no one, but even stating this claim requires a robust theory of symmetric monoidal $n$-categories.  We use the theory of iterated complete Segal spaces described by Clark Barwick \cite{???}, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof.  This is the version of $n$-categories used in Lurie's proof of the cobordism hypothesis, so we can apply his results directly without worrying about whether different notions of $n$-category agree.  This section has a significant amount of expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra.  Readers willing to take the theory of symmetric monoidal $3$-categories as a black box can happily skip this section.
 %%
@@ -196,7 +196,7 @@ The history of local field theories is somewhat complicated, as the language too
 
 All of the above work on extended field theories assumes sphericality in an essential way.  The history of framed field theories is a bit different.  Here the main precursors are the theory of spin TFTs \cite{MR1117149, MR1171303, MR1387228, MR1880321}, and Kuperberg's work on $3$-manifold invariants coming from nonsemisimple Hopf algebras \cite{MR1394749}.
 
-The original version of Radford's theorem \cite{MR0407069} is an explicit formula for the fourth power of the antipode in a finite dimensional Hopf algebra.  This was generalized to the context of fusion categories, and then to finite tensor categories by Etingof--Nikshych--Ostrik \cite{MR2183279,MR2097289}.  The first indication that Radford's formula is related to topology came in Kuperberg's proof of Radford's theorem for Hopf algebras (and indeed Hopf algebra objects in symmetric tensor categories) \cite{9712047}.  Next Hagge--Hong \cite{MR2559711} gave a skein theoretical proof of Radford's theorem for fusion categories.  As pointed out by Bartlett \cite{0901.3975} the Hagge--Hong proof is remeniscent of the belt trick.
+The original version of Radford's theorem \cite{MR0407069} is an explicit formula for the fourth power of the antipode in a finite dimensional Hopf algebra.  This was generalized to the context of fusion categories, and then to finite tensor categories by Etingof--Nikshych--Ostrik \cite{MR2183279,MR2097289}.  The first indication that Radford's formula is related to topology came in Kuperberg's proof of Radford's theorem for Hopf algebras (and indeed Hopf algebra objects in symmetric tensor categories) \cite{MR1394749}.  Next Hagge--Hong \cite{MR2559711} gave a skein theoretical proof of Radford's theorem for fusion categories.  As pointed out by Bartlett \cite{0901.3975} the Hagge--Hong proof is remeniscent of the belt trick.
 
 After we announced the results of this paper, other constructions of fully local versions of Turaev--Viro have been announced by Balsam--Kirilov and Kitaev--Kong.  Their work and our work are largely complimentary.  Their constructions depend on a choice of spherical or unitary structure and thus they cannot prove our main applications, on the other hand, their constructions explicitly recover the Turaev--Viro invariants for $3$-manifolds, which is more difficult to see from our construction.  Note that by our uniqueness results all of these local TFTs must be equivalent.
 
@@ -231,9 +231,9 @@ Noah Snyder and Chrs Schommer--Pries were supported by NSF Postdoctoral Fellowsh
 %\end{itemize}
 %}
 
-In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the works of Etingof, Gelaki, Nikshych and Ostrik.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. 
-We begin with a brief discussion of our conventions regarding duality.
+In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. The material in Section \ref{sec-tc-separable} is new and based on a suggestion of Ostrik.
 
+We begin with a brief discussion of our conventions regarding duality.
 
 %\CD{The organization of this section might well change as we decide what exactly we should include.}
 
@@ -291,7 +291,6 @@ The same observation applies to adjoint functors, and duals of bimodules.
 
 \subsection{Linear categories and tensor categories} \label{sec-tc-lincat}
 
-\CSP{How do people feel about me putting right exactness into the definition of linear functor?} \CD{Can we add here a word about why, that might assuage readers who think it odd?} \NS{I'm somewhat unhappy about it.}
 	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
 	
@@ -674,10 +673,7 @@ By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$  
 \end{proof}
 
 \begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite{???} 
-\CSP{NS, is this citation supposed to be ENO?}
-\NS{Indeed, the homotopy theory paper}
-which is incorrect as stated for bimodule categories.
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
 \end{remark} \CD{The $\cC$s, $\cD$s, $\cE$s in this remark are not correct.}  \NS{I think I fixed them now}
 
 
@@ -1943,7 +1939,7 @@ In this section we give sufficient conditions for a  bimodule category ${}_\cC \
 $\Fun_{{\cC}}(\cM, \cC)$
  where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
 
-Recall from the background section that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by ${}^*\cdot$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.
+Recall from the background section, that linear functors are always assumed to be right exact.  Furthermore, recall that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by ${}^*\cdot$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.
 
 \begin{lemma}
 The map $\ev_R: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $d_1 f(m d_2)  \mapsto d_1 f(m) d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev_L: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
