@@ -380,16 +380,17 @@ The right dual functor is analogous.  Since the left and right duals are quasi-i
 Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
 \end{remark}
 
-\begin{corollary}
-	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural transformations
+\begin{corollary} \label{cor:RigidityViaFunctors}
+	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural isomorphisms
 	\begin{align*}
-		ev: & x \otimes {}^*x \to 1 \\
-		coev:&  1 \to {}^*x \otimes x
+		\Hom( {}^*y, z) &\cong \Hom(1, z \otimes y) \\
+		\Hom(z, y) & \cong \Hom(z \otimes {}^*y, 1).
 	\end{align*}
-	Satisfying the evident zig-zag equation. \\
-	\CSPcomm{Working on this, need to explain why evaluation is a {\em natural} transformation, and why you onlyt need one of the functors.}
 \end{corollary}
 
+\begin{proof}
+	It is clear from the previous lemma that a rigid tensor category admits such a structure (the natural isomorphisms in question are induced by the evaluation and coevaluation). Conversely, if we are given such a structure, then applying the above natural isomorphisms in the cases $z={}^*y$ and $y$ yield evaluation and coevaluation maps demonstrating ${}^*y$ as the right dual of $y$. Left duals are obtained by the same argument applied to the inverse of the functor ${}^*(-)$.
+\end{proof}
 
 % This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
 
@@ -543,11 +544,11 @@ If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if
 %		
 Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
 	\begin{equation*}
-<<<<<<< .mine
-		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
-=======
+%<<<<<<< .mine
+%		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^op}( F(k), c) = \Hom_{\cC}(c, F(k) ). \\
+%=======
 		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^\op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
->>>>>>> .r293
+%>>>>>>> .r293
 	\end{equation*}
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
@@ -632,8 +633,8 @@ and we will show that $T$ induces an equivalence between $\cC$-balanced multilin
 %\end{proposition}
 
 
-\begin{remark}
-	We may use the case $\cC= \Vect_k$ to rewrite part the data  of a tensor category as a linear category $\cD$ equipped with an object $1 \in \cD$ and a linear functor $\otimes: \cD \boxtimes \cD \to \cD $, together with natural transformations $\alpha$, $\lambda$, and $\rho$, as before. 
+\begin{remark} \label{rmk:rigidpreservedbytensor}
+	We may use the case $\cC= \Vect_k$ to rewrite part the data  of a tensor category as a linear category $\cD$ equipped with an object $1 \in \cD$ and a linear functor $\otimes: \cD \boxtimes \cD \to \cD $, together with natural transformations $\alpha$, $\lambda$, and $\rho$, as before. Moreover by Corollary \ref{cor:RigidityViaFunctors} the tensor product of two rigid tensor categories is again rigid. 
 \end{remark}
 
 \begin{remark}
@@ -1524,7 +1525,7 @@ into the 1-category of strict 2-categories. Composing with the coherent nerve fo
 		\TC(A, m + n) & \to \TC(A, m) \times_{\TC(A, 0)} \TC(A, n), \\
 		\TC(A, n) & \to \TC(1, n)^{\times |A|}. 
 	\end{align*}
-However $\TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. This argument applies equally to $\TCrig$ and $\TCsep$ as both rigidity and separability of tensor categories are preserved under the Deligne tensor product, and separability of bimodule categories is preserved  under both the Deligne tensor product and composition of bimodule categories (cf. Theorem \ref{thm:compositeOfSep}).  
+However $\TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. This argument applies equally to $\TCrig$ and $\TCsep$ as both rigidity and separability of tensor categories are preserved under the Deligne tensor product, and separability of bimodule categories is preserved  under both the Deligne tensor product and composition of bimodule categories (cf. Corollary \ref{cor:RigidityViaFunctors}, Remark \ref{rmk:rigidpreservedbytensor}, and Theorem \ref{thm:compositeOfSep}).  
 \end{proof}
  
 
