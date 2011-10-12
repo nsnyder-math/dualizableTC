@@ -89,6 +89,11 @@ The Turaev-Viro construction assigns to a spherical fusion category a 3-dimensio
 
 %\tikzset{external/force remake}
 
+\CD{CD's comment color}
+\CSP{CSP's comment color}
+\NS{NS's comment color}
+
+
 \section{Introduction}
 % 1. Introduction
 % 1.1. Background and motivation
@@ -114,7 +119,7 @@ In addition to the local TFT story, there are two other narratives that this wor
 
 The heart of this paper is Section \ref{sec-dualfusion}, which contains the main results.  The sections prior to that are mostly background, while the sections after that are mostly applications.
 
-In the Section \ref{sec-tc} we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when it's applied in the main arguments.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively worked through in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of genuinely new material on seperable algebra objects and seperable module categories.  
+In the Section \ref{sec-tc} we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when it's applied in the main arguments.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively worked through in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of genuinely new material on separable algebra objects and separable module categories.  
 
 The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-category whose objects are finite tensor categories, morphisms are bimodule categories, $2$-morphisms are functors, and $3$-morphisms are natural transformations.  This result should be a surprise to no one, but even stating this claim requires a robust theory of symmetric monoidal $n$-categories.  We use the theory of iterated complete Segal spaces described by Clark Barwick \cite{???}, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof.  This is the version of $n$-categories used in Lurie's proof of the cobordism hypothesis, so we can apply his results directly without worrying about whether different notions of $n$-category agree.  This section has a significant amount of expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra.  Readers willing to take the theory of symmetric monoidal $3$-categories as a black box can happily skip this section.
 %%
@@ -124,7 +129,7 @@ In Section \ref{sec-lft} we discuss local field theory, recall Lurie's statement
 In Section \ref{sec-dualfusion} we prove our main result (Theorem \ref{???} for a more detailed statements).
 
 \begin{theorem}
-Seperable fusion categories are fully dualizable.
+separable fusion categories are fully dualizable.
 \end{theorem}
 
 (Seperability is a technical condition which is automatic over a field of characterstic $0$, and implied by non-zero global dimension over a perfect a field.)
@@ -133,10 +138,10 @@ Seperable fusion categories are fully dualizable.
 
 A key application of this theorem is the construction of a plethora of local field theories:
 \begin{corollary}
-For any seperable fusion category there is a local topological quantum field theory whose value on a point is that fusion category.  Furthermore, this TFT is unique up to equivalence.
+For any separable fusion category there is a local topological quantum field theory whose value on a point is that fusion category.  Furthermore, this TFT is unique up to equivalence, and two fusion categories give the same field theory if and only if they are Morita equivalent.
 \end{corollary}
 
-\NScomm{Figure out what to say about the relationship to Turaev-Viro}
+Strictly speaking, this TFT is not directly comparable to Turaev--Viro theories, since it is $3$-framed (rather than oriented) and does not depend on a choice of spherical structure (or even the existence of a spherical structure).  Nonetheless, it should be thought of as a generalization of Turaev--Viro.
 
 %In particular, the theorem provides localizations of Turaev-Viro field theories:
 %\begin{corollary}
@@ -147,7 +152,6 @@ For any seperable fusion category there is a local topological quantum field the
 %!% Add mention of how sphericality comes in?
 
 %%
-
 We also prove several intermediate results showing that parts of duality do not require the full fusion assumption.  The most important of these intermediate results is the following.
 
 \begin{theorem}
@@ -159,10 +163,10 @@ This shows that finite monoidal categories give $2$-framed local $2$-dimensional
 The end of the paper, Sections~\ref{sec-serre} and~\ref{sec-pivot}, focuses on applications of the main result.  The key player in this section is the Serre automorphism, which roughly measures the dependence of the field theory on spin structures.
 
 \begin{theorem}
-The Serre automorphism of a finite monoidal category $\cC$ is the bimodule associated to the double dual functor $**: \cC \ra \cC$.
+The Serre automorphism of a finite monoidal category $\cC$ is the bimodule associated to the double dual functor $**: \cC \ra \cC$.  \NS{Left or right double dual?}
 \end{theorem}
 
-In $3$-dimensions, the Serre automorphism is necessarily order 2 (since $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$), this theorem provides a simple topological proof of the following generalization Radford's theorem to fusion categories (originally due to ENO).
+In $3$-dimensions, the Serre automorphism is necessarily order 2 (since $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$), this theorem provides a simple topological proof of the following generalization Radford's theorem \cite{MR0407069} to fusion categories (originally due to Etingof, Nikshych, and Ostrik \cite{MR2183279}).
 \begin{corollary}
 The quadruple dual functor $****: \cC \ra \cC$ on a fusion category is naturally isomorphic to the identity functor.
 \end{corollary}
@@ -173,51 +177,47 @@ We then address how this result generalizes to finite tensor categories.  Morall
 There is a canonical $3$-framed local $2$-dimensional field theory attached to a finite tensor category.
 \end{theorem}
 
-Indeed we can give a topologically inspired proof of the generalization of Radford' theorem to finite tensor categories (again due to ENO).
+Indeed we can give a topologically inspired proof of the generalization of Radford' theorem to finite tensor categories (again due to Etingof, Nikshych, and Ostrik \cite{MR2097289}).
 
 \begin{corollary}
 The quadruple dual functor $****: \cC \ra \cC$ on a finite tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
 \end{corollary}
 
-A key insight resulting from the field-theoretic perspective on fusion categories is that the ENO conjecture, namely that fusion categories are pivotal, is equivalent to the spin-independence of the topological field theories associated to fusion categories:
-\begin{theorem}
-A fusion category $\cC$ is pivotal if and only if the local field theory associated to $\cC$ is independent of spin structure.
-\end{theorem}
-A precise formulation of this result, in terms of a descent condition for the bordism structure group of the local field theory, is given in section~\ref{sec-pivot-orpo}.
-%\begin{theorem}
-%A fusion category $\cC$ is pivotal if and only if the tensor-category-valued local field theory $F_{\cC} : \StringBord_0^3 \ra \TC$ associated to $\cC$ descends to a field theory on oriented $p_1$ bordism.
-%\end{theorem}
+In Section \ref{sec-pivot} we discuss TFTs with different topological structures other than $3$-framings.  The cobordism hypothesis says that such a TFT corresponds to a separable fusion category together some choice of additional structure.  In particular, we give homotopy invariant generalizations of the notions of spherical and pivotal and describe the corresponding structure groups.  In particular, the following question is a natural modification of a question of Etingof--Nikshych--Ostrik.
+
+\begin{question}
+Does every $3$-framed TFT with values in $\TC$ descend to an oriented TFT.
+\end{question}
 
 \subsection{Relationship to other work}
 
-The history of local field theories is somewhat complicated, as the language took some time to catch up to the results.  Some versions of a $123$ extended field theory go back quite early in the literature, where the $12$ part of the theory is called a ``modular functor."  In particular, Turaev's book can be thought of as giving a $123$ extended field theory attached to a modular tensor category.  However, the assumption that the category be modular (or even braided) was too strong.  See also, Bakalov--Kirillov and Kerler-Lyubashenko for early versions of $123$ field theories (in those cases related to Reshetikhin--Turaev instead of Turaev--Viro).  A rigorous $123$ version of Turaev--Viro in modern language is given in the work of Balsam--Kirillov.  Finally, Kevin Walker's work gives a fully local version of the Turaev--Viro TFT, but in somewhat different language which is more difficult to relate to the more usual notions of $n$-categories.
+The history of local field theories is somewhat complicated, as the language took some time to catch up to the results.  Some versions of a $123$ extended field theory go back quite early in the literature, where the $12$ part of the theory is called a ``modular functor" \cite{Segal, MR1002038, MR1159969,MR1797619}.  In particular, Turaev's book \cite{MR1292673} can be thought of as giving a $123$ extended field theory attached to a modular tensor category.  However, the assumption that the category be modular (or even braided) is too strong.  See also Kerler-Lyubashenko \cite{MR1862634} where they construct a somewhat unusual modified TFT with corners (that is, extended down to $1$-manifolds).   A rigorous $123$ version of Turaev--Viro in modern language is given in the work of Balsam--Kirillov \cite{1004.1533}.  Finally, Kevin Walker's work \cite{kw:tqft} gives a fully local version of the Turaev--Viro TFT, but in somewhat different language for $n$-categories that is somewhat difficult to relate to the more usual notions of $n$-categories.
+\NS{This paragraph needs more references, do you two know of stuff to add?}
 
-All of the above work on extended field theories assumes sphericality in an essential way.  The history of framed field theories is a bit different.  Here the main precursors are the theory of spin TFTs (Sawin, Blanchet, etc.), and Kuperberg.
+All of the above work on extended field theories assumes sphericality in an essential way.  The history of framed field theories is a bit different.  Here the main precursors are the theory of spin TFTs \cite{MR1117149, MR1171303, MR1387228, MR1880321}, and Kuperberg's work on $3$-manifold invariants coming from nonsemisimple Hopf algebras \cite{MR1394749}.
 
-The history of Radford's theorem is almost entirely algebraic (Radford, ENO, ENO).  [But say something about Hagge-Hong.]
+The original version of Radford's theorem \cite{MR0407069} is an explicit formula for the fourth power of the antipode in a finite dimensional Hopf algebra.  This was generalized to the context of fusion categories, and then to finite tensor categories by Etingof--Nikshych--Ostrik \cite{MR2183279,MR2097289}.  The first indication that Radford's formula is related to topology came in Kuperberg's proof of Radford's theorem for Hopf algebras (and indeed Hopf algebra objects in symmetric tensor categories) \cite{9712047}.  Next Hagge--Hong \cite{MR2559711} gave a skein theoretical proof of Radford's theorem for fusion categories.  As pointed out by Bartlett \cite{0901.3975} the Hagge--Hong proof is remeniscent of the belt trick.
+
+After we announced the results of this paper, other constructions of fully local versions of Turaev--Viro have been announced by Balsam--Kirilov and Kitaev--Kong.  Their work and our work are largely complimentary.  Their constructions depend on a choice of spherical or unitary structure and thus they cannot prove our main applications, on the other hand, their constructions explicitly recover the Turaev--Viro invariants for $3$-manifolds, which is more difficult to see from our construction.  Note that by our uniqueness results all of these local TFTs must be equivalent.
 
 \subsection{Future directions}
 
-There are several interesting directions we hope to take this project in, which we briefly summarize here.
+There are several directions we hope to take this project in, which we briefly summarize here.
 
-First, as we note at several points in the paper, finite tensor categories give a field theory which is defined on certain kinds of $3$-dimensional bordisms, but not all $3$-dimensional bordisms.  Such field theories are called non-compact [Lurie].  In order to make this precise we need a non-compact analogue of the cobordism hypothesis.  We plan to consider this in future work.
+First, as we note at several points in the paper, finite tensor categories give a field theory which is defined on certain kinds of $3$-dimensional bordisms, but not all $3$-dimensional bordisms.  Lurie calls such field theories non-compact \cite[\S 4.2]{lurie-ch}, and discusses $2$-dimensional non-compact theories in the spirit of Costello's work \cite{MR2298823}.  In order to construct a non-compact $3$-dimensional theory we need a non-compact analogue of the cobordism hypothesis.  We plan to consider this in future work.
 
-Second, it is natural to conjecture that multi-fusion categories of nonzero dimension are the only fully dualizable tensor categories.  This paper contains a weak version of this result, namely that a finite tensor category is fully dualizable if and only if its center is semisimple.  However, dualizability should imply finite and rigid.  We have avoided addressing the stronger version of that result in this paper because in order to get a strong result we should work in a larger version of the $3$-category (which does not assume that the objects are finite or even abelian).  This introduces technical issues which we avoid in this paper.
+Second, it is natural to conjecture that seperable multi-fusion categories are the only fully dualizable tensor categories.  This paper contains a weak version of this result, namely that a finite rigid tensor category is fully dualizable if and only if it is seperable multi-fusion.  However, dualizability should imply finite and rigid.  We have avoided addressing the stronger version of that result in this paper because in order to get a strong result we should work in a larger version of the $3$-category (which does not assume that the objects are finite or even abelian).  This introduces technical issues which we avoid in this paper.
 
-Third, we do not prove in this paper that our $3$-manifold invariants actually agree with Turaev--Viro in the spherical case.  This involves several nontrivial calculations which would distract from the main points of the paper.  We do note that by the uniqueness part of the cobordism hypothesis, the construction of a fully extended version of Turaev--Viro via other techniques (Balsam--Kirillov, Kitaev--Kong) would automatically show that our construction also gives Turaev--Viro.  We hope in the future to give a more direct proof that our $3$-manifold invariants can be computed by state-sums.
+Third, we do not prove in this paper that our $3$-manifold invariants actually agree with Turaev--Viro in the spherical case.  This involves several nontrivial calculations which would distract from the main points of the paper.  We do note that by the uniqueness part of the cobordism hypothesis, the construction of a fully extended version of Turaev--Viro via other techniques (a la Balsam--Kirillov and Kitaev--Kong) would automatically show that our construction also gives Turaev--Viro.  We hope in the future to give a more direct proof that our $3$-manifold invariants can be computed by state-sums.
 
-Finally, there are various facts about Turaev--Viro invariants which we would like to generalize to the non-spherical setting.  Most notably, we conjecture in the end of this paper several ``anomaly vanishing" results.
-
-
+Finally, there are various facts about Turaev--Viro invariants which we would like to generalize to the non-spherical setting.  Most notably, we conjecture in the end of this paper several ``anomaly vanishing" results generalizing a result of M\"uger \cite{MR1966525}. 
 
 \subsection*{Acknowledgments}
-Ben Balsam, Pavel Etingof, Andr\'e Henriques, Alexander Kirillov Jr., Scott Morrison, Kevin Walker, Google Wave.
+We would like to thank Ben Balsam, Alexander Kirillov Jr., Scott Morrison, Dylan Thurston, and Kevin Walker for helpful conversations \NS{Chris's add any people you'd like to mention here}.   For the first six months of this project we collaborated solely via Google Wave, and we would like to thank the Google Wave team for their work, and Scott Morrison and Nigel Tao for arranging early access to Wave for the U.C. Berkeley math department.
 
-The first author would like to especially thank Andr\'e Henriques for general enlightment and specific ideas regarding, among other topics, the structure of the 3-category of tensor categories, the classification of structure spaces in dimension 3,  the homotopy theory of those structure spaces, and the corresponding obstruction theory for structured field theories.
+We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec-tc-separable}.  Noah Snyder would especially like to thank Pavel Etingof for several long and fruitful conversations.  Chris Douglas would like to especially thank Andr\'e Henriques for general enlightment and specific ideas regarding, among other topics, the structure of the 3-category of tensor categories, the classification of structure spaces in dimension 3,  the homotopy theory of those structure spaces, and the corresponding obstruction theory for structured field theories.
 
-\CD{CD's comment color}
-\CSP{CSP's comment color}
-\NS{NS's comment color}
+Noah Snyder and Chrs Schommer--Pries were supported by NSF Postdoctoral Fellowships.  \NS{Other grants?}
 
 
 \section{Tensor categories} \label{sec-tc}
