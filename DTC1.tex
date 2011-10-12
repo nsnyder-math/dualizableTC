@@ -272,11 +272,11 @@ A convenient mnemonic for this notation is to think of the $*$ as eating things.
 We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. This forces us to consider the object $x^*$ as the {\em left adjoint} (or {\em left dual}) of $x$, despite the fact that the ``$*$'' occurs on the right of the symbol ``$x$''. This has the following natural consequences:
 \begin{itemize}
 	\item The left dual acts on the left of the object $x$ to produce a map to the unit. 
-	\item These notions extend the duals for the 2-category $Alg$ of algebras, bimodules, and bimodule maps: An $A$-$B$-bimodule $M$ with a left adjoint (or left dual) ${}_BM^L_A$ has evaluation and coevaluation maps:
+	\item These notions extend to duals for the 2-category $Alg$ of algebras, bimodules, and bimodule maps: An $A$-$B$-bimodule $M$ with a left adjoint (or left dual) ${}_BM^L_A$ has evaluation and coevaluation maps:
 	\begin{equation*}
 		ev: {}_BM^L \otimes_A M_{B} \to {}_B B_B, \quad \quad coev: {}_AA_A \to {}_A M \otimes_B M^L_A.
 	\end{equation*}
-	\item Thus an $A$-$B$-bimodule should be considered a morphism from $B$ to $A$, for then there is a functor $Alg \to \Cat$ sending an algebra $A$ to its category $\Mod{A}{}$ of left modules, whcih sends left duals to left adjoint functors, and similarly for right duals. 
+	\item Thus an $A$-$B$-bimodule should be considered a morphism from $B$ to $A$, for then there is a functor $Alg \to \Cat$ sending an algebra $A$ to its category $\Mod{A}{}$ of left modules, which sends left duals to left adjoint functors, and similarly for right duals. 
 	\item Moreover way we typically write composition of bimodules then agrees with the way we write composition of their corresponding functors. 
 \end{itemize}
 
@@ -336,7 +336,11 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{lemma}
 
 \begin{proof}
+<<<<<<< .mine
+	The units and counits give rise to natural isomorphisms %\NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
+=======
 	The units and counits give rise to natural isomorphisms \NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
+>>>>>>> .r293
  \begin{equation*} 
  	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
  \end{equation*}
@@ -344,7 +348,7 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{proof}
 
 \begin{corollary}
-	A $\cC$ a rigid tensor category is semisimple if and only if $1 \in \cC$ is a projective object. 
+	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
 \end{corollary}
 
 \begin{proof}
@@ -375,6 +379,16 @@ The right dual functor is analogous.  Since the left and right duals are quasi-i
 \begin{remark}
 Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
 \end{remark}
+
+\begin{corollary}
+	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural transformations
+	\begin{align*}
+		ev: & x \otimes {}^*x \to 1 \\
+		coev:&  1 \to {}^*x \otimes x
+	\end{align*}
+	Satisfying the evident zig-zag equation. \\
+	\CSPcomm{Working on this, need to explain why evaluation is a {\em natural} transformation, and why you onlyt need one of the functors.}
+\end{corollary}
 
 
 % This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
@@ -529,7 +543,11 @@ If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if
 %		
 Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
 	\begin{equation*}
+<<<<<<< .mine
+		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
+=======
 		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^\op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
+>>>>>>> .r293
 	\end{equation*}
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
@@ -651,6 +669,8 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 \begin{remark} \label{remark-tensorasfunctors}
 If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\cD}(\cM,\cD) \simeq \Fun_{\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. 
 \end{remark}
+
+
 
 For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
 
@@ -858,7 +878,7 @@ Similarly if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \ot
 	If any of the equivalent conditions of Theorem \ref{thm:SepModCats} are satisfied, then we will say that $\cM$ is a {\em separable} module category. If $\cM$ is a $\cC$-$\cD$-bimodule category then we will say $\cM$ is separable if it is separable over both $\cC$ and $\cD$ separately. 
 \end{definition}
 
-\begin{theorem}
+\begin{theorem} \label{thm:compositeOfSep}
 	If ${}_\cB\cM_\cC$ and ${}_\cC\cN_\cD$ are separable bimodule categories over semisimple tensor categories, then $\cM \boxtimes_{\cC} \cN$ is a separable $\cB$-$\cD$-bimodule category.
 \end{theorem}
 
@@ -1250,8 +1270,8 @@ We now describe the symmetric monoidal 3-fold Segal category $\TC$. We first con
 
 Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $\TC(A,n)$ should morally be regarded as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $\TC$. 
 
-As we have seen, the problem with implementing this straightforward idea is that one fails to produce a (strict) functor from $(\Gamma \times \Delta)^\textrm{op}$ to a strict $2$-categories. This is due to the fact that both the symmetric tensor product and the composition of bimodule categories are defined via universal properties and are not strictly associative. Thus $\TC(A,n)$ consists of an enlarged version which includes, in addition to the 
-$A$-tuples of length $n$ strings of composable bimodule categories, choices of all the possible composites and tensor products that arise. The most canonical way to do this is to define $\TC(A,n)$ to include all such possible choices. 
+As we have seen, the problem with implementing this straightforward idea is that one fails to produce a (strict) functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict $2$-categories. This is due to the fact that both the symmetric tensor product and the composition of bimodule categories are defined via universal properties and are not strictly associative. Thus $\TC(A,n)$ consists of an enlarged version which includes, in addition to the 
+$A$-tuples of length $n$ strings of composable bimodule categories, choices of all the possible composites and tensor products that naturally arise. The most canonical way to do this is to define $\TC(A,n)$ to include all such possible choices. 
 
 
 %will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $\TC(A,n)$ will be defined similarly. 
@@ -1259,7 +1279,7 @@ $A$-tuples of length $n$ strings of composable bimodule categories, choices of a
 % This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $\TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $\TC(A,n)$ is what we now describe.
 
 
- Thus the objects of $\TC(A,n)$ are certain compatible collections of tensor categories, bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
+ Thus the objects of $\TC(A,n)$ are certain compatible collections of finite tensor categories, finite bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
 \begin{table}[ht]
 	\caption{Data and Conditions for an object of $\TC(A,n)$.}
 	\begin{tabular}{c |ccccc}
@@ -1277,8 +1297,8 @@ $A$-tuples of length $n$ strings of composable bimodule categories, choices of a
 	\caption{Description of the Data of an object of $\TC(A,n)$.}	
 	\begin{tabular}{l p{11cm}}
 		datum & description of datum \\ \hline
-		$X_{S;i}$ & A tensor category \\
-		$X_{S;ij}$ & An $X_{S;i}$-$X_{S,j}$-bimodule category. \\
+		$X_{S;i}$ & A finite tensor category \\
+		$X_{S;ij}$ & An finite $X_{S;i}$-$X_{S,j}$-bimodule category. \\
 		$b_{S; ijk}$ & An $X_{S;j}$-balanced $X_{S;i}$-$X_{S,k}$-bilinear functor from $X_{S;ij}\times X_{S;jk}$ to $X_{S;ik}$. \\
 		$\alpha_{S;ijk \ell}$  & A natural isomorphism of $X_{S;j}$/$X_{S;k}$-balanced $X_{S'i}$-$X_{S;\ell}$-bimodule functors from $b_{S;i k \ell} \circ (b_{S;ijk} \times id_{X_{S;k\ell}})$ to $b_{S;ij \ell} \circ (id_{X_{S;ij}} \times b_{S;jk\ell})$. \\ \hline
 		$x_{S, S';i}$ & A bilinear tensor functor from $X_{S;i} \times X_{S';i}$ to $X_{S \cup S'; i}$. \\
@@ -1484,31 +1504,29 @@ With these as objects, 1-morphisms, and 2-morphisms, the obvious composition mak
 \begin{equation*}
 	\TC: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to \Cat_2.
 \end{equation*}
-into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TC$.
+into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TC$. There are two other variations on $\TC$ which will be of key importance. 
+\begin{itemize}
+	\item $\TCrig$ in which only rigid finite tensor categories appear. 
+	\item $\TCsep$ in which only separable rigid finite tensor categories and separable bimodule categories appear. 
+\end{itemize}
+
+
 
 \begin{theorem}
-	 $\TC$ is a symmetric monoidal 3-fold Segal category.  
+	 $\TC$, $\TCrig$, and $\TCsep$ are symmetric monoidal 3-fold Segal categories.  
 \end{theorem}
 
 \CSP{This maybe needs a little more explanation...}
 \begin{proof}
-	By Lemma \ref{lma:2catnervereflectsequiv} it is enough to show that the functor to strict 2-categories satisfies the appropriate Segal conditions, i.e. that the following Segal maps are weak equivalences of strict 2-categories:
+	Begining with $\TC$,
+	by Lemma \ref{lma:2catnervereflectsequiv} it is enough to show that the functor to strict 2-categories satisfies the appropriate Segal conditions, i.e. that the following Segal maps are weak equivalences of strict 2-categories:
 	\begin{align*}
 		\TC(A, m + n) & \to \TC(A, m) \times_{\TC(A, 0)} \TC(A, n), \\
 		\TC(A, n) & \to \TC(1, n)^{\times |A|}. 
 	\end{align*}
-However $\TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. 
+However $\TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. This argument applies equally to $\TCrig$ and $\TCsep$ as both rigidity and separability of tensor categories are preserved under the Deligne tensor product, and separability of bimodule categories is preserved  under both the Deligne tensor product and composition of bimodule categories (cf. Theorem \ref{thm:compositeOfSep}).  
 \end{proof}
  
-
-\CSPcomm{Now maybe set up notion that will be used later in the paper? eg variations on TC, hom categories, etc?}
-
-\begin{itemize}
-	\item $\TCfin$  finite tensor and bimodule categories.
-	\item $\TCrig$ rigid finite tensor categories, and finite bimodule categories. 
-	\item $\TCss$  finite semisimple tensor categories (i.e. multi-fusion), and finite semisimple bimodule categories. (non-zero global dimension???)
-\end{itemize}
-
 
 
 
