@@ -336,9 +336,9 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{lemma}
 
 \begin{proof}
-	The units and counits give rise to natural isomorphisms \NS{Currently we have both $\hom$ and $\Hom$ in the paper.  We should pick one.}
+	The units and counits give rise to natural isomorphisms \NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
  \begin{equation*} 
- 	\hom(x \otimes y, z) \cong \hom( x, z \otimes y^*) \cong \hom(y, {}^*x \otimes z).
+ 	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
  \end{equation*}
 	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
 \end{proof}
@@ -348,7 +348,7 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{corollary}
 
 \begin{proof}
-	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\hom(P, -) = \hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
+	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
 \end{proof}
 
 \begin{lemma}
@@ -391,9 +391,9 @@ Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual
 	\begin{itemize}
 		\item all hom categories are linear categories, 
 		\item horizontal composition is multilinear, and
-		\item there are identifications of monoidal categories $\hom(x,x) \simeq \cD$, $\hom(y,y) \simeq \cC$, and $\hom(y,x) \simeq \emptyset$.
+		\item there are identifications of monoidal categories $\Hom(x,x) \simeq \cD$, $\Hom(y,y) \simeq \cC$, and $\Hom(y,x) \simeq \emptyset$.
 	\end{itemize}
-	We will often abuse notation and refer to the value $\cM = \hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
+	We will often abuse notation and refer to the value $\cM = \Hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
 \end{definition}
 	
 Unwrapping this definition we see that a left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
@@ -503,7 +503,7 @@ as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this e
 \begin{equation*}
 	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
 \end{equation*}
-The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus by a straightforward calculation [MacLane V.6.Thm 1], we see that $v$ is initial. 
+The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\Hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus by a straightforward calculation [MacLane V.6.Thm 1], we see that $v$ is initial. 
 
 Finally, if $\cG$ is left exact, then it satisfies the solution set condition. To see this note that each object $d \in \cD$  has a finite number of distinct quotients in $\cD$, hence also a finite number quotients of the form  $\cG(c)$ for some $c \in \cC$. Thus we may choose a finite index set $I$ and objects  $c_i \in \cC$, together with maps $d \to \cG(c_i)$ exhausting the finite collection of possible quotients of $d$. Since any map $d \to \cG(c)$ must factor through one of these quotients, we have construct a solution set.   
 \end{proof}
@@ -522,14 +522,14 @@ If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if
 \end{corollary}
 
 \begin{proof}
-	A representable functor $\hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
+	A representable functor $\Hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
 %
 % 0 <-- C <--  B <--- A <-- 0 in C/C^op
 % 0 -->  \Hom(c,x) ---> hom(b,x) ---> hom(a, x)
 %		
 Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
 	\begin{equation*}
-		G(c) \cong \hom_{\Vect_k}( k, G(c)) \cong \hom_{\cC^op}( F(k), c) = \hom_{\cC}(c, F(k) ).
+		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^\op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
 	\end{equation*}
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
@@ -575,7 +575,7 @@ Moreover if $\cC$ is rigid, then
 	\begin{enumerate}
 		\item[(3)] The functor $\boxtimes_{\cC}$ is exact in each variable and satisfies 
 		\begin{equation*}
-			\hom_{\cA}(x,x') \otimes \hom_{\cB}(y, y') \cong \hom_{\cA \boxtimes_{\cC} \cB} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
+			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes_{\cC} \cB} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
 		\end{equation*}
 		\item[(4)] If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
 	\end{enumerate} 
@@ -607,7 +607,7 @@ and we will show that $T$ induces an equivalence between $\cC$-balanced multilin
 %		\item If $\cA = \Mod{A}{}$ and $\cB = \Mod{B}{}$, then $\cA \boxtimes \cB \simeq \Mod{A \otimes B}{}$;
 %		\item The functor $\boxtimes$ is exact in each variable and satisfies 
 %		\begin{equation*}
-%			\hom_{\cA}(x,x') \otimes \hom_{\cB}(y, y') \cong \hom_{\cA \boxtimes \cB} (x \boxtimes y, x' \boxtimes y'),
+%			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes \cB} (x \boxtimes y, x' \boxtimes y'),
 %		\end{equation*}
 %		\item If $F: \cA \times \cB \to \cC$ is a multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes \cB \to \cC$. 
 %	\end{enumerate} 
@@ -1038,7 +1038,7 @@ where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, 
 Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. This well-known construction proceeds as follows: each of ordered sets $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ is $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
 The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
 \begin{equation*}
-	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \hom_X(x_0, x_1) \times \hom_X(x_1, x_2) \times \cdots \times \hom_X(x_{n-1}, x_n).
+	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \times \cdots \times \Hom_X(x_{n-1}, x_n).
 \end{equation*}
 In other words $NC_n$ consists of all length $n$ strings of composable morphisms of $X$.
 
@@ -1181,7 +1181,7 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 \begin{example}
 	A strict 2-category $C$ may be regarded as a simplical object $C_\bullet$ in $\Cat$ whose $n^\textrm{th}$ category is given by the usual formula
 	\begin{equation*}
-		C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \hom_C(x_0, x_1) \times \hom_C(x_1, x_2) \times \cdots \times \hom_C(x_{n-1}, x_n).
+		C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \Hom_C(x_0, x_1) \times \Hom_C(x_1, x_2) \times \cdots \times \Hom_C(x_{n-1}, x_n).
 	\end{equation*}
 	We obtain a 2-fold simplicial set by applying the nerve construction to each of these categories, which, by viewing a set as a discrete simplicial space, we regard as a 2-fold simplcial space $NC_{\bullet \bullet}$. Since $C_\bullet$ satisfies the Segal condition, one deduces that $NC_{\bullet \bullet}$ is a 2-fold Segal category. 
 	\footnote{Alternatively, one may start with the simplicial category $C_\bullet$, as before and apply the {\em complete Segal space nerve} to each of the categories $C_n$. The $k^\text{th}$ space of this simplicial space $N^{CSS}_\bullet C_n$ is obtained by first constructing the functor category $Fun([k], C_n)$, then throwing away the non-invertible natural transformations, and finally applying the classifying space functor to the resulting groupoid. This alternative has the advantage that it produces a {\em complete} Segal space $N^{CSS} C_n$. However for our purposes these are equivalent constructions as the canonical map $N C_n \to N^{CSS} C_n$ is a weak equivalence in the complete Segal space model structure. 
