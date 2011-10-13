@@ -109,7 +109,7 @@ spin-independence of the associated TFT.
 
 \tikzexternaldisable
 \begin{tikzpicture}[remember picture,overlay] 
-	\node [yshift = -1cm, red!80!black,scale=3,text opacity=0.2] 
+	\node [yshift = -2cm, red!80!black,scale=3,text opacity=0.2] 
 		at (current page.center) {Please Do Not Distribute}; 
 \end{tikzpicture}
 \tikzexternalenable
@@ -720,7 +720,7 @@ By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$  
 
 \begin{remark}
 Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
-\end{remark} \CD{The $\cC$s, $\cD$s, $\cE$s in this remark are not correct.}  \NS{I think I fixed them now}
+\end{remark}
 
 
 
@@ -763,7 +763,7 @@ The following result is well-known, but no proof has appeared in the literature.
 \end{lemma}
 
 \begin{proof}
-We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ \NS{Is there a terminology convention for right mates versus left mates?}
+We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
 $$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
 where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
 
@@ -783,7 +783,7 @@ Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we w
 
 The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
-where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the previous one.
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the one in the previous lemma.)
 
 \NScomm{Insert diagram here}
 
@@ -804,9 +804,7 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of an $\cR$-module functor. 
 \end{example}
 
-\subsection{Multi-fusion categories} \label{sec-tc-fusion}
-
-\CD{CD continues to vote for using 'fusion' rather than 'multifusion'}
+\subsection{Fusion categories} \label{sec-tc-fusion}
 
 %\begin{definition}
 %A \emph{fusion category} is a tensor category $\cC$ satisfying the following conditions:
@@ -830,7 +828,7 @@ Thus a fusion category has finite dimensional hom vector spaces, has finitely ma
 
 
 \begin{warning}
-Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category". In particular we do not assume that the unit object is simple. 
+Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category". In particular we do not assume that the unit object is simple.
 \end{warning}
 
 The following result, which is a generalization of Radford's `$S^4$ formula' for Hopf algebras, is an important result in the theory of fusion categories. The proof in \cite{MR2183279} appeals to the fact that every fusion category is equivalent to the representation category of a weak Hopf algebra.  
@@ -840,7 +838,7 @@ The following result, which is a generalization of Radford's `$S^4$ formula' for
 \end{theorem}
 
 \CSP{cite which theorem of ours does this.}
-We will give a new proof of this theorem based on the fact that fusion categories are fully dualizable objects in a the symmetric monoidal 3-category of tensor categories (described later in this paper).
+We will give a new proof of this theorem based on the fact that fusion categories are fully dualizable objects in the symmetric monoidal 3-category of tensor categories (described later in this paper).
 
 \begin{definition}
 A fusion category $\cC$ is \emph{pivotal} if it admits a {\em pivotal structure}: a monoidal equivalence between the double right dual functor $\ldd{(-)}: \cC \xra{\ld{(-)}} \cC^{\mop} \xra{\ld{(-)}} \cC$ and identity functor.
@@ -1067,7 +1065,7 @@ This is easily seen to be strictly compatible with composition in $\Gamma^\text{
 
 \NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
-In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section will will describe a similar process in which a the composition in a category may be described through the use the combinatorial simplex category $\Delta$. Iterating this idea leads to the notion of {\em $n$-fold Segal category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  
+In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section we will describe a similar process in which the composition in a category may be described through the use the combinatorial simplex category $\Delta$. Iterating this idea leads to the notion of {\em $n$-fold Segal category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  
 
 \begin{definition}
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. 
@@ -1775,6 +1773,9 @@ Here is a picture of another $2$-framed manifold, specifically a 2-morphism in t
 The source and target of this bordism are as indicated.  Notice that the source of the source (a pair of $2$-framed points) is indeed the source of the target, and similarly the target of the source is the target of the target.
 \end{example}
 
+\begin{example}
+Here is a picture of a $2$-framed manifold: \NS{Insert an example}
+\end{example}
 
 \subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
 
