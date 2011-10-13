@@ -2519,13 +2519,13 @@ We now specialize to our case of interest, namely where the object in question i
 %\CD{Where did we establish that $\Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
 \begin{definition}
-Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_{\{\cF\}} \cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$.  
+Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_{\langle\cF\rangle} \cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$.  
 
 \NS{Say something about the natural transformation} \CD{I think this notation is slightly suboptimal.  What about ${}_{\cF}{\cC}$?  No, I guess that's no better.  How about ${}_{\langle \cF \rangle}{\cC}$?}
 \end{definition}
 
 \begin{theorem} \label{thm-serre}
-If $\cC$ is a finite tensor category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\{\ldd{(-)}\}} \cC$, ${}_{\langle\ldd{(-)}\rangle} \cC$.
+If $\cC$ is a finite tensor category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.
 \end{theorem}
 
 \begin{proof}
@@ -2537,7 +2537,7 @@ Now we compose with $\ev \boxtimes \id_a$, which just turns a right $\cC^{\mp}$ 
 \end{proof}
 
 \begin{corollary}
-If $\cC$ is a fusion category, then $\cC({}^{****}(-)) \cong \cC(\id)$.
+If $\cC$ is a fusion category, then ${}_{\langle{}^{****}(-)\rangle} \cC \cong {}_{\langle\id\rangle} \cC$.
 \end{corollary}
 
 We would like to turn this into a statement about the functor ${}^{****}(-)$.
@@ -2554,7 +2554,7 @@ $$\alpha(c) = \alpha(c) \cF(1) \cF(1)^{-1} \mapsto \cF(c) \cF(1)^{-1} \mapsto \c
 The quadruple dual is equivalent to conjugation by some invertible object $X$.
 \end{corollary}
 
-Recall that not only do we know that $\cC({}^{****}(-)) \cong \cC(\id)$, we actually have a canonical natural isomorphism given by the image of the universal belt map.  We call the image of this map the belt map $\cB_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The belt map $\cB_\cC$ gives a canonical choice of invertible object $X$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
+Recall that not only do we know that ${}_{\langle{}^{****}(-)\rangle} \cC \cong {}_{\langle\id\rangle}\cC$, we actually have a canonical natural isomorphism given by the image of the universal belt map.  We call the image of this map the belt map $\cB_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The belt map $\cB_\cC$ gives a canonical choice of invertible object $X$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
 
 \begin{theorem} 
 For a fusion category $\cC$ the canonical invertible object is trivial.
