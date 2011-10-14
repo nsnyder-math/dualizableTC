@@ -538,7 +538,7 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 
 The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
 
-\begin{proposition}
+\begin{proposition} \label{prop:AFT}
 	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
 	\begin{enumerate}
 		\item $\cG$ is left exact;  
@@ -2369,27 +2369,33 @@ In this section we specialize to $\TCrig$ and give sufficient conditions for a b
 
 Recall from Lemma \ref{module-adjoint} that in order to check that a bimodule functor between bimodules over rigid tensor categories has an adjoint as a bimodule category, it's enough to check that the underlying functor has an adjoint.  In particular, for finite tensor categories, it's enough to check that the underlying functor is exact.
 
-\begin{theorem}
+\begin{theorem} \label{thm:adjoints-fusion}
 Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
 \end{theorem}
 \begin{proof}
-Any functor out of a semisimple category is exact.
+Any functor out of a semisimple category is exact, so this result follows from Proposition \ref{prop:AFT}.
+
+The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{Someone check this.}
 \end{proof}
 
 \begin{corollary}
  $\TCss$ is fully 3-dualizable.
 \end{corollary}
 \begin{proof}
-This follows immediately from Theorems \ref{???}
+By Theorem \ref{thm:objduals} all objects in $\TCss$ has duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCss$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms  
 \end{proof}
 
-\begin{remark}
-It is worth noting that we have not assumed that the base field is characteristic zero (although in characteristic $p$ we do need that the global dimension is nonzero), that the field is algebraically closed, or that the category is split semisimple.  
+\begin{corollary}
+Seperable fusion categories are fully dualizable.
+\end{corollary}
 
-The latter observation has some consequences, as it shows that if $\cC$ has an incomplete rational form over a field $k$ (see \cite{???}), then the Turaev-Viro invariants attached to $\cC$ lie in this smaller field.  Previous constructions require that $\cC$ have a complete (or split) rational form.  For example, $\mathrm{Rep}(G)$ has an incomplete rational form over $\QQ$, and thus the invariants lie in $\QQ$.  (In that specific case, we can see that more directly since $\mathrm{Rep}(G)$ is Morita equivalent to $\Vec(G)$ and the latter has a complete rational form over $\QQ$.)
+\begin{remark}
+It is worth noting that we have not assumed that the base field is characteristic zero (although in characteristic $p$ seperability is not automatic), that the field is algebraically closed, or that the category is split semisimple.  
+
+The last of these observation has some consequences, as it shows that if $\cC$ has an incomplete rational form over a field $k$ (see \cite{???}), then the Turaev-Viro invariants attached to $\cC$ lie in this smaller field.  Previous constructions require that $\cC$ have a complete (or split) rational form.  For example, $\mathrm{Rep}(G)$ has an incomplete rational form over $\QQ$, and thus the invariants lie in $\QQ$.  (In that specific case, we can see that more directly since $\mathrm{Rep}(G)$ is Morita equivalent to $\Vec(G)$ and the latter has a complete rational form over $\QQ$.)
 \end{remark}
 
-Although the last step of this argument looks very straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCss$ is a subcategory of $\TC$, that is to say on the theorem of ENO that the Deligne tensor product of semisimple module categories over a semisimple category of nonzero global dimension is semisimple.\NS{We should think through the multi-fusion version of this statement, the right condition is probably nonzero global dimension of all the component fusion categories.}  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
+Although the last step of this argument looks very straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCss$ is a subcategory of $\TC$, which in turn depends on the theory of seperability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
 
 
 %%% Stuff moved to section 2  -CSP
@@ -2413,6 +2419,7 @@ The following bimodules are exact \NScomm{fill them in}.  If in addition $Z(\cC)
 If $\cC$ is a rigid finite tensor category such that $Z(\cC)$ is semisimple, then $\cC$ is fully dualizable.
 \end{theorem}
 \begin{proof}
+\NScomm{Fill in proof}
 \end{proof}
 
 \begin{remark}
