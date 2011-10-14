@@ -901,8 +901,9 @@ Thus $T(A)$ is separable.
 	\end{enumerate} 
 \end{corollary}
 
-
 \CSPcomm{Add some closure properties for separable. Example: the external Deligne tensor product of separable bimodules, the tensor product of separable tensor categories, functor categories, etc.}
+
+
 
 \subsection{Fusion categories} \label{sec-tc-fusion}
 
@@ -1982,7 +1983,7 @@ The maps $\ev_R$ and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fu
 The map $\coev_L: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev_R: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
 \end{lemma}
 
-\begin{theorem} \label{thm-evcoev}
+\begin{theorem} \label{thm:evcoev}
 The pairs $(\ev_R$, $\coev_R)$ and $(\ev_L, \coev_L)$ each provide the unit and counit of an adjunction.
 \end{theorem}
 \begin{proof}
@@ -2013,6 +2014,8 @@ Thus we have proven
 \begin{theorem}
 	$\TCfin$ is fully 2-dualizable. 
 \end{theorem}
+
+Note that this theorem does not assume rigidity.
 
 \subsection{Invariants of elementary 2-framed bordisms}
 
@@ -2378,7 +2381,7 @@ Any functor out of a semisimple category is exact, so this result follows from P
 The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{Someone check this.}
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}  \label{cor:TC-dualizable}
  $\TCss$ is fully 3-dualizable.
 \end{corollary}
 \begin{proof}
@@ -2395,8 +2398,9 @@ It is worth noting that we have not assumed that the base field is characteristi
 The last of these observation has some consequences, as it shows that if $\cC$ has an incomplete rational form over a field $k$ (see \cite{???}), then the Turaev-Viro invariants attached to $\cC$ lie in this smaller field.  Previous constructions require that $\cC$ have a complete (or split) rational form.  For example, $\mathrm{Rep}(G)$ has an incomplete rational form over $\QQ$, and thus the invariants lie in $\QQ$.  (In that specific case, we can see that more directly since $\mathrm{Rep}(G)$ is Morita equivalent to $\Vec(G)$ and the latter has a complete rational form over $\QQ$.)
 \end{remark}
 
-Although the last step of this argument looks very straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCss$ is a subcategory of $\TC$, which in turn depends on the theory of seperability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
-
+\begin{warning}
+Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCss$ is a subcategory of $\TC$, which in turn depends on the theory of seperability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
+\end{warning}
 
 %%% Stuff moved to section 2  -CSP
 
@@ -2411,35 +2415,42 @@ Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying fun
 In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.  When $\cB = \Vec$ this theorem is just the fact that functors out of semisimple categories are exact.
 \end{remark}
 
+\NScomm{Explain why in order to check full dualizability we only need to check that certain evaluation and coevaluation $2$-morphisms have adjoints, that their adjoints have adjoints, etc.  All of these $2$-morphisms (and their possible adjoints) are functors out of specific module categories.  Thus we need only check that the module categories are exact.}
+
 \begin{lemma}
-The following bimodules are exact \NScomm{fill them in}.  If in addition $Z(\cC)$ is semisimple, then \NS{fill in} is also exact.
+The following bimodules are exact \NScomm{fill them in}.  If in addition $Z(\cC)$ is semisimple, then ${}_\Vec Z(C)_\Vec$ is also exact.
 \end{lemma}
 
 \begin{theorem}
 If $\cC$ is a rigid finite tensor category such that $Z(\cC)$ is semisimple, then $\cC$ is fully dualizable.
 \end{theorem}
 \begin{proof}
-\NScomm{Fill in proof}
+\NScomm{Fill in proof.  The point is that all the adjoints you need are functors between exact module categories by the previous lemma and thus have adjoints, and their adjoints have adjoints, etc.}
 \end{proof}
 
-\begin{remark}
-Semisimplicity of $Z(\cC)$ implies semisimplicity of $\cC$, since $\cC$ is exact as a $Z(\cC)$ module.  Thus the previous theorem is strictly weaker than the earlier theorem.  Nonetheless, it separates out the ``formal" part of the theorem, from the less formal proof that $Z(\cC)$ is semisimple.  In addition, this argument better shows what goes wrong in the non-semisimple case: we have no guarantee that functors out of ${}_\Vec Z(\cC)_\Vec$ have adjoints.  In particular, for non-semisimple categories there are problems defining the $3$-handles.
-\end{remark}
+Recall that semisimplicity of $Z(\cC)$ is equivalent to separability, thus this statement is the same as that of Corollary \ref{cor:TC-dualizable}
 
-\NScomm{Add the converse and dimensional reduction here.}
+We have a weak converse result as well.
+
+\begin{theorem}
+If $\cC$ is a rigid finite tensor category which is fully dualizable, then $\cC$ is a separable fusion category.
+\end{theorem}
+\begin{proof}
+\NScomm{Dimensionally reduce along $S^1$ to get a $2$-dimensional theory.  In order for this theory to exist, $Z(\cC)$ must be semisimple, which is equivalent to separable fusion}
+\end{proof}
+
 
 \subsection{Invariants of elementary 3-framed bordisms}
 .
 
 \CSPcomm{Here should go a discussion of the basic 3-framed bordisms and their images under the tqft. It should build off of the discussion in the last section of the 2-framed 2D cobordisms. }
 
-%\end{document} % ignore rest
 
 \section{The Serre automorphism and the quadruple dual} \label{sec-serre}
 
 
-\subsection{The universal Serre automorphism}
-We now define the universal right Serre automorphism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
+\subsection{The Serre automorphism}
+We now define the right loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
 \begin{center}
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] 
@@ -2452,13 +2463,13 @@ We now define the universal right Serre automorphism, which is a particular $1$-
 \end{pgfonlayer}
 \end{tikzpicture}
 \end{center}
-\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \emph{universal right Serre automorphism}.  
+\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \begin{bf}right loop bordism\end{bf}.  
 
 \begin{remark}
-Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming and one outgoing boundary point.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the obvious shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$.  The right universal Serre automorphism is the framing corresponding to $+1$, while the left universal Serre automorphism is the framing corresponding to $-1$.  When we use the unspecified term ``Serre automorphism" we will always mean the right Serre automorphism.
+Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming and one outgoing boundary point.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the obvious shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$.  The right loop bordism is the framing corresponding to $+1$, while the left loop bordism is the framing corresponding to $-1$.  When we use the unspecified term loop bordsim we will always mean the right loop bordism.
 \end{remark}
 
-The name ``Serre automorphism" is motivated by the following example.
+Given any local TFT $\cF$, we can look at the image of the loop bordism under $\cF$.  In particular, if $a$ is a fully dualizable object in a symmetric monoidal $n$-category, the loop bordism induces an automorphism of $a$ which we call the ``Serre automorphism."  This terminology is motivated by the following example.
 
 \begin{example}
 \NScomm{Take example from Lurie Remark 4.2.4}
@@ -2467,16 +2478,16 @@ The name ``Serre automorphism" is motivated by the following example.
 When $n>2$ we have that $\pi_1(\mathrm{SO}_n) \cong \mathbb{Z}/2$, which implies the following fact.
 
 \begin{proposition}
-When $n \geq 3$, the universal right Serre automorphism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism. 
+When $n \geq 3$, the loop bordism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.   Thus, the Serre automorphism of any dualizable object in an $n$-category is an involution.
 \end{proposition}
 
-Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS \circ \cS$ to the trivial bordism; we call this genus zero bordism the canonical trivialization of the square of the Serre.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the bottom boundary is incoming, the top boundary is outgoing, and the coorientation points out of the page toward the reader near the bottom boundary.
+Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS \circ \cS$ to the trivial bordism.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the bottom boundary is incoming, the top boundary is outgoing, and the coorientation points out of the page toward the reader near the bottom boundary.
 
 \begin{center}
 \includegraphics[width=60mm]{cobordism.png}
 \end{center}
 
-We denote this bordism $\cB$ and call it the universal belt map---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.
+We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.  Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  We call this image the Radford isomorphism, because as we will see that it plays the key role in proving Radford's theorem.
 
 \begin{lemma}
 The universal belt map is given by the following formula.  \NScomm{Write it as a composition of basic bordisms} 
@@ -2488,15 +2499,15 @@ Note that although the universal belt map is a $2$-dimensional bordism, it does 
 
 \subsection{The Serre automorphism of a fusion category}
 
-Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the universal Serre automorphism gives an automorphism $\cS_a: a \rightarrow a$.
+Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the loop bordism gives the Serre automorphism $\cS_a: a \rightarrow a$.
 
-We would like to make this definition more explicit.  Let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual $a^{\vee} \in \cA$.  Let $\ev^*: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.  \CD{We should change all the $\vee$'s to $*$s everywhere for consistency, right?  (Even though the distinction serves a purpose at moments like this one.)}
+We would like to make this definition more explicit.  Let $\ev : a \otimes a^{\vee} \ra 1$ and $\coev: 1 \ra a^{\vee} \otimes a$ denote the evaluation and coevaluation maps for the duality between $a \in \cA$ and its dual $a^{\vee} \in \cA$.  Let $\ev^R: 1 \ra a \otimes a^{\vee}$ be the right adjoint to $\ev$.  Let $\tau: a \otimes a \ra a \otimes a$ denote the symmetric monoidal switch.  \NS{Make sure we explain this notation somewhere earlier}
 
 \begin{proposition}
 Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA$, for $n \geq 2$.  The Serre automorphism $\cS_a : a \ra a$ is equivalent to the following composite:
 \[
-\cS_a \simeq (\ev \btimes \id_a) \circ (\id_{a^{\vee}} \btimes \tau) \circ (\ev^{*} \btimes \id_a)
-\]
+\cS_a \simeq (\ev \btimes \id_a) \circ (\id_{a^{\vee}} \btimes \tau) \circ (\ev^R \btimes \id_a)
+\] 
 \end{proposition}
 
 We now specialize to our case of interest, namely where the object in question is a finite tensor categroy (which is a dualizable object in the $(3,2)$-category $\TCrig$).  The value of the Serre automorphism of such a tensor category was listed in a table in the previous section---we now make the calculation of the automorphism more explicit.
@@ -2545,21 +2556,18 @@ Recall that not only do we know that ${}_{\langle{}^{****}(-)\rangle} \cC \cong 
 For a fusion category $\cC$ the canonical invertible object is trivial.
 \end{theorem}
 \begin{proof}
-\NS{Look at CSP's proof}
+\NS{Use CSP's proof from email}
 \end{proof}
-
-\begin{theorem}
-The canonical isomorphism betweeen the quadruple dual and the trivial is characterized by ???.
-\end{theorem}
 
 \subsection{The Serre automorphism for finite tensor categories}
 
-Recall that although finite tensor categories are not fully dualizable, they are fully $2$-dualizable and furthermore most of the basic $3$-morphisms have adjoints.  The latter fact suggests that there should be a fully extended $3$-dimensional field theory which is only defined on certain $3$-morphisms (this is called a ``non-compact" field theory in Lurie).  In particular, we should expect that the $2$-framed $2$-dimensional field theory attached to a finite tensor category has a canonical descent to a $3$-framed theory.  We plan to address this in more detail in a later paper, so we will be brief in this section and not try for the strongest results.
+Recall that although finite tensor categories are not fully dualizable, they are $2$-dualizable and furthermore most of the basic $3$-morphisms have adjoints.  The latter fact suggests that there should be a fully extended $3$-dimensional field theory which is only defined on certain $3$-morphisms (this is called a ``non-compact" field theory in Lurie).  In particular, we should expect that the $2$-framed $2$-dimensional field theory attached to a finite tensor category has a canonical descent to a $3$-framed theory.  We plan to address this in more detail in a later paper, so we will be brief in this section and not try for the strongest results.
 
 \begin{theorem}
 The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category has a canonical descent to a $3$-framed $2$-dimensional TFT given by the canonical trivialization $\cdot^{****} \rightarrow D \cdot D^{-1}$ where $D$ is the canonical invertible object.
 \end{theorem}
 \begin{proof}
+\NS{CD and CSP are working on this.}
 \end{proof}
 
 The above result is unsatisfactory in two ways.  First, it does not give a topological reason for the appearance of $3$-framings.  We would prefer to have a partially defined $3$-dimensional theory which explains the appearance of a structure group which is naturally attached to $3$-dimensional theories.  Second, it relies on a non-topological proof of Radford's theorem.  These two defects are closely related: a partially defined $3$-dimensional TFT would be automatically $3$-framed and thus would give a topological proof of Radford's theorem.  In fact, as we saw in the last section, most of the $2$-handles automatically have adjoints.  This suggests that most of the $3$-handles can be defined, in particular enough of them to give a topological proof of Radford's theorem.
@@ -2567,12 +2575,12 @@ The above result is unsatisfactory in two ways.  First, it does not give a topol
 It is an important philosophical point that algebraic applications of the cobordism hypothesis do not rely on the full strength of the cobordism hypothesis.  Any given application uses specific relationships between specific bordisms, and thus only relies on a very small part of the full topological field theory.  In particular, if you look at the explicit formula for the universal belt map, we don't need a full $3$-dimensional field theory, we only need that the $2$-framed saddle has an adjoint.  Thus, rather than rigorously constructing a non-compact field theory, if all we want is Radford's theorem we can just write down formulas for the particular bordisms that we need and check that those formulas work.
 
 \begin{theorem}
-If $\cC$ is a finite tensor category, then the formula ??? gives an isomorphism between $\cC$ and $\cS \boxtimes_\cC \cS$.  Furthermore, under this map the image of $1$ is the canonical invertible $X$, and we have that the quadruple dual is canonical equivalent to conjugation by $X$ via a map satisfying the following property.
+If $\cC$ is a finite tensor category, then the formula ??? gives an isomorphism between $\cC$ and $\cS \boxtimes_\cC \cS$.  Furthermore, under this map the image of $1$ gives a canonical invertible object $D$, and this formula gives a canonical equivalence between the  quadruple dualand conjugation by $D$.
 \end{theorem}
 \begin{proof}
 \end{proof}
 
-Another way to think of Radford's theorem is that it states that there's an equivalence between the left Serre automorphism and the right Serre automorphism.  Recalling the definitions of these two automorphisms, that's the same as saying that the left adjoint of blah is canonically equivalent to the right adjoint of blah.  This version of the statement has a vast generalization which again is inspired by the cobordism hypothesis but does not rely on the proof of the cobordism hypothesis.
+Another way to think of Radford's theorem is that it states that there's an equivalence between the left Serre automorphism and the right Serre automorphism.  Recalling the definitions of these two automorphisms, that's the same as saying that the left adjoint of $\ev_a$ is canonically equivalent to the right adjoint of $\ev_a$.  This version of the statement has a generalization which again is inspired by the cobordism hypothesis but does not rely on the proof of the cobordism hypothesis.
 
 %\CSP{This proposition is stated as a remark, without proof in Jacob's paper.}
 
@@ -2620,7 +2628,34 @@ Then the required isomorphisms are given by the following composites:
 \end{align*}
 \end{proof}
 
+\subsection{Comparing our canonical constructions to ENO's canonical constructions}
 
+In this section we check that our constructions from the last two subsections agree with the constructions in \cite{MR2097289}.
+
+\begin{proposition}
+If $\cC$ is a fusion category, the canonical trivalization of the quadruple dual induced by the Radford isomorphism agrees with the canonical trvialization in \cite{MR2097289}.
+\end{proposition}
+\begin{proof}
+\NScomm{Figure out how to prove this}
+\end{proof}
+
+\begin{corollary}
+The canonical trivialization of the quadruple dual induced by the Radford isomorphism satisfies the property that \NScomm{find property in ENO}
+\end{corollary}
+
+\begin{lemma}
+A pivotal structure $p$ is spherical if and only if $p p^{**}$ agrees with the canonical trivialization of the quadruple dual induced by the Radford isomorphism.
+\end{lemma}
+\begin{proof}
+\NScomm{This can be proved by modifying the calculation in ENO where they prove that the pivotalization is spherical}
+\end{proof}
+
+\begin{proposition}
+If $\cC$ is finite, then the image of $1$ under the Radford isomorphism satisfies \NScomm{find property in ENO}
+\end{proposition}
+\begin{proof}
+\NScomm{Figure out how to prove this}
+\end{proof}
 
 %%%%%%
 
