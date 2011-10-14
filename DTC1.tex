@@ -1876,7 +1876,7 @@ Notation:
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
-In this section we prove the main theorem, that multi-fusion categories of non-zero global dimension are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, considerably weaker assumptions (relaxing semisimplicity, non-zero global dimension, and even part of rigidity) suffice to construct a local categorified $2$-dimensional TFT.
+In this section we prove the main theorem, that seperable fusion categories are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, considerably weaker assumptions (relaxing semisimplicity, and even part of rigidity) suffice to construct a local $2$-dimensional TFT.
 
 \subsection{Duals of objects and invariants of elementary 1-framed bordisms} \label{sec-df-objects}
 
@@ -1961,9 +1961,7 @@ Since this is a twice categorified TFT, there is more data involved in describin
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
-In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is right exact (which we have been assuming throughout), then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of $\cM$ is the category of right exact left module functors 
-$\Fun_{{\cC}}(\cM, \cC)$
- where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
+In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is right exact (which we have been assuming throughout), then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of $\cM$ is the category of right exact left module functors $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
 
 Recall from the background section, that linear functors are always assumed to be right exact.  Furthermore, recall that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by ${}^*\cdot$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.
 
@@ -2020,11 +2018,11 @@ Thus we have proven
 
 By the cobordism hypothesis, the previous theorem shows that there is a $2$-dimensional $2$-framed TFT attached to every finite tensor category with exact tensor product, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
 
-We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, we pick a particularly nice representative.
+We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence.  We will give two different representatives.  The first choice corresponds directly to the proofs in the previous subsection, while the second choice is clearly equivalent to the first but is more symmetric.
 
 Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with their associated invariants.
 \begin{table}[ht]
-\begin{tabular}{c|ll}
+\begin{tabular}{c|l|l}
 \cb{
 \begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
@@ -2034,7 +2032,7 @@ Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with the
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& $\cC$ & \\[6pt]
+& $\cC$ & $\cC$ \\[6pt]
 \cb{
 \begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
@@ -2044,7 +2042,7 @@ Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with the
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& $\cC^\mp$ &\\[6pt]
+& $\cC^\mp$ & $\cC^\mp$ \\[6pt]
 \cb{
 \begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
@@ -2054,7 +2052,7 @@ Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with the
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& $\cC^\op$ &\\[6pt]
+& $\cC^\mp$& $\cC^\op$ \\[6pt]
 \cb{
 \begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
@@ -2064,20 +2062,23 @@ Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with the
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& $\cC^\mop$ &
+& $\cC$ & $\cC^\mop$
 \end{tabular}
 \caption{Invariants associated to 2-framed 0-manifolds.} \label{table-points}
 \end{table} 
-Notice that the first and fourth (and similarly the second and third) are equivalent, but not canonically equivalent, framed manifolds; their invariants are thus also equivalent, but not canonically so.  Of course, one could write down an equivalent TFT where all positive points are sent to $\cC$ and all negative points are sent to $\cC^{\mp}$, but this would break certain symmetries (in particular, you need to choose which way to identify the second and third points above, and there are two such natural choices).
+Notice that the first and fourth (and similarly the second and third) are equivalent, but not canonically equivalent, framed manifolds; their invariants are thus also equivalent, but not canonically so.  \NS{Say something more here}
+
+%Of course, one could write down an equivalent TFT where all positive points are sent to $\cC$ and all negative points are sent to $\cC^{\mp}$, but this would break certain symmetries (in particular, you need to choose which way to identify the second and third points above, and there are two such natural choices).
 
 A generating collection of 2-framed 1-manifolds have invariants as listed in Table~\ref{table-intervals}.
 \begin{table}[ht]
-\begin{tabular}{c|cl}
+\begin{tabular}{c|c|cl}
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
 \end{tikzpicture}
 }
+& $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ 
 & $\bimod{\cC \btimes \cC^\op}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
 %
@@ -2090,6 +2091,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
+& $\bimod{\Vec}{\Fun_{\cC \boxtimes \cC^\mp}(\cC,\cC \boxtimes \cC^\mp)}{\cC \btimes \cC^\mp}$
 & $\bimod{\Vec}{\cC}{\cC \btimes \cC^\op}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
 %
@@ -2098,6 +2100,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \draw[linestyle,fuzzleft] (0,0) arc (-90:90:\smcirclerad);
 \end{tikzpicture}
 } 
+& $\bimod{\cC^\mp \btimes \cC}{\Fun_{}(\cC,\Vec)}{\Vec}$
 & $\bimod{\cC^\op \btimes \cC}{\cC}{\Vec}$ 
 & via $\cC^\op \xra{{}^*(-)} \cC^\mp$ \\
 \cb{
@@ -2109,6 +2112,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
+& $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ 
 & $\bimod{\Vec}{\cC}{\cC^\op \btimes \cC}$ 
 & via $\cC^\op \xra{(-)^*} \cC^\mp$ \\
 \cb{
@@ -2123,6 +2127,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 } 
+& ???
 & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
 \cb{
 \begin{tikzpicture}
@@ -2136,6 +2141,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
+& ???
 & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
 \cb{
 \begin{tikzpicture}
@@ -2149,6 +2155,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
+& ???
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
 \cb{
 \begin{tikzpicture}
@@ -2162,6 +2169,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
+& ???
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
 \end{tabular}
 \caption{Invariants associated to 2-framed intervals.} \label{table-intervals}
@@ -2619,9 +2627,7 @@ Fusion categories are objects of the 3-category $\TC$ of tensor categories, but 
 Let $S_3$ be the symmetric group on $3$-letters, let $\mathrm{Rep}(S_3)$ be the category of finite dimensional complex representations, and $\Vec(S_3)$ be the category of $S_3$-graded complex vector spaces.  These two fusion categories are equivalent in $\TC$ with $\Vec$ with the obvious bimodule structure giving the equivalence, and both have a standard spherical structure.  Spherical structures on a fusion category $\cC$ are a torsor for the group of assignments of $\pm 1$ to objects of $\cC$ which are multiplicative in the sense that if $X \subseteq Y \otimes Z$ then $\chi(X) = \chi(Y) \chi(Z)$.  Thus there is only one spherical structure on $\mathrm{Rep}(S_3)$, but there are two spherical structures on $\Vec(S_3)$.
 \end{example}
 
-We introduce the following homotopy invariant notions generalizing the notions of spherical and pivotal.
-
-Recall that a pivotal structure is a tensor trivialization of the double dual functor.  The reason this is not homotopy invariant is that it is a statement about natural transformations of tensor functors rather than about bimodule functors of bimodule categories.  To turn this into a homotopy invariant notion, we recall that any tensor functor $\cF: \cC \rightarrow \cC$ gives a $\cC$--$\cC$ bimodule category ${}_{\{\cF\}}\cC$ where the left action is twisted by $\cF$.  Thus, a pivotal structure gives a trivialization of the bimodule attached to the double dual.  As we saw in the last section, ${}_{\{(--)^{**}\}}\cC$ is the Serre automorphism.  This suggests the following definition.
+We now introduce homotopy invariant notions generalizing the notions of spherical and pivotal.   Recall that a pivotal structure is a tensor trivialization of the double dual functor.  The reason this is not homotopy invariant is that it is a statement about natural transformations of tensor functors rather than about bimodule functors of bimodule categories.  To turn this into a homotopy invariant notion, we recall that any tensor functor $\cF: \cC \rightarrow \cC$ gives a $\cC$--$\cC$ bimodule category ${}_{\{\cF\}}\cC$ where the left action is twisted by $\cF$.  Thus, a pivotal structure gives a trivialization of the bimodule attached to the double dual.  As we saw in the last section, ${}_{\{(--)^{**}\}}\cC$ is the Serre automorphism.  This suggests the following definition.
 
 \begin{definition}
 An \emph{h-pivotal} structure on a fusion category $\cC$ is an equivalence $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cS}{\cC}$ from the identity to the Serre.  An equivalence between h-pivotal structures is a natural equivalence of bimodule functors from $T$ to $T'$.
