@@ -1814,6 +1814,8 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
 \subsection{The cobordism hypothesis}
+.
+\NScomm{This section is under construction.  The current outline is more detailed, since when it was written we were planning on constructing non-compact theories in this paper}
 
 In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{lurie-ch}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
 \begin{enumerate}
@@ -1892,7 +1894,7 @@ The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{
 \end{theorem}
 \begin{proof}
 We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bxc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally identified with $\cC$.  The other calculations are similar.
-\end{proof}  \NS{Someone look at this}
+\end{proof}  \NS{This proof abuses notation quite a bit.  We should improve the description}
 
 \begin{proposition}
 	$\TCfin$ is fully $1$-dualizable. 
@@ -1962,7 +1964,7 @@ Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not 
 
 \begin{remark}
 Since this is a twice categorified TFT, there is more data involved in describing it fully than what we have given above.  For example, we could ask for explicit formulas for the mapping class group action on the invariant of a circle.  In this case, this action is trivial,  because the image of the bordism $(3,1)$-category lands in a subcategory of $\TCfin$ which is equivalent to an ordinary $1$-category.
-\end{remark}  \NS{Are you two ok with this remark?}
+\end{remark}  \NS{We should decide whether to keep this remark in the final paper.}
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
@@ -2022,7 +2024,7 @@ Thus we have proven
 Note that this theorem does not assume rigidity.
 
 \subsection{Invariants of elementary 2-framed bordisms}
-
+.\NScomm{This section is still under construction.}
 By the cobordism hypothesis, the previous theorem shows that there is a $2$-dimensional $2$-framed TFT attached to every finite tensor category with exact tensor product, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
 
 We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence.  We will give two different representatives.  The first choice corresponds directly to the proofs in the previous subsection, while the second choice is clearly equivalent to the first but is more symmetric.
@@ -2382,7 +2384,7 @@ Any $2$-morphism in $\TCsep$ has a left adjoint and a right adjoint in $\TCsep$.
 \begin{proof}
 Any functor out of a semisimple category is exact, so this result follows from Proposition \ref{prop:AFT}.
 
-The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{Someone check this.}
+The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{CSP or CD please check that this formula is right for adjoints of functors of semisimple categories.}
 \end{proof}
 
 \begin{corollary}  \label{cor:TC-dualizable}
@@ -2399,12 +2401,14 @@ Seperable fusion categories are fully dualizable.
 \begin{remark}
 It is worth noting that we have not assumed that the base field is characteristic zero (although in characteristic $p$ seperability is not automatic), that the field is algebraically closed, or that the category is split semisimple.  
 
-The last of these observation has some consequences, as it shows that if $\cC$ has an incomplete rational form over a field $k$ (see \cite{???}), then the Turaev-Viro invariants attached to $\cC$ lie in this smaller field.  Previous constructions require that $\cC$ have a complete (or split) rational form.  For example, $\mathrm{Rep}(G)$ has an incomplete rational form over $\QQ$, and thus the invariants lie in $\QQ$.  (In that specific case, we can see that more directly since $\mathrm{Rep}(G)$ is Morita equivalent to $\Vec(G)$ and the latter has a complete rational form over $\QQ$.)
+The last of these observation has some consequences, as it shows that if $\cC$ has an incomplete rational form over a field $k$ (see \cite{1002.0168}), then the Turaev-Viro invariants attached to $\cC$ lie in this smaller field.  Previous constructions require that $\cC$ have a complete (or split) rational form.  For example, $\mathrm{Rep}(G)$ has an incomplete rational form over $\QQ$, and thus the invariants lie in $\QQ$.  (In that specific case, we can see that more directly since $\mathrm{Rep}(G)$ is Morita equivalent to $\Vec(G)$ and the latter has a complete rational form over $\QQ$.)  See \cite{1102.0657} for many examples of interesting incomplete rational forms.
 \end{remark}
 
 \begin{warning}
 Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TCfin$, which in turn depends on the theory of seperability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
 \end{warning}
+
+\NScomm{The rest of this section is under construction}
 
 %%% Stuff moved to section 2  -CSP
 
