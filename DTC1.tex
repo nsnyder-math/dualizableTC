@@ -906,7 +906,7 @@ Thus $T(A)$ is separable.
 
 
 
-\subsection{Fusion categories} \label{sec-tc-fusion}
+\subsection{Fusion categories} \label{sec-tc-fusion}.
 
 \NScomm{This section is under construction}
 
@@ -942,7 +942,8 @@ A fusion category of non-zero global dimension is separable. \CSPcomm{add refere
 
 
 \section{The symmetric monoidal 3-category of tensor categories} \label{sec-sym-mon}
-
+.
+\NScomm{We are considering turning this section together with parts of subsection 2.2 into a separate paper.}
 
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
@@ -1277,12 +1278,12 @@ In the next section we will construct several examples describing versions of th
 \subsection{The symmetric monoidal 3-category of tensor categories} \label{sec-tc-threecat}
 
 
-We now describe the symmetric monoidal 3-fold Segal category $\TC$. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal 3-fold Segal category. 
+We now describe the symmetric monoidal 3-fold Segal category $\TCfin$ of finite tensor categories, finite module categories, linear functors of module categories, and natural transformations. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal 3-fold Segal category. 
 
-Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $\TC(A,n)$ should morally be regarded as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TC(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $\TC$. 
+Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $\TCfin(A,n)$ should morally be regarded as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TCfin(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $\TCfin$. 
 
-As we have seen, the problem with implementing this straightforward idea is that one fails to produce a (strict) functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict $2$-categories. This is due to the fact that both the symmetric tensor product and the composition of bimodule categories are defined via universal properties and are not strictly associative. Thus $\TC(A,n)$ consists of an enlarged version which includes, in addition to the 
-$A$-tuples of length $n$ strings of composable bimodule categories, choices of all the possible composites and tensor products that naturally arise. The most canonical way to do this is to define $\TC(A,n)$ to include all such possible choices. 
+As we have seen, the problem with implementing this straightforward idea is that one fails to produce a (strict) functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict $2$-categories. This is due to the fact that both the symmetric tensor product and the composition of bimodule categories are defined via universal properties and are not strictly associative. Thus $\TCfin(A,n)$ consists of an enlarged version which includes, in addition to the 
+$A$-tuples of length $n$ strings of composable bimodule categories, choices of all the possible composites and tensor products that naturally arise. The most canonical way to do this is to define $\TCfin(A,n)$ to include all such possible choices. 
 
 
 %will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $\TC(A,n)$ will be defined similarly. 
@@ -1290,9 +1291,9 @@ $A$-tuples of length $n$ strings of composable bimodule categories, choices of a
 % This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimdule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $\TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $\TC(A,n)$ is what we now describe.
 
 
- Thus the objects of $\TC(A,n)$ are certain compatible collections of finite tensor categories, finite bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
+ Thus the objects of $\TCfin(A,n)$ are certain compatible collections of finite tensor categories, finite bimodule categories, and their various maps. These collections are parametrized by the $k$-faces of $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TCfin(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}.
 \begin{table}[ht]
-	\caption{Data and Conditions for an object of $\TC(A,n)$.}
+	\caption{Data and Conditions for an object of $\TCfin(A,n)$.}
 	\begin{tabular}{c |ccccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-face $ijk$ & 3-face $ijk\ell$ & 4-face \\
 	\hline
@@ -1305,7 +1306,7 @@ $A$-tuples of length $n$ strings of composable bimodule categories, choices of a
 	\label{Table:ObjectOfTC}
 \end{table}	
 \begin{table}[ht]
-	\caption{Description of the Data of an object of $\TC(A,n)$.}	
+	\caption{Description of the Data of an object of $\TCfin(A,n)$.}	
 	\begin{tabular}{l p{11cm}}
 		datum & description of datum \\ \hline
 		$X_{S;i}$ & A finite tensor category \\
@@ -1339,7 +1340,7 @@ This data is required to satisfy a the following conditions: \\
 
 	\item  For every pair of disjoint subsets $S, S'$ and every 3-simplex $ijk\ell$, the `hexagon' equation in Figure \ref{fig:EqnSSijkObject} is satisfied. 
 \begin{figure}[ht]
-	\caption{Equation for condition (TCO4) on the data of an object of $\TC(A,n)$.}
+	\caption{Equation for condition (TCO4) on the data of an object of $\TCfin(A,n)$.}
 	\begin{center}
 		\begin{tikzpicture}[align=left]
 	%		\node (A) at (126:2cm) {A};
@@ -1366,7 +1367,7 @@ This data is required to satisfy a the following conditions: \\
 where each $\tau_i$ represents an appropriate permutation of the factors. In other words, $(x_{S,S';-}, \psi_{S, S'; -})$ forms a structure analogous to a functor of bicategories. 
 	\item  For every triple of disjoint subsets $S, S', S''$ and every 2-simplex $ijk$, the  `hexagon' equation in Figure \ref{fig:EqnSSSijObject} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TCO5) on the data of an object of $\TC(A,n)$.}
+		\caption{Equation for condition (TCO5) on the data of an object of $\TCfin(A,n)$.}
 	\begin{center}
 		\begin{tikzpicture}[align=left]
 	%		\node (A) at (126:2cm) {A};
@@ -1394,9 +1395,9 @@ where each $\tau_i$ represents an appropriate permutation of the factors. In oth
 	\item  For every quadruple of disjoint subsets $S, S', S'', S'''$, $\alpha_{-; i}$ and $\alpha_{-; ij}$ satisfy the evident pentagon equations. When $S' = \emptyset$ then $\alpha_{S, S', S''; i}$ and $\alpha_{S, S', S''; ij}$ satisfy the evident triangle identity. 
 \end{list}
 
-Let $X$ and $Y$ be two objects in $\TC(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. In this case the 1-morphisms from $X$ to $Y$ consist of collections of data as in Table \ref{Table:1MorOfTC}.
+Let $X$ and $Y$ be two objects in $\TCfin(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. In this case the 1-morphisms from $X$ to $Y$ consist of collections of data as in Table \ref{Table:1MorOfTC}.
 \begin{table}[h]
-	\caption{Data of a 1-morphism of $\TC(A,n)$.}
+	\caption{Data of a 1-morphism of $\TCfin(A,n)$.}
 	\begin{tabular}{c |cccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$ & 3-simplex $ijk\ell$  \\
 	\hline
@@ -1420,7 +1421,7 @@ This data is required to satisfy the following axioms:
 	\item If $S = \emptyset$, the $F_S;ij$ and $\xi_{S;ijk}$ are identities. If either $S$ or $S'$ is equal to $\emptyset$, then $\varphi_{S,S';ij}$ is the canonical map.
 	\item For every subset $S$ and every 3-simplex $ijk\ell$ the hexagon equation in Figure \ref{fig:EqnSijklMorphism} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M2) on the data of a 1-morphism of $\TC(A,n)$.}
+		\caption{Equation for condition (TC1M2) on the data of a 1-morphism of $\TCfin(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$b^Y_{S;ik\ell} \circ (b^Y_{S;ijk} \times 1) \circ (F_{S;ij} \times F_{S;jk} \times F_{S;k\ell})$};
@@ -1441,7 +1442,7 @@ This data is required to satisfy the following axioms:
 	\end{figure}
 	\item For every pair of disjoint subsets $S, S'$ and every 2-simplex $ijk$ the hexagon equation in Figure \ref{fig:EqnSSijkMorphism} holds, where $\tau$ permutes the middle factors. 
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M3) on the data of a 1-morphism of $\TC(A,n)$.}
+		\caption{Equation for condition (TC1M3) on the data of a 1-morphism of $\TCfin(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$y_{S, S'; ik} \circ (b^Y_{S; ijk} \times b^Y_{S';ijk}) $\\$ \circ (F_{S; ij} \times F_{S; jk} \times F_{S'; ij} \times F_{S'; jk})$};
@@ -1462,7 +1463,7 @@ This data is required to satisfy the following axioms:
 	\end{figure} 
 	\item For every triple of disjoint subsets $S, S', S''$ and every edge $ij$, the hexagon equation in Figure \ref{fig:EqnSSSijMorphism} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M4) on the data of a 1-morphism of $\TC(A,n)$.}
+		\caption{Equation for condition (TC1M4) on the data of a 1-morphism of $\TCfin(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$y_{S \cup S', S''; ij} \circ (y_{S, S'; ij} \times 1) $\\$ \circ (F_{S; ij} \times F_{S'; ij} \times F_{S''; ij})$};
@@ -1484,7 +1485,7 @@ This data is required to satisfy the following axioms:
 \end{list}
 A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a collection of $\{ \theta_{S;ij} \}$ consisting of $X_{S;i}$-$X_{S;j}$-bimodule natural transformations from $F_{S;ij}$ to $G_{S;ij}$ for each subset $S \subseteq A$ and 2-simplex $ij$ in $[n]$. For completeness we record this in Table \ref{Table:2MorOfTC}.
 \begin{table}[h]
-	\caption{Data of a 2-morphism of $\TC(A,n)$.}
+	\caption{Data of a 2-morphism of $\TCfin(A,n)$.}
 	\begin{tabular}{c |ccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$   \\
 	\hline
@@ -1511,11 +1512,11 @@ These are required to satisfy that $\theta_{\emptyset;ij}$ is the identity and t
 		(\theta_{S \cup S'; ij} * 1) \circ \varphi^F_{S, S'; ij} = \varphi^G_{S,S';ij} \circ (1*(\theta_{S;ij} \times \theta_{S';ij})).
 	\end{equation*}
 \end{list}
-With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $\TC(A,n)$ into a strict $2$-category. It is manifestly functorial in $A$ and $[n]$ and thus gives a (strict) functor 
+With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $\TCfin(A,n)$ into a strict $2$-category. It is manifestly functorial in $A$ and $[n]$ and thus gives a (strict) functor 
 \begin{equation*}
-	\TC: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to \Cat_2.
+	\TCfin: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to \Cat_2.
 \end{equation*}
-into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TC$. There are two other variations on $\TC$ which will be of key importance. 
+into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TCfin$. There are two other variations on $\TCfin$ which will be of key importance. 
 \begin{itemize}
 	\item $\TCrig$ in which only rigid finite tensor categories appear. 
 	\item $\TCsep$ in which only separable rigid finite tensor categories and separable bimodule categories appear. 
@@ -1524,18 +1525,18 @@ into the 1-category of strict 2-categories. Composing with the coherent nerve fo
 
 
 \begin{theorem}
-	 $\TC$, $\TCrig$, and $\TCsep$ are symmetric monoidal 3-fold Segal categories.  
+	 $\TCfin$, $\TCrig$, and $\TCsep$ are symmetric monoidal 3-fold Segal categories.  
 \end{theorem}
 
 \CSP{This maybe needs a little more explanation...}
 \begin{proof}
-	Begining with $\TC$,
+	Begining with $\TCfin$,
 	by Lemma \ref{lma:2catnervereflectsequiv} it is enough to show that the functor to strict 2-categories satisfies the appropriate Segal conditions, i.e. that the following Segal maps are weak equivalences of strict 2-categories:
 	\begin{align*}
-		\TC(A, m + n) & \to \TC(A, m) \times_{\TC(A, 0)} \TC(A, n), \\
-		\TC(A, n) & \to \TC(1, n)^{\times |A|}. 
+		\TCfin(A, m + n) & \to \TCfin(A, m) \times_{\TCfin(A, 0)} \TCfin(A, n), \\
+		\TCfin(A, n) & \to \TCfin(1, n)^{\times |A|}. 
 	\end{align*}
-However $\TC$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. This argument applies equally to $\TCrig$ and $\TCsep$ as both rigidity and separability of tensor categories are preserved under the Deligne tensor product, and separability of bimodule categories is preserved  under both the Deligne tensor product and composition of bimodule categories (cf. Corollary \ref{cor:RigidityViaFunctors}, Remark \ref{rmk:rigidpreservedbytensor}, and Theorem \ref{thm:compositeOfSep}).  
+However $\TCfin$ is constructed in such a way that these Segal maps are manifestly weak equivalences. In each case the difference between the left-hand-side and the right-hand-side consists of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product) hence these Segal maps are equivalences. This argument applies equally to $\TCrig$ and $\TCsep$ as both rigidity and separability of tensor categories are preserved under the Deligne tensor product, and separability of bimodule categories is preserved  under both the Deligne tensor product and composition of bimodule categories (cf. Corollary \ref{cor:RigidityViaFunctors}, Remark \ref{rmk:rigidpreservedbytensor}, and Theorem \ref{thm:compositeOfSep}).  
 \end{proof}
  
 
@@ -1779,7 +1780,7 @@ The following proposition explains how much of the homotopy type of the structur
 Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the structure map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map $\phi^*: \Hom(\mathrm{TBord}_0^n,\cC) \ra \Hom(\mathrm{SBord}_0^n,\cC)$ is a homotopy equivalence of spaces.
 \end{proposition}
 
-\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TCfin$ as our target, it suffices to understand the 4-types of our various structure spaces.
 
 We now precisely identify the 4-homotopy type of the four nontrivial structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
 
@@ -2376,7 +2377,7 @@ In this section we specialize to $\TCrig$ and give sufficient conditions for a b
 Recall from Lemma \ref{module-adjoint} that in order to check that a bimodule functor between bimodules over rigid tensor categories has an adjoint as a bimodule category, it's enough to check that the underlying functor has an adjoint.  In particular, for finite tensor categories, it's enough to check that the underlying functor is exact.
 
 \begin{theorem} \label{thm:adjoints-fusion}
-Any $2$-morphism in $\TCss$ has a left adjoint and a right adjoint in $\TCss$.
+Any $2$-morphism in $\TCsep$ has a left adjoint and a right adjoint in $\TCsep$.
 \end{theorem}
 \begin{proof}
 Any functor out of a semisimple category is exact, so this result follows from Proposition \ref{prop:AFT}.
@@ -2385,10 +2386,10 @@ The adjoint functors can also be described explicitly as a transpose.  Linear fu
 \end{proof}
 
 \begin{corollary}  \label{cor:TC-dualizable}
- $\TCss$ is fully 3-dualizable.
+ $\TCsep$ is fully 3-dualizable.
 \end{corollary}
 \begin{proof}
-By Theorem \ref{thm:objduals} all objects in $\TCss$ has duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCss$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms  
+By Theorem \ref{thm:objduals} all objects in $\TCsep$ has duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms  
 \end{proof}
 
 \begin{corollary}
@@ -2402,7 +2403,7 @@ The last of these observation has some consequences, as it shows that if $\cC$ h
 \end{remark}
 
 \begin{warning}
-Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCss$ is a subcategory of $\TC$, which in turn depends on the theory of seperability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
+Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TCfin$, which in turn depends on the theory of seperability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
 \end{warning}
 
 %%% Stuff moved to section 2  -CSP
@@ -2666,10 +2667,10 @@ If $\cC$ is finite, then the image of $1$ under the Radford isomorphism satisfie
 
 \subsection{Homotopically invariant notions of pivotality and sphericality.}
 
-Fusion categories are objects of the 3-category $\TC$ of tensor categories, but in this 3-category, pivotal and spherical structures are not natural from this point of view.  Specifically they are not homotopy invariant notions.  That is to say, if $\cC$ and $\cD$ are fusion categories which are equivalence in $\TC$ (that is, Morita equivalent), there's no natural equivalence between the space of spherical structures on $\cC$ and the space of spherical structures on $\cD$, as the following example shows.
+Fusion categories are objects of the 3-category $\TCfin$ of tensor categories, but in this 3-category, pivotal and spherical structures are not natural from this point of view.  Specifically they are not homotopy invariant notions.  That is to say, if $\cC$ and $\cD$ are fusion categories which are equivalence in $\TCfin$ (that is, Morita equivalent), there's no natural equivalence between the space of spherical structures on $\cC$ and the space of spherical structures on $\cD$, as the following example shows.
 
 \begin{example}
-Let $S_3$ be the symmetric group on $3$-letters, let $\mathrm{Rep}(S_3)$ be the category of finite dimensional complex representations, and $\Vec(S_3)$ be the category of $S_3$-graded complex vector spaces.  These two fusion categories are equivalent in $\TC$ with $\Vec$ with the obvious bimodule structure giving the equivalence, and both have a standard spherical structure.  Spherical structures on a fusion category $\cC$ are a torsor for the group of assignments of $\pm 1$ to objects of $\cC$ which are multiplicative in the sense that if $X \subseteq Y \otimes Z$ then $\chi(X) = \chi(Y) \chi(Z)$.  Thus there is only one spherical structure on $\mathrm{Rep}(S_3)$, but there are two spherical structures on $\Vec(S_3)$.
+Let $S_3$ be the symmetric group on $3$-letters, let $\mathrm{Rep}(S_3)$ be the category of finite dimensional complex representations, and $\Vec(S_3)$ be the category of $S_3$-graded complex vector spaces.  These two fusion categories are equivalent in $\TCfin$ with $\Vec$ with the obvious bimodule structure giving the equivalence, and both have a standard spherical structure.  Spherical structures on a fusion category $\cC$ are a torsor for the group of assignments of $\pm 1$ to objects of $\cC$ which are multiplicative in the sense that if $X \subseteq Y \otimes Z$ then $\chi(X) = \chi(Y) \chi(Z)$.  Thus there is only one spherical structure on $\mathrm{Rep}(S_3)$, but there are two spherical structures on $\Vec(S_3)$.
 \end{example}
 
 We now introduce homotopy invariant notions generalizing the notions of spherical and pivotal.   Recall that a pivotal structure is a tensor trivialization of the double dual functor.  The reason this is not homotopy invariant is that it is a statement about natural transformations of tensor functors rather than about bimodule functors of bimodule categories.  To turn this into a homotopy invariant notion, we recall that any tensor functor $\cF: \cC \rightarrow \cC$ gives a $\cC$--$\cC$ bimodule category ${}_{\{\cF\}}\cC$ where the left action is twisted by $\cF$.  Thus, a pivotal structure gives a trivialization of the bimodule attached to the double dual.  As we saw in the last section, ${}_{\{(--)^{**}\}}\cC$ is the Serre automorphism.  This suggests the following definition.
@@ -2703,14 +2704,14 @@ Consider the fusion category $\Vec(\mathbb{Z}/2)$ of $\mathbb{Z}/2$-graded vecto
 Our main reason for investigating h-pivotal and h-spherical structures is that these are the notions that naturally correspond to descent properties of the corresponding field theories.  Another advantage is that because they are the homotopically natural notions, the groupoids of these structures admit particularly clean classifications, as follows.
 
 \begin{proposition}
-The groupoid of h-pivotal structures on an h-pivotal fusion category $\cC$ is a torsor for the braided monoidal category $\pi_{\leq 1} \Omega^2(\TC,\cC)$, that is the fundamental groupoid of the double loop category of $\TC$, based at $\cC$.
+The groupoid of h-pivotal structures on an h-pivotal fusion category $\cC$ is a torsor for the braided monoidal category $\pi_{\leq 1} \Omega^2(\TCfin,\cC)$, that is the fundamental groupoid of the double loop category of $\TCfin$, based at $\cC$.
 \end{proposition}
 
 \begin{proposition}
-The groupoid of h-spherical structures on an h-spherical fusion category $\cC$ is a torsor for the braided monoidal category $K := \ker(\pi_{\leq 1} \Omega^2(\TC,\cC) \xra{\cdot 2} \pi_{\leq 1} \Omega^2(\TC,\cC))$.
+The groupoid of h-spherical structures on an h-spherical fusion category $\cC$ is a torsor for the braided monoidal category $K := \ker(\pi_{\leq 1} \Omega^2(\TCfin,\cC) \xra{\cdot 2} \pi_{\leq 1} \Omega^2(\TCfin,\cC))$.
 \end{proposition}
 
-Needless to say, the kernel in this proposition must be interpreted in a homotopy invariant manner, that is as a homotopy fiber and not a literal fiber.  Specifically, an object in the kernel $K$ is an automorphism $\phi$ of the identity bimodule $\bimod{\cC}{\cC}{\cC}$ together with a natural equivalence of bimodule functors from $\phi \btimes \phi$ to the identity functor on $\cC \btimes_{\cC} \cC$.  We refer to this tensor squaring operation $\phi \mapsto \phi \btimes \phi$ as ``$\cdot 2$", rather than as squaring, because the fundamental groupoid of the double loop space of $\TC$ is homotopy abelian.
+Needless to say, the kernel in this proposition must be interpreted in a homotopy invariant manner, that is as a homotopy fiber and not a literal fiber.  Specifically, an object in the kernel $K$ is an automorphism $\phi$ of the identity bimodule $\bimod{\cC}{\cC}{\cC}$ together with a natural equivalence of bimodule functors from $\phi \btimes \phi$ to the identity functor on $\cC \btimes_{\cC} \cC$.  We refer to this tensor squaring operation $\phi \mapsto \phi \btimes \phi$ as ``$\cdot 2$", rather than as squaring, because the fundamental groupoid of the double loop space of $\TCfin$ is homotopy abelian.
 
 Once the somewhat intricate definitions involved in these two propositions are unpacked, they are transparent, and we omit the proofs. \CD{Check this.}
 
@@ -2721,7 +2722,7 @@ The above definitions of h-pivotal and h-spherical have natural generalizations 
 \subsection{h-Pivotal fusion categories correspond to quadratic field theories} \label{sec-pivot-orpo}
 
 \begin{theorem} \label{thm-hpivotal}
-A fusion category $\cC \in \TC$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TC$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
+A fusion category $\cC \in \TCfin$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
 \end{theorem}
 \begin{proof}
 \NS{CD will fill this in}
@@ -2732,7 +2733,7 @@ Note that the same argument applies to finite tensor categories.  \NS{Should we 
 \subsection{h-Spherical fusion categories correspond to oriented $p_1$ field theories}
 
 \begin{theorem} \label{thm-hspherical}
-A fusion category $\cC \in \TC$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TC$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
+A fusion category $\cC \in \TCfin$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
 \end{theorem}
 \begin{proof}
 \NS{CD will fill this in}
@@ -2751,7 +2752,7 @@ In this section we make several conjectures concerning field theories descending
 According to the previous subsection, a choice of h-spherical structure on $\cC$ corresponds to a choice of descent to an oriented $p_1$ field theory.  This can be understood (non-rigorously) as follows.  An h-spherical structure induces a natural ribbon structure on the center $Z(\cC)$, and the $123$ part of the oriented $p_1$ field theory should agree with the Reshetikhin--Turaev construction applied to $Z(\cC)$.  The dependence of the RT theory on the oriented $p_1$ field theory is called the anomaly, and can be computed using a Gauss sum.  M\"uger proved that this anomaly vanishes in the special case of $Z(\cC)$, thus if the h-spherical structure comes from an ordinary spherical structurewe expec that the field theory does not detect the oriented $p_1$ structure.  This suggests the following conjecture.
 
 \begin{conjecture}
-If a fusion category $\cC \in \TC$ is spherical, then the oriented $p_1$ theory $\cF_{\cC} : \OrpoBord_0^3 \ra \TC$ associated to $\cC$ has a canonical descent to an oriented, that is $SO(3)$, local field theory.
+If a fusion category $\cC \in \TCfin$ is spherical, then the oriented $p_1$ theory $\cF_{\cC} : \OrpoBord_0^3 \ra \TCfin$ associated to $\cC$ has a canonical descent to an oriented, that is $SO(3)$, local field theory.
 \end{conjecture}
 
 Note that we do not expect the field theory coming from an arbitrary h-spherical structure to descend to an oriented theory, as the following example shows.
@@ -2765,11 +2766,11 @@ Thus this conjecture suggests that there is a homotopy invariant concept which m
 We could hope for more general anomaly vanishing results, however, we have much less evidence of these conjectures than we do for the first one.
 
 \begin{conjecture}
-If a fusion category $\cC \in \TC$ is pivotal, then the quad local field theory $\cF_{\cC} : \QuadBord_0^3 \ra \TC$ associated to $\cC$ has a canonical descent to a combed, that is $SO(2)$, local field theory.
+If a fusion category $\cC \in \TCfin$ is pivotal, then the quad local field theory $\cF_{\cC} : \QuadBord_0^3 \ra \TCfin$ associated to $\cC$ has a canonical descent to a combed, that is $SO(2)$, local field theory.
 \end{conjecture}
 
 \begin{conjecture}
-The framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to an arbitrary fusion category $\cC$ has a canonical descent to a spin local field theory.
+The framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to an arbitrary fusion category $\cC$ has a canonical descent to a spin local field theory.
 \end{conjecture}
 
 \begin{warning}
@@ -2947,10 +2948,10 @@ The map $SO(\infty)/SO(3) \ra BString(3)$ induces a map from $SO(\infty) = \hofi
 
 This proposition associates to each stable framing of a 3-manifold $M$ a string structure.  This association may be thought of as follows: because the fibration $BString(3) \ra BO(3)$ is the pullback of the fibration $BString \ra BO$ along the inclusion $BO(3) \ra BO$, the data of a lift of $M \ra BO(3)$ to $BString(3)$ is the same as the data of a lift of $M \ra BO(3) \ra BO$ to $BString$.  That is, string structures and stable string structures are identical notions.  Now note that there is a natural forgetful map from stable framings to stable string structures, since a trivialization of the composition $M \ra BO(3) \ra BO$ certainly provides a lift of that composite to, in particular, $BString$.
 
-In the main text, we have concentrated on the structure groups $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$.  As we have seen, $hString(3)$-structures are essentially just framings, but $String(3)$-structures appear to be rather different.  It turns out, though, that provided we focus on fusion categories over the complex numbers, all $\TC$-valued field theories are in fact string:
+In the main text, we have concentrated on the structure groups $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$.  As we have seen, $hString(3)$-structures are essentially just framings, but $String(3)$-structures appear to be rather different.  It turns out, though, that provided we focus on fusion categories over the complex numbers, all $\TCfin$-valued field theories are in fact string:
 
 \begin{proposition} \label{prop-string}
-Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor categories over $\CC$ descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TC$.
+Every framed local field theory $\cF : \FrBord_0^3 \ra \TCfin$ with target tensor categories over $\CC$ descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TCfin$.
 \end{proposition}
 
 \nid This result is a direct analog of the corresponding result for conformal-net-valued local field theories, given in~\cite{0912.5307}, and the proof is the same.
@@ -3040,7 +3041,7 @@ One readily verifies that $\lincat(A) \simeq \lincat^{\times A}$. Thus an object
 
 \subsection{The symmetric monoidal 2-categories of tensor categories and bimodule categories}
 
-Let $\TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
+Let $\TCfin(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
 
 }
 
