@@ -138,7 +138,7 @@ The Turaev--Viro \cite{MR1191386, MR1292673} construction (as generalized by Ocn
 
 We use as a crucial tool in our analysis the cobordism hypothesis (originally proposed by Baez--Dolan \cite{MR1355899}, but improved and proved by Hopkins and Lurie \cite{0905.0465}) which gives a classification of local TFTs.  This classification states that an $n$-dimensional $n$-framed local field theory is determined (up to equivalence) by the image of a point, and the possible images of a point are exactly the fully dualizable objects in the target $n$-category.  Furthermore, other flavors of $n$-dimensional local field theories are classified by the homotopy fixed points of actions of certain structure groups on the space of fully dualizable objects.  Being fully dualizable is a {\bf property} while being a homotopy fixed point is a {\bf choice of structure}.  Being fusion is a property (semisimple, finitely many simple objects, duals exist for each object), while being spherical is a structure (choice of natural isomorphism between the identity and the double dual).  Though not fully dualizable, finite tensor categories are twice dualizable, and it is therefore still possible to extract a partial field theory from them.  
 
-The proof that fusion categories are fully dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2183279, MR2097289}.  This approach was originally developed to avoid the unnecssary assumptios, like sphericality, that arose in earlier topological approaches.  Nonetheless, many of the algebraic results turn out to be well motivated from the topological point of view.
+The proof that fusion categories are fully dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2119143, MR2183279, MR2097289}.  This approach was originally developed to avoid the unnecssary assumptios, like sphericality, that arose in earlier topological approaches.  Nonetheless, many of the algebraic results turn out to be well motivated from the topological point of view.
 
 The correspondence between the algebraic properties of and structures on a tensor category and the topological properties of and structures on a field theory provides ample opportunity for applying results and intuitions from one context in the other.  For example, the generator of $\pi_1(\mathrm{SO}_3)$ corresponds to the interval with a nontrivial $3$-framing.  The image of this generator under the TFT is called the Serre automorphism.  For our TFT the Serre automorphism is $\cC$ as $\cC$--$\cC$ module category where one of the actions has been twisted by the double dual.  Thus, the fact that $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$ provides information about the quadruple dual functor.  There is a canonical minimal genus $3$-framed $2$-dimensional bordism between the trivial bordism and the square of the nontrivial $3$-framed interval, depicted below.
 
@@ -292,9 +292,6 @@ There are two conventions which we perceive as fundamental: those for adjoint fu
 	\end{align*}
 Here $\circledcirc$ denotes the horizontal composite of natural transformations.
 We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$. 
-\CD{Shall we use $\times$ instead of $\ast$ in those duality equations?}
-\CSP{This is the whiskering of nat. transformations. I agree $*$ is not the best, but $\times$ is no good either. The `$\eta * id_{G}$' is a natural transformation with $G\circ F \circ F$ as source, so $\circ$ is a candidate, but that usually means vertical composition. }
-\CSP{trying out $\circledcirc$}
 \end{definition}
 With this standard convention we have a canonical natural isomorphisms $\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y))$. 
 \begin{definition} [Convention B] \label{def:rigid}
@@ -309,7 +306,11 @@ A convenient mnemonic for this notation is to think of the $*$ as eating things.
 	For any category $\cA$, the functor category $\Fun(\cA, \cA)$ is a monoidal category with tensor product given by composition of functors $\circ$. 
 \end{example}
 
-We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. This forces us to consider the object $x^*$ as the {\em left adjoint} (or {\em left dual}) of $x$, despite the fact that the ``$*$'' occurs on the right of the symbol ``$x$''. This has the following natural consequences:
+We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. This forces us to consider the object $x^*$ as the {\em left adjoint} (or {\em left dual}) of $x$, despite the fact that the ``$*$'' occurs on the right of the symbol ``$x$''. 
+
+\NScomm{Note that there is another option.  In order to intepret $x^*$ as an adjoint, we need to interpret $x$ as a morphism and $\otimes$ as composition.  As always there are competing conventions about whether $f \otimes g$ means $f(g(--))$ or $g(f(--)$.  We were implicitly using the former convention.  If you use the latter then Conventions (A) and (B) hold, and such that $x^*$ is a right dual as in EGNO and ENO.  We plan to change to these conventions in a later version of the paper.}
+
+This has the following natural consequences:
 \begin{itemize}
 	\item The left dual acts on the left of the object $x$ to produce a map to the unit. 
 	\item These notions extend to duals for the 2-category $Alg$ of algebras, bimodules, and bimodule maps: An $A$-$B$-bimodule $M$ with a left adjoint (or left dual) ${}_BM^L_A$ has evaluation and coevaluation maps:
@@ -356,7 +357,7 @@ such that $F$ is linear in each variable separately. A linear category will be s
 	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
 \end{example}
 
-Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).
+Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$, also in the literature $\mp$ is also denotes $rev$.)
 %We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
 
 
@@ -461,8 +462,6 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 
 \begin{definition}		
 A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that 
-\NS{I got rid of the more general definition, if you had a reason you needed it, feel free to change it back}
-\CSP{Yes we need this generality to express the universal property of the tensor product of a $\cC$-$\cD$-bimodule  and a $\cC'$-$\cD'$-bimodule.}
 %	\begin{itemize}
 		 $F$ is the identity on objects,
 		  the restriction of $F$ to each hom category is linear,
@@ -585,7 +584,7 @@ Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above pro
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
 
 \begin{theorem}[\cite{EGNO}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -731,7 +730,7 @@ Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATen
 
 
 \subsection{Exact module categories and adjoints of module functors}
-We will now specialize to the theory of finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories.
+We will now specialize to the theory of finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.
 
 \begin{definition}
 	Let $\cC$ be a finite rigid tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
@@ -807,6 +806,9 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 
 \subsection{Separable Module Categories} \label{sec-tc-separable}
 
+In this section we introduce a new notion of separability for algebra objects, module categories, and tensor categories.  This theory is a generalization of the classical notion of a seperable algebra.  The main point of this notion is to provide the right generalization of certain results to fields of characteristic $p$.  In particular, it gives the right generality for M\"uger's result on semisimplicity of the center of a semisimple category \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik's result on semisimplicity of categories of functors between fusion categories \cite[Theorem 2.16]{MR2183279}.  Furthermore, it also allows us to avoid an issue related to inseparable extensions pointed out by Kuperberg \cite[Question 5.1]{MR1995781}.  This section was inspired by a suggestion of Ostrik, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
+
+\NScomm{This section is still under construction.}
 
 \begin{definition}
 	Let $A$ be an algebra object in a finite tensor category $\cC$. The multiplication map $\mu: A \otimes A \to A$ may be viewed as a morphism of $A$-$A$-bimodule objects in $\cC$. We will say that $A$ is {\em separable} if the multiplication map splits as a map of $A$-$A$-bimodules. 
@@ -906,8 +908,10 @@ Thus $T(A)$ is separable.
 
 \subsection{Fusion categories} \label{sec-tc-fusion}
 
+\NScomm{This section is under construction}
+
 \begin{definition}
-A \emph{fusion category} is a tensor category $\cC$ satisfying the following conditions:
+A \emph{fusion category} is a tensor category $\cC$ over $k$ satisfying the following conditions:
 \begin{enumerate}
 \item $\cC$ is finite.
 \item $\cC$ is rigid. 
@@ -918,7 +922,7 @@ A \emph{fusion category} is a tensor category $\cC$ satisfying the following con
 Thus a fusion category has finite dimensional hom vector spaces, has finitely many isomorphism classes of simple objects, and for every object $a \in \cC$ there exists an object ${a^*} \in \cC$ that is a left dual for $a$ and also an object ${}^{*}a \in \cC$ that is a right dual for $a$.
 
 \begin{warning}
-Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category". In particular we do not assume that the unit object is simple.
+Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category". In particular we do not assume that the unit object is simple.  Furthermore we only assume semisimplicity, not split semisimplicity.
 \end{warning}
 
 We quickly recall several lemmas relating fusion categories to the notions in the last two sections.
