@@ -72,14 +72,14 @@ strengthen this relationship in several ways. We show that the fusion
 categories are the fully-dualizable objects of a certain symmetric
 monoidal $3$-category, and explicitly identify a substantial portion of
 the $O(3)$-action induced by the cobordism hypothesis. This sets up a
-correspondence which allows us to translate algebraic statements and
+correspondence that allows us to translate algebraic statements and
 arguments into topology and vice versa. We show that the fact that
 $\pi_1(\mathrm{SO}_3) = \ZZ/2$ directly implies that the quadruple dual functor on a
 fusion category is trivial. This construction is more general than the
-Turaev--Viro construction in three ways. First we construct a local,
-that is fully extended, TFT. Second, we relax the assumption of
+Turaev--Viro construction in three ways. First it provides a local,
+that is fully extended, TFT. Second, it allows us to relax the assumption of
 sphericality on the fusion category: an arbitrary fusion category
-gives a 3-framed TFT. Finally, we show that finite  tensor categories
+gives a 3-framed TFT. Finally, it allows us to show that finite  tensor categories
 give local 2-framed 2-dimensional field theories, while rigid finite tensor categories give local 3-framed 2-dimensional field theories. We also explain how
 the sphericality of a fusion category corresponds to the
 spin-independence of the associated TFT.
@@ -121,11 +121,6 @@ spin-independence of the associated TFT.
 %\ignore{ %!%
 
 %\tikzset{external/force remake}
-
-\CD{CD's comment color}
-\CSP{CSP's comment color}
-\NS{NS's comment color}
-
 
 \section{Introduction}
 % 1. Introduction
@@ -204,12 +199,12 @@ Any finite tensor categories with biexact tensor product gives a $2$-framed loca
 The end of the paper, Sections~\ref{sec-serre} and~\ref{sec-pivot}, focuses the correspondence between algebraic properties of the tensor categories and topological properties of the corresonding field theories.  The key player in this section is the Serre automorphism, which roughly measures the dependence of the field theory on spin structures.
 
 \begin{theorem}
-The Serre automorphism of a finite rigid tensor category $\cC$ is the bimodule associated to the double dual functor $**: \cC \ra \cC$.  \NS{Left or right double dual?} \CD{It's the functor ${}^{**}(--)$ which we are still arguing about whether to call the left or right double dual.}
+The Serre automorphism of a finite rigid tensor category $\cC$ is the bimodule associated to the double dual functor ${}^{**}(-): \cC \ra \cC$.  %!%Once we adjust all the conventions, this will be the left double dual.
 \end{theorem}
 
 In $3$-dimensions, the Serre automorphism is necessarily order 2 (since $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$). This theorem therefore provides a simple topological proof of the following generalization Radford's theorem \cite{MR0407069} to fusion categories (originally due to Etingof, Nikshych, and Ostrik \cite{MR2183279}).
 \begin{corollary}
-The quadruple dual functor $****: \cC \ra \cC$ on a fusion category is naturally isomorphic to the identity functor.
+The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a fusion category is naturally isomorphic to the identity functor.
 \end{corollary}
 
 We then address how this result generalizes to finite rigid tensor categories.  The key point is that even though finite rigid tensor categories need not be fully dualizable, it is still possible to construct a $3$-framed field theory, provided you restrict attention to $2$-dimensional manifolds:
@@ -221,7 +216,7 @@ There is a canonical $3$-framed local $2$-dimensional field theory associated to
 Thus our ``belt trick" approach to the quadruple dual also gives a proof of the generalization of Radford' theorem to finite tensor categories (again due to Etingof, Nikshych, and Ostrik \cite{MR2097289}).
 
 \begin{corollary}
-The quadruple dual functor $****: \cC \ra \cC$ on a finite rigid tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
+The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a finite rigid tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
 \end{corollary}
 
 In Section \ref{sec-pivot} we discuss TFTs with topological structures other than $3$-framings.  The cobordism hypothesis says that such a TFT corresponds to a dualizable tensor category together some choice of additional structure.  In particular, we give homotopy invariant generalizations of the notions of sphericality and pivotality and describe the corresponding structure groups.  In particular, the following question is a natural topological analog of a question of Etingof--Nikshych--Ostrik.
@@ -252,7 +247,7 @@ Third, we do not prove in this paper that our $3$-manifold invariants actually a
 Finally, there are various facts about Turaev--Viro invariants which we would like to generalize to the non-spherical setting.  Most notably, we conjecture in the end of this paper several ``anomaly vanishing" results generalizing a result of M\"uger \cite{MR1966525}. 
 
 \subsection*{Acknowledgments}
-We would like to thank Ben Balsam, Alexander Kirillov Jr., Scott Morrison, Dylan Thurston, and Kevin Walker for helpful conversations \NS{Chris's add any people you'd like to mention here}.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.
+We would like to thank Ben Balsam, Alexander Kirillov Jr., Scott Morrison, Dylan Thurston, and Kevin Walker for helpful conversations.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.
 
 We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec-tc-separable}.  NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightment and specific ideas regarding, among other topics, the structure of the 3-category of tensor categories, the classification of structure spaces in dimension 3,  the homotopy theory of those structure spaces, and the corresponding obstruction theory for structured field theories.
 
@@ -306,7 +301,7 @@ A convenient mnemonic for this notation is to think of the $*$ as eating things.
 
 We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. This forces us to consider the object $x^*$ as the {\em left adjoint} (or {\em left dual}) of $x$, despite the fact that the ``$*$'' occurs on the right of the symbol ``$x$''. 
 
-\NScomm{Note that there is another option.  In order to intepret $x^*$ as an adjoint, we need to interpret $x$ as a morphism and $\otimes$ as composition.  As always there are competing conventions about whether $f \otimes g$ means $f(g(-))$ or $g(f(-)$.  We were implicitly using the former convention.  If you use the latter then Conventions (A) and (B) hold, and such that $x^*$ is a right dual as in EGNO and ENO.  We plan to change to these conventions in a later version of the paper.}
+\NScomm{[Note that there is another option.  In order to intepret $x^*$ as an adjoint, we need to interpret $x$ as a morphism and $\otimes$ as composition.  As always there are competing conventions about whether $f \otimes g$ means $f(g(-))$ or $g(f(-))$.  We were implicitly using the former convention.  If you use the latter then Conventions (A) and (B) hold, and then $x^*$ is a right dual as in EGNO and ENO.  We plan to change to this latter convention in the next reversion of the paper.]}
 
 This has the following natural consequences:
 \begin{itemize}
@@ -498,9 +493,7 @@ We will also need a slightly more general notion of bimodule morphism to make se
 
 Thus a twisted bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category $\cM'$ consists in part of tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. We will say the the twisted bimodule functor {\em extends the tensor functors $f$ and $g$}. 
 
-If we are given a $\cC'$-$\cD'$-bimodule category $\cM'$ and tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, then we may also form the {\em twisted bimodule category} ${}_f{\cM'}_g$.
-\CSP{This notation should made compatible with section 6, once we've settled what to do. }
-The underlying linear category of ${}_f{\cM'}_g$ is $\cM'$, but the actions are by $\cC$ and $\cD$ via the tensor functors $f$ and $g$. A twisted bimodule functor $\cM \to \cM'$ extending $f$ and $g$ is the same as a $\cC$-$\cD$-bimodule functor $\cM \to {}_f{\cM'}_g$. 
+If we are given a $\cC'$-$\cD'$-bimodule category $\cM'$ and tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, then we may also form the {\em twisted bimodule category} ${}_f{\cM'}_g$.  The underlying linear category of ${}_f{\cM'}_g$ is $\cM'$, but the actions are by $\cC$ and $\cD$ via the tensor functors $f$ and $g$. A twisted bimodule functor $\cM \to \cM'$ extending $f$ and $g$ is the same as a $\cC$-$\cD$-bimodule functor $\cM \to {}_f{\cM'}_g$.  Later on we will sometimes use the notation ${}_{\langle f \rangle} \cM'_{\langle g \rangle}$ instead of ${}_f{\cM'}_g$, in cases where the functors $f$ and $g$ are themselves unweildy composites.
 
 With twisted bimodule functors as morphisms, there exists a terminal bimodule category $\cT$. As a bicategory, each of its non-empty hom categories is the terminal linear category. The product of bimodule categories $\cM \times_{\cT} \cM'$ is defined as the fiber product of bicategories over $\cT$. We will abuse notation and write this as $\cM \times \cM'$. This is again a bicategory with precisely two objects $x$ and $y$. Moreover
 \begin{equation*}
@@ -765,11 +758,11 @@ We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otime
 $$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
 where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
 
-\NScomm{Insert diagram here}
+\NScomm{[Insert diagram here]}
 
 We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagram illustrates this calculation.
 
-\NScomm{Insert diagram here}
+\NScomm{[Insert diagram here]}
 \end{proof}
 
 
@@ -783,7 +776,7 @@ The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \ot
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
 where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the one in the previous lemma.)
 
-\NScomm{Insert diagram here}
+\NScomm{[Insert diagram here]}
 
 Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
 \end{proof}
@@ -900,13 +893,13 @@ Thus $T(A)$ is separable.
 	\end{enumerate} 
 \end{corollary}
 
-\CSPcomm{Add some closure properties for separable. Example: the external Deligne tensor product of separable bimodules, the tensor product of separable tensor categories, functor categories, etc.}
+\CSPcomm{[Add some closure properties for separable. Example: the external Deligne tensor product of separable bimodules, the tensor product of separable tensor categories, functor categories, etc.]}
 
 
 
-\subsection{Fusion categories} \label{sec-tc-fusion}.
+\subsection{Fusion categories} \label{sec-tc-fusion}.%!%remove period
 
-\NScomm{This section is under construction}
+\NScomm{[This section is under construction]}
 
 \begin{definition}
 A \emph{fusion category} is a tensor category $\cC$ over $k$ satisfying the following conditions:
@@ -930,25 +923,25 @@ If $\cC$ is fusion, then a module category $\cM$ over $\cC$ is exact if and only
 \end{lemma}
 
 \begin{definition}
-If $\cC$ is a fusion category we define its global dimension to be \NScomm{figure out what the best definition is for CSP's argument, and make sure that it makes sense when the unit is not simple}
+If $\cC$ is a fusion category we define its global dimension to be \NScomm{[figure out what the best definition is for the argument, and make sure that it makes sense when the unit is not simple]}
 \end{definition}
 
 \begin{proposition}
-A fusion category of non-zero global dimension is separable. \CSPcomm{add references/sketch of the proof.}
+A fusion category of non-zero global dimension is separable. \CSPcomm{[add references/sketch of the proof.]}
 \end{proposition}
 
 
 
 \section{The symmetric monoidal 3-category of tensor categories} \label{sec-sym-mon}
-.
-\NScomm{We are considering turning this section together with parts of subsection 2.2 into a separate paper.}
+.%!% remove period
+\NScomm{[We are considering turning this section together with parts of subsection 2.2 into a separate paper.]}
 
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
-There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
+There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
 \begin{warning}
-Many important concepts in this section are named after Segal, and the reader should not assume that because two concepts both have ``Segal" in the name that they refer to closely related concepts.  In particular, Segal's category $\Gamma$ and the Segal map will come up in formalizing symmetric monoidal structures, while Segal spaces and Segal squares come up in formalizing $n$-categories.
+In this section we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
 \end{warning}
 
 \subsection{Symmetric monoidal structures via the category $\Gamma$}
@@ -1540,7 +1533,7 @@ However $\TCfin$ is constructed in such a way that these Segal maps are manifest
 
 \section{Local field theory in dimension three} \label{sec-lft}
 
-\CDcomm{Insert a few introductory sentences here, including a statement of the cobordism hypothesis.  That will motivate the need for a notation of n-framed manifolds, and for describing various structure groups.  Then we can forward reference to 4.3 the more detailed discussion of the cobordism hypothesis.}
+\CDcomm{[Insert a few introductory sentences here, including a statement of the cobordism hypothesis.  That will motivate the need for a notation of n-framed manifolds, and for describing various structure groups.  Then we can forward reference to 4.3 the more detailed discussion of the cobordism hypothesis.]}
 
 \subsection{Notation for $n$-framed manifolds} 
 
@@ -1747,7 +1740,7 @@ The source and target of this bordism are as indicated.  Notice that the source 
 \end{example}
 
 \begin{example}
-Here is a picture of a $2$-framed manifold: \NS{Insert an example}
+Here is a picture of a $3$-framed manifold: \CDcomm{[Example here.]}
 \end{example}
 
 \subsection{Structure groups of 3-manifolds} \label{sec-lft-struc}
@@ -1771,7 +1764,7 @@ The following two spaces, together with the obvious maps to $BO(3)$, define the 
 ``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  We reserve the name ``$p_1$ structure" for the structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$.  The terminology ``quadratic" refers to the fact that the single k-invariant of the structure space $BQuad$ is the fundamental quadratic map.
 \end{remark}
 
-Because we are concentrating on structures on manifolds of low dimension, the full homotopy type of the structure spaces is not relevant---it suffices to keep track only of the low-dimensional homotopical information of $BO(3)$ and the other structure spaces.  Recall that the $k$-homotopy type (or simply the ``$k$-type") of a space $X$ refers to the homotopical information contained in the $k$-Postnikov section $P_k X$ of the space; the $k$-Postnikov section $P_k X$ is the initial space in the category of spaces $Y$ equipped with a map $X \ra Y$ inducing an isomorphism on $\pi_i$ for $i \leq k$ and such that $\pi_i(Y) = 0$ for $i > k$.  \CD{Prefer to define $P_k X$ otherwise?} Said directly, the $k$-Postnikov section is the space you get by killing all the homotopy groups above dimension $k$.
+Because we are concentrating on structures on manifolds of low dimension, the full homotopy type of the structure spaces is not relevant---it suffices to keep track only of the low-dimensional homotopical information of $BO(3)$ and the other structure spaces.  Recall that the $k$-homotopy type (or simply the ``$k$-type") of a space $X$ refers to the homotopical information contained in the $k$-Postnikov section $P_k X$ of the space; the $k$-Postnikov section $P_k X$ is the initial space in the category of spaces $Y$ equipped with a map $X \ra Y$ inducing an isomorphism on $\pi_i$ for $i \leq k$ and such that $\pi_i(Y) = 0$ for $i > k$. Said directly, the $k$-Postnikov section is the space you get by killing all the homotopy groups above dimension $k$. %!%\CD{Prefer to define $P_k X$ otherwise?}
 
 The following proposition explains how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories:
 \begin{proposition}
@@ -1797,7 +1790,7 @@ The quadratic structure group is defined as the homotopy fiber of the square of 
 
 The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed.
 
-The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $\pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{Probably that proof could be improved, it's just the first thing that came to mind as I was typing.}
+The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $\pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{Probably that proof could be improved, it's just the first thing that came to mind.}
 \end{proof}
 
 We have the following diagram of structure spaces:
@@ -1811,9 +1804,13 @@ Here we have indicated in the subscripts and superscripts the stages of the resp
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
 
+\begin{remark}
+There is a map of structure spaces $S^2 \ra BQuad$ which is an isomorphism on $\pi_i$ for $i \leq 3$ and a surjection on $\pi_4$.  It is permissible therefore, and will occasionally be convenient, to reinterpret a $Quad$ action as an $\Omega S^2$ action.
+\end{remark}
+
 \subsection{The cobordism hypothesis}
-.
-\NScomm{This section is under construction.  The current outline is more detailed, since when it was written we were planning on constructing non-compact theories in this paper}
+.%!% remove period
+\NScomm{[This section is under construction.  The current outline is more detailed than necessary, since when it was written we were planning on constructing non-compact theories in this paper.]}
 
 In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{lurie-ch}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
 \begin{enumerate}
@@ -2022,13 +2019,13 @@ Thus we have proven
 Note that this theorem does not assume rigidity.
 
 \subsection{Invariants of elementary 2-framed bordisms}
-.\NScomm{This section is still under construction.}
+.\NScomm{[This section is still under construction.]} %!% Remove period
 By the cobordism hypothesis, the previous theorem shows that there is a $2$-dimensional $2$-framed TFT attached to every finite tensor category with exact tensor product, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
 
 For simplicity we will assume rigidity to get convenient formulas in this section.  But note that this assumption is not necessary, and we explain one non-rigid example first.
 
 \begin{example}
-\NScomm{Work out the example from Example \ref{ex:lax-module}}
+\NScomm{[Work out the example from Example \ref{ex:lax-module}]}
 \end{example}
 
 We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence.  We will give two different representatives.  The first choice corresponds directly to the proofs in the previous subsection, while the second choice is clearly equivalent to the first but is more symmetric.
@@ -2140,7 +2137,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 } 
-& ???
+& ---
 & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
 \cb{
 \begin{tikzpicture}
@@ -2154,7 +2151,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& ???
+& ---
 & $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
 \cb{
 \begin{tikzpicture}
@@ -2168,7 +2165,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& ???
+& ---
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{{}^{**}(-)} \cC^\op$\\
 \cb{
 \begin{tikzpicture}
@@ -2182,7 +2179,7 @@ A generating collection of 2-framed 1-manifolds have invariants as listed in Tab
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& ???
+& ---
 & $\bimod{\cC^\op}{\cC^\op}{\cC^\op}$ & via $\cC^\op_{\text{in}} \xra{(-)^{**}} \cC^\op$\\
 \end{tabular}
 \caption{Invariants associated to 2-framed intervals.} \label{table-intervals}
@@ -2388,7 +2385,7 @@ Any $2$-morphism in $\TCsep$ has a left adjoint and a right adjoint in $\TCsep$.
 \begin{proof}
 Any functor out of a semisimple category is exact, so this result follows from Proposition \ref{prop:AFT}.
 
-The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{CSP or CD please check that this formula is right for adjoints of functors of semisimple categories.}
+The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{Must check that this formula is right for adjoints of functors of semisimple categories.}
 \end{proof}
 
 \begin{corollary}  \label{cor:TC-dualizable}
@@ -2412,7 +2409,7 @@ The last of these observation has some consequences, as it shows that if $\cC$ h
 Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TCfin$, which in turn depends on the theory of seperability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
 \end{warning}
 
-\NScomm{The rest of this section is under construction}
+\NScomm{[The rest of this section is under construction]}
 
 %%% Stuff moved to section 2  -CSP
 
@@ -2427,7 +2424,7 @@ Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying fun
 In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.  When $\cB = \Vec$ this theorem is just the fact that functors out of semisimple categories are exact.
 \end{remark}
 
-\NScomm{Explain why in order to check full dualizability we only need to check that certain evaluation and coevaluation $2$-morphisms have adjoints, that their adjoints have adjoints, etc.  All of these $2$-morphisms (and their possible adjoints) are functors out of specific module categories.  Thus we need only check that the module categories are exact.}
+\NScomm{[Explain why in order to check full dualizability we only need to check that certain evaluation and coevaluation $2$-morphisms have adjoints, that their adjoints have adjoints, etc.  All of these $2$-morphisms (and their possible adjoints) are functors out of specific module categories.  Thus we need only check that the module categories are exact.]}
 
 \begin{lemma}
 The following bimodules are exact \NScomm{fill them in}.  If in addition $Z(\cC)$ is semisimple, then ${}_\Vec Z(C)_\Vec$ is also exact.
@@ -2437,7 +2434,7 @@ The following bimodules are exact \NScomm{fill them in}.  If in addition $Z(\cC)
 If $\cC$ is a rigid finite tensor category such that $Z(\cC)$ is semisimple, then $\cC$ is fully dualizable.
 \end{theorem}
 \begin{proof}
-\NScomm{Fill in proof.  The point is that all the adjoints you need are functors between exact module categories by the previous lemma and thus have adjoints, and their adjoints have adjoints, etc.}
+\NScomm{[Fill in proof.  The point is that all the adjoints you need are functors between exact module categories by the previous lemma and thus have adjoints, and their adjoints have adjoints, etc.]}
 \end{proof}
 
 Recall that semisimplicity of $Z(\cC)$ is equivalent to separability, thus this statement is the same as that of Corollary \ref{cor:TC-dualizable}
@@ -2448,14 +2445,14 @@ We have a weak converse result as well.
 If $\cC$ is a rigid finite tensor category which is fully dualizable, then $\cC$ is a separable fusion category.
 \end{theorem}
 \begin{proof}
-\NScomm{Dimensionally reduce along $S^1$ to get a $2$-dimensional theory.  In order for this theory to exist, $Z(\cC)$ must be semisimple, which is equivalent to separable fusion}
+\NScomm{[Dimensionally reduce along $S^1$ to get a $2$-dimensional theory.  In order for this theory to exist, $Z(\cC)$ must be semisimple, which is equivalent to separable fusion.]}
 \end{proof}
 
 
 \subsection{Invariants of elementary 3-framed bordisms}
-.
+.%!% remove period
 
-\CSPcomm{Here should go a discussion of the basic 3-framed bordisms and their images under the tqft. It should build off of the discussion in the last section of the 2-framed 2D cobordisms. }
+\CSPcomm{[Discussion of the basic 3-framed bordisms and their images under the tqft.]}
 
 
 \section{The Serre automorphism and the quadruple dual} \label{sec-serre}
@@ -2484,7 +2481,7 @@ Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism wit
 Given any local TFT $\cF$, we can look at the image of the loop bordism under $\cF$.  In particular, if $a$ is a fully dualizable object in a symmetric monoidal $n$-category, the loop bordism induces an automorphism of $a$ which we call the ``Serre automorphism."  This terminology is motivated by the following example.
 
 \begin{example}
-\NScomm{Take example from Lurie Remark 4.2.4}
+\NScomm{[Example from Lurie Remark 4.2.4]}
 \end{example}
 
 When $n>2$ we have that $\pi_1(\mathrm{SO}_n) \cong \mathbb{Z}/2$, which implies the following fact.
@@ -2560,7 +2557,7 @@ Recall that not only do we know that ${}_{\langle{}^{****}(-)\rangle} \cC \cong 
 
 \begin{lemma} \label{lem:belt-formula}
 The universal belt map is given by the following composition of basic bordisms where $p$ is the positively framed point,
-\NS{We need to check conventions here for order of composition, I probably got them all wrong}
+\NS{We need to check conventions here for order of composition}
 \begin{align*} 
 \id_p &\rightarrow \id_p \circledcirc (\ev_p^R \circ \id_{p \otimes p^\vee} \circ \ev_p)  \rightarrow (\id_p \circledcirc \ev_p^R) \circ (\tau \circledcirc \id_{p^\vee}) \circ (\id_{p^\vee} \circledcirc \id_p \circledcirc \id_{p^\vee}) \circ (\tau \circledcirc \ev_p) \\
 &\rightarrow (\id_p \circledcirc \ev_p^R) \circ (\tau \circledcirc \id_{p^\vee}) \circ (\id_p \circledcirc \ev_p) \circ \id_p \circ (\id_p \circledcirc \ev_p^R) \circ (\tau \circledcirc \id_{p^\vee}) \circ (\id_p \circledcirc \ev_p) = \cS_p \circ \cS_p
@@ -2575,7 +2572,7 @@ Note that although the universal belt map is a $2$-dimensional bordism, it does 
 For a fusion category $\cC$ the canonical invertible object is trivial.
 \end{theorem}
 \begin{proof}
-\NS{Use CSP's proof from email}
+\NS{Use proof from email}
 \end{proof}
 
 \subsection{The Serre automorphism for finite tensor categories}
@@ -2586,7 +2583,7 @@ Recall that although finite tensor categories are not fully dualizable, they are
 The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category has a canonical descent to a $3$-framed $2$-dimensional TFT given by the canonical trivialization $(-)^{****} \rightarrow D (-) D^{-1}$ where $D$ is the canonical invertible object from \cite{MR2097289}.
 \end{theorem}
 \begin{proof}
-\NScomm{CD and CSP are working on this.  The main content of the proof is topological, that is using an explicit descriptions of $\mathrm{SO}_3$ and $\mathrm{SO}_2$ you can show that the data needed to turn a $2$-framed theory into a $3$-framed theory is exactly a trivialization of the square of the Serre automorphism.}
+\NScomm{[In process.]}  %!%The main content of the proof is topological, that is using an explicit descriptions of $SO(3)$ and $SO(2)$ you can show that the data needed to turn a $2$-framed theory into a $3$-framed theory is exactly a trivialization of the square of the Serre automorphism.]}
 \end{proof}
 
 The above result is unsatisfactory in two ways.  First, it does not give a topological reason for the appearance of $3$-framings.  We would prefer to have a partially defined $3$-dimensional theory which explains the appearance of a structure group which is naturally attached to $3$-dimensional theories.  Second, it relies on a non-topological proof of Radford's theorem.  These two defects are closely related: a partially defined $3$-dimensional TFT would be automatically $3$-framed and thus would give a topological proof of Radford's theorem.  In fact, as we saw in the last section, most of the $2$-handles automatically have adjoints.  This suggests that most of the $3$-handles can be defined, in particular enough of them to give a topological proof of Radford's theorem.
@@ -2597,7 +2594,7 @@ It is an important philosophical point that algebraic applications of the cobord
 If $\cC$ is a finite tensor category, then the formula from Lemma \ref{lem:belt-formula} gives an isomorphism between $\cC$ and $\cS \boxtimes_\cC \cS$.  Furthermore, under this map the image of $1$ gives a canonical invertible object $D$, and this formula gives a canonical equivalence between the quadruple dual and conjugation by $D$.
 \end{theorem}
 \begin{proof}
-\NScomm{We still need to work through the details here.}
+\NScomm{[We still need to work through the details here.]}
 \end{proof}
 
 Another way to think of Radford's theorem is that it states that there's an equivalence between the left Serre automorphism and the right Serre automorphism.  Recalling the definitions of these two automorphisms, that's the same as saying that the left adjoint of $\ev_a$ is canonically equivalent to the right adjoint of $\ev_a$.  This version of the statement has a generalization which again is inspired by the cobordism hypothesis but does not rely on the proof of the cobordism hypothesis.
@@ -2648,33 +2645,35 @@ Then the required isomorphisms are given by the following composites:
 \end{align*}
 \end{proof}
 
-\subsection{Comparing our canonical constructions to ENO's canonical constructions}
+\subsection{Sphericality and the quadruple dual}
 
-In this section we check that our constructions from the last two subsections agree with the constructions in \cite{MR2097289}.
+%!% \CDcomm{Need to rephrase what is happening in this section.  Can just leave with no intro for now.}  In this section we check that our constructions from the last two subsections agree with the constructions in \cite{MR2097289}.
+.%!% remove period
+\CDcomm{[This section under construction]}
 
 \begin{proposition}
 If $\cC$ is a fusion category, the canonical trivalization of the quadruple dual induced by the Radford isomorphism agrees with the canonical trvialization in \cite{MR2097289}.
 \end{proposition}
 \begin{proof}
-\NScomm{Figure out how to prove this}
+\NScomm{[Figure out how to prove this.]}
 \end{proof}
 
 \begin{corollary}
-The canonical trivialization of the quadruple dual induced by the Radford isomorphism satisfies the property that \NScomm{find property in ENO}
+The canonical trivialization of the quadruple dual induced by the Radford isomorphism satisfies the property that \NScomm{[find property in ENO]}
 \end{corollary}
 
 \begin{lemma} \label{lem:hspherical-implies-spherical}
 A pivotal structure $p$ is spherical if and only if $p p^{**}$ agrees with the canonical trivialization of the quadruple dual induced by the Radford isomorphism.
 \end{lemma}
 \begin{proof}
-\NScomm{This can be proved by modifying the calculation in ENO where they prove that the pivotalization is spherical}
+\NScomm{[This can be proved by modifying the calculation in ENO where they prove that the pivotalization is spherical.]}
 \end{proof}
 
 \begin{proposition}
-If $\cC$ is finite, then the image of $1$ under the Radford isomorphism satisfies \NScomm{find property in ENO}
+If $\cC$ is finite, then the image of $1$ under the Radford isomorphism satisfies \NScomm{[find property in ENO]}
 \end{proposition}
 \begin{proof}
-\NScomm{Figure out how to prove this}
+\NScomm{[Figure out how to prove this.]}
 \end{proof}
 
 %%%%%%
@@ -2715,7 +2714,7 @@ Again, an h-spherical structure on $C$ induces an honest spherical structure (an
 \end{remark}
 
 \begin{example}
-Consider the fusion category $\Vec(\mathbb{Z}/2)$ of $\mathbb{Z}/2$-graded vector spaces.  This has four h-spherical structures, corresponding to choosing an ordinary spherical structure on $\Vec(\mathbb{Z}/2)$ and an invertible object.  \NS{flesh out this example more}
+Consider the fusion category $\Vec(\mathbb{Z}/2)$ of $\mathbb{Z}/2$-graded vector spaces.  This has four h-spherical structures, corresponding to choosing an ordinary spherical structure on $\Vec(\mathbb{Z}/2)$ and an invertible object.  \NS{Flesh out this example more}
 \end{example}
 
 Our main reason for investigating h-pivotal and h-spherical structures is that these are the notions that naturally correspond to descent properties of the corresponding field theories.  Another advantage is that because they are the homotopically natural notions, the groupoids of these structures admit particularly clean classifications, as follows.
@@ -2742,7 +2741,7 @@ The above definitions of h-pivotal and h-spherical have natural generalizations 
 A fusion category $\cC \in \TCfin$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
 \end{theorem}
 \begin{proof}
-\NS{CD will fill this in}
+\CDcomm{[To write.]}
 \end{proof}
 
 Note that the same argument applies to finite tensor categories.  \NS{Should we change the statement to reflect this?}
@@ -2753,7 +2752,7 @@ Note that the same argument applies to finite tensor categories.  \NS{Should we 
 A fusion category $\cC \in \TCfin$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
 \end{theorem}
 \begin{proof}
-\NS{CD will fill this in}
+\CDcomm{[To write.]}
 \end{proof}
 
 Note that the same argument applies to finite tensor categories. 
@@ -2972,6 +2971,15 @@ Every framed local field theory $\cF : \FrBord_0^3 \ra \TCfin$ with target tenso
 \end{proposition}
 
 \nid This result is a direct analog of the corresponding result for conformal-net-valued local field theories, given in~\cite{0912.5307}, and the proof is the same.
+
+
+%!% Temporary document end
+
+\bibliographystyle{alpha}
+\bibliography{bibliography/bibliography}
+\end{document}
+
+%%%
 
 
 \section{CD's dustbin/workbin}
