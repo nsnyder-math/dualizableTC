@@ -239,8 +239,6 @@ All of the above work on extended field theories assumes sphericality in an esse
 
 The original version of Radford's theorem \cite{MR0407069} is an explicit formula for the fourth power of the antipode in a finite dimensional Hopf algebra.  This was generalized to the context of fusion categories, and then to finite tensor categories by Etingof--Nikshych--Ostrik \cite{MR2183279,MR2097289}.  The first indication that Radford's formula is related to topology came in Kuperberg's proof of Radford's theorem for Hopf algebras (and indeed Hopf algebra objects in symmetric tensor categories) \cite{MR1394749}.  Next Hagge--Hong \cite{MR2559711} gave a skein theoretical proof of Radford's theorem for fusion categories.  As pointed out by Bartlett \cite{0901.3975} the Hagge--Hong proof is remeniscent of the belt trick.
 
-\NS{Should we mention Balsam--Kirilov and Kitaev--Kong work in progress}
-
 \subsection{Future directions}
 
 There are several directions we hope to take this project in, which we briefly summarize here.
@@ -308,7 +306,7 @@ A convenient mnemonic for this notation is to think of the $*$ as eating things.
 
 We impose one further convention (Convention (C)), which is that Convention (A) and Convention (B) should hold simultaneously in the above example. This forces us to consider the object $x^*$ as the {\em left adjoint} (or {\em left dual}) of $x$, despite the fact that the ``$*$'' occurs on the right of the symbol ``$x$''. 
 
-\NScomm{Note that there is another option.  In order to intepret $x^*$ as an adjoint, we need to interpret $x$ as a morphism and $\otimes$ as composition.  As always there are competing conventions about whether $f \otimes g$ means $f(g(--))$ or $g(f(--)$.  We were implicitly using the former convention.  If you use the latter then Conventions (A) and (B) hold, and such that $x^*$ is a right dual as in EGNO and ENO.  We plan to change to these conventions in a later version of the paper.}
+\NScomm{Note that there is another option.  In order to intepret $x^*$ as an adjoint, we need to interpret $x$ as a morphism and $\otimes$ as composition.  As always there are competing conventions about whether $f \otimes g$ means $f(g(-))$ or $g(f(-)$.  We were implicitly using the former convention.  If you use the latter then Conventions (A) and (B) hold, and such that $x^*$ is a right dual as in EGNO and ENO.  We plan to change to these conventions in a later version of the paper.}
 
 This has the following natural consequences:
 \begin{itemize}
@@ -2495,7 +2493,7 @@ When $n>2$ we have that $\pi_1(\mathrm{SO}_n) \cong \mathbb{Z}/2$, which implies
 When $n \geq 3$, the loop bordism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.   Thus, the Serre automorphism of any dualizable object in an $n$-category is an involution.
 \end{proposition}
 
-Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS \circ \cS$ to the trivial bordism.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the bottom boundary is incoming, the top boundary is outgoing, and the coorientation points out of the page toward the reader near the bottom boundary.
+Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from the trivial bordism to $\cS \circ \cS$.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the top boundary is outgoing, the bottom boundary is incoming, and the coorientation points out of the page toward the reader near the bottom boundary.
 
 \begin{center}
 \includegraphics[width=60mm]{cobordism.png}
@@ -2503,7 +2501,7 @@ Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero 
 
 We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.  Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  We call this image the Radford isomorphism, because as we will see that it plays the key role in proving Radford's theorem.
 
-\subsection{The Serre automorphism of a fusion category}
+\subsection{The Serre automorphism of a seperable fusion category}
 
 Suppose that $\cA$ is a symmetric monoidal $n$-category and that $a \in \cA$ is a fully dualizable object.  Then the image of the loop bordism gives the Serre automorphism $\cS_a: a \rightarrow a$.
 
@@ -2521,9 +2519,7 @@ We now specialize to our case of interest, namely where the object in question i
 %\CD{Where did we establish that $\Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
 \begin{definition}
-Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_{\langle\cF\rangle} \cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$.  
-
-\NS{Say something about the natural transformation} \CD{I think this notation is slightly suboptimal.  What about ${}_{\cF}{\cC}$?  No, I guess that's no better.  How about ${}_{\langle \cF \rangle}{\cC}$?}
+Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_{\langle\cF\rangle} \cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$ with the obvious natural transformations.  
 \end{definition}
 
 \begin{theorem} \label{thm-serre}
@@ -2538,28 +2534,37 @@ First we consider $\tau_{a^\vee,a} \circ  \ev^*$.  By Lemma \ref{lem:dual-formul
 Now we compose with $\ev \boxtimes \id_a$, which just turns a right $\cC^{\mp}$ action into a left $\cC$ action.  So $\cS_a$ is equivalent to $\cC$ as a  $\cC$--$\cC$ bimodule, where the action is given by $y \cdot c \cdot x=  {}^{**}y \otimes c \otimes x$.
 \end{proof}
 
+Thus the fact that $\pi_1(\mathrm{SO}_3) \cong \mathbb{Z}/2$ has the following consequence in $\TCsep$.
+
 \begin{corollary}
-If $\cC$ is a fusion category, then ${}_{\langle{}^{****}(-)\rangle} \cC \cong {}_{\langle\id\rangle} \cC$.
+If $\cC$ is a seperable fusion category, then ${}_{\langle{}^{****}(-)\rangle} \cC \cong {}_{\langle\id\rangle} \cC$.
 \end{corollary}
 
-We would like to turn this into a statement about the functor ${}^{****}(-)$.
+We would like to turn this into a statement about the functor ${}^{****}(-)$ itself.
 
 \begin{lemma}
-Suppose that $\cF$ is a $\cC$--$\cC$ bimodule equivalence $\cC(\id) \rightarrow \cC(\alpha)$, then $\cF(1)$ is invertible and $\alpha$ is naturally isomorphic as a monoidal functor to the conjugation functor $c \mapsto \cF(1) c \cF(1)^{-1}$.  
+Suppose that $\cF$ is a $\cC$--$\cC$ bimodule equivalence $\cC \rightarrow {\langle \alpha \rangle}_\cC$, then $\cF(1)$ is invertible and $\alpha$ is naturally isomorphic as a monoidal functor to the conjugation functor $c \mapsto \cF(1) c \cF(1)^{-1}$.  
 \end{lemma}
 \begin{proof}
-$\cF(1)$ is invertible because it generates $\cC$ as a right module category.  The natural transformation from $\alpha$ to conjugation by $\cF(1)$ is determined by the composite $$c = \cF(1)^{-1} \cF(1) c \mapsto \cF(1)^{-1} \cF(c) \mapsto \cF(1)^{-1} \alpha(c) \cF(1),$$ where the first map is the natural transformation coming from right module functor structure on $\cF$ and the second map is the natural transformation coming from the left module structure on $\cF$.  This natural isomorphism is monoidal, as required.  \CDcomm{Why not write the above transformation directly as
-$$\alpha(c) = \alpha(c) \cF(1) \cF(1)^{-1} \mapsto \cF(c) \cF(1)^{-1} \mapsto \cF(1) c \cF(1)^{-1}$$?}
+$\cF(1)$ is invertible because it generates $\cC$ as a right module category.  The natural transformation from $\alpha$ to conjugation by $\cF(1)$ is determined by the composite 
+$$\alpha(c) = \alpha(c) \cF(1) \cF(1)^{-1} \mapsto \cF(c) \cF(1)^{-1} \mapsto \cF(1) c \cF(1)^{-1}$$
+where the first map is the natural transformation coming from right module functor structure on $\cF$ and the second map is the natural transformation coming from the left module structure on $\cF$.  This natural isomorphism is monoidal, as required. 
+
 \end{proof}
 
 \begin{corollary}
 The quadruple dual is equivalent to conjugation by some invertible object $X$.
 \end{corollary}
 
-Recall that not only do we know that ${}_{\langle{}^{****}(-)\rangle} \cC \cong {}_{\langle\id\rangle}\cC$, we actually have a canonical natural isomorphism given by the image of the universal belt map.  We call the image of this map the belt map $\cB_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The belt map $\cB_\cC$ gives a canonical choice of invertible object $X$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
+Recall that not only do we know that ${}_{\langle{}^{****}(-)\rangle} \cC \cong {}_{\langle\id\rangle}\cC$, we actually have a canonical natural isomorphism given by the image of the universal belt map.  We call the image of this map the Radford isomorphism $\cR_\cC: \cC \rightarrow \cS \boxtimes_\cC \cS$.  The Radford isomorphism $\cR_\cC$ gives a canonical choice of invertible object $X = \cR(1)$ in the above corollary, and gives a canonical natural isomorphism between the quadruple dual and conjugation by the canonical invertible object $X$.
 
-\begin{lemma}
-The universal belt map is given by the following formula.  \NScomm{Write it as a composition of basic bordisms} 
+\begin{lemma} \label{lem:belt-formula}
+The universal belt map is given by the following composition of basic bordisms where $p$ is the positively framed point,
+\NS{We need to check conventions here for order of composition, I probably got them all wrong}
+\begin{align*} 
+\id_p &\rightarrow \id_p \circledcirc (\ev_p^R \circ \id_{p \otimes p^\vee} \circ \ev_p)  \rightarrow (\id_p \circledcirc \ev_p^R) \circ (\tau \circledcirc \id_{p^\vee}) \circ (\id_{p^\vee} \circledcirc \id_p \circledcirc \id_{p^\vee}) \circ (\tau \circledcirc \ev_p) \\
+&\rightarrow (\id_p \circledcirc \ev_p^R) \circ (\tau \circledcirc \id_{p^\vee}) \circ (\id_p \circledcirc \ev_p) \circ \id_p \circ (\id_p \circledcirc \ev_p^R) \circ (\tau \circledcirc \id_{p^\vee}) \circ (\id_p \circledcirc \ev_p) = \cS_p \circ \cS_p
+\end{align*}  
 \end{lemma}
 
 \begin{remark}
@@ -2575,13 +2580,13 @@ For a fusion category $\cC$ the canonical invertible object is trivial.
 
 \subsection{The Serre automorphism for finite tensor categories}
 
-Recall that although finite tensor categories are not fully dualizable, they are $2$-dualizable and furthermore most of the basic $3$-morphisms have adjoints.  The latter fact suggests that there should be a fully extended $3$-dimensional field theory which is only defined on certain $3$-morphisms (this is called a ``non-compact" field theory in Lurie).  In particular, we should expect that the $2$-framed $2$-dimensional field theory attached to a finite tensor category has a canonical descent to a $3$-framed theory.  We plan to address this in more detail in a later paper, so we will be brief in this section and not try for the strongest results.
+Recall that although finite tensor categories are not fully dualizable, they are $2$-dualizable and furthermore most of the basic $3$-morphisms have adjoints.  The latter fact suggests that there should be a fully extended $3$-dimensional field theory which is only defined on certain $3$-morphisms (this is called a ``non-compact" field theory by Lurie \cite[\S4.2]{lurie-ch}).  In particular, we should expect that the $2$-framed $2$-dimensional field theory attached to a finite tensor category has a canonical descent to a $3$-framed theory.  We plan to address this in more detail in a later paper, so we will be brief in this section and not try for the strongest results.
 
 \begin{theorem}
-The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category has a canonical descent to a $3$-framed $2$-dimensional TFT given by the canonical trivialization $\cdot^{****} \rightarrow D \cdot D^{-1}$ where $D$ is the canonical invertible object.
+The $2$-framed $2$-dimensional TFT attached to a rigid finite tensor category has a canonical descent to a $3$-framed $2$-dimensional TFT given by the canonical trivialization $(-)^{****} \rightarrow D (-) D^{-1}$ where $D$ is the canonical invertible object from \cite{MR2097289}.
 \end{theorem}
 \begin{proof}
-\NS{CD and CSP are working on this.}
+\NScomm{CD and CSP are working on this.  The main content of the proof is topological, that is using an explicit descriptions of $\mathrm{SO}_3$ and $\mathrm{SO}_2$ you can show that the data needed to turn a $2$-framed theory into a $3$-framed theory is exactly a trivialization of the square of the Serre automorphism.}
 \end{proof}
 
 The above result is unsatisfactory in two ways.  First, it does not give a topological reason for the appearance of $3$-framings.  We would prefer to have a partially defined $3$-dimensional theory which explains the appearance of a structure group which is naturally attached to $3$-dimensional theories.  Second, it relies on a non-topological proof of Radford's theorem.  These two defects are closely related: a partially defined $3$-dimensional TFT would be automatically $3$-framed and thus would give a topological proof of Radford's theorem.  In fact, as we saw in the last section, most of the $2$-handles automatically have adjoints.  This suggests that most of the $3$-handles can be defined, in particular enough of them to give a topological proof of Radford's theorem.
@@ -2589,9 +2594,10 @@ The above result is unsatisfactory in two ways.  First, it does not give a topol
 It is an important philosophical point that algebraic applications of the cobordism hypothesis do not rely on the full strength of the cobordism hypothesis.  Any given application uses specific relationships between specific bordisms, and thus only relies on a very small part of the full topological field theory.  In particular, if you look at the explicit formula for the universal belt map, we don't need a full $3$-dimensional field theory, we only need that the $2$-framed saddle has an adjoint.  Thus, rather than rigorously constructing a non-compact field theory, if all we want is Radford's theorem we can just write down formulas for the particular bordisms that we need and check that those formulas work.
 
 \begin{theorem}
-If $\cC$ is a finite tensor category, then the formula ??? gives an isomorphism between $\cC$ and $\cS \boxtimes_\cC \cS$.  Furthermore, under this map the image of $1$ gives a canonical invertible object $D$, and this formula gives a canonical equivalence between the  quadruple dualand conjugation by $D$.
+If $\cC$ is a finite tensor category, then the formula from Lemma \ref{lem:belt-formula} gives an isomorphism between $\cC$ and $\cS \boxtimes_\cC \cS$.  Furthermore, under this map the image of $1$ gives a canonical invertible object $D$, and this formula gives a canonical equivalence between the quadruple dual and conjugation by $D$.
 \end{theorem}
 \begin{proof}
+\NScomm{We still need to work through the details here.}
 \end{proof}
 
 Another way to think of Radford's theorem is that it states that there's an equivalence between the left Serre automorphism and the right Serre automorphism.  Recalling the definitions of these two automorphisms, that's the same as saying that the left adjoint of $\ev_a$ is canonically equivalent to the right adjoint of $\ev_a$.  This version of the statement has a generalization which again is inspired by the cobordism hypothesis but does not rely on the proof of the cobordism hypothesis.
@@ -2612,32 +2618,32 @@ By assumption we are given 3-morphisms,
 \end{align*}
 which satisfy the Zig-Zag identities:
 \begin{align*}
-	 id_v  &= (id_v * \varepsilon_v) \circ (\eta_v * id_v)  \\
-	 id_{v^L}  &= (\varepsilon_v * id_{v^L} ) \circ (id_{v^L} * \eta_v)  \\
-	 id_u  &= (id_u * \varepsilon_u) \circ (\eta_u * id_u)  \\
-	 id_{u^L}  &= (\varepsilon_u * id_{u^L} ) \circ (id_{u^L} * \eta_u).  
+	 id_v  &= (id_v \circledcirc \varepsilon_v) \circ (\eta_v \circledcirc id_v)  \\
+	 id_{v^L}  &= (\varepsilon_v \circledcirc id_{v^L} ) \circ (id_{v^L} \circledcirc \eta_v)  \\
+	 id_u  &= (id_u \circledcirc \varepsilon_u) \circ (\eta_u \circledcirc id_u)  \\
+	 id_{u^L}  &= (\varepsilon_u \circledcirc id_{u^L} ) \circ (id_{u^L} \circledcirc \eta_u).  
 \end{align*}
 We must show that the following Zig-Zag identities hold:
 \begin{align*}
-	 (id_{f} * u^L) \circ (v^L * id_{f} ) & \cong id_{f} \\
- 	 (u^L * id_{f^R}) \circ (id_{f^R} * v^L) & \cong id_{f^R} 
+	 (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) & \cong id_{f} \\
+ 	 (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) & \cong id_{f^R} 
 \end{align*}
 By assumption we may also choose isomorphisms as follows:
 \begin{align*}
-	\alpha: id_f &\stackrel{\cong}{\to} (v * id_f) \circ (id_f * u) \\
-	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} * v) \circ (u * id_{f^R} ).
+	\alpha: id_f &\stackrel{\cong}{\to} (v \circledcirc id_f) \circ (id_f \circledcirc u) \\
+	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} ).
 \end{align*}
 Then the required isomorphisms are given by the following composites:
 \begin{align*}
-	(id_{f} * u^L) \circ (v^L * id_{f} )
-		& \cong id_f \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
-		& \stackrel{\alpha}{\cong} (v * id_f) \circ (id_f * u) \circ (id_{f} * u^L) \circ (v^L * id_{f} ) \\
-		&  \stackrel{\varepsilon_u }{\Rightarrow} (v * id_f) \circ (v^L * id_{f} ) \\
+	(id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} )
+		& \cong id_f \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
+		& \stackrel{\alpha}{\cong} (v \circledcirc id_f) \circ (id_f \circledcirc u) \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
+		&  \stackrel{\varepsilon_u }{\Rightarrow} (v \circledcirc id_f) \circ (v^L \circledcirc id_{f} ) \\
 		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f},  \\
-	(u^L * id_{f^R}) \circ (id_{f^R} * v^L) 
-		& \cong  id_{f^R} \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L)  \\
-		& \stackrel{\beta}{\cong}  (id_{f^R} * v) \circ (u * id_{f^R} )  \circ (u^L * id_{f^R}) \circ (id_{f^R} * v^L) \\
-		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} * v) \circ (id_{f^R} * v^L) \\
+	(u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) 
+		& \cong  id_{f^R} \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L)  \\
+		& \stackrel{\beta}{\cong}  (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} )  \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) \\
+		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} \circledcirc v) \circ (id_{f^R} \circledcirc v^L) \\
 		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
 \end{align*}
 \end{proof}
@@ -2657,7 +2663,7 @@ If $\cC$ is a fusion category, the canonical trivalization of the quadruple dual
 The canonical trivialization of the quadruple dual induced by the Radford isomorphism satisfies the property that \NScomm{find property in ENO}
 \end{corollary}
 
-\begin{lemma}
+\begin{lemma} \label{lem:hspherical-implies-spherical}
 A pivotal structure $p$ is spherical if and only if $p p^{**}$ agrees with the canonical trivialization of the quadruple dual induced by the Radford isomorphism.
 \end{lemma}
 \begin{proof}
@@ -2677,7 +2683,7 @@ If $\cC$ is finite, then the image of $1$ under the Radford isomorphism satisfie
 
 \subsection{Homotopically invariant notions of pivotality and sphericality.}
 
-Fusion categories are objects of the 3-category $\TCfin$ of tensor categories, but in this 3-category, pivotal and spherical structures are not natural from this point of view.  Specifically they are not homotopy invariant notions.  That is to say, if $\cC$ and $\cD$ are fusion categories which are equivalence in $\TCfin$ (that is, Morita equivalent), there's no natural equivalence between the space of spherical structures on $\cC$ and the space of spherical structures on $\cD$, as the following example shows.
+Fusion categories are objects of the $3$-category $\TCfin$ of tensor categories, but in this $3$-category, pivotal and spherical structures are not natural structures.  Specifically they are not homotopy invariant notions.  That is to say, if $\cC$ and $\cD$ are fusion categories which are equivalence in $\TCfin$ (that is, Morita equivalent), there's no natural equivalence between the space of spherical structures on $\cC$ and the space of spherical structures on $\cD$, as the following example shows.
 
 \begin{example}
 Let $S_3$ be the symmetric group on $3$-letters, let $\mathrm{Rep}(S_3)$ be the category of finite dimensional complex representations, and $\Vec(S_3)$ be the category of $S_3$-graded complex vector spaces.  These two fusion categories are equivalent in $\TCfin$ with $\Vec$ with the obvious bimodule structure giving the equivalence, and both have a standard spherical structure.  Spherical structures on a fusion category $\cC$ are a torsor for the group of assignments of $\pm 1$ to objects of $\cC$ which are multiplicative in the sense that if $X \subseteq Y \otimes Z$ then $\chi(X) = \chi(Y) \chi(Z)$.  Thus there is only one spherical structure on $\mathrm{Rep}(S_3)$, but there are two spherical structures on $\Vec(S_3)$.
@@ -2689,11 +2695,12 @@ We now introduce homotopy invariant notions generalizing the notions of spherica
 An \emph{h-pivotal} structure on a fusion category $\cC$ is an equivalence $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cS}{\cC}$ from the identity to the Serre.  An equivalence between h-pivotal structures is a natural equivalence of bimodule functors from $T$ to $T'$.
 \end{definition}
 
+\NS{Is there an equivalence between the space of h-spherical structures on $\cC$ and spherical structures on $Z(\cC)$?}
 \begin{remark}
-Note that an h-pivotal structure on $C$ induces an honest pivotal structure on $Z(C)$.
+Note that an h-pivotal structure on $\cC$ induces an honest pivotal structure on $Z(\cC)$.  
 \end{remark}
 
-Recall from Lemma \ref{???} that a spherical structure is a tensor trivialization of the double dual functor whose double is the canonical tensor trivialization of the quadruple dual given by the Radford map.
+Recall from Lemma \ref{lem:hspherical-implies-spherical} that a spherical structure is a tensor trivialization of the double dual functor whose double is the canonical tensor trivialization of the quadruple dual given by the Radford map.
 
 %In Section [...] we explicitly described the corresponding canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the bimodule $\bimod{\cC}{\cQ}{\cC}$ associated to the quadruple right dual tensor functor $(-)^{****}: \cC \ra \cC$. \CD{Reconsider the phrasing here after the section on the quad dual is written.}
 
@@ -2726,7 +2733,7 @@ Needless to say, the kernel in this proposition must be interpreted in a homotop
 Once the somewhat intricate definitions involved in these two propositions are unpacked, they are transparent, and we omit the proofs. \CD{Check this.}
 
 \begin{warning}
-The above definitions of h-pivotal and h-spherical have natural generalizations to finite tensor categories.  However, because the canonical invertible $D$ may be non-trivial these notions are not compatible with the traditional notions of pivotal and spherical, as the following example shows.  Let $H$ be Sweedler's $4$-dimensional non-semisimple Hopf algebra.  The finite tensor category $\mathrm{Rep}(H)$ has two invertible simple objects, and the canonical invertible $D$ is the nontrivial one.  A bimodule functor $\cC \rightarrow \cS$ sends $1$ to either $1$ or $D$, thus the corresponding functor from $\cC$ to the square of the Serre sends $1$ to $1 = 1 \otimes 1 = D \otimes D$ which is not $D$.  Hence there are no h-spherical structures on $\cC$.  Nonetheless there is a standard spherical structure on $\cC$.
+The above definitions of h-pivotal and h-spherical have natural generalizations to finite tensor categories.  However, because the canonical invertible $D$ may be non-trivial these notions are not compatible with the traditional notions of pivotal and spherical, as the following example shows.  Let $H$ be Sweedler's $4$-dimensional non-semisimple Hopf algebra \cite{MR0252485}.  The finite tensor category $\mathrm{Rep}(H)$ has two invertible simple objects, and the canonical invertible $D$ is the nontrivial one.  A bimodule functor $\cC \rightarrow \cS$ sends $1$ to either $1$ or $D$, thus the corresponding functor from $\cC$ to the square of the Serre sends $1$ to $1 = 1 \otimes 1 = D \otimes D$ which is not $D$.  Hence there are no h-spherical structures on $\cC$.  Nonetheless there is a standard spherical structure on $\cC$.
 \end{warning}
 
 \subsection{h-Pivotal fusion categories correspond to quadratic field theories} \label{sec-pivot-orpo}
@@ -2752,14 +2759,14 @@ A fusion category $\cC \in \TCfin$ is h-spherical if and only if the framed loca
 Note that the same argument applies to finite tensor categories. 
 
 \begin{example}
-Consider $\cC$ the category of representations of Sweedler's $4$-dimensional Hopf algebra.  As we saw in the last section $\cC$ does not have an h-spherical structure.  Thus the $2$-dimensional TFT associated to $\cC$ does not descend to an oriented $p_1$ field theory.  In particular, there is no oriented $2$-dimensional TFT associated to Sweedler's $4$-dimensional Hopf algebra.  This explains why more complicated structure groups appear in Kuperberg's work on invariants coming from non-semisimple Hopf algebras \cite{MR1394749}.
+Consider $\mathrm{Rep}(H)$ the category of representations of Sweedler's $4$-dimensional Hopf algebra.  As we saw in the last section $\mathrm{Rep}(H)$ does not have an h-spherical structure.  Thus the $2$-dimensional TFT associated to $\mathrm{Rep}(H)$ does not descend to an oriented $p_1$ field theory.  In particular, there is no oriented $2$-dimensional TFT associated to Sweedler's $4$-dimensional Hopf algebra.  This explains why more complicated structure groups appear in Kuperberg's work on invariants coming from non-semisimple Hopf algebras \cite{MR1394749}.
 \end{example}
 
 \subsection{Field theory descent conjectures}
 
 In this section we make several conjectures concerning field theories descending to other structure groups.  The first three are ``anomaly vanishing" results, while the last two are topological analogs of Etingof--Nikshych--Ostrik's conjecture on pivotality of fusion categories.  We list these conjectures in decreasing order of confidence, and indeed leave the last two as questions.
 
-According to the previous subsection, a choice of h-spherical structure on $\cC$ corresponds to a choice of descent to an oriented $p_1$ field theory.  This can be understood (non-rigorously) as follows.  An h-spherical structure induces a natural ribbon structure on the center $Z(\cC)$, and the $123$ part of the oriented $p_1$ field theory should agree with the Reshetikhin--Turaev construction applied to $Z(\cC)$.  The dependence of the RT theory on the oriented $p_1$ field theory is called the anomaly, and can be computed using a Gauss sum.  M\"uger proved that this anomaly vanishes in the special case of $Z(\cC)$, thus if the h-spherical structure comes from an ordinary spherical structurewe expec that the field theory does not detect the oriented $p_1$ structure.  This suggests the following conjecture.
+According to the previous subsection, a choice of h-spherical structure on $\cC$ corresponds to a choice of descent to an oriented $p_1$ field theory.  This can be understood (non-rigorously) as follows.  An h-spherical structure induces a natural ribbon structure on the center $Z(\cC)$, and the $123$ part of the oriented $p_1$ field theory should agree with the Reshetikhin--Turaev construction \cite{MR1091619, MR990772} applied to $Z(\cC)$.  (It's known that the Turaev--Viro construction for $\cC$ agrees with the Reshetikhin--Turaev construction for $Z(\cC)$ \cite{1006.3501}, and indeed that they agree as $123$ field theories \cite{1004.1533, 1010.1222, 1012.0560}, however, we have not yet proved that our construction for spherical categories agrees with Turaev--Viro.)  The dependence of the RT theory on the oriented $p_1$ field theory is called the anomaly, and can be computed using a Gauss sum.  M\"uger proved that this anomaly vanishes in the special case of $Z(\cC)$ \cite{MR1966525}, thus if the h-spherical structure comes from an ordinary spherical structure we expect that the field theory does not detect the oriented $p_1$ structure.  This suggests the following conjecture.
 
 \begin{conjecture}
 If a fusion category $\cC \in \TCfin$ is spherical, then the oriented $p_1$ theory $\cF_{\cC} : \OrpoBord_0^3 \ra \TCfin$ associated to $\cC$ has a canonical descent to an oriented, that is $SO(3)$, local field theory.
@@ -2787,7 +2794,7 @@ The framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to
 At first glance this last conjecture seems false.  After all, as we said above, there's a fusion category $\cC$ with an h-spherical such that the oriented $p_1$ theory detects the oriented $p_1$ structure and thus does not descend to a spin local field theory.  However, this is explained by a factor of $4$ in \NScomm{CD please explain which factor of $4$}, which means that this last conjecture does not correspond to the anomaly of an oriented $p_1$ theory attached to an h-spherical structure vanishing, but instead corresponds to the anomaly being$4$th root of unity.
 \end{warning}
 
-All known fusion categories have pivotal, and in fact, spherical structures (see \cite[Conjecture ???]{???}) In light of Theorem~\ref{thm-hpivotal}, these questions have natural topological analogs.
+All known fusion categories have pivotal, and in fact, spherical structures (see \cite[Conjecture 2.8]{MR2183279}).  In light of Theorem~\ref{thm-hpivotal}, these questions have natural topological analogs.
 
 \begin{question}
 Does every framed local field theory with values in tensor categories descend (non-canonically) to a combed local field theory?
