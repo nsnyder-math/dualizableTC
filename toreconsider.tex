@@ -1,0 +1,34 @@
+Mar 13, 2011:
+
+In the rest of the conversation we worked out some confusions surrounding anomalies and the example I had computed.
+
+Suppose you have a fusion category which happens to have a Morita spherical structure (that is a trivialization of the Serre whose square is the canonical trivialization of the square of the Serre).  There are two different questions you could ask:
+
+1) What's the "anomaly" of the 3-framed TFT which you get from this fusion category?
+2) What's the "anomaly" of the orpo TFT which you get from the fusion category *together with* a choice of morita spherical structure?
+
+(N.B. This whole discussion actually makes sense for 123 TFTs where we have a nondegenerately braided fusion category and a choice of ribbon structure.  Ignoring the choice of ribbon structure we have a 3-framed 123 TFT, but using the ribbon structure we have an orpo 123 TFT.)
+
+The key observation is that questions 1 and 2 have different answers, because the former "anomaly" is the fourth power of the latter "anomaly."  CSP can explain this in terms of some homotopy theory, but here's how I think about it.  For an orpo theory the "anomaly" just measures how the invariant changes when you do 1-framed surgery on the unknot.  But for a 3-framed theory 1-framed surgery on the unknot no longer makes sense (this is because doing a Dehn twist on a solid torus changes the spin structure).  The smallest thing you can do in the 3-framed setting is 2-framed surgery on the unknot.  But this gives you RP^3 instead of S^3.  So the smallest comparison you can make is comparing 2-framed surgery on the unknot to -2-framed surgery on the unknot (these both give RP^3).  Hence the "anomaly" for the 3-framed setting is the fourth power of the anomaly in the orpo setting.
+
+Now what I'd worked out from computing examples, was that it's possible to have a nontrivial anomaly for an orpo theory coming from a Morita spherical structure.  However, it turns out that in the examples I have anomaly is always a fourth root of unity, so the 3-framed TFT has no anomaly in these examples.
+
+This fourth root of unity comes up in the following way.  Let X be the image of 1 in the fixed trivialization of the Serre.  (In particular, X=1 is the same thing as saying that it's an honest spherical structure.)  Let's also assume that the fusion category does have *some* spherical structure (since all our examples have that property).  Hence conjugation by X is naturally isomorphic to the trivial functor, and this natural isomorphism gives a lifting of X to the center.  Furthermore, since the square of X is trivial we have a lifting of X to an order 2 element of the center.  As CSP explained given such an X you get a fourth root of unity, and this is the fourth root of unity that comes up in the anomaly.  I have a very concrete small example where you actually get -1 here.
+
+Noah
+
+-------
+
+Oct 9, 2011:
+
+I was trying to understand CSPs calculation of that 1 maps to 1 under the Radford isomorphism, and it struck me that the formula for the Radford isomorphism looks exactly like the formula for the Serre.  That is to say, both of them first do a unit, then a crossing, then an adjoint of a counit.
+
+Does this mean anything interesting?  
+
+I want to say that you dimensionally reduce along an interval and say that the Radford isomorphism is the Serre isomorphism for that reduced TFT, but that doesn't actually make sense (e.g. because End(C--C--C)=Z(C) is not symmetric).
+
+Noah
+
+-----
+
+
