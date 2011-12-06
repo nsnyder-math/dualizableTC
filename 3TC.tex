@@ -9,7 +9,7 @@
 
 \begin{document}
 
-\title{A 3-category of tensor categories}
+\title{A Symmetric Monoidal 3-category of tensor categories}
 
 \begin{abstract}
 We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, bimodule categories, functors, and natural transformations. 
@@ -61,8 +61,12 @@ We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, 
 \end{itemize}
 }
 
-Lurie's overview of his proof of the cobordism hypothesis employs the language of $n$-fold iterated complete Segal spaces introduced Clark Barwick \cite{???}, or more precisely the symmetric monoidal variant thereof. In this work we construct $\TC$ as an object of the symmetric monoidal variant of Simpsons' Segal $n$-categories.  
- In this case it is slightly easier to construct examples in the latter model. Nevertheless, we review the connection between these two models, describing how to obtain a  $n$-fold complete Segal space from a Segal $n$-category. Thus we may apply Lurie's results directly. We pay careful attention to the matter of full-dualizbality. Moreover these sections have a significant amount of expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra.
+Lurie's overview of his proof of the cobordism hypothesis employs the language of $n$-fold iterated complete Segal spaces introduced Clark Barwick \cite{???}, or more precisely the symmetric monoidal variant thereof. In this work we construct $\TC$ as an object of the equivalent symmetric monoidal variant of Simpsons' Segal $n$-categories. We find it  slightly easier to construct our model as a Segal category, but also review the connection between these two models, describing how to obtain a  $n$-fold complete Segal space from a Segal $n$-category. We pay careful attention to the matter of full-dualizbality, permitting us to apply Lurie's results directly.  
+
+We begin in Section \ref{sec-symmonGamma} with a some expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra. Section \ref{sec-symmoninftyNcat} gives a precise account of symmetric monoidal $n$-fold Segal categories, and Section \ref{} discuss the matter of full-dualizbality.
+
+
+
 %%
 
 
@@ -79,25 +83,23 @@ In this Section \ref{sec-tc-lincat}, \ref{sec-tc-bimodcat}, and \ref{sec-tc-deli
 
 %In the Section  we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when results from it are applied in the main arguments, or to check notational conventions.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively described in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of entirely new material on separable algebra objects and separable module categories.  
 
-The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-category whose objects are finite tensor categories, morphisms are bimodule categories, $2$-morphisms are functors, and $3$-morphisms are natural transformations.  Though this result has been widely anticipated, even making the statement precisely requires a robust theory of symmetric monoidal $3$-categories.  
+The goal of the final Section \ref{sec-tc-threecat} is to construct a symmetric monoidal $3$-category whose objects are finite tensor categories, morphisms are bimodule categories, $2$-morphisms are functors, and $3$-morphisms are natural transformations.  Though this result has been widely anticipated, even making the statement precisely requires a robust theory of symmetric monoidal $3$-categories.  
 
 
 
 
 
 
-%\section{The symmetric monoidal 3-category of tensor categories} \label{sec-sym-mon}
+%\section{The symmetric monoidal 3-category of tensor categories} 
 
 
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
 %
 
-\section{Symmetric monoidal structures via the category $\Gamma$}
+\section{Symmetric monoidal structures via the category $\Gamma$} \label{sec-symmonGamma}
 
-There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. 
-
-There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
+There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of $n$-Segal categories of \CSPcomm{[ref.. Simpson, Tamsamani, Pellesier (sp?)]}, which we relate to the iterated complete Segal spaces of Barwick, \CSP{Get reference. Possible reference to Simpson's work too?}. More precisely, we utilize the symmetric monoidal variants thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
 \begin{warning}
 In this section we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
@@ -186,7 +188,7 @@ The assignment $A \mapsto \Vect(A)$ gives a functor $\Vect: \Gamma^{op} \to \Cat
 This is easily seen to be strictly compatible with composition in $\Gamma^\text{op}$. Moreover, since the tensor product is defined by a universal property, the forgetful functor $\Vect(A) \to \Vect^{\times |A|}$ is an equivalence of categories, as desired.  
 
 
-\section{Symmetric monoidal $(\infty,n)$-categories}
+\section{Symmetric monoidal $(\infty,n)$-categories} \label{sec-symmoninftyNcat}
 
 \NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
@@ -831,7 +833,6 @@ Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATen
 
 
 \section{The symmetric monoidal 3-category of tensor categories} \label{sec-tc-threecat}
-
 
 We now describe the symmetric monoidal 3-fold Segal category $\TCfin$ of finite tensor categories, finite module categories, linear functors of module categories, and natural transformations. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal 3-fold Segal category. 
 
