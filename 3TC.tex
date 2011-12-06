@@ -12,7 +12,7 @@
 \title{A 3-category of tensor categories}
 
 \begin{abstract}
-We show that fusion categories are objects of a symmetric monoidal 3-category of tensor categories.  
+We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, bimodule categories, functors, and natural transformations. 
 \end{abstract}
 	
 \author{Christopher L. Douglas}
@@ -53,18 +53,18 @@ We show that fusion categories are objects of a symmetric monoidal 3-category of
 
 \section{Introduction}
 
-\CSPcomm{[...]}
+\CSPcomm{[...]
+\begin{itemize}
+	\item Interest in TQFTs, 3D tqfts especially. 
+	\item extended tqfts, cobordism hypothesis. 
+	\item 3-category of tensor categories, bimodule categories, functors, nat trans.
+\end{itemize}
+}
 
-\subsection{Outline and results}
-
-In the Section \ref{sec-tc} we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when results from it are applied in the main arguments, or to check notational conventions.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively described in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of entirely new material on separable algebra objects and separable module categories.  
-
-The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-category whose objects are finite tensor categories, morphisms are bimodule categories, $2$-morphisms are functors, and $3$-morphisms are natural transformations.  Though this result has been widely anticipated, even making the statement precisely requires a robust theory of symmetric monoidal $3$-categories.  We use the theory of iterated complete Segal spaces described by Clark Barwick \cite{???}, \CSP{Get reference. Possible a reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof.  This is the version of $n$-categories used in Lurie's proof of the cobordism hypothesis, so we can apply his results directly without worrying about whether different notions of $n$-category agree.  This section has a significant amount of expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra.  Readers willing to take the theory of symmetric monoidal $3$-categories as a black box can happily skip this section.
+Lurie's overview of his proof of the cobordism hypothesis employs the language of $n$-fold iterated complete Segal spaces introduced Clark Barwick \cite{???}, or more precisely the symmetric monoidal variant thereof. In this work we construct $\TC$ as an object of the symmetric monoidal variant of Simpsons' Segal $n$-categories.  
+ In this case it is slightly easier to construct examples in the latter model. Nevertheless, we review the connection between these two models, describing how to obtain a  $n$-fold complete Segal space from a Segal $n$-category. Thus we may apply Lurie's results directly. We pay careful attention to the matter of full-dualizbality. Moreover these sections have a significant amount of expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra.
 %%
 
-
-
-\section{Tensor categories} \label{sec-tc}
 
 %\CSPcomm{
 %The results that are new(ish):
@@ -75,423 +75,33 @@ The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-c
 %\end{itemize}
 %}
 
-In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. The material in Section \ref{sec-tc-separable} is new and based on a suggestion of Ostrik.
+In this Section \ref{sec-tc-lincat}, \ref{sec-tc-bimodcat}, and \ref{sec-tc-deligne} we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. 
 
+%In the Section  we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when results from it are applied in the main arguments, or to check notational conventions.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively described in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of entirely new material on separable algebra objects and separable module categories.  
 
+The goal of Section \ref{sec-sym-mon} is to construct a symmetric monoidal $3$-category whose objects are finite tensor categories, morphisms are bimodule categories, $2$-morphisms are functors, and $3$-morphisms are natural transformations.  Though this result has been widely anticipated, even making the statement precisely requires a robust theory of symmetric monoidal $3$-categories.  
 
 
-\section{Linear categories and tensor categories} \label{sec-tc-lincat}
 
-	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
-A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
-	
-More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
-\begin{equation*}
-	F: \prod \cA_\alpha \to \cB
-\end{equation*}
-such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. 
 
-\begin{warning}
-	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
-\end{warning}
 
-\begin{definition}
-	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear.
-\end{definition}
 
-\begin{example}
-	Both $\overline{\Vect}_k$ and $\Vect_k$ (the category of finite dimensional vector spaces) are examples of tensor categories. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
-\end{example}
+%\section{The symmetric monoidal 3-category of tensor categories} \label{sec-sym-mon}
 
-\begin{example}
-	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
-\end{example}
-
-Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$, also in the literature $\mp$ is also denotes $rev$.)
-%We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
-
-
-%%%%%%%%%%%
-%
-%  Here is where the definition of left/right duals and rigidity were initially. 
-%
-%%%%%%%%%%%%
-
-%\begin{definition}
-%	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
-%\end{definition}
-
-
-\begin{lemma} \label{lma:RigidIsExact}
-	Let $(\cC, \otimes)$ be a rigid tensor category (cf. Def. \ref{def:rigid}). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
-\end{lemma}
-
-\begin{proof}
-	The units and counits give rise to natural isomorphisms %\NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
- \begin{equation*} 
- 	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
- \end{equation*}
-	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
-\end{proof}
-
-\begin{corollary}
-	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
-\end{corollary}
-
-\begin{proof}
-	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
-\end{proof}
-
-\begin{lemma}
-	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
-\end{lemma}
-
-%\begin{proposition}
-%If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
-%\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
-
-\begin{proof}
-Let $\otimes$ denote the tensor product on $\cC$ and $\cdot$ the tensor product on $\cC^{\mop}$, so that $x \cdot y = y \otimes x$.
-
-First we construct the functor ${(-)^*}$.  Define ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta_a: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon_a: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: 
-\begin{equation*}
-	{(f)^*} := (\varepsilon_b \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes f \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes \eta_a).
-\end{equation*}
-
-Next we want to construct a monoidal functor structure on $(-)^*$, that is we need natural transformations $f_{a,b}: (a \otimes b)^* \rightarrow a^* \cdot b^* = b^* \otimes a^*$.  Since the left dual is unique up to unique isomorphism, it is enough to check that $b^* \otimes a^*$ is a left dual to $b \otimes a$.  Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \otimes \rd{a} \xra{\eta_b} a \otimes b \otimes \rd{b} \; \rd{a}$ show that $(\rd{b} \otimes \rd{a})$ is a left dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a \otimes b)}$.  It is straightforward to check that this satisfies the necessary hexagon relation.
-
-The right dual functor is analogous.  Since the left and right duals are quasi-inverse to each other, they're each equivalences.
-% In principle, need to check naturality and hexagon for those isos.
-\end{proof}
-\begin{remark}
-Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
-\end{remark}
-
-\begin{corollary} \label{cor:RigidityViaFunctors}
-	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural isomorphisms
-	\begin{align*}
-		\Hom( {}^*y, z) &\cong \Hom(1, z \otimes y) \\
-		\Hom(z, y) & \cong \Hom(z \otimes {}^*y, 1).
-	\end{align*}
-\end{corollary}
-
-\begin{proof}
-	It is clear from the previous lemma that a rigid tensor category admits such a structure (the natural isomorphisms in question are induced by the evaluation and coevaluation). Conversely, if we are given such a structure, then applying the above natural isomorphisms in the cases $z={}^*y$ and $y$ yield evaluation and coevaluation maps demonstrating ${}^*y$ as the right dual of $y$. Left duals are obtained by the same argument applied to the inverse of the functor ${}^*(-)$.
-\end{proof}
-
-% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
-
-
-%\begin{remark}
-%The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
-%\end{remark}
-
-\section{Bimodule categories}
-
-\begin{definition}
-	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that
-	\begin{itemize}
-		\item all hom categories are linear categories, 
-		\item horizontal composition is multilinear, and
-		\item there are identifications of monoidal categories $\Hom(x,x) \simeq \cD$, $\Hom(y,y) \simeq \cC$, and $\Hom(y,x) \simeq \emptyset$.
-	\end{itemize}
-	We will often abuse notation and refer to the value $\cM = \Hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
-\end{definition}
-	
-Unwrapping this definition we see that a left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
-%	\CSP{This looks a little gross. I should change it.}
-	\begin{align*}
-		\alpha: & \;    \otimes^{\cM} \circ (\otimes \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
-		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
-	\end{align*}
-%	\begin{align*}
-%		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
-%		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
-%	\end{align*}	
-	satisfying the evident pentagon and triangle identities. 
-
-\begin{definition}		
-A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that 
-%	\begin{itemize}
-		 $F$ is the identity on objects,
-		  the restriction of $F$ to each hom category is linear,
-		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
-%	\end{itemize}
-A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
-	A {\em bimodule transformation} is a transformation of functors of bicategories, which restricts to the identity on $\Hom(x,x)$ and $\Hom(y,y)$, and such that the component 1-cells are trivial.  
-\end{definition}
-	
-%
-Bimodule categories, functors, and transformations form a strict 2-category.
-%If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
-
-\begin{example}
-	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. 
-\end{example}
-
-\begin{example}
-	For any algebra object $A$ in a tensor category $\cC$ the categories $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are respectively left and right $\cC$-module categories. 
-\end{example}
-
-\begin{example}
-	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors is a tensor category. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cN, \cN)$-$\Fun_{\cC}(\cM, \cM)$-bimodule category. 
-	%\CSP{Do I have the right convention for the actions here?} \NS{I think you got it backwards.  $\Fun(\cM,\cM)$ left acts on $\cM$ and so its action by precomposition should be a right action} 
-\end{example}
-
-\begin{remark}
- 	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. 
-\end{remark}
-
-We will also need a slightly more general notion of bimodule morphism to make sense of multilinear bimodule maps. These in turn are used to define the external Deligne tensor product of bimodule categories and, later,  in defining the symmetric monoidal 3-category of tensor categories. 
-
-\begin{definition}
-	A {\em twisted bimodule functor} from a $\cC$-$\cD$-bimodule category $\cM$  to $\cC'$-$\cD'$-bimodule category $\cM'$ is a functor of bicatgories from $\cM$ to $\cM'$ which restricts to the identity on objects and is linear on hom categories. A {\em twisted bimodule transformation} between twisted bimodule functors is a transformation of functors of bicategories such that the component 1-cells are trivial.
-\end{definition}
-
-Thus a twisted bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category $\cM'$ consists in part of tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. We will say the the twisted bimodule functor {\em extends the tensor functors $f$ and $g$}. 
-
-If we are given a $\cC'$-$\cD'$-bimodule category $\cM'$ and tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, then we may also form the {\em twisted bimodule category} ${}_f{\cM'}_g$.  The underlying linear category of ${}_f{\cM'}_g$ is $\cM'$, but the actions are by $\cC$ and $\cD$ via the tensor functors $f$ and $g$. A twisted bimodule functor $\cM \to \cM'$ extending $f$ and $g$ is the same as a $\cC$-$\cD$-bimodule functor $\cM \to {}_f{\cM'}_g$.  Later on we will sometimes use the notation ${}_{\langle f \rangle} \cM'_{\langle g \rangle}$ instead of ${}_f{\cM'}_g$, in cases where the functors $f$ and $g$ are themselves unwieldy composites.
-
-With twisted bimodule functors as morphisms, there exists a terminal bimodule category $\cT$. As a bicategory, each of its non-empty hom categories is the terminal linear category. The product of bimodule categories $\cM \times_{\cT} \cM'$ is defined as the fiber product of bicategories over $\cT$. We will abuse notation and write this as $\cM \times \cM'$. This is again a bicategory with precisely two objects $x$ and $y$. Moreover
-\begin{equation*}
-	\Hom_{\cM \times \cM'}(a,b) = \Hom_\cM(a,b) \times \Hom_{\cM'}(a,b)
-\end{equation*}
-for all pairs $a,b \in \{ x,y \}$.
-
-If $\{ \cM_\alpha \}$ is a collection of bimodule categories then a {\em twisted multilinear bimodule functor} from $\{ \cM_\alpha \}$ into a bimodule category $\cN$ is a functor of bicategories
-\begin{equation*}
-	\prod_{\alpha} \cM_\alpha \to \cN
-\end{equation*}
-which is the identity on objects, and which is a twisted bimodule functor in each variable. 
-
-\section{The Deligne tensor product and finite linear categories}
-
-The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  This tensor product only makes sense for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
-
-\begin{definition} % This is from EGNO Definition 1.18.2.
-	A linear category $\cC$ is {\em finite} if 
-	\begin{enumerate}
-		\item $\cC$ has finite dimensional spaces of morphisms;
-		\item every object of $\cC$ has finite length;
-		\item $\cC$ has enough projectives, i.e. every simple object of $\cC$ has a projective cover; and
-		\item there are finitely many isomorphism classes of simple objects.  
-	\end{enumerate}
-\end{definition}
-
-\begin{remark}
-A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
-\end{remark}
-
-The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
-
-\begin{proposition} \label{prop:AFT}
-	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
-	\begin{enumerate}
-		\item $\cG$ is left exact;  
-		\item $\cG$ is left exact and satisfies the following {\em Solution Set Condition:} \\  For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
-		\item $\cG$ admits an (additive, ${\Vect}$-enriched) left adjoint.
-	\end{enumerate}
-\end{proposition}
-\begin{proof} This is a variation of the proof given in \cite[V.6.Thm 2]{MR0354798}.
-Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically additive, and as the unit and counit maps are linear maps of vector spaces, $\cF$ is also $\overline{\Vect}$-enriched. 
-
-
-To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$),
-as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
-\begin{equation*}
-	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
-\end{equation*}
-The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\Hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus by a straightforward calculation [MacLane V.6.Thm 1], we see that $v$ is initial. 
-
-Finally, if $\cG$ is left exact, then it satisfies the solution set condition. To see this note that each object $d \in \cD$  has a finite number of distinct quotients in $\cD$, hence also a finite number quotients of the form  $\cG(c)$ for some $c \in \cC$. Thus we may choose a finite index set $I$ and objects  $c_i \in \cC$, together with maps $d \to \cG(c_i)$ exhausting the finite collection of possible quotients of $d$. Since any map $d \to \cG(c)$ must factor through one of these quotients, we have construct a solution set.   
-\end{proof}
-
-\begin{corollary}
-	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it also admits a left adjoint which is also a linear functor. 
-\end{corollary}
-
-\begin{proof}
-	The second statement is just a rephrasing of the above proposition; the first follows by passing to the opposite linear category.  
-\end{proof}
-
-
-\begin{corollary}
-If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if and only if it is left exact. 
-\end{corollary}
-
-\begin{proof}
-	A representable functor $\Hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
-%
-% 0 <-- C <--  B <--- A <-- 0 in C/C^op
-% 0 -->  \Hom(c,x) ---> hom(b,x) ---> hom(a, x)
-%		
-Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
-	\begin{equation*}
-		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^\op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
-	\end{equation*}
-	In other words,  the object $F(k)$ represents the functor $G$. 
-\end{proof}
-
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
-
-\begin{theorem}[\cite{EGNO}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
-	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
-\end{theorem}
-
-\begin{definition}
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
-\begin{center}
-\begin{tikzpicture}
-	\node (LT) at (0, 1) {$F(M \otimes^{\cM} C, N)$};
-	\node (LB) at (0, 0) {$G(M \otimes^{\cM} C, N)$};
-	\node (RT) at (3, 1) {$F(M, C \otimes^{\cN} N)$};
-	\node (RB) at (3, 0) {$G(M, C \otimes^{\cN} N)$};
-	\draw [->] (LT) -- node [left] {$$} (LB);
-	\draw [->] (LT) -- node [above] {$$} (RT);
-	\draw [->] (RT) -- node [right] {$$} (RB);
-	\draw [->] (LB) -- node [below] {$$} (RB);
-	%\node at (0.5, 1) {$\ulcorner$};
-	%\node at (1.5, 0.5) {$\lrcorner$};
-\end{tikzpicture}.
-\end{center}
-\end{definition}
-
-
-\begin{definition}
-	Let $\cA$ and $\cB$ be right and left $\cC$-module categories, respectively. The {\em Deligne tensor product $\cA \boxtimes_{\cC} \cB$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$ which induces, for all linear categories $\cD$, an equivalence between the categories of $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and linear functors $\cA \boxtimes_{\cC} \cB \to \cD$. 
-\end{definition}
-
-If it exists, the Deligne tensor product is unique up to an equivalence, which in turn is unique up to unique natural isomorphism. Equivalently, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
-
-\begin{theorem} \label{thm:DelignePrdtOverATCExists}
-	Let $\cC$ be a finite tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
-	\begin{enumerate}
-		\item The Deligne tensor product $\cA \boxtimes_{\cC} \cB$ exists and is a finite linear category;
-		\item If $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$, then $\cA \boxtimes_{\cC} \cB \simeq \Mod{A }{B}(\cC)$;
-	\end{enumerate} 
-Moreover if $\cC$ is rigid, then 	
-	\begin{enumerate}
-		\item[(3)] The functor $\boxtimes_{\cC}$ is exact in each variable and satisfies 
-		\begin{equation*}
-			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes_{\cC} \cB} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
-		\end{equation*}
-		\item[(4)] If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
-	\end{enumerate} 
-\end{theorem}
-
-\begin{proof}
-	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite[Prop 1.46.2]{EGNO}).
-	By Theorem \ref{thm:EGNO2.11.6} to show (1) and (2) it is enough to assume that $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$ and show that $\Mod{A }{B}(\cC)$ has the desired universal property. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced multilinear functor 
-		\begin{equation*}
-			T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC),  
-		\end{equation*}
-and we will show that $T$ induces an equivalence between $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and linear functors out of $\Mod{A}{B}(\cC)$.
-	
-	To this end, let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cD$ be a $\cC$-balanced multilinear functor.  
-	There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since  every $A$-$B$-bimodule $X$ is a coequalizer of free $A$-$B$-bimodules, namely the canonical coequalizer  
-	\begin{equation*}
-		X \leftarrow A \otimes X \otimes B \leftleftarrows A \otimes A \otimes X \otimes B \otimes B,
-	\end{equation*}
-	and since $\overline{F}$ is right exact the result follows.
-	
-	If $\cC$ is rigid, then by Lemma \ref{lma:RigidIsExact} the functor $T = \boxtimes_{\cC}$ is exact in each variable. The formula in (3) then follows as a standard exercise in using duals. Finally let $F: \cA \times \cB \to \cD$ be a $\cC$-balanced multilinear functor which is exact in each variable and let $\overline{F}: \cA \boxtimes_\cC \cB \to \cD$ be its linear extension (which is always right exact). Since $F$ is exact in each variable, $\overline{F}$ preserves left exact sequences of free $A$-$B$-bimodules (where the maps are also free). Since every $A$-$B$-bimodule has a functorial resolution by free $A$-$B$-bimodules (coming from the above mentioned coequalizer), a diagram chase shows that $\overline{F}$ is also left exact. Hence (4) is also satisfied. 
-\end{proof}
-
-
-%\begin{proposition}[]
-%	Let $\cA$ and $\cB$ be finite linear categories. Then,
-%	\begin{enumerate}
-%		\item The Deligne tensor product $\cA \boxtimes \cB$ exists and is a finite linear category;
-%		\item If $\cA = \Mod{A}{}$ and $\cB = \Mod{B}{}$, then $\cA \boxtimes \cB \simeq \Mod{A \otimes B}{}$;
-%		\item The functor $\boxtimes$ is exact in each variable and satisfies 
-%		\begin{equation*}
-%			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes \cB} (x \boxtimes y, x' \boxtimes y'),
-%		\end{equation*}
-%		\item If $F: \cA \times \cB \to \cC$ is a multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes \cB \to \cC$. 
-%	\end{enumerate} 
-%\end{proposition}
-
-
-\begin{remark} \label{rmk:rigidpreservedbytensor}
-	We may use the case $\cC= \Vect_k$ to rewrite part the data  of a tensor category as a linear category $\cD$ equipped with an object $1 \in \cD$ and a linear functor $\otimes: \cD \boxtimes \cD \to \cD $, together with natural transformations $\alpha$, $\lambda$, and $\rho$, as before. Moreover by Corollary \ref{cor:RigidityViaFunctors} the tensor product of two rigid tensor categories is again rigid. 
-\end{remark}
-
-\begin{remark}
-	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced twisted bilinear bimodule functors. 
-\end{remark}
-
-\begin{lemma} \label{Lma:FunctorsAsATensorPdt}
-	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
-	\begin{equation*}
-		\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN \simeq \Fun_\cC(\cM,\cN).
-	\end{equation*}
-	Here $\Fun_\cC$ denotes the category of (right exact) $\cC$-module functors. 
-	Moreover, if $\cM$ and $\cN$ are bimodule categories, then the above equivalence is a bimodule equivalence. 
-\end{lemma}
-
-\begin{proof}
-	The last sentence follows since in that case the natural functor is a bimodule functor. By the Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ (\cite[Prop 2.12.2]{EGNO}) can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor, and given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
-	\begin{equation*}
-		M \leftarrow M \otimes A \leftleftarrows M \otimes A \otimes A
-	\end{equation*} 
-the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus the natural map  $\Mod{A}{B}(\cC) \to \Fun_\cC(\cM, \cN)$ is essentially surjective. The above argument also shows it is fully-faithful, so that $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$, which in particular shows $\Fun_\cC(\cM, \cC) \simeq \Mod{}{A}(\cC)$. Now the result follows from Theorem \ref{thm:DelignePrdtOverATCExists}.
-%Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced bilinear functor 
-%\begin{equation*}
-%	T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC). 
-%\end{equation*}
-%To complete the proof we must show this induces an equivalence,
-%\begin{equation*}
-%	\Mod{}{A}(\cC) \boxtimes_\cC \Mod{B}{}(\cC) \simeq \Mod{B}{A}(\cC).
-%\end{equation*}
-%When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
-\end{proof}
-
-\begin{remark} \label{remark-tensorasfunctors}
-If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\cD}(\cM,\cD) \simeq \Fun_{\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. 
-\end{remark}
-
-
-
-For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
-
-\begin{definition}
-Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  
-\end{definition}
-
-\begin{lemma}
-If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and ${}^*\Fun^L_{\cC}(\cN, \cM)$ where $\Fun^L_\cC$ denotes \em{left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)^*$. 
-\end{lemma}
-\begin{proof}
-We've already seen that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking adjoints is clearly an equivalence because the right adjoint is quasi-inverse to the left adjoint and vice-versa.  So we need only check that the module structures agree.  First note that taking adjoints interchanges precomposition and postcomposition.  Second, in the former case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$, while in the latter case we have that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
-\end{proof}
-
-\begin{lemma} \label{lem:dual-formula-for-adjoints}
-We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
-\end{lemma}
-\begin{proof}
-By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
-\end{proof}
-
-\begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
-\end{remark}
-
-
-
-
-\section{The symmetric monoidal 3-category of tensor categories} \label{sec-sym-mon}
-.%!% remove period
-\NScomm{[We are considering turning this section together with parts of subsection 2.2 into a separate paper.]}
 
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
-There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
+%
+
+\section{Symmetric monoidal structures via the category $\Gamma$}
+
+There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of iterated complete Segal spaces described by Clark Barwick, \CSP{Get reference. Possible reference to Simpson's work too?} or more precisely the symmetric monoidal variant thereof. 
+
+There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
 \begin{warning}
 In this section we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
 \end{warning}
-
-\section{Symmetric monoidal structures via the category $\Gamma$}
 
 \begin{definition}
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
@@ -800,6 +410,9 @@ When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $\Hom_X(a,b) \cong NC
 	\end{enumerate}
 \end{definition}
 
+
+\section{Dualizability in Symmetric Monoidal 3-Categories}
+
 In the next section we will construct several examples describing versions of the symmetric monoidal 3-fold Segal category of tensor categories. 
 
 %Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
@@ -810,6 +423,410 @@ In the next section we will construct several examples describing versions of th
 %\end{definition}
 %A strict 2-category gives rise to a simplicial category 
 
+\CSPcomm{[...] Explain the fully-dualizable filtration, and 
+how the various 2-categories that one extracts from a symmetric monoidal 3-category (Segal 3-category) are invariant under completion.}
+
+
+
+
+
+
+
+\section{Linear categories and tensor categories} \label{sec-tc-lincat}
+
+	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
+A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
+	
+More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
+\begin{equation*}
+	F: \prod \cA_\alpha \to \cB
+\end{equation*}
+such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. 
+
+\begin{warning}
+	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
+\end{warning}
+
+\begin{definition}
+	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear.
+\end{definition}
+
+\begin{example}
+	Both $\overline{\Vect}_k$ and $\Vect_k$ (the category of finite dimensional vector spaces) are examples of tensor categories. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
+\end{example}
+
+\begin{example}
+	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
+\end{example}
+
+Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$, also in the literature $\mp$ is also denotes $rev$.)
+%We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
+
+
+%%%%%%%%%%%
+%
+%  Here is where the definition of left/right duals and rigidity were initially. 
+%
+%%%%%%%%%%%%
+
+%\begin{definition}
+%	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
+%\end{definition}
+
+
+\begin{lemma} \label{lma:RigidIsExact}
+	Let $(\cC, \otimes)$ be a rigid tensor category (cf. Def. \ref{def:rigid}). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
+\end{lemma}
+
+\begin{proof}
+	The units and counits give rise to natural isomorphisms %\NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
+ \begin{equation*} 
+ 	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
+ \end{equation*}
+	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
+\end{proof}
+
+\begin{corollary}
+	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
+\end{corollary}
+
+\begin{proof}
+	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
+\end{proof}
+
+\begin{lemma}
+	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
+\end{lemma}
+
+%\begin{proposition}
+%If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
+%\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
+
+\begin{proof}
+Let $\otimes$ denote the tensor product on $\cC$ and $\cdot$ the tensor product on $\cC^{\mop}$, so that $x \cdot y = y \otimes x$.
+
+First we construct the functor ${(-)^*}$.  Define ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta_a: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon_a: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: 
+\begin{equation*}
+	{(f)^*} := (\varepsilon_b \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes f \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes \eta_a).
+\end{equation*}
+
+Next we want to construct a monoidal functor structure on $(-)^*$, that is we need natural transformations $f_{a,b}: (a \otimes b)^* \rightarrow a^* \cdot b^* = b^* \otimes a^*$.  Since the left dual is unique up to unique isomorphism, it is enough to check that $b^* \otimes a^*$ is a left dual to $b \otimes a$.  Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \otimes \rd{a} \xra{\eta_b} a \otimes b \otimes \rd{b} \; \rd{a}$ show that $(\rd{b} \otimes \rd{a})$ is a left dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a \otimes b)}$.  It is straightforward to check that this satisfies the necessary hexagon relation.
+
+The right dual functor is analogous.  Since the left and right duals are quasi-inverse to each other, they're each equivalences.
+% In principle, need to check naturality and hexagon for those isos.
+\end{proof}
+\begin{remark}
+Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
+\end{remark}
+
+\begin{corollary} \label{cor:RigidityViaFunctors}
+	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural isomorphisms
+	\begin{align*}
+		\Hom( {}^*y, z) &\cong \Hom(1, z \otimes y) \\
+		\Hom(z, y) & \cong \Hom(z \otimes {}^*y, 1).
+	\end{align*}
+\end{corollary}
+
+\begin{proof}
+	It is clear from the previous lemma that a rigid tensor category admits such a structure (the natural isomorphisms in question are induced by the evaluation and coevaluation). Conversely, if we are given such a structure, then applying the above natural isomorphisms in the cases $z={}^*y$ and $y$ yield evaluation and coevaluation maps demonstrating ${}^*y$ as the right dual of $y$. Left duals are obtained by the same argument applied to the inverse of the functor ${}^*(-)$.
+\end{proof}
+
+% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
+
+
+%\begin{remark}
+%The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
+%\end{remark}
+
+\section{Bimodule categories} \label{sec-tc-bimodcat}
+
+\begin{definition}
+	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that
+	\begin{itemize}
+		\item all hom categories are linear categories, 
+		\item horizontal composition is multilinear, and
+		\item there are identifications of monoidal categories $\Hom(x,x) \simeq \cD$, $\Hom(y,y) \simeq \cC$, and $\Hom(y,x) \simeq \emptyset$.
+	\end{itemize}
+	We will often abuse notation and refer to the value $\cM = \Hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
+\end{definition}
+	
+Unwrapping this definition we see that a left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+%	\CSP{This looks a little gross. I should change it.}
+	\begin{align*}
+		\alpha: & \;    \otimes^{\cM} \circ (\otimes \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
+		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
+	\end{align*}
+%	\begin{align*}
+%		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
+%		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
+%	\end{align*}	
+	satisfying the evident pentagon and triangle identities. 
+
+\begin{definition}		
+A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that 
+%	\begin{itemize}
+		 $F$ is the identity on objects,
+		  the restriction of $F$ to each hom category is linear,
+		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
+%	\end{itemize}
+A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
+	A {\em bimodule transformation} is a transformation of functors of bicategories, which restricts to the identity on $\Hom(x,x)$ and $\Hom(y,y)$, and such that the component 1-cells are trivial.  
+\end{definition}
+	
+%
+Bimodule categories, functors, and transformations form a strict 2-category.
+%If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
+
+\begin{example}
+	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. 
+\end{example}
+
+\begin{example}
+	For any algebra object $A$ in a tensor category $\cC$ the categories $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are respectively left and right $\cC$-module categories. 
+\end{example}
+
+\begin{example}
+	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors is a tensor category. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cN, \cN)$-$\Fun_{\cC}(\cM, \cM)$-bimodule category. 
+	%\CSP{Do I have the right convention for the actions here?} \NS{I think you got it backwards.  $\Fun(\cM,\cM)$ left acts on $\cM$ and so its action by precomposition should be a right action} 
+\end{example}
+
+\begin{remark}
+ 	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. 
+\end{remark}
+
+We will also need a slightly more general notion of bimodule morphism to make sense of multilinear bimodule maps. These in turn are used to define the external Deligne tensor product of bimodule categories and, later,  in defining the symmetric monoidal 3-category of tensor categories. 
+
+\begin{definition}
+	A {\em twisted bimodule functor} from a $\cC$-$\cD$-bimodule category $\cM$  to $\cC'$-$\cD'$-bimodule category $\cM'$ is a functor of bicatgories from $\cM$ to $\cM'$ which restricts to the identity on objects and is linear on hom categories. A {\em twisted bimodule transformation} between twisted bimodule functors is a transformation of functors of bicategories such that the component 1-cells are trivial.
+\end{definition}
+
+Thus a twisted bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category $\cM'$ consists in part of tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. We will say the the twisted bimodule functor {\em extends the tensor functors $f$ and $g$}. 
+
+If we are given a $\cC'$-$\cD'$-bimodule category $\cM'$ and tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, then we may also form the {\em twisted bimodule category} ${}_f{\cM'}_g$.  The underlying linear category of ${}_f{\cM'}_g$ is $\cM'$, but the actions are by $\cC$ and $\cD$ via the tensor functors $f$ and $g$. A twisted bimodule functor $\cM \to \cM'$ extending $f$ and $g$ is the same as a $\cC$-$\cD$-bimodule functor $\cM \to {}_f{\cM'}_g$.  Later on we will sometimes use the notation ${}_{\langle f \rangle} \cM'_{\langle g \rangle}$ instead of ${}_f{\cM'}_g$, in cases where the functors $f$ and $g$ are themselves unwieldy composites.
+
+With twisted bimodule functors as morphisms, there exists a terminal bimodule category $\cT$. As a bicategory, each of its non-empty hom categories is the terminal linear category. The product of bimodule categories $\cM \times_{\cT} \cM'$ is defined as the fiber product of bicategories over $\cT$. We will abuse notation and write this as $\cM \times \cM'$. This is again a bicategory with precisely two objects $x$ and $y$. Moreover
+\begin{equation*}
+	\Hom_{\cM \times \cM'}(a,b) = \Hom_\cM(a,b) \times \Hom_{\cM'}(a,b)
+\end{equation*}
+for all pairs $a,b \in \{ x,y \}$.
+
+If $\{ \cM_\alpha \}$ is a collection of bimodule categories then a {\em twisted multilinear bimodule functor} from $\{ \cM_\alpha \}$ into a bimodule category $\cN$ is a functor of bicategories
+\begin{equation*}
+	\prod_{\alpha} \cM_\alpha \to \cN
+\end{equation*}
+which is the identity on objects, and which is a twisted bimodule functor in each variable. 
+
+\section{The Deligne tensor product and finite linear categories} \label{sec-tc-deligne}
+
+The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  This tensor product only makes sense for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
+
+\begin{definition} % This is from EGNO Definition 1.18.2.
+	A linear category $\cC$ is {\em finite} if 
+	\begin{enumerate}
+		\item $\cC$ has finite dimensional spaces of morphisms;
+		\item every object of $\cC$ has finite length;
+		\item $\cC$ has enough projectives, i.e. every simple object of $\cC$ has a projective cover; and
+		\item there are finitely many isomorphism classes of simple objects.  
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
+\end{remark}
+
+The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
+
+\begin{proposition} \label{prop:AFT}
+	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
+	\begin{enumerate}
+		\item $\cG$ is left exact;  
+		\item $\cG$ is left exact and satisfies the following {\em Solution Set Condition:} \\  For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
+		\item $\cG$ admits an (additive, ${\Vect}$-enriched) left adjoint.
+	\end{enumerate}
+\end{proposition}
+\begin{proof} This is a variation of the proof given in \cite[V.6.Thm 2]{MR0354798}.
+Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically additive, and as the unit and counit maps are linear maps of vector spaces, $\cF$ is also $\overline{\Vect}$-enriched. 
+
+
+To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$),
+as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
+\begin{equation*}
+	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
+\end{equation*}
+The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\Hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus by a straightforward calculation [MacLane V.6.Thm 1], we see that $v$ is initial. 
+
+Finally, if $\cG$ is left exact, then it satisfies the solution set condition. To see this note that each object $d \in \cD$  has a finite number of distinct quotients in $\cD$, hence also a finite number quotients of the form  $\cG(c)$ for some $c \in \cC$. Thus we may choose a finite index set $I$ and objects  $c_i \in \cC$, together with maps $d \to \cG(c_i)$ exhausting the finite collection of possible quotients of $d$. Since any map $d \to \cG(c)$ must factor through one of these quotients, we have construct a solution set.   
+\end{proof}
+
+\begin{corollary}
+	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it also admits a left adjoint which is also a linear functor. 
+\end{corollary}
+
+\begin{proof}
+	The second statement is just a rephrasing of the above proposition; the first follows by passing to the opposite linear category.  
+\end{proof}
+
+
+\begin{corollary}
+If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if and only if it is left exact. 
+\end{corollary}
+
+\begin{proof}
+	A representable functor $\Hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
+%
+% 0 <-- C <--  B <--- A <-- 0 in C/C^op
+% 0 -->  \Hom(c,x) ---> hom(b,x) ---> hom(a, x)
+%		
+Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
+	\begin{equation*}
+		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^\op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
+	\end{equation*}
+	In other words,  the object $F(k)$ represents the functor $G$. 
+\end{proof}
+
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
+
+\begin{theorem}[\cite{EGNO}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
+	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
+\end{theorem}
+
+\begin{definition}
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
+\begin{center}
+\begin{tikzpicture}
+	\node (LT) at (0, 1) {$F(M \otimes^{\cM} C, N)$};
+	\node (LB) at (0, 0) {$G(M \otimes^{\cM} C, N)$};
+	\node (RT) at (3, 1) {$F(M, C \otimes^{\cN} N)$};
+	\node (RB) at (3, 0) {$G(M, C \otimes^{\cN} N)$};
+	\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->] (LT) -- node [above] {$$} (RT);
+	\draw [->] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [below] {$$} (RB);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}.
+\end{center}
+\end{definition}
+
+
+\begin{definition}
+	Let $\cA$ and $\cB$ be right and left $\cC$-module categories, respectively. The {\em Deligne tensor product $\cA \boxtimes_{\cC} \cB$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$ which induces, for all linear categories $\cD$, an equivalence between the categories of $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and linear functors $\cA \boxtimes_{\cC} \cB \to \cD$. 
+\end{definition}
+
+If it exists, the Deligne tensor product is unique up to an equivalence, which in turn is unique up to unique natural isomorphism. Equivalently, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
+
+\begin{theorem} \label{thm:DelignePrdtOverATCExists}
+	Let $\cC$ be a finite tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
+	\begin{enumerate}
+		\item The Deligne tensor product $\cA \boxtimes_{\cC} \cB$ exists and is a finite linear category;
+		\item If $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$, then $\cA \boxtimes_{\cC} \cB \simeq \Mod{A }{B}(\cC)$;
+	\end{enumerate} 
+Moreover if $\cC$ is rigid, then 	
+	\begin{enumerate}
+		\item[(3)] The functor $\boxtimes_{\cC}$ is exact in each variable and satisfies 
+		\begin{equation*}
+			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes_{\cC} \cB} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
+		\end{equation*}
+		\item[(4)] If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
+	\end{enumerate} 
+\end{theorem}
+
+\begin{proof}
+	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite[Prop 1.46.2]{EGNO}).
+	By Theorem \ref{thm:EGNO2.11.6} to show (1) and (2) it is enough to assume that $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$ and show that $\Mod{A }{B}(\cC)$ has the desired universal property. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced multilinear functor 
+		\begin{equation*}
+			T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC),  
+		\end{equation*}
+and we will show that $T$ induces an equivalence between $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and linear functors out of $\Mod{A}{B}(\cC)$.
+	
+	To this end, let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cD$ be a $\cC$-balanced multilinear functor.  
+	There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since  every $A$-$B$-bimodule $X$ is a coequalizer of free $A$-$B$-bimodules, namely the canonical coequalizer  
+	\begin{equation*}
+		X \leftarrow A \otimes X \otimes B \leftleftarrows A \otimes A \otimes X \otimes B \otimes B,
+	\end{equation*}
+	and since $\overline{F}$ is right exact the result follows.
+	
+	If $\cC$ is rigid, then by Lemma \ref{lma:RigidIsExact} the functor $T = \boxtimes_{\cC}$ is exact in each variable. The formula in (3) then follows as a standard exercise in using duals. Finally let $F: \cA \times \cB \to \cD$ be a $\cC$-balanced multilinear functor which is exact in each variable and let $\overline{F}: \cA \boxtimes_\cC \cB \to \cD$ be its linear extension (which is always right exact). Since $F$ is exact in each variable, $\overline{F}$ preserves left exact sequences of free $A$-$B$-bimodules (where the maps are also free). Since every $A$-$B$-bimodule has a functorial resolution by free $A$-$B$-bimodules (coming from the above mentioned coequalizer), a diagram chase shows that $\overline{F}$ is also left exact. Hence (4) is also satisfied. 
+\end{proof}
+
+
+%\begin{proposition}[]
+%	Let $\cA$ and $\cB$ be finite linear categories. Then,
+%	\begin{enumerate}
+%		\item The Deligne tensor product $\cA \boxtimes \cB$ exists and is a finite linear category;
+%		\item If $\cA = \Mod{A}{}$ and $\cB = \Mod{B}{}$, then $\cA \boxtimes \cB \simeq \Mod{A \otimes B}{}$;
+%		\item The functor $\boxtimes$ is exact in each variable and satisfies 
+%		\begin{equation*}
+%			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes \cB} (x \boxtimes y, x' \boxtimes y'),
+%		\end{equation*}
+%		\item If $F: \cA \times \cB \to \cC$ is a multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes \cB \to \cC$. 
+%	\end{enumerate} 
+%\end{proposition}
+
+
+\begin{remark} \label{rmk:rigidpreservedbytensor}
+	We may use the case $\cC= \Vect_k$ to rewrite part the data  of a tensor category as a linear category $\cD$ equipped with an object $1 \in \cD$ and a linear functor $\otimes: \cD \boxtimes \cD \to \cD $, together with natural transformations $\alpha$, $\lambda$, and $\rho$, as before. Moreover by Corollary \ref{cor:RigidityViaFunctors} the tensor product of two rigid tensor categories is again rigid. 
+\end{remark}
+
+\begin{remark}
+	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced twisted bilinear bimodule functors. 
+\end{remark}
+
+\begin{lemma} \label{Lma:FunctorsAsATensorPdt}
+	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
+	\begin{equation*}
+		\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN \simeq \Fun_\cC(\cM,\cN).
+	\end{equation*}
+	Here $\Fun_\cC$ denotes the category of (right exact) $\cC$-module functors. 
+	Moreover, if $\cM$ and $\cN$ are bimodule categories, then the above equivalence is a bimodule equivalence. 
+\end{lemma}
+
+\begin{proof}
+	The last sentence follows since in that case the natural functor is a bimodule functor. By the Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ (\cite[Prop 2.12.2]{EGNO}) can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor, and given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
+	\begin{equation*}
+		M \leftarrow M \otimes A \leftleftarrows M \otimes A \otimes A
+	\end{equation*} 
+the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus the natural map  $\Mod{A}{B}(\cC) \to \Fun_\cC(\cM, \cN)$ is essentially surjective. The above argument also shows it is fully-faithful, so that $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$, which in particular shows $\Fun_\cC(\cM, \cC) \simeq \Mod{}{A}(\cC)$. Now the result follows from Theorem \ref{thm:DelignePrdtOverATCExists}.
+%Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced bilinear functor 
+%\begin{equation*}
+%	T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC). 
+%\end{equation*}
+%To complete the proof we must show this induces an equivalence,
+%\begin{equation*}
+%	\Mod{}{A}(\cC) \boxtimes_\cC \Mod{B}{}(\cC) \simeq \Mod{B}{A}(\cC).
+%\end{equation*}
+%When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
+\end{proof}
+
+\begin{remark} \label{remark-tensorasfunctors}
+If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\cD}(\cM,\cD) \simeq \Fun_{\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. 
+\end{remark}
+
+
+
+For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
+
+\begin{definition}
+Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let Let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  
+\end{definition}
+
+\begin{lemma}
+If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and ${}^*\Fun^L_{\cC}(\cN, \cM)$ where $\Fun^L_\cC$ denotes \em{left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)^*$. 
+\end{lemma}
+\begin{proof}
+We've already seen that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking adjoints is clearly an equivalence because the right adjoint is quasi-inverse to the left adjoint and vice-versa.  So we need only check that the module structures agree.  First note that taking adjoints interchanges precomposition and postcomposition.  Second, in the former case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$, while in the latter case we have that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
+\end{proof}
+
+\begin{lemma} \label{lem:dual-formula-for-adjoints}
+We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
+\end{lemma}
+\begin{proof}
+By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
+\end{proof}
+
+\begin{remark}
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
+\end{remark}
 
 
 
