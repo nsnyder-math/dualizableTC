@@ -53,11 +53,25 @@ We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, 
 
 \section{Introduction}
 
+Since their mathematical inception in the late eighties, topological quantum field theories have provided a bridge linking algebraic and topological structures in exciting ways. This passageway has been has been widened, recently, with the advent of extended topological field theories and the proof of the cobordism hypothesis. 
+The most promising and immediate applications of these developments appear to lie in the study of 3-dimensional  theories. The goals of the current work are modest, yet are essential for any future developments in the study of extended 3-dimensional  topological field theories. 
+
+\CSP{should we cite Witten too?}
+Topological quantum field theories, as conceived by G. Segal and M. Atiyah, may be described as functors from a symmetric monoidal category of bordisms to a target symmetric monoidal category, such as vector spaces. 
+Extended topological quantum field theories are a higher categorical generalization of this notion. A higher category ($n$-category) has objects and morphism, just as an ordinary category, but also has 2-moprhisms between the morphism, 3-morphisms between the 2-morphisms, and so on. An important example of a (symmetric monoidal) $n$-category is the bordism category of dimension $d$. The objects of this $n$-category consist of manifolds of dimension $d-n$, the 1-morphisms consist of $(d-n +1)$-dimensional {\em bordisms} between the $(d-n)$-dimensional manifolds. The 2-morphisms consist of $(d-n +2)$-dimensional bordisms between the 1-dimensional bordisms, and so on all the way through dimension $d$. Composition is given by gluing of bordisms. 
+
+An extended  topological field theory is a symmetric monoidal $n$-functor from the bordism $n$-category to a target symmetric monoidal $n$-category. The most well known constructions of 3-dimensional topological field theories are the Turaev-Viro construction and the Reshetikhin-Turaev construction. Both of these constructions are known to be extended topological field theories \CSPcomm{ Cite a bunch of things, including [Bartlett-Douglas-Schommer-Pries-Vicary, in prep.]} with values in the symmetric monoidal category of linear categories, linear functors, and natural transformations (with the Deligne tensor product as the monoidal structure). In fact the factor through the full subcategory equivalent to algebras, bimodules, and bimodule maps.
+\CSP{should this be explained better?}
+A {\em fully local} extended 3-dimensional topological field theory  is a symmetric monoidal $3$-functor from the 3-dimensional bordism $3$-category to a target symmetric monoidal $3$-category, which deloops the 2-category  linear categories. In this paper we construct such a 3-category. The objects consist of linear tensor categories, the morphisms are linear bimodule categories, the 2-moprhisms are bimodule functors, and the 3-morphisms are bimodule natural transformations. 
+
+
+
+
 \CSPcomm{[...]
 \begin{itemize}
-	\item Interest in TQFTs, 3D tqfts especially. 
 	\item extended tqfts, cobordism hypothesis. 
-	\item 3-category of tensor categories, bimodule categories, functors, nat trans.
+	\item More detail about the theory of symmetric monoidal $(\infty,n)$-categories.
+	\item More detail on 3-category of tensor categories, bimodule categories, functors, nat trans. ?
 \end{itemize}
 }
 
@@ -461,6 +475,7 @@ such that $F$ is linear in each variable separately. A linear category will be s
 	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
 \end{example}
 
+\CSPcomm{ [remove this...] 
 Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$, also in the literature $\mp$ is also denotes $rev$.)
 %We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
 
@@ -539,6 +554,8 @@ Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual
 %\begin{remark}
 %The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
 %\end{remark}
+
+}
 
 \section{Bimodule categories} \label{sec-tc-bimodcat}
 
