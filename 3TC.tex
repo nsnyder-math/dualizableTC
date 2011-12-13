@@ -54,14 +54,15 @@ We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, 
 \section{Introduction}
 
 Since their mathematical inception in the late eighties, topological quantum field theories have provided a bridge linking algebraic and topological structures in exciting ways. This passageway has been has been widened, recently, with the advent of extended topological field theories and the proof of the cobordism hypothesis. 
-The most promising and immediate applications of these developments appear to lie in the study of 3-dimensional  theories. The goals of the current work are modest, yet are essential for any future developments in the study of extended 3-dimensional  topological field theories. 
+The most promising and immediate applications of these higher categorical developments appear to lie in the study of 3-dimensional  theories. The goals of the current work are modest, yet are essential for any future developments in the study of extended 3-dimensional  topological field theories. 
 
 \CSP{should we cite Witten too?}
 Topological quantum field theories, as conceived by G. Segal and M. Atiyah, may be described as functors from a symmetric monoidal category of bordisms to a target symmetric monoidal category, such as vector spaces. 
 Extended topological quantum field theories are a higher categorical generalization of this notion. A higher category ($n$-category) has objects and morphism, just as an ordinary category, but also has 2-moprhisms between the morphism, 3-morphisms between the 2-morphisms, and so on. An important example of a (symmetric monoidal) $n$-category is the bordism category of dimension $d$. The objects of this $n$-category consist of manifolds of dimension $d-n$, the 1-morphisms consist of $(d-n +1)$-dimensional {\em bordisms} between the $(d-n)$-dimensional manifolds. The 2-morphisms consist of $(d-n +2)$-dimensional bordisms between the 1-dimensional bordisms, and so on all the way through dimension $d$. Composition is given by gluing of bordisms. 
 
-An extended  topological field theory is a symmetric monoidal $n$-functor from the bordism $n$-category to a target symmetric monoidal $n$-category. The most well known constructions of 3-dimensional topological field theories are the Turaev-Viro construction and the Reshetikhin-Turaev construction. Both of these constructions are known to be extended topological field theories \CSPcomm{ Cite a bunch of things, including [Bartlett-Douglas-Schommer-Pries-Vicary, in prep.]} with values in the symmetric monoidal category of linear categories, linear functors, and natural transformations (with the Deligne tensor product as the monoidal structure). In fact the factor through the full subcategory equivalent to algebras, bimodules, and bimodule maps.
+An extended  topological field theory is a symmetric monoidal $n$-functor from the bordism $n$-category to a target symmetric monoidal $n$-category. The most well known constructions of 3-dimensional topological field theories are the Turaev-Viro construction and the Reshetikhin-Turaev construction. Both of these constructions are known to be extended topological field theories \CSPcomm{ Cite a bunch of things, including [Bartlett-Douglas-Schommer-Pries-Vicary, in prep.]} with values in the symmetric monoidal category of linear categories, linear functors, and natural transformations (with the Deligne tensor product as the monoidal structure). In fact they factor through the full subcategory equivalent to algebras, bimodules, and bimodule maps.
 \CSP{should this be explained better?}
+
 A {\em fully local} extended 3-dimensional topological field theory  is a symmetric monoidal $3$-functor from the 3-dimensional bordism $3$-category to a target symmetric monoidal $3$-category, which deloops the 2-category  linear categories. In this paper we construct such a 3-category. The objects consist of linear tensor categories, the morphisms are linear bimodule categories, the 2-moprhisms are bimodule functors, and the 3-morphisms are bimodule natural transformations. 
 
 
@@ -104,20 +105,22 @@ The goal of the final Section \ref{sec-tc-threecat} is to construct a symmetric 
 
 
 
-%\section{The symmetric monoidal 3-category of tensor categories} 
 
 
 
 %In this section we describe the symmetric monoidal 3-category of tensor categories. 
 %
 
-\section{Symmetric monoidal structures via the category $\Gamma$} \label{sec-symmonGamma}
 
 There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of $n$-Segal categories of \CSPcomm{[ref.. Simpson, Tamsamani, Pellesier (sp?)]}, which we relate to the iterated complete Segal spaces of Barwick, \CSP{Get reference. Possible reference to Simpson's work too?}. More precisely, we utilize the symmetric monoidal variants thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
 \begin{warning}
 In this section we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
 \end{warning}
+
+\section{Symmetric monoidal structures via the category $\Gamma$} \label{sec-symmonGamma}
+
+
 
 \begin{definition}
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
@@ -201,8 +204,8 @@ The assignment $A \mapsto \Vect(A)$ gives a functor $\Vect: \Gamma^{op} \to \Cat
 \end{equation*}
 This is easily seen to be strictly compatible with composition in $\Gamma^\text{op}$. Moreover, since the tensor product is defined by a universal property, the forgetful functor $\Vect(A) \to \Vect^{\times |A|}$ is an equivalence of categories, as desired.  
 
+\section{Composition via the category $\Delta$}
 
-\section{Symmetric monoidal $(\infty,n)$-categories} \label{sec-symmoninftyNcat}
 
 \NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
@@ -284,7 +287,10 @@ This may be contrasted with the notion of a category enriched to $C$, which cons
 
 Thus a strict 2-category may equivalently be regarded as a simplicial object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such the the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
 
-We would now like to use this to insight to describe higher categories. Philosophically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a presheaf on $\Delta$ with values in the category of $(n-1)$-categories. Moreover this should mimic the nerve. The element $[n] \in Delta$ should be mapped to the $(n-1)$-category of all length $n$ composable strings of $1$-morphisms. 
+\section{Symmetric monoidal $(\infty,n)$-categories} \label{sec-symmoninftyNcat}
+
+
+We would now like to use this to insight to describe higher categories. Philosophically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a presheaf on $\Delta$ with values in the category of $(n-1)$-categories. Moreover this should mimic the nerve. The element $[n] \in \Delta$ should be mapped to the $(n-1)$-category of all length $n$ composable strings of $1$-morphisms. 
 
 However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are completely analogous to the previous situation of symmetric monoidal structures. However, the insight gained from the previous section also suggests a possible solution. Rather then require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
 \CSP{Get references/check references for this.}
@@ -475,87 +481,7 @@ such that $F$ is linear in each variable separately. A linear category will be s
 	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
 \end{example}
 
-\CSPcomm{ [remove this...] 
-Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$, also in the literature $\mp$ is also denotes $rev$.)
-%We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
 
-
-%%%%%%%%%%%
-%
-%  Here is where the definition of left/right duals and rigidity were initially. 
-%
-%%%%%%%%%%%%
-
-%\begin{definition}
-%	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
-%\end{definition}
-
-
-\begin{lemma} \label{lma:RigidIsExact}
-	Let $(\cC, \otimes)$ be a rigid tensor category (cf. Def. \ref{def:rigid}). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
-\end{lemma}
-
-\begin{proof}
-	The units and counits give rise to natural isomorphisms %\NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
- \begin{equation*} 
- 	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
- \end{equation*}
-	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
-\end{proof}
-
-\begin{corollary}
-	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
-\end{corollary}
-
-\begin{proof}
-	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
-\end{proof}
-
-\begin{lemma}
-	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
-\end{lemma}
-
-%\begin{proposition}
-%If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
-%\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
-
-\begin{proof}
-Let $\otimes$ denote the tensor product on $\cC$ and $\cdot$ the tensor product on $\cC^{\mop}$, so that $x \cdot y = y \otimes x$.
-
-First we construct the functor ${(-)^*}$.  Define ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta_a: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon_a: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: 
-\begin{equation*}
-	{(f)^*} := (\varepsilon_b \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes f \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes \eta_a).
-\end{equation*}
-
-Next we want to construct a monoidal functor structure on $(-)^*$, that is we need natural transformations $f_{a,b}: (a \otimes b)^* \rightarrow a^* \cdot b^* = b^* \otimes a^*$.  Since the left dual is unique up to unique isomorphism, it is enough to check that $b^* \otimes a^*$ is a left dual to $b \otimes a$.  Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \otimes \rd{a} \xra{\eta_b} a \otimes b \otimes \rd{b} \; \rd{a}$ show that $(\rd{b} \otimes \rd{a})$ is a left dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a \otimes b)}$.  It is straightforward to check that this satisfies the necessary hexagon relation.
-
-The right dual functor is analogous.  Since the left and right duals are quasi-inverse to each other, they're each equivalences.
-% In principle, need to check naturality and hexagon for those isos.
-\end{proof}
-\begin{remark}
-Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
-\end{remark}
-
-\begin{corollary} \label{cor:RigidityViaFunctors}
-	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural isomorphisms
-	\begin{align*}
-		\Hom( {}^*y, z) &\cong \Hom(1, z \otimes y) \\
-		\Hom(z, y) & \cong \Hom(z \otimes {}^*y, 1).
-	\end{align*}
-\end{corollary}
-
-\begin{proof}
-	It is clear from the previous lemma that a rigid tensor category admits such a structure (the natural isomorphisms in question are induced by the evaluation and coevaluation). Conversely, if we are given such a structure, then applying the above natural isomorphisms in the cases $z={}^*y$ and $y$ yield evaluation and coevaluation maps demonstrating ${}^*y$ as the right dual of $y$. Left duals are obtained by the same argument applied to the inverse of the functor ${}^*(-)$.
-\end{proof}
-
-% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
-
-
-%\begin{remark}
-%The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
-%\end{remark}
-
-}
 
 \section{Bimodule categories} \label{sec-tc-bimodcat}
 
@@ -1397,6 +1323,89 @@ If $\cC$ is a fusion category we define its global dimension to be \NScomm{[figu
 A fusion category of non-zero global dimension is separable. \CSPcomm{[add references/sketch of the proof.]}
 \end{proposition}
 
+---------
+
+\CSPcomm{ [remove this...] 
+Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$, also in the literature $\mp$ is also denotes $rev$.)
+%We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
+
+
+%%%%%%%%%%%
+%
+%  Here is where the definition of left/right duals and rigidity were initially. 
+%
+%%%%%%%%%%%%
+
+%\begin{definition}
+%	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
+%\end{definition}
+
+
+\begin{lemma} \label{lma:RigidIsExact}
+	Let $(\cC, \otimes)$ be a rigid tensor category (cf. Def. \ref{def:rigid}). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
+\end{lemma}
+
+\begin{proof}
+	The units and counits give rise to natural isomorphisms %\NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
+ \begin{equation*} 
+ 	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
+ \end{equation*}
+	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
+\end{proof}
+
+\begin{corollary}
+	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
+\end{corollary}
+
+\begin{proof}
+	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
+\end{proof}
+
+\begin{lemma}
+	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
+\end{lemma}
+
+%\begin{proposition}
+%If $\cC$ is a fusion category, then there exist monoidal functors $\ld{(-)} : \cC \ra \cC^{\mop}$ and $\rd{(-)} : \cC \ra \cC^{\mop}$ whose values on any object $a \in \cC$ are respectively a left dual object $\ld{(a)}$ and a right dual object $\rd{(a)}$ for $a$.
+%\end{proposition} \CD{This proposition doesn't actually depend on fusion, right?  Should change the statement so that only what is needed (existence of duals) is assumed.}
+
+\begin{proof}
+Let $\otimes$ denote the tensor product on $\cC$ and $\cdot$ the tensor product on $\cC^{\mop}$, so that $x \cdot y = y \otimes x$.
+
+First we construct the functor ${(-)^*}$.  Define ${(-)^*}$ on objects by picking for each object $a \in \cC$ a left dual object ${a^*} \in \cC$.  Also pick a unit map $\eta_a: 1 \ra a \otimes {a^*}$ and a counit map  $\varepsilon_a: {a^*} \otimes a \ra 1$  giving ${a^*}$ the structure of a left dual to $a$.  Define the functor ${(-)^*}$ on a morphism $f: a \ra b$ to be its {\em mate}: 
+\begin{equation*}
+	{(f)^*} := (\varepsilon_b \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes f \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes \eta_a).
+\end{equation*}
+
+Next we want to construct a monoidal functor structure on $(-)^*$, that is we need natural transformations $f_{a,b}: (a \otimes b)^* \rightarrow a^* \cdot b^* = b^* \otimes a^*$.  Since the left dual is unique up to unique isomorphism, it is enough to check that $b^* \otimes a^*$ is a left dual to $b \otimes a$.  Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \otimes \rd{a} \xra{\eta_b} a \otimes b \otimes \rd{b} \; \rd{a}$ show that $(\rd{b} \otimes \rd{a})$ is a left dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a \otimes b)}$.  It is straightforward to check that this satisfies the necessary hexagon relation.
+
+The right dual functor is analogous.  Since the left and right duals are quasi-inverse to each other, they're each equivalences.
+% In principle, need to check naturality and hexagon for those isos.
+\end{proof}
+\begin{remark}
+Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
+\end{remark}
+
+\begin{corollary} \label{cor:RigidityViaFunctors}
+	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural isomorphisms
+	\begin{align*}
+		\Hom( {}^*y, z) &\cong \Hom(1, z \otimes y) \\
+		\Hom(z, y) & \cong \Hom(z \otimes {}^*y, 1).
+	\end{align*}
+\end{corollary}
+
+\begin{proof}
+	It is clear from the previous lemma that a rigid tensor category admits such a structure (the natural isomorphisms in question are induced by the evaluation and coevaluation). Conversely, if we are given such a structure, then applying the above natural isomorphisms in the cases $z={}^*y$ and $y$ yield evaluation and coevaluation maps demonstrating ${}^*y$ as the right dual of $y$. Left duals are obtained by the same argument applied to the inverse of the functor ${}^*(-)$.
+\end{proof}
+
+% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
+
+
+%\begin{remark}
+%The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
+%\end{remark}
+
+}
 
 
 
