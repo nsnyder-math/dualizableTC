@@ -41,7 +41,6 @@ We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, 
 	\node [yshift = -5cm, red!80!black,scale=3,text opacity=0.2] 
 		at (current page.center) {Please Do Not Distribute}; 
 \end{tikzpicture}
-\tikzexternalenable
 
 \setcounter{tocdepth}{3}
 \tableofcontents
@@ -54,7 +53,8 @@ We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, 
 \section{Introduction}
 
 Since their mathematical inception in the late eighties, topological quantum field theories have provided a bridge linking algebraic and topological structures in exciting ways. This passageway has been has been widened, recently, with the advent of extended topological field theories and the proof of the cobordism hypothesis. 
-The most promising and immediate applications of these higher categorical developments appear to lie in the study of 3-dimensional  theories. The goals of the current work are modest, yet are essential for any future developments in the study of extended 3-dimensional  topological field theories. 
+The most promising and immediate applications of these higher categorical developments appear to lie in the study of 3-dimensional  theories, and the current work provides an essential tool for future study of these theories. 
+
 
 \CSP{should we cite Witten too?}
 Topological quantum field theories, as conceived by G. Segal and M. Atiyah, may be described as functors from a symmetric monoidal category of bordisms to a target symmetric monoidal category, such as vector spaces. 
@@ -63,8 +63,15 @@ Extended topological quantum field theories are a higher categorical generalizat
 An extended  topological field theory is a symmetric monoidal $n$-functor from the bordism $n$-category to a target symmetric monoidal $n$-category. The most well known constructions of 3-dimensional topological field theories are the Turaev-Viro construction and the Reshetikhin-Turaev construction. Both of these constructions are known to be extended topological field theories \CSPcomm{ Cite a bunch of things, including [Bartlett-Douglas-Schommer-Pries-Vicary, in prep.]} with values in the symmetric monoidal category of linear categories, linear functors, and natural transformations (with the Deligne tensor product as the monoidal structure). In fact they factor through the full subcategory equivalent to algebras, bimodules, and bimodule maps.
 \CSP{should this be explained better?}
 
-A {\em fully local} extended 3-dimensional topological field theory  is a symmetric monoidal $3$-functor from the 3-dimensional bordism $3$-category to a target symmetric monoidal $3$-category, which deloops the 2-category  linear categories. In this paper we construct such a 3-category. The objects consist of linear tensor categories, the morphisms are linear bimodule categories, the 2-moprhisms are bimodule functors, and the 3-morphisms are bimodule natural transformations. 
+Extended topological field theories have received renewed interest with the recent proof (due to Hopkins and Lurie \cite{??}) of the Baez-Dolan cobordisms hypothesis. This result concerns {\em fully local} extended topological field theories in which the dimension of the bordism category matches the categorical dimension. Such theories allow one to decompose manifolds along submanifolds of arbitrary codimension. 
 
+\CSPcomm{The cobordism hypothesis uses $(\infty,n)$-categories, it says that the cobordism category equipped with tangential framed is free, etc etc}
+
+
+  is a symmetric monoidal $3$-functor from the 3-dimensional bordism $3$-category to a target symmetric monoidal $3$-category, which deloops the 2-category  linear categories. In this paper we construct such a 3-category. The objects consist of linear tensor categories, the morphisms are linear bimodule categories, the 2-moprhisms are bimodule functors, and the 3-morphisms are bimodule natural transformations. 
+
+
+The goals of the current work are modest, yet are essential for any future developments in the study of extended 3-dimensional  topological field theories. 
 
 
 
@@ -78,7 +85,9 @@ A {\em fully local} extended 3-dimensional topological field theory  is a symmet
 
 Lurie's overview of his proof of the cobordism hypothesis employs the language of $n$-fold iterated complete Segal spaces introduced Clark Barwick \cite{???}, or more precisely the symmetric monoidal variant thereof. In this work we construct $\TC$ as an object of the equivalent symmetric monoidal variant of Simpsons' Segal $n$-categories. We find it  slightly easier to construct our model as a Segal category, but also review the connection between these two models, describing how to obtain a  $n$-fold complete Segal space from a Segal $n$-category. We pay careful attention to the matter of full-dualizbality, permitting us to apply Lurie's results directly.  
 
-We begin in Section \ref{sec-symmonGamma} with a some expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra. Section \ref{sec-symmoninftyNcat} gives a precise account of symmetric monoidal $n$-fold Segal categories, and Section \ref{} discuss the matter of full-dualizbality.
+We begin in Sections \ref{sec-symmonGamma} and \ref{sec-Compdelta} with a some expository material about symmetric monoidal $n$-categories, which we hope will make it more accessible to readers coming from topology or algebra. 
+
+Section \ref{sec-symmoninftyNcat} gives a precise account of symmetric monoidal $n$-fold Segal categories, and Section \ref{} discuss the matter of full-dualizbality.
 
 
 
@@ -114,6 +123,21 @@ The goal of the final Section \ref{sec-tc-threecat} is to construct a symmetric 
 
 There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of $n$-Segal categories of \CSPcomm{[ref.. Simpson, Tamsamani, Pellesier (sp?)]}, which we relate to the iterated complete Segal spaces of Barwick, \CSP{Get reference. Possible reference to Simpson's work too?}. More precisely, we utilize the symmetric monoidal variants thereof. There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
 
+
+
+The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. 
+\CSP{Find reference.}
+The Hopkins-Lurie proof of the cobordism hypothesis has been proven using this machinery, and so it is natural to  frame our results in this language as well. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and symmetric monoidal $n$-fold complete Segal spaces, respectively (these later are sometimes called special $\Gamma$-$n$-fold complete Segal spaces).
+These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
+
+On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{MR2555928}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number of classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
+%\begin{definition}
+%	An $n$-fold simplicial space $X$ is {\em essentially constant} if, when regarded as a functor $X: (\Delta^\textrm{op})^{\times n} \to h\textrm{-}(sSet)$, it is equivalent to a constant functor, where $h\textrm{-}(sSet)$ denotes the homotopy category of simplicial sets.  
+%\end{definition}
+%
+We may regard any $n$-fold simplicial space as a simplicial object in $(n-1)$-fold simplicial spaces. A $0$-fold simplicial space is understood to be a simplicial set.
+
+
 \begin{warning}
 In this section we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
 \end{warning}
@@ -142,9 +166,9 @@ This leaves us with two possible avenues of pursuit:
 \end{enumerate}
 Either of these options may be employed, and both give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, and indeed there is a well established and usable theory. This option is entirely reasonable in that case. 
 
-However in this paper we ultimately wish to describe a symmetric monoidal 3-category. Option (1) would generally require a robust theory of 4-categories and their weak functors. It is possible to do this using the theory of iterated complete Segal spaces, a model of $(\infty, n)$-categories which we will describe in the next section, but it is just as easy (and perhaps more explicit) to pursue the later option from the start. 
+However in this paper we ultimately wish to describe a symmetric monoidal 3-category. Option (1) would generally require a robust theory of 4-categories and their weak functors. Trimble's notion of tetracategory has recently appeared in print \cite{1112.0560} in a simplified form. The definition alone spans 15 pages. One could, alternatively, use a more compact homotopically inspired notion of $n$-category, such as the theory of iterated complete Segal spaces, a model of $(\infty, n)$-categories which we will describe in later, but it is just as easy (and perhaps more explicit) to pursue option (2) from the start. 
 
-In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly manageable solution. Again, it is instructive to consider the 1-categorical case first. To this end we will now describe how the symmetric monoidal category of vector spaces may be encoded as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
+In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly manageable solution. Again, it is instructive to consider the 1-categorical case first. We will now describe how the symmetric monoidal category of vector spaces may be encoded as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
 
 The monoidal structure in $\Vect$ is given by the tensor product of vector spaces, which is defined by a well-known universal property. The tensor product of $V_1$ and $ V_2$ is a universal vector space receiving a bilinear map from $V_1 \times V_2$. In other words, the tensor product $V_{12}$ comes equipped with a bilinear map  $V_1 \times V_2 \to V_{12}$, inducing for all vector spaces $W$ a natural bijection between bilinear maps $V_1 \times V_2 \to W$ and linear maps $V_{12} \to W$. We will say that the bilinear map  $V_1 \times V_2 \to V_{12}$ {\em realizes $V_{12}$ as a tensor product}. As with all universal properties, if the tensor product exists then it is unique up to unique isomorphism, and so it is common practice to write $V_{12} = V_1 \otimes V_2$ for any choice of tensor product.
 
@@ -204,12 +228,12 @@ The assignment $A \mapsto \Vect(A)$ gives a functor $\Vect: \Gamma^{op} \to \Cat
 \end{equation*}
 This is easily seen to be strictly compatible with composition in $\Gamma^\text{op}$. Moreover, since the tensor product is defined by a universal property, the forgetful functor $\Vect(A) \to \Vect^{\times |A|}$ is an equivalence of categories, as desired.  
 
-\section{Composition via the category $\Delta$}
+\section{Composition via the category $\Delta$} \label{sec-Compdelta}
 
 
-\NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
+%\NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
-In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section we will describe a similar process in which the composition in a category may be described through the use the combinatorial simplex category $\Delta$. Iterating this idea leads to the notion of {\em $n$-fold Segal category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  
+In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section we will describe a similar process in which the composition in a category may be described through the use the combinatorial simplex category $\Delta$. Iterating this idea leads to the notion of {\em Segal $n$-category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  
 
 \begin{definition}
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. 
@@ -234,14 +258,14 @@ But there are other aspects of $\Delta$ which come from its description as a cat
 \end{equation}
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. This square will play an important role in what follows. 
 
-Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. This well-known construction proceeds as follows: each of ordered sets $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ is $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
+Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. This well-known construction proceeds as follows: each ordered set $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ is $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
 The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
 \begin{equation*}
 	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \times \cdots \times \Hom_X(x_{n-1}, x_n).
 \end{equation*}
 In other words $NC_n$ consists of all length $n$ strings of composable morphisms of $X$.
 
-The nerve construction $N$ is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+The nerve construction is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (\ref{Eqn:Segal-Co-Map}),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -258,7 +282,7 @@ The nerve construction $N$ is a fully-faithful functor from categories and funct
 \end{center}
 are a pullback diagrams. 
 
-This can be extended to categories internal to a category $C$. The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$}\footnote{This is easily checked to be equivalent to the standard definition.} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+This can be extended to categories internal to a category $C$. The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -273,9 +297,9 @@ This can be extended to categories internal to a category $C$. The category of {
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-are a pullback diagrams. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. 
+are a pullback diagrams\footnote{This is easily checked to be equivalent to the standard definition.}. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. 
 
-This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $\Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of objects). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
+This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $\Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of ``objects''). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
 
 \begin{example}
 	An ordinary (small) category is a category enriched in sets.
@@ -287,30 +311,119 @@ This may be contrasted with the notion of a category enriched to $C$, which cons
 
 Thus a strict 2-category may equivalently be regarded as a simplicial object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such the the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
 
-\section{Symmetric monoidal $(\infty,n)$-categories} \label{sec-symmoninftyNcat}
 
 
 We would now like to use this to insight to describe higher categories. Philosophically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a presheaf on $\Delta$ with values in the category of $(n-1)$-categories. Moreover this should mimic the nerve. The element $[n] \in \Delta$ should be mapped to the $(n-1)$-category of all length $n$ composable strings of $1$-morphisms. 
 
 However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are completely analogous to the previous situation of symmetric monoidal structures. However, the insight gained from the previous section also suggests a possible solution. Rather then require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
 \CSP{Get references/check references for this.}
-Following this reasoning gives rise to the notion of weak $n$-category constructed by Simpson and Tamsamani. In what follows we will describe $(\infty,n)$-versions of this construction, where sets are replaced by spaces.  
+\CSPcomm{Following this reasoning gives rise to the notion of weak $n$-category constructed by Simpson and Tamsamani. In what follows we will describe $(\infty,n)$-versions of this construction, where sets are replaced by (simplicial) spaces.  }
+
+\begin{definition}[Sketch]
+	A Segal $0$-category is a Kan simplicial set. 	A {\em Segal $n$-category} is a simplicial object in $(n-1)$-fold simplicial spaces, such that the following conditions are satisfied:
+	\begin{enumerate}
+		\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete.
+		\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is a Segal $(n-1)$-category.
+		\item For every $m, k$, the Segal square,
+		\begin{center}
+		\begin{tikzpicture}
+			\node (LT) at (0, 1.5) {$X_{m+n}$};
+			\node (LB) at (0, 0) {$X_m$};
+			\node (RT) at (2, 1.5) {$X_n$};
+			\node (RB) at (2, 0) {$X_0$};
+			\draw [->] (LT) -- node [left] {$$} (LB);
+			\draw [->] (LT) -- node [above] {$$} (RT);
+			\draw [->] (RT) -- node [right] {$$} (RB);
+			\draw [->] (LB) -- node [below] {$$} (RB);
+			%\node at (0.5, 1) {$\ulcorner$};
+			%\node at (1.5, 0.5) {$\lrcorner$};
+		\end{tikzpicture}
+		\end{center}
+		is a (weak) pullback square of Segal $(n-1)$-categories,
+	\end{enumerate}
+\end{definition}
+
+\noindent In the next section we will make this definition more precise. We will also review a few of the existing model categories of $(\infty,n)$-categories which are based on the above ideas.  
+
+\section{Model categories of symmetric monoidal $(\infty,n)$-categories} \label{sec-symmoninftyNcat}
+
+\CSP{do we need a review of model categories?}
+
+In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the theories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories} (due originally to Hirschowitz and Simpson). Both are constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
+The former theory is important to this work because of its role in the proof of the cobordism hypothesis. The latter theory is important because it provides a model in which it is technically easier to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, something we do in the sequel. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration. These considerations will allow us, in subsequent work \CSPcomm{[cite ourselves]}, to identify the fully dualizable subcategory of this symmetric monoidal $(\infty,3)$-category along with its $O(3)$-action, while avoiding nearly all model category theoretic complications. 
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
 \end{definition}
 
-The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. 
-\CSP{Find reference.}
-The Hopkins-Lurie proof of the cobordism hypothesis has been proven using this machinery, and so it is natural to  frame our results in this language as well. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and symmetric monoidal $n$-fold complete Segal spaces, respectively (these later are sometimes called special $\Gamma$-$n$-fold complete Segal spaces).
-These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
+\begin{definition}
+		A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold complete Segal space} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold complete Segal space} if it is Reedy fibrant and the following conditions are satisfied
+		\begin{enumerate}
+			\item The $(n-1)$-fold simplicial space $X_0$ is {\em essentially constant}, i.e. the induced $(n-1)$-fold simplicial object in the homotopy category of spaces is constant. 
+			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold complete Segal space.
+			\item For every $m, n$, the Segal square,
+			\begin{center}
+			\begin{tikzpicture}
+				\node (LT) at (0, 1.5) {$X_{m+n}$};
+				\node (LB) at (0, 0) {$X_m$};
+				\node (RT) at (2, 1.5) {$X_n$};
+				\node (RB) at (2, 0) {$X_0$};
+				\draw [->] (LT) -- node [left] {$$} (LB);
+				\draw [->] (LT) -- node [above] {$$} (RT);
+				\draw [->] (RT) -- node [right] {$$} (RB);
+				\draw [->] (LB) -- node [below] {$$} (RB);
+				%\node at (0.5, 1) {$\ulcorner$};
+				%\node at (1.5, 0.5) {$\lrcorner$};
+			\end{tikzpicture}
+			\end{center}
+			induces a level-wise equivalence of $(n-1)$-fold simplicial spaces $X_{m+n} \to X_m \times_{X_0} X_n$.
+			\item The simplicial space $X_{k, 0 \dots, 0}$ is a complete Segal space for all $k\geq 0$. 
+		\end{enumerate}
+\end{definition}
 
-On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{MR2555928}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number of classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
-%\begin{definition}
-%	An $n$-fold simplicial space $X$ is {\em essentially constant} if, when regarded as a functor $X: (\Delta^\textrm{op})^{\times n} \to h\textrm{-}(sSet)$, it is equivalent to a constant functor, where $h\textrm{-}(sSet)$ denotes the homotopy category of simplicial sets.  
-%\end{definition}
-%
-We may regard any $n$-fold simplicial space as a simplicial object in $(n-1)$-fold simplicial spaces. A $0$-fold simplicial space is understood to be a simplicial set.
+\begin{theorem}[ \cite{Barwick:thesis, 0905.0462, 1112.0040} ]
+	There is a Quillen model category structure on $n$-fold simplical spaces in which the fibrant objects are the $n$-fold complete Segal spaces. This model category arrises as a left Bousfield localization of the Reedy/injective model structure on $n$-fold simplical spaces.
+\end{theorem}
+
+
+
+\CSP{needs attention}
+\begin{definition}[ \cite{0905.0462, 1001.4071} cite others?? ]
+	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold Segal category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal category} if it is Reedy fibrant and the following conditions are satisfied
+		\begin{enumerate}
+			\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete.
+			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is a  Segal $(n-1)$-category.
+			\item For every $m, n$, the Segal square,
+			\begin{center}
+			\begin{tikzpicture}
+				\node (LT) at (0, 1.5) {$X_{m+n}$};
+				\node (LB) at (0, 0) {$X_m$};
+				\node (RT) at (2, 1.5) {$X_n$};
+				\node (RB) at (2, 0) {$X_0$};
+				\draw [->] (LT) -- node [left] {$$} (LB);
+				\draw [->] (LT) -- node [above] {$$} (RT);
+				\draw [->] (RT) -- node [right] {$$} (RB);
+				\draw [->] (LB) -- node [below] {$$} (RB);
+				%\node at (0.5, 1) {$\ulcorner$};
+				%\node at (1.5, 0.5) {$\lrcorner$};
+			\end{tikzpicture}
+			\end{center}
+			induces an equivalence of $(n-1)$-fold Segal categories $X_{m+n} \to X_m \times_{X_0} X_n$.  
+				\end{enumerate}
+\end{definition}
+
+In order to complete the above definition we will need to supply the notion of equivalence. 
+
+
+
+\CSPcomm{generalize to both to $\cM$, Lurie's theorems, Simpson's theorems. Putting it all together. Summary of facts (like homotopy category etc.)}
+
+
+
+
+
+
+
 
 \begin{definition}
 	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold Segal category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal category} if the following conditions are satisfied
@@ -1049,6 +1162,8 @@ However $\TCfin$ is constructed in such a way that these Segal maps are manifest
 
 
 }
+
+\tikzexternalenable
 
 
 %% The Bibliography
