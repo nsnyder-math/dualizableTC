@@ -382,14 +382,18 @@ The former theory is important to this work because of its role in the proof of 
 		\end{enumerate}
 \end{definition}
 
-\begin{theorem}[ \cite{Barwick:thesis, 0905.0462, 1112.0040} ]
-	There is a Quillen model category structure on $n$-fold simplical spaces in which the fibrant objects are the $n$-fold complete Segal spaces. This model category arrises as a left Bousfield localization of the Reedy/injective model structure on $n$-fold simplical spaces.
+\begin{theorem}[\cite{Barwick:thesis, 0905.0462, 1112.0040}]
+	There is a left proper combinatorial simplicial Quillen model category structure on $n$-fold simplical spaces in which the fibrant objects are the $n$-fold complete Segal spaces. This model category arrises as a left Bousfield localization of the Reedy (=injective) model structure on $n$-fold simplical spaces.
 \end{theorem}
 
 \noindent We will denote the model category of $n$-fold complete Segal spaces by $\CSS_n$.  
 
+\CSPcomm{
+\begin{remark}
+	Any discrete $n$-fold simplicial space is Reedy fibrant. [need to check this!!!]
+\end{remark}
+}
 
-\CSP{needs attention}
 \begin{definition}
 	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em  Segal $0$-category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em Segal $n$-category} if it is Reedy fibrant and the following conditions are satisfied:
 		\begin{enumerate}
@@ -455,7 +459,7 @@ which is readily seen to be associative. This completes the induction. Just as f
 \end{definition}
 
 \CSP{cite Pellesier?}
-\begin{theorem}[ \cite{1001.4071} \CSPcomm{cite others??} ]
+\begin{theorem}[\cite{1001.4071} \CSPcomm{cite others??}]
 	There is a cartesian left proper combinatorial model category on the Segal $n$-precategories in which the cofibrations are the monomorphisms, the fibrant objects are exactly the Segal $n$-categories, and the weak equivalences between fibrant objects are the generalized Dwyer-Kan equivalences described above. 
 \end{theorem}
 
@@ -463,7 +467,6 @@ which is readily seen to be associative. This completes the induction. Just as f
 \begin{equation*}
 	\Seg_n \leftrightarrows \CSS_n.
 \end{equation*}
-
 It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equivalence. 
 \CSP{It is kinda tricky to see this from \cite{0905.0462} and \cite{1001.4071}, and also needs results of Toen and Dugger. Not sure if we should go into this.}
 
@@ -541,32 +544,35 @@ On the other hand, a map of 2-fold Segal spaces $X \to Y$ is an equivalence if a
 When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $\Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
 \end{proof}
 
+
 %If the $n$-fold Segal spaces $X_k$ are fibrant, that is complete, then these problems disappear. Weak equivalences between fibrant objects are computed levelwise, as are homotopy fiber products. 
 
 %Thus in general we are left with the embarrassing responsibility of computing the correct homotopy fiber product $X_m \times_{X_0}^h X_n$, and showing that the canonical map from $X_{m+n}$ is a weak equivalence of $(\infty, n-1)$-categories. Fortunately there is another subclass of $n$-fold Segal spaces for which these two operations are relatively easy to perform: The {\em $n$-fold Segal categories}.
 
+Both of the model categories $\CSS_n$ and $\Seg_n$ are cofibrantly generated model categories, which implies that the functor categories $\Fun(\Gamma^\op, \CSS_n)$ and $\Fun(\Gamma^\op, \Seg_n)$ carry (Quillen equivalent) projective model structures. We may now obtain symmetric monoidal variants of $\CSS_n$ and $\Seg_n$ by taking the left Bousfield localization with respect to the maps
+\begin{equation*}
+	(\coprod_{a \in A} i_a) :   \coprod_{a \in A} y(1) \to y(A)
+\end{equation*}
+where $y: \Gamma \to \Fun(\Gamma^\op, \Set) \to \Fun(\Gamma^\op, \Seg_n)$ denotes the Yoneda embedding. These maps co-represent the Segal maps of Section \ref{sec-symmonGamma}. Let $\CSS_n^{\otimes}$ and $\Seg_n^{\otimes}$ denote the corresponding model categories. The fibrant objects are described in the following definition:
+
+
 \begin{definition}
-%   A $0$-fold Segal category is a Kan complex. An {\em $n$-fold Segal category} is an $n$-fold Segal space which satisfies
-%   \begin{enumerate}
-%   	\item $X_0$ is discrete, and
-%   	\item for each $n$, $X_n$ is an $(n-1)$-fold Segal category. 
-%   \end{enumerate}
-	A {\em symmetric monoidal $n$-fold Segal category} (a.k.a. {\em special $\Gamma$-$n$-fold Segal category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
+	A {\em symmetric monoidal $n$-fold complete Segal space} (respectively {\em symmetric monoidal Segal $n$-category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
 	\begin{enumerate}
-		\item $X_A$ is an $n$-fold Segal category for each $A \in \Gamma$. 
+		\item $X_A$ is an $n$-fold complete Segal space (resp. Segal $n$-category) for each $A \in \Gamma$. 
 		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
 		\begin{equation*}
 			\prod_{a \in A} i_a^*: X_A \to \prod_{a \in A} X_{(1)}
 		\end{equation*}
-		is an equivalence of $n$-fold Segal categories. %\CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
+		is an equivalence of $n$-fold complete Segal spaces (resp. Segal $n$-categories). 
+		%\CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
 	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
 	\end{enumerate}
 \end{definition}
 
 
-\section{Dualizability in Symmetric Monoidal 3-Categories}
+\section{Dualizability in Symmetric Monoidal $(\infty,n)$-Categories}
 
-In the next section we will construct several examples describing versions of the symmetric monoidal 3-fold Segal category of tensor categories. 
 
 %Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
 
@@ -582,6 +588,7 @@ how the various 2-categories that one extracts from a symmetric monoidal 3-categ
 
 
 
+In the next section we will construct several examples describing versions of the symmetric monoidal 3-fold Segal category of tensor categories. 
 
 
 
