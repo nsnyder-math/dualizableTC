@@ -233,7 +233,8 @@ This is easily seen to be strictly compatible with composition in $\Gamma^\text{
 
 %\NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
-In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section we will describe a similar process in which the composition in a category may be described through the use the combinatorial simplex category $\Delta$. Iterating this idea leads to the notion of {\em Segal $n$-category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  
+In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section we will describe a similar process in which the composition in a category may be described through the use the combinatorial simplex category $\Delta$. 
+\CSPcomm{Iterating this idea leads to the notion of {\em Segal $n$-category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  }
 
 \begin{definition}
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. 
@@ -357,7 +358,7 @@ The former theory is important to this work because of its role in the proof of 
 \end{definition}
 
 \begin{definition}
-		A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold complete Segal space} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold complete Segal space} if it is Reedy fibrant and the following conditions are satisfied
+		A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold complete Segal space} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold complete Segal space} if it is Reedy fibrant and the following conditions are satisfied:
 		\begin{enumerate}
 			\item The $(n-1)$-fold simplicial space $X_0$ is {\em essentially constant}, i.e. the induced $(n-1)$-fold simplicial object in the homotopy category of spaces is constant. 
 			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold complete Segal space.
@@ -385,11 +386,12 @@ The former theory is important to this work because of its role in the proof of 
 	There is a Quillen model category structure on $n$-fold simplical spaces in which the fibrant objects are the $n$-fold complete Segal spaces. This model category arrises as a left Bousfield localization of the Reedy/injective model structure on $n$-fold simplical spaces.
 \end{theorem}
 
+\noindent We will denote the model category of $n$-fold complete Segal spaces by $\CSS_n$.  
 
 
 \CSP{needs attention}
-\begin{definition}[ \cite{0905.0462, 1001.4071} cite others?? ]
-	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold Segal category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal category} if it is Reedy fibrant and the following conditions are satisfied
+\begin{definition}
+	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em  Segal $0$-category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em Segal $n$-category} if it is Reedy fibrant and the following conditions are satisfied:
 		\begin{enumerate}
 			\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete.
 			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is a  Segal $(n-1)$-category.
@@ -408,64 +410,22 @@ The former theory is important to this work because of its role in the proof of 
 				%\node at (1.5, 0.5) {$\lrcorner$};
 			\end{tikzpicture}
 			\end{center}
-			induces an equivalence of $(n-1)$-fold Segal categories $X_{m+n} \to X_m \times_{X_0} X_n$.  
+			induces an equivalence of  Segal $(n-1)$-categories $X_{m+n} \to X_m \times_{X_0} X_n$.  
 				\end{enumerate}
 \end{definition}
 
-In order to complete the above definition we will need to supply the notion of equivalence. 
-
-
-
-\CSPcomm{generalize to both to $\cM$, Lurie's theorems, Simpson's theorems. Putting it all together. Summary of facts (like homotopy category etc.)}
-
-
-
-
-
-
-
-
-\begin{definition}
-	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold Segal category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal category} if the following conditions are satisfied
-		\begin{enumerate}
-			\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete.
-			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold Segal category.
-			\item For every $m, k$, the Segal square,
-			\begin{center}
-			\begin{tikzpicture}
-				\node (LT) at (0, 1.5) {$X_{m+n}$};
-				\node (LB) at (0, 0) {$X_m$};
-				\node (RT) at (2, 1.5) {$X_n$};
-				\node (RB) at (2, 0) {$X_0$};
-				\draw [->] (LT) -- node [left] {$$} (LB);
-				\draw [->] (LT) -- node [above] {$$} (RT);
-				\draw [->] (RT) -- node [right] {$$} (RB);
-				\draw [->] (LB) -- node [below] {$$} (RB);
-				%\node at (0.5, 1) {$\ulcorner$};
-				%\node at (1.5, 0.5) {$\lrcorner$};
-			\end{tikzpicture}
-			\end{center}
-			is a homotopy pull-back square of $(n-1)$-fold simplical spaces, computed with the $(\infty, n-1)$-model structure.
-		\end{enumerate}
-	\end{definition}
-This final condition requires some explanation. The Segal square must realize $X_{m+n}$ as the homotopy fiber product $X_m \times_{X_0}^h X_n$, and this homotopy fiber product must be computed in the $(\infty, n-1)$-category model structure on $(n-1)$-fold simplicial sets. Moreover $X_{m+n}$ may not be levelwise equivalent to this homotopy fiber product, but merely weakly equivalent in this model structure. Fortunately, we require that $X_0$ is a discrete $(n-1)$-fold simplicial space. In this case the homotopy fiber product simplifies and is merely the ordinary fiber product. Thus condition (3) is equivalent to:
-
-\begin{enumerate}
-	\item [(3')] For every $m$ and $k$ the Segal map $X_{m+n} \to X_m \times_{X_0} X_n$ is an equivalence of $(n-1)$-fold Segal categories. 
-\end{enumerate}
-
-Moreover equivalences between $n$-fold Segal categories admit a fairly tractable inductive recognition principle. To describe this me must introduce a few auxiliary concepts. Let $X$ be an $n$-fold Segal category. Recall that $X_0$ is a constant discrete simplicial space, and so may be regarded as a set. We call the elements of $X_0$ objects of $X$. 
-Inductively we will define three functorial constructions:
+\noindent This definition is not complete without specifying the notion of equivalence. Fortunately, equivalences between Segal $n$-categories have a relatively direct inductive description as well. This notion of equivalence generalizes to higher dimensions the {\em Dwyer-Kan equivalences}. The $(n-1)$-fold simplicial space $X_0$ is constant and so may be regard as a set, the {\em set of objects} of the Segal $n$-category $X$. 
+Inductively one may define three functorial constructions:
 \begin{itemize}
-	\item For every pair of objects $a,b \in X_0$, an $(n-1)$-fold Segal category $\Hom_X(a,b)$.
-	\item A category $\mathit{h}X$, called the {\em homotopy category} of $X$.
-	\item A set $\pi_0 X$, which is the set of isomorphism classes of objects of $\mathit{h}X$. 
+	\item For every pair of objects $a,b \in X_0$, an Segal $(n-1)$-category $\Hom_X(a,b)$.
+	\item An ordinary category $\mathit{h}X$, called the {\em homotopy category} of $X$.
+	\item A set $\pi_0 X$, the set of isomorphism classes of objects of $\mathit{h}X$. 
 \end{itemize}
-Once we have these constructions, equivalences of $n$-fold Segal categories are easily recognized: they are precisely those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce bijections $\pi_0 f: \pi_0 X \to \pi_0 Y$, 
+Once we have these constructions, equivalences of Segal $n$-categories are defined as the precisely those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce bijections $\pi_0 f: \pi_0 X \to \pi_0 Y$, 
 % equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ 
-and which induce equivalences of $(n-1)$-fold Segal categories $\Hom_X(a,b) \to \Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. Such maps also induce equivalences $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$.
+and which induce equivalences of Segal $(n-1)$-categories $\Hom_X(a,b) \to \Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. By construction we see that such maps also induce equivalences $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$.
 
-Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the $(n-1)$-fold Segal category $\Hom_X(a,b)$ is defined to be the fiber over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
+Given a pair objects $a,b \in X_0$ in an  Segal $n$-category $X$, the  Segal $(n-1)$-category $\Hom_X(a,b)$ is defined to be the fiber over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$\Hom_X(a,b)$};
@@ -480,14 +440,72 @@ Given a pair objects $a,b \in X_0$ in an $n$-fold Segal category $X$, the $(n-1)
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-The homotopy category $\mathit{h}X$ has the same object set $X_0$, and the morphisms set between two objects is given as the set $\Hom_{\mathit{h}X}(a,b) := \pi_0 \Hom_X(a,b)$. For every triple of objects $a,b,c \in X_0$ we have a similar $(n-1)$-fold Segal category $\Hom_X(a,b,c)$ which is defined as the fiber in $X_2$ over the point $(a,b,c)$ in $X_0 \times X_0 \times X_0$. Since $X$ is an $n$-fold Segal category we have induced maps of $(n-1)$-fold Segal categories,
+The homotopy category $\mathit{h}X$ has the same object set $X_0$, and the morphisms set between two objects is given as the set $\Hom_{\mathit{h}X}(a,b) := \pi_0 \Hom_X(a,b)$. For every triple of objects $a,b,c \in X_0$ we have a similar  Segal $(n-1)$-category $\Hom_X(a,b,c)$ which is defined as the fiber in $X_2$ over the point $(a,b,c)$ in $X_0 \times X_0 \times X_0$. Since $X$ is an  Segal $n$-category we have induced maps of  Segal $(n-1)$-categories,
 \begin{equation*}
 	\Hom_X(a,b) \times \Hom_X(b,c) \stackrel{\simeq}{\longleftarrow} \Hom_X(a,b,c) \stackrel{}{\longrightarrow} \Hom_X(a,c).
 \end{equation*}
 Composition in $\mathit{h}X$ is given by the induced map of sets,
 \begin{equation*}
-	 \Hom_{\mathit{h}X}(a,b) \times \Hom_{\mathit{h}X}(b,c) \cong \pi_0 \Hom_X(a,b,c)\to \pi_0 \Hom_X(a,c) = \Hom_{\mathit{h}X}(a,c).
+	 \Hom_{\mathit{h}X}(a,b) \times \Hom_{\mathit{h}X}(b,c) \cong \pi_0 \Hom_X(a,b,c)\to \pi_0 \Hom_X(a,c) = \Hom_{\mathit{h}X}(a,c),
 \end{equation*}
+which is readily seen to be associative. This completes the induction. Just as for $n$-fold complete Segal spaces, there is a Quillen model category whose fibrant objects are the Segal $n$-categories. This model structure lives on the category of Segal $n$-precategories, which is defined inductively as follows:
+
+\begin{definition}
+	A {\em Segal $0$-precategory} is a simplicial set. {\em Segal $n$-precategory} is an $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces, such that $X_0$ is constant and discrete and such that each $X_k$ is a  Segal $(n-1)$-precategory. 
+\end{definition}
+
+\CSP{cite Pellesier?}
+\begin{theorem}[ \cite{1001.4071} \CSPcomm{cite others??} ]
+	There is a cartesian left proper combinatorial model category on the Segal $n$-precategories in which the cofibrations are the monomorphisms, the fibrant objects are exactly the Segal $n$-categories, and the weak equivalences between fibrant objects are the generalized Dwyer-Kan equivalences described above. 
+\end{theorem}
+
+\noindent We will denote the above model category of Segal $n$-categories by $\Seg_n$. Given an Segal $n$-precategory, we may regard it as a $n$-fold simplicial space, and this gives rise to an adjucntion
+\begin{equation*}
+	\Seg_n \leftrightarrows \CSS_n.
+\end{equation*}
+
+It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equivalence. 
+\CSP{It is kinda tricky to see this from \cite{0905.0462} and \cite{1001.4071}, and also needs results of Toen and Dugger. Not sure if we should go into this.}
+
+
+
+
+
+
+
+
+%\begin{definition}
+%	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold Segal category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold Segal category} if the following conditions are satisfied
+%		\begin{enumerate}
+%			\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete.
+%			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold Segal category.
+%			\item For every $m, k$, the Segal square,
+%			\begin{center}
+%			\begin{tikzpicture}
+%				\node (LT) at (0, 1.5) {$X_{m+n}$};
+%				\node (LB) at (0, 0) {$X_m$};
+%				\node (RT) at (2, 1.5) {$X_n$};
+%				\node (RB) at (2, 0) {$X_0$};
+%				\draw [->] (LT) -- node [left] {$$} (LB);
+%				\draw [->] (LT) -- node [above] {$$} (RT);
+%				\draw [->] (RT) -- node [right] {$$} (RB);
+%				\draw [->] (LB) -- node [below] {$$} (RB);
+%				%\node at (0.5, 1) {$\ulcorner$};
+%				%\node at (1.5, 0.5) {$\lrcorner$};
+%			\end{tikzpicture}
+%			\end{center}
+%			is a homotopy pull-back square of $(n-1)$-fold simplical spaces, computed with the $(\infty, n-1)$-model structure.
+%		\end{enumerate}
+%	\end{definition}
+%This final condition requires some explanation. The Segal square must realize $X_{m+n}$ as the homotopy fiber product $X_m \times_{X_0}^h X_n$, and this homotopy fiber product must be computed in the $(\infty, n-1)$-category model structure on $(n-1)$-fold simplicial sets. Moreover $X_{m+n}$ may not be levelwise equivalent to this homotopy fiber product, but merely weakly equivalent in this model structure. Fortunately, we require that $X_0$ is a discrete $(n-1)$-fold simplicial space. In this case the homotopy fiber product simplifies and is merely the ordinary fiber product. Thus condition (3) is equivalent to:
+%
+%\begin{enumerate}
+%	\item [(3')] For every $m$ and $k$ the Segal map $X_{m+n} \to X_m \times_{X_0} X_n$ is an equivalence of $(n-1)$-fold Segal categories. 
+%\end{enumerate}
+%
+%Moreover equivalences between $n$-fold Segal categories admit a fairly tractable inductive recognition principle. To describe this me must introduce a few auxiliary concepts. Let $X$ be an $n$-fold Segal category. Recall that $X_0$ is a constant discrete simplicial space, and so may be regarded as a set.
+
+
 
 \begin{example}
 	If we regard a set as a constant simplicial space, then the nerve of a category $NC$ is a 1-fold Segal category. $NC_0 = \textrm{ob}\ C$ and the space $\Hom_{NC}(a,b)$ are the sets $\Hom_C(a,b)$. Moreover $hNC \cong C$ is isomorphic to the category $C$. 
