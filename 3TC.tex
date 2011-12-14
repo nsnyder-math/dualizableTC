@@ -467,7 +467,7 @@ which is readily seen to be associative. This completes the induction. Just as f
 \begin{equation*}
 	\Seg_n \leftrightarrows \CSS_n.
 \end{equation*}
-It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equivalence. 
+It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equivalence. In particular two Segal $n$-category give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. 
 \CSP{It is kinda tricky to see this from \cite{0905.0462} and \cite{1001.4071}, and also needs results of Toen and Dugger. Not sure if we should go into this.}
 
 
@@ -509,13 +509,41 @@ It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equ
 %Moreover equivalences between $n$-fold Segal categories admit a fairly tractable inductive recognition principle. To describe this me must introduce a few auxiliary concepts. Let $X$ be an $n$-fold Segal category. Recall that $X_0$ is a constant discrete simplicial space, and so may be regarded as a set.
 
 
+Both of the model categories $\CSS_n$ and $\Seg_n$ are cofibrantly generated model categories, which implies that the functor categories $\Fun(\Gamma^\op, \CSS_n)$ and $\Fun(\Gamma^\op, \Seg_n)$ carry (Quillen equivalent) projective model structures. We may now obtain symmetric monoidal variants of $\CSS_n$ and $\Seg_n$ by taking the left Bousfield localization with respect to the maps
+\begin{equation*}
+	(\coprod_{a \in A} i_a) :   \coprod_{a \in A} y(1) \to y(A)
+\end{equation*}
+where $y: \Gamma \to \Fun(\Gamma^\op, \Set) \to \Fun(\Gamma^\op, \Seg_n)$ denotes the Yoneda embedding. These maps co-represent the Segal maps of Section \ref{sec-symmonGamma}. Let $\CSS_n^{\otimes}$ and $\Seg_n^{\otimes}$ denote the corresponding model categories. 
+\CSP{Are there better notations?}
+The fibrant objects are described in the following definition:
+
+
+\begin{definition}
+	A {\em symmetric monoidal $n$-fold complete Segal space} (respectively {\em symmetric monoidal Segal $n$-category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
+	\begin{enumerate}
+		\item $X_A$ is an $n$-fold complete Segal space (resp. Segal $n$-category) for each $A \in \Gamma$. 
+		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
+		\begin{equation*}
+			\prod_{a \in A} i_a^*: X_A \to \prod_{a \in A} X_{(1)}
+		\end{equation*}
+		is an equivalence of $n$-fold complete Segal spaces (resp. Segal $n$-categories). 
+		%\CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
+	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
+	\end{enumerate}
+\end{definition}
+
+
+\section{Dualizability in Symmetric Monoidal $(\infty,n)$-Categories}
+
+In this section we will describe how to access the space of fully-dualizble objects in a symmetric monoidal $(\infty,n)$-category, and describe an associated dualizability filtration. We begin with several well known examples of $(\infty,n)$-categories.
+
 
 \begin{example}
-	If we regard a set as a constant simplicial space, then the nerve of a category $NC$ is a 1-fold Segal category. $NC_0 = \textrm{ob}\ C$ and the space $\Hom_{NC}(a,b)$ are the sets $\Hom_C(a,b)$. Moreover $hNC \cong C$ is isomorphic to the category $C$. 
-\end{example}
+	A set may be regarded as a constant simplicial space. Thus the nerve of an ordinary category may be regarded as a discrete simplcial space. A discrete simplicial space is a Segal 1-category if and only if it is the nerve of an ordinary category. In this case $NC_0 = \textrm{ob}\ C$, the spaces $\Hom_{NC}(a,b)$ are the sets $\Hom_C(a,b)$, and $\mathit{h}NC \cong C$ is isomorphic to the original category. 
+	\end{example}
 
 \begin{example}
-	A strict 2-category $C$ may be regarded as a simplical object $C_\bullet$ in $\Cat$ whose $n^\textrm{th}$ category is given by the usual formula
+	A strict 2-category $C$ may be regarded as a simplical object $C_\bullet$ in $\Cat$ whose $n^\textrm{th}$ category is given by the usual formula:
 	\begin{equation*}
 		C_n := \sqcup_{x_0, x_1, \dots, x_n \in C_0} \Hom_C(x_0, x_1) \times \Hom_C(x_1, x_2) \times \cdots \times \Hom_C(x_{n-1}, x_n).
 	\end{equation*}
@@ -544,51 +572,35 @@ On the other hand, a map of 2-fold Segal spaces $X \to Y$ is an equivalence if a
 When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $\Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
 \end{proof}
 
+The above lemma is a special case of a well known  general result. The category of discrete Segal 2-categories forms a good model for the theory of bicategories. \CSPcomm{cite Leinster? Tamsamani? Lack?} 
 
-%If the $n$-fold Segal spaces $X_k$ are fibrant, that is complete, then these problems disappear. Weak equivalences between fibrant objects are computed levelwise, as are homotopy fiber products. 
+Given a symmetric monoidal Segal $n$-category $X$, which we regard as an object of the functor category $\Fun(\Gamma^\op, \Seg_n)$,  we may apply the homotopy category functor $\mathit{h}$ level-wise to obtain a strict functor from $\Gamma^\op$ to categories, satisfying the Segal condition. We have seen in Section \ref{sec-symmonGamma} how this may be regarded as symmetric monoidal category structure on $\mathit{h}X$.  
 
-%Thus in general we are left with the embarrassing responsibility of computing the correct homotopy fiber product $X_m \times_{X_0}^h X_n$, and showing that the canonical map from $X_{m+n}$ is a weak equivalence of $(\infty, n-1)$-categories. Fortunately there is another subclass of $n$-fold Segal spaces for which these two operations are relatively easy to perform: The {\em $n$-fold Segal categories}.
-
-Both of the model categories $\CSS_n$ and $\Seg_n$ are cofibrantly generated model categories, which implies that the functor categories $\Fun(\Gamma^\op, \CSS_n)$ and $\Fun(\Gamma^\op, \Seg_n)$ carry (Quillen equivalent) projective model structures. We may now obtain symmetric monoidal variants of $\CSS_n$ and $\Seg_n$ by taking the left Bousfield localization with respect to the maps
-\begin{equation*}
-	(\coprod_{a \in A} i_a) :   \coprod_{a \in A} y(1) \to y(A)
-\end{equation*}
-where $y: \Gamma \to \Fun(\Gamma^\op, \Set) \to \Fun(\Gamma^\op, \Seg_n)$ denotes the Yoneda embedding. These maps co-represent the Segal maps of Section \ref{sec-symmonGamma}. Let $\CSS_n^{\otimes}$ and $\Seg_n^{\otimes}$ denote the corresponding model categories. The fibrant objects are described in the following definition:
-
+For $n\geq 2$, given a Segal $n$-category we may extract a discrete Segal 2-category, which we may in turn regard as a bicategory $\mathit{h}_2X$, the {\em homotopy bicategory of $X$}. This may be obtained as follows. First, we regard $X$ as a simplicial object in Segal $(n-1)$-categories. Then we may apply the homotopy category functor levelwise to obtain a simplicial object in the category of categories. Finally applying the nerve yields a discrete 2-fold simplicial space, which is easily seen to be a Segal 2-category. This construction is clearly funcotrial and sends weak equivalences of Segal $n$-categories to equivalences of bicategories. Choosing two objects $a,b \in X_0$ allows us to extract a Segal $(n-1)$-category $\Hom_X(a,b)$. Repeating these two constructions we obtain an assortment of bicategories associated to any Segal $n$-category. 
 
 \begin{definition}
-	A {\em symmetric monoidal $n$-fold complete Segal space} (respectively {\em symmetric monoidal Segal $n$-category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
-	\begin{enumerate}
-		\item $X_A$ is an $n$-fold complete Segal space (resp. Segal $n$-category) for each $A \in \Gamma$. 
-		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
-		\begin{equation*}
-			\prod_{a \in A} i_a^*: X_A \to \prod_{a \in A} X_{(1)}
-		\end{equation*}
-		is an equivalence of $n$-fold complete Segal spaces (resp. Segal $n$-categories). 
-		%\CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
-	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
-	\end{enumerate}
+	\CSPcomm{A bicategory is dualizable if...  a symmetric monoidal category is dualizbale if... }
 \end{definition}
 
+\begin{definition}
+	A Segal $n$-category $X$ is {\em $k$-dualizable} ($k\geq 2$) if 
+	\begin{enumerate}
+		\item each $Hom_X(a,b)$ is $(k-1)$-dualizable for each pair of objects $a,b \in X_0$ (this condition is vacuous if $k=2$), 
+		\item $\mathit{h}_2 X$ is a dualizable bicategory. 
+	\end{enumerate}
+Moreover if $X$ is symmetric monoidal, we further require that the symmetric monodial category $\mathit{h} X$ is dualizable. We say that a symmetric monoidal Segal $n$-category $X$ is {\em fully-daulizable} if it is $n$-dualizable.
+\end{definition}
 
-\section{Dualizability in Symmetric Monoidal $(\infty,n)$-Categories}
+%A $0$-morphism of a Segal $n$-category is an object of $X$. For $k \geq 1$, a $k$-morphism of a Segal $n$-category $X$ is a $(k-1)$-morphism of one of the hom Segal $(n-1)$-categories $\Hom_X(a,b)$ for some pair of object $a,b \in X_0$. If $k = 1$, we say two 1-morphisms of $X$ are {\em parallel} if they reside in the same hom Segal $(n-1)$-category $\Hom_X(a,b)$. If $k>1$, then two $k$-morphisms are parallel if they are parallel $(k-1)$-morphisms in the same hom Segal $(n-1)$-category $\Hom_X(a,b)$.
 
-
-%Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
-
-%We now describe how a strict 2-category gives rise to a 2-fold Segal category. This can be regarded as a 2-categorical nerve. %Later we will construct explicitly $\TC$ as a simplicial object in the category of strict 2-categories. Applying the previous 2-categorical nerve yields a 3-fold simplicial space which is shown to be a 3-fold Segal category. A variation on these constructions yields the $\Gamma$-3-fold Segal space $\TC$. 
-%\begin{definition}
-%	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
-%\end{definition}
-%A strict 2-category gives rise to a simplicial category 
-
-\CSPcomm{[...] Explain the fully-dualizable filtration, and 
-how the various 2-categories that one extracts from a symmetric monoidal 3-category (Segal 3-category) are invariant under completion.}
+\CSPcomm{To DO
+\begin{itemize}
+	\item Dualizability Filtration, 
+	\item invariance of the filtration (even under completion). 
+\end{itemize}}
 
 
 
-
-In the next section we will construct several examples describing versions of the symmetric monoidal 3-fold Segal category of tensor categories. 
 
 
 
@@ -1202,6 +1214,16 @@ We begin with a brief discussion of our conventions regarding duality.
 %\CD{The organization of this section might well change as we decide what exactly we should include.}
 
 %\CDcomm{Our goal is to define $\TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $\TC(i)$, which can occur in DTCII.}
+
+
+%Thus the goal of this section is to describe $\TC$ as a functor $\Gamma^{\op} \times (\Delta^{\op})^{\times 3} \to \sSet$. This is done in two stages. First we construct a nerve functor from the category of strict 2-categories to 2-fold Segal categories. This reduces the construction of $\TC$ to constructing a functor (also denoted $\TC$) from $\Gamma^{\op} \times \Delta^{\op}$ to the category of strict 2-categories and strict functors. As a warm-up, we first describe a functor $\lincat$ from $\Gamma^{\op}$ to strict 2-categories which serves as a model for the symmetric monoidal 2-category of linear categories. The functor $\TC$ is a more elaborate variation on this construction. 
+
+%We now describe how a strict 2-category gives rise to a 2-fold Segal category. This can be regarded as a 2-categorical nerve. %Later we will construct explicitly $\TC$ as a simplicial object in the category of strict 2-categories. Applying the previous 2-categorical nerve yields a 3-fold simplicial space which is shown to be a 3-fold Segal category. A variation on these constructions yields the $\Gamma$-3-fold Segal space $\TC$. 
+%\begin{definition}
+%	A strict 2-category is a category object $(C_1 \rightrightarrows C_0)$ in categories such that the category of objects $C_0$ is discrete (i.e. its only morphisms are identities). 
+%\end{definition}
+%A strict 2-category gives rise to a simplicial category 
+
 
 
 \section{Conventions for Duality}
