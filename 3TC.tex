@@ -100,91 +100,24 @@ The goals of the current work are modest, yet essential for any future developme
 Moreover we wish to make direct contact with the results of Hopkins-Lurie, announced in \cite{MR2555928}, which employ the language of $n$-fold complete Segal spaces introduced Barwick \cite{Barwick:thesis} (or more precisely the symmetric monoidal variant thereof). To actually construct the 3-category of tensor categories, however, we find it easier to use the theory of Segal $n$-categories introduced by Hirschowitz and Simpson \cite{9807049} (based on ideas by Tamsamani \cite{Tamsamani:thesis}) and further developed by Pelissier \cite{Pelissier:thesis} and Simpson \cite{1001.4071}.
 
 
-We begin in Sections \ref{sec-symmonGamma} and \ref{sec-Compdelta} with a some expository material about symmetric monoidal $n$-categories, which we hope will make this work more accessible to readers coming from topology or algebra. Section \ref{sec-symmoninftyNcat} gives a precise account of symmetric monoidal  Segal $n$-categories, and Section \ref{} discuss the matter of full-dualizbality.
+With this in mind, we begin in Sections \ref{sec-symmonGamma} and \ref{sec-Compdelta} with a some expository material on the uses of the simplex category $\Delta$ and Segal's category $\Gamma$ in the theory of symmetric monoidal $n$-categories. We hope this will make some of this work more accessible to readers coming from topology or algebra. In Section \ref{sec-symmoninftyNcat} we give a brief account of the theories of $n$-fold complete Segal spaces, Segal $n$-categories, and their symmetric monoidal counterparts. We review the known comparison results between these two approaches, due to Lurie \cite{0905.0462} (based on difficult prior work of Bergner \cite{MR2321038}) and Simpson \cite{1001.4071}. In Section \ref{sec-duals} we describe the fully-daulizable sub-category of a symmetric monoidal Segal $n$-category and demonstrate its invariance. 
 
-In this Section \ref{sec-tc-lincat}, \ref{sec-tc-bimodcat}, and \ref{sec-tc-deligne} we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. 
+We then address specifics necessary for the construction of our main example. In this Sections \ref{sec-tc-lincat}, \ref{sec-tc-bimodcat}, and \ref{sec-tc-deligne} we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of the material in these sections is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in Section \ref{sec-tc-deligne} which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. 
 
-Lurie's overview of his proof of the cobordism hypothesis  this work we construct $\TC$ as an object of the equivalent symmetric monoidal variant of Simpsons' Segal $n$-categories. We find it  slightly easier to construct our model as a Segal category, but also review the connection between these two models, describing how to obtain a  $n$-fold complete Segal space from a Segal $n$-category. We pay careful attention to the matter of full-dualizbality, permitting us to apply Lurie's results directly.  
-
-
-\CSPcomm{[...]
-\begin{itemize}
-	\item extended tqfts, cobordism hypothesis. 
-	\item More detail about the theory of symmetric monoidal $(\infty,n)$-categories.
-	\item More detail on 3-category of tensor categories, bimodule categories, functors, nat trans. ?
-\end{itemize}
-
-what we do:
-\begin{itemize}
-	\item Expository account of $\Delta$ and $\Gamma$ approaches
-	\item Review model categories of Segal $n$-cats and $n$-fold complete Segal spaces (how they are related), and also symmetric monoidal variants. 
-	\item review dualizability and invariance in these model categories
-	\item review basics of theory of tensor categories.
-	\item Construct the symmetric monoidal Segal 3-category of tensor categories.
-\end{itemize}
-
-}
+In the final Section \ref{sec-tc-threecat} we give our main result, the construction of the symmetric monoidal Segal 3-category of finite tensor categories,  bimodule categories, functors, and natural transformations. 
 
 
+\subsection*{Acknowledgments}
+
+The second author would especially like to thank Clark Barwick for countless helpful discussions regarding the various theories of $(\infty,n)$-categories and their comparisons. 
 
 
-
-
-%%
-
-
-%\CSPcomm{
-%The results that are new(ish):
-%\begin{itemize}
-%	\item Theorem \ref{thm:DelignePrdtOverATCExists}
-%	\item Lemma \ref{Lma:FunctorsAsATensorPdt}
-%	\item everything about separability.
-%\end{itemize}
-%}
-
-
-
-%In the Section  we rapidly review the theory of finite tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when results from it are applied in the main arguments, or to check notational conventions.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively described in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of entirely new material on separable algebra objects and separable module categories.  
-
-The goal of the final Section \ref{sec-tc-threecat} is to
-
-
-
-
-
-
-
-
-%In this section we describe the symmetric monoidal 3-category of tensor categories. 
-%
-
-
-There are several potential theories of symmetric monoidal 3-category which one could select to describe the 3-category of tensor categories. We will employ the theory of $n$-Segal categories of \CSPcomm{[ref.. Simpson, Tamsamani, Pellesier (sp?)]}, which we relate to the iterated complete Segal spaces of Barwick, \CSP{Get reference. Possible reference to Simpson's work too?}. More precisely, we utilize the symmetric monoidal variants thereof. 
-
-There are two special categories which play a fundamental role in this theory. These are the simplex category $\Delta$ and Segal's category $\Gamma$. We start with a review of $\Gamma$ and its role in describing symmetric monoidal structures. Then we review $\Delta$ and the most basic aspects (mostly definitional) of the theory of symmetric monoidal $(\infty,n)$-categories. Finally we present our construction of the symmetric monoidal $(\infty,3)$-category of tensor categories. 
-
-
-
-The categories of $n$-fold simplicial spaces and $\Gamma$-$n$-fold simplicial spaces admit combinatorial model structures which give robust theories of $(\infty, n)$-categories and symmetric monoidal $(\infty, n)$-categories, respectively. 
-\CSP{Find reference.}
-The Hopkins-Lurie proof of the cobordism hypothesis has been proven using this machinery, and so it is natural to  frame our results in this language as well. The fibrant objects of these model categories are the so-called $n$-fold complete Segal spaces and symmetric monoidal $n$-fold complete Segal spaces, respectively (these later are sometimes called special $\Gamma$-$n$-fold complete Segal spaces).
-These fibrant objects enjoy many desirable properties. For example, the weak equivalences between fibrant objects are precisely the levelwise weak equivalences. Also many related constructions, like the homotopy category of an $(\infty, n)$-category, have simple direct descriptions for these fibrant objects. 
-
-On the other hand, many examples occurring { in nature} do not arise as $n$-fold complete Segal spaces or as symmetric monoidal $n$-fold complete Segal spaces. For example in \cite{MR2555928}, the $(\infty, n)$-category of cobordisms is constructed as a $n$-fold Segal space which is {\em not} complete. There are a number of classes of $n$-fold simplicial spaces which are intermediary between general $n$-fold simplicial spaces and the fibrant $n$-fold complete Segal spaces. For many purposes these intermediary objects are just as good as their fibrant replacement. One such intermediate notion is that of $n$-fold Segal category, and it is this intermediate notion to which we now turn. 
-%\begin{definition}
-%	An $n$-fold simplicial space $X$ is {\em essentially constant} if, when regarded as a functor $X: (\Delta^\textrm{op})^{\times n} \to h\textrm{-}(sSet)$, it is equivalent to a constant functor, where $h\textrm{-}(sSet)$ denotes the homotopy category of simplicial sets.  
-%\end{definition}
-%
-We may regard any $n$-fold simplicial space as a simplicial object in $(n-1)$-fold simplicial spaces. A $0$-fold simplicial space is understood to be a simplicial set.
-
-
-\begin{warning}
-In this section we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
-\end{warning}
 
 \section{Symmetric monoidal structures via the category $\Gamma$} \label{sec-symmonGamma}
 
-
+\begin{warning}
+In this section and the next we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
+\end{warning}
 
 \begin{definition}
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
@@ -358,7 +291,9 @@ We would now like to use this to insight to describe higher categories. Philosop
 
 However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are completely analogous to the previous situation with symmetric monoidal structures. However, the insight gained from the previous section also suggests a possible solution. Rather then require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
 \CSP{Get references/check references for this.}
-Following this reasoning gives rise to the notion of weak $n$-category first proposed by Tamsamani \cite{tamsamani}. In what follows we will describe the $(\infty,n)$-variant of this construction, first given by Hirschowitz and Simpson \cite{math.AG/9807049},  where sets are replaced by (simplicial) spaces.  
+Following this reasoning gives rise to the notion of weak $n$-category first proposed by Tamsamani \cite{Tamsamani:thesis}. In what follows we will describe the $(\infty,n)$-variant of this construction, first given by Hirschowitz and Simpson \cite{9807049},  where sets are replaced by (simplicial) spaces.  
+
+\CSPcomm{ [Maybe add a bit about Tamsamani bicategories as an equivalent model of bicategories?]}
 
 \begin{definition}[Sketch]
 	A Segal $0$-category is a Kan simplicial set. 	A {\em Segal $n$-category} is a simplicial object in $(n-1)$-fold simplicial spaces, such that the following conditions are satisfied:
