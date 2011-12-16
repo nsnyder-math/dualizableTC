@@ -53,19 +53,36 @@ We construct the symmetric monoidal $(\infty,3)$-category of tensor categories, 
 \section{Introduction}
 
 Since their mathematical inception in the late eighties, topological quantum field theories have provided a bridge linking algebraic and topological structures in exciting ways. This passageway has been has been widened, recently, with the advent of extended topological field theories and the proof of the cobordism hypothesis. 
-The most promising and immediate applications of these higher categorical developments appear to lie in the study of 3-dimensional  theories, and the current work provides an essential tool for future study of these theories. 
+One highly promising application of these higher categorical developments appears to lie in the study of 3-dimensional  theories, and the current work provides an essential tool for future study of these theories. 
 
 
 \CSP{should we cite Witten too?}
-Topological quantum field theories, as conceived by G. Segal and M. Atiyah, may be described as functors from a symmetric monoidal category of bordisms to a target symmetric monoidal category, such as vector spaces. 
-Extended topological quantum field theories are a higher categorical generalization of this notion. A higher category ($n$-category) has objects and morphism, just as an ordinary category, but also has 2-moprhisms between the morphism, 3-morphisms between the 2-morphisms, and so on. An important example of a (symmetric monoidal) $n$-category is the bordism category of dimension $d$. The objects of this $n$-category consist of manifolds of dimension $d-n$, the 1-morphisms consist of $(d-n +1)$-dimensional {\em bordisms} between the $(d-n)$-dimensional manifolds. The 2-morphisms consist of $(d-n +2)$-dimensional bordisms between the 1-dimensional bordisms, and so on all the way through dimension $d$. Composition is given by gluing of bordisms. 
+Topological quantum field theories, as conceived by G. Segal and M. Atiyah, may be described as functors from a symmetric monoidal category of bordisms to a target symmetric monoidal category, such as vector spaces. This notion is ripe for generalizations. First the bordism category may be altered in various ways, for example by equipping the manifolds with structures such as orientations, spin structures, tangential framings, etc. Secondly, the target symmetric monoidal category may be changed. We reserve the moniker `quantum' for when the target category has an additive structure (such as for vector spaces), referring to the general case as {\em topological field theories}.
 
-An extended  topological field theory is a symmetric monoidal $n$-functor from the bordism $n$-category to a target symmetric monoidal $n$-category. The most well known constructions of 3-dimensional topological field theories are the Turaev-Viro construction and the Reshetikhin-Turaev construction. Both of these constructions are known to be extended topological field theories \CSPcomm{ Cite a bunch of things, including [Bartlett-Douglas-Schommer-Pries-Vicary, in prep.]} with values in the symmetric monoidal category of linear categories, linear functors, and natural transformations (with the Deligne tensor product as the monoidal structure). In fact they factor through the full subcategory equivalent to algebras, bimodules, and bimodule maps.
+Topological field theories give rise to manifold invariants which have a mild locality property. The manifold invariant may be recovered from smaller pieces of the original manifold obtained by slicing along codimension-one submanifolds. Extended topological quantum field theories are a higher categorical generalization of this notion that give rise to manifold invariants enjoying a stronger locality property. 
+
+A higher category ($n$-category) has objects and morphism, just as an ordinary category, but also has 2-moprhisms between the morphism, 3-morphisms between the 2-morphisms, and so on. An important example of a (symmetric monoidal) $n$-category is the bordism category of dimension $d$. The objects of this $n$-category consist of manifolds of dimension $d-n$, the 1-morphisms consist of $(d-n +1)$-dimensional {\em bordisms} between the $(d-n)$-dimensional manifolds. The 2-morphisms consist of $(d-n +2)$-dimensional bordisms between the 1-dimensional bordisms, and so on all the way through dimension $d$. Composition is given by gluing of bordisms. 
+This $n$-category captures the structure of $d$-manifolds and all ways of decomposing them into pieces sliced along manifolds of codimension up through $n$. An {\em extended  topological field theory} is a symmetric monoidal $n$-functor from the bordism $n$-category to a target symmetric monoidal $n$-category. 
+
+With increased locality comes increased computability. The simplest and most computable topological field theories are those which are {\em fully local} where we may decompose our manifolds along manifolds of arbitrary codimension. This happens for the bordism $n$-category when $d=n$, and necessitates the use of $n$-categories. The classification of these {\em local topological field} theories is the subject of the Baez-Dolan cobordism hypothesis, which states roughly that the fully local bordism category is the free symmetric monoidal $n$-category with duals generated by a single object. A precise version of this statement in all dimensions and its proof has recently been announced by Hopkins and Lurie \cite{MR2555928}. A different proof in dimension 2, based on generators and relations, appears in \cite{schommer-pries-thesis}.
+
+The Hopkins-Lurie formulation uses the sophisticated language of $(\infty, n)$-categories (specifically Barwick's model of $n$-fold complete Segal spaces). Given a symmetric monoidal $(\infty, n)$-category one may extract from it a maximal sub-symmetric monoidal $(\infty,n)$-category $\cC^{fd}$ of {\em fully-dualizable objects}. This consists of the maximal subcategory in which  all objects, 1-morphisms, 2-morphisms, \dots, $(n-1)$-morphisms have duals. We review a precise construction of this sub-object in Section \ref{sec-duals}. An important subtlety is that the morphisms expressing the duality between a given pair of objects or morphisms are themselves required to have duals. 
+
+\begin{theorem}[\cite{MR2555928}]
+	For any symmetric monoidal $(\infty,n)$-category $\cC$ there is a natural equivalence of $(\infty, n)$-categories:
+	\begin{equation*}
+		\Fun^{\otimes}(\Bord^{fr}_n, \cC) \simeq k( \cC^{fd})
+	\end{equation*}
+	where $\Bord^{fr}_n$ denotes the symmetric monoidal $(\infty,n)$-category of $n$-dimensional tangentially framed bordisms and $k( \cC^{fd})$ denotes the $(\infty,n)$-groupoid of {fully-dualizable} objects of the symmetric monoidal $(\infty,n)$-category $\cC$. Moreover the above equivalence is implemented by sending a field theory to its value on the point.
+\end{theorem}
+
+
+In order to use this theorem to construct a study local field theory one needs a target symmetric monoidal $(\infty, n)$-category, with a rich source of fully-dualizbale objects.  
+
+
+The two  most well known constructions of 3-dimensional topological field theories are the Turaev-Viro construction and the Reshetikhin-Turaev construction. Both of these constructions are known to be extended topological field theories \CSPcomm{ Cite a bunch of things, including [Bartlett-Douglas-Schommer-Pries-Vicary, in prep.]} with values in the symmetric monoidal category of linear categories, linear functors, and natural transformations (with the Deligne tensor product as the monoidal structure). In fact they factor through the full subcategory equivalent to algebras, bimodules, and bimodule maps.
 \CSP{should this be explained better?}
 
-Extended topological field theories have received renewed interest with the recent proof (due to Hopkins and Lurie \cite{??}) of the Baez-Dolan cobordisms hypothesis. This result concerns {\em fully local} extended topological field theories in which the dimension of the bordism category matches the categorical dimension. Such theories allow one to decompose manifolds along submanifolds of arbitrary codimension. 
-
-\CSPcomm{The cobordism hypothesis uses $(\infty,n)$-categories, it says that the cobordism category equipped with tangential framed is free, etc etc}
 
 
   is a symmetric monoidal $3$-functor from the 3-dimensional bordism $3$-category to a target symmetric monoidal $3$-category, which deloops the 2-category  linear categories. In this paper we construct such a 3-category. The objects consist of linear tensor categories, the morphisms are linear bimodule categories, the 2-moprhisms are bimodule functors, and the 3-morphisms are bimodule natural transformations. 
@@ -360,8 +377,8 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 
 \CSP{do we need a review of model categories?}
 
-In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the theories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories} (due originally to Hirschowitz and Simpson). Both are constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
-The former theory is important to this work because of its role in the proof of the cobordism hypothesis. The latter theory is important because it provides a model in which it is technically easier to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, something we do in the sequel. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration. These considerations will allow us, in subsequent work \CSPcomm{[cite ourselves]}, to identify the fully dualizable subcategory of this symmetric monoidal $(\infty,3)$-category along with its $O(3)$-action, while avoiding nearly all model category theoretic complications. 
+In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the theories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories} (due originally to Hirschowitz and Simpson). Both may be constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
+The former theory is important to this work because of its role in the proof of the cobordism hypothesis. The latter theory is important because it provides a convenient model in which to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, something we do in the sequel. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration. These considerations will allow us, in subsequent work \CSPcomm{[cite ourselves]}, to identify the fully dualizable subcategory of this symmetric monoidal $(\infty,3)$-category along with its $O(3)$-action, while avoiding nearly all model category theoretic complications. 
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
@@ -562,7 +579,7 @@ Thus the homotopy hypothesis holds for $n$-fold complete Segal spaces as well as
 
 
 
-\section{Dualizability in Symmetric Monoidal $(\infty,n)$-Categories}
+\section{Dualizability in Symmetric Monoidal $(\infty,n)$-Categories} \label{sec-duals}
 
 In this section we will describe how to access the space of fully-dualizble objects in a symmetric monoidal $(\infty,n)$-category, and describe an associated dualizability filtration. We will focus on the case of Segal $n$-categories for which the theory is particularly easy to analyze. We begin with a brief account of dualizability in bicategories and monoidal categories. 
 
@@ -939,7 +956,7 @@ If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD
 
 
 
-\section{The symmetric monoidal 3-category of tensor categories} \label{sec-tc-threecat}
+\section{The symmetric monoidal Segal 3-category of tensor categories} \label{sec-tc-threecat}
 
 We now describe the symmetric monoidal 3-fold Segal category $\TCfin$ of finite tensor categories, finite module categories, linear functors of module categories, and natural transformations. We first construct it as a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are weak equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal 3-fold Segal category. 
 
