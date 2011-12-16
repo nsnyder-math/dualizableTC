@@ -290,7 +290,6 @@ Thus a strict 2-category may equivalently be regarded as a simplicial object wit
 We would now like to use this to insight to describe higher categories. Philosophically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a presheaf on $\Delta$ with values in the category of $(n-1)$-categories. Moreover this should mimic the nerve. The element $[n] \in \Delta$ should be mapped to the $(n-1)$-category of all length $n$ composable strings of $1$-morphisms. 
 
 However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are completely analogous to the previous situation with symmetric monoidal structures. However, the insight gained from the previous section also suggests a possible solution. Rather then require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
-\CSP{Get references/check references for this.}
 Following this reasoning gives rise to the notion of weak $n$-category first proposed by Tamsamani \cite{Tamsamani:thesis}. In what follows we will describe the $(\infty,n)$-variant of this construction, first given by Hirschowitz and Simpson \cite{9807049},  where sets are replaced by (simplicial) spaces.  
 
 \CSPcomm{ [Maybe add a bit about Tamsamani bicategories as an equivalent model of bicategories?]}
@@ -325,8 +324,9 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 
 \CSP{do we need a review of model categories?}
 
-In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the theories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories} (due originally to Hirschowitz and Simpson). Both may be constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
-The former theory is important to this work because of its role in the proof of the cobordism hypothesis. The latter theory is important because it provides a convenient model in which to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, something we do in the sequel. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration. These considerations will allow us, in subsequent work \CSPcomm{[cite ourselves]}, to identify the fully dualizable subcategory of this symmetric monoidal $(\infty,3)$-category along with its $O(3)$-action, while avoiding nearly all model category theoretic complications. 
+In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the Quillen model categories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories} (due originally to Hirschowitz and Simpson). Both may be constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
+The former theory is important to this work because of its role in the proof of the cobordism hypothesis. The latter theory is important because it provides a convenient model in which to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, something we do in the sequel. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration. These considerations will allow us, in subsequent work \cite{DSPS}, to identify the fully dualizable subcategory of this symmetric monoidal $(\infty,3)$-category along with its $O(3)$-action, while avoiding nearly all model category theoretic complications. 
+\CSP{It looks like I forgot the discuss the $O(3)$-action in the introduction...}
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
@@ -427,8 +427,8 @@ which is readily seen to be associative. This completes the induction. Just as f
 	A {\em Segal $0$-precategory} is a simplicial set. {\em Segal $n$-precategory} is an $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces, such that $X_0$ is constant and discrete and such that each $X_k$ is a  Segal $(n-1)$-precategory. 
 \end{definition}
 
-\CSP{cite Pellesier?}
-\begin{theorem}[\cite{1001.4071} \CSPcomm{cite others??}]
+\CSP{cite \cite{0905.0462}?}
+\begin{theorem}[\cite{Pellesier:thesis, 1001.4071}]
 	There is a cartesian left proper combinatorial model category on the Segal $n$-precategories in which the cofibrations are the monomorphisms, the fibrant objects are exactly the Segal $n$-categories, and the weak equivalences between fibrant objects are the generalized Dwyer-Kan equivalences described above. 
 \end{theorem}
 
@@ -523,7 +523,7 @@ One version of the homotopy hypothesis states that the homotopy theory of spaces
 	An $n$-fold complete Segal space is a space if and only if it is an essentially constant $n$-fold simplcial space. The case $n=1$ follows from \CSPcomm{[cite Rezk]}. The general case follows by induction from properties (1)-(4) in the definition of $n$-fold complete Segal space.
 \end{example}
 
-Thus the homotopy hypothesis holds for $n$-fold complete Segal spaces as well as for  Segal $n$-categories. This latter equivalence was already established between discrete Segal $n$-categories and homotopy $n$-types by Tamsamani \cite{????} \CSPcomm{[Sur des notions de n-categorie et n-groupoide non- stricte via des ensembles multi-simpliciaux.]}
+Thus the homotopy hypothesis holds for $n$-fold complete Segal spaces as well as for  Segal $n$-categories. This latter equivalence was already established between discrete Segal $n$-categories and homotopy $n$-types by Tamsamani \cite{Tamsamani:thesis}.
 
 
 
