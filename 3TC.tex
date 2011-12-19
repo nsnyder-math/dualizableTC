@@ -99,7 +99,7 @@ In future work \cite{DSPS} we plan to identify the dualizable objects in this $(
 
 %Moreover we wish to make direct contact with the results of Hopkins-Lurie, announced in \cite{MR2555928}, which employ the language of $n$-fold complete Segal spaces introduced Barwick \cite{Barwick:thesis} (or more precisely the symmetric monoidal variant thereof). To actually construct the 3-category of tensor categories, however, we find it easier to use the theory of Segal $n$-categories introduced by Hirschowitz and Simpson \cite{9807049} (based on ideas by Tamsamani \cite{Tamsamani:thesis}) and further developed by Pelissier \cite{Pelissier:thesis} and Simpson \cite{1001.4071}.
 
-With this in mind, we begin in Sections \ref{sec-symmonGamma} and \ref{sec-Compdelta} with a some expository material on the uses of the simplex category $\Delta$ and Segal's category $\Gamma$ in the theory of symmetric monoidal $n$-categories. We hope this will make some of this work more accessible to readers coming from topology or algebra. In Section \ref{sec-symmoninftyNcat} we give a brief account of the theories of $n$-fold complete Segal spaces, Segal $n$-categories, and their symmetric monoidal counterparts. We review the known comparison results between these two approaches, due to Lurie \cite{0905.0462} (based on difficult prior work of Bergner \cite{MR2321038}) and Simpson \cite{1001.4071}. In Section \ref{sec-duals} we describe the fully-daulizable sub-category of a symmetric monoidal Segal $n$-category and demonstrate its invariance. 
+With this in mind, we begin in Sections \ref{sec-symmonGamma} and \ref{sec-Compdelta} with a some expository material on the uses of the simplex category $\Delta$ and Segal's category $\Gamma$ in the theory of symmetric monoidal $n$-categories. We hope this will make some of this work more accessible to readers coming from topology or algebra. In Section \ref{sec-symmoninftyNcat} we give a brief account of the theories of $n$-fold complete Segal spaces, Segal $n$-categories, and their symmetric monoidal counterparts. We review the known comparison results between these two approaches, due essentially to Lurie \cite{0905.0462} (based on difficult prior work of Bergner \cite{MR2321038}) and Simpson \cite{1001.4071}. In Section \ref{sec-duals} we describe the fully-daulizable sub-category of a symmetric monoidal Segal $n$-category and demonstrate its invariance. 
 
 We then address specifics necessary for the construction of our main example. In this Sections \ref{sec-tc-lincat}, \ref{sec-tc-bimodcat}, and \ref{sec-tc-deligne} we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of the material in these sections is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in Section \ref{sec-tc-deligne} which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. 
 
@@ -433,8 +433,18 @@ which is readily seen to be associative. This completes the induction. Just as f
 \begin{equation} \label{Eqn-SegCSS}
 	\Seg_n \leftrightarrows \CSS_n.
 \end{equation}
-It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equivalence. In particular two Segal $n$-category give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. 
-\CSP{It is kinda tricky to see this from \cite{0905.0462} and \cite{1001.4071}, and also needs results of Toen and Dugger. Not sure if we should go into this.}
+We would like to thank Clark Barwick for making us aware of the following result.
+
+\begin{theorem}
+	The above adjunction is a Quillen equivalence between the model categories of Segal $n$-categories and $n$-fold complete Segal spaces. 
+\end{theorem}
+
+\begin{proof}
+	It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equivalence.
+	\CSPcomm{ [under consttruction] It is kinda tricky to see this from \cite{0905.0462} and \cite{1001.4071}, and also needs results of Toen and Dugger. Not sure if we should go into this.}
+\end{proof}
+
+In particular two Segal $n$-category give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. 
 
 
 Both of the model categories $\CSS_n$ and $\Seg_n$ are cofibrantly generated model categories, which implies that the functor categories $\Fun(\Gamma^\op, \CSS_n)$ and $\Fun(\Gamma^\op, \Seg_n)$ carry (Quillen equivalent) projective model structures. We may now obtain symmetric monoidal variants of $\CSS_n$ and $\Seg_n$ by taking the left Bousfield localization with respect to the maps
