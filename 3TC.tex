@@ -434,7 +434,6 @@ which is readily seen to be associative. This completes the induction. Just as f
 	\Seg_n \leftrightarrows \CSS_n.
 \end{equation}
 We would like to thank Clark Barwick for making us aware of the following result.
-
 \begin{theorem}
 	The above adjunction is a Quillen equivalence between the model categories of Segal $n$-categories and $n$-fold complete Segal spaces. 
 \end{theorem}
@@ -490,27 +489,26 @@ The fibrant objects are described in the following definition:
 	We obtain a 2-fold simplicial set by applying the nerve construction to each of these categories, which, by viewing a set as a discrete simplicial space, we regard as a 2-fold simplicial space $NC_{\bullet \bullet}$. Since $C_\bullet$ satisfies the Segal condition, one deduces that $NC_{\bullet \bullet}$ is a 2-fold Segal category. 
 	%\footnote{Alternatively, one may start with the simplicial category $C_\bullet$, as before and apply the {\em complete Segal space nerve} to each of the categories $C_n$. The $k^\text{th}$ space of this simplicial space $N^{CSS}_\bullet C_n$ is obtained by first constructing the functor category $Fun([k], C_n)$, then throwing away the non-invertible natural transformations, and finally applying the classifying space functor to the resulting groupoid. This alternative has the advantage that it produces a {\em complete} Segal space $N^{CSS} C_n$. However for our purposes these are equivalent constructions as the canonical map $N C_n \to N^{CSS} C_n$ is a weak equivalence in the complete Segal space model structure. 
 	%[Cite the Joyal Teinery paper for the Quillen equivalence between Segal spaces and Quasi-categories] } 
-We call the association $C \mapsto NC_{\bullet \bullet}$ the {\em 2-categorical nerve}. 
-	\CSP{We should get a reference for this. Maybe \cite{MR2366560}}
+Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bullet}$ the {\em 2-nerve}\footnote{The construction in \cite{MR2366560} applies more generally to arbitrary bicategories, and consequently differs slightly from the one we have described.}.  
 \end{example}
 
-\begin{lemma} \label{lma:2catnervereflectsequiv}
+\begin{lemma}[\cite{MR2366560}] \label{lma:2catnervereflectsequiv}
 	A strict functor of strict 2-categories $F: C \to D$ is a weak equivalence if and only if the induced map of 2-fold Segal categories $NC_{\bullet \bullet} \to ND_{\bullet \bullet}$ is an equivalence. 
 \end{lemma}
 
-\begin{proof}
-	The functor $F$ is a weak equivalence if and only if 
-	\begin{enumerate}
-		\item it is essentially surjective on object, and
-		\item for every pair of objects $a,b \in C$,  it induces an equivalence of categories $C(a,b) \to D(Fa, Fb)$.
-	\end{enumerate}
-On the other hand, a map of 2-fold Segal spaces $X \to Y$ is an equivalence if and only if
-\begin{enumerate}
-	\item it induces a bijection $\pi_0X \to \pi_0Y$, and
-	\item for every pair of objects $a,b \in X_0$, it induces equivalences of 1-fold Segal spaces $\Hom_X(a,b) \to \Hom_Y(Fa, Fb)$.
-\end{enumerate}
-When $X = NC_{\bullet \bullet}$  is a 2-categorical nerve, $\Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-categorical nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-categorical nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
-\end{proof}
+%\begin{proof}
+%	The functor $F$ is a weak equivalence if and only if 
+%	\begin{enumerate}
+%		\item it is essentially surjective on object, and
+%		\item for every pair of objects $a,b \in C$,  it induces an equivalence of categories $C(a,b) \to D(Fa, Fb)$.
+%	\end{enumerate}
+%On the other hand, a map of 2-fold Segal spaces $X \to Y$ is an equivalence if and only if
+%\begin{enumerate}
+%	\item it induces a bijection $\pi_0X \to \pi_0Y$, and
+%	\item for every pair of objects $a,b \in X_0$, it induces equivalences of 1-fold Segal spaces $\Hom_X(a,b) \to \Hom_Y(Fa, Fb)$.
+%\end{enumerate}
+%When $X = NC_{\bullet \bullet}$  is a 2-nerve, $\Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
+%\end{proof}
 
 
 One version of the homotopy hypothesis states that the homotopy theory of spaces resides as a special case of the theory of $(\infty,n)$-categories, namely as the $(\infty,n)$-groupoids. This is known to hold for the models of $(\infty,n)$-category described above. This is trivially satisfied when $n=0$, as the theories of $0$-fold complete Segal spaces and Segal $0$-categories are both identical to the standard model category of simplical sets. More generally, to make this precise we must identify the $(\infty,n)$-groupoids, i.e. the {\em spaces}.
@@ -721,8 +719,7 @@ which is the identity on objects, and which is a twisted bimodule functor in eac
 
 \section{The Deligne tensor product and finite linear categories} \label{sec-tc-deligne}
 
-The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  We only define this tensor product for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties following \cite{MR2119143, EGNO}.
-\CSP{Is it true the {\em only} makes sense for finite tensor categories?}
+The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$. For simplicity, we will only define this tensor product for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties following \cite{MR2119143, EGNO}.
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A linear category $\cC$ is {\em finite} if 
@@ -914,7 +911,7 @@ If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD
 
 \section{The symmetric monoidal Segal 3-category of tensor categories} \label{sec-tc-threecat}
 
-We now describe the symmetric monoidal 3-fold Segal category $\TCfin$ of finite tensor categories, finite bimodule categories, linear bimodule functors, and linear bimodule natural transformations. We first construct a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-categorical nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal  Segal 3-category. 
+We now describe the symmetric monoidal 3-fold Segal category $\TCfin$ of finite tensor categories, finite bimodule categories, linear bimodule functors, and linear bimodule natural transformations. We first construct a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are equivalences. We may obtain a $\Gamma$-3-fold simplicial spaces by applying the 2-nerve levelwise. Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal  Segal 3-category. 
 
 Let $A$ be a finite set and $[n]\in \Delta$. The strict 2-category $\TCfin(A,n)$ should morally be regarded as the 2-category consisting of $A$-tuples of length $n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TCfin(A,n)$ should be thought of as functors from the category $A \times [n]$ into the weak 3-category $\TCfin$. 
 
