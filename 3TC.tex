@@ -433,12 +433,31 @@ which is readily seen to be associative. This completes the induction. Just as f
 \begin{equation} \label{Eqn-SegCSS}
 	\Seg_n \leftrightarrows \CSS_n.
 \end{equation}
-We would like to thank Clark Barwick for making us aware of the following result.
+We would like to thank Clark Barwick for making us aware of the following result and its proof.
 \begin{theorem}
 	The above adjunction is a Quillen equivalence between the model categories of Segal $n$-categories and $n$-fold complete Segal spaces. 
 \end{theorem}
 
 \begin{proof}
+	The above result follows by combining several known results of multiple people. The model category of Segal $n$-categories, due originally to Hirschowitz and Simpson \cite{9807049} and based on Tamsamani's notion of weak $n$-category \cite{Tamsamani:thesis}, is constructed iteratively. First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category $\cM$. This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}.  
+\begin{theorem}[{\cite[21.3.2]{1001.4071}}]
+	If $\cM$ is a tractable left proper cartesian model category, then there is a model category structure $\Seg_{\cM}$ on $\cM$-enriched Segal precategories in which the fibrant objects are the (Reedy fibrant) $\cM$-enriched Segal categories. The model category $\Seg_{\cM}$ is again  tractable, left proper, and cartesian. 
+\end{theorem}	
+\noindent Here {\em tractable} is an improvement (due to Clark Barwick) on Jeff Smith's notion of combinatorial model category. In the case at hand we will only need to consider combinatorial $\cM$ in which the cofibrations are the monomorphisms, in which case $\cM$ is automatically tractable. 
+
+Complete Segal spaces were introduced by Rezk \cite{??Rezk}	
+	
+	
+	
+	
+	First the model structures on Segal $n$-categories and $n$-fold Segal spaces may be generalized. 
+	
+	
+	%Barwick, Simpson, Pelissier, Bergner, Lurie, Toen, and Dugger. 
+	
+	First, the 
+There are model structures on $\Seg_{\cM}$ and $\CSS_{\cM}$
+	
 	It follows from \cite{0905.0462} and \cite{1001.4071} that this is a Quillen equivalence.
 	\CSPcomm{ [under consttruction] It is kinda tricky to see this from \cite{0905.0462} and \cite{1001.4071}, and also needs results of Toen and Dugger. Not sure if we should go into this.}
 \end{proof}
