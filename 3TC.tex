@@ -322,9 +322,13 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 
 \CSP{do we need a review of model categories?}
 
-In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the Quillen model categories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories} (due originally to Hirschowitz and Simpson). Both may be constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
-The former theory is important to this work because of its role in the proof of the cobordism hypothesis. The latter theory is important because it provides a convenient model in which to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, something we do in the sequel. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration. These considerations will allow us, in subsequent work \cite{DSPS}, to identify the fully dualizable subcategory of this symmetric monoidal $(\infty,3)$-category along with its $O(3)$-action, while avoiding nearly all model category theoretic complications. 
-\CSP{It looks like I forgot the discuss the $O(3)$-action in the introduction...}
+In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the Quillen model categories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories}. Both may be constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
+
+In the case $n=1$, the first appearance of Segal categories in the literature is in a paper of Dwyer, Kan, and Smith \cite{MR984042}, where they are called special $\Delta^\op$-diagrams. The concept was adapted and iterated by Tamsamani \cite{Tamsamani:thesis} in order to construct a notion of weak $n$-category. This was then turned into the notion of Segal $n$-categories by Hirschowitz and Simpson \cite{9807049}. The construction is inductive.  First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories (described below) in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category? This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}.  
+
+Complete Segal spaces were introduced by Rezk \cite{MR1804411} as a model for the {\em homotopy theory of homotopy theories}.  A general method of iterating the construction of complete Segal spaces was first given by Barwick \cite{Barwick:thesis}, and recalled, with some additional improvements, by Lurie \cite{0905.0462, MR2555928}. This again can be accomplished quite generally and there are constructions at both the model category and $\infty$-category level. 
+
+The theory of $n$-fold complete Segal spaces figures prominently in the proof of the cobordism hypothesis \cite{MR2555928}, while the theory of Segal $n$-categories provides a more convenient model in which to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, a task we take up in Section \ref{sec-tc-threecat}. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration. These considerations will allow us, in subsequent work \cite{DSPS}, to identify the fully dualizable subcategory of this symmetric monoidal $(\infty,3)$-category along with its $O(3)$-action, while avoiding nearly all model category theoretic complications. 
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
@@ -425,7 +429,7 @@ which is readily seen to be associative. This completes the induction. Just as f
 	A {\em Segal $0$-precategory} is a simplicial set. {\em Segal $n$-precategory} is an $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces, such that $X_0$ is constant and discrete and such that each $X_k$ is a  Segal $(n-1)$-precategory. 
 \end{definition}
 
-\begin{theorem}[\cite{Pelissier:thesis, 1001.4071}] \CSP{cite \cite{0905.0462}?}
+\begin{theorem}[\cite{9807049, Pelissier:thesis, 0905.0462, 1001.4071}] %\CSP{cite \cite{0905.0462}?}
 	There is a cartesian left proper combinatorial model category on the Segal $n$-precategories in which the cofibrations are the monomorphisms, the fibrant objects are exactly the Segal $n$-categories, and the weak equivalences between fibrant objects are the generalized Dwyer-Kan equivalences described above. 
 \end{theorem}
 
@@ -439,12 +443,14 @@ which is readily seen to be associative. This completes the induction. Just as f
 \end{theorem}
 
 \begin{proof}
-	It is enough to show that the above Quillen adjunction induces an equivalence of homotopy categories. 
+	In the case $n=1$, this is a result of Bergner \cite[Thm 6.3]{MR2321038} and forms part of one of the first significant comparison results in the subject. In the general case it is clear the functor $L$ preserves monomorphisms, hence cofibrations. To show that $(L,R)$ is a Quillen adjunction, it thus suffices to show that $L$ preserves weak equivalences. This was shown in \cite[Lem. 2.3.13]{0905.0462} for the left adjoint $L: \Seg_{\cA} \to \CSS_{\cB}$ between the $\cA$-enriched Segal category and $\cB$-enriched compete Segal model categories, but only in the special case where $\cA = \cB$ is a sufficiently nice cartesian simplicial combinatorial model category. In fact the identical proof works (by induction) when $\cA = \Seg_{n-1}$ and $\cB= \CSS_{n-1}$.  
+	
+	Hence to show (\ref{Eqn-SegCSS}) is a Quillen equivalence it is enough to show that this Quillen adjunction induces an equivalence of homotopy categories. 
 	If follows from \cite[Thm. 12.6, Ex. 13.8]{1112.0040} that both $\Seg_n$ and $\CSS_n$ are models for the {\em homotopy theory of $(\infty,n)$-categories}. In particular they have equivalent underlying  $(\infty,1)$-categories, and moreover they are generated by the {\em cells} under (homotopy) colimits. The derived functors of the above Quillen adjunction form an adjunction between underlying $(\infty,n)$-categories:
 	\begin{equation*}
 		\LL L : \Seg_n^{\circ} \leftrightarrows \CSS_n^{\circ}: \RR R.
 	\end{equation*} 
-The left adjoint $\LL L$ is easily seen to preserve the {cells} (The original left adjoint $L$ has this property and the cells are fibrant-cofibrant objects), and since it also preserves homotopy colimits it follows that $\LL L$ is an equivalence. In particular $L$ induces an equivalence of homotopy categories. 	
+The left adjoint $\LL L$ is easily seen to preserve the {cells} (the original left adjoint $L$ has this property and the cells are fibrant-cofibrant objects), and since it also preserves homotopy colimits it follows that $\LL L$ is an equivalence. In particular $L$ induces an equivalence of homotopy categories. 	
 \end{proof}
 
 %
