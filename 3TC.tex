@@ -431,57 +431,66 @@ which is readily seen to be associative. This completes the induction. Just as f
 
 \noindent We will denote the above model category of Segal $n$-categories by $\Seg_n$. Given an Segal $n$-precategory, we may regard it as a $n$-fold simplicial space, and this gives rise to an adjucntion
 \begin{equation} \label{Eqn-SegCSS}
-	\Seg_n \leftrightarrows \CSS_n.
+	L:\Seg_n \leftrightarrows \CSS_n:R.
 \end{equation}
-We would like to thank Clark Barwick for making us aware of the following result and its proof, which shows, in particular, that two Segal $n$-categories give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. 
+%We would like to thank Clark Barwick for making us aware of the following result and its proof, which shows, in particular, that two Segal $n$-categories give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. 
 \begin{theorem} \label{thm:SegnCSSnQuillenEquiv}
 	The above adjunction is a Quillen equivalence between the model categories of Segal $n$-categories and $n$-fold complete Segal spaces. 
 \end{theorem}
 
-
-The above result follows by combining several previously known results. The model category of Segal $n$-categories, due originally to Hirschowitz and Simpson \cite{9807049} and based on Tamsamani's notion of weak $n$-category \cite{Tamsamani:thesis}, is constructed iteratively. First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category? This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}, leading the following result:  
-\begin{theorem}[{\cite[Thm. 21.3.2]{1001.4071}}]
-	If $\cM$ is a tractable left proper cartesian model category, then there is a model category structure $\Seg_{\cM}$ on $\cM$-enriched Segal precategories in which the fibrant objects are the (Reedy fibrant) $\cM$-enriched Segal categories. The model category $\Seg_{\cM}$ is again  tractable, left proper, and cartesian. 
-\end{theorem}	
-\noindent Here {\em tractable} is an improvement (due to Clark Barwick) on Jeff Smith's notion of combinatorial model category. In the case at hand we will only need to consider combinatorial $\cM$ in which the cofibrations are the monomorphisms, in which case $\cM$ is automatically tractable. 
-
-
-Complete Segal spaces were introduced by Rezk \cite{??Rezk} as a model for the {\em homotopy theory of homotopy theories}.  A general method of iterating the construction of complete Segal spaces was first given by Barwick \cite{Barwick:thesis}, and recalled, with some additional improvements, by Lurie \cite{0905.0462, MR2555928}. This again can be accomplished quite generally and there are constructions at both the model category and $\infty$-category level.  	
-\begin{theorem}[{\cite[Prop 1.5.4]{0905.0462}}]
-	Let $\cM$ be a left proper simplicial combinatorial model category which is an {absolute distributor}. Then the category $\Fun(\Delta^\op, \cM)$, of simplicial objects in $\cM$, admits the $\cM$-enriched complete Segal model structure $\CSS_{\cM}$. Moreover the model structure $\CSS_{\cM}$ is again left proper, simplicial, combinatorial, and an absolute distributor.
-\end{theorem}	
-\noindent The condition of being an {\em absolute distributor} is needed in order to formulate the correct notion of {\em complete} $\cM$-enriched Segal object. We will not need specifics of this condition and so refer the reader to \cite{0905.0462} for details, but we do note that being an absolute distributor is a property of the $(\infty,1)$-category underlying the given model category. In particular it is preserved under any Quillen equivalence. Moreover this construction is functorial: a Quillen equivalence $\cM \leftrightarrows \cN$ induces a Quillen equivalence $\CSS_{\cM} \leftrightarrows \CSS_{\cN}$.
-
-Thus we have two iterative constructions of theories of $(\infty,n)$-categories, which may both be seeded with the model category of simplicial sets. It is natural to try to compare them. Complete Segal spaces were  shown to be equivalent to Segal categories in work of Bergner \cite{Bergner??}. 
-\CSP{For the equivalence of Segal 1-cats to complete Segal spaces I might also mention Joyal-Teirney and Toen?}
-Lurie \cite{0905.0462} has generalized Bergner's work. He gives criteria on a left proper combinatorial simplicial model category $\cM$ which permit us to construct a model structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$, such that the adjunction 
-\begin{equation*}
-	\Seg_{\cM} \leftrightarrows \CSS_{\cM}
-\end{equation*}
-is a Quillen equivalence. These criteria include, of course, the requirement that $\cM$ is an absolute distributor. We recall a special case:
-\begin{theorem}[{\cite[Prop. 2.3.1, Prop 1.5.10]{0905.0462}}]
-	Let $\cM$ be a left proper combinatorial simplicial model category in which the cofibrations are the monomorphisms, in which weak equivalences are stable under filtered colimits, and which is Quillen equivalent to $\CSS_{n-1}$. Then there exists a left proper combinatorial  model category structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$ such that the fibrant objects are the injective fibrant $\cM$-enriched Segal categories, such that the weak equivalences are stable under filtered colimits, and such that the canonical adjunction
+\begin{proof}
+	It is enough to show that the above Quillen adjunction induces an equivalence of homotopy categories. 
+	If follows from \cite[Thm. 12.6, Ex. 13.8]{1112.0040} that both $\Seg_n$ and $\CSS_n$ are models for the {\em homotopy theory of $(\infty,n)$-categories}. In particular they have equivalent underlying  $(\infty,1)$-categories, and moreover they are generated by the {\em cells} under (homotopy) colimits. The derived functors of the above Quillen adjunction form an adjunction between underlying $(\infty,n)$-categories:
 	\begin{equation*}
-		\Seg_{\cM} \leftrightarrows \CSS_{\cM}
+		\LL L : \Seg_n^{\circ} \leftrightarrows \CSS_n^{\circ}: \RR R.
 	\end{equation*} 
-	is a Quillen equivalence.
-\end{theorem} 
-\noindent In particular $\Seg_{\cM}$ will be Quillen equivalent to $n$-fold complete Segal spaces $\CSS_n$. 
-
-\begin{proof}[Proof of Theorem \ref{thm:SegnCSSnQuillenEquiv}]
-	The above results go most of the way to showing that Segal $n$-categories are Quillen equivalent to $n$-fold complete Segal spaces. However there are still a few minors points to discuss. The assumptions Simpson and Lurie place on the model category $\cM$ used to construct $\Seg_{\cM}$ are slightly different, though when both sets of conditions are satisfied they give rise to the same model categories. The most important difference is that Simpson assumes that $\cM$ is a {\em cartesian} model category, while Lurie assumes that $\cM$ is {\em simplcial}. In general $\Seg_{\cM}$ will not be a simplicial model category even if $\cM$ is simplicial, and consequently there are difficulties in directly iterating Lurie's construction or applying his results to Simpson's Segal $n$-categories.   
-
-Fortunately there is a way around this. Dugger \cite{??Dugger} has shown that every combinatorial model category $\cM$ is Quillen equivalent to a left proper simplicial combinatorial model category  $\cM'$ in which all objects are cofibrant. Toen  \cite[Prop 2.3(2)]{Toen??} has improved on this, showing that, in particular, when $\cM$ is cartesian,  $\cM'$ will again be cartesian and moreover that the Quillen equivalence is {\em weakly cartesian}. This means that the canonical map $F(X \times Y) \to  F(X) \times F(Y)$ is a weak equivalence for all object $X$ and $Y$. It is clear from Simpon's construction that a weakly cartesian Quillen equivalence $\cM \sim \cN$ induces a Quillen equivalence $\Seg_{\cM} \sim \Seg_{\cN}$. 
-
-Let $\cM$ be the cartesian simplicial replacement for Segal $n$-categories $\Seg_n$. Combining these results (and using induction) gives a chain of Quillen equivalences:
-\begin{equation*}
-	\Seg_{n+1} \sim \Seg_{\cM} \sim \CSS_{\cM} \sim \CSS_{n+1}.
-\end{equation*}
-To see that the specific Quillen adjunction (\ref{Eqn-SegCSS}) is a Quillen equivalence, we need only see that it induces an equivalence on underlying $(\infty,1)$-categories. This follows from the \cite[Thm 12.6]{1112.0040} and the fact that the Quillen adjunction in question preserves the {\em cells}. Alternatively, one may deduce this from a more careful consideration of the steps involved in constructing the cartesian simplicial replacement guaranteed by Dugger and Toen's results. 
+The left adjoint $\LL L$ is easily seen to preserve the {cells} (The original left adjoint $L$ has this property and the cells are fibrant-cofibrant objects), and since it also preserves homotopy colimits it follows that $\LL L$ is an equivalence. In particular $L$ induces an equivalence of homotopy categories. 	
 \end{proof}
 
+%
+%The above result follows by combining several previously known results. The model category of Segal $n$-categories, due originally to Hirschowitz and Simpson \cite{9807049} and based on Tamsamani's notion of weak $n$-category \cite{Tamsamani:thesis}, is constructed iteratively. First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category? This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}, leading the following result:  
+%\begin{theorem}[{\cite[Thm. 21.3.2]{1001.4071}}]
+%	If $\cM$ is a tractable left proper cartesian model category, then there is a model category structure $\Seg_{\cM}$ on $\cM$-enriched Segal precategories in which the fibrant objects are the (Reedy fibrant) $\cM$-enriched Segal categories. The model category $\Seg_{\cM}$ is again  tractable, left proper, and cartesian. 
+%\end{theorem}	
+%\noindent Here {\em tractable} is an improvement (due to Clark Barwick) on Jeff Smith's notion of combinatorial model category. In the case at hand we will only need to consider combinatorial $\cM$ in which the cofibrations are the monomorphisms, in which case $\cM$ is automatically tractable. 
+%
+%
+%Complete Segal spaces were introduced by Rezk \cite{??Rezk} as a model for the {\em homotopy theory of homotopy theories}.  A general method of iterating the construction of complete Segal spaces was first given by Barwick \cite{Barwick:thesis}, and recalled, with some additional improvements, by Lurie \cite{0905.0462, MR2555928}. This again can be accomplished quite generally and there are constructions at both the model category and $\infty$-category level.  	
+%\begin{theorem}[{\cite[Prop 1.5.4]{0905.0462}}]
+%	Let $\cM$ be a left proper simplicial combinatorial model category which is an {absolute distributor}. Then the category $\Fun(\Delta^\op, \cM)$, of simplicial objects in $\cM$, admits the $\cM$-enriched complete Segal model structure $\CSS_{\cM}$. Moreover the model structure $\CSS_{\cM}$ is again left proper, simplicial, combinatorial, and an absolute distributor.
+%\end{theorem}	
+%\noindent The condition of being an {\em absolute distributor} is needed in order to formulate the correct notion of {\em complete} $\cM$-enriched Segal object. We will not need specifics of this condition and so refer the reader to \cite{0905.0462} for details, but we do note that being an absolute distributor is a property of the $(\infty,1)$-category underlying the given model category. In particular it is preserved under any Quillen equivalence. Moreover this construction is functorial: a Quillen equivalence $\cM \leftrightarrows \cN$ induces a Quillen equivalence $\CSS_{\cM} \leftrightarrows \CSS_{\cN}$.
+%
+%Thus we have two iterative constructions of theories of $(\infty,n)$-categories, which may both be seeded with the model category of simplicial sets. It is natural to try to compare them. Complete Segal spaces were  shown to be equivalent to Segal categories in work of Bergner \cite{Bergner??}. 
+%\CSP{For the equivalence of Segal 1-cats to complete Segal spaces I might also mention Joyal-Teirney and Toen?}
+%Lurie \cite{0905.0462} has generalized Bergner's work. He gives criteria on a left proper combinatorial simplicial model category $\cM$ which permit us to construct a model structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$, such that the adjunction 
+%\begin{equation*}
+%	\Seg_{\cM} \leftrightarrows \CSS_{\cM}
+%\end{equation*}
+%is a Quillen equivalence. These criteria include, of course, the requirement that $\cM$ is an absolute distributor. We recall a special case:
+%\begin{theorem}[{\cite[Prop. 2.3.1, Prop 1.5.10]{0905.0462}}]
+%	Let $\cM$ be a left proper combinatorial simplicial model category in which the cofibrations are the monomorphisms, in which weak equivalences are stable under filtered colimits, and which is Quillen equivalent to $\CSS_{n-1}$. Then there exists a left proper combinatorial  model category structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$ such that the fibrant objects are the injective fibrant $\cM$-enriched Segal categories, such that the weak equivalences are stable under filtered colimits, and such that the canonical adjunction
+%	\begin{equation*}
+%		\Seg_{\cM} \leftrightarrows \CSS_{\cM}
+%	\end{equation*} 
+%	is a Quillen equivalence.
+%\end{theorem} 
+%\noindent In particular $\Seg_{\cM}$ will be Quillen equivalent to $n$-fold complete Segal spaces $\CSS_n$. 
+%
+%\begin{proof}[Proof of Theorem \ref{thm:SegnCSSnQuillenEquiv}]
+%	The above results go most of the way to showing that Segal $n$-categories are Quillen equivalent to $n$-fold complete Segal spaces. However there are still a few minors points to discuss. The assumptions Simpson and Lurie place on the model category $\cM$ used to construct $\Seg_{\cM}$ are slightly different, though when both sets of conditions are satisfied they give rise to the same model categories. The most important difference is that Simpson assumes that $\cM$ is a {\em cartesian} model category, while Lurie assumes that $\cM$ is {\em simplcial}. In general $\Seg_{\cM}$ will not be a simplicial model category even if $\cM$ is simplicial, and consequently there are difficulties in directly iterating Lurie's construction or applying his results to Simpson's Segal $n$-categories.   
+%
+%Fortunately there is a way around this. Dugger \cite{??Dugger} has shown that every combinatorial model category $\cM$ is Quillen equivalent to a left proper simplicial combinatorial model category  $\cM'$ in which all objects are cofibrant. Toen  \cite[Prop 2.3(2)]{Toen??} has improved on this, showing that, in particular, when $\cM$ is cartesian,  $\cM'$ will again be cartesian and moreover that the Quillen equivalence is {\em weakly cartesian}. This means that the canonical map $F(X \times Y) \to  F(X) \times F(Y)$ is a weak equivalence for all object $X$ and $Y$. It is clear from Simpon's construction that a weakly cartesian Quillen equivalence $\cM \sim \cN$ induces a Quillen equivalence $\Seg_{\cM} \sim \Seg_{\cN}$. 
+%
+%Let $\cM$ be the cartesian simplicial replacement for Segal $n$-categories $\Seg_n$. Combining these results (and using induction) gives a chain of Quillen equivalences:
+%\begin{equation*}
+%	\Seg_{n+1} \sim \Seg_{\cM} \sim \CSS_{\cM} \sim \CSS_{n+1}.
+%\end{equation*}
+%To see that the specific Quillen adjunction (\ref{Eqn-SegCSS}) is a Quillen equivalence, we need only see that it induces an equivalence on underlying $(\infty,1)$-categories. This follows from the \cite[Thm 12.6]{1112.0040} and the fact that the Quillen adjunction in question preserves the {\em cells}. Alternatively, one may deduce this from a more careful consideration of the steps involved in constructing the cartesian simplicial replacement guaranteed by Dugger and Toen's results. 
+%\end{proof}
 
 
+In particular two Segal $n$-categories give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories.
 Both of the model categories $\CSS_n$ and $\Seg_n$ are cofibrantly generated model categories, which implies that the functor categories $\Fun(\Gamma^\op, \CSS_n)$ and $\Fun(\Gamma^\op, \Seg_n)$ carry (Quillen equivalent) projective model structures. We may now obtain symmetric monoidal variants of $\CSS_n$ and $\Seg_n$ by taking the left Bousfield localization with respect to the maps
 \begin{equation*}
 	(\coprod_{a \in A} i_a) :   \coprod_{a \in A} y(1) \to y(A)
