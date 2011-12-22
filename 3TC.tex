@@ -117,30 +117,31 @@ The second author would especially like to thank Clark Barwick for countless hel
 \begin{warning}
 In this section and the next we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
 \end{warning}
+\CD{I think this warning should move someplace else so it doesn't start the body of the paper.  Not sure where yet.}
 
 \begin{definition}
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
 \end{definition}
 
-This category was introduced by Segal in \cite{MR0353298}.  The opposite category $\Gamma^\textrm{op} \simeq Fin_*$ is the category of finite pointed sets. Let $(m) = \{ 1, 2, \dots, m\}$. For each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. If $C$ is a category with finite products, then the category of commutative monoids in $C$ is equivalent to the category of functors $M:\Gamma^{op} \to C$ such that for all $A\in \Gamma$ the following {\em Segal map} is an isomorphism
+\nid This category was introduced by Segal \cite{MR0353298}.  The opposite category $\Gamma^\textrm{op}$ is equivalent to the category $Fin_*$ of finite pointed sets. Let $(m)$ denote the unpointed set $\{ 1, 2, \dots, m\}$. For an object $A$ of $\Gamma$ and for each element $a \in A$, there exists a canonical map $i_a: (1) \to A$, which is defined by setting $i_a(1) = \{a\} \subseteq A$. If $C$ is a category with finite products, then the category of commutative monoids in $C$ is equivalent to the category of functors $M:\Gamma^{op} \to C$ such that for all $A\in \Gamma$ the following {\em Segal map} is an isomorphism
 \begin{equation*}
 	\prod_{a \in A} i_a^*: M(A) \to \prod_{a \in A} M(1).
 \end{equation*}
 It will be instructive to spell this out explicitly. The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$.  Let $M$ denote $M(1)$, then we have $M(A) \cong M^{\times |A|}$. Maps in $\Gamma$ express ways to combine a $B$-tuple of elements of $M$ into an $A$-tuple of elements in $M$. Explicitly $f: A \to P(B)$
 induces a map $f^*: M^{\times |B|} \to M^{\times |A|}$ which sends the $B$-tuple $(m_b)_{b \in B}$ to the $A$-tuple $(n_a)_{a \in A}$ where the element $n_a \in M$ is obtained by multiplying together all the elements $m_b$ where $b$ ranges over the elements in $f(a) \subseteq B$. This is a well-defined operation when $M$ is a commutative monoid, and conversely every such functor arises from a monoid in this manner. 
 
-This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ should give rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, unless $(M, \otimes)$ is a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
+This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. \CD{What are our conventions regarding whether "n-category", as in this sentence, means weak or strict?} Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ should give rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, unless $(M, \otimes)$ is a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
 
 This leaves us with two possible avenues of pursuit:
 \begin{enumerate}
-	\item We relax our goal of obtaining a {\em strict} functor. The functors $f^*$ described above are not compatible with composition of maps in $\Gamma$, but they are compatible up to natural isomorphism of functor. In fact there are canonical coherent families of such natural isomorphisms and we obtain a {\em weak} functor from $\Gamma^\text{op}$ to the 2-category $\Cat$. 
+	\item We relax our goal, given a monoidal category $M$, of obtaining a {\em strict} functor from $\Gamma^\text{op}$ to $\Cat$. The functors $f^*$ described above are not compatible with composition of maps in $\Gamma$, but they are compatible up to natural isomorphism of functors. In fact there are canonical coherent families of such natural isomorphisms and we obtain a {\em weak} functor from $\Gamma^\text{op}$ to the 2-category $\Cat$. 
 	\item We realize that our initial guess that $A \mapsto M^{\times |A|}$ may have been overly optimistic. We content ourselves to have a strict functor $M: \Gamma^\text{op} \to \Cat$ where $M(A)$ is merely {\em equivalent} to  $M^{\times |A|}$. 
 \end{enumerate}
 Either of these options may be employed, and both give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, and indeed there is a well established and usable theory. This option is entirely reasonable in that case. 
 
-However in this paper we ultimately wish to describe a symmetric monoidal 3-category. Option (1) would generally require a robust theory of 4-categories and their weak functors. Trimble's notion of tetracategory has recently appeared in print \cite{1112.0560} in a simplified form. The definition alone spans 15 pages. One could, alternatively, use a more compact homotopically inspired notion of $n$-category, such as the theory of iterated complete Segal spaces, a model of $(\infty, n)$-categories which we will describe in later, but it is just as easy (and perhaps more explicit) to pursue option (2) from the start. 
+However in this paper we ultimately wish to describe a symmetric monoidal 3-category. Option (1) would generally require a robust theory of 4-categories and their weak functors. Trimble's notion of tetracategory has recently appeared in print \cite{1112.0560} in a simplified form. The definition alone spans 15 pages. One could, alternatively, use a more compact homotopically inspired notion of $n$-category, such as the theory of iterated complete Segal spaces, a model of $(\infty, n)$-categories which we will describe in detail later, but it is just as easy (and perhaps more explicit) to pursue option (2) from the start. 
 
-In the case where the monoidal structure in question is defined via a universal property, (which is the case of our primary interest) this second option has a particularly manageable solution. Again, it is instructive to consider the 1-categorical case first. We will now describe how the symmetric monoidal category of vector spaces may be encoded as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
+In the case where the monoidal structure in question is defined via a universal property (which is the case of our primary interest), this second option is a particularly manageable approach. Again, it is instructive to consider the 1-categorical case first. We will now describe how the symmetric monoidal category of vector spaces may be encoded as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
 
 The monoidal structure in $\Vect$ is given by the tensor product of vector spaces, which is defined by a well-known universal property. The tensor product of $V_1$ and $ V_2$ is a universal vector space receiving a bilinear map from $V_1 \times V_2$. In other words, the tensor product $V_{12}$ comes equipped with a bilinear map  $V_1 \times V_2 \to V_{12}$, inducing for all vector spaces $W$ a natural bijection between bilinear maps $V_1 \times V_2 \to W$ and linear maps $V_{12} \to W$. We will say that the bilinear map  $V_1 \times V_2 \to V_{12}$ {\em realizes $V_{12}$ as a tensor product}. As with all universal properties, if the tensor product exists then it is unique up to unique isomorphism, and so it is common practice to write $V_{12} = V_1 \otimes V_2$ for any choice of tensor product.
 
@@ -150,7 +151,7 @@ We will now describe how to encode this symmetric monoidal structure as a strict
 \begin{equation*}
 	\Vect: \Gamma^\text{op} \to \Cat.
 \end{equation*}  
-In our initial naive attempt at constructing such a functor we identified the key difficulty: given a $B$-tuple of vector spaces, and a map $f: A \to P(B)$ in $\Gamma$ (i.e. a certain collection of subsets $f(a) \subseteq B$) we need to choose a way to take the tensor product of each of the corresponding subtuples. Rather then make such a choice for each $f$ (which yields only a weak functor $\Gamma^\text{op} \to \Cat$) we will enlarge $\Vect^{\times |B|}$ to include choices of these tensor products for each subset of $B$. 
+In our initial naive attempt at constructing such a functor we identified the key difficulty: given a $B$-tuple of vector spaces, and a map $f: A \to P(B)$ in $\Gamma$ (i.e. a certain collection of subsets $f(a) \subseteq B$) we need to choose a way to take the tensor product of each of the corresponding subtuples. Rather than make such a choice for each $f$ (which yields only a weak functor $\Gamma^\text{op} \to \Cat$) we will enlarge $\Vect^{\times |B|}$ to include choices of these tensor products for each subset of $B$. 
 
 The most canonical way to do this is to define $\Vect(B)$ to include all possible representatives of the tensor product for each of the subsets of $B$. Thus we obtain the following definition of the category $\Vect(B)$: 
 \begin{itemize}
@@ -159,7 +160,7 @@ The most canonical way to do this is to define $\Vect(B)$ to include all possibl
 	indexed by pairs of disjoint subsets $S, S' \subseteq B$. These are required to satisfy the following conditions:
 	\begin{enumerate}
 		\item $V_{\emptyset} = k$; 
-		\item $v_{S,S'}$ realizes $V_{S \cup S'}$ as the tensor product of $V_S$ and $V_{S'}$;
+		\item $v_{S,S'}$ realizes $V_{S \cup S'}$ as a tensor product of $V_S$ and $V_{S'}$;
 		\item If $S, S', S'' \subseteq B$ are three pairwise disjoint subsets, then the following square of multilinear maps commutes:
 	\begin{center}
 	\begin{tikzpicture}
@@ -191,31 +192,32 @@ The most canonical way to do this is to define $\Vect(B)$ to include all possibl
 		%\node at (1.5, 0.5) {$\lrcorner$};
 	\end{tikzpicture}.
 	\end{center}
-\end{itemize}
-Thus an object of $\Vect(A)$ consist partly of an $A$-tuple of vector spaces, namely $ (V_{\{a\}})_{a \in A}$. Each vector space $V_S$ should then be thought of as a {\em choice} of simultaneous tensor product of all the $V_{\{a\}}$ where $a \in S$. The data and conditions of an object of $\Vect(A)$ make this philosophical viewpoint precise, and similarly for the morphisms of $\Vect(A)$. 
+\end{itemize} \CD{Do we want full stops at the end of display diagrams like this, and if so, at the bottom or centered?}
+Thus an object of $\Vect(A)$ consist partly of an $A$-tuple of vector spaces, namely $ (V_{\{a\}})_{a \in A}$. Each vector space $V_S$ should then be thought of as a {\em choice} of simultaneous tensor product of all the $V_{\{a\}}$ where $a \in S$. The data and conditions of an object of $\Vect(A)$ make this intuitive description precise, and similarly for the morphisms of $\Vect(A)$. 
 
 The assignment $A \mapsto \Vect(A)$ gives a functor $\Vect: \Gamma^{op} \to \Cat$, for if $f: A \to P(B)$, then we obtain a functor $f^*: \Vect(B) \to \Vect(A)$ as follows. If $T \subseteq A$, let $f(T) = \cup_{a \in T} f(a) \subseteq B$. Then an object $\{ V_S, v_{S,S'} \}_{S, S' \subseteq B}$ of $\Vect(B)$ is sent via $f^*$ to the object $\{ W_T, w_{T, T'} \}_{T, T' \subseteq A} \in \Vect(A)$, where 
 \begin{equation*}
 	W_T = V_{f(T)} \quad \textrm{and} \quad  w_{T, T'} = v_{f(T), f(T')}.
 \end{equation*}
-This is easily seen to be strictly compatible with composition in $\Gamma^\text{op}$. Moreover, since the tensor product is defined by a universal property, the forgetful functor $\Vect(A) \to \Vect^{\times |A|}$ is an equivalence of categories, as desired.  
+This assignment is strictly compatible with composition in $\Gamma^\text{op}$. Moreover, since the tensor product is defined by a universal property, the forgetful functor $\Vect(A) \to \Vect^{\times |A|}$ is an equivalence of categories, as desired.  
 
 \section{Composition via the category $\Delta$} \label{sec-Compdelta}
 
 
 %\NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
 
-In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section we will describe a similar process in which the composition in a category may be described through the use the combinatorial simplex category $\Delta$. 
+In the last section we described how symmetric monoidal structures may be encoded through the use of the category $\Gamma$. In this section we will describe a similar process in which the composition in a category may be described through the use of combinatorial simplex category $\Delta$. 
 %\CSPcomm{Iterating this idea leads to the notion of {\em Segal $n$-category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  }
 
 \begin{definition}
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. 
 \end{definition}
 
-The simplex category plays a dual role which sometimes results in confusing terminology. On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
+The simplex category plays a dual role which sometimes results in confusing terminology. \CD{I think this paragraph can be removed, then add defs of vertices and edges where needed; or did I miss where this confusion comes up for us?}
+On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
 
-But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square,
-\begin{equation} \label{Eqn:Segal-Co-Map}
+But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square, \CD{I think we'll want to label this diagram with a letter, say S, because there are so few number references.}
+\begin{equation} \label{Eqn:Segal-Co-Map}  
 \begin{tikzpicture}[baseline = 0.75cm]
 	\node (LT) at (0, 1.5) {$[0]$};
 	\node (LB) at (0, 0) {$[m]$};
@@ -231,11 +233,12 @@ But there are other aspects of $\Delta$ which come from its description as a cat
 \end{equation}
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. This square will play an important role in what follows. 
 
-Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. This well-known construction proceeds as follows: each ordered set $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ is $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
+Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. \CD{I feel like we might as well say explicitly what `presheaf' means, and I'm also slightly concerned that we shift back and forth between `presheaf on $\Delta$' and `simplicial object' at times without any (discernable to me just now) reason.}
+This well-known construction proceeds as follows: each ordered set $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ if $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
 The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
 \begin{equation*}
 	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \times \cdots \times \Hom_X(x_{n-1}, x_n).
-\end{equation*}
+\end{equation*} \CD{Caret in that corner or the other?}
 In other words $NC_n$ consists of all length $n$ strings of composable morphisms of $X$.
 
 The nerve construction is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (\ref{Eqn:Segal-Co-Map}),
@@ -255,7 +258,8 @@ The nerve construction is a fully-faithful functor from categories and functors 
 \end{center}
 are a pullback diagrams. 
 
-This can be extended to categories internal to a category $C$. The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+This can be extended to categories internal to a category $C$. \CD{There is something amiss around here --- the above two paragraphs and this paragraph cover similar ground (eg introducing simplicial objects and notation for such), with the latter paragraphs being more elementary.  Was the latter stuff meant to be deleted when the above was added? Or maybe this stuff should move higher up?}
+The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -270,9 +274,9 @@ This can be extended to categories internal to a category $C$. The category of {
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-are a pullback diagrams\footnote{This is easily checked to be equivalent to the standard definition.}. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. 
+are a pullback diagrams. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. \CD{Note to self: at some point, actually set this crucial notion out in a display, perhaps just for $C = Set$.}
 
-This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $\Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of ``objects''). Under certain conditions these notions may be related. Recall that a category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
+This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $\Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of ``objects''). Under certain conditions these notions may be related. A category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
 
 \begin{example}
 	An ordinary (small) category is a category enriched in sets.
@@ -282,26 +286,26 @@ This may be contrasted with the notion of a category enriched to $C$, which cons
 	A {\em strict 2-category} is a category enriched in categories.
 \end{example}
 
-Thus a strict 2-category may equivalently be regarded as a simplicial object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such the the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
+Thus a strict 2-category may equivalently be regarded as a simplicial object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such that the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
 
 
 
-We would now like to use this to insight to describe higher categories. Philosophically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a presheaf on $\Delta$ with values in the category of $(n-1)$-categories. Moreover this should mimic the nerve. The element $[n] \in \Delta$ should be mapped to the $(n-1)$-category of all length $n$ composable strings of $1$-morphisms. 
+We would now like to use this insight to describe higher categories. \CD{(specify which insight)} Heuristically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a discrete presheaf on $\Delta$ with values in the category of $(n-1)$-categories. \CD{Is `discrete presheaf' proper terminology?} The element $[n] \in \Delta$ should be mapped to the $(n-1)$-category of all length $n$ composable strings of $1$-morphisms. 
 
-However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are completely analogous to the previous situation with symmetric monoidal structures. However, the insight gained from the previous section also suggests a possible solution. Rather then require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
+However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are analogous to the previous situation with symmetric monoidal structures. However, the insights in the previous section also suggests a possible solution. Rather than require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
 Following this reasoning gives rise to the notion of weak $n$-category first proposed by Tamsamani \cite{Tamsamani:thesis}.   
 
 \begin{definition}[Sketch]
-	A Tamsamani $0$-category is a set. 	A {\em Tamsamani $n$-category} is a simplicial object in $(n-1)$-fold simplicial sets, such that the following conditions are satisfied:
+	A Tamsamani $0$-category is a set. 	A {\em Tamsamani $n$-category} is a simplicial object in $(n-1)$-fold simplicial sets, such that the following conditions are satisfied: \CD{Define $(n-1)$-fold simplicial set.}
 	\begin{enumerate}
 		\item The $(n-1)$-fold simplicial set $X_0$ is constant and discrete.
-		\item Each of the $(n-1)$-fold simplicial set $X_k$ is a Tamsamani $(n-1)$-category.
-		\item For every $m, k$, the Segal square,
+		\item Each of the $(n-1)$-fold simplicial sets $X_k$ is a Tamsamani $(n-1)$-category.
+		\item For every $i$ and $j$, the Segal square,
 		\begin{center}
 		\begin{tikzpicture}
-			\node (LT) at (0, 1.5) {$X_{m+n}$};
-			\node (LB) at (0, 0) {$X_m$};
-			\node (RT) at (2, 1.5) {$X_n$};
+			\node (LT) at (0, 1.5) {$X_{i+j}$};
+			\node (LB) at (0, 0) {$X_i$};
+			\node (RT) at (2, 1.5) {$X_j$};
 			\node (RB) at (2, 0) {$X_0$};
 			\draw [->] (LT) -- node [left] {$$} (LB);
 			\draw [->] (LT) -- node [above] {$$} (RT);
@@ -311,11 +315,11 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 			%\node at (1.5, 0.5) {$\lrcorner$};
 		\end{tikzpicture}
 		\end{center}
-		induces an {\em equivalence} $X_{m+n} \to X_m \times_{X_0} X_n$ of Tamsamani $(n-1)$-categories.
+		induces an {\em equivalence} $X_{i+j} \to X_i \times_{X_0} X_j$ of Tamsamani $(n-1)$-categories.
 	\end{enumerate}
-\end{definition}
+\end{definition} \CD{I think we should spell this definition out for $n=1$, just to make contact with the earlier discussion.}
 
-\noindent To make this precise, one must also inductively build the notation of equivalence. We will do this in the next section, where we describe Segal $n$-categories, the $(\infty,n)$-variant of this construction first given by Hirschowitz and Simpson \cite{9807049} where sets are replaced by {\em spaces}. Tamsamani $n$-categories may then be identified with the {\em discrete} Segal $n$-categories.  It is well-known that the theory of Tamsamani 2-categories forms a good model for the theory of bicategories. This is discussed in detail in \cite{MR2366560}.
+\noindent To make this precise, one must also inductively build the notation of equivalence. We will do this in the next section, where we describe Segal $n$-categories, the $(\infty,n)$-variant of this construction where instead of working with simplicial sets we use simplicial spaces; Segal $n$-categories were first defined by Hirschowitz and Simpson \cite{9807049}. Tamsamani $n$-categories may then be identified with the {\em discrete} Segal $n$-categories.  It is well-known that the theory of Tamsamani 2-categories forms a good model for the theory of bicategories. This is discussed in detail in \cite{MR2366560}.
 
 
 \section{Model categories of symmetric monoidal $(\infty,n)$-categories} \label{sec-symmoninftyNcat}
