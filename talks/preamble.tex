@@ -1,0 +1,293 @@
+%auto-ignore
+%this ensures the arxiv doesn't try to start TeXing here.
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{ifpdf}
+%\usepackage[usenames]{color}
+\usepackage{enumerate}
+\usepackage{ulem}
+\usepackage{leftidx}
+
+%\ifpdf
+%\usepackage[pdftex,all,color]{xy}
+%\else
+%\usepackage[all,color]{xy}
+%\fi
+
+%\SelectTips{cm}{}
+% This may speed up compilation of complex documents with many xymatrices.
+%\CompileMatrices
+
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% ----------------------------------------------------------------
+
+% diagrams -------------------------------------------------------
+% figures ---------------------------------------------------------
+\newcommand{\pathtodiagrams}{\pathtotrunk}
+
+\newcommand{\mathfig}[2]{{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\includegraphics[width=#1\textwidth]{\pathtodiagrams #2}}%
+\end{array}\hspace{-3pt}}}
+\newcommand{\reflectmathfig}[2]{{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\reflectbox{\includegraphics[width=#1\textwidth]{\pathtodiagrams #2}}}%
+\end{array}\hspace{-3pt}}}
+\newcommand{\rotatemathfig}[3]{{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\rotatebox{#2}{\includegraphics[height=#1\textwidth]{\pathtodiagrams #3}}}%
+\end{array}\hspace{-3pt}}}
+\newcommand{\placefig}[2]{\includegraphics[width=#1\linewidth]{\pathtodiagrams #2}}
+
+\newcommand{\inputtikz}[1]{\input{\pathtodiagrams tikz/#1.tikz}}
+
+%\ifpdf
+%\usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
+%\else
+%\usepackage[dvips,plainpages=false,hypertexnames=false]{hyperref}
+%\fi
+\newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{\tt arXiv:\nolinkurl{#1}}}
+\newcommand{\doi}[1]{\href{http://dx.doi.org/#1}{{\tt DOI:#1}}}
+\newcommand{\euclid}[1]{\href{http://projecteuclid.org/getRecord?id=#1}{{\tt #1}}}
+\newcommand{\mathscinet}[1]{\href{http://www.ams.org/mathscinet-getitem?mr=#1}{\tt #1}}
+\newcommand{\googlebooks}[1]{(preview at \href{http://books.google.com/books?id=#1}{google books})}
+
+\def\RCS$#1: #2 ${\expandafter\def\csname RCS#1\endcsname{#2}}
+\RCS$Revision: 1998 $ \RCS$Date: 2010-08-10 04:32:36 -0700 (Tue, 10 Aug 2010) $
+\newcommand{\versioninfo}{Version \RCSRevision; Last commit \RCSDate}
+
+
+% THEOREMS -------------------------------------------------------
+\theoremstyle{plain}
+%\newtheorem*{fact}{Fact}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{conj}[prop]{Conjecture}
+\newtheorem{thm}[prop]{Theorem}
+\newtheorem{recipe}[prop]{Recipe}
+\newtheorem{lem}[prop]{Lemma}
+\newtheorem{cor}[prop]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem*{exc}{Exercise}
+%\newtheorem*{example}{Example}
+%\theoremstyle{definition}
+\newtheorem{defn}[prop]{Definition}         % numbered definition
+\newtheorem*{defn*}{Definition}             % unnumbered definition
+\newtheorem{question}{Question}
+\newtheorem*{kuperberg}{The Kuperberg Program}
+\newenvironment{rem}{\noindent\textsl{Remark.}}{}  % perhaps looks better than rem above?
+\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+
+\newcommand{\noqed}{\renewcommand{\qedsymbol}{}}
+
+% Marginal notes in draft mode -----------------------------------
+\newcommand{\scott}[1]{\stepcounter{comment}{{\color{green} $\star^{(\arabic{comment})}$}}\marginpar{\color{green}  $\star^{(\arabic{comment})}$ \usefont{T1}{scott}{m}{n}  #1 --S}}     % draft mode
+\newcommand{\eep}[1]{\stepcounter{comment}{\color{blue} $\star^{(\arabic{comment})}$}\marginpar{\color{blue}  $\star^{(\arabic{comment})}$  #1 --E}}     % draft mode
+\newcommand{\noah}[1]{\stepcounter{comment}{\color{red} $\star^{(\arabic{comment})}$}\marginpar{\color{red}  $\star^{(\arabic{comment})}$  #1 --N}}     % draft mode
+\newcommand{\comment}[1]{\stepcounter{comment}$\star^{(\arabic{comment})}$\marginpar{\tiny $\star^{(\arabic{comment})}$ #1}}     % draft mode
+\newcounter{comment}
+\newcommand{\noop}[1]{}
+\newcommand{\todo}[1]{\textbf{TODO: #1}}
+
+% \mathrlap -- a horizontal \smash--------------------------------
+% For comparison, the existing overlap macros:
+% \def\llap#1{\hbox to 0pt{\hss#1}}
+% \def\rlap#1{\hbox to 0pt{#1\hss}}
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{%
+\llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{%
+\rlap{$\mathsurround=0pt#1{#2}$}}
+\def\mathclapinternal#1#2{%
+\clap{$\mathsurround=0pt#1{#2}$}}
+
+% MATH -----------------------------------------------------------
+\newcommand{\Natural}{\mathbb N}
+\newcommand{\Integer}{\mathbb Z}
+\newcommand{\Rational}{\mathbb Q}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Complex}{\mathbb C}
+\newcommand{\Field}{\mathbb F}
+
+% tricky way to iterate macros over a list
+\def\semicolon{;}
+\def\applytolist#1{
+    \expandafter\def\csname multi#1\endcsname##1{
+        \def\multiack{##1}\ifx\multiack\semicolon
+            \def\next{\relax}
+        \else
+            \csname #1\endcsname{##1}
+            \def\next{\csname multi#1\endcsname}
+        \fi
+        \next}
+    \csname multi#1\endcsname}
+
+% \def\cA{{\cal A}} for A..Z
+\def\calc#1{\expandafter\def\csname c#1\endcsname{{\mathcal #1}}}
+\applytolist{calc}QWERTYUIOPLKJHGFDSAZXCVBNM;
+
+% \def\bA{{\mathbf A}} for A..Z
+\def\bfc#1{\expandafter\def\csname b#1\endcsname{{\mathbf #1}}}
+\applytolist{bfc}QWERTYUIOPLKJHGFDSAZXCVBNM;
+
+% \def\bbA{{\mathbf A}} for A..Z
+\def\bbc#1{\expandafter\def\csname bb#1\endcsname{{\mathbb #1}}}
+\applytolist{bbc}QWERTYUIOPLKJHGFDSAZXCVBNM;
+
+\newcommand{\id}{\boldsymbol{1}}
+\renewcommand{\imath}{\mathfrak{i}}
+\renewcommand{\jmath}{\mathfrak{j}}
+
+\newcommand{\qRing}{\Integer[q,q^{-1}]}
+\newcommand{\qMod}{\qRing-\operatorname{Mod}}
+\newcommand{\ZMod}{\Integer-\operatorname{Mod}}
+
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\mapsto}
+\newcommand{\iso}{\cong}
+\newcommand{\actsOn}{\circlearrowright}
+
+\newcommand{\htpy}{\simeq}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+
+\newcommand{\restrict}[2]{#1{}_{\mid #2}{}}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setc}[2]{\left\{#1 \;\left| \; #2 \right. \right\}}
+\newcommand{\quotient}[2]{\frac{#1}{#2}}
+\newcommand{\relations}[2]{\left<#1 \;\left| \; #2 \right. \right>}
+\newcommand{\cone}[3]{C\left(#1 \xrightarrow{#2} #3\right)}
+\newcommand{\pairing}[2]{\left\langle#1 ,#2 \right\rangle}
+
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\MMA}{\code{Mathematica} {}}
+
+\newenvironment{mma}{}{}
+
+\newcounter{lineNumber}
+\newcommand{\inN}{\stepcounter{lineNumber}\arabic{lineNumber}}
+\newcommand{\outN}{\arabic{lineNumber}}
+
+\newenvironment{inm}{%
+ \vskip 0pt \par\noindent%
+  {\footnotesize\color{blue}In[\inN]$:=$}\tt%
+  }{}
+\newenvironment{outm}{%
+ \vskip -6pt \par\noindent\parindent=12pt%
+  {\footnotesize\color{blue}Out[\outN]$=$}\tt%
+  }{}
+\newenvironment{printm}%
+    {\begin{quotation}\noindent}%
+    {\end{quotation}}%
+
+%\makeatletter
+%\newcommand{\hashdef}[2]{\@namedef{#1}{#2}}
+%\newcommand{\hashlookup}[1]{\@nameuse{#1}}
+%\makeatother
+
+%\input{../../graphs/lookup.tex}
+
+%\newcommand{\bigraph}[1]{{\hspace{-3pt}\begin{array}{c}%
+%  \raisebox{-2.5pt}{\includegraphics[height=6mm]{../../graphs/\hashlookup{#1}}}% 
+%\end{array}\hspace{-3pt}}}
+
+\newcommand{\J}[2]{\mathcal{J}_{#1,#2}}
+\newcommand{\Jf}[2]{\mathcal{J}^{\text{framed}}_{#1,#2}}
+\newcommand{\HOMFLY}{\operatorname{HOMFLYPT}}
+\newcommand{\Kauffman}{\operatorname{Kauffman}}
+\newcommand{\Dubrovnik}{\operatorname{Dubrovnik}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\vRep}{\Rep^{\text{vector}}}
+
+\newcommand{\overcrossing}{\inputtikz{overcrossing}}
+\newcommand{\undercrossing}{\inputtikz{undercrossing}}
+\newcommand{\identity}{\inputtikz{identity}}
+\newcommand{\cupcap}{\inputtikz{cupcap}}
+\newcommand{\Oovercrossing}{\inputtikz{Oovercrossing}}
+\newcommand{\Oundercrossing}{\inputtikz{Oundercrossing}}
+\newcommand{\Oidentity}{\inputtikz{Oidentity}}
+
+\newcommand{\positivetwist}{\inputtikz{positivetwist}}
+\newcommand{\negativetwist}{\inputtikz{negativetwist}}
+\newcommand{\verticalstrand}{\inputtikz{verticalstrand}}
+
+\newcommand{\card}[1]{\sharp{#1}}
+
+\newcommand{\bdy}{\partial}
+\newcommand{\compose}{\circ}
+\newcommand{\eset}{\emptyset}
+\newcommand{\disj}{\sqcup}
+
+\newcommand{\psmallmatrix}[1]{\left(\begin{smallmatrix} #1 \end{smallmatrix}\right)}
+
+\newcommand{\qiq}[2]{[#1]_{#2}}
+\newcommand{\qi}[1]{\qiq{#1}{q}}
+\newcommand{\qdim}{\operatorname{dim_q}}
+
+\newcommand{\directSum}{\oplus}
+\newcommand{\DirectSum}{\bigoplus}
+\newcommand{\tensor}{\otimes}
+\newcommand{\Tensor}{\bigotimes}
+
+\newcommand{\altTensor}{\widehat{\Tensor}}
+
+\newcommand{\db}[1]{\left(\left(#1\right)\right)}
+
+\newcommand{\su}[1]{\mathfrak{su}_{#1}}
+\newcommand{\csl}[1]{\mathfrak{sl}_{#1}}
+\newcommand{\uqsl}[1]{U_q\left(\csl{#1}\right)}
+
+\newcommand{\Cobl}{{\mathcal Cob}_{/l}}
+\newcommand{\Cob}[1]{{\mathcal Cob}\left(\su{#1}\right)}
+\newcommand{\Kom}[1]{\operatorname{Kom}\left(#1\right)}
+
+\newcommand{\Mat}[1]{\operatorname{\mathbf{Mat}}\left(#1\right)}
+\newcommand{\Inv}[1]{\operatorname{Inv}\left(#1\right)}
+\newcommand{\Hom}[3]{\operatorname{Hom_{#1}}\left(#2,#3\right)}
+\newcommand{\End}[1]{\operatorname{End}\left(#1\right)}
+\newcommand{\Reigenvalue}[2]{R_{#1 \subset #2 \tensor #2}}
+\newcommand{\tildeReigenvalue}[2]{\tilde{R}_{#1 \subset #2 \tensor #2}}
+\newcommand{\im}{\operatorname{im}}
+
+\newcommand{\lk}[2]{\operatorname{lk}\left(#1,#2\right)}
+\newcommand{\fr}[1]{\operatorname{fr}\left(#1\right)}
+
+\newcommand{\asbimod}[2]{\operatorname{Mod}'\left(#1 \subset #2\right)}
+\newcommand{\sbimod}[2]{\operatorname{Mod}\left(#1 \subset #2\right)}
+\newcommand{\abimod}[2]{#1-\operatorname{Mod}'-#2}
+\newcommand{\bimod}[2]{#1-\operatorname{Mod}-#2}
+\newcommand{\bimodule}[3]{\leftidx{_#1}{#2}{_#3}}
+
+\newcommand{\pa}{\mathcal{PA}}
+\newcommand{\TL}{\mathcal{TL}}
+\newcommand{\JW}[1]{f^{(#1)}}
+\newcommand{\tr}[1]{\text{tr}(#1)}
+\newcommand{\dn}[1]{{\mathcal D}{\mathit (#1)}}
+
+\newcommand{\directSumStack}[2]{{\begin{matrix}#1 \\ \DirectSum \\#2\end{matrix}}}
+\newcommand{\directSumStackThree}[3]{{\begin{matrix}#1 \\ \DirectSum \\#2 \\ \DirectSum \\#3\end{matrix}}}
+
+\newcommand{\grading}[1]{{\color{blue}\{#1\}}}
+\newcommand{\shift}[1]{\left[#1\right]}
+
+\newcommand{\tensorover}[1]{\otimes_{#1}}
+\newcommand{\tensorhat}{\widehat{\Tensor}}
+
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\Lhat}{\hat{\mathcal{L}}}
+\newcommand{\writhe}{\operatorname{writhe}}
+
+\newenvironment{narrow}[2]{%
+\vspace{-0.4cm}% horrible hack, by scott % this only seems to be appropriate in beamer mode...
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}}%
+\item[]}{\end{list}}
+% ----------------------------------------------------------------
