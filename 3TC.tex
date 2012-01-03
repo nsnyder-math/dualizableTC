@@ -213,10 +213,9 @@ In the last section we described how symmetric monoidal structures may be encode
 	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. 
 \end{definition}
 
-The simplex category plays a dual role which sometimes results in confusing terminology. \CD{I think this paragraph can be removed, then add defs of vertices and edges where needed; or did I miss where this confusion comes up for us?}
-On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. 
+The simplex category plays a dual role which sometimes results in confusing terminology. On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. \CD{I think this paragraph can be removed, then add defs of vertices and edges where needed; or did I miss where this confusion comes up for us?}
 
-But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square, \CD{I think we'll want to label this diagram with a letter, say S, because there are so few number references.}
+But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square, 
 \begin{equation} \label{Eqn:Segal-Co-Map}  
 \begin{tikzpicture}[baseline = 0.75cm]
 	\node (LT) at (0, 1.5) {$[0]$};
@@ -230,7 +229,7 @@ But there are other aspects of $\Delta$ which come from its description as a cat
 	%\node at (0.5, 1) {$\ulcorner$};
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
-\end{equation}
+\end{equation}\CD{I think we'll want to label this diagram with a letter, say S, because there are so few number references.}
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. This square will play an important role in what follows. 
 
 Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. \CD{I feel like we might as well say explicitly what `presheaf' means, and I'm also slightly concerned that we shift back and forth between `presheaf on $\Delta$' and `simplicial object' at times without any (discernable to me just now) reason.}
@@ -238,7 +237,7 @@ This well-known construction proceeds as follows: each ordered set $[n] \in \Del
 The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
 \begin{equation*}
 	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \times \cdots \times \Hom_X(x_{n-1}, x_n).
-\end{equation*} \CD{Caret in that corner or the other?}
+\end{equation*} 
 In other words $NC_n$ consists of all length $n$ strings of composable morphisms of $X$.
 
 The nerve construction is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (\ref{Eqn:Segal-Co-Map}),
@@ -255,7 +254,7 @@ The nerve construction is a fully-faithful functor from categories and functors 
 	\node at (0.5, 1) {$\ulcorner$};
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
-\end{center}
+\end{center} \CD{Caret in that corner or the other?}
 are a pullback diagrams. 
 
 This can be extended to categories internal to a category $C$. \CD{There is something amiss around here --- the above two paragraphs and this paragraph cover similar ground (eg introducing simplicial objects and notation for such), with the latter paragraphs being more elementary.  Was the latter stuff meant to be deleted when the above was added? Or maybe this stuff should move higher up?}
@@ -674,52 +673,48 @@ Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bull
 
 
 
-\section{Linear categories and tensor categories} \label{sec-tc-lincat}
+\section{Linear categories, tensor categories, and bimodule categories} \label{sec-tc-lincat}
 
-	Let $k$ be a fixed ground field, let $\Vect_k$ be the category of finite dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over ${\Vect}_k$. 
-A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
+	Let $k$ be a fixed ground field, and let $\Vect_k$ be the category of finite dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over ${\Vect}_k$.  A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. \CD{Why $\overline{\Vect}$ here?}
 	
-More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
+If $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
 \begin{equation*}
 	F: \prod \cA_\alpha \to \cB
 \end{equation*}
-such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. 
+such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{Explain 'simple object'; explain 'proj cover'.} 
 
 \begin{warning}
-	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
-\end{warning}
+	Unless otherwise stated {\em all linear functors considered in this paper are right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
+\end{warning} \CD{Probably will need to change the phrasing of this warning.}
 
 \begin{definition}
 	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear.
 \end{definition}
 
 \begin{example}
-	The category of finite dimensional vector spaces is an example of a tensor category. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
+	The category of finite dimensional vector spaces is an example of a tensor category. If $A$ is an algebra object in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
 \end{example}
 
 \begin{example}
 	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
 \end{example}
 
-
-
-\section{Bimodule categories} \label{sec-tc-bimodcat}
-
 \begin{definition}
-	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that
+	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with exactly two objects $x$ and $y$ such that \CD{What kind of bicategory? We probably need to be explicit about what our definition of bicategories, functors, transformations, modifications is?}
 	\begin{itemize}
 		\item all hom categories are linear categories, 
-		\item horizontal composition is multilinear, and
-		\item there are identifications of monoidal categories $\Hom(x,x) \simeq \cD$, $\Hom(y,y) \simeq \cC$, and $\Hom(y,x) \simeq \emptyset$.
-	\end{itemize}
+		\item horizontal composition is multilinear,
+		\item the category $\Hom(y,x)$ is empty, and
+		\item there are identifications of monoidal categories $\Hom(x,x) \simeq \cD$ and $\Hom(y,y) \simeq \cC$.
+	\end{itemize} \CD{hom or Hom?}
 	We will often abuse notation and refer to the value $\cM = \Hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
 \end{definition}
 	
-Unwrapping this definition we see that a left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+Unpacking this definition we see that a left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
 %	\CSP{This looks a little gross. I should change it.}
 	\begin{align*}
-		\alpha: & \;    \otimes^{\cM} \circ (\otimes \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
-		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
+		\alpha: & \;    \otimes^{\cM} \circ \, (\otimes \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
+		\lambda: & \; \otimes^{\cM} \circ \, (1 \times id_{\cM}) \cong id_{\cM},
 	\end{align*}
 %	\begin{align*}
 %		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
@@ -728,14 +723,14 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 	satisfying the evident pentagon and triangle identities. 
 
 \begin{definition}		
-A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that 
+A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that \CD{'strong' needs to be explained somewhere}
 %	\begin{itemize}
 		 $F$ is the identity on objects,
 		  the restriction of $F$ to each hom category is linear,
 		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
 %	\end{itemize}
 A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
-	A {\em bimodule transformation} is a transformation of functors of bicategories, which restricts to the identity on $\Hom(x,x)$ and $\Hom(y,y)$, and such that the component 1-cells are trivial.  
+	A {\em bimodule transformation} is a transformation of functors of bicategories, which restricts to the identity on $\Hom(x,x)$ and $\Hom(y,y)$, and such that the component 1-cells are trivial.  \CD{'component 1-cells' needs to be explained somewhere}
 \end{definition}
 	
 %
@@ -743,7 +738,7 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 %If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
 
 \begin{example}
-	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. 
+	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. \CD{Need to say what is meant by 'essentially'}
 \end{example}
 
 \begin{example}
@@ -751,15 +746,15 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 \end{example}
 
 \begin{example}
-	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors is a tensor category. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cN, \cN)$-$\Fun_{\cC}(\cM, \cM)$-bimodule category. 
+	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are both tensor categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cN, \cN)$-$\Fun_{\cC}(\cM, \cM)$-bimodule category.   \CD{Would this be true without right exactness?  If so, worth mentioning.}
 	%\CSP{Do I have the right convention for the actions here?} \NS{I think you got it backwards.  $\Fun(\cM,\cM)$ left acts on $\cM$ and so its action by precomposition should be a right action} 
 \end{example}
 
 \begin{remark}
- 	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. 
+ 	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. \CD{Need to explain $mp$ notation.}
 \end{remark}
 
-We will also need a slightly more general notion of bimodule morphism to make sense of multilinear bimodule maps. These in turn are used to define the external Deligne tensor product of bimodule categories and, later,  in defining the symmetric monoidal 3-category of tensor categories. 
+We will also need a slightly more general notion of bimodule morphism to make sense of multilinear bimodule maps. These in turn are used to define the external Deligne tensor product of bimodule categories. 
 
 \begin{definition}
 	A {\em twisted bimodule functor} from a $\cC$-$\cD$-bimodule category $\cM$  to $\cC'$-$\cD'$-bimodule category $\cM'$ is a functor of bicatgories from $\cM$ to $\cM'$ which restricts to the identity on objects and is linear on hom categories. A {\em twisted bimodule transformation} between twisted bimodule functors is a transformation of functors of bicategories such that the component 1-cells are trivial.
@@ -769,7 +764,7 @@ Thus a twisted bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a 
 
 If we are given a $\cC'$-$\cD'$-bimodule category $\cM'$ and tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, then we may also form the {\em twisted bimodule category} ${}_f{\cM'}_g$.  The underlying linear category of ${}_f{\cM'}_g$ is $\cM'$, but the actions are by $\cC$ and $\cD$ via the tensor functors $f$ and $g$. A twisted bimodule functor $\cM \to \cM'$ extending $f$ and $g$ is the same as a $\cC$-$\cD$-bimodule functor $\cM \to {}_f{\cM'}_g$.  Later on we will sometimes use the notation ${}_{\langle f \rangle} \cM'_{\langle g \rangle}$ instead of ${}_f{\cM'}_g$, in cases where the functors $f$ and $g$ are themselves unwieldy composites.
 
-With twisted bimodule functors as morphisms, there exists a terminal bimodule category $\cT$. As a bicategory, each of its non-empty hom categories is the terminal linear category. The product of bimodule categories $\cM \times_{\cT} \cM'$ is defined as the fiber product of bicategories over $\cT$. We will abuse notation and write this as $\cM \times \cM'$. This is again a bicategory with precisely two objects $x$ and $y$. Moreover
+With twisted bimodule functors as morphisms, there exists a terminal bimodule category $\cT$. As a bicategory, each of its non-empty hom categories is the terminal linear category. \CD{If said this way, need to specify what the terminal linear category is.} The product of bimodule categories $\cM \times_{\cT} \cM'$ is defined as the fiber product of bicategories over $\cT$.  \CD{I'm confused by either the mathematics or the exposition here; can discuss.}  \CD{Must explain or provide precise reference for fiber product of bicategories.} We will abuse notation and write this as $\cM \times \cM'$. This is again a bicategory with precisely two objects $x$ and $y$. Moreover
 \begin{equation*}
 	\Hom_{\cM \times \cM'}(a,b) = \Hom_\cM(a,b) \times \Hom_{\cM'}(a,b)
 \end{equation*}
@@ -781,26 +776,26 @@ If $\{ \cM_\alpha \}$ is a collection of bimodule categories then a {\em twisted
 \end{equation*}
 which is the identity on objects, and which is a twisted bimodule functor in each variable. 
 
-\section{The Deligne tensor product and finite linear categories} \label{sec-tc-deligne}
+\section{Finite linear categories and the Deligne tensor product} \label{sec-tc-deligne}
 
-The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$. For simplicity, we will only define this tensor product for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties following \cite{MR2119143, EGNO}.
+The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$. For simplicity, we will only define this tensor product for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties, following \cite{MR2119143, EGNO}.
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A linear category $\cC$ is {\em finite} if 
 	\begin{enumerate}
 	%	\item $\cC$ has finite dimensional spaces of morphisms;
 	% This is redundant since we are enriched over finite vector spaces.
-		\item every object of $\cC$ has finite length;
-		\item $\cC$ has enough projectives, i.e. every simple object of $\cC$ has a projective cover; and
+		\item every object of $\cC$ has finite length; \CD{Explain 'finite length'}
+		\item $\cC$ has enough projectives, that is every simple object of $\cC$ has a projective cover; and
 		\item there are finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
 
 \begin{remark}
-A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
+A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$. \CD{Reference for this remark.}
 \end{remark}
 
-The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
+The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we include one here.
 
 \begin{proposition} \label{prop:AFT}
 	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
