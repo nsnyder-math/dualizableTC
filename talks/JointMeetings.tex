@@ -107,7 +107,7 @@ $$S^4(x) = g (\alpha \rightharpoonup x \leftharpoonup  \alpha^{-1}) g^{-1}.$$
 \
 
 \begin{theorem}[Larson-Radford 87-88]
-If $H$ is semisimple in characteristic $0$, then $S^2 = 1$.
+If $H$ is semisimple in characteristic $0$, then $S^2 = \mathrm{id}$.
 \end{theorem}
 
 
@@ -116,7 +116,7 @@ If $H$ is semisimple in characteristic $0$, then $S^2 = 1$.
 \begin{frame}{Radford's theorem for tensor categories}
 
 \begin{theorem}[ENO 04]
-If $\cC$ is a finite tensor category and $D \in \cC$ is the distinguished invertible object, then there's a canonical isomorphism of tensor functors
+If $\cC$ is a finite rigid tensor category and $D \in \cC$ is the distinguished invertible object, then there's a canonical isomorphism of tensor functors
 $$x^{****}  \rightarrow D \otimes x \otimes D^{-1}.$$
 \end{theorem}
 
@@ -210,7 +210,8 @@ For example, a $3$-framing on a $1$-manifold is a trivialization of $TM \oplus \
 \begin{frame}{Cobordism Hypothesis}
 
 \begin{block}{Dualizable objects}
-A symmetric monoidal $n$-category is fully dualizable if every object has a dual and ever $k$ morphism for $1 \leq k < n$ has a left adjoint and a right adjoint.  
+A symmetric monoidal $n$-category is fully dualizable if every object has a dual and ever $k$-morphism for $1 \leq k < n$ has a left adjoint and a right adjoint.  
+\newline
 
 Every symmetric monoidal $n$-category has a maximal fully dualizable subcategory $\cC^{fd}$.
 \end{block}
@@ -237,11 +238,11 @@ The framing keeps track of the difference between left and right adjoints.  $\ma
 
 \begin{frame}{Our main theorems}
 \begin{theorem}[DSPS]
-Finite abelian tensor categories, finite bimodule categories, bimodule functors, and natural transformations form a $3$-category $\mathcal{TC}^{fin}$ (using a language compatible with Lurie's proof).
+Finite abelian tensor categories, finite bimodule categories, bimodule functors, and natural transformations form a symmetric monoidal $3$-category $\mathcal{TC}^{fin}$ (using a language compatible with Lurie's proof).
 \end{theorem}
 
 \begin{theorem}[DSPS]
-The fully dualizable objects in $\mathcal{TC}^{fin}$ are exactly the separable fusion categories.  (Separability is a technical condition that is automatic in characteristic $0$.)
+The rigid fully dualizable objects in $\mathcal{TC}^{fin}$ are exactly the separable (multi-)fusion categories.  (Separability is a technical condition that is automatic in characteristic $0$.)
 \end{theorem}
 
 \begin{corollary}
@@ -249,17 +250,17 @@ Any fusion category gives a $3$-framed local $3$-dimensional TFT.  (Note there's
 \end{corollary}
 \end{frame}
 
-\begin{frame}{What about finite tensor categories?}
+\begin{frame}{What about finite rigid tensor categories?}
 \begin{block}{What does the proof actually use?}
 \begin{itemize}
 \item Objects automatically have duals (just reverse tensor product).
-\item Adjoints for $1$-morphisms only uses finiteness and the characterization of Deligne tensor product as a category of functors (ENO 09).
-\item Adjoints for $2$-morphisms uses the theory of exact module categories (EO 03).  Without semisimplicity this shows that all but one kind of $2$-handle has an adjoint.
+\item Adjoints for $1$-morphisms uses finiteness, rigidity, and the fact that the Deligne tensor product is a category of module functors (ENO 09).
+\item Adjoints for $2$-morphisms uses the theory of exact module categories (EO 03).  With rigidity, but without semisimplicity this shows that all but one kind of $2$-handle has an adjoint.
 \end{itemize}
 \end{block}
 
-\begin{block}{What kind of local TFT do you get from a finite tensor category}
-Finite tensor categories give \emph{non-compact} $3$-framed local $3$-dimensional field theories.
+\begin{block}{What kind of local TFT do you get?}
+Finite rigid tensor categories give \emph{non-compact} $3$-framed local $3$-dimensional field theories.
 
 In particular, they give $3$-framed local $2$-dimensional field theory with values in the $(3,2)$-category $\mathcal{TC}$.
 \end{block}
@@ -316,7 +317,7 @@ Let ${}_{\langle\cF \rangle} \cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where 
 \end{defn}
 
 \begin{block}{Serre for $\mathcal{TC}$}
-If $\cC$ is a finite tensor category then $$\cS_\cC \cong {}_{\langle\ldd{(-)}\rangle} \cC.$$
+If $\cC$ is a finite rigid tensor category then $$\cS_\cC \cong {}_{\langle\ldd{(-)}\rangle} \cC.$$
 \end{block}
 
 \begin{block}{Radford for $\mathcal{TC}$}
