@@ -220,48 +220,72 @@ which is the identity on objects, and which is a twisted bimodule functor in eac
 
 \section{Finite linear categories and the Deligne tensor product} \label{sec-tc-deligne}
 
-The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$. For simplicity, we will only define this tensor product for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties, following \cite{MR2119143, EGNO}.
+The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$. For simplicity, we will only define this tensor product for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties, following \cite{MR2119143, EGNO}. Recall that a {\em composition series} for an object $M$ in an abelian category is a finite sequence
+\begin{equation*}
+	0 = J_0 \subseteq J_1 \subseteq \cdots \subseteq J_{\ell-1} \subseteq J_{\ell} = M
+\end{equation*} 
+such that each $J_k \subseteq J_{k+1}$ is a maximal proper inclusion. If $M \in \cC$ admits a composition series, then the integer $\ell$ depends only on $M$ and is called the {\em length} of $M$. In this case we say $M$ has {\em finite length}, and {\em infinite length} otherwise. The object $M$ is {\em simple} if it has finite length equal to one. In a linear category the endomorphisms of a simple object form a (finite dimensional) division algebra over the ground field $k$. 
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A linear category $\cC$ is {\em finite} if 
 	\begin{enumerate}
 	%	\item $\cC$ has finite dimensional spaces of morphisms;
 	% This is redundant since we are enriched over finite vector spaces.
-		\item every object of $\cC$ has finite length; \CD{Explain 'finite length'} 
-		\item $\cC$ has enough projectives, that is every simple object of $\cC$ has a projective cover; and
+		\item every object of $\cC$ has finite length; 
+		\item there are finitely many isomorphism classes of simple objects; and  
+		\item $\cC$ has enough projectives, that is every simple object of $\cC$ has a projective cover.
 		\CSP{why is this the same as the usual definition of {\em enough projectives}?}
-		\item there are finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
 
-\begin{remark}
-A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$. \CD{Reference for this remark.}
+\begin{remark} The category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$ is a finite linear category. Conversely let $P$ be the projective cover of the sum of representatives of the simple objects of $\cC$. Then $P$ is a small projective generator for $\cC$, with finite dimensional endomorphism ring $A$. It follows from standard results \cite[Ex. 4-F]{MR0166240} that $\cC$ is equivalent to $\Mod{A}{}$.
 \end{remark}
 
 The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we include one here.
 
 \begin{proposition} \label{prop:AFT}
-	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect$-enriched functor (not necessarily right exact). Then the following conditions are equivalent: \CD{Earlier, indicate $\Vect = \Vect_k$.}
+	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect_k$-enriched functor (not necessarily right exact). Then the following conditions are equivalent: 
 	\begin{enumerate}
 		\item $\cG$ is left exact;  
 		\item $\cG$ is left exact and satisfies the following {\em Solution Set Condition:} \\  For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
-		\item $\cG$ admits an (additive, ${\Vect}$-enriched, right exact) left adjoint.
+		\item $\cG$ admits an (additive, ${\Vect_k}$-enriched, right exact) left adjoint.
 	\end{enumerate}
 \end{proposition}
-\begin{proof} This is a variation of the proof given in \cite[V.6.Thm 2]{MR0354798}.
-Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically additive, and as the unit and counit maps of the adjunction of $\cF$ and $\cG$ are linear maps of vector spaces, $\cF$ is also ${\Vect}$-enriched.  \CD{Explain last step of this first paragraph.}
+\begin{proof} This is a variation of the proof given in \cite[V.6.Thm 2]{MR0354798} (see also \cite[Ex. 3-M]{MR0166240}).
+Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically an additive functor. It follows that $\cF$ is ${\Vect_k}$-enriched precisely if the natural isomorphism of abelian groups 
+\begin{equation*}
+	\hom( \cF(x), y) \cong \hom(x, \cG(y))
+\end{equation*}
+is compatible with the scalar multiplication by $k$. This in turn follows by naturality and the corresponding property for $\cG$. 
 
 
-To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (that is an initial object of the comma category $(d \downarrow \cG)$),
-as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the elements $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
+To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. an initial object of the comma category $(d \downarrow \cG)$),
+as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the elements $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates finite limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
 \begin{equation*}
 	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
 \end{equation*}
-The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\Hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus $v$ is initial [MacLane V.6.Thm 1]. 
+The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\Hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus $v$ is initial, see  \cite[V.6.Thm 1]{MR0354798}.
 
-Finally, if $\cG$ is left exact, then it satisfies the solution set condition. To see this note that each object $d \in \cD$  has a finite number of distinct quotients in $\cD$, hence also a finite number of quotients of the form  $\cG(c)$ for some $c \in \cC$. Thus we may choose a finite index set $I$ and objects  $c_i \in \cC$, together with maps $d \to \cG(c_i)$ exhausting the finite collection of possible quotients of $d$ in the image of $\cC$. Since any map $d \to \cG(c)$ must factor through one of these quotients, we have constructed a solution set.   \CD{This shows the map must factor, but also need to know the map lifts to $\cC$.}
-\CSP{This needs fixing!}
+Finally, suppose that $\cG$ is left exact. We must show that it satisfies the solution set condition. Fix an object $d \in \cD$ and define the class $S_d$ of objects of $(d \downarrow \cG)$ as follows. An object $(c, f:d \to \cG c)$ belongs to to $S_d$ if and only if for any sub-object $c' \subseteq c$ and factorization $d \to \cG c' \to \cG c$ it follows that either $c' \cong 0$ or $c' \cong c$. The class $S_d$ consists of, in the language of \cite[Ex. 3-J]{MR0166240}, those objects $(c,f)$ which are {\em generated} by $d$. If there is a finite set $I$ of isomorphism classes of objects of $S_d$ then a choice of representatives $\{(c_i, f_i)\}_{i \in I}$ forms a collection satisfying the solution set condition. 
+
+Thus we must show that the class $S_d$ has finitely many isomorphism classes of objects. Let $q \in \cC$ denote the direct sum of representatives of the isomorphism classes of simple objects in $\cC$ ($q$ exists because we have assumed there exist only a finite number of simple objects, up to isomorphism). Choose a basis $\{e_j\}$ for the vector space $\hom_{\cD}(d, \cG q)$, and consider the object $x = \oplus_j( q, e_j) \bigoplus (q,0) \in (d \downarrow \cG)$. We will show that every object of $S_d$ is isomorphic to a subobject of $x$, and hence there are only a finite number of isomorphism classes of objects of $S_d$. To this end, note that as every object of $\cC$ has finite length, $q$ is a {\em cogenerator} of $\cC$, i.e. the functor $\hom(-, q)$ is faithful. Let $(c, f)$ be an element of $S_d$. If $f: d \to \cG c$ is the zero map then $c$ is necessarily simple in $\cC$. In this case $(c, f)$ is a subobject of $(q, 0)$, and hence also $x$. 
+
+Thus we may assume, without loss of generality, that  $(c, f)$ be an element of $S_d$ in which $f$ is {\em not} the zero map. In this case consider the map of vector spaces:
+\begin{equation*}
+	\hom_{\cC}(c,q) \stackrel{\cG}{\to} \hom_{\cD}(\cG c, \cG q) \stackrel{f^*}{\to} \hom_{\cD}(d, \cG q).
+\end{equation*} 
+If $g: c \to q$ is in the kernel of the above map, then $\ker g$ is a subobject of $c$ admitting a factorization $d \to \cG \ker g \to \cG c$. Hence, by the defining property of $S_d$, we have either $\ker g = 0$ or $\ker g = c$. The later case only occurs when $g$ is the zero map. In the former case, in which $g$ is injective, we have that $\cG(g)$ is also injective since $\cG$ is left exact. Thus since $\cG(g) \circ f = 0$, it follows that $f = 0$, a case we have ruled out by assumption. Thus the above map of vector spaces is an inclusion. Choose a basis of $\{ \epsilon_i \}$ for $\hom_{\cC}(c,q)$, and let $(a_{ij})$ be the matrix coefficients for the above map of vector spaces in the bases $\{ \epsilon_i \}$ and $\{ e_j \}$. Since the above map of vector spaces is an inclusion and $q$ is a cogenerator, it follows that the natural map
+\begin{equation*}
+	c \stackrel{\oplus \epsilon_i}{\to} \oplus_i q \stackrel{(a_{ij}) }{\to} \oplus_j q
+\end{equation*} 
+is a monomorphism in $\cC$. The desired result, that $(c,f)$ is a subobject of $x = \oplus_j( q, e_j) \bigoplus (q,0)$ now follows easily. 
+% To see this note that each object $d \in \cD$  has a finite number of distinct quotients in $\cD$, hence also a finite number of quotients of the form  $\cG(c)$ for some $c \in \cC$. Thus we may choose a finite index set $I$ and objects  $c_i \in \cC$, together with maps $d \to \cG(c_i)$ exhausting the finite collection of possible quotients of $d$ in the image of $\cC$. Since any map $d \to \cG(c)$ must factor through one of these quotients, we have constructed a solution set.   \CD{This shows the map must factor, but also need to know the map lifts to $\cC$.}
+%\CSP{This needs fixing!}
 \end{proof}
+
+\begin{remark}
+	The statement of the above proposition assumes that $\cC$ and $\cD$ are finite linear categories as this is the only case we utilize later. However upon examination of the proof, the above proposition holds under weaker assumptions. It is not necessary for either $\cC$ nor $\cD$ to have enough projectives, and moreover we do not need $\cD$ to have finitely many isomorphisms classes of simple objects, nor to have only objects of finite length. As written we do, however, need $\cD$ to be enriched in {\em finite dimensional} vector spaces. Of course many variations of the above proposition are possible. 
+\end{remark}
 
 \begin{corollary}
 	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it admits a left adjoint which is a linear functor. 
@@ -273,16 +297,16 @@ Finally, if $\cG$ is left exact, then it satisfies the solution set condition. T
 
 
 \begin{corollary}
-If $\cC$ is a finite linear category, then a functor $G: \cC^\textrm{op} \to \Vect$ is representable if and only if it is left exact. 
+If $\cC$ is a finite linear category, then a functor $G: \cC^\textrm{op} \to \Vect_k$ is representable if and only if it is left exact. 
 \end{corollary}
 
 \begin{proof}
-	A representable functor $\Hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
+	A representable functor $\Hom(-, x):\cC^\text{op} \to \Vect_k$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect_k$. Hence it is left exact. 
 %
 % 0 <-- C <--  B <--- A <-- 0 in C/C^op
 % 0 -->  \Hom(c,x) ---> hom(b,x) ---> hom(a, x)
 %		
-Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
+Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
 	\begin{equation*}
 		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^\op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
 	\end{equation*}
