@@ -316,7 +316,7 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 
 Any finite linear category may be regarded as a module category over $\Vect_k$ and as such is equivalent to the category of modules over an algebra in $\Vect_k$. Similarly, any finite module category over a tensor category is a category of module objects over an algebra object in the tensor category.
 %  \CD{I'm not sure the analogy is clear enough as written to support ``Just as".}
-This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
+This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}, whose existence can be deduced from Prop.~\ref{prop:AFT}.
 
 \begin{theorem}[\cite{EGNO}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
 	Let $\cM$ be a left module category over the finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -374,8 +374,8 @@ If it exists, the Deligne tensor product is unique up to an equivalence, which i
 		\end{equation*}
 and we will show that $T$ induces an equivalence between $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and linear functors from $\Mod{A}{B}(\cC)$ to $\cD$.
 	
-	To this end, let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cD$ be a $\cC$-balanced multilinear functor.  \CD{The side on which A and B are acting just switched.}
-	There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules, that is those of the form $A \otimes W \otimes B$ for $W \in \cC$, we have $\overline{F}(A \otimes W \otimes B) \cong F((A \otimes W) \times B)$. Since  every $A$-$B$-bimodule $X$ is a coequalizer of free $A$-$B$-bimodules, namely the canonical coequalizer  
+	To this end, let $F:\Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \cD$ be a $\cC$-balanced multilinear functor. 
+	There is a (unique up to canonical equivalence) right exact linear functor $\overline F: \Mod{A}{B}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules, that is those of the form $A \otimes W \otimes B$ for $W \in \cC$, we have $\overline{F}(A \otimes W \otimes B) \cong F((A \otimes W) \times B)$. Since  every $A$-$B$-bimodule $X$ is a coequalizer of free $A$-$B$-bimodules, namely the canonical coequalizer  
 	\begin{equation*}
 		X \leftarrow A \otimes X \otimes B \leftleftarrows A \otimes A \otimes X \otimes B \otimes B,
 	\end{equation*}
@@ -383,7 +383,7 @@ and we will show that $T$ induces an equivalence between $\cC$-balanced multilin
 	\begin{equation*}
 		\overline{F}(X) \leftarrow F((A \otimes X) \times B) \leftleftarrows F((A \otimes A \otimes X \otimes B) \times B)
 	\end{equation*}
-specifies $\overline{F}$ on any bimodule.
+specifies $\overline{F}$ on any bimodule. It is now straightforward to verify that this construction implements the desired equivalence.
 %	
 %	If $\cC$ is rigid, then by Lemma \ref{lma:RigidIsExact} the functor $T = \boxtimes_{\cC}$ is exact in each variable. The formula in (3) then follows as a standard exercise in using duals. Finally let $F: \cA \times \cB \to \cD$ be a $\cC$-balanced multilinear functor which is exact in each variable and let $\overline{F}: \cA \boxtimes_\cC \cB \to \cD$ be its linear extension (which is always right exact). Since $F$ is exact in each variable, $\overline{F}$ preserves left exact sequences of free $A$-$B$-bimodules (where the maps are also free). Since every $A$-$B$-bimodule has a functorial resolution by free $A$-$B$-bimodules (coming from the above mentioned coequalizer), a diagram chase shows that $\overline{F}$ is also left exact. Hence (4) is also satisfied. 
 \end{proof}
@@ -415,13 +415,17 @@ specifies $\overline{F}$ on any bimodule.
 	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence of linear categories
 	\begin{equation*}
 		\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN \simeq \Fun_\cC(\cM,\cN).
-	\end{equation*} \CD{Need to know that the equivalences is right exact??}
+	\end{equation*} 
+	\CD{Need to know that the equivalences is right exact??}
+	\CSP{All equivalences of abelian cats are exact, in particular right exact. }
 	Here $\Fun_\cC$ denotes the category of (right exact) $\cC$-module functors. 
 	Moreover, if $\cM$ and $\cN$ are bimodule categories, then the above equivalence is a bimodule equivalence. 
 \end{lemma}
 
 \begin{proof}
-	The last sentence follows since in that case the natural functor is a bimodule functor. By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ (\cite[Prop 2.12.2]{EGNO}) can be seen by mirroring the classical proof, as follows. A bimodule certainly gives rise to such a functor, \CD{Need to define the functor associated to a bimodule for clarity}
+	The last sentence follows since in that case the natural functor is a bimodule functor. By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ (\cite[Prop 2.12.2]{EGNO}) can be seen by mirroring the classical proof, as follows. A bimodule $M$ certainly gives rise to such a functor, namely $(-) \otimes_{A} M_{B}$, 
+	\CD{Need to define the functor associated to a bimodule for clarity}
+	\CSP{how is it now?}
 	and given a functor $f: \cM \rightarrow \cN$, we obtain an $A$-$B$-bimodule $f(A)$ using the fact that $f$ is a left $\cC$-module functor.  The functor $f$ is equivalent to the one determined by the bimodule $f(A)$: by $\cC$-linearity the functor $f$ is as desired on free $\cA$-modules, namely $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A)$, and every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
 	\begin{equation*}
 		M \leftarrow M \otimes A \leftleftarrows M \otimes A \otimes A.
@@ -437,6 +441,7 @@ Thus the natural map  $\Mod{A}{B}(\cC) \to \Fun_\cC(\cM, \cN)$ is essentially su
 %\end{equation*}
 %When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
 \end{proof} \CD{I think we'll be able to rewrite this proof in a more structured way that makes the logic clearer.}
+\CSP{feel free!}
 
 \begin{remark} \label{remark-tensorasfunctors}
 If $\cM$ and $\cN$ are right $\cD$-modules, then we have $\cN \boxtimes_\cD \Fun_{\cD}(\cM,\cD) \simeq \Fun_{\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. 
@@ -451,7 +456,7 @@ If $\cM$ and $\cN$ are right $\cD$-modules, then we have $\cN \boxtimes_\cD \Fun
 \begin{warning}
 In this section and the next we will encounter Segal's category $\Gamma$, Segal maps, Segal squares, the Segal condition, Segal spaces, and Segal categories.  The first two are closely related and arise in formalizing symmetric monoidal structures, and the last four are closely related and arise in formalizing higher categories.  The reader is best off assuming there is no connection, other than Graeme Segal's foundational influence, between the two sets of nomenclature.
 \end{warning}
-\CD{I think this warning should move someplace else so it doesn't start the body of the paper.  Not sure where yet.}
+%\CD{I think this warning should move someplace else so it doesn't start the body of the paper.  Not sure where yet.}
 
 \begin{definition}
 	The category  $\Gamma$ has objects finite (unpointed, possibly empty) sets, and a morphism in $\Gamma$ from $A$ to $B$ consists of a function $f: A \to P(B)$, satisfying $f(x) \cap f(y) = \emptyset$ if $x \neq y$, where $P(B)$ denotes the power-set of $B$. 
