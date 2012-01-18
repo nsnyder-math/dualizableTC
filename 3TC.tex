@@ -192,10 +192,12 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 \end{example}
 
 \begin{remark}
- 	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. \CD{Need to explain $mp$ notation.}
+ 	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. 
+\CD{Need to explain $mp$ notation.}
+\CSP{Do we even need to mention $mp$? I vote to cut it.}
 \end{remark}
 
-We will also need a slightly more general notion of bimodule morphism to make sense of multilinear bimodule maps. These in turn are used to define the external Deligne tensor product of bimodule categories. 
+We will also need a slightly more general notion of bimodule morphism to make sense of multilinear bimodule maps. These in turn are used to define the external Deligne tensor product of bimodule categories and in our final construction of the symmetric monoidal Segal 3-category of tensor categories. 
 
 \begin{definition}
 	A {\em twisted bimodule functor} from a $\cC$-$\cD$-bimodule category $\cM$  to $\cC'$-$\cD'$-bimodule category $\cM'$ is a functor of bicatgories from $\cM$ to $\cM'$ which restricts to the identity on objects and is linear on hom categories. A {\em twisted bimodule transformation} between twisted bimodule functors is a transformation of functors of bicategories such that the component 1-cells are trivial.
@@ -633,6 +635,11 @@ We would now like to use this insight to describe higher categories. \CD{(specif
 However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are analogous to the previous situation with symmetric monoidal structures. However, the insights in the previous section also suggests a possible solution. Rather than require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
 Following this reasoning gives rise to the notion of weak $n$-category first proposed by Tamsamani \cite{Tamsamani:thesis}.   
 
+
+\begin{definition}
+	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
+\end{definition}
+
 \begin{definition}[Sketch]
 	A Tamsamani $0$-category is a set. 	A {\em Tamsamani $n$-category} is a simplicial object in $(n-1)$-fold simplicial sets, such that the following conditions are satisfied: \CD{Define $(n-1)$-fold simplicial set.}
 	\begin{enumerate}
@@ -660,55 +667,7 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 \noindent To make this precise, one must also inductively build the notation of equivalence. We will do this in the next section, where we describe Segal $n$-categories, the $(\infty,n)$-variant of this construction where instead of working with simplicial sets we use simplicial spaces; Segal $n$-categories were first defined by Hirschowitz and Simpson \cite{9807049}. Tamsamani $n$-categories may then be identified with the {\em discrete} Segal $n$-categories.  It is well-known that the theory of Tamsamani 2-categories forms a good model for the theory of bicategories. This is discussed in detail in \cite{MR2366560}.
 
 
-\section{Model categories of symmetric monoidal $(\infty,n)$-categories} \label{sec-symmoninftyNcat}
-
-\CDcomm{Proposal: everything from this section except the definition of Segal $n$-category and necessary preliminaries for that is moved into an appendix.  (``Comparison of Segal $n$-categories and $n$-fold complete Segal spaces".)}
-
-\CSP{do we need a review of model categories?}
-
-In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the Quillen model categories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories}. Both may be constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
-
-In the case $n=1$, the first appearance of Segal categories in the literature is in a paper of Dwyer, Kan, and Smith \cite{MR984042}, where they are called special $\Delta^\op$-diagrams. The concept was adapted and iterated by Tamsamani \cite{Tamsamani:thesis} in order to construct a notion of weak $n$-category. This was then turned into the notion of Segal $n$-categories by Hirschowitz and Simpson \cite{9807049}. The construction is inductive.  First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories (described below) in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category? This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}.  
-
-Complete Segal spaces were introduced by Rezk \cite{MR1804411} as a model for the {\em homotopy theory of homotopy theories}.  A general method of iterating the construction of complete Segal spaces was first given by Barwick \cite{Barwick:thesis}, and recalled, with some additional improvements, by Lurie \cite{0905.0462, MR2555928}. This again can be accomplished quite generally and there are constructions at both the model category and $\infty$-category level. 
-
-The theory of $n$-fold complete Segal spaces figures prominently in the proof of the cobordism hypothesis \cite{MR2555928}, while the theory of Segal $n$-categories provides a more convenient model in which to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, a task we take up in Section \ref{sec-tc-threecat}. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration.  \CD{If we keep the section on dualizability, this will need explaning.}
-
-\begin{definition}
-	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
-\end{definition}
-
-\begin{definition}
-		A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold complete Segal space} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold complete Segal space} if it is Reedy fibrant and the following conditions are satisfied:
-		\begin{enumerate}
-			\item The $(n-1)$-fold simplicial space $X_0$ is {\em essentially constant}, i.e. the induced $(n-1)$-fold simplicial object in the homotopy category of spaces is constant. 
-			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold complete Segal space.
-			\item For every $m$ and $n$, the Segal square,
-			\begin{center}
-			\begin{tikzpicture}
-				\node (LT) at (0, 1.5) {$X_{m+n}$};
-				\node (LB) at (0, 0) {$X_m$};
-				\node (RT) at (2, 1.5) {$X_n$};
-				\node (RB) at (2, 0) {$X_0$};
-				\draw [->] (LT) -- node [left] {$$} (LB);
-				\draw [->] (LT) -- node [above] {$$} (RT);
-				\draw [->] (RT) -- node [right] {$$} (RB);
-				\draw [->] (LB) -- node [below] {$$} (RB);
-				%\node at (0.5, 1) {$\ulcorner$};
-				%\node at (1.5, 0.5) {$\lrcorner$};
-			\end{tikzpicture}
-			\end{center}
-			induces a level-wise \CD{Explain exactly what `level-wise' means here.}
-			equivalence of $(n-1)$-fold simplicial spaces $X_{m+n} \to X_m \times_{X_0} X_n$.
-			\item The simplicial space $X_{k, 0 \dots, 0}$ is a complete Segal space for all $k\geq 0$. 
-		\end{enumerate}
-\end{definition}
-
-\begin{theorem}[\cite{Barwick:thesis, 0905.0462, 1112.0040}]
-	There is a left proper combinatorial simplicial model category structure on $n$-fold simplical spaces in which the fibrant objects are the $n$-fold complete Segal spaces. This model category arrises as a left Bousfield localization of the Reedy (a.k.a. injective) model structure on $n$-fold simplical spaces. \CD{Injective??}
-\end{theorem}
-
-\noindent We will denote the model category of $n$-fold complete Segal spaces by $\CSS_n$.  \CD{Presumably the objects are $n$-fold simplicial spaces; need to make it clear that that is the intention, not restricting to the fibrant objects.  Similarly for Segal categories below.}
+\section{Symmetric monoidal Segal $n$-categories} \label{sec-symmoninftyNcat}
 
 \begin{definition}
 	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em  Segal $0$-category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em Segal $n$-category} if it is Reedy fibrant and the following conditions are satisfied:
@@ -770,105 +729,7 @@ Composition in $\mathit{h}X$ is given by the induced map of sets,
 \begin{equation*}
 	 \Hom_{\mathit{h}X}(a,b) \times \Hom_{\mathit{h}X}(b,c) \cong \pi_0 \Hom_X(a,b,c)\to \pi_0 \Hom_X(a,c) = \Hom_{\mathit{h}X}(a,c),
 \end{equation*}
-which is readily seen to be associative. This completes the inductive definition. Just as for $n$-fold complete Segal spaces, there is a model category whose fibrant objects are the Segal $n$-categories. This model structure lives on the category of Segal $n$-precategories, which is defined inductively as follows:
-
-\begin{definition}
-	A {\em Segal $0$-precategory} is a simplicial set. {\em Segal $n$-precategory} is an $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces, such that $X_0$ is constant and discrete and such that each $X_k$ is a  Segal $(n-1)$-precategory. 
-\end{definition}
-
-\begin{theorem}[\cite{9807049, Pelissier:thesis, 0905.0462, 1001.4071}] %\CSP{cite \cite{0905.0462}?}
-	There is a cartesian left proper combinatorial model structure on the Segal $n$-precategories in which the cofibrations are the monomorphisms, the fibrant objects are the Segal $n$-categories, and the weak equivalences between fibrant objects are the generalized Dwyer-Kan equivalences described above. 
-\end{theorem}
-
-\noindent We will denote the above model category of Segal $n$-categories by $\Seg_n$.  \CD{Same issue with underlying objects v. fibrant objects.} Given a Segal $n$-precategory, we may regard it as a $n$-fold simplicial space, and this gives rise to an adjunction \CD{We'll need to explain this adjunction more.}
-\begin{equation} \label{Eqn-SegCSS}
-	L:\Seg_n \leftrightarrows \CSS_n:R.
-\end{equation}
-%We would like to thank Clark Barwick for making us aware of the following result and its proof, which shows, in particular, that two Segal $n$-categories give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. 
-\begin{theorem} \label{thm:SegnCSSnQuillenEquiv}
-	The above adjunction is a Quillen equivalence between the model categories of Segal $n$-categories and $n$-fold complete Segal spaces. 
-\end{theorem}
-
-\begin{proof}
-	In the case $n=1$, this is a result of Bergner \cite[Thm 6.3]{MR2321038} and forms part of one of the first significant comparison results in the subject. In the general case it is clear the functor $L$ preserves monomorphisms, hence cofibrations. To show that $(L,R)$ is a Quillen adjunction, it thus suffices to show that $L$ preserves weak equivalences. This was shown in \cite[Lem. 2.3.13]{0905.0462} for the left adjoint $L: \Seg_{\cA} \to \CSS_{\cB}$ between the $\cA$-enriched Segal category and $\cB$-enriched compete Segal model categories, but only in the special case where $\cA = \cB$ is a sufficiently nice cartesian simplicial combinatorial model category. In fact the identical proof works (by induction) when $\cA = \Seg_{n-1}$ and $\cB= \CSS_{n-1}$.  
-	
-	Hence to show (\ref{Eqn-SegCSS}) is a Quillen equivalence it is enough to show that this Quillen adjunction induces an equivalence of homotopy categories. 
-	If follows from \cite[Thm. 12.6, Ex. 13.8]{1112.0040} that both $\Seg_n$ and $\CSS_n$ are models for the {\em homotopy theory of $(\infty,n)$-categories}. In particular they have equivalent underlying  $(\infty,1)$-categories, and moreover they are generated by the {\em cells} under (homotopy) colimits. The derived functors of the above Quillen adjunction form an adjunction between underlying $(\infty,n)$-categories:
-	\begin{equation*}
-		\LL L : \Seg_n^{\circ} \leftrightarrows \CSS_n^{\circ}: \RR R.
-	\end{equation*} 
-The left adjoint $\LL L$ is easily seen to preserve the {cells} (the original left adjoint $L$ has this property and the cells are fibrant-cofibrant objects), and since it also preserves homotopy colimits it follows that $\LL L$ is an equivalence. In particular $L$ induces an equivalence of homotopy categories. 	
-\end{proof}
-
-%
-%The above result follows by combining several previously known results. The model category of Segal $n$-categories, due originally to Hirschowitz and Simpson \cite{9807049} and based on Tamsamani's notion of weak $n$-category \cite{Tamsamani:thesis}, is constructed iteratively. First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category? This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}, leading the following result:  
-%\begin{theorem}[{\cite[Thm. 21.3.2]{1001.4071}}]
-%	If $\cM$ is a tractable left proper cartesian model category, then there is a model category structure $\Seg_{\cM}$ on $\cM$-enriched Segal precategories in which the fibrant objects are the (Reedy fibrant) $\cM$-enriched Segal categories. The model category $\Seg_{\cM}$ is again  tractable, left proper, and cartesian. 
-%\end{theorem}	
-%\noindent Here {\em tractable} is an improvement (due to Clark Barwick) on Jeff Smith's notion of combinatorial model category. In the case at hand we will only need to consider combinatorial $\cM$ in which the cofibrations are the monomorphisms, in which case $\cM$ is automatically tractable. 
-%
-%
-%Complete Segal spaces were introduced by Rezk \cite{??Rezk} as a model for the {\em homotopy theory of homotopy theories}.  A general method of iterating the construction of complete Segal spaces was first given by Barwick \cite{Barwick:thesis}, and recalled, with some additional improvements, by Lurie \cite{0905.0462, MR2555928}. This again can be accomplished quite generally and there are constructions at both the model category and $\infty$-category level.  	
-%\begin{theorem}[{\cite[Prop 1.5.4]{0905.0462}}]
-%	Let $\cM$ be a left proper simplicial combinatorial model category which is an {absolute distributor}. Then the category $\Fun(\Delta^\op, \cM)$, of simplicial objects in $\cM$, admits the $\cM$-enriched complete Segal model structure $\CSS_{\cM}$. Moreover the model structure $\CSS_{\cM}$ is again left proper, simplicial, combinatorial, and an absolute distributor.
-%\end{theorem}	
-%\noindent The condition of being an {\em absolute distributor} is needed in order to formulate the correct notion of {\em complete} $\cM$-enriched Segal object. We will not need specifics of this condition and so refer the reader to \cite{0905.0462} for details, but we do note that being an absolute distributor is a property of the $(\infty,1)$-category underlying the given model category. In particular it is preserved under any Quillen equivalence. Moreover this construction is functorial: a Quillen equivalence $\cM \leftrightarrows \cN$ induces a Quillen equivalence $\CSS_{\cM} \leftrightarrows \CSS_{\cN}$.
-%
-%Thus we have two iterative constructions of theories of $(\infty,n)$-categories, which may both be seeded with the model category of simplicial sets. It is natural to try to compare them. Complete Segal spaces were  shown to be equivalent to Segal categories in work of Bergner \cite{Bergner??}. 
-%\CSP{For the equivalence of Segal 1-cats to complete Segal spaces I might also mention Joyal-Teirney and Toen?}
-%Lurie \cite{0905.0462} has generalized Bergner's work. He gives criteria on a left proper combinatorial simplicial model category $\cM$ which permit us to construct a model structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$, such that the adjunction 
-%\begin{equation*}
-%	\Seg_{\cM} \leftrightarrows \CSS_{\cM}
-%\end{equation*}
-%is a Quillen equivalence. These criteria include, of course, the requirement that $\cM$ is an absolute distributor. We recall a special case:
-%\begin{theorem}[{\cite[Prop. 2.3.1, Prop 1.5.10]{0905.0462}}]
-%	Let $\cM$ be a left proper combinatorial simplicial model category in which the cofibrations are the monomorphisms, in which weak equivalences are stable under filtered colimits, and which is Quillen equivalent to $\CSS_{n-1}$. Then there exists a left proper combinatorial  model category structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$ such that the fibrant objects are the injective fibrant $\cM$-enriched Segal categories, such that the weak equivalences are stable under filtered colimits, and such that the canonical adjunction
-%	\begin{equation*}
-%		\Seg_{\cM} \leftrightarrows \CSS_{\cM}
-%	\end{equation*} 
-%	is a Quillen equivalence.
-%\end{theorem} 
-%\noindent In particular $\Seg_{\cM}$ will be Quillen equivalent to $n$-fold complete Segal spaces $\CSS_n$. 
-%
-%\begin{proof}[Proof of Theorem \ref{thm:SegnCSSnQuillenEquiv}]
-%	The above results go most of the way to showing that Segal $n$-categories are Quillen equivalent to $n$-fold complete Segal spaces. However there are still a few minors points to discuss. The assumptions Simpson and Lurie place on the model category $\cM$ used to construct $\Seg_{\cM}$ are slightly different, though when both sets of conditions are satisfied they give rise to the same model categories. The most important difference is that Simpson assumes that $\cM$ is a {\em cartesian} model category, while Lurie assumes that $\cM$ is {\em simplcial}. In general $\Seg_{\cM}$ will not be a simplicial model category even if $\cM$ is simplicial, and consequently there are difficulties in directly iterating Lurie's construction or applying his results to Simpson's Segal $n$-categories.   
-%
-%Fortunately there is a way around this. Dugger \cite{??Dugger} has shown that every combinatorial model category $\cM$ is Quillen equivalent to a left proper simplicial combinatorial model category  $\cM'$ in which all objects are cofibrant. Toen  \cite[Prop 2.3(2)]{Toen??} has improved on this, showing that, in particular, when $\cM$ is cartesian,  $\cM'$ will again be cartesian and moreover that the Quillen equivalence is {\em weakly cartesian}. This means that the canonical map $F(X \times Y) \to  F(X) \times F(Y)$ is a weak equivalence for all object $X$ and $Y$. It is clear from Simpon's construction that a weakly cartesian Quillen equivalence $\cM \sim \cN$ induces a Quillen equivalence $\Seg_{\cM} \sim \Seg_{\cN}$. 
-%
-%Let $\cM$ be the cartesian simplicial replacement for Segal $n$-categories $\Seg_n$. Combining these results (and using induction) gives a chain of Quillen equivalences:
-%\begin{equation*}
-%	\Seg_{n+1} \sim \Seg_{\cM} \sim \CSS_{\cM} \sim \CSS_{n+1}.
-%\end{equation*}
-%To see that the specific Quillen adjunction (\ref{Eqn-SegCSS}) is a Quillen equivalence, we need only see that it induces an equivalence on underlying $(\infty,1)$-categories. This follows from the \cite[Thm 12.6]{1112.0040} and the fact that the Quillen adjunction in question preserves the {\em cells}. Alternatively, one may deduce this from a more careful consideration of the steps involved in constructing the cartesian simplicial replacement guaranteed by Dugger and Toen's results. 
-%\end{proof}
-
-
-In particular two Segal $n$-categories give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. \CD{only if?}
-
-Both of the model categories $\CSS_n$ and $\Seg_n$ are cofibrantly generated, which \CD{Need transition sentence indicating moving on to symmetric monoidal.}
-implies that the functor categories $\Fun(\Gamma^\op, \CSS_n)$ and $\Fun(\Gamma^\op, \Seg_n)$ carry (Quillen equivalent) projective model structures. We may now obtain symmetric monoidal variants of $\CSS_n$ and $\Seg_n$ by taking the left Bousfield localization with respect to the maps \CD{Words of explanation regarding left Bousfield localization?}
-\begin{equation*}
-	\left(\coprod_{a \in A} i_a\right) :   \coprod_{a \in A} y(1) \to y(A)
-\end{equation*}
-\CD{Need to reintroduce $A$.}
-where $y: \Gamma \to \Fun(\Gamma^\op, \Set) \to \Fun(\Gamma^\op, \Seg_n)$ denotes the Yoneda embedding. These maps co-represent the Segal maps of Section \ref{sec-symmonGamma}. Let $\CSS_n^{\otimes}$ and $\Seg_n^{\otimes}$ denote the corresponding model categories. 
-\CSP{Are there better notations?}
-The fibrant objects are described in the following definition:
-
-
-\begin{definition}
-	A {\em symmetric monoidal $n$-fold complete Segal space} (respectively {\em symmetric monoidal Segal $n$-category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
-	\begin{enumerate}
-		\item $X_A$ is an $n$-fold complete Segal space (resp. Segal $n$-category) for each $A \in \Gamma$. 
-		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
-		\begin{equation*}
-			\prod_{a \in A} i_a^*: X_A \to \prod_{a \in A} X_{(1)}
-		\end{equation*}
-		is an equivalence of $n$-fold complete Segal spaces (resp. Segal $n$-categories). 
-		%\CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
-	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
-	\end{enumerate}
-\end{definition}
+which is readily seen to be associative. This completes the inductive definition.
 
 
 \noindent We now describe a few examples of Segal $n$-categories for small $n$. Recall any map between discrete simplicial sets is a fibration. Hence any discrete $n$-fold simplicial space is Reedy fibrant.
@@ -911,108 +772,20 @@ Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bull
 %\end{proof}
 
 
-%%%%% Homotopy Hypothesis Stuff %%%%%
-%
-%One version of the homotopy hypothesis states that the homotopy theory of spaces resides as a special case of the theory of $(\infty,n)$-categories, namely as the $(\infty,n)$-groupoids. This is known to hold for the models of $(\infty,n)$-category described above. This is trivially satisfied when $n=0$, as the theories of $0$-fold complete Segal spaces and Segal $0$-categories are both identical to the standard model category of simplical sets. More generally, to make this precise we must identify the $(\infty,n)$-groupoids, i.e. the {\em spaces}.
-%
-%\begin{definition}
-%	We inductively define {\em spaces} as follows. Segal $0$-categories and $0$-fold complete Segal spaces are spaces. If $X$ is a Segal $n$-category (respectively an $n$-fold complete Segal space), which we view as a simplial object in $(n-1)$-fold simplicial spaces, then $X$ is a {\em space} if
-%	\begin{enumerate}
-%		\item The homotopy category $\mathit{h}X$ is a groupoid, and
-%		\item Each $\Hom_X(a,b)$ (resp. each $X_k$) is a space. 
-%	\end{enumerate}
-%	When $X$ is an  $n$-fold complete Segal space we may interpret $\mathit{h}X$ by passing to the associated Segal $n$-category via the Quillen equivalence of Equation \ref{Eqn-SegCSS}.
-%\end{definition}
-%
-%
-%\begin{example}
-%	An $n$-fold complete Segal space is a space if and only if it is an essentially constant $n$-fold simplcial space. The case $n=1$ follows from \cite{MR1804411}. The general case follows by induction from properties (1)-(4) in the definition of $n$-fold complete Segal space.
-%\end{example}
-%
-%Thus the homotopy hypothesis holds for $n$-fold complete Segal spaces as well as for  Segal $n$-categories. This latter equivalence was already established between discrete Segal $n$-categories and homotopy $n$-types by Tamsamani \cite{Tamsamani:thesis}.
 
-
-%
-%\section{Dualizability in Symmetric Monoidal $(\infty,n)$-Categories} \label{sec-duals}
-%
-%In this section we will describe how to access the space of fully-dualizble objects in a symmetric monoidal $(\infty,n)$-category, and describe an associated dualizability filtration. We will focus on the case of Segal $n$-categories for which the theory is particularly easy to analyze. We begin with a brief account of dualizability in bicategories and monoidal categories. 
-%
-%\begin{definition}
-%	A 1-morphism $f: a \to b$ in a bicategory $\cC$ is a {\em right dualizable} if it admits a right adjoint, that is there exists a 1-morphism $g: b \to a$ (the {\em right adjoint}) and two 2-morphisms $\eta: id_a \to gf$, $\varepsilon: fg \to id_b$, such that the following identities hold: 
-%\begin{align*}
-%			(id_{g} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{g}) &= id_{g} \\
-%			(\varepsilon \circledcirc id_{f}) \circ (id_{f} \circledcirc \eta) &= id_{f}.
-%		\end{align*}
-%	Here $\circledcirc$ denotes the horizontal composite of 2-morphisms. Conversely $g$ is left dualizable if it  admits a left adjoint. A bicategory $\cC$ will be called {\em dualizable} if all 1-morphisms are both left and right dualizable.  
-%\end{definition} 
-%
-%A monoidal category may be regarded as a single object bicategory, and so the above definition also provides the notion of dualizable monoidal category.  A dualizable monoidal category is more commonly called {\em rigid}. In a symmetric monoidal category there is no distinction between left and right dualizablility. 
-%
-%\begin{example} \label{example-grpdisdualizable}
-%	Any 2-groupoid, that is bicategory in which all 2-morphisms are invertible and 1-morphisms are weakly invertible, is dualizable. 
-%\end{example}
-%
-%\begin{lemma}
-%	For every bicategory $\cC$, there exists a sub-bicategory $\cC^{(d)}$ with the following two properties:
-%	\begin{enumerate}
-%		\item The inclusion $\cC^{(d)} \subseteq \cC$ is fully-faithful on 2-morphisms, $\cC^{(d)}$ contains every object of $\cC$, and the 1-morphisms of $\cC^{(d)}$ are closed under 2-isomorphism in $\cC$. 
-%		\item $\cC^{(d)}$ is dualizable and universal in the sense that for every functor $\cD \to \cC$ with $\cD$ a dualizable bicategory,  there exists a unique factorization $\cD \to \cC^{(d)} \hookrightarrow \cC$.
-%	\end{enumerate}
-%\end{lemma}
-%
-%\begin{proof}
-%	Consider the poset $\cP$ consisting of all dualizable sub-bicategories of $\cC$ satisfying the closure properties of (1), ordered by inclusion. By Example \ref{example-grpdisdualizable},  $\cP$ is non-empty. Moreover the composite of (left) dualizable 1-morphisms is again (left) dualable, thus the sub-bicategory generated (i.e. closed under (1)) by any two elements of $\cP$ is again an element of $\cP$. It follows that the union over all elements of $\cP$, which we call $\cC^{(d)}$, is daulizable and is the maximal element of $\cP$. The final property follows by noting that any functor $\cD \to \cC$ factors (uniquely) through some dualizable sub-bicategory, hence through an element of $\cP$.
-%\end{proof}
-%
-%
-%Given a symmetric monoidal Segal $n$-category $X$, which we regard as an object of the functor category $\Fun(\Gamma^\op, \Seg_n)$,  we may apply the homotopy category functor $\mathit{h}$ level-wise to obtain a strict functor from $\Gamma^\op$ to categories, satisfying the Segal condition. We have seen in Section \ref{sec-symmonGamma} how this may be regarded as symmetric monoidal category structure on $\mathit{h}X$.  
-%
-%For $n\geq 2$, we may extract a discrete Segal 2-category from a given Segal $n$-category $X$, which we may in turn regard as a bicategory $\mathit{h}_2X$, the {\em homotopy bicategory of $X$}. This may be obtained as follows. First, we regard $X$ as a simplicial object in Segal $(n-1)$-categories. Then we may apply the homotopy category functor levelwise to obtain a simplicial object in the category of categories. Finally applying the nerve yields a discrete 2-fold simplicial space, which is easily seen to be a Segal 2-category. This construction is clearly funcotrial and sends weak equivalences of Segal $n$-categories to equivalences of bicategories.
-%
-%Choosing a pair of two objects $a,b \in X_0$, we may extract the Segal $(n-1)$-category $\Hom_X(a,b)$. Repeating this construction and the pervious one we obtain an assortment of bicategories associated to any Segal $n$-category. 
-%
-%\begin{definition}
-%	A Segal $n$-category $X$ is {\em $k$-dualizable} ($k\geq 2$) if 
-%	\begin{enumerate}
-%		\item each $Hom_X(a,b)$ is $(k-1)$-dualizable for each pair of objects $a,b \in X_0$ (this condition is vacuous if $k=2$), 
-%		\item $\mathit{h}_2 X$ is a dualizable bicategory. 
-%	\end{enumerate}
-%Moreover if $X$ is symmetric monoidal, we further require that the symmetric monodial category $\mathit{h} X$ is dualizable. We say that a symmetric monoidal Segal $n$-category $X$ is {\em fully-daulizable} if it is $n$-dualizable.
-%\end{definition}
-%
-%Let $X$ be a Segal $n$-category, which we regard as a simplicial object in Segal $(n-1)$-categories. Let $S \subseteq X_0$ be a subset of the objects of $X$, and let $X'$ denote the simplicial object such that
-%	\begin{equation*}
-%		X'_k =  X_k \times_{(X_0)^{\times k}} (S)^{\times k}.
-%	\end{equation*}
-%Then a direct calculation shows that $X'$ is again a Segal $n$-category; the full sub-Segal $n$-category spanned by the collection $S$. 
-%
-%This construction generalizes. If $X$ is symmetric monoidal and $S$ is a sub-symmetric monoidal category of $\mathit{h}X$, then we may form the full sub-symmetric monoidal Segal $n$-category spanned by the collection $S$. Similarly if $X$ is a Segal $n$-category (with $n\geq 2$) and we have a collection of 1-morphisms of $\mathit{h}_2 X$ that is (weakly) closed under composition,  we may form the sub-Segal $n$-category spanned by this collection.  We will only need these two general cases when (1) the symmetric monoidal subcategory of $\mathit{h}X$ is closed under isomorphism of object or (2) the collection of 2-morphisms of $\mathit{h}_2 X$ is closed under 2-isomorphism. In these special cases the desired result is clear. 
-%
-%
-%Given $k \geq 1$ and a Segal $n$-category $X$, we will obtain a decreasing filtration
-%\begin{equation*}
-%	X = F^0_k X  \supseteq  F^{1}_kX \supseteq  \cdots \supseteq  F^{k-1}_k X. 
-%\end{equation*}
-%Where $F^i_kX$ consists of the full sub-symmetric monoidal Segal $n$-category of $F^{i-1}_kX$ whose $(k-i)$-morphisms are dualizable. More precisely this may be defined inductively as follows. We assume that we have defined $F^iY$ for all $0 \leq i \leq k-1$ and all Segal $(n-1)$-categories $Y$, and that this construction is product preserving. Let $X$ be a Segal $(n-1)$-category, which we view as a simplicial object of $\Seg_{n-1}$. For $i < k-1$, we let $F^i_kX$ be defined by applying the previously constructed $F^i_{k-1}$ levelwise (this exist by induction). For $i=k-1$, we define $F^{k-1}_kX$ to be the full sub-Segal $n$-category of $F^{k-2}_kX$ spanned by those 1-morphisms which are dualizable, i.e. spanned by $(\mathit{h}_2 X)^{(d)} \subseteq \mathit{h}_2 X$. The Segal $n$-category $F^{k-1}_kX$ so obtained is $k$-dualizable. 
-%
-%For symmetric monoidal Segal $n$-categories $X$, this filtration obtain one more layer $F^k_k X \subseteq F^{k-1}_k X$, which is defined by taking the full sub-symmetric monoidal Segal $n$-category spanned by the maximal dualizable sub-symmetric monodial category $(\mathit{h}X)^{(d)} \subseteq \mathit{h}X$. The symmetric monoidal Segal $n$-category $F^k_k X$ is $k$-dualizable in the symmetric monoidal sense and moreover is universal in the sense that any map $Y \to X$ of symmetric monodial Segal $n$-categoeries with $Y$ $k$-dualizable factors through $F_k^k X$. We have $F_n^n X$ is fully-dualizable. 
-%
-%
-%
-%
-%%A $0$-morphism of a Segal $n$-category is an object of $X$. For $k \geq 1$, a $k$-morphism of a Segal $n$-category $X$ is a $(k-1)$-morphism of one of the hom Segal $(n-1)$-categories $\Hom_X(a,b)$ for some pair of object $a,b \in X_0$. If $k = 1$, we say two 1-morphisms of $X$ are {\em parallel} if they reside in the same hom Segal $(n-1)$-category $\Hom_X(a,b)$. If $k>1$, then two $k$-morphisms are parallel if they are parallel $(k-1)$-morphisms in the same hom Segal $(n-1)$-category $\Hom_X(a,b)$.
-%
-%%\CSPcomm{To DO
-%%\begin{itemize}
-%%	\item invariance of the filtration (even under completion). 
-%%\end{itemize}}
-%
-%
-
-
-
-
-
+\begin{definition}
+	A {\em symmetric monoidal Segal $n$-category} is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
+	\begin{enumerate}
+		\item $X_A$ is a Segal $n$-category for each $A \in \Gamma$. 
+		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
+		\begin{equation*}
+			\prod_{a \in A} i_a^*: X_A \to \prod_{a \in A} X_{(1)}
+		\end{equation*}
+		is an equivalence of Segal $n$-categories. 
+		%\CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
+	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
+	\end{enumerate}
+\end{definition}
 
 
 \section{The symmetric monoidal Segal 3-category of tensor categories} \label{sec-tc-threecat}
@@ -1280,6 +1053,327 @@ These techniques may also be adapted to construct other examples of symmetric mo
 
 \CD{CD to check that all data of an internal cat in 2Cat has been covered.}
 \CD{Discuss whether to reference TC as a cat in 2Cat (BDH).}
+
+
+\appendix
+
+
+\section{Comparison of Segal $n$-categories and $n$-fold complete Segal spaces} 
+
+%\CDcomm{Proposal: everything from this section except the definition of Segal $n$-category and necessary preliminaries for that is moved into an appendix.  (``".)}
+
+\CSP{do we need a review of model categories?}
+
+In what follows we will assume the reader is familiar with the theory of Quillen model categories. 
+
+In this section we will briefly review two theories of $(\infty,n)$-categories which play a role in the current work. These are the Quillen model categories of {\em $n$-fold complete Segal spaces} (due to Barwick) and of {\em Segal $n$-categories}. Both may be constructed inductively, beginning with the standard Kan model structure on simplicial sets. Symmetric monoidal variants of these theories will also be explained. 
+
+In the case $n=1$, the first appearance of Segal categories in the literature is in a paper of Dwyer, Kan, and Smith \cite{MR984042}, where they are called special $\Delta^\op$-diagrams. The concept was adapted and iterated by Tamsamani \cite{Tamsamani:thesis} in order to construct a notion of weak $n$-category. This was then turned into the notion of Segal $n$-categories by Hirschowitz and Simpson \cite{9807049}. The construction is inductive.  First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories (described below) in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category? This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}.  
+
+Complete Segal spaces were introduced by Rezk \cite{MR1804411} as a model for the {\em homotopy theory of homotopy theories}.  A general method of iterating the construction of complete Segal spaces was first given by Barwick \cite{Barwick:thesis}, and recalled, with some additional improvements, by Lurie \cite{0905.0462, MR2555928}. This again can be accomplished quite generally and there are constructions at both the model category and $\infty$-category level. 
+
+The theory of $n$-fold complete Segal spaces figures prominently in the proof of the cobordism hypothesis \cite{MR2555928}, while the theory of Segal $n$-categories provides a more convenient model in which to construct the symmetric monoidal $(\infty,3)$-category of tensor categories, a task we take up in Section \ref{sec-tc-threecat}. We wish to be able to apply the results of \cite{MR2555928} directly to this symmetric monoidal $(\infty,3)$-category and for this we need to understand the relationship between these two model categories. We describe the comparison in this section, and in the following section we describe how to see the invariance of the dualizability filtration.  \CD{If we keep the section on dualizability, this will need explaning.}
+
+\begin{definition}
+	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
+\end{definition}
+
+\begin{definition}
+		A $0$-fold simplicial space (i.e. a simplicial set) is a {\em $0$-fold complete Segal space} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em $n$-fold complete Segal space} if it is Reedy fibrant and the following conditions are satisfied:
+		\begin{enumerate}
+			\item The $(n-1)$-fold simplicial space $X_0$ is {\em essentially constant}, i.e. the induced $(n-1)$-fold simplicial object in the homotopy category of spaces is constant. 
+			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is an $(n-1)$-fold complete Segal space.
+			\item For every $m$ and $n$, the Segal square,
+			\begin{center}
+			\begin{tikzpicture}
+				\node (LT) at (0, 1.5) {$X_{m+n}$};
+				\node (LB) at (0, 0) {$X_m$};
+				\node (RT) at (2, 1.5) {$X_n$};
+				\node (RB) at (2, 0) {$X_0$};
+				\draw [->] (LT) -- node [left] {$$} (LB);
+				\draw [->] (LT) -- node [above] {$$} (RT);
+				\draw [->] (RT) -- node [right] {$$} (RB);
+				\draw [->] (LB) -- node [below] {$$} (RB);
+				%\node at (0.5, 1) {$\ulcorner$};
+				%\node at (1.5, 0.5) {$\lrcorner$};
+			\end{tikzpicture}
+			\end{center}
+			induces a level-wise \CD{Explain exactly what `level-wise' means here.}
+			equivalence of $(n-1)$-fold simplicial spaces $X_{m+n} \to X_m \times_{X_0} X_n$.
+			\item The simplicial space $X_{k, 0 \dots, 0}$ is a complete Segal space for all $k\geq 0$. 
+		\end{enumerate}
+\end{definition}
+
+\begin{theorem}[\cite{Barwick:thesis, 0905.0462, 1112.0040}]
+	There is a left proper combinatorial simplicial model category structure on $n$-fold simplical spaces in which the fibrant objects are the $n$-fold complete Segal spaces. This model category arrises as a left Bousfield localization of the Reedy (a.k.a. injective) model structure on $n$-fold simplical spaces. \CD{Injective??}
+\end{theorem}
+
+\noindent We will denote the model category of $n$-fold complete Segal spaces by $\CSS_n$.  \CD{Presumably the objects are $n$-fold simplicial spaces; need to make it clear that that is the intention, not restricting to the fibrant objects.  Similarly for Segal categories below.}
+
+\CSPcomm{ [move earlier]
+\begin{definition}
+	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em  Segal $0$-category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em Segal $n$-category} if it is Reedy fibrant and the following conditions are satisfied:
+		\begin{enumerate}
+			\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete.
+			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is a  Segal $(n-1)$-category.
+			\item For every $m, n$, the Segal square,
+			\begin{center}
+			\begin{tikzpicture}
+				\node (LT) at (0, 1.5) {$X_{m+n}$};
+				\node (LB) at (0, 0) {$X_m$};
+				\node (RT) at (2, 1.5) {$X_n$};
+				\node (RB) at (2, 0) {$X_0$};
+				\draw [->] (LT) -- node [left] {$$} (LB);
+				\draw [->] (LT) -- node [above] {$$} (RT);
+				\draw [->] (RT) -- node [right] {$$} (RB);
+				\draw [->] (LB) -- node [below] {$$} (RB);
+				%\node at (0.5, 1) {$\ulcorner$};
+				%\node at (1.5, 0.5) {$\lrcorner$};
+			\end{tikzpicture}
+			\end{center}
+			induces an equivalence of  Segal $(n-1)$-categories $X_{m+n} \to X_m \times_{X_0} X_n$.  
+				\end{enumerate}
+\end{definition}
+
+\noindent This definition is not complete without specifying the notion of equivalence. Fortunately, equivalences between Segal $n$-categories have a relatively direct inductive description as well. This notion of equivalence generalizes to higher dimensions the {\em Dwyer-Kan equivalences}. The $(n-1)$-fold simplicial space $X_0$ is constant and so may be regard as a set, the {\em set of objects} of the Segal $n$-category $X$. 
+Inductively one may define three functorial constructions:
+\begin{itemize}
+	\item For every pair of objects $a,b \in X_0$, an Segal $(n-1)$-category $\Hom_X(a,b)$.
+	\item An ordinary category $\mathit{h}X$, called the {\em homotopy category} of $X$.
+	\item A set $\pi_0 X$, the set of isomorphism classes of objects of $\mathit{h}X$. 
+\end{itemize}
+Once we have these constructions, equivalences of Segal $n$-categories are defined as those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce bijections $\pi_0 f: \pi_0 X \to \pi_0 Y$, 
+% equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ 
+and which induce equivalences of Segal $(n-1)$-categories $\Hom_X(a,b) \to \Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. By construction we see that such maps also induce equivalences $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$.
+
+Given a pair objects $a,b \in X_0$ in an  Segal $n$-category $X$, the  Segal $(n-1)$-category $\Hom_X(a,b)$ is defined to be the fiber \CD{Fiber in what category? Strict or weak? Levelwise?}
+over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
+\begin{center}
+\begin{tikzpicture}
+	\node (LT) at (0, 1.5) {$\Hom_X(a,b)$};
+	\node (LB) at (0, 0) {$pt$};
+	\node (RT) at (3, 1.5) {$X_1$};
+	\node (RB) at (3, 0) {$X_0\times X_0$};
+	\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->] (LT) -- node [above] {$$} (RT);
+	\draw [->] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [above] {$(a,b)$} (RB);
+	\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+\CD{I think we'll be able to make the induction clearer here, just by indicating exactly what we have and what's being built.  As is there's a danger of it looking circular, just because the induction was split into two pieces.}
+The homotopy category $\mathit{h}X$ has the same object set $X_0$, and the morphisms set between two objects is given as the set $\Hom_{\mathit{h}X}(a,b) := \pi_0 \Hom_X(a,b)$. \CD{Need to explain what $\pi_0$ means here.} For every triple of objects $a,b,c \in X_0$ we have a similar  Segal $(n-1)$-category $\Hom_X(a,b,c)$ which is defined as the fiber in $X_2$ over the point $(a,b,c)$ in $X_0 \times X_0 \times X_0$. Since $X$ is an  Segal $n$-category we have induced maps of  Segal $(n-1)$-categories,
+\begin{equation*}
+	\Hom_X(a,b) \times \Hom_X(b,c) \stackrel{\simeq}{\longleftarrow} \Hom_X(a,b,c) \stackrel{}{\longrightarrow} \Hom_X(a,c).
+\end{equation*}
+Composition in $\mathit{h}X$ is given by the induced map of sets,
+\begin{equation*}
+	 \Hom_{\mathit{h}X}(a,b) \times \Hom_{\mathit{h}X}(b,c) \cong \pi_0 \Hom_X(a,b,c)\to \pi_0 \Hom_X(a,c) = \Hom_{\mathit{h}X}(a,c),
+\end{equation*}
+which is readily seen to be associative. This completes the inductive definition.} Just as for $n$-fold complete Segal spaces, there is a model category whose fibrant objects are the Segal $n$-categories. This model structure lives on the category of Segal $n$-precategories, which is defined inductively as follows:
+
+\begin{definition}
+	A {\em Segal $0$-precategory} is a simplicial set. {\em Segal $n$-precategory} is an $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces, such that $X_0$ is constant and discrete and such that each $X_k$ is a  Segal $(n-1)$-precategory. 
+\end{definition}
+
+\begin{theorem}[\cite{9807049, Pelissier:thesis, 0905.0462, 1001.4071}] %\CSP{cite \cite{0905.0462}?}
+	There is a cartesian left proper combinatorial model structure on the Segal $n$-precategories in which the cofibrations are the monomorphisms, the fibrant objects are the Segal $n$-categories, and the weak equivalences between fibrant objects are the generalized Dwyer-Kan equivalences described above. 
+\end{theorem}
+
+\noindent We will denote the above model category of Segal $n$-categories by $\Seg_n$.  \CD{Same issue with underlying objects v. fibrant objects.} Given a Segal $n$-precategory, we may regard it as a $n$-fold simplicial space, and this gives rise to an adjunction \CD{We'll need to explain this adjunction more.}
+\begin{equation} \label{Eqn-SegCSS}
+	L:\Seg_n \leftrightarrows \CSS_n:R.
+\end{equation}
+%We would like to thank Clark Barwick for making us aware of the following result and its proof, which shows, in particular, that two Segal $n$-categories give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. 
+\begin{theorem} \label{thm:SegnCSSnQuillenEquiv}
+	The above adjunction is a Quillen equivalence between the model categories of Segal $n$-categories and $n$-fold complete Segal spaces. 
+\end{theorem}
+
+\begin{proof}
+	In the case $n=1$, this is a result of Bergner \cite[Thm 6.3]{MR2321038} and forms part of one of the first significant comparison results in the subject. In the general case it is clear the functor $L$ preserves monomorphisms, hence cofibrations. To show that $(L,R)$ is a Quillen adjunction, it thus suffices to show that $L$ preserves weak equivalences. This was shown in \cite[Lem. 2.3.13]{0905.0462} for the left adjoint $L: \Seg_{\cA} \to \CSS_{\cB}$ between the $\cA$-enriched Segal category and $\cB$-enriched compete Segal model categories, but only in the special case where $\cA = \cB$ is a sufficiently nice cartesian simplicial combinatorial model category. In fact the identical proof works (by induction) when $\cA = \Seg_{n-1}$ and $\cB= \CSS_{n-1}$.  
+	
+	Hence to show (\ref{Eqn-SegCSS}) is a Quillen equivalence it is enough to show that this Quillen adjunction induces an equivalence of homotopy categories. 
+	If follows from \cite[Thm. 12.6, Ex. 13.8]{1112.0040} that both $\Seg_n$ and $\CSS_n$ are models for the {\em homotopy theory of $(\infty,n)$-categories}. In particular they have equivalent underlying  $(\infty,1)$-categories, and moreover they are generated by the {\em cells} under (homotopy) colimits. The derived functors of the above Quillen adjunction form an adjunction between underlying $(\infty,n)$-categories:
+	\begin{equation*}
+		\LL L : \Seg_n^{\circ} \leftrightarrows \CSS_n^{\circ}: \RR R.
+	\end{equation*} 
+The left adjoint $\LL L$ is easily seen to preserve the {cells} (the original left adjoint $L$ has this property and the cells are fibrant-cofibrant objects), and since it also preserves homotopy colimits it follows that $\LL L$ is an equivalence. In particular $L$ induces an equivalence of homotopy categories. 	
+\end{proof}
+
+%
+%The above result follows by combining several previously known results. The model category of Segal $n$-categories, due originally to Hirschowitz and Simpson \cite{9807049} and based on Tamsamani's notion of weak $n$-category \cite{Tamsamani:thesis}, is constructed iteratively. First the model structure of Segal $(n-1)$-categories is constructed, then a model structure is constructed on Segal $n$-precategories in which the fibrant objects are the Segal categories {\em enriched in Segal $(n-1)$-categories}. This raises the question of whether one may form a model category of Segal categories enriched in a general model category? This was addressed in Pelissier's thesis \cite{Pelissier:thesis} with further improvements by Simpson \cite{1001.4071}, leading the following result:  
+%\begin{theorem}[{\cite[Thm. 21.3.2]{1001.4071}}]
+%	If $\cM$ is a tractable left proper cartesian model category, then there is a model category structure $\Seg_{\cM}$ on $\cM$-enriched Segal precategories in which the fibrant objects are the (Reedy fibrant) $\cM$-enriched Segal categories. The model category $\Seg_{\cM}$ is again  tractable, left proper, and cartesian. 
+%\end{theorem}	
+%\noindent Here {\em tractable} is an improvement (due to Clark Barwick) on Jeff Smith's notion of combinatorial model category. In the case at hand we will only need to consider combinatorial $\cM$ in which the cofibrations are the monomorphisms, in which case $\cM$ is automatically tractable. 
+%
+%
+%Complete Segal spaces were introduced by Rezk \cite{??Rezk} as a model for the {\em homotopy theory of homotopy theories}.  A general method of iterating the construction of complete Segal spaces was first given by Barwick \cite{Barwick:thesis}, and recalled, with some additional improvements, by Lurie \cite{0905.0462, MR2555928}. This again can be accomplished quite generally and there are constructions at both the model category and $\infty$-category level.  	
+%\begin{theorem}[{\cite[Prop 1.5.4]{0905.0462}}]
+%	Let $\cM$ be a left proper simplicial combinatorial model category which is an {absolute distributor}. Then the category $\Fun(\Delta^\op, \cM)$, of simplicial objects in $\cM$, admits the $\cM$-enriched complete Segal model structure $\CSS_{\cM}$. Moreover the model structure $\CSS_{\cM}$ is again left proper, simplicial, combinatorial, and an absolute distributor.
+%\end{theorem}	
+%\noindent The condition of being an {\em absolute distributor} is needed in order to formulate the correct notion of {\em complete} $\cM$-enriched Segal object. We will not need specifics of this condition and so refer the reader to \cite{0905.0462} for details, but we do note that being an absolute distributor is a property of the $(\infty,1)$-category underlying the given model category. In particular it is preserved under any Quillen equivalence. Moreover this construction is functorial: a Quillen equivalence $\cM \leftrightarrows \cN$ induces a Quillen equivalence $\CSS_{\cM} \leftrightarrows \CSS_{\cN}$.
+%
+%Thus we have two iterative constructions of theories of $(\infty,n)$-categories, which may both be seeded with the model category of simplicial sets. It is natural to try to compare them. Complete Segal spaces were  shown to be equivalent to Segal categories in work of Bergner \cite{Bergner??}. 
+%\CSP{For the equivalence of Segal 1-cats to complete Segal spaces I might also mention Joyal-Teirney and Toen?}
+%Lurie \cite{0905.0462} has generalized Bergner's work. He gives criteria on a left proper combinatorial simplicial model category $\cM$ which permit us to construct a model structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$, such that the adjunction 
+%\begin{equation*}
+%	\Seg_{\cM} \leftrightarrows \CSS_{\cM}
+%\end{equation*}
+%is a Quillen equivalence. These criteria include, of course, the requirement that $\cM$ is an absolute distributor. We recall a special case:
+%\begin{theorem}[{\cite[Prop. 2.3.1, Prop 1.5.10]{0905.0462}}]
+%	Let $\cM$ be a left proper combinatorial simplicial model category in which the cofibrations are the monomorphisms, in which weak equivalences are stable under filtered colimits, and which is Quillen equivalent to $\CSS_{n-1}$. Then there exists a left proper combinatorial  model category structure on $\cM$-enriched Segal precategories $\Seg_{\cM}$ such that the fibrant objects are the injective fibrant $\cM$-enriched Segal categories, such that the weak equivalences are stable under filtered colimits, and such that the canonical adjunction
+%	\begin{equation*}
+%		\Seg_{\cM} \leftrightarrows \CSS_{\cM}
+%	\end{equation*} 
+%	is a Quillen equivalence.
+%\end{theorem} 
+%\noindent In particular $\Seg_{\cM}$ will be Quillen equivalent to $n$-fold complete Segal spaces $\CSS_n$. 
+%
+%\begin{proof}[Proof of Theorem \ref{thm:SegnCSSnQuillenEquiv}]
+%	The above results go most of the way to showing that Segal $n$-categories are Quillen equivalent to $n$-fold complete Segal spaces. However there are still a few minors points to discuss. The assumptions Simpson and Lurie place on the model category $\cM$ used to construct $\Seg_{\cM}$ are slightly different, though when both sets of conditions are satisfied they give rise to the same model categories. The most important difference is that Simpson assumes that $\cM$ is a {\em cartesian} model category, while Lurie assumes that $\cM$ is {\em simplcial}. In general $\Seg_{\cM}$ will not be a simplicial model category even if $\cM$ is simplicial, and consequently there are difficulties in directly iterating Lurie's construction or applying his results to Simpson's Segal $n$-categories.   
+%
+%Fortunately there is a way around this. Dugger \cite{??Dugger} has shown that every combinatorial model category $\cM$ is Quillen equivalent to a left proper simplicial combinatorial model category  $\cM'$ in which all objects are cofibrant. Toen  \cite[Prop 2.3(2)]{Toen??} has improved on this, showing that, in particular, when $\cM$ is cartesian,  $\cM'$ will again be cartesian and moreover that the Quillen equivalence is {\em weakly cartesian}. This means that the canonical map $F(X \times Y) \to  F(X) \times F(Y)$ is a weak equivalence for all object $X$ and $Y$. It is clear from Simpon's construction that a weakly cartesian Quillen equivalence $\cM \sim \cN$ induces a Quillen equivalence $\Seg_{\cM} \sim \Seg_{\cN}$. 
+%
+%Let $\cM$ be the cartesian simplicial replacement for Segal $n$-categories $\Seg_n$. Combining these results (and using induction) gives a chain of Quillen equivalences:
+%\begin{equation*}
+%	\Seg_{n+1} \sim \Seg_{\cM} \sim \CSS_{\cM} \sim \CSS_{n+1}.
+%\end{equation*}
+%To see that the specific Quillen adjunction (\ref{Eqn-SegCSS}) is a Quillen equivalence, we need only see that it induces an equivalence on underlying $(\infty,1)$-categories. This follows from the \cite[Thm 12.6]{1112.0040} and the fact that the Quillen adjunction in question preserves the {\em cells}. Alternatively, one may deduce this from a more careful consideration of the steps involved in constructing the cartesian simplicial replacement guaranteed by Dugger and Toen's results. 
+%\end{proof}
+
+
+In particular two Segal $n$-categories give rise to weakly equivalent $n$-fold complete Segal spaces only if they are weakly equivalent as Segal $n$-categories. \CD{only if?}
+
+Both of the model categories $\CSS_n$ and $\Seg_n$ are cofibrantly generated, which \CD{Need transition sentence indicating moving on to symmetric monoidal.}
+implies that the functor categories $\Fun(\Gamma^\op, \CSS_n)$ and $\Fun(\Gamma^\op, \Seg_n)$ carry (Quillen equivalent) projective model structures. We may now obtain symmetric monoidal variants of $\CSS_n$ and $\Seg_n$ by taking the left Bousfield localization with respect to the maps \CD{Words of explanation regarding left Bousfield localization?}
+\begin{equation*}
+	\left(\coprod_{a \in A} i_a\right) :   \coprod_{a \in A} y(1) \to y(A)
+\end{equation*}
+\CD{Need to reintroduce $A$.}
+where $y: \Gamma \to \Fun(\Gamma^\op, \Set) \to \Fun(\Gamma^\op, \Seg_n)$ denotes the Yoneda embedding. These maps co-represent the Segal maps of Section \ref{sec-symmonGamma}. Let $\CSS_n^{\otimes}$ and $\Seg_n^{\otimes}$ denote the corresponding model categories. 
+\CSP{Are there better notations?}
+The fibrant objects are described in the following definition:
+
+
+\begin{definition}
+	A {\em symmetric monoidal $n$-fold complete Segal space} (respectively {\em symmetric monoidal Segal $n$-category}) is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
+	\begin{enumerate}
+		\item $X_A$ is an $n$-fold complete Segal space (resp. Segal $n$-category) for each $A \in \Gamma$. 
+		\item For each set $A \in \Gamma$ (possibly empty) the canonical map,
+		\begin{equation*}
+			\prod_{a \in A} i_a^*: X_A \to \prod_{a \in A} X_{(1)}
+		\end{equation*}
+		is an equivalence of $n$-fold complete Segal spaces (resp. Segal $n$-categories). 
+		%\CSP{Should we also add the $X_{(0)} = pt$? We get $X_{(0)} \simeq pt$ for free.}
+	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
+	\end{enumerate}
+\end{definition}
+
+
+
+%%%%% Homotopy Hypothesis Stuff %%%%%
+%
+%One version of the homotopy hypothesis states that the homotopy theory of spaces resides as a special case of the theory of $(\infty,n)$-categories, namely as the $(\infty,n)$-groupoids. This is known to hold for the models of $(\infty,n)$-category described above. This is trivially satisfied when $n=0$, as the theories of $0$-fold complete Segal spaces and Segal $0$-categories are both identical to the standard model category of simplical sets. More generally, to make this precise we must identify the $(\infty,n)$-groupoids, i.e. the {\em spaces}.
+%
+%\begin{definition}
+%	We inductively define {\em spaces} as follows. Segal $0$-categories and $0$-fold complete Segal spaces are spaces. If $X$ is a Segal $n$-category (respectively an $n$-fold complete Segal space), which we view as a simplial object in $(n-1)$-fold simplicial spaces, then $X$ is a {\em space} if
+%	\begin{enumerate}
+%		\item The homotopy category $\mathit{h}X$ is a groupoid, and
+%		\item Each $\Hom_X(a,b)$ (resp. each $X_k$) is a space. 
+%	\end{enumerate}
+%	When $X$ is an  $n$-fold complete Segal space we may interpret $\mathit{h}X$ by passing to the associated Segal $n$-category via the Quillen equivalence of Equation \ref{Eqn-SegCSS}.
+%\end{definition}
+%
+%
+%\begin{example}
+%	An $n$-fold complete Segal space is a space if and only if it is an essentially constant $n$-fold simplcial space. The case $n=1$ follows from \cite{MR1804411}. The general case follows by induction from properties (1)-(4) in the definition of $n$-fold complete Segal space.
+%\end{example}
+%
+%Thus the homotopy hypothesis holds for $n$-fold complete Segal spaces as well as for  Segal $n$-categories. This latter equivalence was already established between discrete Segal $n$-categories and homotopy $n$-types by Tamsamani \cite{Tamsamani:thesis}.
+
+
+%
+%\section{Dualizability in Symmetric Monoidal $(\infty,n)$-Categories} \label{sec-duals}
+%
+%In this section we will describe how to access the space of fully-dualizble objects in a symmetric monoidal $(\infty,n)$-category, and describe an associated dualizability filtration. We will focus on the case of Segal $n$-categories for which the theory is particularly easy to analyze. We begin with a brief account of dualizability in bicategories and monoidal categories. 
+%
+%\begin{definition}
+%	A 1-morphism $f: a \to b$ in a bicategory $\cC$ is a {\em right dualizable} if it admits a right adjoint, that is there exists a 1-morphism $g: b \to a$ (the {\em right adjoint}) and two 2-morphisms $\eta: id_a \to gf$, $\varepsilon: fg \to id_b$, such that the following identities hold: 
+%\begin{align*}
+%			(id_{g} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{g}) &= id_{g} \\
+%			(\varepsilon \circledcirc id_{f}) \circ (id_{f} \circledcirc \eta) &= id_{f}.
+%		\end{align*}
+%	Here $\circledcirc$ denotes the horizontal composite of 2-morphisms. Conversely $g$ is left dualizable if it  admits a left adjoint. A bicategory $\cC$ will be called {\em dualizable} if all 1-morphisms are both left and right dualizable.  
+%\end{definition} 
+%
+%A monoidal category may be regarded as a single object bicategory, and so the above definition also provides the notion of dualizable monoidal category.  A dualizable monoidal category is more commonly called {\em rigid}. In a symmetric monoidal category there is no distinction between left and right dualizablility. 
+%
+%\begin{example} \label{example-grpdisdualizable}
+%	Any 2-groupoid, that is bicategory in which all 2-morphisms are invertible and 1-morphisms are weakly invertible, is dualizable. 
+%\end{example}
+%
+%\begin{lemma}
+%	For every bicategory $\cC$, there exists a sub-bicategory $\cC^{(d)}$ with the following two properties:
+%	\begin{enumerate}
+%		\item The inclusion $\cC^{(d)} \subseteq \cC$ is fully-faithful on 2-morphisms, $\cC^{(d)}$ contains every object of $\cC$, and the 1-morphisms of $\cC^{(d)}$ are closed under 2-isomorphism in $\cC$. 
+%		\item $\cC^{(d)}$ is dualizable and universal in the sense that for every functor $\cD \to \cC$ with $\cD$ a dualizable bicategory,  there exists a unique factorization $\cD \to \cC^{(d)} \hookrightarrow \cC$.
+%	\end{enumerate}
+%\end{lemma}
+%
+%\begin{proof}
+%	Consider the poset $\cP$ consisting of all dualizable sub-bicategories of $\cC$ satisfying the closure properties of (1), ordered by inclusion. By Example \ref{example-grpdisdualizable},  $\cP$ is non-empty. Moreover the composite of (left) dualizable 1-morphisms is again (left) dualable, thus the sub-bicategory generated (i.e. closed under (1)) by any two elements of $\cP$ is again an element of $\cP$. It follows that the union over all elements of $\cP$, which we call $\cC^{(d)}$, is daulizable and is the maximal element of $\cP$. The final property follows by noting that any functor $\cD \to \cC$ factors (uniquely) through some dualizable sub-bicategory, hence through an element of $\cP$.
+%\end{proof}
+%
+%
+%Given a symmetric monoidal Segal $n$-category $X$, which we regard as an object of the functor category $\Fun(\Gamma^\op, \Seg_n)$,  we may apply the homotopy category functor $\mathit{h}$ level-wise to obtain a strict functor from $\Gamma^\op$ to categories, satisfying the Segal condition. We have seen in Section \ref{sec-symmonGamma} how this may be regarded as symmetric monoidal category structure on $\mathit{h}X$.  
+%
+%For $n\geq 2$, we may extract a discrete Segal 2-category from a given Segal $n$-category $X$, which we may in turn regard as a bicategory $\mathit{h}_2X$, the {\em homotopy bicategory of $X$}. This may be obtained as follows. First, we regard $X$ as a simplicial object in Segal $(n-1)$-categories. Then we may apply the homotopy category functor levelwise to obtain a simplicial object in the category of categories. Finally applying the nerve yields a discrete 2-fold simplicial space, which is easily seen to be a Segal 2-category. This construction is clearly funcotrial and sends weak equivalences of Segal $n$-categories to equivalences of bicategories.
+%
+%Choosing a pair of two objects $a,b \in X_0$, we may extract the Segal $(n-1)$-category $\Hom_X(a,b)$. Repeating this construction and the pervious one we obtain an assortment of bicategories associated to any Segal $n$-category. 
+%
+%\begin{definition}
+%	A Segal $n$-category $X$ is {\em $k$-dualizable} ($k\geq 2$) if 
+%	\begin{enumerate}
+%		\item each $Hom_X(a,b)$ is $(k-1)$-dualizable for each pair of objects $a,b \in X_0$ (this condition is vacuous if $k=2$), 
+%		\item $\mathit{h}_2 X$ is a dualizable bicategory. 
+%	\end{enumerate}
+%Moreover if $X$ is symmetric monoidal, we further require that the symmetric monodial category $\mathit{h} X$ is dualizable. We say that a symmetric monoidal Segal $n$-category $X$ is {\em fully-daulizable} if it is $n$-dualizable.
+%\end{definition}
+%
+%Let $X$ be a Segal $n$-category, which we regard as a simplicial object in Segal $(n-1)$-categories. Let $S \subseteq X_0$ be a subset of the objects of $X$, and let $X'$ denote the simplicial object such that
+%	\begin{equation*}
+%		X'_k =  X_k \times_{(X_0)^{\times k}} (S)^{\times k}.
+%	\end{equation*}
+%Then a direct calculation shows that $X'$ is again a Segal $n$-category; the full sub-Segal $n$-category spanned by the collection $S$. 
+%
+%This construction generalizes. If $X$ is symmetric monoidal and $S$ is a sub-symmetric monoidal category of $\mathit{h}X$, then we may form the full sub-symmetric monoidal Segal $n$-category spanned by the collection $S$. Similarly if $X$ is a Segal $n$-category (with $n\geq 2$) and we have a collection of 1-morphisms of $\mathit{h}_2 X$ that is (weakly) closed under composition,  we may form the sub-Segal $n$-category spanned by this collection.  We will only need these two general cases when (1) the symmetric monoidal subcategory of $\mathit{h}X$ is closed under isomorphism of object or (2) the collection of 2-morphisms of $\mathit{h}_2 X$ is closed under 2-isomorphism. In these special cases the desired result is clear. 
+%
+%
+%Given $k \geq 1$ and a Segal $n$-category $X$, we will obtain a decreasing filtration
+%\begin{equation*}
+%	X = F^0_k X  \supseteq  F^{1}_kX \supseteq  \cdots \supseteq  F^{k-1}_k X. 
+%\end{equation*}
+%Where $F^i_kX$ consists of the full sub-symmetric monoidal Segal $n$-category of $F^{i-1}_kX$ whose $(k-i)$-morphisms are dualizable. More precisely this may be defined inductively as follows. We assume that we have defined $F^iY$ for all $0 \leq i \leq k-1$ and all Segal $(n-1)$-categories $Y$, and that this construction is product preserving. Let $X$ be a Segal $(n-1)$-category, which we view as a simplicial object of $\Seg_{n-1}$. For $i < k-1$, we let $F^i_kX$ be defined by applying the previously constructed $F^i_{k-1}$ levelwise (this exist by induction). For $i=k-1$, we define $F^{k-1}_kX$ to be the full sub-Segal $n$-category of $F^{k-2}_kX$ spanned by those 1-morphisms which are dualizable, i.e. spanned by $(\mathit{h}_2 X)^{(d)} \subseteq \mathit{h}_2 X$. The Segal $n$-category $F^{k-1}_kX$ so obtained is $k$-dualizable. 
+%
+%For symmetric monoidal Segal $n$-categories $X$, this filtration obtain one more layer $F^k_k X \subseteq F^{k-1}_k X$, which is defined by taking the full sub-symmetric monoidal Segal $n$-category spanned by the maximal dualizable sub-symmetric monodial category $(\mathit{h}X)^{(d)} \subseteq \mathit{h}X$. The symmetric monoidal Segal $n$-category $F^k_k X$ is $k$-dualizable in the symmetric monoidal sense and moreover is universal in the sense that any map $Y \to X$ of symmetric monodial Segal $n$-categoeries with $Y$ $k$-dualizable factors through $F_k^k X$. We have $F_n^n X$ is fully-dualizable. 
+%
+%
+%
+%
+%%A $0$-morphism of a Segal $n$-category is an object of $X$. For $k \geq 1$, a $k$-morphism of a Segal $n$-category $X$ is a $(k-1)$-morphism of one of the hom Segal $(n-1)$-categories $\Hom_X(a,b)$ for some pair of object $a,b \in X_0$. If $k = 1$, we say two 1-morphisms of $X$ are {\em parallel} if they reside in the same hom Segal $(n-1)$-category $\Hom_X(a,b)$. If $k>1$, then two $k$-morphisms are parallel if they are parallel $(k-1)$-morphisms in the same hom Segal $(n-1)$-category $\Hom_X(a,b)$.
+%
+%%\CSPcomm{To DO
+%%\begin{itemize}
+%%	\item invariance of the filtration (even under completion). 
+%%\end{itemize}}
+%
+%
+
+
+
+
 
 
 \tikzexternalenable
