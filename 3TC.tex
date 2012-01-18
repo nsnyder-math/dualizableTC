@@ -557,20 +557,24 @@ In the last section we described how symmetric monoidal structures may be encode
 The simplex category plays a dual role which sometimes results in confusing terminology. On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. \CD{I think this paragraph can be removed, then add defs of vertices and edges where needed; or did I miss where this confusion comes up for us?}
 
 But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square, 
-\begin{equation} \label{Eqn:Segal-Co-Map}  
-\begin{tikzpicture}[baseline = 0.75cm]
-	\node (LT) at (0, 1.5) {$[0]$};
-	\node (LB) at (0, 0) {$[m]$};
-	\node (RT) at (2, 1.5) {$[n]$};
-	\node (RB) at (2, 0) {$[m+n]$};
-	\draw [->] (LT) -- node [left] {$m$} (LB);
-	\draw [->] (LT) -- node [above] {$0$} (RT);
-	\draw [->] (RT) -- node [right] {$$} (RB);
-	\draw [->] (LB) -- node [below] {$$} (RB);
-	%\node at (0.5, 1) {$\ulcorner$};
-	%\node at (1.5, 0.5) {$\lrcorner$};
-\end{tikzpicture}
-\end{equation}\CD{I think we'll want to label this diagram with a letter, say S, because there are so few number references.}
+\newcounter{nullcounter}
+\begin{list}{(S)}{\usecounter{nullcounter}}
+%	\setlength{\leftmargin}{0pt}
+	\item \hspace{0.3\textwidth} %\begin{center}
+	 \begin{tikzpicture}[baseline = 0.75cm]
+		\node (LT) at (0, 1.5) {$[0]$};
+		\node (LB) at (0, 0) {$[m]$};
+		\node (RT) at (2, 1.5) {$[n]$};
+		\node (RB) at (2, 0) {$[m+n]$};
+		\draw [->] (LT) -- node [left] {$m$} (LB);
+		\draw [->] (LT) -- node [above] {$0$} (RT);
+		\draw [->] (RT) -- node [right] {$$} (RB);
+		\draw [->] (LB) -- node [below] {$$} (RB);
+		%\node at (0.5, 1) {$\ulcorner$};
+		%\node at (1.5, 0.5) {$\lrcorner$};
+	\end{tikzpicture}
+%\end{center}
+\end{list}
 where $0: [0] \to [n]$ and $m: [0] \to [m]$ denote the first and last vertices, respectively. This square will play an important role in what follows. 
 
 Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. \CD{I feel like we might as well say explicitly what `presheaf' means, and I'm also slightly concerned that we shift back and forth between `presheaf on $\Delta$' and `simplicial object' at times without any (discernable to me just now) reason.}
@@ -581,7 +585,7 @@ The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
 \end{equation*} 
 In other words $NC_n$ consists of all length-$n$ strings of composable morphisms of $X$.
 
-The nerve construction is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+The nerve construction is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (S),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -599,7 +603,7 @@ The nerve construction is a fully-faithful functor from categories and functors 
 are a pullback diagrams. 
 
 This can be extended to categories internal to a category $C$. \CD{There is something amiss around here --- the above two paragraphs and this paragraph cover similar ground (eg introducing simplicial objects and notation for such), with the latter paragraphs being more elementary.  Was the latter stuff meant to be deleted when the above was added? Or maybe this stuff should move higher up?}
-The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (\ref{Eqn:Segal-Co-Map}),
+The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (S),
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -772,7 +776,7 @@ To complete the induction, we must provide the base case. Notice that in the abo
 %which is readily seen to be associative. This completes the inductive definition.
 
 
-\noindent We now describe a few examples of Segal $n$-categories for small $n$. Recall any map between discrete simplicial sets is a fibration. Hence any discrete $n$-fold simplicial space is Reedy fibrant.
+ We now describe a few examples of Segal $n$-categories for small $n$. Recall any map between discrete simplicial sets is a fibration. Hence any discrete $n$-fold simplicial space is Reedy fibrant. \CSP{Move this Reedy fibrancy comment elsewhere?}
 
 
 
