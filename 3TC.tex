@@ -672,7 +672,7 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 \begin{definition}
 	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em  Segal $0$-category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em Segal $n$-category} if it is Reedy fibrant and the following conditions are satisfied:
 		\begin{enumerate}
-			\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete.
+			\item The $(n-1)$-fold simplicial space $X_0$ is constant and discrete. It may be regarded as a set, the {\em set of objects} of the Segal $n$-category $X$. 
 			\item Each of the $(n-1)$-fold simplicial spaces $X_k$ is a  Segal $(n-1)$-category.
 			\item For every $m, n$, the Segal square,
 			\begin{center}
@@ -693,43 +693,83 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 				\end{enumerate}
 \end{definition}
 
-\noindent This definition is not complete without specifying the notion of equivalence. Fortunately, equivalences between Segal $n$-categories have a relatively direct inductive description as well. This notion of equivalence generalizes to higher dimensions the {\em Dwyer-Kan equivalences}. The $(n-1)$-fold simplicial space $X_0$ is constant and so may be regard as a set, the {\em set of objects} of the Segal $n$-category $X$. 
-Inductively one may define three functorial constructions:
+\noindent This definition is not complete without specifying the notion of equivalence, which may be done inductively.  This notion of equivalence generalizes to higher dimensions the {\em Dwyer-Kan equivalences}, and the induction process simultaneously produces the following constructions:
 \begin{itemize}
-	\item For every pair of objects $a,b \in X_0$, an Segal $(n-1)$-category $\Hom_X(a,b)$.
+	\item For every finite collection of objects $\{ a_i \; | \; 0 \leq i \leq n, \; a_i \in X_0 \}$ ($n \geq 1$),  a Segal $(n-1)$-category $\Hom_X(a_0, a_1, \dots, a_n)$.
 	\item An ordinary category $\mathit{h}X$, called the {\em homotopy category} of $X$.
-	\item A set $\pi_0 X$, the set of isomorphism classes of objects of $\mathit{h}X$. 
+	\item A set $\pi_0 X$, which coincides with the set of isomorphism classes of objects of $\mathit{h}X$.
+	\item The designation of the collection of maps  $f:X \to Y$ of Segal $n$-categories which are equivalences. 
 \end{itemize}
-Once we have these constructions, equivalences of Segal $n$-categories are defined as those maps $f:X \to Y$ of $n$-fold simplicial spaces which induce bijections $\pi_0 f: \pi_0 X \to \pi_0 Y$, 
-% equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ 
-and which induce equivalences of Segal $(n-1)$-categories $\Hom_X(a,b) \to \Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. By construction we see that such maps also induce equivalences $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$.
+Moreover the construction of the homotopy category $\mathit{h}X$ (and hence also the set $\pi_0X$) is functorial in $X$ and sends equivalences of Segal $n$-categories to equivalences of ordinary categories, and a disjoint union of maps of Segal $n$-categories is an equivalence if and only if each of the component maps is an equivalence.  
 
-Given a pair objects $a,b \in X_0$ in an  Segal $n$-category $X$, the  Segal $(n-1)$-category $\Hom_X(a,b)$ is defined to be the fiber \CD{Fiber in what category? Strict or weak? Levelwise?}
-over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
+Let us first describe the induction step. Let $X$ be a Segal $n$-category. Given a finite collection of objects $\{ a_i \; | \; 0 \leq i \leq n, \; a_i \in X_0 \}$, the Segal $(n-1)$-category  $\Hom_X(a_0, a_2, \dots, a_n)$ is defined to be the fiber product depicted below:
 \begin{center}
 \begin{tikzpicture}
-	\node (LT) at (0, 1.5) {$\Hom_X(a,b)$};
+	\node (LT) at (0, 1.5) {$\Hom_X(a_0, \dots, a_n)$};
 	\node (LB) at (0, 0) {$pt$};
-	\node (RT) at (3, 1.5) {$X_1$};
-	\node (RB) at (3, 0) {$X_0\times X_0$};
+	\node (RT) at (5, 1.5) {$X_{n}$};
+	\node (RB) at (5, 0) {$X_0\times \dots \times X_0$}; %}_{n \textrm{ times}}
 	\draw [->] (LT) -- node [left] {$$} (LB);
 	\draw [->] (LT) -- node [above] {$$} (RT);
-	\draw [->] (RT) -- node [right] {$$} (RB);
-	\draw [->] (LB) -- node [above] {$(a,b)$} (RB);
+	\draw [->] (RT) -- node [right] {$(d_0, d_1, \dots, d_n)$} (RB);
+	\draw [->] (LB) -- node [above] {$(a_0, \dots, a_n)$} (RB);
 	\node at (0.5, 1) {$\ulcorner$};
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-\CD{I think we'll be able to make the induction clearer here, just by indicating exactly what we have and what's being built.  As is there's a danger of it looking circular, just because the induction was split into two pieces.}
-The homotopy category $\mathit{h}X$ has the same object set $X_0$, and the morphisms set between two objects is given as the set $\Hom_{\mathit{h}X}(a,b) := \pi_0 \Hom_X(a,b)$. \CD{Need to explain what $\pi_0$ means here.} For every triple of objects $a,b,c \in X_0$ we have a similar  Segal $(n-1)$-category $\Hom_X(a,b,c)$ which is defined as the fiber in $X_2$ over the point $(a,b,c)$ in $X_0 \times X_0 \times X_0$. Since $X$ is an  Segal $n$-category we have induced maps of  Segal $(n-1)$-categories,
+Each of the objects depicted in the above square is a Segal $(n-1)$-category which we may regard as a particular sort of $(n-1)$-fold simplicial space. The above fiber product is the strict fiber product taken in the category of $(n-1)$-fold simplicial spaces. Of course one must check that $\Hom_X(a_0, \dots, a_n)$, defined this way, is indeed a Segal $(n-1)$-category. We omit this step, but note that the construction of these Segal $(n-1)$-categories is functorial in $X$. 
+
+To build the next construction,  the homotopy category $\mathit{h}X$, we observe that the Segal $(n-1)$-categories $\Hom_X(a_0, \dots, a_n)$ are connected by a variety of maps arising from the simplicial structure of $X$. The most important of these are shown below and arise from applying $X$ to the face maps from the 2-simplex to the 1-simplex:
 \begin{equation*}
 	\Hom_X(a,b) \times \Hom_X(b,c) \stackrel{\simeq}{\longleftarrow} \Hom_X(a,b,c) \stackrel{}{\longrightarrow} \Hom_X(a,c).
 \end{equation*}
-Composition in $\mathit{h}X$ is given by the induced map of sets,
+By induction we assume the notion of equivalence of Segal $(n-1)$-category has already been constructed and the disjoint union of a collection of maps is such an equivalence precisely if each of the component maps is an equivalence. This, together with the fact that $X$ is a Segal $n$-category, imply that the first map above, as indicated, is an equivalence of Segal $(n-1)$-categories. 
+ 
+Next we also assume by induction that the functor $\pi_0$ from Segal $(n-1)$-categories to sets has been defined and sends equivalences to isomorphisms. The category $\mathit{h}X$ is then defined to have the same objects as $X$ and to have morphism sets $\Hom_{\mathit{h}X}(a,b) := \pi_0 \Hom_X(a,b)$. After applying $\pi_0$ the previously considered pair of maps gives us
 \begin{equation*}
 	 \Hom_{\mathit{h}X}(a,b) \times \Hom_{\mathit{h}X}(b,c) \cong \pi_0 \Hom_X(a,b,c)\to \pi_0 \Hom_X(a,c) = \Hom_{\mathit{h}X}(a,c),
 \end{equation*}
-which is readily seen to be associative. This completes the inductive definition.
+which provides the composition in the category $\mathit{h}X$. A similar consideration involving 4-tuples of objects shows that this composition is associative, and it is also unital.  
+This provides the construction of the category $\mathit{h}X$, which is clearly functorial in $X$ and commutes with products and  disjoint unions.  
+
+Having constructed $\mathit{h}X$ for Segal $n$-categories, we define the functor $\pi_0$ on Segal $n$-categories by declaring $\pi_0 X$ to be the set of isomorphism classes of objects of the category $\mathit{h}X$. The functoriality of the homotopy category implies the functoriality of $\pi_0$. 
+
+Now that we have these constructions in place, equivalences of Segal $n$-categories are straightforward to define. They are precisely those maps $f:X \to Y$ of Segal $n$-categories which induce bijections $\pi_0 f: \pi_0 X \to \pi_0 Y$, 
+% equivalences of homotopy categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ 
+and which induce equivalences of Segal $(n-1)$-categories $\Hom_X(a,b) \to \Hom_Y(fa, fb)$ for every pair of objects $a,b \in X_0$. Such an equivalence induces a functor of ordinary categories $\mathit{h}f:\mathit{h}X \to \mathit{h}Y$ which is fully faithful and, by construction, induces a bijection on isomorphism classes of objects. Hence $\mathit{h}$ sends equivalences of Segal $n$-categories to equivalences of ordinary categories. Finally the desired properties with respect to disjoint union are readily seen to follow from the commutation of $\mathit{h}$ with disjoint unions. This ends the inductive step. 
+
+To complete the induction, we must provide the base case. Notice that in the above induction the functor $\mathit{h}$ was somewhat auxiliary and not required for the induction, though it helps clarify the constructions. Thus to begin the induction and define Segal 1-categories $X$, the spaces $\Hom_X(a_0, a_2, \dots, a_n)$, the homotopy category $\mathit{h}X$, the set $\pi_0X$, and equivalences of Segal 1-categories, we need only specify Segal $0$-categories, equivalences of Segal $0$-categories, and an appropriate functor $\pi_0$ sending Segal $0$-categories to sets. These are obtained by taking Segal $0$-categories to be simplicial sets with the weak equivalences from the standard Kan-Quillen model structure. The functor $\pi_0$ is the usual one on simplicial, which has the necessary property with respect to products and disjoint unions. 
+
+% they come equipped with a notion of equivalence and also the functor $\pi_0$. This allows us to define Segal $1$-categories in the usual way. If $X$ is a Segal 1-category, then the spaces $\Hom_X(a_0, a_2, \dots, a_n)$ may be defined just
+
+
+%
+%Given a pair objects $a,b \in X_0$ in an  Segal $n$-category $X$, the  Segal $(n-1)$-category $\Hom_X(a,b)$ is defined to be the fiber \CD{Fiber in what category? Strict or weak? Levelwise?}
+%over $(a,b) \in X_0 \times X_0$ of the map $(d_0, d_1): X_1 \to X_0 \times X_0$.  
+%\begin{center}
+%\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$\Hom_X(a,b)$};
+%	\node (LB) at (0, 0) {$pt$};
+%	\node (RT) at (3, 1.5) {$X_1$};
+%	\node (RB) at (3, 0) {$X_0\times X_0$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+%	\draw [->] (LT) -- node [above] {$$} (RT);
+%	\draw [->] (RT) -- node [right] {$$} (RB);
+%	\draw [->] (LB) -- node [above] {$(a,b)$} (RB);
+%	\node at (0.5, 1) {$\ulcorner$};
+%	%\node at (1.5, 0.5) {$\lrcorner$};
+%\end{tikzpicture}
+%\end{center}
+%\CD{I think we'll be able to make the induction clearer here, just by indicating exactly what we have and what's being built.  As is there's a danger of it looking circular, just because the induction was split into two pieces.}
+%The homotopy category $\mathit{h}X$ has the same object set $X_0$, and the morphisms set between two objects is given as the set $\Hom_{\mathit{h}X}(a,b) := \pi_0 \Hom_X(a,b)$. \CD{Need to explain what $\pi_0$ means here.} For every triple of objects $a,b,c \in X_0$ we have a similar  Segal $(n-1)$-category $\Hom_X(a,b,c)$ which is defined as the fiber in $X_2$ over the point $(a,b,c)$ in $X_0 \times X_0 \times X_0$. Since $X$ is an  Segal $n$-category we have induced maps of  Segal $(n-1)$-categories,
+%\begin{equation*}
+%	\Hom_X(a,b) \times \Hom_X(b,c) \stackrel{\simeq}{\longleftarrow} \Hom_X(a,b,c) \stackrel{}{\longrightarrow} \Hom_X(a,c).
+%\end{equation*}
+%Composition in $\mathit{h}X$ is given by the induced map of sets,
+%\begin{equation*}
+%	 \Hom_{\mathit{h}X}(a,b) \times \Hom_{\mathit{h}X}(b,c) \cong \pi_0 \Hom_X(a,b,c)\to \pi_0 \Hom_X(a,c) = \Hom_{\mathit{h}X}(a,c),
+%\end{equation*}
+%which is readily seen to be associative. This completes the inductive definition.
 
 
 \noindent We now describe a few examples of Segal $n$-categories for small $n$. Recall any map between discrete simplicial sets is a fibration. Hence any discrete $n$-fold simplicial space is Reedy fibrant.
