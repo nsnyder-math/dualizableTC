@@ -133,8 +133,11 @@ such that $F$ is linear in each variable separately.
 %A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{Explain 'simple object'; explain 'proj cover'.} 
 
 \begin{warning}
-	Unless otherwise stated {\em all linear functors considered in this paper are right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
-\end{warning} \CD{Probably will need to change the phrasing of this warning.}
+	Unless otherwise stated {\em all linear functors considered in this paper are right exact functors}.  We are aware that this deviates from convention, but many of the constructions that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. For brevity it seems preferable to drop the adjective `right exact'. 
+	\CD{Probably will need to change the phrasing of this warning.}
+	\CSP{How is this?}
+\end{warning} 
+
 
 \begin{definition}
 	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear.
@@ -157,7 +160,7 @@ such that $F$ is linear in each variable separately.
 		\item horizontal composition is multilinear,
 		\item the category $\Hom(y,x)$ is empty, and
 		\item there are identifications of monoidal categories $\Hom(x,x) \simeq \cD$ and $\Hom(y,y) \simeq \cC$.
-	\end{itemize} \CD{hom or Hom?}
+	\end{itemize} %\CD{hom or Hom?}
 	We will often abuse notation and refer to the value $\cM = \Hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
 \end{definition}
 	
@@ -481,7 +484,10 @@ In this section and the next we will encounter Segal's category $\Gamma$, Segal 
 It will be instructive to spell this out explicitly. The case $A=\emptyset$ ensures that $M(\emptyset) = 1$, the terminal object of $C$.  Let $M$ denote $M(1)$, then we have $M(A) \cong M^{\times |A|}$. Maps in $\Gamma$ express ways to combine a $B$-tuple of elements of $M$ into an $A$-tuple of elements in $M$. Explicitly $f: A \to P(B)$
 induces a map $f^*: M^{\times |B|} \to M^{\times |A|}$ which sends the $B$-tuple $(m_b)_{b \in B}$ to the $A$-tuple $(n_a)_{a \in A}$ where the element $n_a \in M$ is obtained by multiplying together all the elements $m_b$ where $b$ ranges over the elements in $f(a) \subseteq B$. This is a well-defined operation when $M$ is a commutative monoid, and conversely every such functor arises from a monoid in this manner. 
 
-This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is (weakly) equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences. \CD{What are our conventions regarding whether "n-category", as in this sentence, means weak or strict?} Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ should give rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, unless $(M, \otimes)$ is a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
+This generalizes to higher categories as well; the 2-category of symmetric monoidal categories is weakly equivalent to the 2-category of {\em strict} functors $\Gamma^{op} \to \Cat$ such that for each $A \in \Gamma$ the Segal maps are equivalences.
+\CD{What are our conventions regarding whether "n-category", as in this sentence, means weak or strict?}
+\CSP{These conventions are not set out at the end of the intro.}
+Naively we expect this to mimic the case for monoids; a monoidal category $(M, \otimes)$ should give rise to a functor $\Gamma^\text{op} \to \Cat$ sending a set $A$ to $M^{\times |A|}$. However we immediately run into difficulty when we try to define functors for each map $f$ in $\Gamma$. Philosophically, we expect $f$ to induce a functor which sends a $B$-tuple of objects of $M$ to an $A$-tuple of objects of $M$ by multiplying together the objects of each $f(a)$-subtuple using the tensor product $\otimes$. However, unless $(M, \otimes)$ is a {\em strict} monoidal category, there is no canonical way to do this. We must choose an ordering and a bracketing of the elements indexed by each $f(a)$. Furthermore, even if we supply such choices, the result is not compatible with composition; we do not obtain a functor in this way. 
 
 This leaves us with two possible avenues of pursuit:
 \begin{enumerate}
@@ -541,9 +547,9 @@ The most canonical way to do this is to define $\Vect(B)$ to include all possibl
 		\draw [->] (LB) -- node [below] {$\phi_{S \cup S'}$} (RB);
 		%\node at (0.5, 1) {$\ulcorner$};
 		%\node at (1.5, 0.5) {$\lrcorner$};
-	\end{tikzpicture}.
+	\end{tikzpicture}
 	\end{center}
-\end{itemize} \CD{Do we want full stops at the end of display diagrams like this, and if so, at the bottom or centered?}
+\end{itemize} 
 Thus an object of $\Vect(A)$ consist partly of an $A$-tuple of vector spaces, namely $ (V_{\{a\}})_{a \in A}$. Each vector space $V_S$ should then be thought of as a {\em choice} of simultaneous tensor product of all the $V_{\{a\}}$ where $a \in S$. The data and conditions of an object of $\Vect(A)$ make this intuitive description precise, and similarly for the morphisms of $\Vect(A)$. 
 
 The assignment $A \mapsto \Vect(A)$ gives a functor $\Vect: \Gamma^{op} \to \Cat$, for if $f: A \to P(B)$, then we obtain a functor $f^*: \Vect(B) \to \Vect(A)$ as follows. If $T \subseteq A$, let $f(T) = \cup_{a \in T} f(a) \subseteq B$. Then an object $\{ V_S, v_{S,S'} \}_{S, S' \subseteq B}$ of $\Vect(B)$ is sent via $f^*$ to the object $\{ W_T, w_{T, T'} \}_{T, T' \subseteq A} \in \Vect(A)$, where 
@@ -609,7 +615,7 @@ The nerve construction is a fully-faithful functor from categories and functors 
 	\node at (0.5, 1) {$\ulcorner$};
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
-\end{center} \CD{Caret in that corner or the other?}
+\end{center} \CD{Caret in that corner or the other?} \CSP{It is correct, a pullback square.}
 are a pullback diagrams. 
 
 This can be extended to categories internal to a category $C$. \CD{There is something amiss around here --- the above two paragraphs and this paragraph cover similar ground (eg introducing simplicial objects and notation for such), with the latter paragraphs being more elementary.  Was the latter stuff meant to be deleted when the above was added? Or maybe this stuff should move higher up?}
@@ -807,7 +813,7 @@ Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bull
 \end{example}
 
 \begin{lemma}[\cite{MR2366560}] \label{lma:2catnervereflectsequiv}
-	A strict functor of strict 2-categories $F: C \to D$ is a weak equivalence if and only if the induced map of 2-fold Segal categories $NC_{\bullet \bullet} \to ND_{\bullet \bullet}$ is an equivalence. \CD{Either remove ``weak" or need to specify meaning of weak equivalence.}
+	A strict functor of strict 2-categories $F: C \to D$ is a weak equivalence if and only if the induced map of 2-fold Segal categories $NC_{\bullet \bullet} \to ND_{\bullet \bullet}$ is an equivalence. %\CD{Either remove ``weak" or need to specify meaning of weak equivalence.} %% Clarified at end of intro.
 \end{lemma}
 \CD{Why do we need this Lemma?}
 
