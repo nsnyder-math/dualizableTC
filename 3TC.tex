@@ -567,7 +567,7 @@ In the last section we described how symmetric monoidal structures may be encode
 %\CSPcomm{Iterating this idea leads to the notion of {\em Segal $n$-category}, and incorporating our insights about $\Gamma$ yields a notion of symmetric monoidal $(\infty,3)$-category.  }
 
 \begin{definition}
-	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. 
+	The simplex category $\Delta$ is a skeleton of the category of finite non-empty totally ordered sets and order preserving maps. The objects of $\Delta$ are the ordered sets $[n] = \{ 0 < 1 < 2 < \cdots < n\}$. The {\em face maps} $d_i: [n] \to [n+1]$  $(0 \leq i \leq n+1)$ are those strictly order preserving maps which miss the $i^\textrm{th}$ element of $[n+1]$. 
 \end{definition}
 
 An ordered set may be regarded as a category in which there exists a morphism, and then only one morphism, from the element $i$ to the element $j$ precisely if  $i \leq j$. In this way the objects of $\Delta$ may be regarded as categories, and this realizes $\Delta$ as a full subcategory of the category $\Cat$ of categories and functors. An arbitrary category $C$ gives rise to a presheaf on $\Delta$, a functor from $\Delta^\op$ to $\Set$ called the {\em nerve} of the category and defined by the formula 
@@ -578,7 +578,7 @@ The set $\nu C_0$ consists of the objects of $C$, and more generally $\nu C_n$ c
 \begin{equation*}
 	\nu C_n = \bigsqcup_{x_0, x_1, \dots, x_n \in C} \Hom_C(x_0, x_1) \times \Hom_C(x_1, x_2) \times \cdots \times \Hom_C(x_{n-1}, x_n).
 \end{equation*}
-Presheaves on $\Delta$ are also called {\em simplicial sets} (and form the category $\sSet$). More generally a functor from $\Delta^\op$ to a category $\cD$ will be called a simplicial object in $\cD$. 
+Presheaves on $\Delta$ are also called {\em simplicial sets} (and form the category $\sSet$). More generally a functor from $\Delta^\op$ to a category $\cD$ will be called a simplicial object in $\cD$.
 
 
 The nerve functor $\nu: \Cat \to \sSet$ is fully-faithful. Let $[m + n]$ denote the ordered concatenation of $[m]$ with $[n]$. We thus obtain the following commuting square, which plays an important role: 
@@ -606,7 +606,7 @@ Under suitable hypotheses, the nerve construction may be generalized to categori
 A category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. An extensive category $\cD$ with a terminal object has a distinguished functor $\Set \to \cD$ whose image consists of the {\em discrete objects}, i.e. those that are coproducts of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
 
 \begin{definition}
-	If $C$ is an extensive category with a terminal object and pullbacks then an internal category $X$ is a simplicial object in $C$ such that $X_0$ is discrete and such that the diagrams induced by those in equation (S),
+	If $C$ is an extensive category with a terminal object and pullbacks then a {\em category internal to $C$} is a simplicial object $X$ in $C$ such that $X_0$ is discrete and such that the diagrams induced by those in equation (S),
 	\begin{center}
 	\begin{tikzpicture}
 		\node (LT) at (0, 1.5) {$X_{m+n}$};
@@ -621,92 +621,51 @@ A category is {\em extensive} (or {\em infinitary extensive}) if it admits small
 		%\node at (1.5, 0.5) {$\lrcorner$};
 	\end{tikzpicture}
 	\end{center}
-	are a pullback diagrams. 
+	are a pullback diagrams. We call such squares {\em Segal squares} and say such an $X$ satisfies the {\em Segal condition}. 
 \end{definition}
 
- then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, . 
-
-
-
-
-\CSPcomm{---- the below just needs to be totally rewritten -----}
-
-%The simplex category plays a dual role which sometimes results in confusing terminology. On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. \CD{I think this paragraph can be removed, then add defs of vertices and edges where needed; or did I miss where this confusion comes up for us?}
-
-%But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. 
- This square will play an important role in what follows. 
-
-Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. \CD{I feel like we might as well say explicitly what `presheaf' means, and I'm also slightly concerned that we shift back and forth between `presheaf on $\Delta$' and `simplicial object' at times without any (discernable to me just now) reason.}
-This well-known construction proceeds as follows: each ordered set $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ if $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
-The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
-\begin{equation*}
-	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \times \cdots \times \Hom_X(x_{n-1}, x_n).
-\end{equation*} 
-In other words $NC_n$ consists of all length-$n$ strings of composable morphisms of $X$.
-
-The nerve construction is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (S),
+The above definition is equivalent to the usual notion of enriched category. The object $X_0$, regarded as a set, forms the set of objects of $X$. Given a pair of objects $x,y \in X_0$ we may define $\Hom_X(x,y)$ as the pullback:
 \begin{center}
 \begin{tikzpicture}
-	\node (LT) at (0, 1.5) {$X_{m+n}$};
-	\node (LB) at (0, 0) {$X_m$};
-	\node (RT) at (2, 1.5) {$X_n$};
-	\node (RB) at (2, 0) {$X_0$};
+	\node (LT) at (0, 1.5) {$\Hom_X(x,y)$};
+	\node (LB) at (0, 0) {$pt$};
+	\node (RT) at (2, 1.5) {$X_1$};
+	\node (RB) at (2, 0) {$X_0 \times X_0$};
 	\draw [->] (LT) -- node [left] {$$} (LB);
 	\draw [->] (LT) -- node [above] {$$} (RT);
-	\draw [->] (RT) -- node [right] {$$} (RB);
-	\draw [->] (LB) -- node [below] {$$} (RB);
-	\node at (0.5, 1) {$\ulcorner$};
-	%\node at (1.5, 0.5) {$\lrcorner$};
-\end{tikzpicture}
-\end{center} \CD{Caret in that corner or the other?} \CSP{It is correct, a pullback square.}
-are a pullback diagrams. 
-
-This can be extended to categories internal to a category $C$. \CD{There is something amiss around here --- the above two paragraphs and this paragraph cover similar ground (eg introducing simplicial objects and notation for such), with the latter paragraphs being more elementary.  Was the latter stuff meant to be deleted when the above was added? Or maybe this stuff should move higher up?}
-The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (S),
-\begin{center}
-\begin{tikzpicture}
-	\node (LT) at (0, 1.5) {$X_{m+n}$};
-	\node (LB) at (0, 0) {$X_m$};
-	\node (RT) at (2, 1.5) {$X_n$};
-	\node (RB) at (2, 0) {$X_0$};
-	\draw [->] (LT) -- node [left] {$$} (LB);
-	\draw [->] (LT) -- node [above] {$$} (RT);
-	\draw [->] (RT) -- node [right] {$$} (RB);
-	\draw [->] (LB) -- node [below] {$$} (RB);
+	\draw [->] (RT) -- node [right] {$(d_1, d_0)$} (RB);
+	\draw [->] (LB) -- node [below] {$(x,y)$} (RB);
 	\node at (0.5, 1) {$\ulcorner$};
 	%\node at (1.5, 0.5) {$\lrcorner$};
 \end{tikzpicture}
 \end{center}
-are a pullback diagrams. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. \CD{Note to self: at some point, actually set this crucial notion out in a display, perhaps just for $C = Set$.}
+It is an object of $C$. Since $X$ satisfies the Segal condition and $C$ is extensive, we have a natrual isomorphism
+\begin{equation*}
+	X_n \cong \bigsqcup_{x_0, x_1, \dots, x_n \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \times \cdots \times \Hom_X(x_{n-1}, x_n).
+\end{equation*}
+In particular we obtain a strictly associative composition map from the simplical face map:
+\begin{equation*}
+	d_2: X_2 = \bigsqcup_{x_0, x_1, x_2 \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \to \bigsqcup_{x_0, x_2 \in X_0} \Hom_X(x_0, x_2).
+\end{equation*}
+The identities may also be recovered in a similar fashion. 
 
-This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $\Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of ``objects''). Under certain conditions these notions may be related. 
+Strict $n$-categories are inductively defined as categories enriched in strict $(n-1)$-categories. 
+An {\em $n$-fold simplcial set} is a functor $(\Delta^\op)^n \to \Set$, which by adjunction is the same as a simplical object in $(n-1)$-fold simplicial sets. We will denote the category of such as $\Set_{\Delta^n}$. Thus we may equivalently, inductively define a strict $n$-category as an $n$-fold simplicial set $X$ (which we view as a simplcial object of $\Set_{\Delta^{n-1}}$), such that
+\begin{itemize}
+	\item $X_0$ is discrete (which in this case means it is a constant functor from $(\Delta^\op)^{n-1}$ to $\Set$),
+	\item each square (S) induces an isomorphism 
+	$X_{m+n} \cong X_m \times_{X_0} X_n$ of $(n-1)$-fold simplicial sets.
+\end{itemize}
 
-A category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
+\noindent Unfortunately strict $n$-categories are  insufficient for our purposes, and the definition needs to be relaxed to allow for compositions which are only associative up to higher coherent equivalence. This can be accomplished in many ways; two of which mirror the dichotomy we saw in the previous section. The theory of weak $(n-1)$-categories should itself form a weak $(n-1)$-category and so rather then basing our inductive definition of $n$-category on strict functors from $\Delta^\op$ into $\Cat_{n-1}$, we could consider weak functors into the $(n-1)$-category $\Cat_{n-1}$. This approach is problematic because at each stage it requires the full development of the theory of weak $n$-categories and their weak functors.    
 
-\begin{example}
-	An ordinary (small) category is a category enriched in sets.
-\end{example}
-
-\begin{example}
-	A {\em strict 2-category} is a category enriched in categories.
-\end{example}
-
-Thus a strict 2-category may equivalently be regarded as a simplicial object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such that the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
+Alternative, mimicking our previous considerations in the context of $\Gamma$,  we may retain the fact that $X$ is a strict functor from $\Delta^\op$ into $\Cat_{n-1}$, but relax our requirement that $X$ satisfy the Segal condition. Instead we require that the natural map from $X_{m+n}$ to the pullback $X_m \times_{X_0} X_n$ merely be an {\em equivalence} of $(n-1)$-categories. Following this reasoning gives rise to the notion of weak $n$-category first proposed by Tamsamani \cite{Tamsamani:thesis}.   
 
 
 
-We would now like to use this insight to describe higher categories. \CD{(specify which insight)} Heuristically an $n$-category is a category enriched in $(n-1)$-categories, and so we should be able to describe it as a discrete presheaf on $\Delta$ with values in the category of $(n-1)$-categories. \CD{Is `discrete presheaf' proper terminology?} The element $[n] \in \Delta$ should be mapped to the $(n-1)$-category of all length-$n$ composable strings of $1$-morphisms. 
-
-However, unless our $n$-category is strict this naive attempt will fail to produce a functor out of $\Delta$. The reasons are analogous to the previous situation with symmetric monoidal structures. However, the insights in the previous section also suggests a possible solution. Rather than require $X_{m+n}$ to be {\em isomorphic} to the pullback $X_m \times_{X_0} X_n$, we require that it merely be {\em equivalent} to the pullback. 
-Following this reasoning gives rise to the notion of weak $n$-category first proposed by Tamsamani \cite{Tamsamani:thesis}.   
-
-
-\begin{definition}
-	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
-\end{definition}
 
 \begin{definition}[Sketch]
-	A Tamsamani $0$-category is a set. 	A {\em Tamsamani $n$-category} is a simplicial object in $(n-1)$-fold simplicial sets, such that the following conditions are satisfied: \CD{Define $(n-1)$-fold simplicial set.}
+	A Tamsamani $0$-category is a set. 	A {\em Tamsamani $n$-category} is a simplicial object in $(n-1)$-fold simplicial sets, such that the following conditions are satisfied: %\CD{Define $(n-1)$-fold simplicial set.}
 	\begin{enumerate}
 		\item The $(n-1)$-fold simplicial set $X_0$ is constant and discrete.
 		\item Each of the $(n-1)$-fold simplicial sets $X_k$ is a Tamsamani $(n-1)$-category.
@@ -727,12 +686,83 @@ Following this reasoning gives rise to the notion of weak $n$-category first pro
 		\end{center}
 		induces an {\em equivalence} $X_{i+j} \to X_i \times_{X_0} X_j$ of Tamsamani $(n-1)$-categories.
 	\end{enumerate}
-\end{definition} \CD{I think we should spell this definition out for $n=1$, just to make contact with the earlier discussion.}
+\end{definition} \CD{I think we should spell this definition out for $n=1$, just to make contact with the earlier discussion.} \CSP{I think this is now addressed, no?}
 
-\noindent To make this precise, one must also inductively build the notation of equivalence. We will do this in the next section, where we describe Segal $n$-categories, the $(\infty,n)$-variant of this construction where instead of working with simplicial sets we use simplicial spaces; Segal $n$-categories were first defined by Hirschowitz and Simpson \cite{9807049}. Tamsamani $n$-categories may then be identified with the {\em discrete} Segal $n$-categories.  It is well-known that the theory of Tamsamani 2-categories forms a good model for the theory of bicategories. This is discussed in detail in \cite{MR2366560}.
+\noindent An equivalence of sets is defined to be an isomorphism, and so when $n=1$ the above reduces to a description of precisely those simplicial sets which arise as the nerves of categories. To make this precise for higher $n$, one must also inductively build the notation of equivalence. We will do this in the next section, where we describe Segal $n$-categories, the $(\infty,n)$-variant of this construction where instead of working with simplicial sets we use simplicial spaces; Segal $n$-categories were first defined by Hirschowitz and Simpson \cite{9807049}. Tamsamani $n$-categories may then be identified with the {\em discrete} Segal $n$-categories.  It is well-known that the theory of Tamsamani 2-categories forms a good model for the theory of bicategories. This is discussed in detail in \cite{MR2366560}.
 
+\CSP{We could, if needed, add at this point a description of alg-bimod-maps as a Tamsamani 2-category? }
+
+
+
+%The simplex category plays a dual role which sometimes results in confusing terminology. On the one had it has a geometric interpretation as the category of combinatorial simplices. This gives rise to terminology such as a {\em $k$-simplex} of $[n]$, which is a strictly order preserving map $[k] \to [n]$. There are $ {n+1}\choose {k+1}$ such maps. The $0$-simplices will be called {\em vertices} and $1$-simplices will be called {\em edges}. \CD{I think this paragraph can be removed, then add defs of vertices and edges where needed; or did I miss where this confusion comes up for us?}
+
+%But there are other aspects of $\Delta$ which come from its description as a category of certain totally ordered sets. The vertices of $[n]$ have a natural ordering induced from the ordering of $[n]$. 
+% This square will play an important role in what follows. 
+%
+%Just as a monoid may be described as a certain presheaf on $\Gamma$, a category may be described as a certain presheaf on $\Delta$, called the {\em nerve} of the category. \CD{I feel like we might as well say explicitly what `presheaf' means, and I'm also slightly concerned that we shift back and forth between `presheaf on $\Delta$' and `simplicial object' at times without any (discernable to me just now) reason.}
+%This well-known construction proceeds as follows: each ordered set $[n] \in \Delta$ may be viewed as a category (the objects are the elements of $[n]$, with a unique morphism from $i$ to $j$ if $i \leq j$). Thus if $X$ is a category, we obtain a presheaf $NX$ of sets on $\Delta$ by the assignment $[n] \mapsto NC_n = Fun([n], X)$, the set of functors from $[n]$ to $X$.    
+%The $n^\textrm{th}$ set of $NX_{\bullet}$ is given by the formula
+%\begin{equation*}
+%	NX_n := \sqcup_{x_0, x_1, \dots, x_n \in X_0} \Hom_X(x_0, x_1) \times \Hom_X(x_1, x_2) \times \cdots \times \Hom_X(x_{n-1}, x_n).
+%\end{equation*} 
+%In other words $NC_n$ consists of all length-$n$ strings of composable morphisms of $X$.
+%
+%The nerve construction is a fully-faithful functor from categories and functors to the category of presheaves. Moreover the essential image of the nerve construction consists of those presheaves $X$ on $\Delta$  such that the squares induced by those in equation (S),
+%\begin{center}
+%\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$X_{m+n}$};
+%	\node (LB) at (0, 0) {$X_m$};
+%	\node (RT) at (2, 1.5) {$X_n$};
+%	\node (RB) at (2, 0) {$X_0$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+%	\draw [->] (LT) -- node [above] {$$} (RT);
+%	\draw [->] (RT) -- node [right] {$$} (RB);
+%	\draw [->] (LB) -- node [below] {$$} (RB);
+%	\node at (0.5, 1) {$\ulcorner$};
+%	%\node at (1.5, 0.5) {$\lrcorner$};
+%\end{tikzpicture}
+%\end{center} \CD{Caret in that corner or the other?} \CSP{It is correct, a pullback square.}
+%are a pullback diagrams. 
+%
+%This can be extended to categories internal to a category $C$. \CD{There is something amiss around here --- the above two paragraphs and this paragraph cover similar ground (eg introducing simplicial objects and notation for such), with the latter paragraphs being more elementary.  Was the latter stuff meant to be deleted when the above was added? Or maybe this stuff should move higher up?}
+%The category of {\em simplicial objects of $C$} is the functor category $Fun(\Delta^\textrm{op}, C) = sC$. We write $X_\bullet$ for such a functor, and let $X_n$ denote the value assigned $[n] \in \Delta$. A {\em category internal to $C$} is a simplicial object $X$, such that the diagrams induced by those in equation (S),
+%\begin{center}
+%\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$X_{m+n}$};
+%	\node (LB) at (0, 0) {$X_m$};
+%	\node (RT) at (2, 1.5) {$X_n$};
+%	\node (RB) at (2, 0) {$X_0$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+%	\draw [->] (LT) -- node [above] {$$} (RT);
+%	\draw [->] (RT) -- node [right] {$$} (RB);
+%	\draw [->] (LB) -- node [below] {$$} (RB);
+%	\node at (0.5, 1) {$\ulcorner$};
+%	%\node at (1.5, 0.5) {$\lrcorner$};
+%\end{tikzpicture}
+%\end{center}
+%are a pullback diagrams. For a general simplicial object $X$, these commuting squares will be called {\em Segal squares} and if they are pullback squares we will say that $X$ satisfies the {\em Segal condition}. Hence a category internal to $C$ is a simplicial object satisfying the Segal condition. \CD{Note to self: at some point, actually set this crucial notion out in a display, perhaps just for $C = Set$.}
+%
+%This may be contrasted with the notion of a category enriched to $C$, which consists of a {\em set} of objects together with hom objects $\Hom(x,y) \in C$ (as opposed to an object $X_0 \in C$ of ``objects''). Under certain conditions these notions may be related. 
+%
+%A category is {\em extensive} (or {\em infinitary extensive}) if it admits small coproducts and coproducts are disjoint and stable under pullback. If $C$ is an extensive category with a terminal object, then a category enriched in $C$ is merely an internal category $X$ in which the object $X_0$ is {\em discrete}, i.e. a coproduct of terminal objects. Examples of extensive categories with terminal objects include the categories of sets, any category of presheaves (or more generally any Grothendieck topos), the category of topological spaces, and the category of small categories. 
+%
+%\begin{example}
+%	An ordinary (small) category is a category enriched in sets.
+%\end{example}
+%
+%\begin{example}
+%	A {\em strict 2-category} is a category enriched in categories.
+%\end{example}
+%
+%Thus a strict 2-category may equivalently be regarded as a simplicial object with values in $\Cat$, such that $X_0$ is a set (thought of as a discrete category), and such that the Segal squares are pullback squares. Since $X_0$ is a set, these pullbacks may be simultaneously regarded as pullbacks in the 1-category of categories and functors or as weak (or homotopy) pullbacks in the 2-category of categories, functors, and natural transformations. If $X_0$ is allowed to be a general category, these two notions of pullback may differ. 
+%
+%
 
 \section{Symmetric monoidal Segal $n$-categories} \label{sec-symmoninftyNcat}
+
+\begin{definition}
+	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
+\end{definition}
 
 \begin{definition}
 	A $0$-fold simplicial space (i.e. a simplicial set) is a {\em  Segal $0$-category} if it is a Kan complex. An $n$-fold simplicial space $X$, regarded as a simplicial object $X_\bullet$ in $(n-1)$-fold simplicial spaces is an {\em Segal $n$-category} if it is Reedy fibrant and the following conditions are satisfied:
