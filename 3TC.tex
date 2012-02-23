@@ -108,7 +108,8 @@ In the final Section \ref{sec-tc-threecat} we give our main result, the construc
 
 
 \CSP{Should these two paragraphs be moved to a different part of the paper?}
-Throughout this work we will assume the reader is familiar with basic notions and terminology from the theory of 2-categories and bicategories as described, for example, in \cite{math.CT/9810017}. In particular the unqualified term {\em 2-category} will always mean a strict bicategory in which the associators and unitors are identities. A {\em functor} between bicategories will mean a weak morphism of bicategories, also known as a {\em pseudofunctor} or {\em homomorphism}. {\em Transformations} between functors will always be of the strong variety. We will not consider lax or oplax functors of bicategories in this work. We will, however, have occasion to consider {\em strict functors} between 2-categories. 
+\NS{I think they should be moved.}
+Throughout this work we will assume the reader is familiar with basic notions and terminology from the theory of 2-categories and bicategories as described, for example, in \cite{math.CT/9810017}. In particular the unqualified term {\em 2-category} will always mean a strict bicategory in which the associators and unitors are identities. A {\em functor} between bicategories will mean a weak morphism of bicategories, also known as a {\em pseudofunctor} or {\em homomorphism}. {\em Transformations} between functors will always be of the strong variety. We will not consider lax or oplax functors of bicategories in this work.\NS{Strictly speaking we do discuss lax and oplax functors of bicategories, so this sentence should be changed} We will, however, have occasion to consider {\em strict functors} between 2-categories. 
 
 An equivalence of bicategories will mean the usual sort: a functor $F: \cA \to \cB$ such that there exists a functor $G: \cB \to \cA$ and transformations $GF \to id_{\cA}$ and $FG \to id_{\cB}$ which are invertible up to invertible modification. Occasionally $\cA$ and $\cB$ will be 2-categories and $F$ will be a strict functor of 2-categories. If $F$ is an equivalence when viewed as a morphism of bicategories, then we will say that $F$ is a {\em weak equivalence} of 2-categories. 
 
@@ -151,7 +152,7 @@ such that $F$ is linear in each variable separately.
 	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category. 
 \end{example}
 
-\begin{definition}
+\begin{definition} \NS{Someone should explain to me why this definition is still right when you're using strict $2$-categories}
 	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with exactly two objects $x$ and $y$ such that 
 %	\CD{What kind of bicategory? We probably need to be explicit about what our definition of bicategories, functors, transformations, modifications is?}
 %	\CSP{Okay, this might be a good spot to discuss strict 2-cats and what an equivalence of these is as well. }
@@ -1183,7 +1184,7 @@ from the 1-category $\Gamma^\textrm{op} \times \Delta^\textrm{op}$ into the 1-ca
 In each case the difference between the left-hand-side and the right-hand-side consists of a space of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product), and so these Segal maps are equivalences, as required. 
 \end{proof}
 
-Many variations of this construction are possible. For example if there is a class of tensor categories which is closed under the Deligne tensor product (and contains $\Vect$) or if there is a class of bimodule categories which contains the identities and is closed under composition and tensor product, then we may form restricted versions of $\TC$. In \cite{DSPS} we use this to restrict to the sub-symmetric monoidal Segal 3-categories of rigid tensor categories and module categories satisfying a certain `separability' condition.  \CD{We shouldn't end the paper on an undefined term.}
+Many variations of this construction are possible. For example if there is a class of tensor categories which is closed under the Deligne tensor product (and contains $\Vect$) or if there is a class of bimodule categories which contains the identities and is closed under composition and tensor product, then we may form restricted versions of $\TC$. In \cite{DSPS} we use this to restrict to the sub-symmetric monoidal Segal 3-categories of rigid tensor categories and module categories satisfying a certain `separability' condition.  \CD{We shouldn't end the paper on an undefined term.}  \NS{Yeah, I don't think either of these paragraphs belong here.  I'm agnostic about whether they should be cut or moved.}
 
 These techniques may also be adapted to construct other examples of symmetric monoidal Segal $n$-categories. The theory of conformal nets \cite{0912.5307} is another intriguing target for fully local topological field theories. It seems likely, using the work of Bartels-Douglas-Henriques, that the theory of conformal nets may be described as a symmetric monoidal Segal 3-category.  \CD{Think about whether to include or omit this last paragraph, or if included it should be mentioned in the intro rather than here at the end.}
 
@@ -1408,6 +1409,8 @@ The fibrant objects are described in the following definition:
 	%	\item (optional) The previous axiom implies that $X_\emptyset \simeq pt$. We assert that $X_\emptyset = pt$. 
 	\end{enumerate}
 \end{definition}
+
+\NS{Some discussion of why the cobordism hypothesis is model independent?}
 
 
 
