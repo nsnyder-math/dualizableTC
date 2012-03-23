@@ -508,6 +508,7 @@ The goal of this section is to construct the Deligne tensor product, which takes
 \begin{remark}
 A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
 \end{remark}
+\CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
 
 The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
 
@@ -1869,11 +1870,11 @@ In this section we prove the main theorem, that separable fusion categories are 
 In this section we show that $\cC^\mp$ is the dual of $\cC$. 
 
 \begin{theorem} \label{thm:objduals}
-The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{\cC^\mp \boxtimes \cC} \cC_{\Vec}$ (each with the obvious actions) give the coevaluation and evaluation of a duality.
+The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{\cC \boxtimes \cC^\mp} \cC_{\Vec}$ (each with the obvious actions) give the coevaluation and evaluation of a duality.
 \end{theorem}
 \begin{proof}
-We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bxc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally identified with $\cC$.  The other calculations are similar.
-\end{proof}  \NS{This proof abuses notation quite a bit.  We should improve the description}
+We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bzc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally identified with $\cC$.  The other calculations are similar.
+\end{proof}  \NS{This proof abuses notation quite a bit.  We should improve the description} \CD{I think a key fact that is used in the proof is that the Deligne tensor has the property that a left $\cC \boxtimes \cD^\mp$ module can be turned into a $\cC$-$\cD$ bimodule and vice verse.  Getting this into the proof might be good and might also resolve the notational fuzziness.}
 
 \begin{proposition}
 	$\TCfin$ is fully $1$-dualizable. 
