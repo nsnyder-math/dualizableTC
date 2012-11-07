@@ -194,6 +194,8 @@ We are especially grateful to Victor Ostrik for a key suggestion which lead to t
 %\end{itemize}
 %}
 
+\CDcomm{All of section 2 needs to be combed: remove material that is in TC3 but doesn't need to be here or can be shorter here.  Of course, much of the material may need to stay for review purposes.}
+
 In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. The material in Section \ref{sec-tc-separable} is new and based on a suggestion of Ostrik.
 
 We begin with a brief discussion of our conventions regarding duality.
@@ -421,7 +423,8 @@ We will also need a slightly more general notion of bimodule morphism to make se
 
 \begin{definition}
 	A {\em twisted bimodule functor} from a $\cC$-$\cD$-bimodule category $\cM$  to $\cC'$-$\cD'$-bimodule category $\cM'$ is a functor of bicatgories from $\cM$ to $\cM'$ which restricts to the identity on objects and is linear on hom categories. A {\em twisted bimodule transformation} between twisted bimodule functors is a transformation of functors of bicategories such that the component 1-cells are trivial.
-\end{definition}
+\end{definition} \CD{Maybe we no longer use twisted bimodule functors?}
+
 
 Thus a twisted bimodule functor from a $\cC$-$\cD$-bimodule category $\cM$ to a $\cC'$-$\cD'$-bimodule category $\cM'$ consists in part of tensor functors $f:\cC \to \cC'$ and $g:\cD \to \cD'$, and a map of linear categories $\cM \to \cM'$, compatible with the induced module structures. We will say the the twisted bimodule functor {\em extends the tensor functors $f$ and $g$}. 
 
@@ -869,7 +872,7 @@ A fusion category of non-zero global dimension is separable. \CSPcomm{[add refer
 
 \section{Local field theory in dimension three} \label{sec-lft}
 
-\CDcomm{[Insert a few introductory sentences here, including a statement of the cobordism hypothesis.  That will motivate the need for a notation of n-framed manifolds, and for describing various structure groups.  Then we can forward reference to 4.3 the more detailed discussion of the cobordism hypothesis.]}
+\CDcomm{[Insert a few introductory sentences here, including a statement of the cobordism hypothesis.  That will motivate the need for a notation of n-framed manifolds, and for describing various structure groups.  Then we can forward reference to 3.2 the more detailed discussion of the cobordism hypothesis.]}
 
 \subsection{Notation for $n$-framed manifolds} 
 
@@ -1082,7 +1085,7 @@ Here is a picture of a $3$-framed manifold: \CDcomm{[Example here.]}
 
 \subsection{The cobordism hypothesis}
 .%!% remove period
-\NScomm{[This section is under construction.  The current outline is more detailed than necessary, since when it was written we were planning on constructing non-compact theories in this paper.]}
+\NScomm{[This section is under construction.  The current outline is more detailed than necessary, since when it was written we were planning on constructing non-compact theories in this paper.]} \CDcomm{What goes here now ... Definition of dualizable objects, statement of cobordism hypothesis, (comment about status of proof), (refer to TC3 for why we don't worry about models), motivation/statement/proof of Lurie Remark (``the categorical belt trick").  Also, discussion of constructability.}
 
 In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{lurie-ch}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
 \begin{enumerate}
@@ -1876,6 +1879,7 @@ Another way to think of Radford's theorem is that it states that there's an equi
 \begin{proposition}[Lurie, Remark 3.4.22] \label{prop-ambiadjoints}
 	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
 \end{proposition}
+\CD{The proposition should be moved to the section on the cobordism hypothesis.}
 
 \begin{proof}
 By assumption we are given 3-morphisms,
