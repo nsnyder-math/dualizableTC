@@ -1,0 +1,324 @@
+%%% Authors: Christopher Douglas, Christopher Schommer-Pries, and Noah Snyder
+
+\documentclass{amsart}
+
+\include{DTC-Preamble}
+
+\begin{document}
+
+\title{``Dualizable Tensor Categories IV: Descent"}
+
+\author{Christopher L. Douglas}
+\address{Mathematical Institute\\ University of Oxford\\ Oxford OX1 3LB\\ United Kingdom}
+\email{cdouglas@maths.ox.ac.uk}
+\urladdr{http://people.maths.ox.ac.uk/cdouglas}
+      	
+\author{Christopher Schommer-Pries}
+\address{Department of Mathematics\\ Massachusetts Institute of Technology\\ Cambridge, MA 02139\\ USA}
+\email{schommerpries.chris.math@gmail.com}
+\urladdr{http://sites.google.com/site/chrisschommerpriesmath}
+
+\author{Noah Snyder}
+\address{Department of Mathematics\\ Columbia University\\ New York, NY 10027\\ USA}
+\email{nsnyder@math.columbia.edu}
+\urladdr{http://www.math.columbia.edu/\!\raisebox{-1mm}{~}nsnyder/}
+
+
+\maketitle
+
+\section{Pivotality as a descent condition} \label{sec-pivot}
+
+\subsection{Homotopically invariant notions of pivotality and sphericality.}
+
+Fusion categories are objects of the $3$-category $\TCfin$ of tensor categories, but in this $3$-category, pivotal and spherical structures are not natural structures.  Specifically they are not homotopy invariant notions.  That is to say, if $\cC$ and $\cD$ are fusion categories which are equivalence in $\TCfin$ (that is, Morita equivalent), there's no natural equivalence between the space of spherical structures on $\cC$ and the space of spherical structures on $\cD$, as the following example shows.
+
+\begin{example}
+Let $S_3$ be the symmetric group on $3$-letters, let $\mathrm{Rep}(S_3)$ be the category of finite dimensional complex representations, and $\Vec(S_3)$ be the category of $S_3$-graded complex vector spaces.  These two fusion categories are equivalent in $\TCfin$ with $\Vec$ with the obvious bimodule structure giving the equivalence, and both have a standard spherical structure.  Spherical structures on a fusion category $\cC$ are a torsor for the group of assignments of $\pm 1$ to objects of $\cC$ which are multiplicative in the sense that if $X \subseteq Y \otimes Z$ then $\chi(X) = \chi(Y) \chi(Z)$.  Thus there is only one spherical structure on $\mathrm{Rep}(S_3)$, but there are two spherical structures on $\Vec(S_3)$.
+\end{example}
+
+We now introduce homotopy invariant notions generalizing the notions of spherical and pivotal.   Recall that a pivotal structure is a tensor trivialization of the double dual functor.  The reason this is not homotopy invariant is that it is a statement about natural transformations of tensor functors rather than about bimodule functors of bimodule categories.  To turn this into a homotopy invariant notion, we recall that any tensor functor $\cF: \cC \rightarrow \cC$ gives a $\cC$--$\cC$ bimodule category ${}_{\{\cF\}}\cC$ where the left action is twisted by $\cF$.  Thus, a pivotal structure gives a trivialization of the bimodule attached to the double dual.  As we saw in the last section, ${}_{\{(--)^{**}\}}\cC$ is the Serre automorphism.  This suggests the following definition.
+
+\begin{definition}
+An \emph{h-pivotal} structure on a fusion category $\cC$ is an equivalence $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cS}{\cC}$ from the identity to the Serre.  An equivalence between h-pivotal structures is a natural equivalence of bimodule functors from $T$ to $T'$.
+\end{definition}
+
+\begin{remark}
+Note that an h-pivotal structure on $\cC$ induces an honest pivotal structure on $Z(\cC)$.  
+\end{remark}
+
+Recall from Lemma \ref{lem:hspherical-implies-spherical} that a spherical structure is a tensor trivialization of the double dual functor whose double is the canonical tensor trivialization of the quadruple dual given by the Radford map.
+
+%In Section [...] we explicitly described the corresponding canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the bimodule $\bimod{\cC}{\cQ}{\cC}$ associated to the quadruple right dual tensor functor $(-)^{****}: \cC \ra \cC$. \CD{Reconsider the phrasing here after the section on the quad dual is written.}
+
+\begin{definition}
+An \emph{h-spherical} structure on a fusion category $\cC$ is a pair $(T,E)$, where $T: \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cS}{\cC}$ is an equivalence from the identity bimodule to the bimodule associated to the double right dual tensor functor, and $E: T \btimes_{\cC} T \ra A$ is a natural equivalence of bimodule functors from $T \btimes_{\cC} T: \bimod{\cC}{\cC \btimes_{\cC} \cC}{\cC} \ra \bimod{\cC}{\cD \btimes_{\cC} \cD}{\cC} \cong \bimod{\cC}{\cQ}{\cC}$ to the canonical trivialization $A : \bimod{\cC}{\cC}{\cC} \ra \bimod{\cC}{\cQ}{\cC}$ of the quadruple dual bimodule.
+
+An equivalence from an h-spherical structure $(T,E)$ on $\cC$ to another h-spherical structure $(T',E')$ is a natural equivalence $R: T \ra T'$ of bimodule functors that intertwines $E$ and $E'$ in the sense that the composite $T \btimes_{\cC} T \xra{R \btimes R} T' \btimes_{\cC} T' \xra{E'} A$ is equal to the map $T \btimes_{\cC} T \xra{E} A$.
+\end{definition}
+
+\begin{remark}
+Again, an h-spherical structure on $C$ induces an honest spherical structure (and hence a ribbon structure) on $Z(C)$.
+\end{remark}
+
+\begin{example}
+Consider the fusion category $\Vec(\mathbb{Z}/2)$ of $\mathbb{Z}/2$-graded vector spaces.  This has four h-spherical structures, corresponding to choosing an ordinary spherical structure on $\Vec(\mathbb{Z}/2)$ and an invertible object.  \NS{Flesh out this example more}
+\end{example}
+
+Our main reason for investigating h-pivotal and h-spherical structures is that these are the notions that naturally correspond to descent properties of the corresponding field theories.  Another advantage is that because they are the homotopically natural notions, the groupoids of these structures admit particularly clean classifications, as follows.
+
+\begin{proposition}
+The groupoid of h-pivotal structures on an h-pivotal fusion category $\cC$ is a torsor for the braided monoidal category $\pi_{\leq 1} \Omega^2(\TCfin,\cC)$, that is the fundamental groupoid of the double loop category of $\TCfin$, based at $\cC$.
+\end{proposition}
+
+\begin{proposition}
+The groupoid of h-spherical structures on an h-spherical fusion category $\cC$ is a torsor for the braided monoidal category $K := \ker(\pi_{\leq 1} \Omega^2(\TCfin,\cC) \xra{\cdot 2} \pi_{\leq 1} \Omega^2(\TCfin,\cC))$.
+\end{proposition}
+
+Needless to say, the kernel in this proposition must be interpreted in a homotopy invariant manner, that is as a homotopy fiber and not a literal fiber.  Specifically, an object in the kernel $K$ is an automorphism $\phi$ of the identity bimodule $\bimod{\cC}{\cC}{\cC}$ together with a natural equivalence of bimodule functors from $\phi \btimes \phi$ to the identity functor on $\cC \btimes_{\cC} \cC$.  We refer to this tensor squaring operation $\phi \mapsto \phi \btimes \phi$ as ``$\cdot 2$", rather than as squaring, because the fundamental groupoid of the double loop space of $\TCfin$ is homotopy abelian.
+
+Once the somewhat intricate definitions involved in these two propositions are unpacked, they are transparent, and we omit the proofs. \CD{Check this.}
+
+\begin{warning}
+The above definitions of h-pivotal and h-spherical have natural generalizations to finite tensor categories.  However, because the canonical invertible $D$ may be non-trivial these notions are not compatible with the traditional notions of pivotal and spherical, as the following example shows.  Let $H$ be Sweedler's $4$-dimensional non-semisimple Hopf algebra \cite{MR0252485}.  The finite tensor category $\mathrm{Rep}(H)$ has two invertible simple objects, and the canonical invertible $D$ is the nontrivial one.  A bimodule functor $\cC \rightarrow \cS$ sends $1$ to either $1$ or $D$, thus the corresponding functor from $\cC$ to the square of the Serre sends $1$ to $1 = 1 \otimes 1 = D \otimes D$ which is not $D$.  Hence there are no h-spherical structures on $\cC$.  Nonetheless there is a standard spherical structure on $\cC$.
+\end{warning}
+
+\subsection{h-Pivotal fusion categories correspond to quadratic field theories} \label{sec-pivot-orpo}
+
+\begin{theorem} \label{thm-hpivotal}
+A fusion category $\cC \in \TCfin$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
+\end{theorem}
+\begin{proof}
+\CDcomm{[To write.]}
+\end{proof}
+
+Note that the same argument applies to finite tensor categories.  \NS{Should we change the statement to reflect this?}
+
+\subsection{h-Spherical fusion categories correspond to oriented $p_1$ field theories}
+
+\begin{theorem} \label{thm-hspherical}
+A fusion category $\cC \in \TCfin$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
+\end{theorem}
+\begin{proof}
+\CDcomm{[To write.]}
+\end{proof}
+
+Note that the same argument applies to finite tensor categories. 
+
+\begin{example}
+Consider $\mathrm{Rep}(H)$ the category of representations of Sweedler's $4$-dimensional Hopf algebra.  As we saw in the last section $\mathrm{Rep}(H)$ does not have an h-spherical structure.  Thus the $2$-dimensional TFT associated to $\mathrm{Rep}(H)$ does not descend to an oriented $p_1$ field theory.  In particular, there is no oriented $2$-dimensional TFT associated to Sweedler's $4$-dimensional Hopf algebra.  This explains why more complicated structure groups appear in Kuperberg's work on invariants coming from non-semisimple Hopf algebras \cite{MR1394749}.
+\end{example}
+
+\subsection{Field theory descent conjectures}
+
+In this section we make several conjectures concerning field theories descending to other structure groups.  The first three are ``anomaly vanishing" results, while the last two are topological analogs of Etingof--Nikshych--Ostrik's conjecture on pivotality of fusion categories.  We list these conjectures in decreasing order of confidence, and indeed leave the last two as questions.
+
+According to the previous subsection, a choice of h-spherical structure on $\cC$ corresponds to a choice of descent to an oriented $p_1$ field theory.  This can be understood (non-rigorously) as follows.  An h-spherical structure induces a natural ribbon structure on the center $Z(\cC)$, and the $123$ part of the oriented $p_1$ field theory should agree with the Reshetikhin--Turaev construction \cite{MR1091619, MR990772} applied to $Z(\cC)$.  (It's known that the Turaev--Viro construction for $\cC$ agrees with the Reshetikhin--Turaev construction for $Z(\cC)$ \cite{1006.3501}, and indeed that they agree as $123$ field theories \cite{1004.1533, 1010.1222, 1012.0560}, however, we have not yet proved that our construction for spherical categories agrees with Turaev--Viro.)  The dependence of the RT theory on the oriented $p_1$ field theory is called the anomaly, and can be computed using a Gauss sum.  M\"uger proved that this anomaly vanishes in the special case of $Z(\cC)$ \cite{MR1966525}, thus if the h-spherical structure comes from an ordinary spherical structure we expect that the field theory does not detect the oriented $p_1$ structure.  This suggests the following conjecture.
+
+\begin{conjecture}
+If a fusion category $\cC \in \TCfin$ is spherical, then the oriented $p_1$ theory $\cF_{\cC} : \OrpoBord_0^3 \ra \TCfin$ associated to $\cC$ has a canonical descent to an oriented, that is $SO(3)$, local field theory.
+\end{conjecture}
+
+Note that we do not expect the field theory coming from an arbitrary h-spherical structure to descend to an oriented theory, as the following example shows.
+
+\begin{example}
+Consider $\Vec(\mathbb{Z}/2)$.  Recall that this has $4$ h-spherical structures, each of which induces a different ribbon structure on the center $Z(\Vec(\mathbb{Z}/2))$.  The Gauss sums for these four ribbon categories are $2$, $2$, $2$, and $-2$.  Thus the anomaly vanishes for three of them, but not for the fourth.  Note that this fourth h-spherical structure does not correspond to a spherical structure.  \NS{Add more details}
+\end{example}
+
+Thus this conjecture suggests that there is a homotopy invariant concept which more closely captures the notion of spherical than the naive notion of h-spherical.  Namely, h-sphericality together with an additional condition corresponding to the anomaly vanishing.
+
+We could hope for more general anomaly vanishing results, however, we have much less evidence of these conjectures than we do for the first one.
+
+\begin{conjecture}
+If a fusion category $\cC \in \TCfin$ is pivotal, then the quad local field theory $\cF_{\cC} : \QuadBord_0^3 \ra \TCfin$ associated to $\cC$ has a canonical descent to a combed, that is $SO(2)$, local field theory.
+\end{conjecture}
+
+\begin{conjecture}
+The framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to an arbitrary fusion category $\cC$ has a canonical descent to a spin local field theory.
+\end{conjecture}
+
+\begin{warning}
+At first glance this last conjecture seems false.  After all, as we said above, there's a fusion category $\cC$ with an h-spherical such that the oriented $p_1$ theory detects the oriented $p_1$ structure and thus does not descend to a spin local field theory.  However, this is explained by a factor of $4$ in \CDcomm{[explain which factor of $4$]}, which means that this last conjecture does not correspond to the anomaly of an oriented $p_1$ theory attached to an h-spherical structure vanishing, but instead corresponds to the anomaly being a $4$th root of unity.
+\end{warning}
+
+All known fusion categories have pivotal, and in fact, spherical structures (see \cite[Conjecture 2.8]{MR2183279}).  In light of Theorem~\ref{thm-hpivotal}, these questions have natural topological analogs.
+
+\begin{question}
+Does every framed local field theory with values in tensor categories descend (non-canonically) to a combed local field theory?
+\end{question}
+
+\begin{question}
+Does every framed local field theory with values in tensor categories descend to an oriented local field theory?
+\end{question}
+
+Note a priori the answer to these questions could be yes without the ENO conjecture holding, because there are some h-spherical structures where the anomaly vanishes which do not come from ordinary spherical structures.
+
+%Note that it is not possible to prove this conjecture ``in stages" by passing from framed field theories to $\Quad$ field theories to $\Orpo$ field theories to oriented field theories.  Indeed, there are, for instance, $\TC$-valued $\Orpo$ field theories that do not descend to oriented field theories.  \CDcomm{[Right?]}
+
+%%%%%%%%
+
+\appendix
+
+\renewcommand{\thetheorem}{A.\arabic{theorem}}
+\setcounter{theorem}{0}
+\section*{Appendix.  Homotopy types of 3-dimensional structure groups}
+
+In this appendix we describe a few auxiliary structure groups, including the spin and string groups, and record some computations regarding the homotopy and homology of the various structure spaces.
+%!% Need to credit Andre with helping understand all this.
+
+\begin{definition}
+The following spaces, together with the obvious maps to $BO(3)$, define 3-dimensional bundle structures:
+\begin{itemize}
+\item[Spin:] $BSpin(3) := \hofib(BSO(3) \xra{w_2} K(\ZZ/2,2))$
+\item[Spinpo:] $BSpinpo(3) := \hofib(BSpin(3) \xra{p_1} K(\ZZ,4)$
+\item[String:] $BString(3) := \hofib(BSpin(3) \xra{(p_1)/2} K(\ZZ,4))$
+\item[hString:] $BhString(3) := \hofib(BSpin(3) \xra{(p_1)/4} K(\ZZ,4))$
+\item[2-Frame:] $BTwFrame(3) := \hofib(BSO(3) \ra BSpin(6)) = B\Omega(Spin(6)/SO(3))$
+\item[StFrame:] $BStFrame(3) := \hofib(BO(3) \ra BO(\infty)) = B\Omega(O(\infty)/O(3))$
+\end{itemize}
+\end{definition}
+
+\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.  In order for the definitions of $BString(3)$ and $BhString(3)$ to be sensible, the composite $BSpin(3) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, which we have referred to simply as $p_1$, must be uniquely 4-divisible; we will see presently that this is indeed the case.  Note that for our purposes it suffices to define the first Pontryagin class $p_1 \in H^4(BSO;\ZZ)$ as a generator.
+
+\begin{proposition} \label{prop-H4}
+The diagram of structure spaces
+\begin{equation} \nn
+\xymatrix@R=5pt{
+& BSpin \ar[dr] & & \\
+BSpin(3) \ar[ur] \ar[dr] && BSO \ar[r]^{p_1} & K(\ZZ,4) \\
+& BSO(3) \ar[ur] & &
+}
+\end{equation}
+induces on fourth homotopy and fourth homology respectively the maps
+\begin{equation} \nn
+\xymatrix@R=5pt{
+\save[]+<-1cm,0cm>*{\pi_4:}\restore & \ZZ \ar[dr]^{1} & & \\
+\ZZ \ar[ur]^{2} \ar[dr]_{1} && \ZZ \ar[r]^{2} & \ZZ \\
+& \ZZ \ar[ur]_{2} & & \\
+&&& \\
+\save[]+<-1cm,0cm>*{H^4:}\restore & \ZZ \ar[dl]_{2} & & \\
+\ZZ && \ZZ \ar[ul]_{2} \ar[dl]^{1} & \ZZ \ar[l]_{1} \\
+& \ZZ \ar[ul]^{4} & &
+}
+\end{equation}
+\end{proposition}
+
+We emphasize from this proposition two facts that were directly needed for the structure group computations in Section~\ref{sec-lft-struc}: the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, which we refer to also as $p_1$, and the map $\pi_4(BSO(3)) \xra{\pi_4(p_1)} \pi_4(K(\ZZ,4))$ is multiplication by $4$.
+
+\begin{proof}
+The defining long exact sequences show that $\pi_4(BSpin(3) \ra BSO(3))$ and $\pi_4(BSpin \ra BSO)$ are isomorphisms.  The map $\pi_4(BSpin(3) \ra BSpin)$ is the same as $\pi_3(Spin(3) \ra Spin(5))$; the map $\pi_3(Spin(3) \ra Spin(4))$ is diagonal, and $\pi_3(Spin(4) \ra Spin(5))$ is addition. %!% Is there a nice clean way to see those two facts?
+The map $\pi_4(BSO(3) \ra BSO)$ follows by commutativity, and the map $H^4(BSpin(3) \ra BSpin)$ follows by Hurewicz.
+
+That the map $H^4(BSpin \ra BSO)$ is multiplication by 2 can be seen in the integral cohomology Serre spectral sequence for the fibration $BSpin \ra BSO \ra K(\ZZ/2,2)$, given knowledge of the cohomology of $BSO$ and $BSpin$.  Similarly that $H^4(BSpin(3) \ra BSO(3))$ is multiplication by 4 follows from the fibration $BSpin(3) \ra BSO(3) \ra K(\ZZ/2,2)$.  That $H^4(BSO(3) \ra BSO)$ is an isomorphism follows by commutativity.
+
+The map $H^4(BSO \xra{p_1} K(\ZZ,4))$ is an isomorphism by definition of $p_1$.  The map $H^4(BSpin \xra{p_1} K(\ZZ,4))$ is thus multiplication by 2.  By Hurewicz it follows that $\pi_4(BSpin \xra{p_1} K(\ZZ,4)$ is multiplication by 2, and therefore that $\pi_4(BSO \xra{p_1} K(\ZZ,4))$ is also multiplication by 2.
+\end{proof}
+
+Figure~\ref{fig-structuregroups} organizes some of the 3-dimensional structure groups we have considered.
+\begin{figure}[!ht]
+\begin{equation} \nn
+\xymatrix@!R@!C@R=10pt@C=5pt{
+&& \ast \ar[dl] \ar[ddrr] && \\
+& BString(3) \ar[dl] &&& \\
+BSpinpo(3) \ar[ddrr] \ar[dddd] &&&& BQuad \ar[ddll] \ar[dddd] \\
+&&&& \\
+&& BOrpo(3) \ar[dddd] && \\
+&&&& \\
+BSpin(3) \ar[ddrr] &&&& BSO(2) \ar[ddll] \\
+&&&& \\
+&& BSO(3) &&
+}
+\end{equation}
+\caption{Three-dimensional structure groups} \label{fig-structuregroups}
+\end{figure}
+
+In Table~\ref{table-structurecalc}, we record the low-dimensional homology and homotopy of the structure spaces we have considered.  All these structure spaces are simply connected.  The remaining homology and homotopy groups follow from the above proposition, along with a number of classical computations, using a flurry of interconnected spectral sequences.  
+
+\begin{table}[!ht]
+\begin{tabular}{|r||c|c|c|c||c|c|c|c|}
+\hline
+& $H^2$ & $H^3$ & $H^4$ & $H^5$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ \\
+\hline
+$BSO(2)$ % is K(Z,2)
+& $\ZZ$ & $0$ & $\ZZ$ & $0$ 
+& $\ZZ$ & $0$ & $0$ & $0$ \\
+$BQuad$ % K(Z,3) --> BQuad --> BSO(2)
+& $\ZZ$ & $0$ & $0$ & $0$
+& $\ZZ$ & $\ZZ$ & $0$ & $0$ \\
+$BSO(3)$ % SO(3) --> * --> BSO(3) for Z and Z/2
+& $0$ & $\ZZ/2$ & $\ZZ$ & $0$
+& $\ZZ/2$ & $0$ & $\ZZ$ & $\ZZ/2$ \\ % Mimura
+$BSO$
+& $0$ & $\ZZ/2$ & $\ZZ$ & $\ZZ/2$ % cell structure from mod 2 cohom
+& $\ZZ/2$ & $0$ & $\ZZ$ & $0$ \\ % Bott
+$BOrpo(3)$ % K(Z,3) --> BOrpo(3) --> BSO(3)
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ 
+& $\ZZ/2$ & $\ZZ/4$ & $0$ & $\ZZ/2$  \\
+$Spin(6)/SO(3)$ % SO(3) --> Spin(6) --> Spin(6)/SO(3) in htpy
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ$ % Spin(6) is torsion free (Mimura), from this can use SO(3) --> Spin(6) --> Spin(6)/SO(3) integrally and mod 2 to calculation the cohom.
+& $\ZZ/2$ & $\ZZ/4$ & $0$ & \CDcomm{$??$} \\
+$BSpin(3)$ % S^3 --> * --> BSpin(3)
+& $0$ & $0$ & $\ZZ$ & $0$
+& $0$ & $0$ & $\ZZ$ & $\ZZ/2$ \\
+$BSpin$
+& $0$ & $0$ & $\ZZ$ & $0$ % BZ/2 --> BSpin --> BSO painful
+& $0$ & $0$ & $\ZZ$ & $0$ \\ % Z/2 --> Spin --> SO
+$BSpinpo(3)$
+& $0$ & $0$ & $\ZZ/4$ & $0$
+& $0$ & $\ZZ/4$ & $0$ & $\ZZ/2$ \\
+$BString(3)$ % K(Z,3) --> BString(3) --> BSpin(3)
+& $0$ & $0$ & $\ZZ/2$ & $0$
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ \\
+$O(\infty)/O(3)$ % O/O(3) --> BSO(3) --> BSO, htpy first shows quotient is 2-connected and that pi_3 is torsion, implies cohom starts in degree 4; knowing that the gen of H^4 of BSO pulls back to a gen of BSO(3) forces H^4 of the quotient to be Z/2, killing the H^5 of BSO.  Knowing also H^6 of BSO pulls back isomorphically to BSO(3) forces the rest of the cohomology.
+& $0$ & $0$ & $\ZZ/2$ & $0$
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ \\
+$BhString(3)$ % K(Z,3) --> BhString(3) --> BSpin(3)
+& $0$ & $0$ & $0$ & $0$
+& $0$ & $0$ & $0$ & $\ZZ/2$ \\
+\hline 
+\end{tabular} \vspace*{8pt}
+\caption{Low-dimensional cohomology and homotopy of structure spaces.} \label{table-structurecalc}
+\end{table} \CD{Someone should recheck the cohomology of $Spin(6)/SO(3)$.}
+% H^5 and pi_5 are necessary for computing H^4 and pi_5 of some of the other groups, so you can't just delete those whole columns.
+
+The maps on $H^{\leq 4}$ and $\pi_{\leq 4}$, induced by maps between the structure spaces in the table, are as expected, aside from those already recorded in Proposition~\ref{prop-H4}.  Specifically, in addition to the homotopy of the maps between $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$ recorded in Section~\ref{sec-lft-struc}, we have the following: $H^2(BQuad \ra BSO(2))$ is iso; $H^4(BSO(2) \ra BSO(3))$ is iso; $H^3(BSO(3) \ra BSO)$ is iso; $H^3(BOrpo(3) \ra BSO(3))$ is iso; $H^4(BString(3) \ra BSpinpo(3))$ and $H^4(BSpinpo(3) \ra BSpin(3))$ are surjective; $\pi_3(BString(3) \ra BSpinpo(3))$ is injective; and $\pi_3(BSpinpo(3) \ra BOrpo(3))$ is iso. %%% The map BSO(2) --> BSO(3) is from knowing that the mod 2 reduction of p_1 is w_2^2.
+
+Note that in this table $BSO$ and $BSpin$ are not, per se, 3-dimensional structure spaces, as they do not map to $BO(3)$, and we mention them only as useful intermediary spaces.  One could define a \emph{stable} $BSO$-structure or $BSpin$-structure on a 3-dimensional vector bundle $M \ra BO(3)$ as a lift to $BSO$, respectively $BSpin$, of the composite $M \ra BO(3) \ra BO$; these might be called a stable orientation and stable spin structure respectively.  Note, though, that the pullback $\holim(BO(3) \ra BO \la BSO)$ is $BSO(3)$ and the pullback $\holim(BO(3) \ra BO \la BSpin)$ is $BSpin(3)$; it follows that a stable orientation is the same data as an orientation, and a stable spin structure is the same data as a spin structure.  (Though we will not need this fact, the same is true for orpo structures and stable orpo structures.)  This is certainly not the relation between stable framing, which is an $O(\infty)/O(3)$-structure, and framing, which is a $*$-structure.
+
+The above table suggests three homotopical coincidences.  The most apparent is that $BhString(3)$ is 4-connected.  The natural forgetful map from the set of homotopy classes of framings of a 3-manifold $M$ to the set of homotopy classes of $hString(3)$-structures on $M$ is therefore an isomorphism.  We also see a coincidence between the low-dimensional invariants of $BOrpo(3)$ and $Spin(6)/SO(3)$ and between those of $BString(3)$ and $O(\infty)/O(3)$.
+
+Orpo structures and 2-framings are different; for instance, the set of homotopy classes of parametrized families of the two structures on a vector bundle can be genuinely distinct.  However, as far individual tangential structures on a single 3-manifold are concerned, they are homotopically indistinguishable---this convergence no doubt has contributed to some of the confusion in the literature.
+\begin{proposition}
+There is a canonical 4-connected map $Spin(6)/SO(3) \ra BOrpo(3)$ lifting the natural map $Spin(6)/SO(3) \ra BSO(3)$.  In particular, for a closed 3-manifold $M$, there is a canonical bijection between the orpo structures and the 2-framings on $M$. 
+\end{proposition}
+\begin{proof}
+From Proposition~\ref{prop-H4}, we know that $p_1$ is the generator of $H^4(BSO(3);\ZZ)$, and that $(p_1)/2$ is the generator of $H^4(BSpin(6);\ZZ)$---the fourth cohomology is of $BSpin(6)$ is stable.  Observe that the map $BSO(3) \ra BSpin(6)$ induces an isomorphism on $H^4$.  The first Pontryagin class $BSO(3) \xra{p_1} K(\ZZ,4)$ therefore factors as $BSO(3) \ra BSpin(6) \xra{(p_1)/2} K(\ZZ,4)$.  The composite $Spin(6)/SO(3) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ then factors as $Spin(6)/SO(3) \ra BSO(3) \ra BSpin(6) \xra{(p_1)/2} K(\ZZ,4)$.  This last composite has a canonical null-homotopy, because the first two maps form a homotopy fibration.  There is therefore a canonical lift of $Spin(6)/SO(3) \ra BSO(3)$ to a map $Spin(6)/SO(3) \ra BOrpo(3)$.
+
+As both $Spin(6)/SO(3) \ra BSO(3)$ and $BOrpo(3) \ra BSO(3)$ are isomorphisms on $\pi_2$, the lift is certainly an isomorphism on $\pi_2$.  The map $Spin(6)/SO(3) \ra BOrpo(3)$ induces a map from $Spin(6) = \hofib(Spin(6)/SO(3) \ra BSO(3))$ to $K(\ZZ,3) = \hofib(BOrpo(3) \ra BSO(3))$ that is an isomorphisms on $\pi_3$.  Since both $Spin(6) \ra Spin(6)/SO(3)$ and $K(\ZZ,3) \ra BOrpo(3)$ are surjective on $\pi_3$, it follows that $Spin(6)/SO(3) \ra BOrpo(3)$ is an isomorphism on $\pi_3$, as needed.
+\end{proof} % "Observe" means "do some unpleasant spectral sequence computations"
+% It is implicitly used---really used---in this proof that the third homotopy groups are the same, and that depends on $BSO(3) \xra{\widetilde{\phi \oplus \phi}} BSpin(6)$ being multiplication by $4$ on $\pi_4$ --- of course this is recorded in the table.
+
+Similarly, as far as individual tangential structures on 3-manifolds are concerned, there is a homotopical coincidence between stably framed structures and string structures.
+\begin{proposition}
+There is a canonical 4-connected map $O(\infty)/O(3) \ra BString(3)$ lifting the natural map $O(\infty)/O(3) \ra BO(3)$.  In particular, for a closed 3-manifold $M$, there is a canonical bijection between the stable framings and the string structures on $M$.
+\end{proposition} 
+\begin{proof}
+As $O(\infty)/O(3)$ is the same as $SO(\infty)/SO(3)$, and the map $O(\infty)/O(3) \ra BO(3)$ is the composite $SO(\infty)/SO(3) \ra BSO(3) \ra BO(3)$, it suffices to work with the special orthogonal quotient throughout.
+
+Let $P$ denote the homotopy fiber of the generating map $K(\ZZ/2,2) \ra K(\ZZ,5)$.  By construction we have a homotopy fibration $BString(3) \ra BSO(3) \ra P$.  Moreover, appealing in part to the homotopy calculation in Proposition~\ref{prop-H4}, we see that the map $BSO(3) \ra P$ factors as $BSO(3) \ra BSO(\infty) \ra P$.  Note that the map $BSO(\infty) \ra P$ is an isomorphism on $\pi_4$.  The map $SO(\infty)/SO(3) \ra BSO(3) \ra P$ can now be factored as $SO(\infty)/SO(3) \ra BSO(3) \ra BSO(\infty) \ra P$.  The first two maps in this composite form a homotopy fibration and therefore admit a canonical null-homotopy.  There is therefore a canonical lift of $SO(\infty)/SO(3) \ra BSO(3)$ to a map $SO(\infty)/SO(3) \ra BString(3)$.
+
+The map $SO(\infty)/SO(3) \ra BString(3)$ induces a map from $SO(\infty) = \hofib(SO(\infty)/SO(3) \ra BSO(3))$ to $\Omega P = \hofib(BString(3) \ra BSO(3))$.  This map $SO(\infty) \ra \Omega P$ is an isomorphism on $\pi_3$, because the map $BSO(\infty) \ra P$ was an isomorphism on $\pi_3$.  As both the maps $SO(\infty) \ra SO(\infty)/SO(3)$ and $\Omega P \ra BString(3)$ are surjective on $\pi_3$, it follows that $SO(\infty)/SO(3) \ra BString(3)$ is an isomorphism on $\pi_3$, as needed.
+\end{proof}
+
+This proposition associates to each stable framing of a 3-manifold $M$ a string structure.  This association may be thought of as follows: because the fibration $BString(3) \ra BO(3)$ is the pullback of the fibration $BString \ra BO$ along the inclusion $BO(3) \ra BO$, the data of a lift of $M \ra BO(3)$ to $BString(3)$ is the same as the data of a lift of $M \ra BO(3) \ra BO$ to $BString$.  That is, string structures and stable string structures are identical notions.  Now note that there is a natural forgetful map from stable framings to stable string structures, since a trivialization of the composition $M \ra BO(3) \ra BO$ certainly provides a lift of that composite to, in particular, $BString$.
+
+In the main text, we have concentrated on the structure groups $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$.  As we have seen, $hString(3)$-structures are essentially just framings, but $String(3)$-structures appear to be rather different.  It turns out, though, that provided we focus on fusion categories over the complex numbers, all $\TCfin$-valued field theories are in fact string:
+
+\begin{proposition} \label{prop-string}
+Every framed local field theory $\cF : \FrBord_0^3 \ra \TCfin$ with target tensor categories over $\CC$ descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TCfin$.
+\end{proposition}
+
+\nid This result is a direct analog of the corresponding result for conformal-net-valued local field theories, given in~\cite{0912.5307}, and the proof is the same.
+
+\bibliographystyle{alpha}
+\bibliography{bibliography/bibliography}
+\end{document}
