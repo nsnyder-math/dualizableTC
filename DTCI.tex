@@ -229,13 +229,13 @@ With this standard convention we have a canonical natural isomorphisms $\Hom_\cA
 
 A convenient mnemonic for this notation is to think of the $*$ as eating things.  
 
-Although the above contention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel, Chari-Pressley, Wikipedia).  Whichever choice is made we should have the additional meta-convention.
+Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel, Chari-Pressley, Wikipedia).  Whichever choice is made we should have the additional meta-convention.
 
 \begin{definition}[Convention C]
 In reasonable settings where something could be called either a dual or an adjoint the left dual should be the left adjoint.
 \end{definition}
 
-For example, $\Fun(\cA, \cA)$ is a monoidal category where the duals are given by taking adjoints, and any monoidal category can be thought of as a $2$-category and then the duals of objects in the monoidal category become adjoints of $1$-morphisms in the $2$-category.  However, in order for convention (C) to resolve the left/right ambiguity we need to decide whether $f \otimes g$ should mean do $f$ first or do $g$ first.
+For example, $\Fun(\cA, \cA)$ is a monoidal category where the duals are given by taking adjoints.  Also,any monoidal category can be thought of as a $2$-category with one ojbect, and in that setting the duals of objects in the monoidal category become adjoints of $1$-morphisms in the $2$-category.  However, in order for convention (C) to resolve the left/right ambiguity we need to decide whether $f \otimes g$ should mean do $f$ first or do $g$ first.
 
 \begin{definition}[Convention for $\otimes$ and composition]
 If $f$ and $g$ are functions then $f \otimes g$ will always mean do $f$ first. In other words, $f \otimes g = g \circ f$.
@@ -444,7 +444,9 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 
 \subsection{The Deligne tensor product and finite rigid linear categories}
 
-The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  This tensor product only makes sense for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
+In this section we will quickly recall the definition and some of the key properties of the relative Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  The key result in this section is Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that the Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V* \cong \mathrm{End}(V)$ plays the key role in showing that finite dimensional vector spaces are $1$-dualizable \cite{???}, this lemma plays the key role in proving $2$-dualizability of finite tensor categories.
+
+The Deligne tensor product is easiest to define for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A linear category $\cC$ is {\em finite} if 
@@ -461,57 +463,7 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 \end{remark}
 \CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
 
-The key property of finite tensor categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well known, we were unable to find a proof in the literature, so we sketch the proof here.
-
-\begin{proposition} \label{prop:AFT}
-	Let $\cC$ and $\cD$ be finite linear categories and let $\cG: \cC \rightarrow \cD$  be an additive $\Vect$-enriched functor (not necessarily right exact). Then the following conditions are equivalent:
-	\begin{enumerate}
-		\item $\cG$ is left exact;  
-		\item $\cG$ is left exact and satisfies the following {\em Solution Set Condition:} \\  For each $d \in \cD$ there is a finite set $I$ and a collection of arrows $f_i:d \to \cG(c_i)$ such that every arrow $h:d \to \cG(c)$ can be written as a composite $h = \cG(t) \circ f_i$ for some index $i \in I$ and some $t: c_i \to c$; 
-		\item $\cG$ admits an (additive, ${\Vect}$-enriched) left adjoint.
-	\end{enumerate}
-\end{proposition}
-\begin{proof} This is a variation of the proof given in \cite[V.6.Thm 2]{MR0354798}.
-Suppose that $\cG$ admits a left adjoint, $\cF$. Then $\cG$ is itself a right adjoint and hence commutes with all limits. In particular $\cG$ is a left exact functor. Moreover, as $\cF$ commutes with coproducts, it is automatically additive, and as the unit and counit maps are linear maps of vector spaces, $\cF$ is also $\overline{\Vect}$-enriched. 
-
-
-To construct a left adjoint for $\cG$, it suffices (and is necessary) to construct for each $d \in \cD$ a universal arrow $d \to \cG(c)$ (i.e. initial object of the comma category $(d \downarrow \cG)$),
-as the left adjoint may then be constructed pointwise as $\cF(d) = c$. To this end, fix $d \in \cD$ and suppose that $\cG$ satisfies the solution set condition. Define the element $w$ of the comma category as the product of the $d \to \cG(c_i)$. Since $\cG$ is left exact, it commutes with finite limits, and hence the forgetful functor $(d \downarrow \cG) \to \cC$ creates limits. In particular the comma category has all finite limits, and this  product exists and is given explicitly by 
-\begin{equation*}
-	w = \bigoplus_i f_i :  d \to \cG( \oplus_i c_i) = \bigoplus_i \cG(c_i).
-\end{equation*}
-The morphism spaces of $(d \downarrow \cG)$ are finite dimensional vector spaces, and so we may choose a finite basis for $\Hom(w,w)$. Let $v$ be defined as the equalizer of this finite collection of maps. Again, this finite limit exists and may be created in $\cC$. By construction $v$ actually equalizes {\em all} endomorphisms of $w$, and thus by a straightforward calculation [MacLane V.6.Thm 1], we see that $v$ is initial. 
-
-Finally, if $\cG$ is left exact, then it satisfies the solution set condition. To see this note that each object $d \in \cD$  has a finite number of distinct quotients in $\cD$, hence also a finite number quotients of the form  $\cG(c)$ for some $c \in \cC$. Thus we may choose a finite index set $I$ and objects  $c_i \in \cC$, together with maps $d \to \cG(c_i)$ exhausting the finite collection of possible quotients of $d$. Since any map $d \to \cG(c)$ must factor through one of these quotients, we have construct a solution set.   
-\end{proof}
-
-\begin{corollary}
-	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it also admits a left adjoint which is also a linear functor. 
-\end{corollary}
-
-\begin{proof}
-	The second statement is just a rephrasing of the above proposition; the first follows by passing to the opposite linear category.  
-\end{proof}
-
-
-\begin{corollary}
-If $\cC$ is finite, a functor $G: \cC^\textrm{op} \to \Vect$ is representable if and only if it is left exact. 
-\end{corollary}
-
-\begin{proof}
-	A representable functor $\Hom(-, x):\cC^\text{op} \to \Vect$ sends all limits in $\cC^\text{op}$ (i.e. colimits in $\cC$) to limits in $\Vect$. Hence it is left exact. 
-%
-% 0 <-- C <--  B <--- A <-- 0 in C/C^op
-% 0 -->  \Hom(c,x) ---> hom(b,x) ---> hom(a, x)
-%		
-Conversely, if $G: \cC^\text{op} \to \Vect$ is left exact, then by the above proposition it admits a left adjoint $F$. Thus for every every object $c \in \cC$ we have a natural isomorphism:
-	\begin{equation*}
-		G(c) \cong \Hom_{\Vect_k}( k, G(c)) \cong \Hom_{\cC^\op}( F(k), c) = \Hom_{\cC}(c, F(k) ).
-	\end{equation*}
-	In other words,  the object $F(k)$ represents the functor $G$. 
-\end{proof}
-
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
 
 \begin{theorem}[\cite{EGNO}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
 	Let $\cM$ be a left module category over the finite rigid tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -556,42 +508,9 @@ If it exists, the Deligne tensor product is unique up to an equivalence, which i
 	\end{enumerate} 
 \end{theorem}
 
-\begin{proof}
-	When $\cC = \Vect_k$, this is classical \cite[Prop 5.13]{MR1106898} (see also \cite[Prop 1.46.2]{EGNO}).
-	By Theorem \ref{thm:EGNO2.11.6} to show (1) and (2) it is enough to assume that $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$ and show that $\Mod{A }{B}(\cC)$ has the desired universal property. Tensoring a left $A$-module and a right $B$-module gives a canonical $\cC$-balanced multilinear functor 
-		\begin{equation*}
-			T: \Mod{A}{}(\cC) \times \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC),  
-		\end{equation*}
-and we will show that $T$ induces an equivalence between $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and linear functors out of $\Mod{A}{B}(\cC)$.
-	
-	To this end, let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cD$ be a $\cC$-balanced multilinear functor.  
-	There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since  every $A$-$B$-bimodule $X$ is a coequalizer of free $A$-$B$-bimodules, namely the canonical coequalizer  
-	\begin{equation*}
-		X \leftarrow A \otimes X \otimes B \leftleftarrows A \otimes A \otimes X \otimes B \otimes B,
-	\end{equation*}
-	and since $\overline{F}$ is right exact the result follows.
-	
-	By Lemma \ref{lma:RigidIsExact} the functor $T = \boxtimes_{\cC}$ is exact in each variable. The formula in (3) then follows as a standard exercise in using duals. Finally let $F: \cA \times \cB \to \cD$ be a $\cC$-balanced multilinear functor which is exact in each variable and let $\overline{F}: \cA \boxtimes_\cC \cB \to \cD$ be its linear extension (which is always right exact). Since $F$ is exact in each variable, $\overline{F}$ preserves left exact sequences of free $A$-$B$-bimodules (where the maps are also free). Since every $A$-$B$-bimodule has a functorial resolution by free $A$-$B$-bimodules (coming from the above mentioned coequalizer), a diagram chase shows that $\overline{F}$ is also left exact. Hence (4) is also satisfied. 
-\end{proof}
-
-
-%\begin{proposition}[]
-%	Let $\cA$ and $\cB$ be finite linear categories. Then,
-%	\begin{enumerate}
-%		\item The Deligne tensor product $\cA \boxtimes \cB$ exists and is a finite linear category;
-%		\item If $\cA = \Mod{A}{}$ and $\cB = \Mod{B}{}$, then $\cA \boxtimes \cB \simeq \Mod{A \otimes B}{}$;
-%		\item The functor $\boxtimes$ is exact in each variable and satisfies 
-%		\begin{equation*}
-%			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes \cB} (x \boxtimes y, x' \boxtimes y'),
-%		\end{equation*}
-%		\item If $F: \cA \times \cB \to \cC$ is a multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes \cB \to \cC$. 
-%	\end{enumerate} 
-%\end{proposition}
-
-
-\begin{remark} \label{rmk:rigidpreservedbytensor}
-	We may use the case $\cC= \Vect_k$ to rewrite part the data  of a tensor category as a linear category $\cD$ equipped with an object $1 \in \cD$ and a linear functor $\otimes: \cD \boxtimes \cD \to \cD $, together with natural transformations $\alpha$, $\lambda$, and $\rho$, as before. Moreover by Corollary \ref{cor:RigidityViaFunctors} the tensor product of two rigid tensor categories is again rigid. 
-\end{remark}
+%\begin{remark} \label{rmk:rigidpreservedbytensor}
+%	We may use the case $\cC= \Vect_k$ to rewrite part of the data of a tensor category as a linear category $\cD$ equipped with an object $1 \in \cD$ and a linear functor $\otimes: \cD \boxtimes \cD \to \cD $, together with natural transformations $\alpha$, $\lambda$, and $\rho$, as before. Moreover by Corollary \ref{cor:RigidityViaFunctors} the tensor product of two rigid tensor categories is again rigid. 
+%\end{remark}
 
 \begin{remark}
 	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced twisted bilinear bimodule functors. 
@@ -657,7 +576,7 @@ Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATen
 
 
 \subsection{Exact module categories and adjoints of module functors}
-Throughout this section we consider only finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.
+Throughout this section we consider only finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  The goal is to be able to show that certain module functors have adjoints in proving $3$-dualizability.
 
 \begin{definition}
 	Let $\cC$ be a finite rigid tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
