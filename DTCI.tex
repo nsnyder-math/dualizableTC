@@ -429,8 +429,8 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. 
 \end{example}
 
-\begin{example}
-	For any algebra object $A$ in a tensor category $\cC$ the categories $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are respectively left and right $\cC$-module categories. 
+\begin{example} \label{ex:ModulesAreModules}
+	For any algebra object $A$ in a tensor category $\cC$ then the category of right modules $\Mod{}{A}(\cC)$ is an \emph{left} $\cC$-module category.  Similarly, the category of left modules $\Mod{A}{}(\cC)$ is a right $\cC$-module categories.
 \end{example}
 
 \begin{example}
@@ -463,7 +463,9 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 \end{remark}
 \CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
 
-Just as any finite tensor category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
+Just as any finite tensor category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459} who proved this result for fusion categories.
+
+
 
 \begin{theorem}[\cite{EGNO}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
 	Let $\cM$ be a left module category over the finite rigid tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ such that $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -652,10 +654,9 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 \end{example}
 
 \subsection{Separability} \label{sec-tc-separable}
+In characteristic $0$, fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger's proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik's show that functor categories between semisimple module categories over fusion categories are semsimple and hence semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down non-zero characteristic.  This happens for two separate reasons, first fusion categories of global dimension $0$ behave poorly, and second (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are some problems related to inseparable field extensions.
 
-In this section we introduce a new notion of separability for algebra objects, module categories, and tensor categories.  This theory is a generalization of the classical notion of a separable algebra.  The main point of this notion is to provide the right generalization of certain results to fields of characteristic $p$.  In particular, it gives the right generality for M\"uger's result on semisimplicity of the center of a semisimple category \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik's result on semisimplicity of categories of functors between fusion categories \cite[Theorem 2.16]{MR2183279}.  Furthermore, it also allows us to avoid an issue related to inseparable extensions pointed out by Kuperberg \cite[Question 5.1]{MR1995781}.  This section was inspired by a suggestion of Ostrik, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
-
-\NScomm{This section is still under construction.}
+In this section, we introduce a new notion of separability for algebra objects, module categories, and tensor categories which provides the right setting for generalizing the results of M\"uger and Etingof--Nikshych--Ostrik to characteristic $p$.  This theory is a generalization of the classical notion of a separable algebra \cite{???}.   This section was inspired by a suggestion of Ostrik, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
 
 \begin{definition}
 	Let $A$ be an algebra object in a finite tensor category $\cC$. The multiplication map $\mu: A \otimes A \to A$ may be viewed as a morphism of $A$-$A$-bimodule objects in $\cC$. We will say that $A$ is {\em separable} if the multiplication map splits as a map of $A$-$A$-bimodules. 
@@ -671,7 +672,7 @@ In this section we introduce a new notion of separability for algebra objects, m
 \end{remark}
 
 \begin{theorem} \label{thm:SepModCats}
-	Let $\cC$ be a finite semisimple tensor category (not necessarily rigid) and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
+	Let $\cC$ be a finite semisimple tensor category and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
 	\begin{enumerate}
 		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is a separable algebra in $\cC$;
 		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is an algebra in $\cC$ which is projective as an $A$-$A$-bimodule;
@@ -733,9 +734,13 @@ As both $A$ and $T$ are separable, we have splittings of the canonical multiplic
 Thus $T(A)$ is separable.
 \end{proof}
 
+$\cC$ is always seperable as a $\cC$-$\cC$ bimodule category.  However, we will often need to consider $\cC$ as a $\cC \boxtimes \cC^\mp$-$\Vect$ as well.  This suggests the following definition.
+
 \begin{definition}
 	A tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$-$\Vect$-bimodule category.  
 \end{definition}
+
+A tensor category $\cC$ is a $\Vect$-separable if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is separable if and only if $K_X/k$ is a separable field extension.
 
 \begin{definition}
 	Let $\cC$ be a finite tensor category. The {\em center} of $\cC$ is the linear category $\cZ(\cC) \simeq \Fun_{\cC \boxtimes \cC^\mp}(\cC, \cC)$.
@@ -749,13 +754,42 @@ Thus $T(A)$ is separable.
 	\end{enumerate} 
 \end{corollary}
 
-\CSPcomm{[Add some closure properties for separable. Example: the external Deligne tensor product of separable bimodules, the tensor product of separable tensor categories, functor categories, etc.]}
-
+\begin{theorem}
+Separable finite tensor categories, finite $\Vec$-separable separable bimodule categories, bimodule functors, and bimodule natural transformations, form a symmetric monoidal $3$-subcategory of $\TC$.
+\end{theorem}
+\begin{proof}
+This follows from applying the previous theorem a bunch of times.  $\Vec$ separability of the bimodule categories is needed for the monoidal structure
+\end{proof}
 
 
 \subsection{Fusion categories} \label{sec-tc-fusion}.%!%remove period
 
 \NScomm{[This section is under construction]}
+
+
+
+Recall that a tensor category is called fusion if it is semisimple rigid finite and the trivial object is simple.  In such a setting there's a well-defined notion of global dimension.  It is well-known \cite{???}, that over an algebraically closed field non-zero global dimension implies that $\cZ(\cC)$ is semisimple and hence $\cC$ is separable.  We quickly sketch a proof of a stronger version of this result which was suggested to us by Victor Ostrik.
+
+\begin{theorem}
+A $\Vect$-separable fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
+\end{theorem}
+\begin{proof}
+We first prove that global dimension non-zero implies separability.  Let $A \in \cC \boxtimes \cC^\mp$ be the algebra of internal endomorphisms of the identity object in $\cC$.  This algebra can be described explicitly, as an object it is $\bigoplus_X X \boxtimes {}^*X$.  This algebra has a Frobenius algebra structure given by the trace given by projection onto the $1 \boxtimes 1$ component.  The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero then $A$ is seperable.
+
+In the other direction, note that if $\cC$ is separable then the category of $A$-$A$ bimodules is semisimple.  The space of $A$-$A$ bimodule maps from $A \otimes A$ to $A$  is $1$-dimensional, and hence by semisimplicity, there's also a $1$-dimensional space of maps the other direction.  In particular, any bimodule map $A \otimes A \rightarrow A$ is a multiple of $\Delta$.  Since separability says that there's some splitting of multiplication, this splitting must be some multiple of $\Delta$ and so can only exist if $\Delta$ gives such a splitting, that is to say that the global dimension is nonzero.
+\end{proof}
+
+
+\begin{theorem}
+If $\cC$ is separable and $\cM$ is an exact module category over $\cC$, then $\cM$ is separable.
+\end{theorem}
+\begin{proof}
+It is easy to reduce to the case where $\cM$ is indecomposable.  Then, by \cite{???}, there is a surjective tensor functor $Z(\cC) \rightarrow \Fun_\cC(\cM, \cM)$.  Thus, by \cite{???}, $\Fun_\cC(\cM, \cM)$ is semisimple and $\cM$ is separable..
+\end{proof}
+	
+In particular, over $\mathbb{C}$ we have that the separable finite tensor categories are exactly the semisimple finite tensor categories, and the separable bimodule categories are exactly the semisimple ones.
+
+
 
 \begin{definition}
 A \emph{fusion category} is a tensor category $\cC$ over $k$ satisfying the following conditions:
@@ -1211,7 +1245,6 @@ Thus we have proven
 	$\TCfin$ is fully 2-dualizable. 
 \end{theorem}
 
-Note that this theorem does not assume rigidity.
 
 \subsection{Invariants of elementary 2-framed bordisms}
 .\NScomm{[This section is still under construction.]} %!% Remove period
