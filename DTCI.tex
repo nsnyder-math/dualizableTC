@@ -707,6 +707,8 @@ Similarly if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \ot
 	If any of the equivalent conditions of Theorem \ref{thm:SepModCats} are satisfied, then we will say that $\cM$ is a {\em separable} module category. If $\cM$ is a $\cC$-$\cD$-bimodule category then we will say $\cM$ is separable if it is separable over both $\cC$ and $\cD$ separately. 
 \end{definition}
 
+A linear category $\cC$ is a $\Vect$-separable if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is separable if and only if $K_X/k$ is a separable field extension.  Equivalently, a linear category is $\Vect$-separable if and only if it is absolutely semisimple in the sense that the category remains semisimple under arbitrary base changes.  Since the word ``separable" is somewhat overloaded in this section we will say absolutely semisimple instead of $\Vect$-separable.
+
 \begin{theorem} \label{thm:compositeOfSep}
 	If ${}_\cB\cM_\cC$ and ${}_\cC\cN_\cD$ are separable bimodule categories over semisimple tensor categories, then $\cM \boxtimes_{\cC} \cN$ is a separable $\cB$-$\cD$-bimodule category.
 \end{theorem}
@@ -737,17 +739,16 @@ Thus $T(A)$ is separable.
 $\cC$ is always seperable as a $\cC$-$\cC$ bimodule category.  However, we will often need to consider $\cC$ as a $\cC \boxtimes \cC^\mp$-$\Vect$ as well.  This suggests the following definition.
 
 \begin{definition}
-	A tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$-$\Vect$-bimodule category.  
+	A semisimple tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$-$\Vect$-bimodule category.  
 \end{definition}
 
-A tensor category $\cC$ is a $\Vect$-separable if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is separable if and only if $K_X/k$ is a separable field extension.
 
 \begin{definition}
 	Let $\cC$ be a finite tensor category. The {\em center} of $\cC$ is the linear category $\cZ(\cC) \simeq \Fun_{\cC \boxtimes \cC^\mp}(\cC, \cC)$.
 \end{definition}
 
 \begin{corollary}
-	The following are equivalent for a finite tensor category $\cC$ which is $\Vect$-separable.
+	The following are equivalent for an absolutely semisimple finite tensor category $\cC$.
 	\begin{enumerate}
 		\item $\cC$ is separable;
 		\item The center $\cZ(\cC)$ is semisimple.
@@ -755,23 +756,21 @@ A tensor category $\cC$ is a $\Vect$-separable if and only if it can be realized
 \end{corollary}
 
 \begin{theorem}
-Separable finite tensor categories, finite $\Vec$-separable separable bimodule categories, bimodule functors, and bimodule natural transformations, form a symmetric monoidal $3$-subcategory of $\TC$.
+Separable finite tensor categories, finite absolutely semisimple separable bimodule categories, bimodule functors, and bimodule natural transformations, form a symmetric monoidal $3$-subcategory of $\TC$.
 \end{theorem}
 \begin{proof}
-This follows from applying the previous theorem a bunch of times.  $\Vec$ separability of the bimodule categories is needed for the monoidal structure
+This follows from applying the previous theorem a bunch of times.  $\Vect$ separability of the bimodule categories is needed for the monoidal structure
 \end{proof}
 
 
 \subsection{Fusion categories} \label{sec-tc-fusion}.%!%remove period
 
-\NScomm{[This section is under construction]}
+The goal of this section is to show that under nice circumstances separability is easy to check.  In particular, we show that over an algebraically closed field fusion categories of nonzero global dimension are separable, and that semisimple bimodule categories over such fusion categories are separable.  In this section we do not strive for generality, but instead have the practical aim of showing that separability is easy to check for examples.
 
+For the entirety of this section the base field $k$ will be algebraically closed.  Recall that a tensor category over an algebraically closed field is called fusion if it is semisimple rigid finite and the trivial object is simple.  In such a setting there's a well-defined notion of global dimension.  It is well-known \cite{???}, that over an algebraically closed field non-zero global dimension implies that $\cZ(\cC)$ is semisimple and hence $\cC$ is separable.  We quickly sketch a proof of a stronger version of this result which was suggested to us by Victor Ostrik.
 
-
-Recall that a tensor category is called fusion if it is semisimple rigid finite and the trivial object is simple.  In such a setting there's a well-defined notion of global dimension.  It is well-known \cite{???}, that over an algebraically closed field non-zero global dimension implies that $\cZ(\cC)$ is semisimple and hence $\cC$ is separable.  We quickly sketch a proof of a stronger version of this result which was suggested to us by Victor Ostrik.
-
-\begin{theorem}
-A $\Vect$-separable fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
+\begin{theorem} \label{thm:NonzeroDimension}
+A fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
 \end{theorem}
 \begin{proof}
 We first prove that global dimension non-zero implies separability.  Let $A \in \cC \boxtimes \cC^\mp$ be the algebra of internal endomorphisms of the identity object in $\cC$.  This algebra can be described explicitly, as an object it is $\bigoplus_X X \boxtimes {}^*X$.  This algebra has a Frobenius algebra structure given by the trace given by projection onto the $1 \boxtimes 1$ component.  The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero then $A$ is seperable.
@@ -780,46 +779,14 @@ In the other direction, note that if $\cC$ is separable then the category of $A$
 \end{proof}
 
 
-\begin{theorem}
-If $\cC$ is separable and $\cM$ is an exact module category over $\cC$, then $\cM$ is separable.
+\begin{theorem} \label{thm:SSModuleCatsAreSep}
+If $\cC$ is fusion and $\cM$ is a semisimple module category over $\cC$, then $\cM$ is separable.
 \end{theorem}
 \begin{proof}
-It is easy to reduce to the case where $\cM$ is indecomposable.  Then, by \cite{???}, there is a surjective tensor functor $Z(\cC) \rightarrow \Fun_\cC(\cM, \cM)$.  Thus, by \cite{???}, $\Fun_\cC(\cM, \cM)$ is semisimple and $\cM$ is separable..
+It is easy to reduce to the case where $\cM$ is indecomposable.  Then, by \cite{???}, there is a surjective tensor functor $Z(\cC) \rightarrow \Fun_\cC(\cM, \cM)$.  Thus, by \cite{???}, $\Fun_\cC(\cM, \cM)$ is semisimple and $\cM$ is separable.
 \end{proof}
-	
-In particular, over $\mathbb{C}$ we have that the separable finite tensor categories are exactly the semisimple finite tensor categories, and the separable bimodule categories are exactly the semisimple ones.
 
-
-
-\begin{definition}
-A \emph{fusion category} is a tensor category $\cC$ over $k$ satisfying the following conditions:
-\begin{enumerate}
-\item $\cC$ is finite.
-\item $\cC$ is rigid. 
-\item $\cC$ is semisimple. 
-\end{enumerate}
-\end{definition}
-
-Thus a fusion category has finite dimensional hom vector spaces, has finitely many isomorphism classes of simple objects, and for every object $a \in \cC$ there exists an object ${a^*} \in \cC$ that is a left dual for $a$ and also an object ${}^{*}a \in \cC$ that is a right dual for $a$.
-
-\begin{warning}
-Here for brevity we use ``fusion category" to refer to what has elsewhere gone under the name ``multi-fusion category". In particular we do not assume that the unit object is simple.  Furthermore we only assume semisimplicity, not split semisimplicity.
-\end{warning}
-
-We quickly recall several lemmas relating fusion categories to the notions in the last two sections.
-
-\begin{lemma}
-If $\cC$ is fusion, then a module category $\cM$ over $\cC$ is exact if and only if it is semisimple.
-\end{lemma}
-
-\begin{definition}
-If $\cC$ is a fusion category we define its global dimension to be \NScomm{[figure out what the best definition is for the argument, and make sure that it makes sense when the unit is not simple]}
-\end{definition}
-
-\begin{proposition}
-A fusion category of non-zero global dimension is separable. \CSPcomm{[add references/sketch of the proof.]}
-\end{proposition}
-
+It would be nice to give a more direct proof of Theorem \ref{thm:SSModuleCatsAreSep} following the proof of Theorem \ref{thm:NonzeroDimension} .  It's easy to get an algebra with trace, but it was not clear to us why the resulting bilinear form is nondegenerate.  By contrast in the setting of Theorem \ref{thm:NonzeroDimension} we have a concrete formula for the bilinear form.
 
 
 \section{Local field theory in dimension three} \label{sec-lft}
