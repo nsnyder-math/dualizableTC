@@ -567,7 +567,7 @@ The following lemma is crucial for proving our results.
 \end{lemma}
 
 \begin{proof}
-	The last sentence follows since in that case the natural functor is a bimodule functor. By the Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ (\cite[Prop 2.12.2]{EGNO}) can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor, and given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
+	The last sentence follows since in that case the natural functor is a bimodule functor. By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. We show that both sides of the above equation are naturally equivalent to $\Mod{A}{B}(\cC)$, the category of $A$-$B$-bimodule objects in $\cC$. The equivalence $\Fun_\cC(\cM, \cN) \simeq \Mod{A}{B}(\cC)$ (\cite[Prop 2.12.2]{EGNO}) can be seen by mirroring the classical proof. A bimodule clearly gives rise to such a functor, and given a functor $f$, we obtain an $A$-$B$-bimodule $f(A)$. By $\cC$-linearity $f(X \otimes A) \cong X \otimes f(A)  \cong (X \otimes A) \otimes_A f(A) $ is determined on free $A$-modules. Since every object of $\cM$ may be written as a (canonical) coequalizer of free $A$-modules,
 	\begin{equation*}
 		M \leftarrow M \otimes A \leftleftarrows M \otimes A \otimes A
 	\end{equation*} 
@@ -587,6 +587,56 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\cD}(\cM,\cD) \simeq \Fun_{\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. 
 \end{remark}
 
+%%%%%%%%%
+
+The following result is well-known, but no proof has appeared in the literature.
+
+\begin{lemma}
+	Let $\cC$ be a rigid tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
+\end{lemma}
+
+\begin{proof}
+We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
+$$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
+where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
+
+\NScomm{[Insert diagram here]}
+
+We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagram illustrates this calculation.
+
+\NScomm{[Insert diagram here]}
+\end{proof}
+
+
+\begin{lemma} \label{module-adjoint}
+Let $\cC$ and $\cD$ be rigid tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
+\end{lemma}
+\begin{proof}
+Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module functor.  The result for left adjoints is similar.
+
+The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate
+$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the one in the previous lemma.)
+
+\NScomm{[Insert diagram here]}
+
+Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
+\end{proof}
+
+\begin{remark}
+If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a (lax) module functor has an oplax module functor structure, while the left adjoint of an (oplax) module functor only has a lax module functor structure.  This is a serious issue as the following example shows. 
+\end{remark}
+
+\begin{example} \label{ex:lax-module}
+
+	Let $\cR \cong \Vect \oplus \Vect \cdot X$ be the non-rigid tensor category consisting of pairs of vector spaces, which we write as $V_1 + V_2 X$, with tensor product given by 
+	\begin{equation*}
+		(V_1 + V_2 X) \otimes (W_1 + W_2 X) = V_1 \otimes V_2  +  (V_1 \otimes W_2 \oplus V_1 \otimes W_1)X.
+	\end{equation*} 
+	Up to equivalence there are unique choices of associator and unitors making this tensor category. It is a categorification of the ring $k[x]/(x^2)$ as a finite semisimple tensor category, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
+	
+	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of an $\cR$-module functor. 
+\end{example}
 
 
 For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
@@ -641,54 +691,6 @@ The following omnibus theorem summarizes the key properties of exact module cate
 	\end{enumerate}
 \end{theorem}
 
-The following result is well-known, but no proof has appeared in the literature.
-
-\begin{lemma}
-	Let $\cC$ be a rigid tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
-\end{lemma}
-
-\begin{proof}
-We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
-$$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
-where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
-
-\NScomm{[Insert diagram here]}
-
-We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagram illustrates this calculation.
-
-\NScomm{[Insert diagram here]}
-\end{proof}
-
-
-\begin{lemma} \label{module-adjoint}
-Let $\cC$ and $\cD$ be rigid tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
-\end{lemma}
-\begin{proof}
-Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ has a natural structure of a $\cC\boxtimes \cD^{mp}$-module functor.  The result for left adjoints is similar.
-
-The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate
-$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
-where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the one in the previous lemma.)
-
-\NScomm{[Insert diagram here]}
-
-Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is an easy exercise with commuting diagrams.
-\end{proof}
-
-\begin{remark}
-If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a (lax) module functor has an oplax module functor structure, while the left adjoint of an (oplax) module functor only has a lax module functor structure.  This is a serious issue as the following example shows. 
-\end{remark}
-
-\begin{example} \label{ex:lax-module}
-
-	Let $\cR \cong \Vect \oplus \Vect \cdot X$ be the non-rigid tensor category consisting of pairs of vector spaces, which we write as $V_1 + V_2 X$, with tensor product given by 
-	\begin{equation*}
-		(V_1 + V_2 X) \otimes (W_1 + W_2 X) = V_1 \otimes V_2  +  (V_1 \otimes W_2 \oplus V_1 \otimes W_1)X.
-	\end{equation*} 
-	Up to equivalence there are unique choices of associator and unitors making this tensor category. It is a categorification of the ring $k[x]/(x^2)$ as a finite semisimple tensor category, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
-	
-	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of an $\cR$-module functor. 
-\end{example}
 
 \subsection{Separability} \label{sec-tc-separable}
 In characteristic $0$, fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger's proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik's show that functor categories between semisimple module categories over fusion categories are semsimple and hence semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down non-zero characteristic.  This happens for two separate reasons, first fusion categories of global dimension $0$ behave poorly, and second (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are some problems related to inseparable field extensions.
