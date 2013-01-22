@@ -454,7 +454,8 @@ The Deligne tensor product is easiest to define for categories satisfying certai
 	\begin{enumerate}
 		\item $\cC$ has finite dimensional spaces of morphisms;
 		\item every object of $\cC$ has finite length;
-		\item $\cC$ has enough projectives, i.e. every simple object of $\cC$ has a projective cover; and
+		\item $\cC$ has enough projectives%, i.e. every simple object of $\cC$ has a projective cover
+		; and
 		\item there are finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
@@ -464,9 +465,8 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 \end{proposition}
 %\CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
 \begin{proof}
-	Every linear category of the form $\Mod{A}{}$ for a finite dimensional $k$-algebra $A$ satisfies the above properties. The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite dimensional algebra over a field is semiperfect.
-	
-	In the other direction, assume that $\cC$ is finite. Let $\{X_i\}$ denote a family of representatives for the finitely many isomorphism classes of simples. Let $P_i \to X_i$ be a projective cover, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces are finite dimensional, $A$ is a finite dimensional algebra. 
+	It is clear that every linear category of the form $\Mod{A}{}$ for a finite dimensional $k$-algebra $A$ satisfies the above properties. % The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite dimensional algebra over a field is semiperfect.
+	In the other direction, assume that $\cC$ is finite. Let $\{X_i\}$ denote a family of representatives for the finitely many isomorphism classes of simples. Let $P_i \to X_i$ be an epimorphism with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite dimensional, $A$ is a finite dimensional algebra. 
 	
 	We have an adjunction, which we will show is an equivalence:
 	\begin{equation*}
@@ -493,11 +493,11 @@ Suppose by induction that $X$ is an object of $\cC$ and that (\ref{eqn:reflect_z
 \begin{equation*}
 	0 \to X' \to X \to X'' \to 0
 \end{equation*}
-with $X''$ simple, and with the length of $X'$ strictly less than $X$. Applying the functor $\Hom_{\cC}(P,-)$ we obtain an exact sequence:
+with $X''$ simple, and with the length of $X'$ strictly less than $X$. Applying the exact functor $\Hom_{\cC}(P,-)$ we obtain an exact sequence:
 \begin{equation*}
 	0 \to \Hom_{\cC}(P,X') \to \Hom_{\cC}(P,X) \to \Hom_{\cC}(P,X'') \to 0
 \end{equation*}
-If the middles term is zero, then all terms vanish. By our induction hypothesis, we conclude that $X'' \cong X' \cong 0$, and hence $X$ itself was zero. In other words, $\Hom_{\cC}(P,-)$ reflects isomorphisms and realizes an equivalence of linear categories $\cC \simeq \Mod{A}{}$.
+If the middle term is zero, then all terms vanish. By our induction hypothesis, we conclude that $X'' \cong X' \cong 0$, and hence $X$ itself was zero. In other words, $\Hom_{\cC}(P,-)$ reflects isomorphisms and realizes an equivalence of linear categories $\cC \simeq \Mod{A}{}$.
 \end{proof}
 
 Just as any finite tensor category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459} who proved this result for fusion categories.
