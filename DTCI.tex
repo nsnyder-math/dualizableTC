@@ -367,20 +367,20 @@ The left dual functor is analogous.  Since the left and right duals are quasi-in
 Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual each give monoidal equivalences between $\cC^{\op}$ and $\cC^{\mp}$.  Nonetheless, these equivalences are not canonical (indeed there are two natural choices), so we will always be careful to distinguish  $\cC^{\op}$ and $\cC^{\mp}$.
 \end{remark}
 
-\CSP{Do we need this last cor?}
-\begin{corollary} \label{cor:RigidityViaFunctors}
-	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural isomorphisms
-	\begin{align*}
-		\Hom( {}^*y, z) &\cong \Hom(1, z \otimes y) \\
-		\Hom(z, y) & \cong \Hom(z \otimes {}^*y, 1).
-	\end{align*}
-\end{corollary}
-
-\begin{proof}
-	It is clear from the previous lemma that a rigid tensor category admits such a structure (the natural isomorphisms in question are induced by the evaluation and coevaluation). Conversely, if we are given such a structure, then applying the above natural isomorphisms in the cases $z={}^*y$ and $y$ yield evaluation and coevaluation maps demonstrating ${}^*y$ as the left dual of $y$. Right duals are obtained by the same argument applied to the inverse of the functor ${}^*(-)$.
-\end{proof}
-
-% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
+%\CSP{Do we need this last cor?}
+%\begin{corollary} \label{cor:RigidityViaFunctors}
+%	A tensor category $(\cC, \otimes, 1)$ is rigid if and only if there exists an equivalence of tensor categories ${{}^*(-)}: \cC \to \cC^\mp$ and natural isomorphisms
+%	\begin{align*}
+%		\Hom( {}^*y, z) &\cong \Hom(1, z \otimes y) \\
+%		\Hom(z, y) & \cong \Hom(z \otimes {}^*y, 1).
+%	\end{align*}
+%\end{corollary}
+%
+%\begin{proof}
+%	It is clear from the previous lemma that a rigid tensor category admits such a structure (the natural isomorphisms in question are induced by the evaluation and coevaluation). Conversely, if we are given such a structure, then applying the above natural isomorphisms in the cases $z={}^*y$ and $y$ yield evaluation and coevaluation maps demonstrating ${}^*y$ as the left dual of $y$. Right duals are obtained by the same argument applied to the inverse of the functor ${}^*(-)$.
+%\end{proof}
+%
+%% This fact is asserted in Bruce's thesis; the functor part is mentioned in Selinger Eg 4.4.
 
 
 %\begin{remark}
@@ -555,7 +555,7 @@ If it exists, the Deligne tensor product is unique up to an equivalence, which i
 	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-module category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced twisted bilinear bimodule functors. 
 \end{remark}
 
-The following lemma is critical for proving our results.
+The following lemma is crucial for proving our results.
 
 \begin{lemma} \label{Lma:FunctorsAsATensorPdt}
 	If $\cC$ is a finite rigid tensor category and $\cM$ and $\cN$ are finite rigid left $\cC$-module categories then the natural functor induces an equivalence
@@ -676,7 +676,7 @@ Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this bi
 \end{proof}
 
 \begin{remark}
-If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a (lax) module functor has only an oplax module functor structure, while the left adjoint of an (oplax) module functor has only a lax module functor structure.  This is a serious issue as the following example shows. 
+If $\cC$ and $\cD$ are not rigid the above argument only shows that the right adjoint to a (lax) module functor has an oplax module functor structure, while the left adjoint of an (oplax) module functor only has a lax module functor structure.  This is a serious issue as the following example shows. 
 \end{remark}
 
 \begin{example} \label{ex:lax-module}
@@ -685,7 +685,7 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 	\begin{equation*}
 		(V_1 + V_2 X) \otimes (W_1 + W_2 X) = V_1 \otimes V_2  +  (V_1 \otimes W_2 \oplus V_1 \otimes W_1)X.
 	\end{equation*} 
-	Up to equivalence there are unique choices of associator and unitors making this tensor category. It is a categorification of the ring $k[x]/(x^2)$. $\cR$ is a finite semisimple tensor category, but it is not rigid. There is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. Hence $X$ cannot have a dual. 
+	Up to equivalence there are unique choices of associator and unitors making this tensor category. It is a categorification of the ring $k[x]/(x^2)$ as a finite semisimple tensor category, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
 	
 	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of an $\cR$-module functor. 
 \end{example}
