@@ -123,7 +123,7 @@ Separable semisimple rigid tensor categories are fully dualizable.
 
 A key application of this theorem is the construction of a plethora of local field theories:
 \begin{corollary}
-For any separable fusion category there is a local topological quantum field theory whose value on a point is that fusion category.
+For any separable semisimple rigid tensor category there is a local topological quantum field theory whose value on a point is that tensor category.
 \end{corollary}
 
 \nid Strictly speaking, this TFT is not directly comparable to Turaev--Viro theories, since it is $3$-framed rather than oriented, and it does not depend on either the choice or existence of a spherical structure.  Nonetheless, it should be thought of as a generalization of Turaev--Viro.
@@ -134,7 +134,7 @@ We also have a converse to this theorem.
 Fully dualizable rigid finite tensor categories are separable and semisimple.
 \end{theorem}
 
-For technical reasons we restrict our attention throughout to finite rigid tensor categories throughout this paper, because we have only given a rigorous definition of the $3$-category of finite rigid tensor categories $\TC^{fr}$.  Nonetheless, it is natural to wonder whether rigid and finite are necessary for dualizability.  Since rigidity is not preserved by Morita equivalence in $\TC$ (as pointed out to us by Dan Freed), there are finite tensor categories which are fully dualizable but not rigid.  Indeed, semisimplicity and finiteness are also not Morita invariant notions.  We do not know a simple characterization of all fully dualizable tensor categories, though to our knowledge all examples are Morita equivalent to a fusion category.
+For technical reasons we restrict our attention throughout to finite rigid tensor categories throughout this paper, because we have only given a rigorous definition of the $3$-category of finite rigid tensor categories $\TC^{fr}$.  Nonetheless, it is natural to wonder whether rigid and finite are necessary for dualizability.  Since rigidity is not preserved by Morita equivalence in $\TC$ (as pointed out to us by Dan Freed), there are finite tensor categories which are fully dualizable but not rigid.  Indeed, semisimplicity and finiteness are also not Morita invariant notions.  We do not know a simple characterization of all fully dualizable tensor categories, though to our knowledge all examples are Morita equivalent to a separable finite rigid tensor category.
 
 %In particular, the theorem provides localizations of Turaev-Viro field theories:
 %\begin{corollary}
@@ -191,8 +191,7 @@ The history of local field theories is somewhat complicated, as the language too
 
 All of the above work on TFTs from fusion categories assumes sphericality in an essential way.  The history of framed field theories is a bit different.  Here the main precursors are the theory of spin TFTs \cite{MR1117149, MR1171303, MR1387228, MR1880321}, and Kuperberg's work on $3$-manifold invariants coming from nonsemisimple Hopf algebras \cite{MR1394749}.
 
-Most previous examples of fully dualizable objects are in dimension $2$.  Ben-Zvi--Nadler \cite{???} prove $2$-dualizabilty for certain monoidal categories, but in the derived category setting instead of the abelian setting of this paper.  
-\NS{What else should we mention here?  Chris's thesis? Bartels-Douglas-Henriques?  Freed-Teleman?}
+Most previous examples of fully dualizable objects are in dimension $2$.  Schommer-Pries's thesis proves $2$-dualizability of separable algebras \cite{???}.    Ben-Zvi--Nadler \cite{???} prove $2$-dualizabilty for certain monoidal categories, but in the derived category setting instead of the abelian setting of this paper.   Two other programs closely related to ours are Bartels-Douglas-Henriques \cite{???} and Freed-Teleman \cite{???} who look at different versions of local Reshetikhin-Turaev field theories through the lens of the cobordism hypothesis.
 
 The original version of Radford's theorem \cite{MR0407069} is an explicit formula for the fourth power of the antipode in a finite dimensional Hopf algebra.  This was generalized to the context of fusion categories, and then to finite rigid tensor categories by Etingof--Nikshych--Ostrik \cite{MR2183279,MR2097289}.  The first indication that Radford's formula is related to topology came in Kuperberg's proof of Radford's theorem for Hopf algebras (and indeed Hopf algebra objects in symmetric tensor categories) \cite{MR1394749}.  Next Hagge--Hong \cite{MR2559711} gave a skein theoretical proof of Radford's theorem for fusion categories.  As pointed out by Bartlett \cite{0901.3975} the Hagge--Hong proof is reminiscent of the belt trick.
 
@@ -236,7 +235,7 @@ We begin with a brief discussion of our conventions regarding duality.
 
 
 \subsection{Conventions for Duality}
-\NS{We've decided to switch conventions here (this comes down to how you write function composition), and so this section does not agree with what the final paper will say, and we have not made sure that conventions are consistant.}
+\NS{We've changed conventions here.  Hopefully all of Section 2 is now ok with the new conventions, but this should be double-checked.}
 
 In this paper we ultimately consider a certain 3-category in which several different kinds of duality appear simultaneously. These dualities arise from differing mathematical points of view and so we have been tasked with finding a sensible and consistent notation in which to speak about these various forms of duality. This is no easy task as the literature has well established conventions which are at times contradictory.  The purpose of this section is to explain a compromise and clarify the conventions we will use.
 
@@ -679,23 +678,24 @@ Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying categor
 \end{definition}
 
 \begin{lemma}
-If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and ${}^*\Fun^L_{\cC}(\cN, \cM)$ where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules $\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)^*$. 
+If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and $\Fun^L_{\cC}(\cN, \cM)^*$ where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules ${}^*\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)$. 
 \end{lemma}
 \begin{proof}
 	We will prove the first statement as the second follows from a nearly identical argument. 
-We've already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Secondly the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$, while in the latter case we have that the right adjoint of right multiplication by $x$ is right multiplication by $x^*$.
+We've already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Secondly the right adjoint of right multiplication by $x$ is right multiplication by $x^*$, while in the latter case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.
 \CSP{This needs tending and I think there is an error here.}
+\NS{I fixed the error, but feel free to do more tending.}
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
-We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
+We have that ${}^*\cM \cong \Fun_{\cD}(\cM, \cD)$ and $\cM^* \cong \Fun_{\cC}(\cM, \cC)$.
 \end{lemma}
 \begin{proof}
-By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$  But the latter is just ${}^*\cM$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
+By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong \Fun_{\cC}^L(\cC, \cM)^*$  But the latter is just $\cM^*$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
 \end{proof}
 
 \begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite rigid $\cD$-$\cC$ bimodule and $\cN$ is a finite rigid $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite rigid $\cD$-$\cC$ bimodule and $\cN$ is a finite rigid $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong ({}^*\cM)^* \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}({}^*\cM,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC {}^*(\cN^*) \cong \Fun_{\text{mod-}\cC}(\cN^*,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
 \end{remark}
 
 
