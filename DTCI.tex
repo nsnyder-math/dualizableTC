@@ -678,7 +678,7 @@ Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying categor
 \end{definition}
 
 \begin{lemma}
-If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and $\Fun^L_{\cC}(\cN, \cM)^*$ where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules ${}^*\Fun_{D}(\cM, \cN) \rightarrow \Fun^L_{\cC}(\cN, \cM)$. 
+If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and $\Fun^L_{\cC}(\cN, \cM)^*$ where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules ${}^*\Fun_{\cD}(\cM, \cN) \rightarrow \Fun^L_{\cD}(\cN, \cM)$. 
 \end{lemma}
 \begin{proof}
 	We will prove the first statement as the second follows from a nearly identical argument. 
@@ -1183,7 +1183,7 @@ Notation:
 
 \section{Dualizability and tensor categories} \label{sec-dualfusion}
 
-In this section we prove the main theorem, that separable fusion categories are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, considerably weaker assumptions (relaxing semisimplicity, and even part of rigidity) suffice to construct a local $2$-dimensional TFT.
+In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We explicitly work out the dualizing data, thereby getting explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  Many of these duals do not require the full strength of the assumption.  In particular, finite tensor categories give local $2$-dimensional TFTs.
 
 \subsection{Duals of objects and invariants of elementary 1-framed bordisms} \label{sec-df-objects}
 
@@ -1263,14 +1263,14 @@ Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not 
 \end{warning}
 
 \begin{remark}
-Since this is a twice categorified TFT, there is more data involved in describing it fully than what we have given above.  For example, we could ask for explicit formulas for the mapping class group action on the invariant of a circle.  \NS{We need to compute this action}
-\end{remark}  \NS{We should decide whether to keep this remark in the final paper.}
+Since this is a twice categorified TFT, there is more data involved in describing it fully than what we have given above.  For example, we could ask for explicit formulas for the mapping class group action on the invariant of a circle.  The action of the Dehn twist gives a natural transformation from the identity autofunctor $\cT(\cC)$ to itself, and so gives a scalar attached to each object in $\cT(\cC)$.  By analogy, with Reshetikhin-Turaev theory, we expect that these scalars are typically nontrivial and are given by an analogue of the Drinfel'd element.   We will return to this calculation in future work.
+\end{remark} 
 
 \subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
 
 In this section we give sufficient conditions for a  bimodule category ${}_\cC \cM_\cD$ to have left and right adjoints.  In particular, if $\cC$ and $\cD$ are finite tensor categories, and their action on $\cM$ is right exact (which we have been assuming throughout), then $\cM$ has both a left and a right adjoint.  Explicitly, the right adjoint of $\cM$ is the category of right exact left module functors $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of right exact right module functors $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The key assumptions in this section are finiteness of the categories and right exactness of the module actions.
 
-Recall from the background section, that linear functors are always assumed to be right exact.  Furthermore, recall that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by ${}^*\cdot$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.
+Recall from the background section, that linear functors are always assumed to be right exact.  Furthermore, recall that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to $\cM^*$ (which is $\cM^{\op}$ with the bimodule actions twisted by $\cdot^*$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to ${}^*\cM$.
 
 \begin{lemma}
 The map $\ev_R: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $d_1 f(m d_2)  \mapsto d_1 f(m) d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev_L: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
@@ -1325,12 +1325,6 @@ Thus we have proven
 \subsection{Invariants of elementary 2-framed bordisms}
 .\NScomm{[This section is still under construction.]} %!% Remove period
 By the cobordism hypothesis, the previous theorem shows that there is a $2$-dimensional $2$-framed TFT attached to every finite tensor category with exact tensor product, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
-
-For simplicity we will assume rigidity to get convenient formulas in this section.  But note that this assumption is not necessary, and we explain one non-rigid example first.
-
-\begin{example}
-\NScomm{[Work out the example from Example \ref{ex:lax-module}]}
-\end{example}
 
 We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence.  We will give two different representatives.  The first choice corresponds directly to the proofs in the previous subsection, while the second choice is clearly equivalent to the first but is more symmetric.
 
