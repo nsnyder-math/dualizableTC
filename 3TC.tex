@@ -156,9 +156,9 @@ This leaves us with two possible avenues of pursuit:
 \end{enumerate}
 Either of these options may be employed, and both give rise to equivalent ways to encode symmetric monoidal structures. The former option is only tenable if we have a tractable theory of weak functors at our disposal. For the case of symmetric monoidal categories we need a weak theory for 2-categories, and indeed there is a well established and usable theory. This option is entirely reasonable in that case. 
 
-However in this paper we ultimately wish to describe a symmetric monoidal 3-category. Option (1) would generally require a robust theory of 4-categories and their weak functors. Trimble's notion of tetracategory has recently appeared in print \cite{1112.0560} in a simplified form. The definition alone spans 15 pages. One could, alternatively, use a more compact homotopically inspired notion of $n$-category, such as the theory of iterated complete Segal spaces, a model of $(\infty, n)$-categories which we will describe in detail later, but it is just as easy (and perhaps more explicit) to pursue option (2) from the start. 
+However in this paper we ultimately wish to describe a symmetric monoidal 3-category. Option (1) would generally require a robust theory of 4-categories and their weak functors. Trimble's notion of tetracategory has recently appeared in print \cite{1112.0560} in a simplified form. The definition alone spans 15 pages. One could, alternatively, use a more compact homotopically inspired notion of $n$-category, such as the theory of iterated  Segal categories, a model of $(\infty, n)$-categories which we will describe in detail later, but it is just as easy, and perhaps more explicit, to pursue option (2) from the start. 
 
-In the case where the monoidal structure in question is defined via a universal property (which is the case of our primary interest), this second option is a particularly manageable approach. Again, it is instructive to consider the 1-categorical case first. We will now describe how the symmetric monoidal category of vector spaces may be encoded as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
+In the case where the monoidal structure in question is defined via a universal property, which is the case for our primary interest, this second option is a particularly manageable approach. Again, it is instructive to consider the 1-categorical case first. We will now describe how the symmetric monoidal category of vector spaces may be encoded as a strict functor from $\Gamma^\text{op}$ to $\Cat$. 
 
 The monoidal structure in $\Vect$ is given by the tensor product of vector spaces, which is defined by a well-known universal property. The tensor product of $V_1$ and $ V_2$ is a universal vector space receiving a bilinear map from $V_1 \times V_2$. In other words, the tensor product $V_{12}$ comes equipped with a bilinear map  $V_1 \times V_2 \to V_{12}$, inducing for all vector spaces $W$ a natural bijection between bilinear maps $V_1 \times V_2 \to W$ and linear maps $V_{12} \to W$. We will say that the bilinear map  $V_1 \times V_2 \to V_{12}$ {\em realizes $V_{12}$ as a tensor product}. As with all universal properties, if the tensor product exists then it is unique up to unique isomorphism, and so it is common practice to write $V_{12} = V_1 \otimes V_2$ for any choice of tensor product.
 
@@ -348,7 +348,7 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 	\end{enumerate}
 \end{definition} \CD{I think we should spell this definition out for $n=1$, just to make contact with the earlier discussion.} \CSP{I think this is now addressed, no?}
 
-\noindent An equivalence of sets is defined to be an isomorphism, and so when $n=1$ the above reduces to a description of precisely those simplicial sets which arise as the nerves of categories. To make this precise for higher $n$, one must also inductively build the notation of equivalence. We will do this in the next section, where we describe Segal $n$-categories, the $(\infty,n)$-variant of this construction where instead of working with simplicial sets we use simplicial spaces; Segal $n$-categories were first defined by Hirschowitz and Simpson \cite{9807049}. Tamsamani $n$-categories may then be identified with the {\em discrete} Segal $n$-categories.  It is well-known that the theory of Tamsamani 2-categories forms a good model for the theory of bicategories. This is discussed in detail in \cite{MR2366560}.
+\noindent An equivalence of sets is defined to be an isomorphism, and so when $n=1$ the above reduces to a description of precisely those simplicial sets which arise as the nerves of categories. To make this precise for higher $n$, one must also inductively build the notation of equivalence. We will do this in the next section, where we describe Segal $n$-categories, the $(\infty,n)$-variant of this construction where instead of working with simplicial sets we use simplicial spaces; Segal $n$-categories were first defined by Hirschowitz and Simpson \cite{9807049}. Tamsamani $n$-categories may then be identified with the {\em discrete} Segal $n$-categories.  It is well-known that the theory of Tamsamani 2-categories forms a good model for the theory of bicategories, for example as discussed in \cite{MR2366560}.
 
 \CSP{We could, if needed, add at this point a description of alg-bimod-maps as a Tamsamani 2-category? }
 
@@ -418,7 +418,11 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 %
 %
 
-\section{Symmetric monoidal Segal $n$-categories} \label{sec-symmoninftyNcat}
+
+\section{The Segal construction} \label{sec-SegalConstruction}
+
+
+\CSPcomm{I need to rewrite some of this section. There should be a general discussion of Segal categories for any given relative category satisfying some mild conditions. Then a review of the particulars of the Segal n-category model. }
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
@@ -566,7 +570,16 @@ Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bull
 %When $X = NC_{\bullet \bullet}$  is a 2-nerve, $\Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
 %\end{proof}
 
+\section{Symmetric monoidal Segal $n$-categories} \label{sec-symmoninftyNcat}
 
+\CSPcomm{This needs some rewriting.}
+
+
+
+
+
+
+\CSPcomm{older material...}
 
 \begin{definition}
 	A {\em symmetric monoidal Segal $n$-category} is a $\Gamma$-$n$-fold simplicial space $X$, which we view as a functor from $\Gamma^\textrm{op}$ to $n$-fold simplicial spaces, such that the following conditions are satisfied. 
@@ -582,6 +595,41 @@ Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bull
 	\end{enumerate}
 \end{definition}
 
+\CSPcomm{I am not sure where to put these lemmas yet. The section needs some cleaning up.}
+
+\begin{definition}
+	Let $\cA$ be a cofbrantly generated model category and $D$ an ordinary category. Then let $\cA_D^{\textrm{proj}} = \Fun(D^\op, \cA)$ denote the functors category with the projective model structure. 
+\end{definition}
+
+We will be primarily interested in the case when $\cA$ is the cartesian model category of Segal $n$-categories and $D=\Gamma$. 
+
+
+Fix a cofibrantly generated model category $\cA$. The assignment $D \mapsto D\cA_{proj}$ assigning to $D$ the projective model category on $\cA$-valued presheaves is functorial in $D$ in the following sense. Let $p:D_0 \to D_1$ be a functor. Then the pull-back functor $p^*$ preserves levelwise fibrations and acyclic fibrations, hence  there is an induced Quillen adjunction:
+\begin{equation*}
+	p_!: \cA_{D_0}^{\textrm{proj}} \leftrightarrows \cA_{D_1}^{\textrm{proj}}: p^*.
+\end{equation*}
+
+
+
+
+Let $\Gamma_{\leq 1}$ denote the full sub-category of $\Gamma$ consisting of the two object $1_+$ and $0_+$. Presheaves on $\Gamma_{\leq 1}$ in a category $\cA$ are the same as retracts. Specifically, such a presheaf $X$ consists of a pair of objects $(X_0, X_1)$ (the values of $X$ on $0_+$ and $1+$, respectively) together with a pair of maps, $i:X_0 \to X_1$ and $r:X_1 \to X_0$, such that the composite $ri$ is the identity on $X_0$. 
+
+\begin{lemma}
+	For any model category $\cA$, the projective and injective model structures on $\Gamma_{\leq 1} \cA$ exist and agree. 
+\end{lemma}
+
+\begin{proof}
+	\CSPcomm{ Show that having the LLP wrt the levelwise fibrations is equivalent to being a levelwise cofibration. The same is true the other way around by taking opposites. QED.}
+\end{proof}
+
+
+
+
+
+\begin{proposition}
+	Let $\cA$ be a cofibrantly generated cartesian model category, in which the terminal object is cofibrant. Let $A \in \Gamma\cA$ be a $\Gamma$-object in $\cA$, and let $X$ be a projectively fibrant $\Gamma$-object. Let $p:\Gamma_{\leq 1} \to \Gamma$ be the inclusion 
+\end{proposition}
+\CSP{Do I explicitly need the terminal object to cofibarnt, or is this automatic?}
 
 
 \section{Linear categories, tensor categories, and bimodule categories} \label{sec-tc-lincat}
