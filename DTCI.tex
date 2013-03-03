@@ -216,20 +216,7 @@ CSP would like to thank Peter Teichner for several fruitful conversations about 
 
 \section{Tensor categories} \label{sec-tc}
 
-%\CSPcomm{
-%The results that are new(ish):
-%\begin{itemize}
-%	\item Theorem \ref{thm:DelignePrdtOverATCExists}
-%	\item Lemma \ref{Lma:FunctorsAsATensorPdt}
-%	\item everything about separability.
-%\end{itemize}
-%}
-
-In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are a few results in this section which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as a several well-known results whose proofs do not appear in the literature. The material in Section \ref{sec-tc-separable} is new and based on a suggestion of Ostrik.
-
-We begin with a brief discussion of our conventions regarding duality.
-
-%\CD{The organization of this section might well change as we decide what exactly we should include.}
+In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are two results in section~\ref{sec-tc-deligne} which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as several well-known results whose proofs do not appear in the literature. The material in Section \ref{sec-tc-separable} is new and based on a suggestion of Ostrik.
 
 %\CDcomm{Our goal is to define $\TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $\TC(i)$, which can occur in DTCII.}
 
@@ -259,26 +246,29 @@ With this standard convention we have a canonical natural isomorphisms $\Hom_\cA
 	\end{align*}
 \end{definition}
 
-A convenient mnemonic for this notation is to think of the $*$ as eating things.  
+\nid A convenient mnemonic for this notation is to think of the $*$ as eating things.  
 
-Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel, Chari-Pressley, Wikipedia).  Whichever choice is made we should have the additional meta-convention.
+Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel and Chari-Pressley).  Whichever choice is made we should have the additional meta-convention: \vspace{1.5ex}
 
-\begin{definition}[Convention C]
-In reasonable settings where something could be called either a dual or an adjoint the left dual should be the left adjoint.
-\end{definition}
+\nid Convention C:
+In reasonable settings where something could be called either a dual or an adjoint the left dual should be the left adjoint. \vspace{1.5ex}
+\CD{It's slightly awkward that the first two conventions are actually definitions, but this one is not.}
 
-For example, $\Fun(\cA, \cA)$ is a monoidal category where the duals are given by taking adjoints.  Also, any monoidal category can be thought of as a $2$-category with one object, and in that setting the duals of objects in the monoidal category become adjoints of $1$-morphisms in the $2$-category.  However, in order for convention (C) to resolve the left/right ambiguity we need to decide whether $f \otimes g$ should mean do $f$ first or do $g$ first.
+\nid For example, $\Fun(\cA, \cA)$ is a monoidal category in which the dual of a functor is the adjoint functor.  
+
+More generally, any monoidal category can be thought of as a $2$-category with one object, and in that setting the duals of objects in the monoidal category become adjoints of $1$-morphisms in the $2$-category.  However, in order for convention (C) to resolve the left/right ambiguity we need to decide whether, in the correspondence between monoidal categories and one-object 2-categories, the product $f \otimes g$ corresponds to the composite $f \circ g$ or $g \circ f$.
 
 \begin{definition}[Convention for $\otimes$ and composition]
-If $f$ and $g$ are functions then $f \otimes g$ will always mean do $f$ first. In other words, $f \otimes g = g \circ f$.
+If $f$ and $g$ are morphisms or functions or functors or otherwise are composable, then $f \otimes g$ will always mean do $f$ first. In other words, when both expressions make sense, $f \otimes g \sim g \circ f$.
 \end{definition}
+\CD{Maybe we should make this definition/convention more precise; that might make it clearer that it is actually a definition (of $\otimes$ for instance).}
 
 This choice determines the following conventions:
 
 \begin{itemize}
 \item $x^*$ is the right dual and ${}^*x$ is the left dual.
-\item A bimodule ${}_A M_B$ is a $1$-morphism from $A$ to $B$ in the $2$-category of algebras, bimodules, and intertwiners.
-\item If $\cC$ is a monoidal category thought of as a $2$-category, then tensoring on the right gives a functor from $\cC$ to $Cat$, while the functor of tensoring on the left reverse the direction of $1$-morphisms.
+\item A bimodule ${}_A M_B$ is a $1$-morphism from $A$ to $B$ in the $2$-category of algebras, bimodules, and intertwiners. \CD{Item 2: is it clear enough from what's been said? Restrict to $\CC$-$\CC$-bimodules?}
+\item If $\cC$ is a monoidal category thought of as a $2$-category, then tensoring on the right gives a functor from $\cC$ to $Cat$, while the functor of tensoring on the left reverse the direction of $1$-morphisms. \CD{Item 3: make the functor explicit.}
 \item Taking right modules gives a functor from $Alg$ to $Cat$ while taking left modules reverses the order of composition of $1$-morphisms.
 \end{itemize}
 
@@ -307,21 +297,22 @@ This choice determines the following conventions:
 
 
 \begin{remark}
-	For a fixed object $x$ which admits a right dual, there is a category whose objects $(x^*, \eta, \varepsilon)$ consist of those right duals, with choices of unit and counit maps. This category is easily shown to be {\em contractible} (equivalent to the terminal category). Hence the choice of a right dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
-The same observation applies to adjoint functors, and duals of bimodules.  
+	Suppose $x$, an object of a monoidal category, admits a right dual.  There is a category whose objects $(x^*, \eta, \varepsilon)$ consist of right duals to $x$, with compatible choices of unit and counit maps. This category is {\em contractible} (equivalent to the terminal category). Hence the choice of a right dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
+The same observation applies to adjoint functors, adjoints of bimodules, and generally to any adjoint in any 2-category.  
 \end{remark}
+\CD{These conventions seem perfect. Why was there ever an issue? What good property/convention does this violate?}
 
 
 \subsection{Linear categories and tensor categories} \label{sec-tc-lincat}
 
-	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, the category of (possibly infinite dimensional) $k$-vector spaces. 
+	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. 
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
 	
 More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
 \begin{equation*}
 	F: \prod \cA_\alpha \to \cB
 \end{equation*}
-such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. 
+such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
 
 \begin{warning}
 	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
@@ -332,7 +323,7 @@ such that $F$ is linear in each variable separately. A linear category will be s
 \end{definition}
 
 \begin{example}
-	Both $\overline{\Vect}_k$ and $\Vect_k$ (the category of finite dimensional vector spaces) are examples of tensor categories. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
+	Both $\overline{\Vect}_k$ and $\Vect_k$ are examples of tensor categories. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
 \end{example}
 
 \begin{example}
@@ -475,7 +466,7 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 \end{remark}
 
 
-\subsection{The Deligne tensor product and finite rigid linear categories}
+\subsection{The Deligne tensor product and finite rigid linear categories} \label{sec-tc-deligne}
 
 In this section we will quickly recall the definition and some of the key properties of the relative Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  The key result in this section is Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that the Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^* \cong \mathrm{End}(V)$ plays the key role in showing that finite dimensional vector spaces are $1$-dualizable \cite{???}, this lemma plays the key role in proving $2$-dualizability of finite tensor categories.
 
