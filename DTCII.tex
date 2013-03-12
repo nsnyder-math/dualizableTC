@@ -28,10 +28,60 @@
 
 \tableofcontents
 
-\section{Some content}
+\section{Sketch of paper contents}
 
-This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a space.  That is, you say, $BSO(3)$ has cells $e_2, e_3, e_4, e_5$, where $e_3$ is attached to $e_2$ by $2$, and $e_4$ is attached to $e_2$ by $\eta$ and $e_5$ is attached to $e_3$ by yadda.  And to give a map $BSO(3) \rightarrow BAut(X)$ is to give an element $S \in \pi_1(Aut(X))$ and a trivialization $R$ of $2S$ such that the element $\eta(q(S))$ of $\pi_3(Aut(X))$ is trivial, and to give a trivialization $a$ of $q(S) \in \pi_2(Aut(X))$.
+This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a homotopy 3-type.  That is, you say, $BSO(3)$ has cells $e_2, e_3, e_4, e_5$, where $e_3$ is attached to $e_2$ by $2$, and $e_4$ is attached to $e_2$ by $\eta$ and $e_5$ is attached to $e_3$ by yadda.  And to give a map $BSO(3) \rightarrow BAut(X)$ is to give an element $S \in \pi_1(Aut(X))$ and a trivialization $R$ of $2S$ such that ... and to give ... %the element $\eta(q(S))$ of $\pi_3(Aut(X))$ is trivial, and to give a trivialization $a$ of $q(S) \in \pi_2(Aut(X))$.  <--- ???
 
 Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)$, $\Omega S^2$, $\Omega \Sigma \RR P^2$.
 
+\CDcomm{We should also precisely describe the data required to give a G-homotopy fixed point, for each of the discussed groups.}
+
+\subsection{General remarks}
+
+Why? The cobordism hypothesis tells us that $Hom^{\otimes}(GBord_n,C) = ((dC)^{\sim})^{hG}$, where $dC$ is the maximal symmetric monoidal sub-n-category of C with duals, and the $\sim$ denotes the maximal sub-n-groupoid.  Note that $(dC)^\sim$ is a homotopy $n$-type.  Thus we want to describe explicitly the structure of $G$ actions on $n$-types.  (In fact, the description we give will apply to actions on discrete $n$-categories that are not necessarily $n$-groupoids \CDcomm{(right?)}, but such a case is not relevant for cobordism hypothesis applications and we will not mention it explicitly.)
+
+If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-groupoid of automorphisms of $C$ --- the objects are the automorphisms of $C$ in the discrete $(n+1)$-category of $n$-categories, the morphisms are the automorphisms of automorphisms, etc.  Thus $Aut(C)$ is an $n$-type and $BAut(C)$ is an $(n+1)$-type.  By definition, an action of $G$ on $C$ is a map $BG \ra BAut(C)$.
+
+\subsection{Warmup: $SO(2)$ actions}
+
+An $SO(2)$ action on a 3-type $X$ is a map $\alpha: BSO(2) \ra BAut(X)$.  The 5-skeleton of $BSO(2)$ has cells $e_2$ and $e_4$.  The data of the map $\alpha$ on $e_2$ is an element of $\pi_2(BAut(X)) = \pi_1(Aut(X))$.  We denote this element $S$ and call it the Serre automorphism.  The 4-cell is attached to the 2-cell by $\eta : S^3 \ra S^2$.  The data of an extension of $S$ to the 4-cell and therefore to all of $BSO(2)$ is given by a trivialization of the composite $\eta S : S^3 \ra BAut(X)$.
+
+\begin{proposition}
+The composite $\eta S : S^3 \ra BAut(X)$ can be computed as follows: draw a figure 8, read the cap and cup as the equivalences $1 \cong S \cdot S^{-1}$ and $S^{-1} \cdot S \cong 1$ and the cross as the braiding of elements in $2Aut(X)$, and evaluate the picture in $\Omega^2(Aut(X)) \simeq \Omega^3 BAut(X)$.
+\end{proposition}
+
+\begin{proof}
+\CDcomm{This would be clear stably, but requires explanation unstably.}
+\end{proof}
+
+To summarize:
+
+\begin{proposition}
+The set of homotopy classes of $SO(2)$ actions on a 3-type $X$ is the set of homotopy classes of pairs $(S,E)$, where $S: S^1 \ra Aut(X)$ is a map and $E : D^3 \ra Aut(X)$ is a null homotopy of the figure 8 composite on $S$.
+\end{proposition}
+
+\CDcomm{More explanation is really necessary to even make the statement clear.  Eg, make clear in what sense is the figure 8 composite an actual map to be trivialized rather than merely a homotopy class of maps.  (If it were just a homotopy class, it would look like E is an element of $\pi_3$ of $Aut(X)$, which is wrong, since it lives in a torsor.)  For instance, do this by picking equivalences $\Omega^2(Aut(X)) \simeq \Omega^3 BAut(X)$ etc?}
+
+We can restrict attention to 3-types that happen to be 2-types.
+
+\begin{corollary}
+The set of homotopy classes of $SO(2)$ actions on a 2-type $X$ is the set of homotopy classes of maps $S: S^1 \ra Aut(X)$ such that the figure 8 composite on $S$ is null.
+\end{corollary}
+
+
+
+
+
+
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
