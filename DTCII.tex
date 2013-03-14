@@ -32,7 +32,7 @@
 
 This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a homotopy 3-type.  That is, you say, $BSO(3)$ has cells $e_2, e_3, e_4, e_5$, where $e_3$ is attached to $e_2$ by $2$, and $e_4$ is attached to $e_2$ by a generator $q: S^3 \ra S^2$ and $e_5$ is attached to $e_3$ by yadda.  And to give a map $BSO(3) \rightarrow BAut(X)$ is to give an element $S \in Map(S^2,BAut(X))$ and a trivialization $A$ of $q S \in Map(S^3,BAut(X))$ and a trivialization $R$ of $2S$ such that a canonical element called $\frac{\eta q S}{2}$ of $\pi_4(BAut(X))$ vanishes.  (Note that the choice of 2-divisor of $\eta q S$ depends on $R$.  Here $\eta: S^4 \ra S^3$ is the generator.)
 
-Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)$, $\Omega S^2$, $\Omega \Sigma \RR P^2$.
+Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)$, $\Omega S^2$, $\Omega \Sigma \RP^2$.
 
 \CDcomm{We should also precisely describe the data required to give a G-homotopy fixed point, for each of the discussed groups.  And for each group we should also explicitly describe the map $G \ra Aut(X)$ in terms of the given data defining $BG \ra BAut(X)$.}
 
@@ -40,7 +40,10 @@ Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)
 
 Why? The cobordism hypothesis tells us that $Hom^{\otimes}(GBord_n,C) = ((dC)^{\sim})^{hG}$, where $dC$ is the maximal symmetric monoidal sub-n-category of C with duals, and the $\sim$ denotes the maximal sub-n-groupoid.  Note that $(dC)^\sim$ is a homotopy $n$-type.  Thus we want to describe explicitly the structure of $G$ actions on $n$-types.  (In fact, the description we give will apply to actions on discrete $n$-categories that are not necessarily $n$-groupoids \CDcomm{(right?)}, but such a case is not relevant for cobordism hypothesis applications and we will not mention it explicitly.)
 
-If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-groupoid of automorphisms of $C$ --- the objects are the automorphisms of $C$ in the discrete $(n+1)$-category of $n$-categories, the morphisms are the automorphisms of automorphisms, etc.  Thus $Aut(C)$ is an $n$-type and $BAut(C)$ is an $(n+1)$-type.  By definition, an action of $G$ on $C$ is a map $BG \ra BAut(C)$.
+If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-groupoid of automorphisms of $C$ --- the objects are the automorphisms of $C$ in the discrete $(n+1)$-category of $n$-categories, the morphisms are the automorphisms of automorphisms, etc.  Thus $Aut(C)$ is an $n$-type and $BAut(C)$ is an $(n+1)$-type.  By definition, an action of $G$ on $C$ is a map $BG \ra BAut(C)$.  Observe that if a map $A \ra B$ is a $k$-equivalence (i.e. an isomorphism on $\pi_i$ for $i \leq k$) and $X$ is a $k$-type (i.e. has $\pi_i = 0$ for $i > k$), then the induced map $[B,X] \ra [A,X]$ is an isomorphism.  As a result, we will only be concerned with the $(n+1)$-type of $BG$ when we are considering actions on $n$-categories.
+
+... the techniques are for the most part elementary, but we believe the results are of fundamental importance for the study of 3-dimensional quantum topology.
+
 
 \subsection{Warmup: $SO(2)$ actions}
 
@@ -69,38 +72,124 @@ The set of homotopy classes of $SO(2)$ actions on a 2-type $X$ is the set of hom
 \end{corollary}
 
 \section{Introduction}
+.
+
+\CDcomm{I think much of what is currently in section I of DTCIV, introducing and discussing the 4-types of BQuad and BOrp(3), will need to be moved here for those spaces to seem less crazy.  How much?}
+
+\CDcomm{Annoyingly, we probably also need some of the facts in the Appendix to DTCIV.  Nevertheless, I think that appendix should stay there, and we will just state the occasional fact we need here independently.}
 
 \section{Cell structures}
 
-\CDcomm{This section is ``pure homotopy theory", ie focuses on determining the cell structures only.  All issues about interpreting the attaching maps and commuting them explicitly are left to later sections.}
+\CDcomm{This section is ``pure homotopy theory", ie focuses on determining the cell structures only.  All issues about interpreting the attaching maps and computing them explicitly are left to later sections.}
 
-\subsection{Of the spaces $B\Omega S^2$ and $B\Quad$}
+As we only care about the 4-types of our spaces, for each space $X$ we will describe explicitly a 5-cell complex $_4 X$, which we refer to as a (or loosely ``the") 4-truncation of $X$, together with a map $_4 X \ra X$ that is a 4-equivalence.  \CD{For better or worse the notation here is meant to suggest that $_4 X$ is a subobject, as opposed to the usual ``4-quotient" $X_4$ obtained by adding cells to $X$.  This notation is a bit questionable.  Note that $_4 X$ is not a 4-type.}
 
-Though it will form the cornerstone of a homotopy $SO(3)$ action, the space $B\Omega S^2$ requires, at this stage, no comment.
+\CDcomm{Add a definition of minimal 4-truncation, ie a minimal cell complex that works (requires a little care).  It will be nice to know we have minimal descriptions of the the data required in each case.}
+
+
+\subsection{Of the spaces $B\Omega S^2$ and $B\Quad$}.
+
+Needless to say, the 4-truncation of $B\Omega S^2 \simeq S^2$ is simply $S^2$, and this is obviously a minimal 4-truncation.
 
 \begin{definition}
 The space $B\Quad$ is the homotopy fiber of the map $c_1^2: BSO(2) \ra K(\ZZ,4)$ classifying the square of the first chern class.
 \end{definition}
+\CD{Maybe Quad will already have been introduced earlier.}
 
 
+\begin{proposition}
+The 4-trunctation $_4 B\Quad$ is the 2-cell complex $S^2 \cup_{\eta q} e_5$.  Here the attaching map is the composite of the generator $\eta: S^4 \ra S^3$ and the generator $q: S^3 \ra S^2$.
+\end{proposition}
 
-\subsection{Of the space $BSO(2)$}
+\begin{proof}
+From the long exact sequence of the fibration $K(\ZZ,3) \ra B\Quad \ra BSO(2)$, we see that the first four homotopy groups ($\pi_1$--$\pi_4$) of $B\Quad$ are $0$, $\ZZ$, $\ZZ$, $0$, and from the corresponding Serre spectral sequence, that the first six cohomology groups ($H^1$--$H^6$) are $0$, $\ZZ$, $0$, $0$, $0$, $\ZZ/2$.  From the cohomology, we see there is a 4-truncation with a single 2-cell and a single 5-cell, and the homotopy groups force the attaching map to be $\eta q$.
+\end{proof}
+
+\nid This truncation is clearly minimal.
 
 
-\subsection{Of the spaces $B \Omega \Sigma \RR P^2$ and $B Orp(3)$}
+\subsection{Of the space $BSO(2)$}.
 
+The 4-truncation of $BSO(2)$ is $S^2 \cup_q e_4$, and this is certainly minimal.
+
+\subsection{Of the spaces $B \Omega \Sigma \RP^2$ and $B Orp(3)$}.
+
+The space $B \Omega \Sigma \RP^2 \simeq \Sigma \RP^2 \simeq S^2 \cup_2 e_3$ is its own minimal 4-truncation.
+
+\begin{definition}
+The space $BOrp(3)$ is the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, where $p_1$ is the first Pontryagin class.
+\end{definition}
+
+\begin{proposition}
+The 4-truncation $_4 BOrp(3)$ is the 3-cell complex $(S^2 \cup_2 e_3) \cup_\gamma e_5$, where $\gamma$ is the generator of $\pi_4(\Sigma \RP^2) = \ZZ/4$.  \CD{If there is one, include the explicit homotopy theoretic description of the generator in the statement of this proposition.  If not, wait to give the geometric description later.}
+\end{proposition}
+\begin{proof}
+The homotopy groups of $S^3$ determine the homotopy groups of $SO(3)$ which determine the homotopy groups of $BSO(3)$ as $0$, $\ZZ/2$, $0$, $\ZZ$, $\ZZ/2$ for $\pi_1$ through $\pi_5$.  Using the slightly surprising fact that the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ induces multiplication by 4 on $\pi_4$, this in turn determines the homotopy groups of $BOrp(3)$ as $0$, $\ZZ/2$, $\ZZ/4$, $0$, $\ZZ/2$.  
+
+The Serre spectral sequence for $SO(3) \ra * \ra BSO(3)$ shows the cohomology of $BSO(3)$ is $0$, $0$, $\ZZ/2$, $\ZZ$, $0$ for $H^1$ through $H^5$, and the Serre spectral sequence for $K(\ZZ,3) \ra BOrp(3) \ra BSO(3)$ then gives the cohomology of $BOrp(3)$ as $0$, $0$, $\ZZ/2$, $0$, $0$.
+
+From the cohomology of $BOrp(3)$ we see that there is a map $\Sigma \RP^2 \ra BOrp(3)$ which is an isomorphism on $H_{\leq 4}$.  By Hurewicz it follows that this map is an isomorphism on $\pi_{\leq 3}$.  We now need to know that $\pi_4(\Sigma \RP^2)$ is $\ZZ/4$, and later we will need to know that a generator is the map $\gamma :=$ \CDcomm{ho theory description}; note that \CDcomm{$2 \gamma = \eta q \iota$} where $\iota: S^2 \ra \Sigma \RP^2$ is the inclusion---for these facts see \CDcomm{xxx}.  \CD{This sentence I have not checked.  Include a sketch proof?}
+
+Because $\pi_4(BOrp(3))$ is zero, we may pick an extension of the map $\Sigma \RP^2 \ra BOrp(3)$ to a map $(S^2 \cup_2 e_3) \cup_\gamma e_5 \ra BOrp(3)$.  This later map is now a 4-equivalence, as desired.  Note that there were two possible choices of the extension, but both yield 4-equivalences and we will have no need to differentiate them.
+\end{proof}
+
+\nid This truncation is clearly minimal. \CDcomm{once the definition is there, replace all these by brief actual explanations.}
 
 \subsection{Of the space $BSO(3)$}
 
 \subsubsection{A minimal cell structure}
 
 \subsubsection{A pushout cell structure}
-
-\CDcomm{Give the pushout in terms of $BSO(2)$ and $BOrp(3)$}
+.
 
 \begin{definition}
-A commutative square is a pushout of $n$-types if the canonical map from the pushout to the target object is an $n$-equivalence.
+A commutative square is a pushout of $n$-types, also called an $n$-pushout, if the canonical map from the pushout to the target object is an $n$-equivalence.
 \end{definition}
+
+\begin{proposition}
+The commutative square
+\begin{equation} \label{quad-pushout} \tag{Q}
+\xymatrix{
+BQuad \ar[r] \ar[d] & BOrp(3) \ar[d] \\
+BSO(2) \ar[r] & BSO(3)
+}
+\end{equation}
+is a $4$-pushout.
+\end{proposition}
+\begin{proof}
+\CDcomm{... ...}
+\end{proof}
+\CD{I suggest that in writing we try to be fairly careful to denote the difference between a space $X$ and its $k$-truncation or $k$-quotient, ie never leave the truncation/quotient implicit.}
+\CD{Note that someplace you should at least state explicitly that the map BQuad to BOrp(3) exists and is uniquely determined simply as a lift of the composite BQuad to BSO(2) to BSO(3).}
+
+\begin{remark}
+Notice that the commutative square
+\begin{equation}\label{s2-pushout} \tag{S}
+\xymatrix{
+B\Omega S^2 \ar[r] \ar[d] & BOrp(3) \ar[d] \\
+BSO(2) \ar[r] & BSO(3)
+}
+\end{equation}
+is also a $4$-pushout, even though the map from~\eqref{s2-pushout} to~\eqref{quad-pushout} is not an objectwise $4$-equivalence.  Though the square~\eqref{s2-pushout} is more elementary, the square~\eqref{quad-pushout} is more useful conceptually.
+\end{remark}
+
+\begin{remark}
+There is a commutative square (but not a 4-pushout),
+\begin{equation}\label{quadmoore} \tag{M}
+\xymatrix{
+B\Omega S^2 \ar[r] \ar[d] & B\Omega \Sigma \RP^2 \ar[d] \\
+BQuad \ar[r] & BOrp(3)
+}
+\end{equation}
+\CD{check this isn't a 4-pushout}
+As mentioned, the space $BQuad$ may be replaced by $B\Omega S^2$ in the pushout square \eqref{quad-pushout}.  The space $BOrp(3)$ cannot be similarly replaced by $B\Omega \Sigma \RP^2$.  Nevertheless it will sometimes be useful to consider building an $Orp(3)$ action by first building an $\Omega \Sigma \RP^2$ action.
+\end{remark}
+
+To determine the cell structure of the 4-type of $BSO(3)$, it therefore suffices to glue together the cell structures of the 4-types of $BSO(2)$ and $BOrpo(3)$ along $BQuad$.
+
+\begin{proposition}
+\CDcomm{full cell description of BSO(3) via Q here.}
+\end{proposition}
 
 \section{Homotopy actions}
 
@@ -112,7 +201,7 @@ A commutative square is a pushout of $n$-types if the canonical map from the pus
 \subsection{By the group $SO(2)$}
 
 
-\subsection{By the groups $\Omega \Sigma \RR P^2$ and $Orp(3)$}
+\subsection{By the groups $\Omega \Sigma \RP^2$ and $Orp(3)$}
 
 
 \subsection{By the group $SO(3)$}
@@ -129,7 +218,7 @@ A commutative square is a pushout of $n$-types if the canonical map from the pus
 \subsection{For $SO(2)$ actions}
 
 
-\subsection{For $\Omega \Sigma \RR P^2$ and $Orp(3)$ actions}
+\subsection{For $\Omega \Sigma \RP^2$ and $Orp(3)$ actions}
 
 
 \subsection{For $SO(3)$ actions}
