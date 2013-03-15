@@ -82,31 +82,32 @@ The set of homotopy classes of $SO(2)$ actions on a 2-type $X$ is the set of hom
 
 \CDcomm{This section is ``pure homotopy theory", ie focuses on determining the cell structures only.  All issues about interpreting the attaching maps and computing them explicitly are left to later sections.}
 
-As we only care about the 4-types of our spaces, for each space $X$ we will describe explicitly a 5-cell complex $_4 X$, which we refer to as a (or loosely ``the") 4-truncation of $X$, together with a map $_4 X \ra X$ that is a 4-equivalence.  \CD{For better or worse the notation here is meant to suggest that $_4 X$ is a subobject, as opposed to the usual ``4-quotient" $X_4$ obtained by adding cells to $X$.  This notation is a bit questionable.  Note that $_4 X$ is not a 4-type.}
+As we only care about the 4-types of our spaces, for each space we will describe a cell complex that captures the 4-type in question.  More specifically, for concreteness we will construct 4-truncations of our spaces, in the following sense.
 
-\CDcomm{Add a definition of minimal 4-truncation, ie a minimal cell complex that works (requires a little care).  It will be nice to know we have minimal descriptions of the the data required in each case.}
+\begin{definition}
+By a \emph{$k$-truncation} of a space $X$, we will mean a $(k+1)$-dimensional cell complex, denoted $_k X$, together with a $k$-equivalence $_{k} X \ra X$.
+\end{definition}
+\nid Note that the homotopy type of a $k$-truncation is not uniquely determined, but the $k$-type is.  Moreover the homotopy class of the $k$-equivalence $_k X \ra X$ is not, in general, uniquely determined.  Though it is by no means a necessity, it is sometimes reassuring to know that a given truncation is as small as possible: we call a $k$-truncation \emph{minimal} if it has the minimum number of cells among all $k$-truncations.  Note that the cell structure of a minimal $k$-truncation is not in general uniquely determined, though it happens that it is in all the examples we consider.
 
+%\CD{For better or worse the notation here is meant to suggest that $_4 X$ is a subobject, as opposed to the usual ``4-quotient" $X_4$ obtained by adding cells to $X$.  This notation is a bit questionable.  Note that $_4 X$ is not a 4-type.}
 
 \subsection{Of the spaces $B\Omega S^2$ and $B\Quad$}.
 
-Needless to say, the 4-truncation of $B\Omega S^2 \simeq S^2$ is simply $S^2$, and this is obviously a minimal 4-truncation.
+Needless to say, the 4-truncation of $B\Omega S^2 \simeq S^2$ is simply $S^2$, and this is obviously minimal.
 
 \begin{definition}
 The space $B\Quad$ is the homotopy fiber of the map $c_1^2: BSO(2) \ra K(\ZZ,4)$ classifying the square of the first chern class.
 \end{definition}
-\CD{Maybe Quad will already have been introduced earlier.}
+%\CD{Maybe Quad will already have been introduced earlier.}
 
 
 \begin{proposition}
-The 4-trunctation $_4 B\Quad$ is the 2-cell complex $S^2 \cup_{\eta q} e_5$.  Here the attaching map is the composite of the generator $\eta: S^4 \ra S^3$ and the generator $q: S^3 \ra S^2$.
+The minimal 4-trunctation of $BQuad$ is the 2-cell complex $S^2 \cup_{\eta q} e_5$.  Here the attaching map is the composite of the generator $\eta: S^4 \ra S^3$ and the generator $q: S^3 \ra S^2$.
 \end{proposition}
 
 \begin{proof}
-From the long exact sequence of the fibration $K(\ZZ,3) \ra B\Quad \ra BSO(2)$, we see that the first four homotopy groups ($\pi_1$--$\pi_4$) of $B\Quad$ are $0$, $\ZZ$, $\ZZ$, $0$, and from the corresponding Serre spectral sequence, that the first six cohomology groups ($H^1$--$H^6$) are $0$, $\ZZ$, $0$, $0$, $0$, $\ZZ/2$.  From the cohomology, we see there is a 4-truncation with a single 2-cell and a single 5-cell, and the homotopy groups force the attaching map to be $\eta q$.
+From the long exact sequence of the fibration $K(\ZZ,3) \ra B\Quad \ra BSO(2)$, we see that the first four homotopy groups ($\pi_1$--$\pi_4$) of $B\Quad$ are $0$, $\ZZ$, $\ZZ$, $0$, and from the corresponding Serre spectral sequence, that the first six cohomology groups ($H^1$--$H^6$) are $0$, $\ZZ$, $0$, $0$, $0$, $\ZZ/2$.  From the cohomology, we see there is a 4-truncation with a single 2-cell and a single 5-cell, and the homotopy groups force the attaching map to be $\eta q$.  This truncation is clearly minimal.
 \end{proof}
-
-\nid This truncation is clearly minimal.
-
 
 \subsection{Of the space $BSO(2)$}.
 
@@ -120,27 +121,26 @@ The space $B \Omega \Sigma \RP^2 \simeq \Sigma \RP^2 \simeq S^2 \cup_2 e_3$ is i
 The space $BOrp(3)$ is the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, where $p_1$ is the first Pontryagin class.
 \end{definition}
 
+We will need the following homotopy-theoretic fact.
 \begin{proposition}
-The 4-truncation $_4 BOrp(3)$ is the 3-cell complex $(S^2 \cup_2 e_3) \cup_\gamma e_5$, where $\gamma$ is the generator of $\pi_4(\Sigma \RP^2) = \ZZ/4$.  \CD{If there is one, include the explicit homotopy theoretic description of the generator in the statement of this proposition.  If not, wait to give the geometric description later.}
+The fourth homotopy group of the suspension of the real projective plane is $\ZZ/4$, generated by a class called $\frac{\eta q}{2}$ in deference to the fact that $2 \cdot \frac{\eta q}{2}$ is equal to the homotopy class of the composite $S^4 \xra{\eta} S^3 \xra{q} S^2 \xra{\text{inc}} \Sigma \RP^2$.
+\end{proposition}
+\CD{Do we have a homotopy theoretic description of the generator?} %Later we will certainly give the geometric description.
+\CDcomm{Need to add a reference or proof here.}
+
+\begin{proposition} \label{prop-borp}
+The minimal 4-truncation of $BOrp(3)$ is the 3-cell complex $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.
 \end{proposition}
 \begin{proof}
 The homotopy groups of $S^3$ determine the homotopy groups of $SO(3)$ which determine the homotopy groups of $BSO(3)$ as $0$, $\ZZ/2$, $0$, $\ZZ$, $\ZZ/2$ for $\pi_1$ through $\pi_5$.  Using the slightly surprising fact that the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ induces multiplication by 4 on $\pi_4$, this in turn determines the homotopy groups of $BOrp(3)$ as $0$, $\ZZ/2$, $\ZZ/4$, $0$, $\ZZ/2$.  
 
-The Serre spectral sequence for $SO(3) \ra * \ra BSO(3)$ shows the cohomology of $BSO(3)$ is $0$, $0$, $\ZZ/2$, $\ZZ$, $0$ for $H^1$ through $H^5$, and the Serre spectral sequence for $K(\ZZ,3) \ra BOrp(3) \ra BSO(3)$ then gives the cohomology of $BOrp(3)$ as $0$, $0$, $\ZZ/2$, $0$, $0$.
+The Serre spectral sequence for $SO(3) \ra * \ra BSO(3)$ shows the cohomology of $BSO(3)$ is $0$, $0$, $\ZZ/2$, $\ZZ$, $0$, $\ZZ/2$ for $H^1$ through $H^6$, and the Serre spectral sequence for $K(\ZZ,3) \ra BOrp(3) \ra BSO(3)$ then gives the cohomology of $BOrp(3)$ as $0$, $0$, $\ZZ/2$, $0$, $0$, $\ZZ/4$.  (The extension in degree 6 is resolved by the corresponding mod 2 spectral sequence.)
 
-From the cohomology of $BOrp(3)$ we see that there is a map $\Sigma \RP^2 \ra BOrp(3)$ which is an isomorphism on $H_{\leq 4}$.  By Hurewicz it follows that this map is an isomorphism on $\pi_{\leq 3}$.  We now need to know that $\pi_4(\Sigma \RP^2)$ is $\ZZ/4$, and later we will need to know that a generator is the map $\gamma :=$ \CDcomm{ho theory description}; note that \CDcomm{$2 \gamma = \eta q \iota$} where $\iota: S^2 \ra \Sigma \RP^2$ is the inclusion---for these facts see \CDcomm{xxx}.  \CD{This sentence I have not checked.  Include a sketch proof?}
-
-Because $\pi_4(BOrp(3))$ is zero, we may pick an extension of the map $\Sigma \RP^2 \ra BOrp(3)$ to a map $(S^2 \cup_2 e_3) \cup_\gamma e_5 \ra BOrp(3)$.  This later map is now a 4-equivalence, as desired.  Note that there were two possible choices of the extension, but both yield 4-equivalences and we will have no need to differentiate them.
+From the cohomology of $BOrp(3)$ we see that there is a map $\Sigma \RP^2 \ra BOrp(3)$ which is an isomorphism on $H_{\leq 4}$.  By Hurewicz it follows that this map is an isomorphism on $\pi_{\leq 3}$.  To correct the $\pi_4$ discrepancy, we need to attach a 5-cell to kill $\pi_4(\Sigma \RP^2)$.  Because $\pi_4(BOrp(3))$ is zero, we may pick an extension of the map $\Sigma \RP^2 \ra BOrp(3)$ to a map $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \ra BOrp(3)$.  This latter map is now a 4-equivalence, as desired.  This truncation is clearly minimal.  Note that there were two possible choices of the extension, but both yield 4-equivalences and we will have no need to differentiate them.
 \end{proof}
 
-\nid This truncation is clearly minimal. \CDcomm{once the definition is there, replace all these by brief actual explanations.}
+\subsection{Of the space $BSO(3)$}.
 
-\subsection{Of the space $BSO(3)$}
-
-\subsubsection{A minimal cell structure}
-
-\subsubsection{A pushout cell structure}
-.
 
 \begin{definition}
 A commutative square is a pushout of $n$-types, also called an $n$-pushout, if the canonical map from the pushout to the target object is an $n$-equivalence.
@@ -148,30 +148,48 @@ A commutative square is a pushout of $n$-types, also called an $n$-pushout, if t
 
 \begin{proposition}
 The commutative square
-\begin{equation} \label{quad-pushout} \tag{Q}
-\xymatrix{
-BQuad \ar[r] \ar[d] & BOrp(3) \ar[d] \\
-BSO(2) \ar[r] & BSO(3)
-}
-\end{equation}
-is a $4$-pushout.
-\end{proposition}
-\begin{proof}
-\CDcomm{... ...}
-\end{proof}
-\CD{I suggest that in writing we try to be fairly careful to denote the difference between a space $X$ and its $k$-truncation or $k$-quotient, ie never leave the truncation/quotient implicit.}
-\CD{Note that someplace you should at least state explicitly that the map BQuad to BOrp(3) exists and is uniquely determined simply as a lift of the composite BQuad to BSO(2) to BSO(3).}
-
-\begin{remark}
-Notice that the commutative square
 \begin{equation}\label{s2-pushout} \tag{S}
 \xymatrix{
 B\Omega S^2 \ar[r] \ar[d] & BOrp(3) \ar[d] \\
 BSO(2) \ar[r] & BSO(3)
 }
 \end{equation}
-is also a $4$-pushout, even though the map from~\eqref{s2-pushout} to~\eqref{quad-pushout} is not an objectwise $4$-equivalence.  Though the square~\eqref{s2-pushout} is more elementary, the square~\eqref{quad-pushout} is more useful conceptually.
-\end{remark}
+is a $4$-pushout.
+\end{proposition}
+\begin{proof}
+We need to show that the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-equivalence.  By the exact sequence of the pair $(P, BOrp(3))$, the homology of $P$ in degrees 1 through 5 is $0$, $\ZZ/2$, $0$, $\ZZ$, $\ZZ/4$.  Now consider the map $P \ra BSO(3)$ in homology.  The maps $H_2(BOrp(3)) \ra H_2(P)$ and $H_5(BOrp(3)) \ra H_5(P)$ are isomorphisms, and $H_2(BOrp(3)) \ra H_2(BSO(3))$ is an isomorphism and $H_5(BOrp(3)) \ra H_5(BSO(3))$ is surjective by the Serre spectral sequence of $K(\ZZ,3) \ra BOrp(3) \ra BSO(3)$.  The map $H_4(BSO(2)) \ra H_4(P)$ is an isomorphism, and the map $H_4(BSO(2)) \ra H_4(BSO(3))$ is an isomorphism (by for instance noting that the mod 2 reduction of $p_1$ is $w_2^2$ and that considered with $\ZZ[\frac{1}{2}]$ coefficients, the pullback of $p_1$ to $BU(1)$ is $c_1^2$).  It follows that $H_{\leq 5}(BSO(3),P) = 0$, thus $\pi_{\leq 5}(BSO(3),P) = 0$ and so the map $P \ra BSO(3)$ is a 4-equivalence, as desired.
+\end{proof}
+
+%\CD{I suggest that in writing we try to be fairly careful to denote the difference between a space $X$ and its $k$-truncation or $k$-quotient, ie never leave the truncation/quotient implicit.}
+
+\begin{corollary} \label{cor-bso3}
+The minimal 4-truncation of $BSO(3)$ is the 4-cell complex $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$, where $q: S^3 \ra S^2$ and $\frac{\eta q}{2}: S^4 \ra (S^2 \cup_2 e_3)$ are generators.
+\end{corollary}
+
+\begin{proof}
+By the proposition, the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-equivalence.  Note that $_4 BSO(2) \cup_{S^2} {}_4 BOrp(3)$ is a 4-truncation of $P$ and therefore provides a 4-truncation of $BSO(3)$.  Using Proposition~\ref{prop-borp} the cell structure of that space is as described.  
+
+That this truncation is uniquely minimal is seen as follows.  The first four homology groups of $BSO(3)$ force any truncation to have at least one cell in each of the dimensions 2, 3, and 4.  If the truncation has only three cells, the attaching map of the 3-cell must be multiplication by 2, and the third homotopy group of $BSO(3)$ forces the attaching map of the 4-cell to be a generator; call the resulting complex $H := (S^2 \cup_2 e_3) \cup_q e_4$.  \CDcomm{(Proof that H is not yet a 4-truncation, eg that $\pi_4(H)$ has a nontrivial 2-torsion element.)}  We therefore know that a minimal truncation must have exactly 4-cells.  If it has two 2-cells or two 3-cells, the homology in dimension 2 or 3 respectively will not match that of $BSO(3)$, preventing it from being a 4-truncation.  If the putative 4-cell truncation $T$ has two 4-cells, the homotopy exact sequence of the pair $(BSO(3), T)$ shows that $\pi_4(T) \ra \pi_4(BSO(3))$ cannot be an isomorphism.  A minimal truncation must therefore have a single cell in each of dimensions 2, 3, 4, and 5, and \CDcomm{whatever the proof was about H should make it clear that you have to attach by eta q / 2}.
+\end{proof}
+
+Because the fourth and fifth cohomology groups of $BQuad$ are trivial, the composite $BQuad \ra BSO(2) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ is trivial and the map $BQuad \ra BSO(3)$ lifts uniquely to a map $BQuad \ra BOrp(3)$.
+
+\begin{corollary}
+The commutative square
+\begin{equation} \label{quad-pushout} \tag{Q}
+\xymatrix{
+BQuad \ar[r] \ar[d] & BOrp(3) \ar[d] \\
+BSO(2) \ar[r] & BSO(3)
+}
+\end{equation}
+is also a $4$-pushout.
+\end{corollary}
+\begin{proof}
+Though the map $B\Omega S^2 \ra BQuad$ is not a 4-equivalence, the difference of 4-types is a single additional 5-cell in $BQuad$, which results in an additional 6-cell of $BSO(2) \cup_{BQuad} BOrp(3)$ compared to $BSO(2) \cup_{B\Omega S^2} BOrp(3)$; that 6-cell does not affect the 4-type of the pushout.
+\end{proof}
+
+\nid Though the square~\eqref{s2-pushout} is more elementary, the square~\eqref{quad-pushout} encodes important conceptual information not visible in~\eqref{s2-pushout}.  Specifically, a cellular model of the pushout $BSO(2) \cup_{BQuad} BOrp(3)$ has, in addition to cells $e_2$, $e_3$, $e_4$, and $e_5$ described in Corollary~\ref{cor-bso3}, a 6-cell $e_6$ attached as follows.  First note that the 5-cell of $BQuad$ maps by multiplication by $2$ to the 5-cell of $BOrp(3)$ and by the cone on $\eta$ to the 4-cell of $BSO(2)$.  % This is not at all clear, but is forced if you know 2 gamma = eta q.  Maybe rephrase in a less flippant way?
+Now decompose the boundary $\partial e_6$ as the union $a_5 \cup (S^4 \times I) \cup b_5$, for 5-cells $a_5$ and $b_5$.  The cell $a_5$ wraps twice onto $e_5$, and the cell $b_5$ maps by the cone on $\eta: S^4 \ra S^3$ onto $e_4$, while the cylinder $S^4 \times I$ performs a homotopy between $2 \gamma : S^4 \ra \Sigma \RP^2$ and $\eta q: S^4 \ra S^2$ in $\Sigma \RP^2$.  In words, the 4-cell of $BSO(3)$ trivializes $q$ while the 5-cell trivializes $\gamma$, and the 6-cell witnesses the equivalence of $\eta$ times the trivialization of $q$ with $2$ times the trivialization of $\gamma$.
 
 \begin{remark}
 There is a commutative square (but not a 4-pushout),
@@ -181,15 +199,12 @@ B\Omega S^2 \ar[r] \ar[d] & B\Omega \Sigma \RP^2 \ar[d] \\
 BQuad \ar[r] & BOrp(3)
 }
 \end{equation}
-\CD{check this isn't a 4-pushout}
-As mentioned, the space $BQuad$ may be replaced by $B\Omega S^2$ in the pushout square \eqref{quad-pushout}.  The space $BOrp(3)$ cannot be similarly replaced by $B\Omega \Sigma \RP^2$.  Nevertheless it will sometimes be useful to consider building an $Orp(3)$ action by first building an $\Omega \Sigma \RP^2$ action.
+% It isn't a 4-pushout because the pushout is Sigma RP2 with a 5-cell killing eta q, but you know eta q is twice the generator of pi_4 Sigma RP2, so there is pi_4 left in the pushout, which is no present in BOrp(3).
+We saw that $B\Omega S^2$ and $BQuad$ were interchangable in the pushout square.  The space $BOrp(3)$ cannot be similarly replaced by $B\Omega \Sigma \RP^2$.  Nevertheless it will sometimes be useful to consider building an $Orp(3)$ action by first building an $\Omega \Sigma \RP^2$ action.
 \end{remark}
 
-To determine the cell structure of the 4-type of $BSO(3)$, it therefore suffices to glue together the cell structures of the 4-types of $BSO(2)$ and $BOrpo(3)$ along $BQuad$.
 
-\begin{proposition}
-\CDcomm{full cell description of BSO(3) via Q here.}
-\end{proposition}
+\CDcomm{Later on, we'll describe the meaning of a Quad action, etc, and then refer back to see that S leads to one description, while Q leads to a slightly lengthier description that ties together the trivialization of q and the condition on eta q / 2.}
 
 \section{Homotopy actions}
 
