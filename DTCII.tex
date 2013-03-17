@@ -101,7 +101,7 @@ The space $B\Quad$ is the homotopy fiber of the map $c_1^2: BSO(2) \ra K(\ZZ,4)$
 %\CD{Maybe Quad will already have been introduced earlier.}
 
 
-\begin{proposition}
+\begin{proposition} \label{prop-quadtrunc}
 The minimal 4-trunctation of $BQuad$ is the 2-cell complex $S^2 \cup_{\eta q} e_5$.  Here the attaching map is the composite of the generator $\eta: S^4 \ra S^3$ and the generator $q: S^3 \ra S^2$.
 \end{proposition}
 
@@ -128,7 +128,7 @@ The fourth homotopy group of the suspension of the real projective plane is $\ZZ
 \CD{Do we have a homotopy theoretic description of the generator?} %Later we will certainly give the geometric description.
 \CDcomm{Need to add a reference or proof here.}
 
-\begin{proposition} \label{prop-borp}
+\begin{proposition} \label{prop-borptrunc}
 The minimal 4-truncation of $BOrp(3)$ is the 3-cell complex $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.
 \end{proposition}
 \begin{proof}
@@ -162,12 +162,12 @@ We need to show that the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-
 
 %\CD{I suggest that in writing we try to be fairly careful to denote the difference between a space $X$ and its $k$-truncation or $k$-quotient, ie never leave the truncation/quotient implicit.}
 
-\begin{corollary} \label{cor-bso3}
+\begin{corollary} \label{cor-bso3trunc}
 The minimal 4-truncation of $BSO(3)$ is the 4-cell complex $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$, where $q: S^3 \ra S^2$ and $\frac{\eta q}{2}: S^4 \ra (S^2 \cup_2 e_3)$ are generators.
 \end{corollary}
 
 \begin{proof}
-By the proposition, the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-equivalence.  Note that $_4 BSO(2) \cup_{S^2} {}_4 BOrp(3)$ is a 4-truncation of $P$ and therefore provides a 4-truncation of $BSO(3)$.  Using Proposition~\ref{prop-borp} the cell structure of that space is as described.  
+By the proposition, the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-equivalence.  Note that $_4 BSO(2) \cup_{S^2} {}_4 BOrp(3)$ is a 4-truncation of $P$ and therefore provides a 4-truncation of $BSO(3)$.  Using Proposition~\ref{prop-borptrunc} the cell structure of that space is as described.  
 
 That this truncation is uniquely minimal is seen as follows.  The first four homology groups of $BSO(3)$ force any truncation to have at least one cell in each of the dimensions 2, 3, and 4.  If the truncation has only three cells, the attaching map of the 3-cell must be multiplication by 2, and the third homotopy group of $BSO(3)$ forces the attaching map of the 4-cell to be a generator; call the resulting complex $H := (S^2 \cup_2 e_3) \cup_q e_4$.  \CDcomm{(Proof that H is not yet a 4-truncation, eg that $\pi_4(H)$ has a nontrivial 2-torsion element.)}  We therefore know that a minimal truncation must have exactly 4-cells.  If it has two 2-cells or two 3-cells, the homology in dimension 2 or 3 respectively will not match that of $BSO(3)$, preventing it from being a 4-truncation.  If the putative 4-cell truncation $T$ has two 4-cells, the homotopy exact sequence of the pair $(BSO(3), T)$ shows that $\pi_4(T) \ra \pi_4(BSO(3))$ cannot be an isomorphism.  A minimal truncation must therefore have a single cell in each of dimensions 2, 3, 4, and 5, and \CDcomm{whatever the proof was about H should make it clear that you have to attach by eta q / 2}.
 \end{proof}
@@ -188,7 +188,7 @@ is also a $4$-pushout.
 Though the map $B\Omega S^2 \ra BQuad$ is not a 4-equivalence, the difference of 4-types is a single additional 5-cell in $BQuad$, which results in an additional 6-cell of $BSO(2) \cup_{BQuad} BOrp(3)$ compared to $BSO(2) \cup_{B\Omega S^2} BOrp(3)$; that 6-cell does not affect the 4-type of the pushout.
 \end{proof}
 
-\nid Though the square~\eqref{s2-pushout} is more elementary, the square~\eqref{quad-pushout} encodes important conceptual information not visible in~\eqref{s2-pushout}.  Specifically, a cellular model of the pushout $BSO(2) \cup_{BQuad} BOrp(3)$ has, in addition to cells $e_2$, $e_3$, $e_4$, and $e_5$ described in Corollary~\ref{cor-bso3}, a 6-cell $e_6$ attached as follows.  First note that the 5-cell of $BQuad$ maps by multiplication by $2$ to the 5-cell of $BOrp(3)$ and by the cone on $\eta$ to the 4-cell of $BSO(2)$.  % This is not at all clear, but is forced if you know 2 gamma = eta q.  Maybe rephrase in a less flippant way?
+\nid Though the square~\eqref{s2-pushout} is more elementary, the square~\eqref{quad-pushout} encodes important conceptual information not visible in~\eqref{s2-pushout}.  Specifically, a cellular model of the pushout $BSO(2) \cup_{BQuad} BOrp(3)$ has, in addition to cells $e_2$, $e_3$, $e_4$, and $e_5$ described in Corollary~\ref{cor-bso3trunc}, a 6-cell $e_6$ attached as follows.  First note that the 5-cell of $BQuad$ maps by multiplication by $2$ to the 5-cell of $BOrp(3)$ and by the cone on $\eta$ to the 4-cell of $BSO(2)$.  % This is not at all clear, but is forced if you know 2 gamma = eta q.  Maybe rephrase in a less flippant way?
 Now decompose the boundary $\partial e_6$ as the union $a_5 \cup (S^4 \times I) \cup b_5$, for 5-cells $a_5$ and $b_5$.  The cell $a_5$ wraps twice onto $e_5$, and the cell $b_5$ maps by the cone on $\eta: S^4 \ra S^3$ onto $e_4$, while the cylinder $S^4 \times I$ performs a homotopy between $2 \gamma : S^4 \ra \Sigma \RP^2$ and $\eta q: S^4 \ra S^2$ in $\Sigma \RP^2$.  In words, the 4-cell of $BSO(3)$ trivializes $q$ while the 5-cell trivializes $\gamma$, and the 6-cell witnesses the equivalence of $\eta$ times the trivialization of $q$ with $2$ times the trivialization of $\gamma$.
 
 \begin{remark}
@@ -203,6 +203,9 @@ BQuad \ar[r] & BOrp(3)
 We saw that $B\Omega S^2$ and $BQuad$ were interchangable in the pushout square.  The space $BOrp(3)$ cannot be similarly replaced by $B\Omega \Sigma \RP^2$.  Nevertheless it will sometimes be useful to consider building an $Orp(3)$ action by first building an $\Omega \Sigma \RP^2$ action.
 \end{remark}
 
+\begin{remark}
+We could have more briefly described a 4-truncation of $BSO(3)$ without reference to $BOrp(3)$, $BSO(2)$, $BQuad$, and whatnot.  But it will be important for our applications to topological field theories associated to fusion categories that we understand the 4-truncations of those structure groups as well, and the exact relationship of those truncations to that of $BSO(3)$.
+\end{remark}
 
 \CDcomm{Later on, we'll describe the meaning of a Quad action, etc, and then refer back to see that S leads to one description, while Q leads to a slightly lengthier description that ties together the trivialization of q and the condition on eta q / 2.}
 
@@ -212,9 +215,59 @@ We saw that $B\Omega S^2$ and $BQuad$ were interchangable in the pushout square.
 
 \subsection{By the groups $\Omega S^2$ and $\Quad$}
 
+\begin{proposition}
+The homotopy classes of $\Omega S^2$ actions on a 3-type $X$ are classified by the elements of $\pi_1(\Aut(X))$.
+\end{proposition}
+
+\begin{proof}
+By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Omega S^2 \ra B\Aut(X)$.  Up to equivalence, that is an element of $\pi_2(B\Aut(X)) = \pi_1(\Aut(X))$.
+\end{proof}
+
+\nid We typically use $S$ to denote a based map $S^1 \ra \Aut(X)$ determining the $\Omega S^2$ action on $X$, and we use $[S] \in \pi_1(\Aut(X))$ to denote the corresponding homotopy class.
+
+\CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$}
+
+The map $S : S^1 \ra \Aut(X)$ can equally well be viewed as a point of $\Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (clockwise) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
+\begin{equation} \label{eq-q}
+q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \Omega (\Omega \Aut(X))
+\end{equation}
+Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$.  We will refer to this as the figure-8 construction.
+
+
+We may play the same game again.  We have $q(S) \in \Omega^2 \Aut(X)$.  Though it does not matter particularly, for definiteness let $\cdot$ as before denote the first loop composition, and $\circ$ now denote the second loop composite.  The space $\Omega^2 \Aut(X)$ is an $E_3$-space and therefore has a path $\tau_{a,b}$ from $a \circ b$ to $b \circ a$ implementing the symmetric switch.  For any point $A \in \Omega^2 \Aut(X)$ we may form the following composite
+\begin{equation} \label{eq-eta}
+\eta(A) := (I \ra A \circ A^{-1} \xra{\tau_{A,A^{-1}}} A^{-1} \circ A \ra I) \in \Omega(\Omega^2 \Aut(X))
+\end{equation}
+Here $I$ now denotes the trivial double loop at the identity automorphism.  This construction provides a map $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$, which may also be called the figure-8 construction.
+
+\begin{proposition} \label{prop-quadaction}
+The homotopy classes of $Quad$ actions on a 3-type $X$ are classified by the elements $[S] \in \pi_1(\Aut(X))$ such that $\eta(q([S])) = 0 \in \pi_3(\Aut(X))$, that is such that the double figure-8 construction on $[S]$ vanishes.
+\end{proposition}
+\begin{proof}
+By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ is $\eta q: S^4 \ra S^2$, where $\eta : S^4 \ra S^3$ is nontrivial and $q: S^3 \ra S^2$ is a generator.  It suffices therefore to know, first, that the above construction $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$ is given homotopy-theoretically by $\pi_1(\Aut(X)) = \pi_2(B\Aut(X)) \xra{q^\ast} \pi_3(B\Aut(X)) = \pi_2(\Aut(X))$, where here the map $q^\ast$ refers to pullback along the map $q: S^3 \ra S^2$, and, second, that the above construction $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$ is given by the pullback $\pi_2(\Aut(X)) = \pi_3(B\Aut(X)) \xra{\eta^\ast} \pi_4(B\Aut(X)) = \pi_3(\Aut(X))$ along $\eta: S^4 \ra S^3$.
+
+Turning the condition around, we would like to know that the composite $\pi_2(B\Aut(X)) = \pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X)) = \pi_3(B\Aut(X))$ is pullback along $q: S^3 \ra S^2$.  This fact is true when any space $Y$ and its loop space $\Omega Y$ are substituted for $B\Aut(X)$ and $\Aut(X)$ respectively.  As it is a statement about a map from $\pi_2(Y)$, it suffices to check in the universal case $Y = S^2$ and for the element $(S^2 \xra{\id} S^2) \in \pi_2(S^2)$.  In that case, the construction~\eqref{eq-q} is the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^3$: take the normally framed figure-8 immersion of $S^1$ into $\RR^2$, compose with the inclusion $\RR^2 \ra \RR^3$ equipped with the trivial normal framing, and deform the composite to an embedding.  The resulting normally framed manifold does indeed represent a generator of $\pi_3(S^2)$.
+
+For the second condition, we replace $B\Aut(X)$ in the composite $\pi_3(B\Aut(X)) = \pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X)) = \pi_4(B\Aut(X))$ by the universal space $S^3$ and check the condition on the element $(S^3 \xra{\id} S^3) \in \pi_3(S^3)$.  The construction~\eqref{eq-eta} produces the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^4$: take the previously described normally framed embedding of $S^1$ into $\RR^3$ and include it into $\RR^4$, adding a trivial normal framing direction.  This normal framed manifold represents a generator of $\pi_4(S^3)$ as required.
+\end{proof}
+
+%Said in more homotopy theoretic terms, $S$ is a map $S^2 \ra B^2 \Omega \Aut(X)$, and $q(S)$ is the pullback of that map along a (positive) generating map $q: S^3 \ra S^2$.
+
+%Said in more homotopy theoretic terms, $A$ is a map $S^3 \ra B^3 \Omega^2 \Aut(X)$ and $\eta(A)$ is the pullback of that map along the nontrivial map $\eta: S^4 \ra S^3$.
+
+\CDcomm{What is a cellular 3-truncation of $Quad$? ... $Quad \ra \Aut(X)$}
 
 \subsection{By the group $SO(2)$}
 
+\begin{prop}
+The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,E)$, where $S: S^1 \ra \Aut(X)$ is a map and $E$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction applied to $S$.
+\end{prop}
+% The construction of q really does provide a map from \Omega \Aut(X) to \Omega^2 \Aut(X) so the statement of the proposition makes sense.
+\begin{proof}
+As mentioned, the 4-truncation of $BSO(2)$ is $S^2 \cup_q e_4$.  The action map on the 2-cell, $S^2 \ra B\Aut(X)$, is provided by $S \in \Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.  An extension of this map over the 4-cell is a null homotopy of the composite $S^3 \xra{q} S^2 \xra{S} B\Aut(X)$, that is a path in $\Omega^3 B\Aut(X)$ from $q^\ast S$ to the identity.  The proof of Proposition~\ref{prop-quadaction} shows that such a null homotopy is provided by a null homotopy of $q(S) \in \Omega^2 \Aut(X) \simeq \Omega^3 B\Aut(X)$.
+\end{proof}
+
+% Maybe all this can be
 
 \subsection{By the groups $\Omega \Sigma \RP^2$ and $Orp(3)$}
 
