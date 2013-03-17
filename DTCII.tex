@@ -233,6 +233,20 @@ q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \
 \end{equation}
 Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$.  We will refer to this as the figure-8 construction.
 
+\begin{lemma} \label{lemma-q}
+The figure-8 constuction~\eqref{eq-q} represents precomposition with a generating element $q: S^3 \ra S^2$ of $\pi_3(S^2)$.  Specifically, the following square commutes up to homotopy, where ``$q$" refers to the above construction, and ``$q^\ast$" refers to pullback along the element $q$:
+\begin{equation} \nn
+\xymatrix{
+\Omega^2 B\Aut(X) \ar[r]^{q^\ast} \ar@{<->}[d]_{\simeq} & \Omega^3 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
+\Omega \Aut(X) \ar[r]_{q} & \Omega^2 \Aut(X)
+}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+In fact, the square commutes with any space $Y$ in place of $B\Aut(X)$ and correspondingly $\Omega Y$ in place of $\Aut(X)$.  Because both the constructions $q$ and $q^\ast$ are natural, to prove the general case, it suffices to check in the universal case of $Y = S^2$ on the universal point $(S^2 \xra{\id} S^2) \in \Omega^2 S^2$.  In that case, construction~\eqref{eq-q} is the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^3$: take the normally framed figure-8 immersion of $S^1$ into $\RR^2$, compose with the inclusion $\RR^2 \ra \RR^3$ equipped with the trivial normal framing, and deform the composite to an embedding (having a clockwise braid).  That normally framed embedding does indeed represent a generator of $\pi_3(S^2)$ as required.
+%NB Though this might look like it only checks on $\pi_0$, this does provide a proof of the commutativity of the square.  Specifically, you choose a single universal homotopy in the universal case, and then the image of that homotopy under a map \Omega^2 S^2 \ra \Omega^2 Y is a continuously varying homotopy showing the diagram commutes.
+\end{proof}
 
 We may play the same game again.  We have $q(S) \in \Omega^2 \Aut(X)$.  Though it does not matter particularly, for definiteness let $\cdot$ as before denote the first loop composition, and $\circ$ now denote the second loop composite.  The space $\Omega^2 \Aut(X)$ is an $E_3$-space and therefore has a path $\tau_{a,b}$ from $a \circ b$ to $b \circ a$ implementing the symmetric switch.  For any point $A \in \Omega^2 \Aut(X)$ we may form the following composite
 \begin{equation} \label{eq-eta}
@@ -240,20 +254,29 @@ We may play the same game again.  We have $q(S) \in \Omega^2 \Aut(X)$.  Though i
 \end{equation}
 Here $I$ now denotes the trivial double loop at the identity automorphism.  This construction provides a map $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$, which may also be called the figure-8 construction.
 
+\begin{lemma} \label{lemma-eta}
+The figure-8 construction~\eqref{eq-eta} represents precomposition with a nontrivial element $\eta: S^4 \ra S^3$ of $\pi_4(S^3)$.  More precisely, the following square commutes up to homotopy, where ``$\eta$" refers to the above construction, and ``$\eta^\ast$" refers to pullback along the element $\eta$:
+\begin{equation} \nn
+\xymatrix{
+\Omega^3 B\Aut(X) \ar[r]^{\eta^\ast} \ar@{<->}[d]_{\simeq} & \Omega^4 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
+\Omega^2 \Aut(X) \ar[r]_{\eta} & \Omega^3 \Aut(X)
+}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+As for the previous lemma, it suffices to check for the universal space, here $S^3$ in place of $B\Aut(X)$, and on the universal point, here $(S^3 \xra{\id} S^3) \in \Omega^3 S^3$.  In that case, construction~\eqref{eq-eta} is the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^4$: take the normally framed embedding of $S^1$ into $\RR^3$ from the proof of Lemma~\ref{lemma-q} and include it into $\RR^4$, adding a trivial normal framing direction.  This normally framed manifold represents a generator of $\pi_4(S^3)$ as required.
+\end{proof}
+
+We can now describe homotopy $Quad$ actions.
+
 \begin{proposition} \label{prop-quadaction}
 The homotopy classes of $Quad$ actions on a 3-type $X$ are classified by the elements $[S] \in \pi_1(\Aut(X))$ such that $\eta(q([S])) = 0 \in \pi_3(\Aut(X))$, that is such that the double figure-8 construction on $[S]$ vanishes.
 \end{proposition}
 \begin{proof}
-By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ is $\eta q: S^4 \ra S^2$, where $\eta : S^4 \ra S^3$ is nontrivial and $q: S^3 \ra S^2$ is a generator.  It suffices therefore to know, first, that the above construction $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$ is given homotopy-theoretically by $\pi_1(\Aut(X)) = \pi_2(B\Aut(X)) \xra{q^\ast} \pi_3(B\Aut(X)) = \pi_2(\Aut(X))$, where here the map $q^\ast$ refers to pullback along the map $q: S^3 \ra S^2$, and, second, that the above construction $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$ is given by the pullback $\pi_2(\Aut(X)) = \pi_3(B\Aut(X)) \xra{\eta^\ast} \pi_4(B\Aut(X)) = \pi_3(\Aut(X))$ along $\eta: S^4 \ra S^3$.
-
-Turning the condition around, we would like to know that the composite $\pi_2(B\Aut(X)) = \pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X)) = \pi_3(B\Aut(X))$ is pullback along $q: S^3 \ra S^2$.  This fact is true when any space $Y$ and its loop space $\Omega Y$ are substituted for $B\Aut(X)$ and $\Aut(X)$ respectively.  As it is a statement about a map from $\pi_2(Y)$, it suffices to check in the universal case $Y = S^2$ and for the element $(S^2 \xra{\id} S^2) \in \pi_2(S^2)$.  In that case, the construction~\eqref{eq-q} is the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^3$: take the normally framed figure-8 immersion of $S^1$ into $\RR^2$, compose with the inclusion $\RR^2 \ra \RR^3$ equipped with the trivial normal framing, and deform the composite to an embedding.  The resulting normally framed manifold does indeed represent a generator of $\pi_3(S^2)$.
-
-For the second condition, we replace $B\Aut(X)$ in the composite $\pi_3(B\Aut(X)) = \pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X)) = \pi_4(B\Aut(X))$ by the universal space $S^3$ and check the condition on the element $(S^3 \xra{\id} S^3) \in \pi_3(S^3)$.  The construction~\eqref{eq-eta} produces the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^4$: take the previously described normally framed embedding of $S^1$ into $\RR^3$ and include it into $\RR^4$, adding a trivial normal framing direction.  This normal framed manifold represents a generator of $\pi_4(S^3)$ as required.
+By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ is $\eta q: S^4 \ra S^2$, where $\eta : S^4 \ra S^3$ is nontrivial and $q: S^3 \ra S^2$ is a generator.  It suffices therefore to know that the double figure-8 construction $\pi_1(\Aut(X)) \xra{q \eta} \pi_3(\Aut(X))$ is equal to the pullback $\pi_2(B\Aut(X)) \xra{(\eta q)^\ast} \pi_4(B\Aut(X))$ once $\pi_{k}(\Aut(X))$ and $\pi_{k+1}(B\Aut(X))$ are identified.  This follows from Lemmas~\ref{lemma-q} and~\ref{lemma-eta}.
 \end{proof}
 
-%Said in more homotopy theoretic terms, $S$ is a map $S^2 \ra B^2 \Omega \Aut(X)$, and $q(S)$ is the pullback of that map along a (positive) generating map $q: S^3 \ra S^2$.
-
-%Said in more homotopy theoretic terms, $A$ is a map $S^3 \ra B^3 \Omega^2 \Aut(X)$ and $\eta(A)$ is the pullback of that map along the nontrivial map $\eta: S^4 \ra S^3$.
 
 \CDcomm{What is a cellular 3-truncation of $Quad$? ... $Quad \ra \Aut(X)$}
 
