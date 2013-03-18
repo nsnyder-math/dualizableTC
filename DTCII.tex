@@ -3,6 +3,11 @@
 \documentclass{amsart}
 
 \include{DTC-Preamble}
+\usepackage{MnSymbol} % Needed this for a couple symbols, but it breaks \dtimes, so is not included in the general preamble.
+
+
+\tikzexternaldisable
+
 
 \begin{document}
 
@@ -213,25 +218,38 @@ We could have more briefly described a 4-truncation of $BSO(3)$ without referenc
 
 \CDcomm{This section describes the meaning of a homotopy action for each group.  This is where the explicit translation to computable, i.e. categorically readable, expressions occurs.  Also, for each group, the map $G \ra Aut(X)$ is described.}
 
-\subsection{By the groups $\Omega S^2$ and $\Quad$}
+\subsection{By the groups $\Omega S^2$ and $\Quad$} \label{sec-quadaction}
 
 \begin{proposition}
-The homotopy classes of $\Omega S^2$ actions on a 3-type $X$ are classified by the elements of $\pi_1(\Aut(X))$.
+The space of $\Omega S^2$ actions on a 3-type $X$ is homotopy equivalent to $\Omega \Aut(X)$; in particular, the set of homotopy classes of actions is $\pi_1(\Aut(X))$.
 \end{proposition}
 
 \begin{proof}
-By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Omega S^2 \ra B\Aut(X)$.  Up to equivalence, that is an element of $\pi_2(B\Aut(X)) = \pi_1(\Aut(X))$.
+By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Omega S^2 \ra B\Aut(X)$.  That map is a point of $\Omega^2 B\Aut(X) \simeq \Omega \Aut(X)$.
 \end{proof}
 
 \nid We typically use $S$ to denote a based map $S^1 \ra \Aut(X)$ determining the $\Omega S^2$ action on $X$, and we use $[S] \in \pi_1(\Aut(X))$ to denote the corresponding homotopy class.
 
 \CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$}
 
-The map $S : S^1 \ra \Aut(X)$ can equally well be viewed as a point of $\Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (clockwise) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
+As mentioned, the map $S : S^1 \ra \Aut(X)$ can be viewed as a point $S \in \Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (righthanded) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
 \begin{equation} \label{eq-q}
 q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \Omega (\Omega \Aut(X))
 \end{equation}
-Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$.  We will refer to this as the figure-8 construction.
+Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$, and in fact a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.  We will refer to this as the figure-8 construction, as it imitates the following normally framed embedding of $S^1$ in $\RR^3$:
+\begin{equation} \nn
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft,looseness=1.25]
+(-.75,0) to [out=-90,in=-120] (0,0)
+	to [out=60,in=90] (.75,0);
+\draw[linestyle,coverlineleft,fuzzleft,looseness=1.25]
+(.75,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-.75,0);
+\end{tikzpicture}
+\end{equation} 
+\CD{I do not know how to fix the tikz issue here --- the pre function and the raise function appear to be incompatible.}
+% Note: the vertical direction in this picture is the loop direction, and the automorphism direction is into the page, and left right is the second loop direction.
+The gray fuzz indicates the first normal frame vector, and the second normal frame vector points uniformly out of the page.
 
 \begin{lemma} \label{lemma-q}
 The figure-8 constuction~\eqref{eq-q} represents precomposition with a generating element $q: S^3 \ra S^2$ of $\pi_3(S^2)$.  Specifically, the following square commutes up to homotopy, where ``$q$" refers to the above construction, and ``$q^\ast$" refers to pullback along the element $q$:
@@ -244,7 +262,7 @@ The figure-8 constuction~\eqref{eq-q} represents precomposition with a generatin
 \end{lemma}
 
 \begin{proof}
-In fact, the square commutes with any space $Y$ in place of $B\Aut(X)$ and correspondingly $\Omega Y$ in place of $\Aut(X)$.  Because both the constructions $q$ and $q^\ast$ are natural, to prove the general case, it suffices to check in the universal case of $Y = S^2$ on the universal point $(S^2 \xra{\id} S^2) \in \Omega^2 S^2$.  In that case, construction~\eqref{eq-q} is the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^3$: take the normally framed figure-8 immersion of $S^1$ into $\RR^2$, compose with the inclusion $\RR^2 \ra \RR^3$ equipped with the trivial normal framing, and deform the composite to an embedding (having a clockwise braid).  That normally framed embedding does indeed represent a generator of $\pi_3(S^2)$ as required.
+In fact, the square commutes with any space $Y$ in place of $B\Aut(X)$ and correspondingly $\Omega Y$ in place of $\Aut(X)$.  Because both the constructions $q$ and $q^\ast$ are natural, to prove the general case, it suffices to check in the universal case of $Y = S^2$ on the universal point $(S^2 \xra{\id} S^2) \in \Omega^2 S^2$.  In that case, construction~\eqref{eq-q} is the Pontryagin-Thom image of the normally framed embedding of $S^1$ into $\RR^3$ depicted above; in words, take the normally framed figure-8 immersion of $S^1$ into $\RR^2$, compose with the inclusion $\RR^2 \ra \RR^3$ equipped with the trivial normal framing, and deform the composite to an embedding (having a righthanded braid).  That normally framed embedding does indeed represent a generator of $\pi_3(S^2)$ as required.
 %NB Though this might look like it only checks on $\pi_0$, this does provide a proof of the commutativity of the square.  Specifically, you choose a single universal homotopy in the universal case, and then the image of that homotopy under a map \Omega^2 S^2 \ra \Omega^2 Y is a continuously varying homotopy showing the diagram commutes.
 \end{proof}
 
@@ -252,7 +270,7 @@ We may play the same game again.  We have $q(S) \in \Omega^2 \Aut(X)$.  Though i
 \begin{equation} \label{eq-eta}
 \eta(A) := (I \ra A \circ A^{-1} \xra{\tau_{A,A^{-1}}} A^{-1} \circ A \ra I) \in \Omega(\Omega^2 \Aut(X))
 \end{equation}
-Here $I$ now denotes the trivial double loop at the identity automorphism.  This construction provides a map $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$, which may also be called the figure-8 construction.
+Here $I$ now denotes the trivial double loop at the identity automorphism.  This construction provides a map $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$, in fact a map $\Omega^2 \Aut(X) \xra{\eta} \Omega^3 \Aut(X)$, which may also be called the figure-8 construction.
 
 \begin{lemma} \label{lemma-eta}
 The figure-8 construction~\eqref{eq-eta} represents precomposition with a nontrivial element $\eta: S^4 \ra S^3$ of $\pi_4(S^3)$.  More precisely, the following square commutes up to homotopy, where ``$\eta$" refers to the above construction, and ``$\eta^\ast$" refers to pullback along the element $\eta$:
@@ -271,7 +289,7 @@ As for the previous lemma, it suffices to check for the universal space, here $S
 We can now describe homotopy $Quad$ actions.
 
 \begin{proposition} \label{prop-quadaction}
-The homotopy classes of $Quad$ actions on a 3-type $X$ are classified by the elements $[S] \in \pi_1(\Aut(X))$ such that $\eta(q([S])) = 0 \in \pi_3(\Aut(X))$, that is such that the double figure-8 construction on $[S]$ vanishes.
+The space of $Quad$ actions on a 3-type $X$ is homotopy equivalent to the union of the components of $\Omega \Aut(X)$ corresponding to elements $[S] \in \pi_1(\Aut(X))$ such that $\eta(q([S])) = 0 \in \pi_3(\Aut(X))$, that is such that the double figure-8 construction on $[S]$ vanishes.
 \end{proposition}
 \begin{proof}
 By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ is $\eta q: S^4 \ra S^2$, where $\eta : S^4 \ra S^3$ is nontrivial and $q: S^3 \ra S^2$ is a generator.  It suffices therefore to know that the double figure-8 construction $\pi_1(\Aut(X)) \xra{q \eta} \pi_3(\Aut(X))$ is equal to the pullback $\pi_2(B\Aut(X)) \xra{(\eta q)^\ast} \pi_4(B\Aut(X))$ once $\pi_{k}(\Aut(X))$ and $\pi_{k+1}(B\Aut(X))$ are identified.  This follows from Lemmas~\ref{lemma-q} and~\ref{lemma-eta}.
@@ -283,17 +301,335 @@ By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ 
 \subsection{By the group $SO(2)$}
 
 \begin{prop}
-The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,E)$, where $S: S^1 \ra \Aut(X)$ is a map and $E$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction applied to $S$.
+The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,E)$, where $S: S^1 \ra \Aut(X)$ is a map and $E$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction applied to $S$.  More precisely, the space of $SO(2)$ actions on $X$ is homotopy equivalent to the homotopy pullback $\Omega \Aut(X) \times_{\Omega^2 \Aut(X)} \ast$, where the map is $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
 \end{prop}
 % The construction of q really does provide a map from \Omega \Aut(X) to \Omega^2 \Aut(X) so the statement of the proposition makes sense.
 \begin{proof}
-As mentioned, the 4-truncation of $BSO(2)$ is $S^2 \cup_q e_4$.  The action map on the 2-cell, $S^2 \ra B\Aut(X)$, is provided by $S \in \Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.  An extension of this map over the 4-cell is a null homotopy of the composite $S^3 \xra{q} S^2 \xra{S} B\Aut(X)$, that is a path in $\Omega^3 B\Aut(X)$ from $q^\ast S$ to the identity.  The proof of Proposition~\ref{prop-quadaction} shows that such a null homotopy is provided by a null homotopy of $q(S) \in \Omega^2 \Aut(X) \simeq \Omega^3 B\Aut(X)$.
+As mentioned, the 4-truncation of $BSO(2)$ is $S^2 \cup_q e_4$.  An $SO(2)$ action is therefore a map $S^2 \cup_q e_4 \ra B\Aut(X)$.  On the 2-cell, this map is provided by $S \in \Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.  An extension of the map $S^2 \xra{S} B\Aut(X)$ over the 4-cell is a null homotopy of the composite $S^3 \xra{q} S^2 \xra{S} B\Aut(X)$, that is a path in $\Omega^3 B\Aut(X)$ from $q^\ast S$ to the identity.  By Lemma~\ref{lemma-q}, providing such a null homotopy is equivalent to providing a null homotopy of $q(S) \in \Omega^2\Aut(X) \simeq \Omega^3 B\Aut(X)$.
 \end{proof}
 
-% Maybe all this can be
 
 \subsection{By the groups $\Omega \Sigma \RP^2$ and $Orp(3)$}
 
+Given a loop $S: S^1 \ra \Aut(X)$ of automorphisms of $X$, we can form $S \ast S : S^1 \ra \Aut(X)$ by sending each point $p \in S^1$ to the square $S(p) \ast S(p)$ of the automorphism $S(p) \in \Aut(X)$, or we can form $S \cdot S : S^1 \ra \Aut(X)$ by taking the loop composition of $S$ with itself.  Of course, $S \ast S$ and $S \cdot S$ are homotopic maps $S^1 \ra \Aut(X)$, but there is no canonical homotopy between them so it will occasionally be important to distinguish them.  We will use the expression ``$2S$" as shorthand for $S \ast S$.
+\CDcomm{What is the group of self-homotopy equivalences of $\Sigma \RP^2$?  If it has more than just reflections, then there is a subtlety in the identification of $\Omega \Sigma \RP^2$ actions that we should address/comment on.}
+
+\begin{prop} \label{prop-sigmarp2action}
+The homotopy classes of $\Omega \Sigma \RP^2$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,R)$, where $S: S^1 \ra \Aut(X)$ is a map and $R$ is a null homotopy of $2S: S^1 \ra \Aut(X)$.  More precisely, the space of actions is homotopy equivalent to the homotopy pullback $\Omega \Aut(X) \,_2\!\times_{\Omega \Aut(X)} \ast$, where the subscript $2$ indicates that map is $\Omega \Aut(X) \xra{2} \Omega \Aut(X)$.
+\end{prop}
+% For this to not involve a choice, you need the attaching map of \Sigma \RP^2 to have been doubled in the automorphism direction, that is in the "extra" loop direction.  If it had been doubled in one of the other directions, then there is a left or right choice in the identification of the proposition.  Weird. (??)  Actually, if there aren't any interesting self-equivalences of $\Sigma \RP^2$ then there isn't actually an issue.
+\begin{proof}
+This is immediate, as multiplication by $2$ commutes through the identification $\Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.
+\end{proof}
+
+Recall from Proposition~\ref{prop-borptrunc} that the 4-truncation of $BOrp(3)$ is $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.  From Proposition~\ref{prop-sigmarp2action}, we know that a $\Sigma \RP^2 = S^2 \cup_2 e_3$ action is a point of $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$.  To precisely describe a full $Orp(3)$ action, we need to provide a geometric construction of a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X)$ such that the composite $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X) \simeq \Omega^4 B\Aut(X)$ is pullback along $\frac{\eta q}{2} \in \pi_4(\Sigma\RP^2)$.  
+
+We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Given an element $S \in \Omega \Aut(X)$, recall from Section~\ref{sec-quadaction} that we can read the standard normally framed figure 8 embedding of $S^1$ in $\RR^3$ by performing the element $S$ in a transverse 2-plane slice along the curve, to obtain construction~\eqref{eq-q}, a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.  We can similarly read the following normally framed embedding of $S^1 \times S^1$ into $\RR^4$ as representing a map $\Omega \Aut(X) \xra{\eta q} \Omega^2 \Aut(X)$:
+\begin{equation} \label{eq-etaq}
+\emptyset 
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestylegray,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=120] (1,0)
+	to [out=-60,in=-90] (1.5,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1.5,0) to [out=90,in=60] (1,0)
+	to [out=-120,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestyle,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\end{tikzpicture}}
+\stackrel{\lcurvearrowse}{\leadsto}
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestyle,looseness=1.25]
+(1,-.5) to [out=-90,in=-60] (.5,-.5)
+	to [out=120,in=90] (0,-.5);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\stackrel{\lcurvearrowsw}{\leadsto}
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestyle,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(1.5,0) to [out=90,in=60] (1,0)
+	to [out=-120,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=120] (1,0)
+	to [out=-60,in=-90] (1.5,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestylegray,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestyle,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\emptyset
+\end{equation} 
+Here the normal framing is implicit and is determined as follows: the first nontrivial picture on the left has first normal vector pointing toward the center of the circle and second normal vector pointing out of the page; for the rest of the pictures, the first normal is determined by planar deformation from the first picture, and the second normal continues to point out of the page.  The black line segments indicate the element $S \in \Omega \Aut(X)$, and the gray line segments indicate the element $S^{-1}$, where the inverse is taken in the loop direction.  That the map $\Omega \Aut(X) \xra{\eta q} \Omega^3 \Aut(X)$ produced by the above picture is given by pullback along $\eta q \in \pi_4(S^2)$ is the content of Lemmas~\ref{lemma-q} and ~\ref{lemma-eta}.
+
+Given a point of $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$, we have both a point $S \in \Omega\Aut(X)$ and a null homotopy $R$ of $2S$.  We represent this null homotopy and its inverse graphically by 
+$\cb{
+\begin{tikzpicture}
+\draw[linestyle,looseness=1.75] (0,.15) to [out=0,in=0] (0,-.15);
+\end{tikzpicture}
+}$
+and
+$\cb{
+\begin{tikzpicture}
+\draw[linestyle,looseness=1.75] (0,.15) to [out=180,in=180] (0,-.15);
+\end{tikzpicture}
+}$
+respectively.  Combining this notation with the previous notation of a normally framed surface, the following picture encodes a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \xra{\frac{\eta q}{2}} \Omega^3 \Aut(X)$:
+\begin{equation} \label{eq-etaq2}
+\emptyset 
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestylegray,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=120] (1,0)
+	to [out=-60,in=-90] (1.5,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1.5,0) to [out=90,in=60] (1,0)
+	to [out=-120,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestyle,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\end{tikzpicture}}
+\stackrel{\lcurvearrowse}{\leadsto}
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestyle,looseness=1.25]
+(1,-.5) to [out=-90,in=-60] (.5,-.5)
+	to [out=120,in=90] (0,-.5);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=90] (.15,-.25)
+	to [out=-90,in=90] (0,-.5);
+\draw[linestyle,looseness=1.25]
+(1,0) to [out=90,in=60] (.5,0)
+	to [out=-120,in=90] (.3,-.25)
+	to [out=-90,in=120] (.5,-.5)
+	to [out=-60,in=-90] (1,-.5);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,0) to [out=90,in=120] (.5,0)
+	to [out=-60,in=-90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(.1,0) to [out=90,in=90] (.75,.25);
+\draw[linestyle,looseness=1.25]
+(.1,0) to [out=-90,in=-90] (.75,-.25);
+\draw[linestylegray,looseness=1.75]
+(.75,.25) to [out=-90,in=90] (.4,.15);
+\draw[linestylegray,looseness=1.75]
+(.75,-.25) to [out=90,in=-90] (.4,-.15);
+\draw[linestyle,looseness=1.25]
+(.4,.15) to [out=-90,in=90] (1,0)
+	to [out=-90,in=90] (.4,-.15);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestyle,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\emptyset
+\end{equation}
+\nid We refer to this as the figure-32 construction.
+
+\begin{lemma} \label{lemma-etaq2}
+The figure-32 construction~\eqref{eq-etaq2} represents precomposition with a generator $\frac{\eta q}{2}: S^4 \ra \Sigma \RP^2$ of $\pi_4(\Sigma \RP^2)$.  More precisely, the following square commutes up to homotopy, where $\frac{\eta q}{2}$ refers to the above construction, and $(\frac{\eta q}{2})^\ast$ refers to pullback along the element $\frac{\eta q}{2}$:
+\begin{equation} \nn
+\xymatrix{
+\Map(\Sigma \RP^2,B\Aut(X)) \ar[r]^-{(\frac{\eta q}{2})^\ast} \ar@{<->}[d]_{\simeq} & \Omega^4 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
+\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ar[r]_-{\frac{\eta q}{2}} & \Omega^3 \Aut(X)
+}
+\end{equation}
+\end{lemma}
+\begin{proof}
+By Lemmas~\ref{lemma-q} and~\ref{lemma-eta}, we know that construction~\eqref{eq-etaq} represents precomposition with $\eta q : S^4 \ra S^2 \xra{\text{inc}} \Sigma\RP^2$.  Observe that construction~\eqref{eq-etaq} is homotopic to the sum of construction~\eqref{eq-etaq2} with the following construction:
+\begin{equation} \label{eq-etaq2end}
+\emptyset 
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestyle,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(.1,0) to [out=90,in=90] (.75,.25);
+\draw[linestyle,looseness=1.25]
+(.1,0) to [out=-90,in=-90] (.75,-.25);
+\draw[linestylegray,looseness=1.75]
+(.75,.25) to [out=-90,in=90] (.4,.15);
+\draw[linestylegray,looseness=1.75]
+(.75,-.25) to [out=90,in=-90] (.4,-.15);
+\draw[linestyle,looseness=1.25]
+(.4,.15) to [out=-90,in=90] (1,0)
+	to [out=-90,in=90] (.4,-.15);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=90] (.15,-.25)
+	to [out=-90,in=90] (0,-.5);
+\draw[linestyle,looseness=1.25]
+(1,0) to [out=90,in=60] (.5,0)
+	to [out=-120,in=90] (.3,-.25)
+	to [out=-90,in=120] (.5,-.5)
+	to [out=-60,in=-90] (1,-.5);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,0) to [out=90,in=120] (.5,0)
+	to [out=-60,in=-90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestyle,looseness=1.25]
+(1,-.5) to [out=-90,in=-60] (.5,-.5)
+	to [out=120,in=90] (0,-.5);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\stackrel{\lcurvearrowsw}{\leadsto}
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestyle,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(1.5,0) to [out=90,in=60] (1,0)
+	to [out=-120,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=120] (1,0)
+	to [out=-60,in=-90] (1.5,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestylegray,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestyle,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\emptyset
+\end{equation} 
+Next note that construction~\eqref{eq-etaq2} and the time reversal of construction~\eqref{eq-etaq2end} are vertical reflections of one another; it follows that the sum of \eqref{eq-etaq2} and $-\eqref{eq-etaq2end}$ is null, or said differently, that \eqref{eq-etaq2} and \eqref{eq-etaq2end} are homotopic.  Thus construction~\eqref{eq-etaq2} is a 2-divisor of construction~\eqref{eq-etaq}, and, because $\pi_4(\Sigma \RP^2) = \ZZ/4$, therefore represents $(\frac{\eta q}{2})^\ast$, up to sign.  As we will only be concerned with the vanishing of construction~\eqref{eq-etaq2}, the sign will not matter for us---we leave its determination to the interested reader.
+\end{proof}
+
+\begin{proposition} \label{prop-orpaction}
+The homotopy classes of $Orp(3)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,R)$, where $S: S^1 \ra \Aut(X)$ is a map and $R$ is a null homotopy of $2S$, such that the figure-32 construction on $(S,R)$ is zero.  More precisely, the space of such actions is homotopy equivalent to the union of components of $\Omega \Aut(X) \,2\! \times_{\Omega \Aut(X)} \ast$ on which the figure-32 construction vanishes.
+\end{proposition}
+\begin{proof}
+This follows by combining Proposition~\ref{prop-borptrunc} and Lemma~\ref{lemma-etaq2}.
+\end{proof}
 
 \subsection{By the group $SO(3)$}
 

@@ -53,7 +53,38 @@
 \newcommand{\fillcolor}{black!60}
 \newcommand{\fuzzcolor}{black!25}
 \newcommand{\arrowcolor}{black!25}
+\newcommand{\covercolor}{black!0}
+\newcommand{\graycolor}{black!55}
 
+\newcommand{\coverwidthfuzz}{6pt}
+\newcommand{\coverwidth}{3.5pt}
+\newcommand{\coverwidththin}{3.25pt}
+\newcommand{\coverwidththick}{3.75pt}
+
+\newlength{\linewidthin}
+\setlength{\linewidthin}{1.25pt}
+\newlength{\linewidthick}
+\setlength{\linewidthick}{1.75pt}
+
+
+
+\tikzset{
+	coverline/.style={
+	preaction={draw,line width=\coverwidth,\covercolor}}, 
+	coverlinethin/.style={
+	preaction={draw,line width=\coverwidththin,\covercolor}}, 
+	coverlinethick/.style={
+	preaction={draw,line width=\coverwidththick,\covercolor}}, 
+	coverlineleft/.style={
+	preaction={draw,line width=\coverwidthfuzz,\covercolor,decorate,decoration={curveto,amplitude=0,raise=.35*\fuzzwidth}}}, %%% Notice this number was tweaked, 	
+coverlinelefttail/.style={
+	preaction={draw,line width=\coverwidthfuzz,\covercolor,decorate,decoration={curveto,amplitude=0,raise=.35*\fuzzwidth,pre=moveto,pre length=2pt}}}, %%% Notice this number was tweaked, probably will not look good if parameters change.  Again here, pre removes the raise option.
+        fuzzlefttail/.style={
+        preaction={draw,line width=\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,pre=moveto,pre length=2pt,amplitude=0,raise=.5*\fuzzwidth}}}, %%% This does not work --- somehow pre breaks the raise function.
+        linestylethin/.style={line width=\linewidthin},
+        linestylethick/.style={line width=\linewidthick},
+        linestylegray/.style={line width=\linewid,\graycolor}
+}
 \tikzset{
         fuzzright/.style={
         preaction={draw,line width=\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-.5*\fuzzwidth}}},
@@ -210,6 +241,7 @@
 \newcommand{\Frame}{Frame}
 
 \newcommand{\Aut}{Aut}
+\newcommand{\Map}{Map}
 
 \renewcommand{\Vec}{\mathrm{Vec}}
 \newcommand{\Vect}{\mathrm{Vect}}
