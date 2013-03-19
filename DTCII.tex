@@ -6,7 +6,7 @@
 \usepackage{MnSymbol} % Needed this for a couple symbols, but it breaks \dtimes, so is not included in the general preamble.
 
 
-\tikzexternaldisable
+%\tikzexternaldisable
 
 
 \begin{document}
@@ -239,17 +239,28 @@ q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \
 Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$, and in fact a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.  We will refer to this as the figure-8 construction, as it imitates the following normally framed embedding of $S^1$ in $\RR^3$:
 \begin{equation} \nn
 \begin{tikzpicture}
-\draw[linestyle,fuzzleft,looseness=1.25]
+\draw[linestyle,looseness=1.25]
 (-.75,0) to [out=-90,in=-120] (0,0)
 	to [out=60,in=90] (.75,0);
-\draw[linestyle,coverlineleft,fuzzleft,looseness=1.25]
+\draw[linestylegray,coverline,looseness=1.25]
 (.75,0) to [out=-90,in=-60] (0,0)
 	to [out=120,in=90] (-.75,0);
 \end{tikzpicture}
 \end{equation} 
-\CD{I do not know how to fix the tikz issue here --- the pre function and the raise function appear to be incompatible.}
+%\begin{tikzpicture}
+%\draw[linestyle,fuzzleft,looseness=1.25]
+%(-.75,0) to [out=-90,in=-120] (0,0)
+%	to [out=60,in=90] (.75,0);
+%\draw[linestyle,coverlineleft,fuzzleft,looseness=1.25]
+%(.75,0) to [out=-90,in=-60] (0,0)
+%	to [out=120,in=90] (-.75,0);
+%\end{tikzpicture}
+%\end{equation} 
+%\CD{I do not know how to fix the tikz issue here --- the pre function and the raise function appear to be incompatible.}
 % Note: the vertical direction in this picture is the loop direction, and the automorphism direction is into the page, and left right is the second loop direction.
-The gray fuzz indicates the first normal frame vector, and the second normal frame vector points uniformly out of the page.
+%The gray fuzz indicates the first normal frame vector, and the second normal frame vector points uniformly out of the page.
+The normal framing is implicitly determined as follows: the first normal vector is approximately in the plane of the page, pointing inward on the left side of the figure and outward on the right side, and the second normal vector points uniformly out of the page.  (Here the black line segment indicates the portion that can be interpreted as $S \in \Omega \Aut(X)$ and the gray line segment indicates the portion that can be interpreted as $S^{-1}$.)
+
 
 \begin{lemma} \label{lemma-q}
 The figure-8 constuction~\eqref{eq-q} represents precomposition with a generating element $q: S^3 \ra S^2$ of $\pi_3(S^2)$.  Specifically, the following square commutes up to homotopy, where ``$q$" refers to the above construction, and ``$q^\ast$" refers to pullback along the element $q$:
@@ -300,7 +311,7 @@ By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ 
 
 \subsection{By the group $SO(2)$}
 
-\begin{prop}
+\begin{prop} \label{prop-so2action}
 The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,E)$, where $S: S^1 \ra \Aut(X)$ is a map and $E$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction applied to $S$.  More precisely, the space of $SO(2)$ actions on $X$ is homotopy equivalent to the homotopy pullback $\Omega \Aut(X) \times_{\Omega^2 \Aut(X)} \ast$, where the map is $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
 \end{prop}
 % The construction of q really does provide a map from \Omega \Aut(X) to \Omega^2 \Aut(X) so the statement of the proposition makes sense.
@@ -411,7 +422,7 @@ We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Gi
 \leadsto
 \emptyset
 \end{equation} 
-Here the normal framing is implicit and is determined as follows: the first nontrivial picture on the left has first normal vector pointing toward the center of the circle and second normal vector pointing out of the page; for the rest of the pictures, the first normal is determined by planar deformation from the first picture, and the second normal continues to point out of the page.  The black line segments indicate the element $S \in \Omega \Aut(X)$, and the gray line segments indicate the element $S^{-1}$, where the inverse is taken in the loop direction.  That the map $\Omega \Aut(X) \xra{\eta q} \Omega^3 \Aut(X)$ produced by the above picture is given by pullback along $\eta q \in \pi_4(S^2)$ is the content of Lemmas~\ref{lemma-q} and ~\ref{lemma-eta}.
+Here the normal framing is implicit and as before is determined as follows: the first nontrivial picture on the left has first normal vector pointing toward the center of the circle and second normal vector pointing out of the page; for the rest of the pictures, the first normal is determined by planar deformation from the first picture, and the second normal continues to point out of the page.  Also as before, the black line segments indicate the element $S \in \Omega \Aut(X)$, and the gray line segments indicate the element $S^{-1}$, where the inverse is taken in the loop direction.  That the map $\Omega \Aut(X) \xra{\eta q} \Omega^3 \Aut(X)$ produced by the above picture is given by pullback along $\eta q \in \pi_4(S^2)$ is the content of Lemmas~\ref{lemma-q} and ~\ref{lemma-eta}.
 
 Given a point of $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$, we have both a point $S \in \Omega\Aut(X)$ and a null homotopy $R$ of $2S$.  We represent this null homotopy and its inverse graphically by 
 $\cb{
@@ -625,14 +636,56 @@ Next note that construction~\eqref{eq-etaq2} and the time reversal of constructi
 \end{proof}
 
 \begin{proposition} \label{prop-orpaction}
-The homotopy classes of $Orp(3)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,R)$, where $S: S^1 \ra \Aut(X)$ is a map and $R$ is a null homotopy of $2S$, such that the figure-32 construction on $(S,R)$ is zero.  More precisely, the space of such actions is homotopy equivalent to the union of components of $\Omega \Aut(X) \,2\! \times_{\Omega \Aut(X)} \ast$ on which the figure-32 construction vanishes.
+The homotopy classes of $Orp(3)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,R)$, where $S: S^1 \ra \Aut(X)$ is a map and $R$ is a null homotopy of $2S$, such that the figure-32 construction on $(S,R)$ is zero.  More precisely, the space of such actions is homotopy equivalent to the union of components of $\Omega \Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$ on which the figure-32 construction vanishes.
 \end{proposition}
 \begin{proof}
 This follows by combining Proposition~\ref{prop-borptrunc} and Lemma~\ref{lemma-etaq2}.
 \end{proof}
 
+\CDcomm{A cellular 3-truncation of $Orp(3)$ looks a little messy (cohom is $\ZZ, 0, \ZZ/2, \ZZ/2, \ZZ/2, \ZZ/4$ I believe.  Maybe omit.}
+
 \subsection{By the group $SO(3)$}
 
+\begin{theorem} \label{thm-so3action}
+The homotopy classes of $SO(3)$ actions on a 3-type $X$ are the homotopy classes of triples $(S,R,E)$, where 
+\begin{itemize}
+\item $S: S^1 \ra \Aut(X)$ is a based loop of automorphisms of $X$,
+\item $R: D^2 \ra \Aut(X)$ is a null homotopy of $S \ast S: S^1 \ra \Aut(X)$, the pointwise (that is, automorphism) square of $S$,
+\item $E: D^3 \ra \Aut(X)$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction~\eqref{eq-q} applied to $S$,
+\end{itemize}
+such that
+\begin{itemize}
+\item $\frac{\eta q}{2} (S,R) : S^3 \ra \Aut(X)$, that is the figure-32 construction~\eqref{eq-etaq2} applied to $(S,R)$, is null homotopic.
+\end{itemize}
+\end{theorem}
+By this point needless to say, the space of $SO(3)$ is homotopy equivalent to the space $\ast \,_{\Omega^2 \Aut(X)}\! \times_q \left(\Omega \Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast\right)_{[\frac{\eta q}{2}]=0}$, where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subscript $[\frac{\eta q}{2}]=0$ indicates that the only components where the figure-32 construction vanishes are retained.
+\begin{proof}
+This follows by combining Corollary~\ref{cor-bso3trunc}, Lemma~\ref{lemma-q}, and Lemma~\ref{lemma-etaq2}.
+\end{proof}
+
+Given an $SO(3)$ action on $X$, that is a map $\alpha: BSO(3) \ra B\Aut(X)$, we have an associated map of spaces $\Omega \alpha: SO(3) \ra \Aut(X)$.  Roughly speaking, the map $\Omega \alpha$ knows everything about the action, except that it is in fact an action, i.e. a map of (homotopical) groups.  Given a point $p \in X$, we have a map $\Omega \alpha (p) : SO(3) \ra X$; it is sometimes informative to compute this map explicitly, and to that end convenient to know the map $\Omega \alpha$.  
+
+A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$, where $p: S^2 \ra \RP^2$ is the antipodal quotient.  Given a map $\RP^2 \ra \Aut(X)$, we need to explicitly construct the pullback $S^2 \xra{p} \RP^2 \ra \Aut(X)$.  The map from $\RP^2$ provides a point $S \in \Omega \Aut(X)$ and a null homotopy $R$ of $2S$.  Using the previously described graphical notation for $S$ and $R$, the following picture defines a map $\Map(\RP^2,\Aut(X)) \xra{p} \Omega^2 \Aut(X)$:
+\begin{equation} \label{eq-p}
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.75,0)
+	to [out=60,in=90] (1.5,0);
+\draw[linestyle,coverline,looseness=1.25]
+(1.5,0) to [out=-90,in=-60] (.75,0)
+	to [out=120,in=90] (0,0);
+\end{tikzpicture}}
+\end{equation}
+This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.\CD{This isn't just obvious, I suppose.}  The construction~\eqref{eq-p} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, but we will see that they are, in fact, closely related.
+
+Note that the following square commutes up to homotopy, where ``$p$" refers to the above construction~\eqref{eq-p} and ``$(\Sigma p)^\ast$" refers to pullback along the suspension of the antipodal projection $p: S^2 \ra \RP^2$:
+\begin{equation} \nn
+\xymatrix{
+\Map(\Sigma\RP^2,B\Aut(X)) \ar[r]^-{(\Sigma p)^\ast} \ar@{<->}[d]_{\simeq} & \Omega^3 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
+\Map(\RP^2,\Aut(X)) \ar[r]_-{p} & \Omega^2 \Aut(X)
+}
+\end{equation}
+Seeing that construction~\eqref{eq-p} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that construction~\eqref{eq-q} represents pullback along $q: S^3 \ra S^2$ invites comparison.
 
 \section{Homotopy fixed points}
 
