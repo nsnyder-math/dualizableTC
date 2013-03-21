@@ -658,7 +658,11 @@ such that
 \item $\frac{\eta q}{2} (S,R) : S^3 \ra \Aut(X)$, that is the figure-32 construction~\eqref{eq-etaq2} applied to $(S,R)$, is null homotopic.
 \end{itemize}
 \end{theorem}
-By this point needless to say, the space of $SO(3)$ is homotopy equivalent to the space $\ast \,_{\Omega^2 \Aut(X)}\! \times_q \left(\Omega \Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast\right)_{[\frac{\eta q}{2}]=0}$, where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subscript $[\frac{\eta q}{2}]=0$ indicates that the only components where the figure-32 construction vanishes are retained.
+\nid By this point needless to say, the space of $SO(3)$ is homotopy equivalent to the space
+\begin{equation} \nn
+\ast \,_{\Omega^2 \Aut(X)}\! \times_q \left(\Omega \Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast\right)_{[\frac{\eta q}{2}]=0},
+\end{equation}
+where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subscript $[\frac{\eta q}{2}]=0$ indicates that the only components where the figure-32 construction vanishes are retained.
 \begin{proof}
 This follows by combining Corollary~\ref{cor-bso3trunc}, Lemma~\ref{lemma-q}, and Lemma~\ref{lemma-etaq2}.
 \end{proof}
@@ -676,7 +680,7 @@ A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$,
 	to [out=120,in=90] (0,0);
 \end{tikzpicture}}
 \end{equation}
-This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.\CD{This isn't just obvious, I suppose.}  The construction~\eqref{eq-p} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, but we will see that they are, in fact, closely related.
+This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.\CD{This isn't just obvious, I suppose.}  The construction~\eqref{eq-p} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, but we will see that they are, in fact, closely related.  \CD{Adjust the phrasing here depending on the answer to the snake question.}
 
 Note that the following square commutes up to homotopy, where ``$p$" refers to the above construction~\eqref{eq-p} and ``$(\Sigma p)^\ast$" refers to pullback along the suspension of the antipodal projection $p: S^2 \ra \RP^2$:
 \begin{equation} \nn
@@ -686,6 +690,31 @@ Note that the following square commutes up to homotopy, where ``$p$" refers to t
 }
 \end{equation}
 Seeing that construction~\eqref{eq-p} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that construction~\eqref{eq-q} represents pullback along $q: S^3 \ra S^2$ invites comparison.
+
+\CDcomm{
+To finish this section:
+\begin{itemize}
+\item Lemma that either $p=q$ or that $p=-q$, ideally with geometric proof.  If the former, say that $R$ satisfies the snake, if the latter, note that $R$ need not satisfy the snake.
+\item If $R$ satisfies the snake, then direct diamond geometric proof that $4p=0$.  If not, figure out a no-snake proof.
+\item Proposition that the map $SO(3) \ra Aut(X)$ is S, R, triv of (6). [or could say, triv of q]  Remark: SO(3) action is just that map such that eta q / 2 vanishes, ie no new data in this case.
+\end{itemize}
+}
+
+%\CDcomm{The following lemma might be absolutely completely false.  What is true is that either $p=q$ or $p=-q$, but which one *is* a well defined fact, not just a sign issue, and it corresponds to the question of whether the universal $R$ satisfies the snake relation.}
+%\begin{lemma} \label{lemma-pq}
+%The following triangle commutes up to homotopy, where the left map is restriction:
+%\begin{equation} \nn
+%\xymatrix@R=15pt@C=10pt{
+%& \Omega \Aut(X) \ar[rd]^-{q}& \\
+%\Map(\RP^2,\Aut(X)) \ar[ur] \ar[rr]_-{p} && \Omega^2 \Aut(X)
+%}
+%\end{equation}
+%\end{lemma}
+%\begin{proof}
+%That the triangle commutes up to sign follows from the fact that both the maps $\pi_3(S^2) \xra{\text{inc}} \pi_3(\Sigma \RP^2)$ and $\pi_2(\RP^2) \xra{\Sigma} \pi_3(\Sigma \RP^2)$ are surjective.  A more geometric proof is given by the following homotopy of decorated normally framed manifolds:
+%\begin{equation} \nn
+%\end{equation}
+%\end{proof}
 
 \section{Homotopy fixed points}
 
