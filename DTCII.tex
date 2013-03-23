@@ -50,38 +50,13 @@ If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-
 ... the techniques are for the most part elementary, but we believe the results are of fundamental importance for the study of 3-dimensional quantum topology.
 
 
-\subsection{Warmup: $SO(2)$ actions}
-
-An $SO(2)$ action on a 3-type $X$ is a map $\alpha: BSO(2) \ra BAut(X)$.  The 5-skeleton of $BSO(2)$ has cells $e_2$ and $e_4$.  The data of the map $\alpha$ on $e_2$ is an element of $\pi_2(BAut(X)) = \pi_1(Aut(X))$.  We denote this element $S$ and call it the Serre automorphism.  The 4-cell is attached to the 2-cell by $\eta : S^3 \ra S^2$.  The data of an extension of $S$ to the 4-cell and therefore to all of $BSO(2)$ is given by a trivialization of the composite $\eta S : S^3 \ra BAut(X)$.
-
-\begin{proposition}
-The composite $\eta S : S^3 \ra BAut(X)$ can be computed as follows: draw a figure 8, read the cap and cup as the equivalences $1 \cong S \cdot S^{-1}$ and $S^{-1} \cdot S \cong 1$ and the cross as the braiding of elements in $2Aut(X)$, and evaluate the picture in $\Omega^2(Aut(X)) \simeq \Omega^3 BAut(X)$.
-\end{proposition}
-
-\begin{proof}
-\CDcomm{This would be clear stably, but requires explanation unstably.}
-\end{proof}
-
-To summarize:
-
-\begin{proposition}
-The set of homotopy classes of $SO(2)$ actions on a 3-type $X$ is the set of homotopy classes of pairs $(S,E)$, where $S: S^1 \ra Aut(X)$ is a map and $E : D^3 \ra Aut(X)$ is a null homotopy of the figure 8 composite on $S$.
-\end{proposition}
-
-\CDcomm{More explanation is really necessary to even make the statement clear.  Eg, make clear in what sense is the figure 8 composite an actual map to be trivialized rather than merely a homotopy class of maps.  (If it were just a homotopy class, it would look like E is an element of $\pi_3$ of $Aut(X)$, which is wrong, since it lives in a torsor.)  For instance, do this by picking equivalences $\Omega^2(Aut(X)) \simeq \Omega^3 BAut(X)$ etc?}
-
-We can restrict attention to 3-types that happen to be 2-types.
-
-\begin{corollary}
-The set of homotopy classes of $SO(2)$ actions on a 2-type $X$ is the set of homotopy classes of maps $S: S^1 \ra Aut(X)$ such that the figure 8 composite on $S$ is null.
-\end{corollary}
-
 \section{Introduction}
 .
 
 \CDcomm{I think much of what is currently in section I of DTCIV, introducing and discussing the 4-types of BQuad and BOrp(3), will need to be moved here for those spaces to seem less crazy.  How much?}
 
 \CDcomm{Annoyingly, we probably also need some of the facts in the Appendix to DTCIV.  Nevertheless, I think that appendix should stay there, and we will just state the occasional fact we need here independently.}
+
 
 \section{Cell structures}
 
@@ -218,6 +193,14 @@ We could have more briefly described a 4-truncation of $BSO(3)$ without referenc
 
 \CDcomm{This section describes the meaning of a homotopy action for each group.  This is where the explicit translation to computable, i.e. categorically readable, expressions occurs.  Also, for each group, the map $G \ra Aut(X)$ is described.}
 
+\begin{definition} \label{def-hoaction}
+Given a space $B$ and a fibration $F \ra E \ra B$ with $E$ contractible, a homotopy action of $F$ on a space $X$ is a map $\alpha: B \ra B\Aut(X)$, where $\Aut(X)$ is the monoid of self-homotopy equivalences of $X$.
+\end{definition}
+\nid We will often refer to a homotopy action of $F$ simply as an ``action of $F$" or an ``$F$-action", as we will never be concerned with literal actions of groups.  We may also refer to this as an $F'$-action, when $F'$ is equipped with some implicit homotopy equivalence to $F$, or indeed when the whole fibration $F \ra E \ra B$ is itself implicit.  Moreover, we will use $G$ and $BG$ as generic symbols for the fibre $F$ and base $B$ of the fibration $F \ra E \ra B$ of definition~\ref{def-hoaction}, even though $G$ may not be a group and $BG$ may not be the classifying space of a group.
+
+In case $G$ is an honest group with an honest action on $X$ given by $h: G \ra \Aut(X)$ (which is therefore forced to land in the subgroup of $\Aut(X)$ of homeomorphisms), then the corresponding homotopy action is the map $Bh: BG \ra B\Aut(X)$.
+
+
 \subsection{By the groups $\Omega S^2$ and $\Quad$} \label{sec-quadaction}
 
 \begin{proposition}
@@ -319,6 +302,10 @@ The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes
 As mentioned, the 4-truncation of $BSO(2)$ is $S^2 \cup_q e_4$.  An $SO(2)$ action is therefore a map $S^2 \cup_q e_4 \ra B\Aut(X)$.  On the 2-cell, this map is provided by $S \in \Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.  An extension of the map $S^2 \xra{S} B\Aut(X)$ over the 4-cell is a null homotopy of the composite $S^3 \xra{q} S^2 \xra{S} B\Aut(X)$, that is a path in $\Omega^3 B\Aut(X)$ from $q^\ast S$ to the identity.  By Lemma~\ref{lemma-q}, providing such a null homotopy is equivalent to providing a null homotopy of $q(S) \in \Omega^2\Aut(X) \simeq \Omega^3 B\Aut(X)$.
 \end{proof}
 
+We can restrict attention to 3-types that happen to be 2-types.
+\begin{corollary}
+The homotopy classes of $SO(2)$ actions on a 2-type $X$ are the homotopy classes of map $S: S^1 \ra \Aut(X)$ such that the figure-8 construction applied to $S$ is null.
+\end{corollary}
 
 \subsection{By the groups $\Omega \Sigma \RP^2$ and $Orp(3)$}
 
@@ -720,8 +707,47 @@ To finish this section:
 
 \CDcomm{This section describes the meaning of a homotopy fixed point explicitly for each group.}
 
+The classifying space $B\Aut(X)$ carries a universal fibration with fiber $X$, namely $U_X := E\Aut(X) \times_{\Aut(X)} X \ra B\Aut(X)$.  \CD{Should we say something about when that really is a classifying fibration?  Can the universal fibration really be written as that bundle? Ie is $E\Aut(X)$ kosher?  If not just cite the existence of such a fibration?}  Given a homotopy action of $G$ on a space $X$, that is a map $\alpha: BG \ra B\Aut(X)$, there is an associated fibration $EG(X):=\alpha^\ast(U_X) \ra BG$, again with fiber $X$.
+
+\begin{definition}
+A homotopy fixed point of a homotopy $G$-action on $X$ is a section of the fibration $X \ra EG(X) \ra BG$.
+\end{definition}
+
+\begin{remark}
+In case $G$ is an honest group with an honest action on $X$, the fibration $EG(X) \ra BG$ can be taken to be the bundle projection $EG \times_G X \ra BG$.  The data of a section of that bundle is precisely the same as the data of a $G$-equivariant map $EG \ra X$, that is of a homotopy fixed point in the ordinary sense.
+\end{remark}
+
+\begin{proposition} \label{prop-hofptrunc}
+Given a homotopy action $BG \ra B\Aut(X)$ on a 3-type $X$, the natural map from the space of sections of $X \ra EG(X) \ra BG$ to the space of sections of that fibration over the 4-truncation ${}_4 BG \ra BG$, is a homotopy equivalence.
+\end{proposition}
+\begin{proof}
+Given a section over ${}_4 BG$, extensions of the section to $BG$ are controlled by the obstruction groups $H^k(BG;\pi_{k-1} X)$ for $k \geq 5$, and choices of extensions are controlled by the groups $H^k(BG;\pi_k X)$ for $k \geq 5$.  All of those groups vanish.
+\end{proof}
+
+In this section, for brevity we sometimes use ``is" to mean ``is homotopy equivalent to".
 
 \subsection{For $\Omega S^2$ and $\Quad$ actions}
+
+Recall that an $\Omega S^2$ action on a 3-type $X$, which a priori is a based map $\alpha: S^2 \ra B\Aut(X)$ may instead be viewed as a based map $S: S^1 \ra \Aut(X)$.
+
+\begin{proposition}
+The space of homotopy fixed points of the $\Omega S^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$, is the space of pairs $(x,P)$ where $x \in X$ is a point and $P: D^2 \ra X$ is a null homotopy of the loop $S(x): S^1 \ra X$.
+\end{proposition}
+\begin{proof}
+By definition a homotopy fixed point of the action is a section of the fibration $X \ra E\Omega S^2(X) \ra S^2$.  We can describe this fibration more explicitly as $X \cup_{X \times S^1} X \times D^2 \ra \ast \cup_{S^1} D^2 = S^2$, where the map $X \times S^1 \ra X \times D^2$ is the inclusion and the map $X \times S^1 \ra X$ is the adjoint of $\tilde{S}: S^1 \ra \Aut(X)$; here $\tilde{S}$ is the pointwise inverse of $S$.  %To be really pedantic, the clutching function S: S^1 \ra \Aut(X) constructs the bundle classified by \Sigma S^1 \ra \Sigma\Aut(X) \ra B\Aut(X) --- that map _is_ the image under the equivalence \Omega \Aut(X) to \Omega^2 B\Aut(X).
+
+The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D^2$, which provides the section $S(x): S^1 \ra X$ on $\partial D^2$; the null homotopy $P$ extends the section over the 2-cell of $S^2$.
+\end{proof}
+
+Given a $Quad$ action $\alpha: BQuad \ra B\Aut(X)$ on a 3-type $X$, there is of course an induced $\Omega S^2$ action.
+
+\begin{proposition}
+The homotopy fixed points of a $Quad$ action on a 3-type $X$ are the same as the homotopy fixed points of the underlying $\Omega S^2$ action on $X$.
+\end{proposition}
+\begin{proof}
+By Proposition~\ref{prop-hofptrunc}, to understand the homotopy fixed points of $Quad$ it suffices to consider sections of the bundle $X \ra EQuad(X) \ra BQuad$ over the 4-truncation of $BQuad$, which by Proposition~\ref{prop-quadtrunc} is $S^2 \cup_{\eta q} e_5$.  An $\Omega S^2$ homotopy fixed point is a section of the bundle over the 2-skeleton of ${}_4 BQuad$.  The obstruction to extending this section over the 5-cell of ${}_4 BQuad$ lives in $H^5({}_4 BQuad;\pi_4(X)) = 0$ and the homotopy classes of choices of lift is a torsor for $H^5({}_4 BQuad;\pi_5(X)) = 0$.
+\end{proof}
+\CD{That proof could probably be phrased better.}
 
 
 \subsection{For $SO(2)$ actions}
