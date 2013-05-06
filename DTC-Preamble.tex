@@ -55,6 +55,8 @@
 \newcommand{\arrowcolor}{black!25}
 \newcommand{\covercolor}{black!0}
 \newcommand{\graycolor}{black!55}
+\newcommand{\graylightcolor}{black!40}
+
 
 \newcommand{\coverwidthfuzz}{6pt}
 \newcommand{\coverwidth}{3.5pt}
@@ -83,7 +85,8 @@ coverlinelefttail/.style={
         preaction={draw,line width=\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,pre=moveto,pre length=2pt,amplitude=0,raise=.5*\fuzzwidth}}}, %%% This does not work --- somehow pre breaks the raise function.
         linestylethin/.style={line width=\linewidthin},
         linestylethick/.style={line width=\linewidthick},
-        linestylegray/.style={line width=\linewid,\graycolor}
+        linestylegray/.style={line width=\linewid,\graycolor},
+        linestylegraylight/.style={line width=\linewid,\graylightcolor}
 }
 \tikzset{
         fuzzright/.style={
@@ -215,6 +218,7 @@ coverlinelefttail/.style={
 \newcommand{\op}{\mathrm{op}}
 \newcommand{\mop}{\mathrm{mop}}
 \newcommand{\id}{\mathrm{id}}
+\newcommand{\inc}{\mathrm{inc}}
 
 \newcommand{\dtimes}{\boxtimes} %Deligne tensor product
 \newcommand{\btimes}{\boxtimes}

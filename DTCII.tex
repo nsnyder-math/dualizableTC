@@ -31,6 +31,8 @@
 
 \maketitle
 
+\tikzexternaldisable
+
 \tableofcontents
 
 \section*{Sketch scratch}
@@ -623,6 +625,7 @@ By Lemmas~\ref{lemma-q} and~\ref{lemma-eta}, we know that construction~\eqref{eq
 \end{equation} 
 Next note that construction~\eqref{eq-etaq2} and the time reversal of construction~\eqref{eq-etaq2end} are vertical reflections of one another; it follows that the sum of \eqref{eq-etaq2} and $-\eqref{eq-etaq2end}$ is null, or said differently, that \eqref{eq-etaq2} and \eqref{eq-etaq2end} are homotopic.  Thus construction~\eqref{eq-etaq2} is a 2-divisor of construction~\eqref{eq-etaq}, and, because $\pi_4(\Sigma \RP^2) = \ZZ/4$, therefore represents $(\frac{\eta q}{2})^\ast$, up to sign.  As we will only be concerned with the vanishing of construction~\eqref{eq-etaq2}, the sign will not matter for us---we leave its determination to the interested reader.
 \end{proof}
+\CDcomm{[This last sentence about sign doesn't make sense unless we have specified a chosen element $\frac{\eta q}{2}$ of the homotopy group.  Really, Proposition 2.5 should specify the generator we use, not just up to sign, then at least the rest is precise.]  [If we don't have a good way to specify, we can take the figure 32 construction to specify the sign, but then the proposition statements need adjusting.]}
 
 \begin{proposition} \label{prop-orpaction}
 The homotopy classes of $Orp(3)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,R)$, where $S: S^1 \ra \Aut(X)$ is a map and $R$ is a null homotopy of $2S$, such that the figure-32 construction on $(S,R)$ is zero.  More precisely, the space of such actions is homotopy equivalent to the union of components of $\Omega \Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$ on which the figure-32 construction vanishes.
@@ -669,7 +672,7 @@ A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$,
 	to [out=120,in=90] (0,0);
 \end{tikzpicture}}
 \end{equation}
-This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.\CD{This isn't just obvious, I suppose.}  The construction~\eqref{eq-p} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, but we will see that they are, in fact, closely related.  \CD{Adjust the phrasing here depending on the answer to the snake question.}
+This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.\CD{This isn't just obvious, I suppose.}  The construction~\eqref{eq-p} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, but we will see that they are, in fact, closely related.
 
 Note that the following square commutes up to homotopy, where ``$p$" refers to the above construction~\eqref{eq-p} and ``$(\Sigma p)^\ast$" refers to pullback along the suspension of the antipodal projection $p: S^2 \ra \RP^2$:
 \begin{equation} \nn
@@ -678,7 +681,201 @@ Note that the following square commutes up to homotopy, where ``$p$" refers to t
 \Map(\RP^2,\Aut(X)) \ar[r]_-{p} & \Omega^2 \Aut(X)
 }
 \end{equation}
-Seeing that construction~\eqref{eq-p} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that construction~\eqref{eq-q} represents pullback along $q: S^3 \ra S^2$ invites comparison.
+Seeing that construction~\eqref{eq-p} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that construction~\eqref{eq-q} represents pullback along $q: S^3 \ra S^2$ invites comparison.  
+
+We will need the following lemma:
+\begin{lemma}
+The map $S^3 \ra \Sigma \RP^2$ defined by the normally framed manifold
+\begin{equation} \label{eq-bean}
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1]
+(0,.25) to [out=90,in=90] (.75,0);
+\draw[linestyle,looseness=1]
+(.75,0) to [out=-90,in=-90] (0,-.25);
+\draw[linestyle,looseness=1]
+(0,-.25) to [out=90,in=-90] (.375,0);
+\draw[linestyle,looseness=1]
+(.375,0) to [out=90,in=-90] (0,.25);
+\end{tikzpicture}}
+\end{equation}
+represents the unique nontrivial 2-torsion class in $\pi_3(\Sigma \RP^2) = \ZZ/4$.
+\end{lemma}
+\nid We refer to the construction defined in the lemma as ``the Radford bean".  Note well that in this construction the left and right facing cups are applications of the nullhomotopy $R$ of $2S$, not applications of a cancellation between $S$ and $S^{-1}$.
+\begin{proof}
+Consider the following local deformation:
+\begin{equation} \nn
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=.75]
+(0,0) to [out=0,in=-90] (1,.25)
+	to [out=90,in=-90] (.5,.75)
+	to [out=90,in=180] (1.5,1);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=.75]
+(0,.125) to [out=0,in=-90] (1.25,.25)
+	to [out=90,in=-90] (.6,.5);
+\draw[linestylegraylight,looseness=.75]
+(.6,.5) to [out=90,in=-90] (.9,.75);
+\draw[linestyle,looseness=.75]
+(.9,.75) to [out=90,in=-90] (.25,1)
+	to [out=90,in=180] (1.5,1.125);
+\end{tikzpicture}}
+=
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=.75]
+(-.25,-.125) to [out=0,in=-90] (.5,.125)
+	to [out=90,in=-90] (.15,.375);
+\draw[linestylegraylight,out looseness=.75,in looseness=1.5]
+(.15,.375) to [out=90,in=110] (.75,.125);
+\draw[linestylegraylight,out looseness=1.5,in looseness=.75]
+(.75,.125) to [out=-70,in=-90] (1.35,-.125);
+\draw[linestyle,looseness=.75]
+(1.35,-.125) to [out=90,in=-90] (1,.125)
+	to [out=90,in=180] (1.75,.375);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=.75]
+(-.75,-.25) to [out=0,in=90] (.5,-.375);
+\draw[linestyle,looseness=.75]
+(-.5,.375) to [out=-90,in=180] (.75,.25);
+\draw[linestylegraylight,coverline,out looseness=.9,in looseness=1.5]
+(.5,-.375) to [out=-90,in=-70] (0,0);
+\draw[linestylegraylight,coverline,out looseness=1.5,in looseness=.9]
+(0,0) to [out=110,in=90] (-.5,.375);
+\end{tikzpicture}}
+\end{equation}
+Applying this deformation on the top part of the bean, we obtain the following homotopy:
+\begin{equation} \nn
+\cb{\begin{tikzpicture}
+\draw[linestyle,out looseness=.75,in looseness=1]
+	(-.5,-.25) to [out=-90,in=-90] (.5,0)
+	(-.5,.25) to [out=90,in=90] (.5,0);
+\draw[linestyle,looseness=.75]
+	(-.5,-.25) to [out=90,in=-90] (0,0)
+	(-.5,.25) to [out=-90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=.75]
+(-.75,-.375) to [out=90,in=90] (.5,-.375);
+\draw[linestyle,looseness=.75]
+(-.5,.375) to [out=-90,in=90] (.85,-.125);
+\draw[linestylegraylight,coverline,out looseness=.9,in looseness=1.5]
+(.5,-.375) to [out=-90,in=-70] (0,0);
+\draw[linestylegraylight,coverline,out looseness=1.5,in looseness=.9]
+(0,0) to [out=110,in=90] (-.5,.375);
+\draw[linestyle,out looseness=.75,in looseness=1.5]
+(-.75,-.375) to [out=-90,in=-90] (.85,-.125);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=.75]
+(-.75,-.375) to [out=90,in=90] (.5,-.375);
+\draw[linestyle,looseness=.75]
+(-.5,.375) to [out=-90,in=90] (.85,-.125);
+\draw[linestylegraylight,coverline,out looseness=.9,in looseness=1.5]
+(.5,-.375) to [out=-90,in=-70] (0,0);
+\draw[linestylegraylight,coverline,out looseness=1.5,in looseness=.9]
+(0,0) to [out=110,in=90] (-.5,.375);
+\draw[linestyle,looseness=.75]
+	(-.75,-.375) to [out=-90,in=90] (0,-.5);
+\draw[linestylegraylight,looseness=.75]
+	(0,-.5) to [out=-90,in=90] (-.5,-.75);
+\draw[linestyle,out looseness=.75,in looseness=1.5]
+	(-.5,-.75) to [out=-90,in=-90] (.85,-.125);
+\end{tikzpicture}}
+=
+\cb{\begin{tikzpicture}
+\draw[linestyle,out looseness=1,in looseness=.75]
+	(-.75,-.5) to [out=-90,in=-90] (-.15,0);
+\draw[linestyle,looseness=.75]
+	(-.15,0) to [out=90,in=-90] (-.75,.5);
+\draw[linestyle,out looseness=1,in looseness=.75]
+	(.75,.5) to [out=90,in=90] (.15,0);
+\draw[linestyle,looseness=.75]
+	(.15,0) to [out=-90,in=90] (.75,-.5);
+\draw[linestylegraylight,coverline,looseness=.75]
+	(-.75,-.5) to [out=90,in=-90] (.75,-.5)
+	(.75,.5) to [out=-90,in=90] (-.75,.5);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+	(-.5,-.35) to [out=-90,in=90] (.5,-.35)
+	(-.5,.35) to [out=-90,in=90] (.5,.35);
+\draw[linestylegraylight,coverline,looseness=1.25]
+	(-.5,-.35) to [out=90,in=-90] (.5,-.35)
+	(-.5,.35) to [out=90,in=-90] (.5,.35);
+\end{tikzpicture}}
+\end{equation}
+That homotopy shows that the bean is homotopic to the composite $S^3 \xra{2q} S^2 \xra{\inc} \Sigma \RP^2$.  The lemma follows, because $\pi_3(S^2) \xra{\inc_*} \pi_3(\Sigma \RP^2)$ is surjective.
+\end{proof}
+\begin{remark}
+This lemma is of more significance that it might appear.  It means that the null homotopy $R$ of $2S$ does not, \emph{indeed cannot be chosen to}, satisfy the standard snake relation.
+\end{remark}
+
+\begin{lemma}
+The suspension $\Sigma p: S^3 \ra \Sigma \RP^2$ of the antipodal projection $p: S^2 \ra \RP^2$ is homotopic to the composite of the \emph{negative} Hopf map $-q: S^3 \ra S^2$ with the inclusion $S^2 \ra \Sigma \RP^2$.
+\end{lemma}
+\begin{proof}
+The desired equation $\Sigma p = -q$ follows if $\Sigma p + q = 0$, which follows if $\Sigma p - q = -2q = 2q$.  It therefore suffices to show that the union of construction~\eqref{eq-p} and the negative of construction~\eqref{eq-q} is homotopic to construction~\eqref{eq-bean}.  This is indeed the case:
+\begin{equation} \nn
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestyle,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestylegraylight,looseness=1.25]
+(1,-.5) to [out=-90,in=-60] (.5,-.5)
+	to [out=120,in=90] (0,-.5);
+\draw[linestyle,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=90,in=60] (-.5,0)
+	to [out=-120,in=-90] (-1,0);
+\draw[linestylegraylight,looseness=1.25]
+(0,-.5) to [out=-90,in=-60] (-.5,-.5)
+	to [out=120,in=90] (-1,-.5);
+\draw[linestyle,coverline,looseness=1.25]
+(0,0) to [out=-90,in=90] (-.15,-.25)
+	to [out=-90,in=90] (0,-.5);
+\draw[linestyle,coverline,looseness=1.25]
+(-1,0) to [out=90,in=120] (-.5,0)
+	to [out=-60,in=90] (-.3,-.25)
+	to [out=-90,in=60] (-.5,-.5)
+	to [out=-120,in=-90] (-1,-.5);
+\end{tikzpicture}}
+=
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=.75]
+	(.5,-.25) to [out=90,in=-90] (0,0)
+	to [out=90,in=-90] (.5,.25)
+	to [out=90,in=-90] (0,.5);
+\draw[linestyle,looseness=1]
+	(0,.5) to [out=90,in=90] (1,0)
+	(0,-.5) to [out=-90,in=-90] (1,0);
+\draw[linestylegraylight,looseness=.75]
+	(.5,-.25) to [out=-90,in=90] (0,-.5);
+\end{tikzpicture}}
+=
+\cb{\begin{tikzpicture}
+\draw[linestyle,out looseness=.75,in looseness=1]
+	(-.5,-.25) to [out=-90,in=-90] (.5,0)
+	(-.5,.25) to [out=90,in=90] (.5,0);
+\draw[linestyle,looseness=.75]
+	(-.5,-.25) to [out=90,in=-90] (0,0)
+	(-.5,.25) to [out=-90,in=90] (0,0);
+\end{tikzpicture}}
+\end{equation}
+\end{proof}
 
 \CDcomm{
 To finish this section:
