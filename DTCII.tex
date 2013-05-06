@@ -195,7 +195,7 @@ We could have more briefly described a 4-truncation of $BSO(3)$ without referenc
 
 \section{Homotopy actions}
 
-\CDcomm{This section describes the meaning of a homotopy action for each group.  This is where the explicit translation to computable, i.e. categorically readable, expressions occurs.  Also, for each group, the map $G \ra Aut(X)$ is described.}
+\CDcomm{This section describes the meaning of a homotopy action for each group.  This is where the explicit translation to computable, i.e. categorically readable, expressions occurs.  Also, for each group, the map $G \ra Aut(X)$ is described. [Well, if you only describe that map for $SO(3)$, say so.]}
 
 \begin{definition} \label{def-hoaction}
 Given a space $B$ and a fibration $F \ra E \ra B$ with $E$ contractible, a homotopy action of $F$ on a space $X$ is a map $\alpha: B \ra B\Aut(X)$, where $\Aut(X)$ is the monoid of self-homotopy equivalences of $X$.
@@ -217,7 +217,7 @@ By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Ome
 
 \nid We typically use $S$ to denote a based map $S^1 \ra \Aut(X)$ determining the $\Omega S^2$ action on $X$, and we use $[S] \in \pi_1(\Aut(X))$ to denote the corresponding homotopy class.
 
-\CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$}
+\CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$. Omit??}
 
 As mentioned, the map $S : S^1 \ra \Aut(X)$ can be viewed as a point $S \in \Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (righthanded) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
 \begin{equation} \label{eq-q}
@@ -294,7 +294,7 @@ By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ 
 \end{proof}
 
 
-\CDcomm{What is a cellular 3-truncation of $Quad$? ... $Quad \ra \Aut(X)$}
+\CDcomm{What is a cellular 3-truncation of $Quad$? ... $Quad \ra \Aut(X)$.  Maybe omit.}
 
 \subsection{By the group $SO(2)$}
 
@@ -659,6 +659,8 @@ where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subsc
 This follows by combining Corollary~\ref{cor-bso3trunc}, Lemma~\ref{lemma-q}, and Lemma~\ref{lemma-etaq2}.
 \end{proof}
 
+\subsection{The map $SO(3) \ra \Aut(X)$}
+
 Given an $SO(3)$ action on $X$, that is a map $\alpha: BSO(3) \ra B\Aut(X)$, we have an associated map of spaces $\Omega \alpha: SO(3) \ra \Aut(X)$.  Roughly speaking, the map $\Omega \alpha$ knows everything about the action, except that it is in fact an action, i.e. a map of (homotopical) groups.  Given a point $p \in X$, we have a map $\Omega \alpha (p) : SO(3) \ra X$; it is sometimes informative to compute this map explicitly, and to that end convenient to know the map $\Omega \alpha$.  
 
 A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$, where $p: S^2 \ra \RP^2$ is the antipodal quotient.  Given a map $\RP^2 \ra \Aut(X)$, we need to explicitly construct the pullback $S^2 \xra{p} \RP^2 \ra \Aut(X)$.  The map from $\RP^2$ provides a point $S \in \Omega \Aut(X)$ and a null homotopy $R$ of $2S$.  Using the previously described graphical notation for $S$ and $R$, the following picture defines a map $\Map(\RP^2,\Aut(X)) \xra{p} \Omega^2 \Aut(X)$:
@@ -672,7 +674,7 @@ A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$,
 	to [out=120,in=90] (0,0);
 \end{tikzpicture}}
 \end{equation}
-This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.\CD{This isn't just obvious, I suppose.}  The construction~\eqref{eq-p} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, but we will see that they are, in fact, closely related.
+This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.\CD{This isn't just obvious, I suppose.}  Theorem~\ref{thm-so3action} provides a null homotopy of construction~\eqref{eq-q} applied to $S$, whereas we seem to need a null homotopy of construction~\eqref{eq-p} applied to $S$ and $R$.  Though construction~\eqref{eq-p} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, we will see that they are, in fact, closely related.
 
 Note that the following square commutes up to homotopy, where ``$p$" refers to the above construction~\eqref{eq-p} and ``$(\Sigma p)^\ast$" refers to pullback along the suspension of the antipodal projection $p: S^2 \ra \RP^2$:
 \begin{equation} \nn
@@ -681,26 +683,24 @@ Note that the following square commutes up to homotopy, where ``$p$" refers to t
 \Map(\RP^2,\Aut(X)) \ar[r]_-{p} & \Omega^2 \Aut(X)
 }
 \end{equation}
-Seeing that construction~\eqref{eq-p} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that construction~\eqref{eq-q} represents pullback along $q: S^3 \ra S^2$ invites comparison.  
+That is, construction~\eqref{eq-p} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that construction~\eqref{eq-q} represents pullback along $q: S^3 \ra S^2$.  Comparing the homotopy classes $\Sigma p \in \pi_3(\Sigma \RP^2)$ and $\inc_* q \in \pi_3(\Sigma \RP^2)$, for $\inc: S^2 \ra \Sigma \RP^2$, is therefore equivalent to comparing construction~\eqref{eq-p} and construction~\eqref{eq-q}.  
 
 We will need the following lemma:
 \begin{lemma}
 The map $S^3 \ra \Sigma \RP^2$ defined by the normally framed manifold
 \begin{equation} \label{eq-bean}
 \cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1]
-(0,.25) to [out=90,in=90] (.75,0);
-\draw[linestyle,looseness=1]
-(.75,0) to [out=-90,in=-90] (0,-.25);
-\draw[linestyle,looseness=1]
-(0,-.25) to [out=90,in=-90] (.375,0);
-\draw[linestyle,looseness=1]
-(.375,0) to [out=90,in=-90] (0,.25);
+\draw[linestyle,out looseness=.75,in looseness=1]
+	(-.5,-.25) to [out=-90,in=-90] (.5,0)
+	(-.5,.25) to [out=90,in=90] (.5,0);
+\draw[linestyle,looseness=.75]
+	(-.5,-.25) to [out=90,in=-90] (0,0)
+	(-.5,.25) to [out=-90,in=90] (0,0);
 \end{tikzpicture}}
 \end{equation}
 represents the unique nontrivial 2-torsion class in $\pi_3(\Sigma \RP^2) = \ZZ/4$.
 \end{lemma}
-\nid We refer to the construction defined in the lemma as ``the Radford bean".  Note well that in this construction the left and right facing cups are applications of the nullhomotopy $R$ of $2S$, not applications of a cancellation between $S$ and $S^{-1}$.
+\nid We refer to the construction defined in this lemma as ``the Radford bean".  Note well that in this construction the left and right facing cups are applications of the nullhomotopy $R$ of $2S$, not applications of a cancellation between $S$ and $S^{-1}$.
 \begin{proof}
 Consider the following local deformation:
 \begin{equation} \nn
@@ -810,7 +810,7 @@ Applying this deformation on the top part of the bean, we obtain the following h
 	(-.5,.35) to [out=90,in=-90] (.5,.35);
 \end{tikzpicture}}
 \end{equation}
-That homotopy shows that the bean is homotopic to the composite $S^3 \xra{2q} S^2 \xra{\inc} \Sigma \RP^2$.  The lemma follows, because $\pi_3(S^2) \xra{\inc_*} \pi_3(\Sigma \RP^2)$ is surjective.
+That homotopy shows that the bean is homotopic to the composite $S^3 \xra{q \cdot 2} S^2 \xra{\inc} \Sigma \RP^2$.  (Here the expression $q \cdot 2$ refers to the composite $S^3 \xra{2} S^3 \xra{q} S^2$; this would more typically be written and thought of as ``$2q$", but we want to be sure to distinguish it from the composite $S^3 \xra{q} S^2 \xra{2} S^2$, which is $q \cdot 4$.) The lemma follows, because $\pi_3(S^2) \xra{\inc_*} \pi_3(\Sigma \RP^2)$ is surjective.
 \end{proof}
 \begin{remark}
 This lemma is of more significance that it might appear.  It means that the null homotopy $R$ of $2S$ does not, \emph{indeed cannot be chosen to}, satisfy the standard snake relation.
@@ -877,30 +877,29 @@ The desired equation $\Sigma p = -q$ follows if $\Sigma p + q = 0$, which follow
 \end{equation}
 \end{proof}
 
-\CDcomm{
-To finish this section:
-\begin{itemize}
-\item Lemma that either $p=q$ or that $p=-q$, ideally with geometric proof.  If the former, say that $R$ satisfies the snake, if the latter, note that $R$ need not satisfy the snake.
-\item If $R$ satisfies the snake, then direct diamond geometric proof that $4p=0$.  If not, figure out a no-snake proof.
-\item Proposition that the map $SO(3) \ra Aut(X)$ is S, R, triv of (6). [or could say, triv of q]  Remark: SO(3) action is just that map such that eta q / 2 vanishes, ie no new data in this case.
-\end{itemize}
-}
+\nid Thanks to this lemma we can \emph{pick} a homotopy, call it $H$, between $\Sigma p: S^3 \ra \Sigma \RP^2$ and $\inc_*(-q): S^3 \ra \Sigma \RP^2$.  Note well that this homotopy is not well defined---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between construction~\eqref{eq-p} and the negative of construction~\eqref{eq-q}, and therefore, for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, between the map $p(S,R): S^2 \ra \Aut(X)$ and the map $-q(S): S^2 \ra \Aut(X)$.
 
-%\CDcomm{The following lemma might be absolutely completely false.  What is true is that either $p=q$ or $p=-q$, but which one *is* a well defined fact, not just a sign issue, and it corresponds to the question of whether the universal $R$ satisfies the snake relation.}
-%\begin{lemma} \label{lemma-pq}
-%The following triangle commutes up to homotopy, where the left map is restriction:
-%\begin{equation} \nn
-%\xymatrix@R=15pt@C=10pt{
-%& \Omega \Aut(X) \ar[rd]^-{q}& \\
-%\Map(\RP^2,\Aut(X)) \ar[ur] \ar[rr]_-{p} && \Omega^2 \Aut(X)
-%}
-%\end{equation}
-%\end{lemma}
-%\begin{proof}
-%That the triangle commutes up to sign follows from the fact that both the maps $\pi_3(S^2) \xra{\text{inc}} \pi_3(\Sigma \RP^2)$ and $\pi_2(\RP^2) \xra{\Sigma} \pi_3(\Sigma \RP^2)$ are surjective.  A more geometric proof is given by the following homotopy of decorated normally framed manifolds:
-%\begin{equation} \nn
-%\end{equation}
-%\end{proof}
+Equipped with this homotopy, we can complete the description of the map from $SO(3)$ to the automorphisms of $X$.  Recall from Theorem~\ref{thm-so3action} that a homotopy $SO(3)$ action on a 3-type $X$ is defined by a triple $(S,R,E)$, where $S: S^1 \ra \Aut(X)$, $R: D^2 \ra \Aut(X)$ is a null homotopy of the square of $S$, and $E: D^3 \ra \Aut(X)$ is a null homotpoy of $q(S)$.
+\begin{proposition} \label{prop-so3map}
+Given a homotopy $SO(3)$ action on a 3-type $X$, defined by the triple $(S,R,E)$, the associated map of spaces $SO(3) \ra \Aut(X)$ is given on the 1-, 2-, and 3-cells of $SO(3)$ by, respectively, the map $S: S^1 \ra \Aut(X)$, the map $R: D^2 \ra \Aut(X)$, and the map $F: D^3 \ra \Aut(X)$, a null homotopy of $p(S,R): S^2 \ra \Aut(X)$ defined by $F:=H \cdot (-E)$.
+\end{proposition}
+\nid Here $-E: D^3 \ra \Aut(X)$ refers to the null homotopy of $-q(S)$ obtained by reflecting the null homotopy $E: D^3 \ra \Aut(X)$ across an axis, and $H$ is the homotopy defined above between $p(S,R)$ and $-q(S)$.  We leave the proof to the reader, with the note that the ambiguity in the choice of the homotopy $H$ does not affect the homotopy class of the resulting map $SO(3) \ra \Aut(X)$ precisely because of the fact that for a homotopy $SO(3)$ action, the map $\frac{\eta q}{2}: S^3 \ra \Aut(X)$ is null.
+
+\begin{remark}
+Though there is no a priori reason for this to be the case, it turns out that the map of spaces $SO(3) \ra \Aut(X)$ already contains all the information of a homotopy $SO(3)$ action on $X$.  More specifically, a map $SO(3) \ra \Aut(X)$ is given by a triple $(S, R, F)$, where $S$ is a map $S^1 \ra \Aut(X)$, $R$ is a null homotopy of $2S$, and $F$ is a null homotopy of $p(S,R)$; this triple deloops (and if it does deloops uniquely) to a homotopy $SO(3)$ action if and only if $\frac{\eta q}{2}(S,R) = 0$.
+\end{remark}
+
+\begin{remark}
+Along the way, we have determined an alternative 4-truncation of $BSO(3)$, namely $(S^2 \cup_2 e_3) \cup_{\Sigma p} e_4 \cup_{\frac{\eta q}{2}} e_5$---this 4-truncation is, of course, canonically homotopy equivalent to the earlier 4-truncation.  % Use the homotopy H and a reflection to construct the homotopy equivalence to the earlier 4-truncation.  Note the 5-cell ensures that the choice of H didn't affect the resulting homotopy equivalence
+\end{remark}
+
+\begin{remark}
+Though we have already repeatedly used the fact that $\Sigma p$, the suspension of the antipodal projection $p: S^2 \ra \RP^2$, is 4-torsion in $\pi_3(\Sigma \RP^2) = \ZZ/4$, we cannot resist including a proof:
+\begin{equation} \nn
+...
+\end{equation}
+\end{remark}
+
 
 \section{Homotopy fixed points}
 
