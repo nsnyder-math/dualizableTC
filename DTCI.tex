@@ -864,9 +864,25 @@ The Atiyah-Segal axioms define a topological field theory as a symmetric monoida
 \begin{equation*}
 	Z: \Cob_n \to \cC
 \end{equation*}
-In this case the objects of $\Cob_n$ are closed compact $(n-1)$-dimensional manifolds and the morphisms are diffeomorphism classes of $n$-dimensional cobordisms between these manifolds. The symmetric monoidal structure is given by the disjoint union of manifolds and cobordisms. A closed $n$-dimensional manifold gives an endomorphism of the monoidal unit, the empty $(n-1)$-manifold. Hence from a topological field theory we obtain an invariant of closed $n$-manifolds $Z(W) \in \End_\cC(1)$.  
+In this case the objects of $\Cob_n$ are closed compact $(n-1)$-dimensional manifolds and the morphisms are diffeomorphism classes of $n$-dimensional cobordisms between these manifolds. The symmetric monoidal structure is given by the disjoint union of manifolds and cobordisms. A closed $n$-dimensional manifold gives an endomorphism of the monoidal unit, the empty $(n-1)$-manifold. Hence from a topological field theory we obtain an invariant of closed $n$-manifolds $Z(W) \in \End_{\cC}(1)$.  
 
-There are many variations on this notion. We may, of course, change the target category quite freely. We may also equip our bordisms with various structures, such as orientations, spin structures, tangential or stable framings, etc. These give variations on the cobordism category, and hence various notions of topological field theory. 
+There are many variations on this notion. We may, of course, change the target category quite freely. We may also equip our bordisms with various structures, such as orientations, spin structures, tangential or stable framings, etc. These give variations on the cobordism category, and hence various notions of topological field theory. {\em Tangential structures} form an important class of such structures. Let $\xi: X \to BO(n)$ be a fibration. An $(X, \xi)$-structure on an $n$-manifold is a lift of the classifying Gauss map of the tangent bundle:
+\begin{center}
+\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$$};
+	\node (LB) at (0, 0) {$M$};
+	\node (RT) at (2, 1.5) {$X$};
+	\node (RB) at (2, 0) {$BO(n)$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->, dashed] (LB) -- node [above] {$$} (RT);
+	\draw [->] (RT) -- node [right] {$\xi$} (RB);
+	\draw [->] (LB) -- node [below] {$\tau$} (RB);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+If the dimension of $M$ is less than $n$, then we define an $(X,\xi)$-structure by first stabilizing the tangent bundle appropriately. Some typical examples are $X = BSO(n)$ which gives orientations, $X = BSpin(n)$ which givens spin structures, and $X = EO(n) \simeq pt$, which gives tangential framings.  
+Thus we have categories $\Cob_n^{(X, \xi)}$, and topological field theories of this sort give invariants of $(X,\xi)$-manifolds. 
 
 The topological field theory formalism implements a locality property for the resulting manifold invariant. We can decompose or `cut' any given manifold along codimension one submanifolds. The topological field theory assigns invariants to these more basic pieces, and we can recover the invariant of $W$ from these pieces. 
 
