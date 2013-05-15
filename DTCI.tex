@@ -135,7 +135,7 @@ We also have a converse to this theorem.
 Fully dualizable rigid finite tensor categories are separable and semisimple.
 \end{theorem}
 
-For technical reasons we restrict our attention throughout to finite rigid tensor categories throughout this paper, because we have only given a rigorous definition of the $3$-category of finite rigid tensor categories $\TC^{fr}$.  Nonetheless, it is natural to wonder whether rigid and finite are necessary for dualizability.  Since rigidity is not preserved by Morita equivalence in $\TC$ (as pointed out to us by Dan Freed), there are finite tensor categories which are fully dualizable but not rigid.  Indeed, semisimplicity and finiteness are also not Morita invariant notions.  We do not know a simple characterization of all fully dualizable tensor categories, though to our knowledge all examples are Morita equivalent to a separable finite rigid tensor category.
+For technical reasons we restrict our attention throughout to finite rigid tensor categories throughout this paper, because we have only given a rigorous definition of the $3$-category of finite rigid tensor categories.  Nonetheless, it is natural to wonder whether rigid and finite are necessary for dualizability.  Since rigidity is not preserved by Morita equivalence (as pointed out to us by Dan Freed), there are finite tensor categories which are fully dualizable but not rigid.  Indeed, semisimplicity and finiteness are also not Morita invariant notions.  We do not know a simple characterization of all fully dualizable tensor categories (indeed we do not know in what generality it even makes sense to ask this question), though to our knowledge all examples are Morita equivalent to a separable finite rigid tensor category.
 
 %In particular, the theorem provides localizations of Turaev-Viro field theories:
 %\begin{corollary}
@@ -146,7 +146,7 @@ For technical reasons we restrict our attention throughout to finite rigid tenso
 %!% Add mention of how sphericality comes in?
 
 %%
-We also establish that there are field theories associated to finite tensor categories that are not necessarily fusion:
+We also establish that there are field theories associated to finite tensor categories that are not necessarily separable:
 
 \begin{theorem}
 Finite rigid tensor categories are $2$-dualizable.
@@ -1722,25 +1722,27 @@ The last of these observation has some consequences, as it shows that if $\cC$ h
 Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TC$, which in turn depends on the theory of separability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
 \end{warning}
 
-\NScomm{[The rest of this section is under construction]}
 
-%%% Stuff moved to section 2  -CSP
-
-\begin{lemma} \label{lma:2morAdjunction}
-Let $\cC, \cD \in \TC$, let $\cM, \cN \in \Hom_\TC(\cC,\cD)$, and let $\cF \in \Hom_{\TC}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$-module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$-module functor.  If $\cM$ is exact as a $\cB$-module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TC}(\cN,\cM)$.  
+\begin{lemma}
+Suppose that $\cM$ and $\cN$ are exact $\cC$--$\cD$ bimodule categories (that is, they're exact as module categories over $\cC \boxtimes \cD$), and $\cF: \cM \rightarrow \cN$ is a module functor, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TC}(\cN,\cM)$.
 \end{lemma}
+
 \begin{proof}
-Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor (Theorem \ref{Thm:ExactModCatOmnibus} (5)).  Then Lemma \ref{lma:module-adjoint} shows that it has left and right adjoints as a $\cC$-$\cD$ bimodule functor.
+Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor (Theorem \ref{Thm:ExactModCatOmnibus} (5)).  Then Lemma \ref{lma:module-adjoint} shows that it has left and right adjoints as a $\cC$-$\cD$ bimodule functor.   Exactness of $\cN$ implies that these adjoints are themselves right exact.
 \end{proof}
 
-\begin{remark}
-In applications of the above corollary $\cB$ will typically be $\mathrm{Vec}$, $\cC$, $\cD^{mp}$, or $\cC \boxtimes \cD^{mp}$.  When $\cB = \Vec$ this theorem is just the fact that functors out of semisimple categories are exact.
-\end{remark}
 
 \NScomm{[Explain why in order to check full dualizability we only need to check that certain evaluation and coevaluation $2$-morphisms have adjoints, that their adjoints have adjoints, etc.  All of these $2$-morphisms (and their possible adjoints) are functors out of specific module categories.  Thus we need only check that the module categories are exact.]}
 
 \begin{lemma}
-The following bimodules are exact \NScomm{fill them in}.  If in addition $Z(\cC)$ is semisimple, then ${}_\Vec Z(C)_\Vec$ is also exact.
+The following bimodule categories are exact:
+\begin{itemize}
+\item $\cC \otimes \cC^*$ as a $\cC \boxtimes \cC^mp$-bimodule.
+\item $\cC \otimes \cC^{mp}$ as a $\cC \boxtimes \cC^mp$-bimodule.
+\item $\Vec$ as a $\Vec$-bimodule
+\end{itemize}
+
+If in addition $Z(\cC)$ is semisimple, then ${}_\Vec Z(C)_\Vec$ is also exact.
 \end{lemma}
 
 \begin{theorem}
