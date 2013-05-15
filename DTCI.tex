@@ -1728,20 +1728,34 @@ The last of these observation has some consequences, as it shows that if $\cC$ h
 \end{remark}
 
 \begin{warning}
-Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TC$, which in turn depends on the theory of separability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
+Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TC$, which in turn depends on the theory of separability.  As we will see in the next section, it is crucial that $Z(\cC)$ be semisimple.
 \end{warning}
 
+We have a converse result as well.
+
+\begin{theorem}
+If $\cC$ is a finite tensor category which is fully dualizable, then $\cC$ is separable.
+\end{theorem}
+\begin{proof}
+If $\cC$ is fully dualizable, then the $1$-morphism ${}_{\Vec} Z(\cC)_{\Vec}$ is fully dualizable as an object in the symmetric monoidal $2$-category $\End(\Vec)$.  The objects in $\End(\Vec)$ are finite linear categories, the $1$-morphisms are right exact functors, and the $2$-morphisms are natural transformations, so $\End(\Vec)$ is equivalent to the $2$-category of finite dimensional algebras, bimodules, and intertwiners.  By \cite{???},  fully dualizable object in this $2$-category must be separable.
+\NS{Add reference to CSP's thesis}
+\end{proof}
+
+Although module functors between non-separable module categories do not all have adjoints, nonetheless many of the important examples which appear in defining the values of Morse handles do have adjoints.  Morally, this suggests that although finite tensor categories do not give $3$-dimensional TFTs they do give some kind of ``non-compact" TFT which is only defined on certain $3$-dimensional bordisms.  These extra adjoints will play a key role in our proof of Radford's theorem in the non-separable case.
 
 \begin{lemma}
-Suppose that $\cM$ and $\cN$ are exact $\cC$--$\cD$ bimodule categories (that is, they're exact as module categories over $\cC \boxtimes \cD$), and $\cF: \cM \rightarrow \cN$ is a module functor, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TC}(\cN,\cM)$.
+Suppose that $\cM$ and $\cN$ are $\cC$--$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a right exact module functor.
+\begin{itemize}
+\item If $\cM$ is exact as a bimodule category (that is, exact as a $\cC \boxtimes \cD^{mp}$ module category), then $cF$ has a left adjoint in $\TC$.
+\item If $\cN$ is exact as a bimodule category, then $\cF$ has a right exact right adjoint module functor (i.e. an adjoint in $\TC$).
+\end{itemize}
 \end{lemma}
 
 \begin{proof}
-Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor (Theorem \ref{Thm:ExactModCatOmnibus} (5)).  Then Lemma \ref{lma:module-adjoint} shows that it has left and right adjoints as a $\cC$-$\cD$ bimodule functor.   Exactness of $\cN$ implies that these adjoints are themselves right exact.
+Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying functor of $\cF$ is exact (Theorem \ref{Thm:ExactModCatOmnibus} (5)), and thus that $\cF$ has a left adjoint as a functor.  Any left adjoint is automatically right exact.  Then Lemma \ref{lma:module-adjoint} shows that this left adjoint can be made into a $\cC$-$\cD$ bimodule functor.   
+
+Since $\cF$ is right exact, it has a right adjoint as a functor.  Again applying Lemma \ref{lma:module-adjoint} shows that this left adjoint can be made into a $\cC$-$\cD$ bimodule functor.   Finally, since $\cN$ is exact we see that this adjoint functor is itself exact.
 \end{proof}
-
-
-\NScomm{[Explain why in order to check full dualizability we only need to check that certain evaluation and coevaluation $2$-morphisms have adjoints, that their adjoints have adjoints, etc.  All of these $2$-morphisms (and their possible adjoints) are functors out of specific module categories.  Thus we need only check that the module categories are exact.]}
 
 \begin{lemma}
 The following bimodule categories are exact:
@@ -1751,31 +1765,21 @@ The following bimodule categories are exact:
 \item $\Vec$ as a $\Vec$-bimodule
 \end{itemize}
 
-If in addition $Z(\cC)$ is semisimple, then ${}_\Vec Z(C)_\Vec$ is also exact.
+Furthermore $Z(\cC)$ is exact as a $\Vec$-bimodule if and only if $\cC$ is separable.
 \end{lemma}
 
-\begin{theorem}
-If $\cC$ is a rigid finite tensor category such that $Z(\cC)$ is semisimple, then $\cC$ is fully dualizable.
-\end{theorem}
-\begin{proof}
-\NScomm{[Fill in proof.  The point is that all the adjoints you need are functors between exact module categories by the previous lemma and thus have adjoints, and their adjoints have adjoints, etc.]}
-\end{proof}
+We give one quick application of the above two lemmas, more will be given below.
 
-Recall that semisimplicity of $Z(\cC)$ is equivalent to separability, thus this statement is the same as that of Corollary \ref{thm:TC-dualizable}
-
-We have a converse result as well.
-
-\begin{theorem}
-If $\cC$ is a rigid finite tensor category which is fully dualizable, then $\cC$ is separable.
-\end{theorem}
-\begin{proof}
-If $\cC$ is fully dualizable, then the $1$-morphism ${}_{\Vec} Z(\cC)_{\Vec}$ is fully dualizable as an object in the symmetric monoidal $2$-category $\End(\Vec)$.  The objects in $\End(\Vec)$ are finite linear categories, the $1$-morphisms are right exact functors, and the $2$-morphisms are natural transformations, so $\End(\Vec)$ is equivalent to the $2$-category of finite dimensional algebras, bimodules, and intertwiners.  By \cite{???},  fully dualizable object in this $2$-category must be separable.
-\NS{Add reference to CSP's thesis}
-\end{proof}
+\begin{lemma}
+Suppose that $\cC$ is a finite tensor category, then the unit morphism $\Vec \rightarrow \Z(\cC)$ has a left adjoint in $\TC$.
+\end{lemma}
 
 
 \subsection{Invariants of elementary 3-framed bordisms}
 .%!% remove period
+
+
+
 
 \CSPcomm{[Discussion of the basic 3-framed bordisms and their images under the tqft.]}
 
