@@ -1729,7 +1729,7 @@ Recall from Lemma \ref{lma:module-adjoint} that in order to check that a bimodul
 Any $2$-morphism in $\TCsep$ has a left adjoint and a right adjoint in $\TCsep$.
 \end{theorem}
 \begin{proof}
-Any functor out of a semisimple category is exact, so this result follows from Proposition \ref{prop:AFT}.
+Any functor out of a semisimple category is exact, and hence has both a left and a right adjoint as a functor which in turn are also functors out of semisimple categories and so exact.  By Proposition \ref{prop:AFT} these adjoints can be given the structure of module functors.
 
 The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{Must check that this formula is right for adjoints of functors of semisimple categories.}
 \end{proof}
@@ -1738,7 +1738,7 @@ The adjoint functors can also be described explicitly as a transpose.  Linear fu
  $\TCsep$ is fully 3-dualizable; separable fusion categories are fully dualizable.
 \end{theorem}
 \begin{proof}
-By Theorem \ref{thm:objduals} all objects in $\TCsep$ has duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms  
+By Theorem \ref{thm:objduals} all objects in $\TCsep$ has duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms have adjoints.
 \end{proof}
 
 
@@ -1782,13 +1782,14 @@ If $\cC$ is a rigid finite tensor category such that $Z(\cC)$ is semisimple, the
 
 Recall that semisimplicity of $Z(\cC)$ is equivalent to separability, thus this statement is the same as that of Corollary \ref{thm:TC-dualizable}
 
-We have a weak converse result as well.
+We have a converse result as well.
 
 \begin{theorem}
-If $\cC$ is a rigid finite tensor category which is fully dualizable, then $\cC$ is a separable fusion category.
+If $\cC$ is a rigid finite tensor category which is fully dualizable, then $\cC$ is separable.
 \end{theorem}
 \begin{proof}
-\NScomm{[Dimensionally reduce along $S^1$ to get a $2$-dimensional theory.  In order for this theory to exist, $Z(\cC)$ must be semisimple, which is equivalent to separable fusion.]}
+If $\cC$ is fully dualizable, then the $1$-morphism ${}_{\Vec} Z(\cC)_{\Vec}$ is fully dualizable as an object in the symmetric monoidal $2$-category $\End(\Vec)$.  The objects in $\End(\Vec)$ are finite linear categories, the $1$-morphisms are right exact functors, and the $2$-morphisms are natural transformations, so $\End(\Vec)$ is equivalent to the $2$-category of finite dimensional algebras, bimodules, and intertwiners.  By \cite{???},  fully dualizable object in this $2$-category must be separable.
+\NS{Add reference to CSP's thesis}
 \end{proof}
 
 
