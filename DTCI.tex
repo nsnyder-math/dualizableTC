@@ -1245,7 +1245,7 @@ We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{
 \end{proof}  \NS{This proof abuses notation quite a bit.  We should improve the description} \CD{I think a key fact that is used in the proof is that the Deligne tensor has the property that a left $\cC \boxtimes \cD^\mp$ module can be turned into a $\cC$-$\cD$ bimodule and vice verse.  Getting this into the proof might be good and might also resolve the notational fuzziness.}
 
 \begin{proposition}
-	$\TCfin$ is fully $1$-dualizable. 
+	$\TC$ is fully $1$-dualizable. 
 \end{proposition}
 
 %%%
@@ -1366,7 +1366,7 @@ The other three calculations are similar.
 
 Thus we have proven
 \begin{theorem}
-	$\TCfin$ is fully 2-dualizable. 
+	$\TC$ is fully 2-dualizable. 
 \end{theorem}
 
 
@@ -1721,7 +1721,7 @@ In Table~\ref{table-surfaces}, we record the invariants associated to certain 2-
 
 \subsection{Adjoints of bimodule functors: fusion categories are fully dualizable} \label{sec-df-functors}
 
-In this section we specialize to $\TCrig$ and give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint. 
+In this section we specialize to $\TC$ and give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint. 
 
 Recall from Lemma \ref{lma:module-adjoint} that in order to check that a bimodule functor between bimodules over rigid tensor categories has an adjoint as a bimodule category, it's enough to check that the underlying functor has an adjoint.  In particular, for finite tensor categories, it's enough to check that the underlying functor is exact.
 
@@ -1749,7 +1749,7 @@ The last of these observation has some consequences, as it shows that if $\cC$ h
 \end{remark}
 
 \begin{warning}
-Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TCfin$, which in turn depends on the theory of separability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
+Although the last step of this argument looks straightforward, we warn the reader that it is not.  This argument depends crucially on the fact that $\TCsep$ is a subcategory of $\TC$, which in turn depends on the theory of separability.  So we give another proof of dualizability which is more explicit.  This more explicit version also shows which parts of dualizability work for finite tensor categories and which don't.
 \end{warning}
 
 \NScomm{[The rest of this section is under construction]}
@@ -1757,7 +1757,7 @@ Although the last step of this argument looks straightforward, we warn the reade
 %%% Stuff moved to section 2  -CSP
 
 \begin{lemma} \label{lma:2morAdjunction}
-Let $\cC, \cD \in \TCrig$, let $\cM, \cN \in \Hom_\TCrig(\cC,\cD)$, and let $\cF \in \Hom_{\TCrig}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$-module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$-module functor.  If $\cM$ is exact as a $\cB$-module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TCrig}(\cN,\cM)$.  
+Let $\cC, \cD \in \TC$, let $\cM, \cN \in \Hom_\TC(\cC,\cD)$, and let $\cF \in \Hom_{\TC}(\cM,\cN)$.  Suppose that $\cB$ is an auxiliary finite tensor category, that $\cM$ and $\cN$ are $\cB$-module categories, and that the underlying functor $\cF$ can be given the structure of a $\cB$-module functor.  If $\cM$ is exact as a $\cB$-module category, then $\cF$ has both a left adjoint functor and a right adjoint functor in $\Hom_{\TC}(\cN,\cM)$.  
 \end{lemma}
 \begin{proof}
 Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying functor of $\cF$ is exact and thus has both left and right adjoints as a functor (Theorem \ref{Thm:ExactModCatOmnibus} (5)).  Then Lemma \ref{lma:module-adjoint} shows that it has left and right adjoints as a $\cC$-$\cD$ bimodule functor.
@@ -1857,7 +1857,7 @@ Let $a \in \cA$ be a dualizable object of the symmetric monoidal n-category $\cA
 \] 
 \end{proposition}
 
-We now specialize to our case of interest, namely where the object in question is a finite tensor category (which is a dualizable object in the $(3,2)$-category $\TCrig$).  The value of the Serre automorphism of such a tensor category was listed in a table in the previous section---we now make the calculation of the automorphism more explicit.
+We now specialize to our case of interest, namely where the object in question is a finite tensor category (which is a dualizable object in the $(3,2)$-category $\TC$).  The value of the Serre automorphism of such a tensor category was listed in a table in the previous section---we now make the calculation of the automorphism more explicit.
 
 %\CD{Where did we establish that $\Hom_D(M,D)$ is a left/right adjoint to M, etc, and under what conditions? --- the identification of Serre depended on this!}
 
@@ -2119,7 +2119,7 @@ One readily verifies that $\lincat(A) \simeq \lincat^{\times A}$. Thus an object
 
 \subsection{The symmetric monoidal 2-categories of tensor categories and bimodule categories}
 
-Let $\TCfin(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
+Let $\TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha, \ell, r)$ where $X \in \lincat(A)$,  $\otimes: \Delta^*(X \boxtimes X) \to X$, $\mathbf{1}: \Vect \to X$, $\alpha$, $\ell$, $r$ are the associator and unitors, satisfying the usual conditions. 
 
 }
 
