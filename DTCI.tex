@@ -906,22 +906,31 @@ More precisely it is a Bousfeild localization of the generalized Reedy model str
 
 One of the important invariant features of the homotopy theory of $(\infty,n)$-categories is that the homotopy theory of $(\infty,k)$-categories ($k\leq n$) sits inside it in a canonical way, and moreover the inclusion admits a homotopical right adjoint $k_n$. In other words every $(\infty,n)$-category has a maximal sub-$(\infty,k)$-category $k_n \cC \subseteq \cC$. In particular when $k=0$, we recover the homotopy theory of spaces. A similar invariance holds for the functors which lower categorical number by only remembering the $k$-morphisms above a certain dimension, and for the subcategories of $(n+k, n)$-categories. These later were describe by Rezk \cite{Rezk} in the context of his $\Theta_n$-spaces. As a caricature, $(\infty,n)$-categories may be described as $\infty$-categories in which all morphisms are invertible above dimension $n$ and $(n+k, n)$-categories are weak $n+k$-categories in which all morphisms are invertible above dimension $n$.
 
-As a direct consequence of these observations we may extract from every symmetric monoidal $(\infty,n)$-category $\cC$ and every $k$,  $0 \leq k < n$, a bicategories $h^{(k)}_2 X$, whose objects are the $(k-1)$-morphisms of $X$, the morphisms are the $k$-morphisms of $X$, and whose 2-morphisms are the equivalences classes of $(k+1)$-morphisms of $X$\footnote{When $k=0$ this will be interpreted as the homotopy category of $X$. When $X$ is monoidal this is a monoidal category, which we may also view as a one-object bicategory.}. Moreover this bicategory can be obtained by using these invariant structures. For example it can be obtained by first forgetting the morphisms below dimension $k-1$, then throwing out the non-invertible morphisms above dimension $k+1$, and finally by truncating down to a $(2,2)$-category. This means that the assignment $X \mapsto h^{(k)}_2 X$ is model invariant. If we pass to an equivalent model of $(\infty,n)$-categories, then the bicategory  $h^{(k)}_2 X$ will be preserved up to equivalence of bicategories. 
+As a direct consequence of these observations we may extract from every symmetric monoidal $(\infty,n)$-category $\cC$ and every $k$,  $0 \leq k < n$, a bicategory\footnote{When $k=0$ this will be interpreted as the homotopy category of $X$. When $X$ is monoidal this is a monoidal category, which we may also view as a one-object bicategory.} $h^{(k)}_2 X$, whose objects are the $(k-1)$-morphisms of $X$, the morphisms are the $k$-morphisms of $X$, and whose 2-morphisms are the equivalences classes of $(k+1)$-morphisms of $X$. Moreover this bicategory can be obtained by using these invariant structures. For example it can be obtained by first forgetting the morphisms below dimension $k-1$, then throwing out the non-invertible morphisms above dimension $k+1$, and finally by truncating down to a $(2,2)$-category. This means that the assignment $X \mapsto h^{(k)}_2 X$ is model invariant. If we pass to an equivalent model of $(\infty,n)$-categories, then the bicategory  $h^{(k)}_2 X$ will be preserved up to equivalence of bicategories. 
 These bicategories $h^{(k)}_2 X$ are key to formulating the universal property of the bordism $n$-category. 
 
 \begin{definition}
 	Let $X$ be a symmetric monoidal $(\infty,n)$-category. We will say that $X$ {\em has duals for $k$-morphisms} if $h^{(k)}_2 X$ has both left and right adjoints for all 1-morphisms. 
 \end{definition}
 
-For any symmetric monoidal $(\infty,n)$-category $X$
+For any symmetric monoidal $(\infty,n)$-category $X$ there exists a maximal subcategory which has duals for all $k$-morphisms. This can be obtained by throwing out all $k$-morphisms which do not have both adjoints. Let us denote this subcategory by $D^kX$. For each $1 \leq \ell \leq n$ we have an {\em $\ell$-dualizable filtration}:
+\begin{equation*}
+	F^{(\ell)}_0 X \subseteq F^{(\ell)}_1 X \subseteq \cdots \subseteq  F^{(\ell)}_{ell-1} X \subseteq F^{(\ell)}_\ell X = D^kX
+\end{equation*}  
+where 
+\begin{equation*}
+	F_i^{(\ell)} X = D^i( \cdots   (D^{\ell-1}( D^\ell X))).
+\end{equation*}
+The $i$th stage $F_i X$ consists of the maximal subcategory in which all morphisms from $i$ to $\ell$ have both duals. In particular if the unit (or counit) of an adjunction has dimension in this range, then it also has its own duals. 
 
+\begin{definition}
+	A symmetric monoidal $(\infty,n)$-category $\cC$ is {\em $k$-dualizable} if $F^{(k)}_0 \cC = \cC$. 
+\end{definition}
 
-... \CSPcomm{$k$-dualizable
-\begin{itemize}
-	\item $D_k \cC$ is the subcategory where all $k$-morphisms have duals. 
-	\item Define the $k$-dualizable filtration by $F_i^k = D_. \cdots D_{k-1} \cC$ ???
-\end{itemize}
-}
+\begin{remark}
+	An $n$-dualizable symmetric monoidal $(\infty,n)$-category is sometimes called {\em fully-dualizable}.
+\end{remark}
+
 
 
 ....
