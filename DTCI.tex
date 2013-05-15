@@ -1804,9 +1804,13 @@ Suppose that $\cC$ is a finite tensor category, then the unit morphism $\Vec \ri
 \CSPcomm{[Discussion of the basic 3-framed bordisms and their images under the tqft.]}
 
 
-\section{The Serre automorphism and the quadruple dual} \label{sec-serre}
+\section{The Serre automorphism and Radford's theorem} \label{sec-serre}
 
-\CDcomm{Story of this section: Noah's Oxford talk, ie doing higher algebra via topology, ie applying topology to algebra.}
+Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way giving applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
+
+Here's a quick outline of the argument.  Since $\pi_1(SO(3)) \cong \mathbf{Z}/2$, there are two different $3$-framings on the interval.  We call the nontrivially $3$-framed interval the loop bordism.  Furthermore, $\pi_1(SO(3)) \cong \mathbf{Z}/2$ tells us that there's a bordism from the square of the loop bordism to the interval which we call the belt bordism (because it is the bordism traced out by the Dirac belt trick).  If $\cC$ is a separable tensor category, we can apply the local TFT attached to $\cC$ to the belt bordism.  The image of the loop bordism is called the Serre automorphism and it turns out to be closely related to the double dual.  The image of the belt bordism yields the Radford isomorphism trivializing the quadruple dual.  Thus Radford's theorem for separable tensor categories follows from the belt trick.
+
+Note that this application does not depend on the full power of the cobordism hypothesis, as we only need to know how to interpret a few particular bordisms rather than all possible bordisms.  Looking closely at which handles appear in the belt bordism, it turns out that one can weaken the ``fully dualizable" hypothesis somewhat and still have enough maps to use the belt trick.  This version of the argument does not depend on the cobordism hypothesis and also gives a proof of Radford's theorem for non-separable finite tensor categories.
 
 
 \subsection{The Serre automorphism}  \CDcomm{Move this subsection to the section on Local Field Theory in Dimension 3.}
