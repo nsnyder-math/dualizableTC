@@ -895,7 +895,8 @@ Several features of the homotopy theory of $(\infty,n)$-categories are preserved
 
 For definitiveness, the model for symmetric monoidal $(\infty,n)$-categories that we will use is the same one described in \cite{3TC}. This is a symmetric monoidal variant of the injective model structure on Segal $n$-categories. 
 \CSP{cite simpson and others?}
-More precisely it is a Bousfeild localization of the generalized Reedy model structure on $\Gamma$-objects in Segal 3-categories, where the localization enforces the Segal condition. For details of this model we refer the reader to \cite{3TC} where it is shown that the 3-category of finite rigid tensor categories, finite bimodule categories, functors, and transformations forms a fibrant object in this model structure. 
+More precisely it is a Bousfeild localization of the generalized Reedy model structure on $\Gamma$-objects in Segal 3-categories, where the localization enforces the Segal condition. For details of this model we refer the reader to \cite{3TC} where we construct the  symmetric monoidal Segal 3-category $\TC$ 
+ of finite rigid tensor categories, finite bimodule categories, functors, and transformations. We show that this forms a fibrant object in this model structure. 
 \CSP{We must verify that this is indeed shown in 3TC.}
 
 % We will now sketch how the known invariance properties of the theory of $(\infty,n)$-categories imply that model independence of the cobordism hypothesis. In the next section we will sketch how one can see this invariance, but let us first address the statement of the cobordism hypothesis. 
@@ -909,27 +910,56 @@ One of the important invariant features of the homotopy theory of $(\infty,n)$-c
 As a direct consequence of these observations we may extract from every symmetric monoidal $(\infty,n)$-category $\cC$ and every $k$,  $0 \leq k < n$, a bicategory\footnote{When $k=0$ this will be interpreted as the homotopy category of $X$. When $X$ is monoidal this is a monoidal category, which we may also view as a one-object bicategory.} $h^{(k)}_2 X$, whose objects are the $(k-1)$-morphisms of $X$, the morphisms are the $k$-morphisms of $X$, and whose 2-morphisms are the equivalences classes of $(k+1)$-morphisms of $X$. Moreover this bicategory can be obtained by using these invariant structures. For example it can be obtained by first forgetting the morphisms below dimension $k-1$, then throwing out the non-invertible morphisms above dimension $k+1$, and finally by truncating down to a $(2,2)$-category. This means that the assignment $X \mapsto h^{(k)}_2 X$ is model invariant. If we pass to an equivalent model of $(\infty,n)$-categories, then the bicategory  $h^{(k)}_2 X$ will be preserved up to equivalence of bicategories. 
 These bicategories $h^{(k)}_2 X$ are key to formulating the universal property of the bordism $n$-category. 
 
+\begin{example}
+	In the symmetric monoidal Segal 3-category $\TC$ these bicategories $h^{(0)}_2 \TC$, $h^{(1)}_2 \TC$, and $h^{(2)}_2 \TC$ are easily identified. They are respectively (0) the monoidal category of tensor categories and equivalences classes of bimodule categories, (1) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (2) the bicategory of bimodule categories, bimodule functors, and natural transformations. 
+\end{example}
+
 \begin{definition}
 	Let $X$ be a symmetric monoidal $(\infty,n)$-category. We will say that $X$ {\em has duals for $k$-morphisms} if $h^{(k)}_2 X$ has both left and right adjoints for all 1-morphisms. 
 \end{definition}
 
 For any symmetric monoidal $(\infty,n)$-category $X$ there exists a maximal subcategory which has duals for all $k$-morphisms. This can be obtained by throwing out all $k$-morphisms which do not have both adjoints. Let us denote this subcategory by $D^kX$. For each $1 \leq \ell \leq n$ we have an {\em $\ell$-dualizable filtration}:
 \begin{equation*}
-	F^{(\ell)}_0 X \subseteq F^{(\ell)}_1 X \subseteq \cdots \subseteq  F^{(\ell)}_{ell-1} X \subseteq F^{(\ell)}_\ell X = D^kX
+	F^{(\ell)}_0 X \subseteq F^{(\ell)}_1 X \subseteq \cdots \subseteq  F^{(\ell)}_{\ell-1} X \subseteq F^{(\ell)}_{\ell} X = X
 \end{equation*}  
 where 
 \begin{equation*}
-	F_i^{(\ell)} X = D^i( \cdots   (D^{\ell-1}( D^\ell X))).
+	F_i^{(\ell)} X = \underbrace{D^i( \cdots   (D^{\ell-2}( D^{\ell-1} X)))}_{(\ell - i)\textrm{-times}}.
 \end{equation*}
-The $i$th stage $F_i X$ consists of the maximal subcategory in which all morphisms from $i$ to $\ell$ have both duals. In particular if the unit (or counit) of an adjunction has dimension in this range, then it also has its own duals. 
+The $i^\textrm{th}$ stage $F_i X$ consists of the maximal subcategory in which all morphisms with dimensions from $i$ to $(\ell-1)$ have both duals. In particular if the unit or counit of an adjunction has dimension in this range, then the unit or counit also has its own duals. 
 
 \begin{definition}
-	A symmetric monoidal $(\infty,n)$-category $\cC$ is {\em $k$-dualizable} if $F^{(k)}_0 \cC = \cC$. 
+	A symmetric monoidal $(\infty,n)$-category $\cC$ is {\em $k$-dualizable} if $F^{(k)}_0 \cC = \cC$.
 \end{definition}
 
 \begin{remark}
-	An $n$-dualizable symmetric monoidal $(\infty,n)$-category is sometimes called {\em fully-dualizable}.
+	An $n$-dualizable symmetric monoidal $(\infty,n)$-category is called {\em fully-dualizable} in \cite{lurie-ch}.
 \end{remark}
+
+\begin{example}
+	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. Hence the objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, etc. This symmetric monoidal $(\infty,n)$-category is $n$-dualizable. 
+\end{example}
+
+Since duals are map to duals by any functor, any topological field theory with values in a symmetric monoidal $(\infty,n)$-category $\cC$ must take values in the $n$-dualizable subcategory of $\cC$.  
+
+\begin{theorem}[The Cobordism Hypothesis, framed version {\cite{lurie-ch}} ]
+	Let $\Bord_n^{fr}$ denote the symmetric monoidal $(\infty,n)$-category of tangentially framed cobordisms. Then for every symmetric monoidal $(\infty,n)$-category $\cC$ we have a natural equivalence
+	\begin{equation*}
+		\Fun^\otimes(\Bord_n^{fr}, \cC) \simeq k_O (F^{(n)}_0 \cC ).
+	\end{equation*} 
+	That is the $(\infty,n)$-category of fully local tangentially framed topological field theories with values in $\cC$ is equivalent to the $(\infty,0)$-category obtained by taking the maximal $n$-dualizable subcategory of $\cC$ and trowing away the non-invertible morphisms at all levels. This equivalence is implemented by evaluating a topological field theory on the positively framed point. 
+\end{theorem}
+
+\noindent In particular the $(\infty,n)$-category of topological field theories is in fact an $(\infty,0)$-category, a.k.a. an $\infty$-groupoid or `space'. Also the value of a tangentially framed topological field theory is completely determined by the values of the point. 
+
+\CSPcomm{
+\begin{itemize}
+	\item $O(n)$-action
+	\item $(X,\xi)$-structure version.
+	\item comment on status of proof.  
+\end{itemize}
+}
+
 
 
 
@@ -1240,7 +1270,13 @@ We give three examples of how this theorem may be used.
 %\end{example}
 
 
+\CSPcomm{
+\begin{itemize}
+	\item Before the technical lemma add some details about how constructable is the topological field theory. 
+	\item Maybe comment on proof of cobordism hypothesis, via framed generalized morse functions.? Inductive proof.  
+\end{itemize}
 
+}
 
 
 
