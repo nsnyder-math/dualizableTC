@@ -137,11 +137,17 @@ coverlinelefttail/.style={
 \newtheorem{proposition}[theorem]{Proposition}              
 \newtheorem{cor}[theorem]{Corollary}          
 \newtheorem{prop}[theorem]{Proposition}              
+\newtheorem*{CobHyp}{The Cobordism Hypothesis}              
+
 
 
 
 \theoremstyle{definition} %%%% Definition-like Commands  
 \newtheorem{definition}[theorem]{Definition}
+
+\newcounter{conv} 									% a new counter for conventions
+\newtheorem{convention}{Convention}[conv] 			% the convention theorem command
+\renewcommand*{\theconvention}{\Alph{convention}} 	% Make conventions numbered by letters.
 
 \theoremstyle{remark}  %%%% Remark-like Commands
 \newtheorem{remark}[theorem]{Remark}
