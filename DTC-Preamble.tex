@@ -155,11 +155,12 @@ coverlinelefttail/.style={
 \newtheorem{warning}[theorem]{{Warning}}
 \newtheorem{question}[theorem]{{Question}}
 
-\newtheoremstyle{special_statement}% hnamei
-	{3pt}% Space above
-	{3pt}% Space below
-	{}% Body font
-	{\parindent}% Indent amount
+% This Theorem Style is exactly like the definition style, except it is indented. 
+\newtheoremstyle{special_statement} 
+	{\topskip}% Space above
+	{\topskip}% Space below
+	{\addtolength{\leftskip}{2.5em} \itshape }% Body font
+	{}% Indent amount % \parindent
 	{\bfseries}% Theorem head font
 	{:}% Punctuation after theorem head
 	{.5em}% Space after theorem head
