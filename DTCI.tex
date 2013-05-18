@@ -1629,37 +1629,45 @@ By the cobordism hypothesis, the previous theorem shows that there is a $2$-dime
 
 We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \cite{???}.
 
-First, without loss of generality we assume that all positively framed points are sent to $\cC$, that all negatively framed points are sent to $\cC^\mp$, and that the $1$-framed bordisms have the same values that they had in the $1$-framed theory.  Starting with these two intervals we can take adjoints (see Section ???) and use the symmetric structure to compute the following values for framed intervals and circles.
+First, without loss of generality we assume that all positively framed points are sent to $\cC$.  In order to do so we need to fix a favorite choice of isomorphism between two positively framed points.  There are several reasonable conventions: always go clockwise, always go counterclockwise, always take the shortest path except for the antipodal point where you pick one direction, etc.  We will pick the counterclockwise convention.  In particular we fix the following isomorphism between the two antipodal positive framings.
+
+IMAGE
+
+Similarly we assume that all negatively framed points are sent to $\cC^\mp$.  Again we identify the points by going counterclockwise.
+
+Having fixed these conventions we can read off the values of the following two intervals whose $2$-framings are inherited from $1$-framings.
+
+TABLE
+
+Starting with these two intervals we can take adjoints (see Section ???) and use the symmetric structure to compute the following values for framed intervals and circles.
 
  TABLE
  
+ We also have the following formulas for the units and counits of adjunctions.
+ 
+ TABLE
+
+Using these formulas it is possible to compute the values of certain more complicated $2$-bordisms.  For example, we have the following formula for the pair of pants.
+
+IMAGE
+
+Note that there are actually a $\mathbb{Z}\times \mathbb{Z}$ torsor of different $2$-framed pairs of pants.  We give one example.
+
+IMAGE
+
+Similarly one can compute the values of $2$-framed surfaces.  Note that there is no $2$-framing on the sphere, while there are many $2$-framings of the torus.  Since our theories are actually $3$-framed, we do not go into detail on the values of $2$-framed surfaces here.
+ 
+ 
 \begin{remark}
-The above formulas have a somewhat unsatisfying assymmetry, where two intervals which look very similar (say with no twists) have answers which look rather different (say one is $\cC$ and the other $\cC^*$).  
+The above formulas for intervals have a somewhat unsatisfying assymmetry, where two intervals which look very similar (say with no twists) have answers which look rather different (say one is $\cC$ and the other $\cC^*$).  This comes from our choice of identifications between positively framed points.  Had we chosen clockwise rotation we would get values which were assymetric in the other direction.  It is also possible to pick conventions that make the formulas more symmetric but at the cost of not identifying all positively framed points with $\cC$, but instead identifying some of them with $\cC^{\mop}$.  Similarly instead of identifying all negatively framed points with $\cC^\mp$ we can identify some with $\cC^\op$ instead.  This yields the following more symmetric formulas.
+
+TABLE
+
+Although these formulas are more aesthetically pleasing, we have not found that they give any advantages when doing computations.
 \end{remark}
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
-
-
-
-
+\NScomm{This is the end of the current outline of the section.  The material below will be canibalized and moved to the appropriate locations above.} 
+ 
 We will give two different representatives.  The first choice corresponds directly to the proofs in the previous subsection, while the second choice is clearly equivalent to the first but is more symmetric.
 
 
@@ -2049,7 +2057,7 @@ If $\cC$ is fully dualizable, then the $1$-morphism ${}_{\Vec} Z(\cC)_{\Vec}$ is
 \NS{Add reference to CSP's thesis}
 \end{proof}
 
-Although module functors between non-separable module categories do not all have adjoints, nonetheless many of the important examples which appear in defining the values of Morse handles do have adjoints.  Morally, this suggests that although finite tensor categories do not give $3$-dimensional TFTs they do give some kind of ``non-compact" TFT which is only defined on certain $3$-dimensional bordisms.  These extra adjoints will play a key role in our proof of Radford's theorem in the non-separable case.
+Although module functors between non-separable module categories do not all have adjoints, nonetheless many of the important examples which appear in defining the values of Morse handles do have adjoints.  Morally, this suggests that although finite tensor categories do not give $3$-dimensional TFTs they do give some kind of ``non-compact" TFT which is only defined on certain $3$-dimensional bordisms.  In particular, we now show that finite tensor categories are Radford objects in $\TC$ in the sense of Section ???.
 
 \begin{lemma}
 Suppose that $\cM$ and $\cN$ are $\cC$--$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a right exact module functor.
@@ -2076,17 +2084,17 @@ The following bimodule categories are exact:
 Furthermore $Z(\cC)$ is exact as a $\Vec$-bimodule if and only if $\cC$ is separable.
 \end{lemma}
 
-We give one quick application of the above two lemmas, more will be given below.
-
-\begin{lemma}
-Suppose that $\cC$ is a finite tensor category, then the unit morphism $\Vec \rightarrow Z(\cC)$ has a left adjoint in $\TC$.
-\end{lemma}
-
+\begin{theorem}
+Every object in $\TC$ is a Radford object.
+\end{theorem}
+\begin{proof}
+Since the module categories BLAH and BLAH are exact, the $2$-morphisms BLAH and BLAH have left adjoints.
+\end{proof}
 
 \subsection{Invariants of elementary 3-framed bordisms}
 .%!% remove period
 
-\CSPcomm{[Discussion of the basic 3-framed bordisms and their images under the tqft.]}
+\CSPcomm{[Discussion of the basic 3-framed bordisms and their images under the tqft in the separable case.]}
 
 \subsection{The Radford isomorphism}
 
