@@ -33,7 +33,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 \email{nsnyder@math.columbia.edu}
 \urladdr{http://www.math.columbia.edu/\!\raisebox{-1mm}{~}nsnyder/}
 
-\thanks{CD was partially supported by a Miller Research Fellowship, CSP was partially supported by NSF fellowship DMS-0902808,  NS was partially supported by NSF fellowship DMS-0902981 and DARPA HR0011-11-1-0001.
+\thanks{CD was partially supported by a Miller Research Fellowship, CSP was partially supported by NSF fellowship DMS-0902808 and the Max Planck Institute for Mathematics,  NS was partially supported by NSF fellowship DMS-0902981 and DARPA HR0011-11-1-0001.
 }
 
 
@@ -593,41 +593,89 @@ We will refer to the first of these as the {\em positively framed point}, $pt_+$
 
 These two objects are naturally in duality. To exhibit this concretely, we must find 2-framed bordisms $ev: pt_+ \sqcup pt_- \to \emptyset$ and $coev: \emptyset \to pt_- \sqcup pt_+$, playing the role of the unit and counit and satisfying the zig-zag equations from Definition \ref{def:adjoints_in_bicat}. We may make the following selection:
 \begin{center}
+	$ev =$\cb{
 	\begin{tikzpicture}
-	\node at (-1,0) {$ev =$};
 	\draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
 	\end{tikzpicture}
+	}
 	\hspace{1.5cm}
+	$coev =$ \cb{
 	\begin{tikzpicture}
-	\node at (-1,0) {$coev =$};		
 	\draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
 	\begin{pgfonlayer}{background}
 		\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
 		\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
 	\end{pgfonlayer}
-	\end{tikzpicture}
+	\end{tikzpicture}}
 \end{center}
 Thus the negatively framed point is the dual of the positively framed point. Since the bordism category is a {\em symmetric} monoidal $(\infty,n)$-category, there is no difference between right and left duals for objects. The union of 1-dualizable objects is again 1-dualizable and hence this establishes the first layer of dualizability of $\Bord_2^{fr}$. The $n=1$ case is no different, and by stabilization we establish this layer of duality for $\Bord_n^{fr}$ for all $n \geq 1$.  
 
 The next layer of duality requires framings of a least dimension two. A left adjoint of the evaluation may be described explicitly by the following 2-framed bordism:
 \begin{center}
+	$ev^L = $ \cb{
 	\begin{tikzpicture}
-	\node at (-1,0) {$ev^L =$};		
 	\draw[linestyle,fuzzright] (0,0) arc (90:270:\smcirclerad);
 	\begin{pgfonlayer}{background}
 		\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
 		\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
 	\end{pgfonlayer}
-	\end{tikzpicture}
+    \end{tikzpicture} }
 \end{center}
 In order to establish that this is indeed a left adjoint of the evaluation bordism, we must supply 2-dimensional 2-framed bordisms which serve as the unit and counit of an adjunction between $ev$ and $ev^L$. These are provided by the bordisms  listed in examples \ref{ex:disk_bordism_immerssed} and \ref{ex:saddle_bordism_immerssed}, respectively. 
+Similarly, we may identify the right adjoint of $ev$; $ev^R$ together with the unit and counit of the adjunction are as follows:
+\begin{center}
+	$ev^R = $\cb{
+	\begin{tikzpicture}
+		\draw[linestyle,fuzzright] (0,0) to [looseness=1.6, out=180, in=180] +(90:\smcirclerad)
+		to [looseness=1.6, out=0, in=0] +(90:-4*\smcirclerad)
+		to [looseness=1.6, out=180, in=180] +(90:\smcirclerad);
+		\begin{pgfonlayer}{background}
+			\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+			\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
+		\end{pgfonlayer}
+	\end{tikzpicture} }
+	\hspace{1.5cm}
+	unit $=$\cb{
+	\begin{tikzpicture}
+		\draw[linestyle, fill=\fillcolor] (0.75,0) to [looseness=1.6, out=180, in=180] +(90:\smcirclerad)
+			to [looseness=1.6, out=0, in=0] +(90:-4*\smcirclerad)
+			to [looseness=1.6, out=180, in=180] +(90:\smcirclerad)
+			-- +(-0.75,0)
+			to [looseness=1.6, out=0, in=180] +(0,-0.75)
+			to [looseness=1.6, out=0, in=0] (0.75,0.75)
+			to [looseness=1.6, out=180, in=0] (0,0)
+			-- (0.75,0);
+		\draw[fuzzright] (0.75,0) to [looseness=1.6, out=180, in=180] +(90:\smcirclerad)
+			to [looseness=1.6, out=0, in=0] +(90:-4*\smcirclerad)
+			to [looseness=1.6, out=180, in=180] +(90:\smcirclerad)
+			+(-0.75,0) to [looseness=1.6, out=0, in=180] +(0,-0.75)
+			to [looseness=1.6, out=0, in=0] (0.75,0.75)
+			to [looseness=1.6, out=180, in=0] (0,0);
+		\begin{pgfonlayer}{background}
+			\draw[->,outstyle] (0.75,0) -- +(0:\arrowlength);
+			\draw[->,outstyle] (0.75,-2*\smcirclerad) -- +(0:\arrowlength);
+		\end{pgfonlayer}
+	\end{tikzpicture} }
+	\hspace{1.5cm}
+	counit $=$\cb{
+	\begin{tikzpicture}
+		\draw[linestyle, fill=\fillcolor] (0,0) to [looseness=1.6, out=180, in=180] +(90:\smcirclerad)
+		to [looseness=1.6, out=0, in=0] +(90:-4*\smcirclerad)
+		to [looseness=1.6, out=180, in=180] +(90:\smcirclerad)
+		to [looseness=1.6, out=0, in=0] +(90:2*\smcirclerad);
+	\end{tikzpicture} }
+\end{center}
 
 
+\CSPcomm{Now list all the adjoints and adjoints of adjoints of $ev$ in a linear order. }
 
-\subsection{The Serre and the Radford bordisms}
+\subsection{The Serre and the Radford isomorphisms}
 
 . % remove period
-\CSPcomm{change title?  Introduce these 3-framed bordisms. Define Serre and Radford as the image of these. Change the notation for the bordism category.}
+\CSPcomm{change title?  Introduce these 3-framed bordisms. Define Serre and Radford as the image of these. Change the notation for the bordism category.
+
+[this needs to be read through and maybe changed.]
+}
 
 We now define the right loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
 \begin{center}
@@ -668,6 +716,8 @@ Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero 
 
 We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.  Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  We call this image the Radford isomorphism, because as we will see that it plays the key role in proving Radford's theorem.
 
+
+\CSPcomm{Give first definition of the Serre and Radford isomorphism as the value of the Serre and Radford bordisms under a given tqft.}
 
 \subsection{Constructability of the cobordism hypothesis}
 
@@ -812,6 +862,8 @@ Then the required isomorphisms are given by the following composites:
 		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
 \end{align*}
 \end{proof}
+
+\CSPcomm{Define {\em Radford objects} to be 2-dualizable objects which have an addition dualizability for the counit/unit of ... . Namely so that for Radford objects there exists a Radford isomorphism, even if the category is not 3-dualizable.}
 
 
 
