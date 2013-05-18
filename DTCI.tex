@@ -44,7 +44,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 	\node [yshift = -5cm, red!80!black,scale=3,text opacity=0.2] 
 		at (current page.center) {Please Do Not Distribute}; 
 \end{tikzpicture}
-\tikzexternalenable
+%\tikzexternalenable
 
 \setcounter{tocdepth}{3}
 \tableofcontents
@@ -1331,7 +1331,7 @@ We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{
 \end{proof}  \NS{This proof abuses notation quite a bit.  We should improve the description} \CD{I think a key fact that is used in the proof is that the Deligne tensor has the property that a left $\cC \boxtimes \cD^\mp$ module can be turned into a $\cC$-$\cD$ bimodule and vice verse.  Getting this into the proof might be good and might also resolve the notational fuzziness.}
 
 \begin{proposition}
-	$\TC$ is fully $1$-dualizable. 
+	$\TC$ is $1$-dualizable. 
 \end{proposition}
 
 %%%
@@ -1400,7 +1400,7 @@ Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not 
 Since this is a twice categorified TFT (i.e. a functor of $(3,1)$ categories rather than discrete $1$-categories), there is more data involved in describing it fully than what we have given above.  For example, we could ask for explicit formulas for the mapping class group action on the invariant of a circle.  The action of the Dehn twist gives a natural transformation from the identity autofunctor $\cT(\cC)$ to itself, and so gives a scalar attached to each object in $\cT(\cC)$.  By analogy, with Reshetikhin-Turaev theory, we expect that these scalars are typically nontrivial and are given by an analogue of the Drinfel'd element.   We will return to this calculation in future work.
 \end{remark} 
 
-\subsection{Adjoints of bimodules: finite tensor categories are fully 2-dualizable}  \label{sec-df-modules}
+\subsection{Adjoints of bimodules: finite tensor categories are 2-dualizable}  \label{sec-df-modules}
 
 In this section we show that any $1$-morphism ${}_\cC \cM_\cD$ in $\TC$ has left and right adjoints.   Explicitly, the right adjoint of $\cM$ is the category of linear left module functors $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of linear right module functors $\Fun_{\text{mod-}\cD}(\cM, \cD)$.   (We would like to remind the reader that in this paper linear functors are always assumed to be right exact.)  The results of this section depend essentially on Lemma \ref{Lma:FunctorsAsATensorPdt} which rewrites certain Deligne tensor products as functor categories.
 
@@ -1452,7 +1452,7 @@ The other three calculations are similar.
 
 Thus we have proven
 \begin{theorem}
-	$\TC$ is fully 2-dualizable. 
+	$\TC$ is 2-dualizable. 
 \end{theorem}
 
 
@@ -1460,7 +1460,18 @@ Thus we have proven
 .\NScomm{[This section is still under construction.]} %!% Remove period
 By the cobordism hypothesis, the previous theorem shows that there is a $2$-dimensional $2$-framed TFT attached to every finite tensor category with exact tensor product, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
 
-We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence.  We will give two different representatives.  The first choice corresponds directly to the proofs in the previous subsection, while the second choice is clearly equivalent to the first but is more symmetric.
+We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \cite{???}.
+
+First, without loss of generality we assume that all positively framed points are sent to $\cC$, that all negatively framed points are sent to $\cC^\mp$, and that the $1$-framed bordisms have the same values that they had in the $1$-framed theory.  Next, without loss of generality, we may assume that the intervals which are adjoint to these intervals are sent to the adjoints constructed in the previous section.  This allows us to compute the following values for intervals.
+
+ 
+
+
+
+
+
+We will give two different representatives.  The first choice corresponds directly to the proofs in the previous subsection, while the second choice is clearly equivalent to the first but is more symmetric.
+
 
 Table~\ref{table-points} lists four standard 2-framed 0-manifolds along with their associated invariants.
 \begin{table}[ht]
@@ -1805,7 +1816,7 @@ In Table~\ref{table-surfaces}, we record the invariants associated to certain 2-
 
 \vspace{0.5cm}
 
-\subsection{Adjoints of bimodule functors: fusion categories are fully dualizable} \label{sec-df-functors}
+\subsection{Adjoints of bimodule functors: separable tensor categories are fully dualizable} \label{sec-df-functors}
 
 In this section we specialize to $\TC$ and give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint. 
 
@@ -1821,7 +1832,7 @@ The adjoint functors can also be described explicitly as a transpose.  Linear fu
 \end{proof}
 
 \begin{theorem}  \label{thm:TC-dualizable}
- $\TCsep$ is fully 3-dualizable; separable fusion categories are fully dualizable.
+ $\TCsep$ is fully dualizable; separable fusion categories are fully dualizable.
 \end{theorem}
 \begin{proof}
 By Theorem \ref{thm:objduals} all objects in $\TCsep$ has duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms have adjoints.
