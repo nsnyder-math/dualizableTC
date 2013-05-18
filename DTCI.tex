@@ -2008,20 +2008,50 @@ Suppose that $\cC$ is a finite tensor category, then the unit morphism $\Vec \ri
 
 Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way giving applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
 
-Recall from Section ??? that in the $3$-framed bordism category we have a $3$-framed interval called the loop bordism, and a $3$-framed disc called the belt bordism (because it comes from the Dirac belt trick) trivializing the square of the loop bordism.  If $x$ is a fully dualizable object then the images of the loop and belt bordisms are the Serre automorphism $\cS_x: x \rightarrow x$ and the Radford isomorphism $\cR: \cS_x^2 \rightarrow \id_x$.  In particular, if $\cC$ is a separable tensor category, then the Serre automorphism of $\cC$ is a bimodule we denote $\bimod{\cC}{\cS}{\cC}$.  As we saw in Section ??? $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.  Now, the Radford isomorphism for $\cC$ is a canonical bimodule isomorphism ${}_\cC \S \boxtimes_\cC \S_\cC \rightarrow \bimod{\cC}{\cC}{\cC}$.  Using our formula for the Serre, the left hand side is just ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  Thus the Radford isomorphism gives a trivialization of the $\cC$--$\cC$ bimodule ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  By Lemma ???, if the image of $\mathbf{1}$ under this functor is $D$, then this trivialization gives an isomorphism of tensor functors between $\ldd{\ldd{(-)}}$ and the identity functor.
+Recall from Section ??? that in the $3$-framed bordism category we have a $3$-framed interval called the loop bordism, and a $3$-framed disc called the belt bordism (because it comes from the Dirac belt trick) trivializing the square of the loop bordism.  If $x$ is a fully dualizable object then the images of the loop and belt bordisms are the Serre automorphism $\cS_x: x \rightarrow x$ and the Radford isomorphism $\cR: \cS_x^2 \rightarrow \id_x$.  Furthermore,  in order to write down the Radford isomorphism we do not need the full strength of full dualizability.  Instead it is enough for $x$ to be a Radford object (that is $x$ is $2$-dualizable and certain $2$-morphisms built from $x$ have certain adjoints).
+
+As we've seen in this section, separable fusion categories are fully dualizable, and finite tensor categories are Radford objects.  Hence, we have Serre automorphisms and Radford isomorphisms for finite tensor categories.  If $\cC$ is a finite tensor category, then the Serre automorphism of $\cC$ is a bimodule we denote $\bimod{\cC}{\cS}{\cC}$.  As we saw in Section ??? $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.   Now, the Radford isomorphism for $\cC$ is a canonical bimodule isomorphism ${}_\cC \S \boxtimes_\cC \S_\cC \rightarrow \bimod{\cC}{\cC}{\cC}$.  Using our formula for the Serre, the left hand side is just ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  Thus the Radford isomorphism gives a trivialization of the $\cC$--$\cC$ bimodule ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  By Lemma ???, such a trivialization is given by two pieces of data: the image of $\mathbb{1}$ which we call the distinguished object $D$, and an isomorphism of tensor functors between $\ldd{\ldd{(-)}}$ and the identity functor which abusing notation we also call the Radford isomorphism.  Summarizing we have the following result.
+
+\begin{theorem}
+If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical tensor functor between the quadruple dual functor and conjugation by the canonical invertible object $D$.
+\end{theorem}
+
+This theorem was originally proved by ENO, and generalizes a theorem about Hopf algebras proved by Radford.  We would like to know that our canonical tensor functor agrees with the one constructed by ENO.  So we first recall how their construction worked.  Consider ${}_{\cC \boxtimes \cC^\mp}\cC$, and let $A$ be the algebra in $\cC \boxtimes \cC^\mp$ which is the internal endomorphisms of $\mathbf{1} \in \cC$.  ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.
 
 \begin{lemma}
-The Radford isomorphism for a separable tensor category $\cC$ sends $\mathbf{1}$ to $\mathbf{1}$.
+The left adjoint of mod-$A$ is $A$-mod, while the right adjoint is $A^{**}$-mod.
 \end{lemma}
 \begin{proof}
-Recall that the Radford isomorphism is given by the following formula: ???.  Each of the individual parts of this formula was computed in the last section.  It is straightforward to see that $\mathbf{1}$ goes to $\mathbf{1}$ under this functor.
+
 \end{proof}
 
-\begin{corollary}
-If $\cC$ is a fusion category then the Radford isomorphism gives a canonical trivialization of the quadruple dual as a tensor functor.
-\end{corollary}
+Thus we have the following equivalent formuls for the values of bordisms.
 
-As we saw in Section ???, in order to write down the Radford isomorphism we do not need the full strength of full dualizability.  Instead it is enough to have an object which is $2$-dualizable and where certain $2$-morphisms have certain adjoints.
+TABLE
+
+In particular, by the calculations above we see that $\cC$ can be identified with $A$-mod, while the square of the Serre can be identified with $A^{**}$-mod.  Hence giving a trivialization of the square of the Serre is the same thing as giving a Morita equivalence between $A$ and $A^{**}$.  The trivialization given by ENO comes from the Morita equivalence ${}_A A^*_{A^{**}}$
+
+We now need to compare this to our Radford isomorphism.
+
+\begin{lemma}
+After identifying $\cC$ with $A$-mod and $\cS$ with $A^{**}$-mod, the Radford isomorphism is given by tensoring with ${}_A A^*_{A^{**}}$.
+\end{lemma}
+
+Thus we have proved the following.
+
+\begin{lemma}
+Our canonical invertible agrees with the one in ENO, and our Radford isomorphism agrees with the one in ENO.
+\end{lemma}
+
+In particular, by ENO's results we have the following two results.
+
+\begin{lemma}
+If $\cC$ is semisimple then $D \cong 1$.
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
 
 
 \section{The Serre automorphism and Radford's theorem} \label{sec-serre}
