@@ -1568,8 +1568,31 @@ By the cobordism hypothesis, the previous theorem shows that there is a $2$-dime
 
 We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \cite{???}.
 
-First, without loss of generality we assume that all positively framed points are sent to $\cC$, that all negatively framed points are sent to $\cC^\mp$, and that the $1$-framed bordisms have the same values that they had in the $1$-framed theory.  Next, without loss of generality, we may assume that the intervals which are adjoint to these intervals are sent to the adjoints constructed in the previous section.  This allows us to compute the following values for intervals.
+First, without loss of generality we assume that all positively framed points are sent to $\cC$, that all negatively framed points are sent to $\cC^\mp$, and that the $1$-framed bordisms have the same values that they had in the $1$-framed theory.  Starting with these two intervals we can take adjoints (see Section ???) and use the symmetric structure to compute the following values for framed intervals and circles.
 
+ TABLE
+ 
+\begin{remark}
+The above formulas have a somewhat unsatisfying assymmetry, where two intervals which look very similar (say with no twists) have answers which look rather different (say one is $\cC$ and the other $\cC^*$).  
+\end{remark}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 
 
@@ -2036,8 +2059,12 @@ We now need to compare this to our Radford isomorphism.  In order to do this we 
 IMAGE
 
 \begin{lemma}
-The unit map $A\text{-mod-}A^{**} \rightarrow \Vec$ is given by $M \mapsto \Hom_{A\text{-mod-}A^{**}}(M, A^*)^*$.  In other words, it is left adjoint to the map $\Vec \rightarrow A\text{-mod-}A^{**}$ given by tensoring with $A^*$.
+The counit map $A\text{-mod-}A^{**} \rightarrow \Vec$ is given by $M \mapsto \Hom_{A\text{-mod-}A^{**}}(M, A^*)^*$.  In other words, it is left adjoint to the map $\Vec \rightarrow A\text{-mod-}A^{**}$ given by tensoring with $A^*$.
 \end{lemma}
+\begin{proof}
+Under the identifications of $A\text{-mod}$ with $\cC$ and $\text{mod-}A^{**}$ with $\Fun(\cC, \Vec)$ the counit $A\text{-mod} \boxtimes_{\cC \boxtimes \cC^\mp} \text{mod-}A^{**}$ is given by $x \boxtimes y \mapsto \Hom_{A\text{-mod}}(x, {}^*y)^\vee$.  In order to check that this agrees with the map $M \mapsto \Hom_{A\text{-mod-}A^{**}}(M, A^*)^*$ it is enough to show that these two maps agree on the projective generator $A \boxtimes A^{**}$.  Here the definition yields $\Hom_{A\text{-mod}}(A, A*)^\vee$, but by Frobenius reciprocity this is the same as $\Hom_{A\text{-mod-}A^{**}}(A \boxtimes A^{**}, A*)^\vee$ which is what we wanted to prove.
+\end{proof}
+
 
 \begin{lemma}
 After identifying $\cC$ with $A$-mod and $\cS$ with $A^{**}$-mod, the Radford isomorphism is given by tensoring with ${}_A A^*_{A^{**}}$.
