@@ -44,7 +44,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 	\node [yshift = -5cm, red!80!black,scale=3,text opacity=0.2] 
 		at (current page.center) {Please Do Not Distribute}; 
 \end{tikzpicture}
-%\tikzexternalenable
+\tikzexternalenable
 
 \setcounter{tocdepth}{3}
 \tableofcontents
@@ -322,7 +322,7 @@ The $i^\textrm{th}$ stage $F_i^{(\ell)} X$ consists of the maximal subcategory i
 \end{remark}
 
 \begin{example}
-	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. The objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, etc. This symmetric monoidal $(\infty,n)$-category is $n$-dualizable. 
+	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. The objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, etc. This symmetric monoidal $(\infty,n)$-category is $n$-dualizable. In the next section we will explore this more thoroughly in the case of tangential framings in dimension three.  
 \end{example}
 
 Since duals are mapped to duals by any functor, any topological field theory with values in a symmetric monoidal $(\infty,m)$-category $\cC$ must take values in $F_0^{(n)}$ the $n$-dualizable subcategory of $\cC$. In fact we have a much stronger statement:
@@ -337,7 +337,7 @@ Since duals are mapped to duals by any functor, any topological field theory wit
 
 \noindent In particular the $(\infty,n)$-category of topological field theories is in fact an $(\infty,0)$-category, a.k.a. an $\infty$-groupoid or `space'. Moreover the value of a tangentially framed topological field theory is completely determined by the value of the point. 
 
-There is a basic and general mathematical principle which states that for objects $B$ and $C$, the symmetries of $B$ also act on the mappings $Map(B,C)$. The bordism category $\Bord_n^{fr}$ has a natural $O(n)$-action which acts by changing the tangential framings of all cobordisms simultaneously. As an immediate consequence we obtain an $O(n)$-action on the topological field theories from $\Bord_n^{fr}$ to any target symmetric monoidal $(\infty,n)$-category $\cC$, and hence on the $n$-dualizable part $k_0 (F^{(n)}_0 \cC )$ of $\cC$. However as this action is obtained by passing through an equivalence it is no longer a true action; it is an $A_\infty$-action. This action is key to formulating the general version of the cobordism hypothesis for $\Bord_n^{(X,\xi)}$, that is for cobordisms with $(X,\xi)$-structure. 
+There is a basic and general mathematical principle which states that for objects $B$ and $C$, the symmetries of $B$ also act on the mappings $\Map(B,C)$. The bordism category $\Bord_n^{fr}$ has a natural $O(n)$-action which acts by changing the tangential framings of all cobordisms simultaneously. As an immediate consequence we obtain an $O(n)$-action on the topological field theories from $\Bord_n^{fr}$ to any target symmetric monoidal $(\infty,n)$-category $\cC$, and hence on the $n$-dualizable part $k_0 (F^{(n)}_0 \cC )$ of $\cC$. However as this action is obtained by passing through an equivalence it is no longer a true action; it is an $A_\infty$-action. This action is key to formulating the general version of the cobordism hypothesis for $\Bord_n^{(X,\xi)}$, that is for cobordisms with $(X,\xi)$-structure. 
 
 Our subsequent work will determine the exact nature of this action and its consequences for various $(X,\xi)$-structured topological field theories valued in the 3-category $\TC$ of tensor categories. In this work however, we will only identify a portion of the action (equivalent to the induced $A_\infty$-action by $\Omega\Sigma\RR\PP^2$). Moreover our primary focus will be on the tangentially framed bordism 3-category and on the $k$-dualizability of the category $\TC$. We will see how even these modest goals provide an important new organizing principle for the subject of tensor categories.   
 %\CDcomm{[Insert a few introductory sentences here, including a statement of the cobordism hypothesis.  That will motivate the need for a notation of n-framed manifolds, and for describing various structure groups.  Then we can forward reference to 3.2 the more detailed discussion of the cobordism hypothesis.]}
@@ -353,7 +353,7 @@ Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold 
 \[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\]
 Here the first isomorphism is provided by the inverse of the normal framing $\phi$, and the second isomorphism is given by the standard (``blackboard") identification of the sum of the tangent bundle and the normal bundle with the trivial bundle.
 
-When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, because in the codimension-1 case this corona can propagate without ambiguity, it may be indicated only at one point of the manifold.
+When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, because in the codimension-1 case this corona can propagate without ambiguity, it may be indicated only at one point of each component of the manifold.
 
 \begin{example}
 Let $M$ be a closed connected 2-framed 1-manifold.  By definition $M$ comes equipped with a bundle isomorphism $\phi: TM \oplus \RR \xra{\simeq} \RR^2$. Let $\iota$ denote the orientation of $M$ such that for any point $p \in M$, the pair $(\phi_p(\iota,0),\phi_p(0,1))$ is a positive frame of $\RR^2$.  This orientation provides another 2-framing of $M$, namely $\omega: TM \oplus \RR \xra{\iota \oplus \id} \RR^2$.  The ratio $\phi/\omega$ is a map $M \ra SO(2)$.  Because $M$ is oriented, the homotopy classes of such maps is the integers.  We therefore have a $\ZZ$-valued invariant of closed 2-framed 1-manifolds, and in fact this procedure produces an isomorphism from the 2-framed diffeomorphism classes of closed connected 2-framed 1-manifolds to the integers.  We use our immersion notation to depict, as follows, a series of circles corresponding to each 2-framed diffeomorphism class:
@@ -422,13 +422,14 @@ Let $M$ be a closed connected 2-framed 1-manifold.  By definition $M$ comes equi
 
 \end{example}
 
-\begin{warning}  \NS{What about in nonzero codimension?  Is there a theorem saying those always come from immersions?}
-Not every $n$-framed $n$-manifold can be specified in this way. For example the circle has no immersion into $\RR^1$ but does have a $1$-framing (unique up to diffeomorphism).
-\end{warning}
+\begin{remark}  %\NS{What about in nonzero codimension?  Is there a theorem saying those always come from immersions?}
+Not every $n$-framed $n$-manifold can be specified in this way. For example the circle has no immersion into $\RR^1$ but does have a $1$-framing (unique up to diffeomorphism). However the Hirsch-Smale immersion theorem guarantees that every $n+k$-framing of an $n$-manifold can be realized by an immersion provided that either $k > 0$ or each component of the $n$-manifold is non-compact. 
+\end{remark}
 
 For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \hra \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \hra \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
 
 \begin{example}
+	\CSP{unique??}
 The unique $1$-framing on the circle induces a $2$-framing on the circle; that $2$-framing agrees with the $2$-framing induced by the figure 8 immersion above. 
 \end{example}
 
@@ -437,7 +438,7 @@ The association of an $n$-framed manifold to a normally framed immersion works j
 In drawing manifolds with boundary and corners, we also need to specify which parts of the boundary are incoming and outgoing.  Outgoing pieces of the boundary will be indicated by a small arrow pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary.  At corners, a combination of these indications will be used.  For instance, an arrow together with a corona on a codimension 2 corner indicates respectively the first and second vectors of the induced framing on the corner.
 
 \begin{warning}
-If $M$ is an $n$-manifold with boundary immersed in $\RR^n$ the corona indicates which boundaries are outgoing, while if $M$ is an $n-1$ manifold with boundary immersed in $\RR^n$ the corona indicates the trivialization of the normal bundle.  These two usages are compatible: the induced trivialization of the normal bundle of the outgoing boundary is indeed the outward trivialization, therefore indicated by an outward corona.  By contrast, the trivialization of the normal bundle of an incoming boundary is the inward trivialization, therefore would be indicated by a corona pointing into the bulk manifold; this type of corona is covered by the bulk and therefore cannot be seen.
+If $M$ is an $n$-manifold with boundary immersed in $\RR^n$ the corona indicates which boundaries are outgoing, while if $M$ is an $n-1$ manifold with boundary immersed in $\RR^n$ the corona indicates the trivialization of the normal bundle.  However, these two usages are compatible: the induced trivialization of the normal bundle of the outgoing boundary is indeed the outward trivialization, therefore indicated by an outward corona.  By contrast, the trivialization of the normal bundle of an incoming boundary is the inward trivialization, therefore would be indicated by a corona pointing into the bulk manifold; this type of corona is covered by the bulk and therefore cannot be seen.
 \end{warning}
 
 \begin{example} \label{eg-framenot0}
@@ -473,7 +474,7 @@ Here is a picture of a $1$-framed manifold:
 \end{pgfonlayer}
 \end{tikzpicture}
 \] \CD{Notice that the arrow looks clipped here.  That is because tikzexternalize isn't adding enough margin when it creates pdf, or some such.  This problem will go away when we stop externalizing, and in any case should not be fixed by changing the arrows themselves.}
-The right point is incoming, and the left point is outgoing.  Both boundary points inherit framings isomorphic to the second picture in example~\ref{eg-framenot0}.  Here is a picture of a $2$-framed manifold:
+The right point is incoming, and the left point is outgoing.  Both boundary points inherit framings isomorphic to the second picture in example~\ref{eg-framenot0}.  Here is a picture of a $2$-framed $1$-manifold:
 \[
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft] 
@@ -487,7 +488,7 @@ The right point is incoming, and the left point is outgoing.  Both boundary poin
 Both boundary points are incoming, and the induced framing on these points are, left to right, respectively the last two points pictured in example~\ref{eg-framenot0}.  Note that corona in this example specifies the trivialization of the normal bundle.
 \end{example}
 
-\begin{example}
+\begin{example} \label{ex:disk_bordism_immerssed}
 Here is a picture of a $2$-framed manifold:
 \[
 \begin{tikzpicture}
@@ -495,7 +496,9 @@ Here is a picture of a $2$-framed manifold:
 \end{tikzpicture}
 \]
 Note that here the corona denotes that the boundary is outgoing.  This boundary is the circle with the outward trivialization of its normal bundle.  The two uses of the corona are therefore consistent.
+\end{example} 
 
+\begin{example} \label{ex:saddle_bordism_immerssed}
 Here is a picture of another $2$-framed manifold, specifically a 2-morphism in the 2-category of 2-framed $0$-, $1$-, and $2$-manifolds:
 \[
 \cb{
@@ -549,13 +552,61 @@ Here is a picture of another $2$-framed manifold, specifically a 2-morphism in t
 The source and target of this bordism are as indicated.  Notice that the source of the source (a pair of $2$-framed points) is indeed the source of the target, and similarly the target of the source is the target of the target.
 \end{example}
 
+
+
+
 \begin{example}
 Here is a picture of a $3$-framed manifold: \CDcomm{[Example here.]}
 \end{example}
 
+
+\subsection{Duality in the framed bordism category}
+
+
 \subsection{The Serre and the Radford bordisms}
 
-\CSPcomm{change title?  Introduce these 3-framed bordisms.}
+. % remove period
+\CSPcomm{change title?  Introduce these 3-framed bordisms. Define Serre and Radford as the image of these. Change the notation for the bordism category.}
+
+We now define the right loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
+\begin{center}
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] 
+(.7,0) to [out=180, in=20] (0,-.1)
+	to [looseness=1.6, out=-160, in=180] (0,-.4)
+	to [looseness=1.6, out=0, in=-20] (0,-.1)
+	to [out=160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \begin{bf}right loop bordism\end{bf}.  
+
+\begin{remark}
+Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming and one outgoing boundary point.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the obvious shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$.  The right loop bordism is the framing corresponding to $+1$, while the left loop bordism is the framing corresponding to $-1$.  When we use the unspecified term loop bordism we will always mean the right loop bordism.
+\end{remark}
+
+Given any local TFT $\cF$, we can look at the image of the loop bordism under $\cF$.  In particular, if $a$ is a fully dualizable object in a symmetric monoidal $n$-category, the loop bordism induces an automorphism of $a$ which we call the ``Serre automorphism."  This terminology is motivated by the following example.
+
+\begin{example}
+\NScomm{[Example from Lurie Remark 4.2.4]}
+\end{example}
+
+When $n>2$ we have that $\pi_1(SO(n)) \cong \mathbb{Z}/2$, which implies the following fact.
+
+\begin{proposition}
+When $n \geq 3$, the loop bordism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.   Thus, the Serre automorphism of any dualizable object in an $n$-category is an involution.
+\end{proposition}
+
+Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from the trivial bordism to $\cS \circ \cS$.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the top boundary is outgoing, the bottom boundary is incoming, and the coorientation points out of the page toward the reader near the bottom boundary.
+
+\begin{center}
+\includegraphics[width=60mm]{cobordism.png}
+\end{center}
+
+We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.  Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  We call this image the Radford isomorphism, because as we will see that it plays the key role in proving Radford's theorem.
+
 
 \subsection{Constructability of the cobordism hypothesis}
 
@@ -652,6 +703,55 @@ The second stage of his proof is an elaborate (and highly original) way to prove
 \subsection{Categorical formulas for the Serre and Radford}
 
 \CSPcomm{The categorical belt trick lemma (left/right duals)}
+
+
+%\CSP{This proposition is stated as a remark, without proof in Jacob's paper.}
+
+\begin{proposition}[Lurie, Remark 3.4.22] \label{prop-ambiadjoints}
+	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
+\end{proposition}
+\CD{The proposition should be moved to the section on the cobordism hypothesis.}
+
+\begin{proof}
+By assumption we are given 3-morphisms,
+\begin{align*}
+	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
+	\eta_v: id_{id_y} & \Rightarrow v \circ v^L \\
+	\varepsilon_u: u^L \circ u & \Rightarrow id_{id_x} \\
+	\eta_u: id_{f^R \circ f} & \Rightarrow  u \circ u^L
+\end{align*}
+which satisfy the Zig-Zag identities:
+\begin{align*}
+	 id_v  &= (id_v \circledcirc \varepsilon_v) \circ (\eta_v \circledcirc id_v)  \\
+	 id_{v^L}  &= (\varepsilon_v \circledcirc id_{v^L} ) \circ (id_{v^L} \circledcirc \eta_v)  \\
+	 id_u  &= (id_u \circledcirc \varepsilon_u) \circ (\eta_u \circledcirc id_u)  \\
+	 id_{u^L}  &= (\varepsilon_u \circledcirc id_{u^L} ) \circ (id_{u^L} \circledcirc \eta_u).  
+\end{align*}
+We must show that the following Zig-Zag identities hold:
+\begin{align*}
+	 (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) & \cong id_{f} \\
+ 	 (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) & \cong id_{f^R} 
+\end{align*}
+By assumption we may also choose isomorphisms as follows:
+\begin{align*}
+	\alpha: id_f &\stackrel{\cong}{\to} (v \circledcirc id_f) \circ (id_f \circledcirc u) \\
+	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} ).
+\end{align*}
+Then the required isomorphisms are given by the following composites:
+\begin{align*}
+	(id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} )
+		& \cong id_f \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
+		& \stackrel{\alpha}{\cong} (v \circledcirc id_f) \circ (id_f \circledcirc u) \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
+		&  \stackrel{\varepsilon_u }{\Rightarrow} (v \circledcirc id_f) \circ (v^L \circledcirc id_{f} ) \\
+		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f},  \\
+	(u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) 
+		& \cong  id_{f^R} \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L)  \\
+		& \stackrel{\beta}{\cong}  (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} )  \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) \\
+		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} \circledcirc v) \circ (id_{f^R} \circledcirc v^L) \\
+		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
+\end{align*}
+\end{proof}
+
 
 
 \section{Tensor categories} \label{sec-tc}
@@ -1934,44 +2034,9 @@ Note that this application does not depend on the full power of the cobordism hy
 
 
 \subsection{The Serre automorphism}  \CDcomm{Move this subsection to the section on Local Field Theory in Dimension 3.}
-We now define the right loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_0^n$, and we denote it by $s$.  Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
-\begin{center}
-\begin{tikzpicture}
-\draw[linestyle,fuzzright] 
-(.7,0) to [out=180, in=20] (0,-.1)
-	to [looseness=1.6, out=-160, in=180] (0,-.4)
-	to [looseness=1.6, out=0, in=-20] (0,-.1)
-	to [out=160, in=0] (-.7,0);
-\begin{pgfonlayer}{background}
-	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
-\end{pgfonlayer}
-\end{tikzpicture}
-\end{center}
-\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_0^n$ from $s$ to $s$.  This automorphism is called the \begin{bf}right loop bordism\end{bf}.  
+\CSP{This Section moved to Local Field theory section}
 
-\begin{remark}
-Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming and one outgoing boundary point.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the obvious shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$.  The right loop bordism is the framing corresponding to $+1$, while the left loop bordism is the framing corresponding to $-1$.  When we use the unspecified term loop bordism we will always mean the right loop bordism.
-\end{remark}
 
-Given any local TFT $\cF$, we can look at the image of the loop bordism under $\cF$.  In particular, if $a$ is a fully dualizable object in a symmetric monoidal $n$-category, the loop bordism induces an automorphism of $a$ which we call the ``Serre automorphism."  This terminology is motivated by the following example.
-
-\begin{example}
-\NScomm{[Example from Lurie Remark 4.2.4]}
-\end{example}
-
-When $n>2$ we have that $\pi_1(SO(n)) \cong \mathbb{Z}/2$, which implies the following fact.
-
-\begin{proposition}
-When $n \geq 3$, the loop bordism $\cS: s \ra s$ in $\FrBord_0^n$ is an involution; that is, $\cS \circ \cS : s \ra s$ is equivalent to the identity automorphism.   Thus, the Serre automorphism of any dualizable object in an $n$-category is an involution.
-\end{proposition}
-
-Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from the trivial bordism to $\cS \circ \cS$.  (As usual, stabilizing this bordism gives a canonical trivialization of the square of the Serre for any $n > 2$.)  This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the top boundary is outgoing, the bottom boundary is incoming, and the coorientation points out of the page toward the reader near the bottom boundary.
-
-\begin{center}
-\includegraphics[width=60mm]{cobordism.png}
-\end{center}
-
-We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.  Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  We call this image the Radford isomorphism, because as we will see that it plays the key role in proving Radford's theorem.
 
 \subsection{The Serre automorphism of a separable fusion category}
 
@@ -2079,54 +2144,6 @@ If $\cC$ is a finite tensor category, then the formula from Lemma \ref{lem:belt-
 \end{proof}
 
 Another way to think of Radford's theorem is that it states that there's an equivalence between the left Serre automorphism and the right Serre automorphism.  Recalling the definitions of these two automorphisms, that's the same as saying that the left adjoint of $\ev_a$ is canonically equivalent to the right adjoint of $\ev_a$.  This version of the statement has a generalization which again is inspired by the cobordism hypothesis but does not rely on the proof of the cobordism hypothesis.
-
-%\CSP{This proposition is stated as a remark, without proof in Jacob's paper.}
-
-\begin{proposition}[Lurie, Remark 3.4.22] \label{prop-ambiadjoints}
-	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
-\end{proposition}
-\CD{The proposition should be moved to the section on the cobordism hypothesis.}
-
-\begin{proof}
-By assumption we are given 3-morphisms,
-\begin{align*}
-	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
-	\eta_v: id_{id_y} & \Rightarrow v \circ v^L \\
-	\varepsilon_u: u^L \circ u & \Rightarrow id_{id_x} \\
-	\eta_u: id_{f^R \circ f} & \Rightarrow  u \circ u^L
-\end{align*}
-which satisfy the Zig-Zag identities:
-\begin{align*}
-	 id_v  &= (id_v \circledcirc \varepsilon_v) \circ (\eta_v \circledcirc id_v)  \\
-	 id_{v^L}  &= (\varepsilon_v \circledcirc id_{v^L} ) \circ (id_{v^L} \circledcirc \eta_v)  \\
-	 id_u  &= (id_u \circledcirc \varepsilon_u) \circ (\eta_u \circledcirc id_u)  \\
-	 id_{u^L}  &= (\varepsilon_u \circledcirc id_{u^L} ) \circ (id_{u^L} \circledcirc \eta_u).  
-\end{align*}
-We must show that the following Zig-Zag identities hold:
-\begin{align*}
-	 (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) & \cong id_{f} \\
- 	 (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) & \cong id_{f^R} 
-\end{align*}
-By assumption we may also choose isomorphisms as follows:
-\begin{align*}
-	\alpha: id_f &\stackrel{\cong}{\to} (v \circledcirc id_f) \circ (id_f \circledcirc u) \\
-	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} ).
-\end{align*}
-Then the required isomorphisms are given by the following composites:
-\begin{align*}
-	(id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} )
-		& \cong id_f \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
-		& \stackrel{\alpha}{\cong} (v \circledcirc id_f) \circ (id_f \circledcirc u) \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
-		&  \stackrel{\varepsilon_u }{\Rightarrow} (v \circledcirc id_f) \circ (v^L \circledcirc id_{f} ) \\
-		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f},  \\
-	(u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) 
-		& \cong  id_{f^R} \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L)  \\
-		& \stackrel{\beta}{\cong}  (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} )  \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) \\
-		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} \circledcirc v) \circ (id_{f^R} \circledcirc v^L) \\
-		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
-\end{align*}
-\end{proof}
-
 
 
 \subsection{Sphericality and the quadruple dual}
