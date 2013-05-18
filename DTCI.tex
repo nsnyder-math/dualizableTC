@@ -1902,10 +1902,26 @@ Suppose that $\cC$ is a finite tensor category, then the unit morphism $\Vec \ri
 \subsection{Invariants of elementary 3-framed bordisms}
 .%!% remove period
 
-
-
-
 \CSPcomm{[Discussion of the basic 3-framed bordisms and their images under the tqft.]}
+
+\subsection{The Radford isomorphism}
+
+Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way giving applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
+
+Recall from Section ??? that in the $3$-framed bordism category we have a $3$-framed interval called the loop bordism, and a $3$-framed disc called the belt bordism (because it comes from the Dirac belt trick) trivializing the square of the loop bordism.  If $x$ is a fully dualizable object then the images of the loop and belt bordisms are the Serre automorphism $\cS_x: x \rightarrow x$ and the Radford isomorphism $\cR: \cS_x^2 \rightarrow \id_x$.  In particular, if $\cC$ is a separable tensor category, then the Serre automorphism of $\cC$ is a bimodule we denote $\bimod{\cC}{\cS}{\cC}$.  As we saw in Section ??? $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.  Now, the Radford isomorphism for $\cC$ is a canonical bimodule isomorphism ${}_\cC \S \boxtimes_\cC \S_\cC \rightarrow \bimod{\cC}{\cC}{\cC}$.  Using our formula for the Serre, the left hand side is just ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  Thus the Radford isomorphism gives a trivialization of the $\cC$--$\cC$ bimodule ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  By Lemma ???, if the image of $\mathbf{1}$ under this functor is $D$, then this trivialization gives an isomorphism of tensor functors between $\ldd{\ldd{(-)}}$ and the identity functor.
+
+\begin{lemma}
+The Radford isomorphism for a separable tensor category $\cC$ sends $\mathbf{1}$ to $\mathbf{1}$.
+\end{lemma}
+\begin{proof}
+Recall that the Radford isomorphism is given by the following formula: ???.  Each of the individual parts of this formula was computed in the last section.  It is straightforward to see that $\mathbf{1}$ goes to $\mathbf{1}$ under this functor.
+\end{proof}
+
+\begin{corollary}
+If $\cC$ is a fusion category then the Radford isomorphism gives a canonical trivialization of the quadruple dual as a tensor functor.
+\end{corollary}
+
+As we saw in Section ???, in order to write down the Radford isomorphism we do not need the full strength of full dualizability.  Instead it is enough to have an object which is $2$-dualizable and where certain $2$-morphisms have certain adjoints.
 
 
 \section{The Serre automorphism and Radford's theorem} \label{sec-serre}
