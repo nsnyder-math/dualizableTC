@@ -1215,14 +1215,6 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are tensor categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category (where, by our conventions, the actions are given by $\cF \otimes \cG = \cG \circ \cF$). 
 \end{example}
 
-\begin{example}
-Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_{\langle\cF\rangle} \cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$ with the obvious natural transformations.
-\end{example}
-
-\begin{remark}
- 	Every left $\cC$-module category is naturally a right $\cC^{mp}$-module category. 
-\end{remark}
-
 
 \subsection{The Deligne tensor product and finite rigid linear categories} \label{sec-tc-deligne}
 
@@ -1421,7 +1413,42 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 \end{example}
 
 
-For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
+\subsection{Examples of bimodule categories}
+
+In this section we define some notation for producing new bimodule categories from old ones, and prove several technical lemmas allowing us to manipulate these bimodules easily.
+
+${}_\cC \cC_{\cC}$ will always denote the identity bimodule.
+
+\begin{definition}
+Suppose that $\cM$ is a $\cC$--$\cD$ bimodule category, and that $\cF: \cC' \rightarrow \cC$ is a tensor functor, let
+$${}_{\langle \cF \rangle} \cM$ denote the $\cC'$--$\cD$ bimodule where the action is $c' \cdot m \cdot d = \cF(c') \otimes m \otimes d$ with the obvious natural transformations.  Define $\cM_{\langle \cF \rangle}$ similarly.
+\end{definition}
+
+It is easy to see that ${}_{\langle \cF \rangle} \cC_\cC \boxtimes_{\cC} {}_{\cC} \cM_\cD \cong {}_{\cC \langle \cF \rangle} \cM_\cD$.  Note that ${}_{\langle \cF \rangle \langle \cG \rangle} \cM \cong {}_{\langle \cF \otimes \cG \rangle} \cM$, while $\cM_{\langle \cF \rangle \langle \cG \rangle} \cong  \cM_{\langle \cG \otimes \cF \rangle}$.  Thus we have a tensor functor from the $2$-category of finite tensor categories, tensor functors, and tensor natural transformations to $\TC$ sending $\cF: \cC \rightarrow \cD$ to the bimodule ${}_{\cC \langle \cF \rangle} \cD_{\cD}$, while twisting on the right gives a monoidally opposite functor.
+
+\begin{lemma}
+Suppose that $\cC$ and $\cD$ are finite tensor functors and $\cF: \cC \rightarrow \cD$ is a tensor functor.
+Giving a bimodule isomorphism ${}_{\cC \langle \cF \rangle} \cD_\cD \rightarrow {}_{\cC \langle \cG \rangle} \cD_\cD$ is the same data as giving a an invertible object $D \in \cD$ and a natural isomorphism $\varphi_x: \cF(x) \rightarrow D^{-1} \otimes \cG(x) \otimes D$.
+\end{lemma}
+\begin{proof}
+$D$ is the image of $1$ under the functor, and $\varphi$ is inherited from the tensor isomorphism.  \NScomm{Add more details}
+\end{proof}
+
+\begin{definition}
+Every left $\cC$-module category $\cM$ is naturally a right $\cC^{mp}$-module category in the obvious way, and we will denote this new module category also by $\cM$.  More generally, if $\cM$ is a $\cC \boxtimes \cD$-$\cE$ bimodule then $\cM$ is also a $\cC$-$\cD^\mp \boxtimes \cE$ bimodule category.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+It will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
 
 \begin{definition} \label{def:Dual_bimodule_notation}
 Let $\cM^*$ denote the category $\cM^{\op}$. We will write objects of $\cM^*$ as $m^*$ where $m$ is the corresponding object of $\cM$. We give $\cM^*$ the structure of a $\cD$--$\cC$ bimodule category where the action is given by
@@ -1446,7 +1473,6 @@ Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD
 We've already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Secondly the right adjoint of right multiplication by $x$ is right multiplication by $x^*$, while in the latter case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$. See the remarks directly after the proof of Lemma \ref{lma:RigidIsExact}.
 \end{proof}
 
-
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
 We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
 \end{lemma}
@@ -1470,6 +1496,7 @@ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are th
 	The notation of Definition \ref{def:Dual_bimodule_notation} is consistent with our earlier conventions, specifically the convention that the composition order of tensor products is from left to right; 
 	following all of our conventions the bimodule ${}^*\cM$ is the both the left adjoint and the left dual of $\cM$, while $\cM^*$ is both the right adjoint and right dual. (c.f. Conventions \ref{conv:Adjoints}, \ref{def:rigid}, and \ref{conv:Compatible} in \S \ref{sec:conventions}). 
 \end{remark}
+
 
 \subsection{Exact module categories and adjoints of module functors}
 Throughout this section we consider only finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  The goal is to be able to show that certain module functors have adjoints in proving $3$-dualizability.
@@ -2327,6 +2354,41 @@ This is CITE ENO.
 \begin{remark}
 The Serre automorphism and the Radford isomorphsm are closely related to the $SO(3)$ action on the the space of fully dualizable objects guaranteed by the cobordism hypothesis.  The underlying space of $SO(3)$ is $\RR \PP^3$. The inclusion $\RR \PP^2 \to \RR \PP^3 \simeq SO(3)$ induces an $A_\infty$-homomorphism $\Omega \Sigma (\RR \PP^2) \to SO(3)$ from the free $A_\infty$-group generated by the pointed space $\RR \PP^2$.  The data of a Serre and a Radford is exactly the same thing as an action of $\Omega \Sigma (\RR \PP^2)$.  In particular, there's an action of $\Omega \Sigma (\RR \PP^2)$ on the space of finite tensor categories, which is only $2$-dualizable so this action does not come directly from the cobordism hypothesis.  Furthermore, the previous lemma says that a spherical structure gives a homotopy fixed point for the action of $\Omega \Sigma (\RR \PP^2)$.  In fact, we expect that a spherical structure on $\cC$ endows it with the structure of an $SO(3)$ homotopy fixed and thus by the cobordism hypothesis spherical fusion categories give fully local \emph{oriented} $3$-dimensional TFT.  We will address these issues in much greater detail in subsequent papers.
 \end{remark}
+
+%!% Temporary document end
+
+\bibliographystyle{alpha}
+\bibliography{bibliography/bibliography}
+\end{document}
+
+%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{The Serre automorphism and Radford's theorem} \label{sec-serre}
 
