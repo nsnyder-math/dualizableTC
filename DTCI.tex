@@ -52,7 +52,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 
 %\ignore{ %!%
 
-\tikzset{external/force remake}
+%\tikzset{external/force remake}
 
 \section{Introduction}
 % 1. Introduction
@@ -926,14 +926,14 @@ In this section we review the theory of finite tensor categories and some relate
 %\CDcomm{Our goal is to define $\TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $\TC(i)$, which can occur in DTCII.}
 
 
-\subsection{Conventions for Duality}
-\NS{We've changed conventions here.  Hopefully all of Section 2 is now ok with the new conventions, but this should be double-checked.}
+\subsection{Conventions for Duality} \label{sec:conventions}
+%\NS{We've changed conventions here.  Hopefully all of Section 2 is now ok with the new conventions, but this should be double-checked.}
 
 In this paper we ultimately consider a certain 3-category in which several different kinds of duality appear simultaneously. These dualities arise from differing mathematical points of view and so we have been tasked with finding a sensible and consistent notation in which to speak about these various forms of duality. This is no easy task as the literature has well established conventions which are at times contradictory.  The purpose of this section is to explain a compromise and clarify the conventions we will use.
 
 There are two conventions which we perceive as fundamental: one for the names of adjoint functors and one for the notation in rigid monoidal categories. 
 
-\begin{convention}
+\begin{convention} \label{conv:Adjoints}
 	The standard conventions for adjoint functors hold. That is a functor $G: \cA \to \cB$  admits a left adjoint if there exists a functor $F: \cB \to \cA$ and natural transformations, the  unit $\eta: id_{\cB} \to G \circ F$ and the  counit $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
 		(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
@@ -967,7 +967,7 @@ With this standard convention we have a canonical natural isomorphisms $\Hom_\cA
 Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel and Chari-Pressley).  Whichever choice is made we should have the additional meta-convention: 
 %\vspace{1.5ex}
 
-\begin{convention}
+\begin{convention} \label{conv:Compatible}
 	In reasonable settings where something could be called either a dual or an adjoint the left dual should be the left adjoint.
 \end{convention}
 
@@ -1077,6 +1077,12 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
  \end{equation*}
 	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
 \end{proof}
+
+\noindent In particular we have the following sequences of adjunctions:
+\begin{align*}
+	x^* \otimes (-) & \dashv x \otimes (-) & \dashv {}^*x \otimes (-), \\
+	(-) \otimes {}^* y & \dashv (-) \otimes y & \dashv (-) \otimes y^*. 
+\end{align*}
 
 \begin{corollary}
 	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
@@ -1390,31 +1396,53 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 
 For rigid tensor categories, it will sometimes be convenient to have an alternative description of $\Fun_C(\cM,\cC)$.
 
+\begin{definition} \label{def:Dual_bimodule_notation}
+Let $\cM^*$ denote the category $\cM^{\op}$. We will write objects of $\cM^*$ as $m^*$ where $m$ is the corresponding object of $\cM$. We give $\cM^*$ the structure of a $\cD$--$\cC$ bimodule category where the action is given by
+\begin{equation*}
+	d\cdot m^* \cdot c := ({}^*c \otimes m \otimes {}^*d)^*
+\end{equation*}
+Similarly, let ${}^*\cM$ denotes the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot {}^*m \cdot c = {}^*(c^* \otimes m \otimes d^*)$.  
+\end{definition}
+
 \begin{definition}
-Let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = {}^*c \otimes m \otimes {}^*d$.  Similarly, let $\cM^*$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot m \cdot c = c^* \otimes m \otimes d^*$.  
+	Let ${}_{\cC}\cM_\cD$ be a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ be a $\cC$-$\cE$ bimodule category. Temporarily breaking from our convention of only considering right exact functors, let	 $\Fun^L_{\cC}(\cN, \cM)$ denote the category left exact $\Vect$-enriched $\cC$-module functors (which are not necessarily right exact). This is naturally a $\cD$-$\cE$ bimodule category. We may similarly define bimodule categories of left exact right module functors. 
 \end{definition}
 
 \begin{lemma}
-If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules $\Fun_{\cC}(\cM, \cN)$ and $\Fun^L_{\cC}(\cN, \cM)^*$ where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cD$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules ${}^*\Fun_{\cD}(\cM, \cN) \rightarrow \Fun^L_{\cD}(\cN, \cM)$. 
+If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules 
+from $\Fun_{\cC}(\cM, \cN)$ to ${}^*\Fun^L_{\cC}(\cN, \cM)$.
+% where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  
+Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules ${}^*\Fun_{\cD}(\cM, \cN) \rightarrow \Fun^L_{\cD}(\cN, \cM)$. 
 \end{lemma}
 \begin{proof}
 	We will prove the first statement as the second follows from a nearly identical argument. 
-We've already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Secondly the right adjoint of right multiplication by $x$ is right multiplication by $x^*$, while in the latter case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$.
-\CSP{This needs tending and I think there is an error here.}
-\NS{I fixed the error, but feel free to do more tending.}
+We've already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Secondly the right adjoint of right multiplication by $x$ is right multiplication by $x^*$, while in the latter case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$. See the remarks directly after the proof of Lemma \ref{lma:RigidIsExact}.
 \end{proof}
 
+
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
-We have that ${}^*\cM \cong \Fun_{\cD}(\cM, \cD)$ and $\cM^* \cong \Fun_{\cC}(\cM, \cC)$.
+We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
 \end{lemma}
 \begin{proof}
-By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong \Fun_{\cC}^L(\cC, \cM)^*$  But the latter is just $\cM^*$ since any module functor $\cF$ from $\cC$ to $\cM$ is right multiplication by $\cF(1)$.
+By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$, but the latter is just ${}^*\cM$ as any $\cC$-module functor $\cF$ from $\cC$ to $\cM$ is given by right multiplication by $\cF(1)$.
 \end{proof}
 
 \begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite rigid $\cD$-$\cC$ bimodule and $\cN$ is a finite rigid $\cC$-$\cE$ bimodule, then $\cM \boxtimes_\cC \cN \cong ({}^*\cM)^* \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}({}^*\cM,\cN)$ as $\cD$-$\cE$ bimodule categories.   Similarly, $\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC {}^*(\cN^*) \cong \Fun_{\text{mod-}\cC}(\cN^*,\cM)$ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite rigid $\cD$-$\cC$ bimodule and $\cN$ is a finite rigid $\cC$-$\cE$ bimodule, then 
+\begin{equation*}
+	\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)
+\end{equation*}
+as $\cD$-$\cE$ bimodule categories.   Similarly, 
+\begin{equation*}
+	\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)
+\end{equation*}
+as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
 \end{remark}
 
+\begin{remark}
+	The notation of Definition \ref{def:Dual_bimodule_notation} is consistent with our earlier conventions, specifically the convention that the composition order of tensor products is from left to right; 
+	following all of our conventions the bimodule ${}^*\cM$ is the both the left adjoint and the left dual of $\cM$, while $\cM^*$ is both the right adjoint and right dual. (c.f. Conventions \ref{conv:Adjoints}, \ref{def:rigid}, and \ref{conv:Compatible} in \S \ref{sec:conventions}). 
+\end{remark}
 
 \subsection{Exact module categories and adjoints of module functors}
 Throughout this section we consider only finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  The goal is to be able to show that certain module functors have adjoints in proving $3$-dualizability.
