@@ -1,4 +1,4 @@
-%%% The TCviaTFT.tex file
+%%% The DTCI.tex file
 %%% Authors: Christopher Douglas, Christopher Schommer-Pries, and Noah Snyder
 
 \documentclass{amsart}
@@ -752,6 +752,39 @@ Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted her
 Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming  point at $0$, one outgoing boundary point at $1$, and the standard orientation.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the standard shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$.  The positive loop bordism is the framing corresponding to $+1$, while the negative loop bordism is the framing corresponding to $-1$.  When we use the unspecified term loop bordism we will always mean the positive loop bordism.
 \end{remark}
 
+We may express the positive loop bordism as a composite of more elementary bordisms which we have already encountered. Consider the following decomposition of the positive loop bordism:
+\begin{center}
+\vspace{\topskip}	
+	\begin{tikzpicture}
+		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
+			to [looseness=1, out = 0, in = 180] (2.5,2) 
+			arc (90:-90:0.5cm) -- (0.5,1)
+			to [looseness=1.6,out = 180, in = 270] (1, 0.5)
+			-- (1, 2.5) 
+			to [looseness=1.6,out = 90, in = 180] (0.5,2) 
+			to [looseness=1.6, out = 0, in = 180] (1.5,2) 
+			to [looseness=1, out = 0, in = 180] (2.5, 3) -- (4.5,3);
+		\begin{pgfonlayer}{background}
+				\draw[->,outstyle] (4.5,3) -- +(0:\arrowlength);
+		\end{pgfonlayer}	
+		\draw [dashed] (2.5,2.5) rectangle (3.5,0.5);
+		\node (B) at (4.5,1.5) {$ev$};
+		\draw [dashed] (3.5, 1.5) -- (B);	
+		\draw [dashed] (0,2.75) rectangle (1.5, 0);
+		\node (A) at (-1, 1.5) {$ev^R$};
+		\draw [dashed] (A) -- (0, 1.5);
+	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
+	\end{tikzpicture}
+\end{center}
+This, and a similar decomposition for the negative loop bordism give formulas for the positive and negative loop bordisms:
+\begin{align*}
+	\cS &\cong (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R) \\
+	\cS^{-1} &\cong (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^L) 
+\end{align*}
+We invite the reader to verify that the units and counits from the previous section provide explicit framed surfaces witnessing the isomorphisms $\cS \circ \cS^{-1} \cong id_{pt_+} \cong \cS^{-1} \circ \cS$.  
+
+
+
 
 When $n\geq 3$ we have that $\pi_1(SO(n)) \cong \mathbb{Z}/2$, which implies that the loop bordism $\cS: pt_+ \ra pt_+$ in $\FrBord_n$ is an involution; that is, $\cS \circ \cS : pt_+ \ra pt_+$ is equivalent to the identity automorphism. 
 Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS \circ \cS$ to the  trivial bordism. This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the top boundary is incoming, the bottom boundary is outgoing, and the coorientation points into the page away from the reader near the bottom boundary.
@@ -799,6 +832,10 @@ The Serre automorphism of any $3$-dualizable object in an $n$-category is an inv
 \end{proposition}
 
 \subsection{Constructability from the cobordism hypothesis}
+It is natural to ask how we might be able to calculate the value of the Serre and the Radford isomorphisms for a given 
+
+
+
 
 .%!% remove period
 %\NScomm{This section is under construction.  The current outline is more detailed than necessary, since when it was written we were planning on constructing non-compact theories in this paper.} \CDcomm{What goes here now ... Definition of dualizable objects, statement of cobordism hypothesis, (comment about status of proof), (refer to TC3 for why we don't worry about models), motivation/statement/proof of Lurie Remark (``the categorical belt trick").  Also, discussion of constructability.}
@@ -808,6 +845,11 @@ The Serre automorphism of any $3$-dualizable object in an $n$-category is an inv
 	\item How to calculate the values the previous basic cobordisms and more general cobordisms. 
 \end{itemize}
 }
+
+ 
+
+
+
 
 
 \CSPcomm{As per our discussion on 2.27.13, I am adding a precise theorem which dictates the invariance of functors. The proof and details will forward/back reference TC3. Please feel free to debate this so we can get something that is workable for everyone. Note that as formulate $B_0$ does not have to be a symmetic monoidal 3-cateogry. In fact we can get away with less. $B_0$ can be any $3$-fold simpicial subspace of $B= \Bord_3$, but I thought saying it is a category strikes a balance between generality and understandability. If we have some subset of objects and morphisms etc, I think we can just say `sub-3-category generated by...' and get away with it. What do you think?
