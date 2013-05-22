@@ -117,9 +117,9 @@ The second author would especially like to thank Clark Barwick for countless hel
 
 
 
+\section{Non-algebraic categorical structures}
 
-
-\section{Symmetric monoidal structures via the category $\Gamma$} \label{sec-symmonGamma}
+\subsection{Symmetric monoidal structures via the category $\Gamma$} \label{sec-symmonGamma}
 
 %\CSP{Should these two paragraphs be moved to a different part of the paper?}
 %\NS{I think they should be moved.}
@@ -218,7 +218,7 @@ The assignment $A \mapsto \Vect(A)$ gives a functor $\Vect: \Gamma^{op} \to \Cat
 \end{equation*}
 This assignment is strictly compatible with composition in $\Gamma^\text{op}$. Moreover, since the tensor product is defined by a universal property, the forgetful functor $\Vect(A) \to \Vect^{\times |A|}$ is an equivalence of categories, as desired.  
 
-\section{Composition via the category $\Delta$} \label{sec-Compdelta}
+\subsection{Composition via the category $\Delta$} \label{sec-Compdelta}
 
 
 %\NS{As discussed in email, this subsection should have an expository paragraph near the beginning incorporating some of the motivational material currently in the next section}
@@ -419,10 +419,27 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 %
 
 
-\section{The Segal construction} \label{sec-SegalConstruction}
+\section{Model categories of higher categories}
+
+\subsection{The canonical model structure on Cat}
 
 
-\CSPcomm{I need to rewrite some of this section. There should be a general discussion of Segal categories for any given relative category satisfying some mild conditions. Then a review of the particulars of the Segal n-category model. }
+\begin{theorem}
+	This is a unique model structure on $\cat$ with the equivalences of categories as the weak equivalences. 
+	\CSPcomm{List its properties, e.g. every object fibrant and cofibrant (hence it is proper) etc}
+\end{theorem}
+
+\begin{proof}
+	\CSPcomm{to be filled in.}
+\end{proof}
+
+
+\subsection{The Segal construction} \label{sec-SegalConstruction}
+
+
+\CSPcomm{I need to rewrite some of this section. There should be a general discussion of Segal categories for any given relative category satisfying some mild conditions. Then a review of the particulars of the Segal n-category model. 
+
+}
 
 \begin{definition}
 	Let $\sSet$ denote the category of simplicial sets. An {\em $n$-fold simplicial space} is a functor $X: (\Delta^\textrm{op})^{\times n} \to \sSet$. A {\em $\Gamma$-$n$-fold simplicial space} is a functor $X: \Gamma^\textrm{op} \times (\Delta^\textrm{op})^{\times n} \to \sSet$.
@@ -570,7 +587,55 @@ Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bull
 %When $X = NC_{\bullet \bullet}$  is a 2-nerve, $\Hom_X(a,b) \cong NC(a,b)_{\bullet}$, so the second conditions are equivalent. Moreover, $\pi_0 NC_{\bullet \bullet}$ is easily seen to be the collection of equivalence classes of objects of $C$. Thus a functor inducing an equivalence of 2-nerves induces a bijection on equivalence classes of objects. In particular if $F$ induces an equivalence of 2-nerves, it is essentially surjective, and hence a weak equivalence of categories. It remains to see that a weak equivalence of categories necessarily induces a bijection on sets of equivalence classes of object. This follows as a well-known exercise.
 %\end{proof}
 
-\section{Symmetric monoidal Segal $n$-categories} \label{sec-symmoninftyNcat}
+\subsection{The model categories of Segal $n$-categories}
+
+.%remove this period!
+\CSPcomm{Describe the model structure (projective and injective) on Segal categories when you plug in a Cartesian model category.}
+
+\subsection{Two model structures on Bicat}
+
+.%remove this period!
+\CSPcomm{
+Show that the we can use the 2-nerve to transfer the model structures on $\Seg(\cat)$ to the category of bicategories and strict functors. Show that you get either the Lack model structure (in the projective case) or a new model structure in the injective/Reedy case. 
+This latter one has:
+\begin{itemize}
+	\item The cofibrations are the functors which are injective on objects and 1-morphisms. 
+	\item the weak equivalences are the strict functors which are equivalences of bicats (this determines the model structure)
+	\item the fibrations satisfy the {\em strong} iso-fibration property, meaning they lift the inclusion $pt \to E$ (in the Lack model structure they lift a similar thing with $E$ replaced by the `free walking adjoint equivalence'. ) They might satisfy a Reedy fibration property too? it might be automatic. 
+	\item every bicategory is both fibrant and cofibrant. (So the model category is proper!).
+\end{itemize}
+
+Since the Reedy Segal 2-category model structure (really the Tamsamani version) is cofibrantly generated, we can try to transfer it. The weak equivalences $\cW$ and fibrations $\cF$ are defined as those maps which become so after applying the 2-nerve. The trivial fibrations are the intersection $\cF_\cW = \cW \cap \cF$. 
+
+If $L$ is the left adjoint to the 2-nerve, then the cofibrations $\cC$ are defined as the $L(I)$-cof. for the generating set of Segal 2-categories. (I think this is east to see it gives the claimed cofibrations). 
+
+To see that we get a transfered model structure we must verify that $\cC_\cW = L(J)-cof$ (which is automatically part of $\cC$) is also contained in $\cW$.  Checking that we get a model structure essentially comes down to the  key fact: Lack's interval object actually admits an injective fibration $P_B \to B \times B$. Namely it is a strong iso-fibration. If fibrations also have a Reedy property, we need to check that too. Assuming all works out, since every object is fibrant we can form the square
+\begin{center}
+\begin{tikzpicture}
+	\node (LT) at (0, 1.5) {$A$};
+	\node (LB) at (0, 0) {$B$};
+	\node (RT) at (3, 1.5) {$A \times_B P_B$};
+	\node (RB) at (3, 0) {$B$};
+	\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [right hook->] (LT) -- node [above] {$$} (RT);
+	\draw [->>] (RT) -- node [right] {$$} (RB);
+	\draw [->] (LB) -- node [below] {$=$} (RB);
+	\draw [->, dashed] (LB) -- node [below] {$$} (RT);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+The map $A \to B$ is assumed to have the LLP w.r.t the injective fibrations, and the map $A \times_B P_B \to B$ is such a fibration. Hence we have the lift. Moreover the map $A \to A \times_B P_B$ is an equivalence as well (since $A \times_B P_B \to A$ is a trivial fibration and factors the identity of $A$.). 
+ Now an easy calculation shows that in this case the map $A \to B$ is necessarily  a weak equivalence (this uses 6-for-2 for $\cW$, but we have that since Lack proves they are the standard equivalences). Hence we have a model structure. 
+
+Moreover, the 2-nerve is now a Quillen equivalence between this model structure on $Bicat_s$ and the injective $\Seg(\cat)$ model structure. In particular taking 2-nerves preserves fibrations. This is important because when we build $\TC$ we can check for Reedy fibrantness by looking at the bicategories, before we apply the 2-nerve. 
+
+(We can also use 2-Cat instead of bicat if that is easier...)
+
+}
+
+
+\subsection{Symmetric monoidal Segal $n$-categories} \label{sec-symmoninftyNcat}
 
 \CSPcomm{This needs some rewriting.}
 
@@ -1033,12 +1098,12 @@ If $\cM$ and $\cN$ are right $\cD$-modules, then we have $\cN \boxtimes_\cD \Fun
 
 \CDcomm{I think the exposition in this section needs reworking, though I don't think it will be too hard.  The issue at the moment is that it is easy for the reader to get confused about which parts of the story are moral and which are actual.  (Eg, first it says ``we will build a functor", then ``one fails to produce a strict functor", then ``this gives a strict functor".)  I think everything `moral' should be in carefully delineated remarks, and the main text should be crystal clear about exactly what is being constructed.  In particular it should be in blinking lights that the functor being produced is a strict functor into a 1-category, and which 1-category should be completely explicit.  Then in the moral remark, it should also be clearer what the moral story is, eg of a weak functor into (specify exactly which 3-category and what kind of 3-category).  (One among various sticky points: the intermediate reader could easily think ``length-n strings of composable bimodule categories" was implicitly meant to include choices of compositions, in order to facillitate forgetful functors, and that ``functors" in the next line means ``weak functors", and indeed has been prepared to think these things---but that is exactly not the point that is being made in the moral paragraphs.)}
 
-We now describe the symmetric monoidal 3-fold Segal category $\TCfin$ of finite tensor categories, finite bimodule categories, linear bimodule functors, and linear bimodule natural transformations. We first construct a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are equivalences. We may obtain a $\Gamma$-3-fold simplicial space by applying the 2-nerve levelwise.  \CD{Indicate this produces a $\Gamma$-3-fold simplicial \emph{set}.} Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal  Segal 3-category.  \CD{That this is the point of that Lemma should be explained in detail back at that Lemma, perhaps as an explicit corollary, whose proof should at least briefly address all the issues, ie Reedy fibrancy, and conditions (1), (2), and (3).}
+We now describe the symmetric monoidal 3-fold Segal category $\TC$ of finite tensor categories, finite bimodule categories, linear bimodule functors, and linear bimodule natural transformations. We first construct a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are equivalences. We may obtain a $\Gamma$-3-fold simplicial space by applying the 2-nerve levelwise.  \CD{Indicate this produces a $\Gamma$-3-fold simplicial \emph{set}.} Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal  Segal 3-category.  \CD{That this is the point of that Lemma should be explained in detail back at that Lemma, perhaps as an explicit corollary, whose proof should at least briefly address all the issues, ie Reedy fibrancy, and conditions (1), (2), and (3).}
 
-Let $A$ be a finite set and let $[n]$ be an object of $\Delta$. The strict 2-category $\TCfin(A,n)$ should morally be regarded as the 2-category consisting of $A$-tuples of length-$n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TCfin(A,n)$ should be thought of as \CDcomm{(what kind of)} functors from the category $A \times [n]$ into the weak 3-category $\TCfin$.
+Let $A$ be a finite set and let $[n]$ be an object of $\Delta$. The strict 2-category $\TC(A,n)$ should morally be regarded as the 2-category consisting of $A$-tuples of length-$n$ strings of composable bimodule categories. In other words, if one had a pre-existing notion of 3-category, then $\TC(A,n)$ should be thought of as \CDcomm{(what kind of)} functors from the category $A \times [n]$ into the weak 3-category $\TC$.
 
-As we have seen, the problem with implementing this straightforward idea is that one fails to produce a {\em strict} functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict $2$-categories. This is due to the fact that both the symmetric tensor product and the composition of bimodule categories are defined via universal properties and are not strictly associative. Thus $\TCfin(A,n)$ consists of an enlarged version which includes, in addition to the 
-$A$-tuples of length-$n$ strings of composable bimodule categories, choices of all the possible composites and tensor products that naturally arise. The most canonical way to do this is to define $\TCfin(A,n)$ to include all such possible choices. 
+As we have seen, the problem with implementing this straightforward idea is that one fails to produce a {\em strict} functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict $2$-categories. This is due to the fact that both the symmetric tensor product and the composition of bimodule categories are defined via universal properties and are not strictly associative. Thus $\TC(A,n)$ consists of an enlarged version which includes, in addition to the 
+$A$-tuples of length-$n$ strings of composable bimodule categories, choices of all the possible composites and tensor products that naturally arise. The most canonical way to do this is to define $\TC(A,n)$ to include all such possible choices. 
 
 
 %will have objects which consist of collections of several tensor categories, bimodule categories, functors, and natural transformations which are required to satisfy a host of conditions. The 1- and 2-morphisms of $\TC(A,n)$ will be defined similarly. 
@@ -1046,9 +1111,9 @@ $A$-tuples of length-$n$ strings of composable bimodule categories, choices of a
 % This is largely due to the fact that  composition of bimodule categories is only weakly defined. It is defined up to equivalence of bimodule categories which are in turn defined up to unique natural isomorphism, but this is not sufficient to obtain a {\em strict} functor on $(\Gamma \times \Delta)^\textrm{op}$. One solution is to enlarge $\TC(A,n)$ to include choices of all the possible composites that one would need in order to obtain a strict functor to strict 2-categories. The resulting $\TC(A,n)$ is what we now describe.
 
 
- Thus the objects of $\TCfin(A,n)$ are certain compatible collections of finite tensor categories, finite bimodule categories, and their various maps. \CD{their various maps?} These collections are parametrized by certain $k$-faces of the simplex $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TCfin(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}. \CD{Combine tables 1 and 2 into a single table, as with table 3.} \CD{In table 2, ``$(X_{S;j} \times X_{S;k})$-balanced"?, or explain the use of $X_{S;j} / X_{S;k}$.}
+ Thus the objects of $\TC(A,n)$ are certain compatible collections of finite tensor categories, finite bimodule categories, and their various maps. \CD{their various maps?} These collections are parametrized by certain $k$-faces of the simplex $[n]$ and collections of disjoint subsets of $A$. We summarize the data of an object $X \in \TC(A,n)$ in Tables \ref{Table:ObjectOfTC} and \ref{Table:ObjectOfTC2}. \CD{Combine tables 1 and 2 into a single table, as with table 3.} \CD{In table 2, ``$(X_{S;j} \times X_{S;k})$-balanced"?, or explain the use of $X_{S;j} / X_{S;k}$.}
 \begin{table}[ht]
-	\caption{Data and Conditions for an object of $\TCfin(A,n)$.}
+	\caption{Data and Conditions for an object of $\TC(A,n)$.}
 	\begin{tabular}{c |ccccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-face $ijk$ & 3-face $ijk\ell$ & 4-face \\
 	\hline
@@ -1061,7 +1126,7 @@ $A$-tuples of length-$n$ strings of composable bimodule categories, choices of a
 	\label{Table:ObjectOfTC}
 \end{table}	
 \begin{table}[ht]
-	\caption{Description of the Data of an object of $\TCfin(A,n)$.}	
+	\caption{Description of the Data of an object of $\TC(A,n)$.}	
 	\begin{tabular}{l p{11cm}}
 		datum & description of datum \\ \hline
 		$X_{S;i}$ & A finite tensor category \\
@@ -1095,7 +1160,7 @@ This data is required to satisfy the following conditions: \\
 
 	\item  For every pair of disjoint subsets $S, S'$ and every 3-simplex $ijk\ell$, the `hexagon' equation in Figure \ref{fig:EqnSSijkObject} is satisfied. 
 \begin{figure}[ht]
-	\caption{Equation for condition (TCO4) on the data of an object of $\TCfin(A,n)$.}
+	\caption{Equation for condition (TCO4) on the data of an object of $\TC(A,n)$.}
 	\begin{center}
 		\begin{tikzpicture}[align=left]
 	%		\node (A) at (126:2cm) {A};
@@ -1122,7 +1187,7 @@ This data is required to satisfy the following conditions: \\
 There, each $\tau_i$ represents an appropriate permutation of the factors. In other words, $(x_{S,S';-}, \psi_{S, S'; -})$ forms a structure analogous to a functor of bicategories. \CD{Omit the sentence beginning ``In other words"?}
 	\item  For every triple of disjoint subsets $S, S', S''$ and every 2-simplex $ijk$, the  `hexagon' equation in Figure \ref{fig:EqnSSSijObject} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TCO5) on the data of an object of $\TCfin(A,n)$.}
+		\caption{Equation for condition (TCO5) on the data of an object of $\TC(A,n)$.}
 	\begin{center}
 		\begin{tikzpicture}[align=left]
 	%		\node (A) at (126:2cm) {A};
@@ -1150,10 +1215,10 @@ There, each $\tau_i$ represents an appropriate permutation of the factors. In ot
 	\item  For every quadruple of disjoint subsets $S, S', S'', S'''$, the isomorphisms $\alpha_{-; i}$ and $\alpha_{-; ij}$ satisfy the appropriate pentagon equations. When $S' = \emptyset$ then $\alpha_{S, S', S''; i}$ and $\alpha_{S, S', S''; ij}$ satisfy the appropriate triangle identity. \CD{You are sure the identities for $S = \emptyset$ and $S'' = \emptyset$ follow (as classically)?} 
 \end{list}
 
-Let $X$ and $Y$ be two objects in $\TCfin(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. \CD{Why not allow tensor functors here, so $F_{S;ij}$ become twisted bimodule functors? (`Because it makes everything harder' might be an answer, but I was surprised by the restriction.)}
+Let $X$ and $Y$ be two objects in $\TC(A,n)$. A 1-morphism from $X$ to $Y$ may only exist if each of the tensor categories agree identically $X_{S;i} = Y_{S;i}$ for each subset $S \subseteq A$ and vertex $i$ of $[n]$. \CD{Why not allow tensor functors here, so $F_{S;ij}$ become twisted bimodule functors? (`Because it makes everything harder' might be an answer, but I was surprised by the restriction.)}
 In this case the 1-morphisms from $X$ to $Y$ consist of collections of data as in Table \ref{Table:1MorOfTC}.
 \begin{table}[h]
-	\caption{Data of a 1-morphism of $\TCfin(A,n)$.}
+	\caption{Data of a 1-morphism of $\TC(A,n)$.}
 	\begin{tabular}{c |cccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$ & 3-simplex $ijk\ell$  \\
 	\hline
@@ -1177,7 +1242,7 @@ This data is required to satisfy the following axioms:
 	\item If $S = \emptyset$, then $F_{S;ij}$ and $\xi_{S;ijk}$ are identities. If either $S$ or $S'$ is equal to $\emptyset$, then $\varphi_{S,S';ij}$ is the canonical map.  \CD{Re TC1M1: As (TCO2) is written, there aren't identities here to ask for.  Also, I haven't checked if there is actually a canonical map.}
 	\item For every subset $S$ and every 3-simplex $ijk\ell$ the hexagon equation in Figure \ref{fig:EqnSijklMorphism} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M2) on the data of a 1-morphism of $\TCfin(A,n)$.}
+		\caption{Equation for condition (TC1M2) on the data of a 1-morphism of $\TC(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$b^Y_{S;ik\ell} \circ (b^Y_{S;ijk} \times 1) \circ (F_{S;ij} \times F_{S;jk} \times F_{S;k\ell})$};
@@ -1198,7 +1263,7 @@ This data is required to satisfy the following axioms:
 	\end{figure}
 	\item For every pair of disjoint subsets $S, S'$ and every 2-simplex $ijk$ the hexagon equation in Figure \ref{fig:EqnSSijkMorphism} holds, where $\tau$ permutes the middle factors. 
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M3) on the data of a 1-morphism of $\TCfin(A,n)$.}
+		\caption{Equation for condition (TC1M3) on the data of a 1-morphism of $\TC(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$y_{S, S'; ik} \circ (b^Y_{S; ijk} \times b^Y_{S';ijk}) $\\$ \circ (F_{S; ij} \times F_{S; jk} \times F_{S'; ij} \times F_{S'; jk})$};
@@ -1219,7 +1284,7 @@ This data is required to satisfy the following axioms:
 	\end{figure} 
 	\item For every triple of disjoint subsets $S, S', S''$ and every edge $ij$, the hexagon equation in Figure \ref{fig:EqnSSSijMorphism} holds.
 	\begin{figure}[ht]
-		\caption{Equation for condition (TC1M4) on the data of a 1-morphism of $\TCfin(A,n)$.}
+		\caption{Equation for condition (TC1M4) on the data of a 1-morphism of $\TC(A,n)$.}
 		\begin{center}
 			\begin{tikzpicture}[align=left]	
 				\node (A) at (150:3.5cm) {$y_{S \cup S', S''; ij} \circ (y_{S, S'; ij} \times 1) $\\$ \circ (F_{S; ij} \times F_{S'; ij} \times F_{S''; ij})$};
@@ -1241,7 +1306,7 @@ This data is required to satisfy the following axioms:
 \end{list}
 A 2-morphism between 1-morphisms $F$ and $G$ from $X$ to $Y$ consists of a collection of $\{ \theta_{S;ij} \}$ consisting of $X_{S;i}$-$X_{S;j}$-bimodule natural transformations from $F_{S;ij}$ to $G_{S;ij}$ for each subset $S \subseteq A$ and 1-simplex $ij$ in $[n]$. For completeness we record this in Table \ref{Table:2MorOfTC}.
 \begin{table}[h]
-	\caption{Data of a 2-morphism of $\TCfin(A,n)$.}
+	\caption{Data of a 2-morphism of $\TC(A,n)$.}
 	\begin{tabular}{c |ccc}
 	 subsets \textbackslash\ faces & vertex $i$ & edge $ij$ & 2-simplex $ijk$   \\
 	\hline
@@ -1268,22 +1333,22 @@ These are required to satisfy that $\theta_{\emptyset;ij}$ is the identity and t
 		(\theta_{S \cup S'; ij} * 1) \circ \varphi^F_{S, S'; ij} = \varphi^G_{S,S';ij} \circ (1*(\theta_{S;ij} \times \theta_{S';ij})).
 	\end{equation*}
 \end{list}
-With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $\TCfin(A,n)$ into a strict $2$-category.  \CD{Need to specify the three pieces of composite data.}
+With these as objects, 1-morphisms, and 2-morphisms, the obvious composition makes $\TC(A,n)$ into a strict $2$-category.  \CD{Need to specify the three pieces of composite data.}
 It is manifestly functorial in $A$ and $[n]$ and thus gives a (strict) functor \CD{CD has not checked that it is a strict 2-category, nor that it is functorial in $A$ and $[n]$.}
 \begin{equation*}
-	\TCfin: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to 2-\Cat.
+	\TC: \Gamma^\textrm{op} \times \Delta^\textrm{op} \to 2-\Cat.
 \end{equation*}
-from the 1-category $\Gamma^\textrm{op} \times \Delta^\textrm{op}$ into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TCfin$. 
+from the 1-category $\Gamma^\textrm{op} \times \Delta^\textrm{op}$ into the 1-category of strict 2-categories. Composing with the coherent nerve for strict 2-categories gives us a $\Gamma$-3-fold simplicial space, which we also denote $\TC$. 
 
 \begin{theorem}
-	 $\TCfin$ is a symmetric monoidal Segal 3-category.  
+	 $\TC$ is a symmetric monoidal Segal 3-category.  
 \end{theorem}
 \begin{proof}
-	Beginning with $\TCfin$,
+	Beginning with $\TC$,
 	by Lemma \ref{lma:2catnervereflectsequiv} it is enough to show that the functor to strict 2-categories satisfies the appropriate Segal conditions, namely that the following Segal maps are weak equivalences of strict 2-categories: \CD{Need to say what a weak equivalence of strict 2-categories is, and what a pullback of strict 2-categories is.  (This might be done earlier.)}
 	\begin{align*}
-		\TCfin(A, m + n) & \to \TCfin(A, m) \times_{\TCfin(A, 0)} \TCfin(A, n), \\
-		\TCfin(A, n) & \to \TCfin(1, n)^{\times |A|}. 
+		\TC(A, m + n) & \to \TC(A, m) \times_{\TC(A, 0)} \TC(A, n), \\
+		\TC(A, n) & \to \TC(1, n)^{\times |A|}. 
 	\end{align*}
 In each case the difference between the left-hand-side and the right-hand-side consists of a space of choices of representatives of a Deligne tensor product (and maps representing the tensor product). The category of such choices is contractible (by the universal property of the Deligne tensor product), and so these Segal maps are equivalences, as required. 
 \end{proof}
