@@ -43,7 +43,7 @@ We prove that tensor categories, their bimodule categories, bimodule functors, a
 		at (current page.center) {Please Do Not Distribute}; 
 \end{tikzpicture}
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{3}
 \tableofcontents
 %%%%%%%%
 
@@ -425,7 +425,7 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 
 
 \begin{theorem}
-	This is a unique model structure on $\cat$ with the equivalences of categories as the weak equivalences. 
+	This is a unique model structure on $\Cat$ with the equivalences of categories as the weak equivalences. 
 	\CSPcomm{List its properties, e.g. every object fibrant and cofibrant (hence it is proper) etc}
 \end{theorem}
 
@@ -596,7 +596,7 @@ Following \cite{MR2366560}, we call the association $C \mapsto NC_{\bullet \bull
 
 .%remove this period!
 \CSPcomm{
-Show that the we can use the 2-nerve to transfer the model structures on $\Seg(\cat)$ to the category of bicategories and strict functors. Show that you get either the Lack model structure (in the projective case) or a new model structure in the injective/Reedy case. 
+Show that the we can use the 2-nerve to transfer the model structures on $\Seg(\Cat)$ to the category of bicategories and strict functors. Show that you get either the Lack model structure (in the projective case) or a new model structure in the injective/Reedy case. 
 This latter one has:
 \begin{itemize}
 	\item The cofibrations are the functors which are injective on objects and 1-morphisms. 
@@ -628,7 +628,7 @@ To see that we get a transfered model structure we must verify that $\cC_\cW = L
 The map $A \to B$ is assumed to have the LLP w.r.t the injective fibrations, and the map $A \times_B P_B \to B$ is such a fibration. Hence we have the lift. Moreover the map $A \to A \times_B P_B$ is an equivalence as well (since $A \times_B P_B \to A$ is a trivial fibration and factors the identity of $A$.). 
  Now an easy calculation shows that in this case the map $A \to B$ is necessarily  a weak equivalence (this uses 6-for-2 for $\cW$, but we have that since Lack proves they are the standard equivalences). Hence we have a model structure. 
 
-Moreover, the 2-nerve is now a Quillen equivalence between this model structure on $Bicat_s$ and the injective $\Seg(\cat)$ model structure. In particular taking 2-nerves preserves fibrations. This is important because when we build $\TC$ we can check for Reedy fibrantness by looking at the bicategories, before we apply the 2-nerve. 
+Moreover, the 2-nerve is now a Quillen equivalence between this model structure on $Bicat_s$ and the injective $\Seg(\Cat)$ model structure. In particular taking 2-nerves preserves fibrations. This is important because when we build $\TC$ we can check for Reedy fibrantness by looking at the bicategories, before we apply the 2-nerve. 
 
 (We can also use 2-Cat instead of bicat if that is easier...)
 
@@ -745,8 +745,9 @@ Unraveling this we see that we have proven the following result:
 \end{theorem}
 
 
+\section{The 3-category of tensor categories}
 
-\section{Linear categories, tensor categories, and bimodule categories} \label{sec-tc-lincat}
+\subsection{Linear categories, tensor categories, and bimodule categories} \label{sec-tc-lincat}
 
 
 
@@ -861,7 +862,7 @@ If $\{ \cM_\alpha \}$ is a collection of bimodule categories then a {\em twisted
 \end{equation*}
 which is the identity on objects, and which is a twisted bimodule functor in each variable. 
 
-\section{Finite linear categories and the Deligne tensor product} \label{sec-tc-deligne}
+\subsection{Finite linear categories and the Deligne tensor product} \label{sec-tc-deligne}
 
 The goal of this section is to construct the Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$. For simplicity, we will only define this tensor product for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties, following \cite{MR2119143, EGNO}. Recall that a {\em composition series} for an object $M$ in an abelian category is a finite sequence
 \begin{equation*}
@@ -1094,8 +1095,9 @@ If $\cM$ and $\cN$ are right $\cD$-modules, then we have $\cN \boxtimes_\cD \Fun
 
 
 
-\section{The symmetric monoidal Segal 3-category of tensor categories} \label{sec-tc-threecat}
+\subsection{The symmetric monoidal Segal 3-category of tensor categories} \label{sec-tc-threecat}
 
+.% remove this period
 \CDcomm{I think the exposition in this section needs reworking, though I don't think it will be too hard.  The issue at the moment is that it is easy for the reader to get confused about which parts of the story are moral and which are actual.  (Eg, first it says ``we will build a functor", then ``one fails to produce a strict functor", then ``this gives a strict functor".)  I think everything `moral' should be in carefully delineated remarks, and the main text should be crystal clear about exactly what is being constructed.  In particular it should be in blinking lights that the functor being produced is a strict functor into a 1-category, and which 1-category should be completely explicit.  Then in the moral remark, it should also be clearer what the moral story is, eg of a weak functor into (specify exactly which 3-category and what kind of 3-category).  (One among various sticky points: the intermediate reader could easily think ``length-n strings of composable bimodule categories" was implicitly meant to include choices of compositions, in order to facillitate forgetful functors, and that ``functors" in the next line means ``weak functors", and indeed has been prepared to think these things---but that is exactly not the point that is being made in the moral paragraphs.)}
 
 We now describe the symmetric monoidal 3-fold Segal category $\TC$ of finite tensor categories, finite bimodule categories, linear bimodule functors, and linear bimodule natural transformations. We first construct a functor from $(\Gamma \times \Delta)^\textrm{op}$ to strict 2-categories, such that the Segal maps are equivalences. We may obtain a $\Gamma$-3-fold simplicial space by applying the 2-nerve levelwise.  \CD{Indicate this produces a $\Gamma$-3-fold simplicial \emph{set}.} Lemma \ref{lma:2catnervereflectsequiv} implies that the result is indeed a symmetric monoidal  Segal 3-category.  \CD{That this is the point of that Lemma should be explained in detail back at that Lemma, perhaps as an explicit corollary, whose proof should at least briefly address all the issues, ie Reedy fibrancy, and conditions (1), (2), and (3).}
