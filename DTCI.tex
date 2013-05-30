@@ -53,7 +53,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 
 %\ignore{ %!%
 
-%\tikzset{external/force remake}
+\tikzset{external/force remake}
 
 \section{Introduction}
 % 1. Introduction
@@ -1336,7 +1336,7 @@ Bimodule categories, functors, and transformations form a strict 2-category.
 \end{example}
 
 
-\subsection{The Deligne tensor product and finite rigid linear categories} \label{sec-tc-deligne}
+\subsection{The Deligne tensor product and the 3-category of tensor categories} \label{sec-tc-deligne}
 
 In this section we will quickly recall the definition and some of the key properties of the relative Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  The key result in this section is Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that the Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^* \cong \mathrm{End}(V)$ plays the key role in showing that finite dimensional vector spaces are $1$-dualizable \cite{???}, this lemma plays the key role in proving $2$-dualizability of finite tensor categories.
 
@@ -1531,6 +1531,11 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 	
 	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of an $\cR$-module functor. 
 \end{example}
+
+\CSP{Get theorem number.}
+\begin{theorem}[ \cite{3TC}]
+	There exists a symmetric monoidal $(3,3)$-category whose objects are the finite rigid tensor categories, whose 1-morphisms are bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule natural transformations. Composition is given by the relative Deligne tensor product of bimodules. The symmetric monoidal structure is given by the usual Deligne tensor product. 
+\end{theorem}
 
 
 \subsection{Examples of bimodule categories} \label{sec:examples_of_bimods}
