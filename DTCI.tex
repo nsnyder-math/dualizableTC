@@ -307,7 +307,7 @@ Because each of the operations in this process can be described using homotopica
 is model invariant. If we pass to an equivalent model of $(\infty,n)$-categories, then the bicategory  $h^{(k)}_2 X$ will be preserved up to equivalence of bicategories. These bicategories $h^{(k)}_2 X$ are key to formulating the universal property of the bordism $n$-category. 
 
 \begin{example}
-	In the symmetric monoidal Segal 3-category $\TC$ of tensor categories, these bicategories $h^{(-1)}_2 \TC$, $h^{(0)}_2 \TC$, and $h^{(1)}_2 \TC$ are easily identified. They are respectively (-1) the monoidal category of tensor categories and equivalence classes of bimodule categories (thought of as a one-object bicategory), (0) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (1) the bicategory of bimodule categories, bimodule functors, and natural transformations. 
+	In the symmetric monoidal Segal 3-category $\TC$ of tensor categories, these bicategories $h^{(-1)}_2 \TC$, $h^{(0)}_2 \TC$, and $h^{(1)}_2 \TC$ are easily identified. They are respectively (-1) the monoidal category of tensor categories and equivalence classes of bimodule categories (thought of as a one-object bicategory), (0) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (1) the bicategory of bimodule categories, bimodule functors, and natural transformations.
 \end{example}
 
 \begin{definition} \label{def:adjoints_in_bicat}
@@ -331,6 +331,7 @@ This notion of ``having duals" at all levels $0 \leq k \leq n-1$ is also referre
 \begin{definition}
 A symmetric monoidal $(\infty,n)$-category $\cC$ is $k$-dualizable if the maximal sub-$(\infty,k)$-category $\kappa_k \cC$ is fully dualizable.
 \end{definition}
+\NS{I'm not sure I like this definition.  Shouldn't ``has duals" just mean that, you know every object has a dual?  I'd prefer $n$-dualizable or fully dualizable or something.  Or even ``has adjoints."}
 
 \nid The maximal $n$-dualizable sub-category of a symmetric monoidal $(\infty,n)$-category $\cC$ is called the ``fully-dualizable part" of $\cC$ and is denoted $d\cC$. Its objects are called ``fully-dualizable objects". 
 
@@ -357,8 +358,6 @@ Our subsequent work will determine the nature of this action and its consequence
 \subsection{Notation for $n$-framed manifolds} 
 
 Since $n$-framed manifolds play a fundamental role in the cobordism hypothesis it will be important to have convenient notation to denote $n$-framed manifolds.  We describe one such notation involving immersions in this section.
-
-\CD{Somewhere, presumably in section 2, add the picture with the series of adjoints of cups and caps with twists.}
 
 Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \looparrowright \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
 \[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\]
@@ -1914,7 +1913,7 @@ In this section we prove the main theorem, that separable finite tensor categori
 
 Since we have explicit formulas for the dualizing data, we can get explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  We give many such examples.
 
-Separability is not required in the proof of $2$-dualizability, so we get a $2$-dimensional TFT attached to any finite tensor category.  Furthemore, many important $2$-morphisms between finite tensor categories still have adjoints.
+Separability is not required in the proof of $2$-dualizability, so we get a $2$-dimensional TFT attached to any finite tensor category.  Furthemore, many important $2$-morphisms between finite tensor categories still have adjoints.  In particular, finite tensor categories are Radford objects in $\TC$.
 
 \subsection{Duals of objects and invariants of elementary 1-framed bordisms} \label{sec-df-objects}
 
@@ -1990,7 +1989,7 @@ Explicitly the 1-framed field theory $F_\cC$ associated to the finite tensor cat
 \nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).  Note that the circle here is not depicted as an immersed normally-framed manifold, but directly as a framed manifold; indeed this depicts the unique 1-framing on the circle.  As indicated, the invariant of this circle is $\cC \btimes_{\cC \btimes \cC^\mp} \cC$, where both actions are the naive ones; we will denote this cyclic self-tensor product by $\cT(\cC)$.
 
 \begin{warning}
-Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a tensor category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  This will be explained in more detail when we discuss the $2$-dimensional $2$-framed theory.  Nonetheless $\cT(\cC)$ can be described in a similar way to the usual definition of $Z(\cC)$.  By Lemma \ref{Lma:FunctorsAsATensorPdt} $\cT(\cC, \cC) \cong \Fun_{\cC\text{-mod-}\cC}(\cC, \cC_{\langle \cdot^** \rangle})$, or in other words an object in $\cT(\cC)$ is an object $x$ in $\cC$ endowed with a natural twisted half-braiding $x \otimes y \rightarrow y^{**} \otimes x$.
+Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a tensor category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  This will be explained in more detail when we discuss the $2$-dimensional $2$-framed theory.  Nonetheless $\cT(\cC)$ can be described in a similar way to the usual definition of $Z(\cC)$.  By Lemma \ref{Lma:FunctorsAsATensorPdt} $\cT(\cC, \cC) \cong \Fun_{\cC\text{-mod-}\cC}(\cC, \cC_{\langle \cdot^{**} \rangle})$, or in other words an object in $\cT(\cC)$ is an object $x$ in $\cC$ endowed with a natural twisted half-braiding $x \otimes y \rightarrow y^{**} \otimes x$.
 \end{warning}
 \NS{Check which action is twisted by which dual}
 \begin{remark}
