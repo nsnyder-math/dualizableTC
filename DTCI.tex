@@ -582,7 +582,7 @@ Here is a picture of a $3$-framed manifold: \CDcomm{[Example here.  Some options
 \end{example}
 
 
-\subsection{Duality in the 2-framed bordism category}
+\subsection{Duality in the 2-framed bordism category}\label{sec:framed-duality}
 
 Up to 2-framed diffeomorphism, there are two 2-framed points. We will make the following choice of representatives, depicted below:
 \begin{center}
@@ -869,7 +869,7 @@ We summarize some of the properties of these model strucutres:
 \end{itemize}
 \noindent More to the point, we have the following flexibility result, which answers the first three of the above questions in the affirmative (in this model). In what follows $E$ denotes the free-walking isomorphism, i.e., the (ordinary) category which is both contractible and has two objects, $0$ and $1$. $E_+$ denotes $E$ with a disjoint base point.
 \CSP{cite 3TC}
-\begin{theorem}[ \cite{3TC} ]
+\begin{theorem}[ \cite{3TC} ] \ref{thm:HEP}
 	Let $B$ and $T$ be symmetric monoidal $(\infty, n)$-categories, with $B$ cofibrant and $T$ fibrant, and let $f: B  \to T$ be a symmetric monoidal functor. Let  $B_0 \subseteq B$ be an inclusion of pointed Segal $n$-categories into the underlying Segal $n$-category of $B$ and let $H: B_0 \wedge E_+ \to T$ be a pointed functor of (non-monoidal) Segal $n$-categories, such that $H |_{B_0 \times 0} = f|_{B_0}$ extends the given functor.
 % Assume that  $H|_{\{1\} \times E} = \textrm{const}_{f(1)}$ ($H$ is a {\em pointed} natural isomorphism).
 Then there exists a symmetric monoidal functor $\tilde{H}: B \wedge E_+ \to T$ making the following diagram of functors of Segal $n$-categories commute strictly:
@@ -1963,17 +1963,13 @@ By the cobordism hypothesis, the previous theorem shows that there is a $2$-dime
 
 We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \cite{???}.
 
-First, without loss of generality we assume that all positively framed points are sent to $\cC$.  In order to do so we need to fix a favorite choice of isomorphism between two positively framed points.  There are several reasonable conventions: always go clockwise, always go counterclockwise, always take the shortest path except for the antipodal point where you pick one direction, etc.  We will pick the counterclockwise convention.  In particular we fix the following isomorphism between the two antipodal positive framings.
+As in Section \ref{sec:framed-duality} we fix the following representatives for the positively and negatively framed points with the following fixed evaluation and coevaluation making them dual to each other.
 
 IMAGE
 
-Similarly we assume that all negatively framed points are sent to $\cC^\mp$.  Again we identify the points by going counterclockwise.
+By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec-df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in the previous section.
 
-Having fixed these conventions we can read off the values of the following two intervals whose $2$-framings are inherited from $1$-framings.
-
-TABLE
-
-Starting with these two intervals we can take adjoints (see Section ???) and use the symmetric structure to compute the following values for framed intervals and circles.
+Thus, without loss of generality, we can assume that the TFT has the following values on framed intervals and circles.
 
  TABLE
  
@@ -1993,11 +1989,17 @@ Similarly one can compute the values of $2$-framed surfaces.  Note that there is
  
  
 \begin{remark}
-The above formulas for intervals have a somewhat unsatisfying assymmetry, where two intervals which look very similar (say with no twists) have answers which look rather different (say one is $\cC$ and the other $\cC^*$).  This comes from our choice of identifications between positively framed points.  Had we chosen clockwise rotation we would get values which were assymetric in the other direction.  It is also possible to pick conventions that make the formulas more symmetric but at the cost of not identifying all positively framed points with $\cC$, but instead identifying some of them with $\cC^{\mop}$.  Similarly instead of identifying all negatively framed points with $\cC^\mp$ we can identify some with $\cC^\op$ instead.  This yields the following more symmetric formulas.
+The above formulas for intervals have a somewhat unsatisfying assymmetry, where two intervals which look very similar (say with no twists) have answers which look rather different (say one is $\cC$ and the other $\cC^*$).  This comes from our choices of preferred duality between a positively framed point and a negatively framed one.  We could just as well have fixed intervals which rotate clockwise instead of counterclockwise and we would get values which were assymetric in the other direction.  
 
-TABLE
+It is also possible to pick conventions that make the formulas more symmetric but at the cost of not identifying all positively framed points with $\cC$, but instead identifying some of them with $\cC^{\mop}$.  Similarly instead of identifying all negatively framed points with $\cC^\mp$ we can identify some with $\cC^\op$ instead.  One very natural choice is the following.
 
-Although these formulas are more aesthetically pleasing, we have not found that they give any advantages when doing computations.
+TABLE:
+Values of four points
+Values of some non-bending intervals (agreeing with 1-dimension)
+Values of some bending intervals
+Value of Serre
+
+From this point of view the appearance of the double dual looks more natural.  Namely, rotation by $180$-degrees always twists by a single dual, so $360$-degree rotation twists by a double dual.  Note however, that this point of view does not simplify the calculation of these values, it only makes the answer look less surprising.
 \end{remark}
 
 \NScomm{This is the end of the current outline of the section.  The material below will be canibalized and moved to the appropriate locations above.} 
