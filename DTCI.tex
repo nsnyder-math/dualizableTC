@@ -1186,6 +1186,7 @@ such that $F$ is linear in each variable separately. A linear category will be s
 	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
 \end{warning}
 
+\CSP{The definition of tensor category should include rigid too, I think.}
 \begin{definition}
 	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear. 
 \end{definition}
@@ -1937,31 +1938,30 @@ The following diagram commutes.
 				\node (D) at (2.5in,1in) {${}_\cC \cM \boxtimes_D \Fun_{\cC\text{-mod}}(\cM,\cM)_\cD$};
 				\node (E) at (0in, .5in) {${}_\cC \cC \boxtimes_\cC \cM_\cD$};
 				\node (F) at (0in,0in) {${}_\cC \cM_\cD$};
-				\draw [<->] (A) to node [left=.1cm] {} (B);
-				\draw [->] (B) to node [left=.1cm] {$\id \boxtimes \coev_L$}  (C);
+				\draw [<->] (A) to node [left] {$\cong$} (B);
+				\draw [->] (B) to node [left=.1cm] {$\id \boxtimes \eta_1$}  (C);
 				\draw [->] (B) to [bend left] node [above=.1cm]{$\id \boxtimes (d \mapsto \bullet \otimes d)$} (D);
-				\draw [<->] (C) to node {} (D);
-				\draw [->] (C) to node [left=.1cm]{$\ev_L \boxtimes \id$} (E);
-				\draw [<->] (E) to node {} (F);
+				\draw [<->] (C) to node [above] {$\cong$} (D);
+				\draw [->] (C) to node [left=.1cm]{$\varepsilon_1 \boxtimes \id$} (E);
+				\draw [<->] (E) to node [left] {$\cong$} (F);
 				\draw [->] (D) to [bend left] node [right=.1cm]{$m \boxtimes \cF \mapsto \cF(m)$} (F);
 			\end{tikzpicture}
 		\end{center}
-
 Thus instead of computing along the left side of the diagram, we can compute along the right side of the diagram to see that the composition ${}_\cC \cM_\cD \rightarrow {}_\cC \cM_\cD$ is given by right multiplication by $1 \in \cD$, and hence is the identity.
 The other three calculations are similar.
 \end{proof}
 
-Thus we have proven
-\begin{theorem}
+Thus we have proven:
+\begin{theorem} \label{thm:TC_is_2Dualizable}
 	$\TC$ is 2-dualizable. 
 \end{theorem}
 
 
 \subsection{Invariants of elementary 2-framed bordisms}
 .\NScomm{[This section is still under construction.]} %!% Remove period
-By the cobordism hypothesis, the previous theorem shows that there is a $2$-dimensional $2$-framed TFT attached to every finite tensor category with exact tensor product, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
+By the cobordism hypothesis, Theorem \ref{thm:TC_is_2Dualizable} shows that there is a $2$-dimensional $2$-framed TFT attached to every (finite rigid) tensor category, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
 
-We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \cite{???}.
+We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \ref{sec:Hom_ext_field_thy}.
 
 As in Section \ref{sec:framed-duality} we fix the following representatives for the positively and negatively framed points with the following fixed evaluation and coevaluation making them dual to each other.
 
