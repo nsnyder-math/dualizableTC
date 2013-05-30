@@ -55,6 +55,11 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 
 %\tikzset{external/force remake}
 
+%\pgfkeys{/pgf/fpu}
+%\pgfmathparse{16383+1}
+%\edef\tmp{\pgfmathresult}
+%\pgfkeys{/pgf/fpu=false}
+
 \section{Introduction}
 % 1. Introduction
 % 1.1. Background and motivation
@@ -355,7 +360,7 @@ Since $n$-framed manifolds play a fundamental role in the cobordism hypothesis i
 
 \CD{Somewhere, presumably in section 2, add the picture with the series of adjoints of cups and caps with twists.}
 
-Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \hra \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
+Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \looparrowright \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can equivalently be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
 \[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\]
 Here the first isomorphism is provided by the inverse of the normal framing $\phi$, and the second isomorphism is given by the standard (``blackboard") identification of the sum of the tangent bundle and the normal bundle with the trivial bundle.
 
@@ -432,7 +437,7 @@ Let $M$ be a closed connected 2-framed 1-manifold.  By definition $M$ comes equi
 Not every $n$-framed $n$-manifold can be specified in this way. For example the circle has no immersion into $\RR^1$ but does have a $1$-framing (unique up to diffeomorphism). However the Hirsch-Smale immersion theorem guarantees that every $n+k$-framing of an $n$-manifold can be realized by an immersion provided that either $k > 0$ or each component of the $n$-manifold is non-compact. 
 \end{remark}
 
-For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \hra \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \hra \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
+For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \looparrowright \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \looparrowright \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
 
 \begin{example}
 The $1$-framing on the circle, which is unique up to diffeomorphism, induces a $2$-framing on the circle; that $2$-framing agrees with the $2$-framing induced by the figure 8 immersion above. 
@@ -686,7 +691,25 @@ Similarly, we may identify the right adjoint of $ev$.  That adjoint $ev^R$, toge
 		to [looseness=1.6, out=0, in=0] +(90:2*\smcirclerad);
 	\end{tikzpicture} }
 \end{center}
-We may continue in this way, obtaining an infinite series of adjoints:
+As before, our notation for $n$-framed manifolds permits immersed rather than embedded manifolds; it is often more convenient to depict $ev^R$ by the immersion
+\cb{
+$
+\begin{tikzpicture}%[scale=.5]
+			\draw[linestyle,fuzzright] (10.5, 0.5) -- (9.75,0.5)
+				to [looseness=1.6,out = 180, in = 90] (10, 0.75)
+				-- (10, -0.75)
+				to [looseness=1.6,out = 270, in = 180] (9.75,-0.5)
+				-- (10.5, -0.5);
+			\begin{pgfonlayer}{background}
+				\draw[->,outstyle] (10.5,0.5) -- +(0:\arrowlength);
+				\draw[->,outstyle] (10.5,-0.5) -- +(0:\arrowlength);
+			\end{pgfonlayer}
+\end{tikzpicture}
+$
+}.
+This immersion is certainly isotopic rel boundary to the previous, embedded manifold.
+
+The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and similarly $ev^R$ has a right adjoint, and so on.  The 1-morphism $coev$ also has an infinite chain of left and right adjoints.  We therefore have two infinite series of adjunctions, as follows:
 \begin{center}
 	\begin{tikzpicture}
 		\node at (0,0) {$\cdots$};
@@ -708,28 +731,84 @@ We may continue in this way, obtaining an infinite series of adjoints:
 		\draw[linestyle,fuzzleft] (5.75,0.5) to [looseness=1.6,out = 0, in = 0] (5.75,-0.5);
 		\node at (6, -1.1) {$ev$};
 		\node at (7,0) {$\dashv$};
-		\draw[linestyle,fuzzright] (8,0.5) to [looseness=1.6,out = 180, in = 180] (8,0.75)
-			to [looseness=1.6,out = 0, in = 0] (8, -0.75)
-			to [looseness=1.6,out = 180, in = 180] (8,-0.5);
+%		\draw[linestyle,fuzzright] (8,0.5) to [looseness=1.6,out = 180, in = 180] (8,0.75)
+%			to [looseness=1.6,out = 0, in = 0] (8, -0.75)
+%			to [looseness=1.6,out = 180, in = 180] (8,-0.5);
+%			\begin{pgfonlayer}{background}
+%				\draw[->,outstyle] (8,0.5) -- +(0:\arrowlength);
+%				\draw[->,outstyle] (8,-0.5) -- +(0:\arrowlength);
+%			\end{pgfonlayer}
+%		\node at (9,0) {$\cong$};
+		\node at (8,-1.1) {$ev^R$};
+			\draw[linestyle,fuzzright] (8.5, 0.5) -- (7.75,0.5)
+				to [looseness=1.6,out = 180, in = 90] (8, 0.75)
+				-- (8, -0.75)
+				to [looseness=1.6,out = 270, in = 180] (7.75,-0.5)
+				-- (8.5, -0.5);
 			\begin{pgfonlayer}{background}
-				\draw[->,outstyle] (8,0.5) -- +(0:\arrowlength);
-				\draw[->,outstyle] (8,-0.5) -- +(0:\arrowlength);
+				\draw[->,outstyle] (8.5,0.5) -- +(0:\arrowlength);
+				\draw[->,outstyle] (8.5,-0.5) -- +(0:\arrowlength);
 			\end{pgfonlayer}
-		\node at (9,0) {$\cong$};
-		\node at (9,-1.1) {$ev^R$};
-			\draw[linestyle,fuzzright] (10.5, 0.5) -- (9.75,0.5)
-				to [looseness=1.6,out = 180, in = 90] (10, 0.75)
-				-- (10, -0.75)
-				to [looseness=1.6,out = 270, in = 180] (9.75,-0.5)
-				-- (10.5, -0.5);
-			\begin{pgfonlayer}{background}
-				\draw[->,outstyle] (10.5,0.5) -- +(0:\arrowlength);
-				\draw[->,outstyle] (10.5,-0.5) -- +(0:\arrowlength);
-			\end{pgfonlayer}
-		\node at (11,0) {$\dashv$};
-		\node at (12,0) {$\cdots$};
+		\node at (9,0) {$\dashv$};
+		\node at (10,0) {$\cdots$};
 	\end{tikzpicture}
 \end{center}
+\[\cdots\quad
+\cb{
+\begin{tikzpicture}
+{ [xshift=-3cm,scale=.1]
+\draw[linestyle,fuzzleft]
+(0,5) to [out=180, in=70] (-4,2.5)
+	to [looseness=1.6, out=-110, in=-90] (-6,2.5)
+	to [looseness=1.6, out=90, in=110] (-4,2.5)
+	to [out=-70, in=70] (-4,-2.5)
+	to [looseness=1.6, out=-110, in=-90] (-6,-2.5)
+	to [looseness=1.6, out=90, in=110] (-4,-2.5)
+	to [out=-70, in=180] (0,-5);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,5) -- +(0:10*\arrowlength);
+	\draw[->,outstyle] (0,-5) -- +(0:10*\arrowlength);
+\end{pgfonlayer}
+\node at (0,-10) {$coev^{LL}$};
+}
+{ [xshift=-2.25cm]
+\node at (0,0) {$\dashv$};
+}
+{ [xshift=-1.5cm]
+\draw[linestyle,fuzzright]
+(0,.5) .. controls (.66,.5) and (.66,-.5) .. (0,-.5);
+\node at (0,-1) {$coev^L$};
+}
+{ [xshift=-.75cm]
+\node at (0,0) {$\dashv$};
+}
+{ [xshift=0cm]
+\draw[linestyle,fuzzleft]
+(0,.5) .. controls (-.66,.5) and (-.66,-.5) .. (0,-.5);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,.5) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-.5) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\node at (0,-1) {$coev$};
+}
+{ [xshift=.75cm]
+\node at (0,0) {$\dashv$};
+}
+%{ [xshift=1.5cm,scale=.1]
+%\draw[linestyle,fuzzleft, /pgf/fpu,/pgf/fpu/output format=fixed]
+%(0,5) to [out=0, in=110] (4,2.5)
+%	to [looseness=1.6, out=-70, in=-90] (6,2.5)
+%	to [looseness=1.6, out=90, in=70] (4,2.5)
+%	to [out=-110, in=110] (4,-2.5)
+%	to [looseness=1.6, out=-70, in=-90] (6,-2.5)
+%	to [looseness=1.6, out=90, in=70] (4,-2.5)
+%	to [out=-110, in=0] (0,-5);
+%\node at (0,-10) {$coev^{R}$};
+%}
+\end{tikzpicture}
+}
+\]
+\CD{Painful tikz problems in this, still unfinished.}
 
 \subsection{The Serre and the Radford isomorphisms}
 We now define the positive loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  
