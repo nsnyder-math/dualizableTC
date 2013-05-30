@@ -810,8 +810,8 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 \]
 \CD{Painful tikz problems in this, still unfinished.}
 
-\subsection{The Serre and the Radford isomorphisms}
-We now define the positive loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  
+\subsection{The Serre and the Radford bordisms}
+We now define the loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  
 %For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_n$, and we denote it by $s$.  
 Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
 \begin{center}
@@ -836,13 +836,13 @@ Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted her
 \end{pgfonlayer}
 \end{tikzpicture}
 \end{center}
-\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_n$ from $pt_+$ to $pt_+$.  This automorphism is called the \begin{bf}positive loop bordism\end{bf}. It will also be called the {\bfseries Serre bordism} for reasons that will be made clear shortly.   
+\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_n$ from $pt_+$ to $pt_+$.  This automorphism is called the loop bordism.  It will also be called the {\bfseries Serre bordism} for reasons that will be made clear shortly.   
 
 \begin{remark}
-Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming  point at $0$, one outgoing boundary point at $1$, and the standard orientation.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the standard shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$.  The positive loop bordism is the framing corresponding to $+1$, while the negative loop bordism is the framing corresponding to $-1$.  When we use the unspecified term loop bordism we will always mean the positive loop bordism.
+Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming  point at $0$, one outgoing boundary point at $1$, and the standard orientation.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the standard shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$---here we take the counterclockwise rotation as the positive generator of $\pi_1(SO(n))$.  The loop bordism is the framing corresponding to $+1$.  When necessary, we will refer to the bordism corresponding to the $-1$ framing as the negative loop bordism.
 \end{remark}
 
-We may express the positive loop bordism as a composite of more elementary bordisms which we have already encountered. Consider the following decomposition of the positive loop bordism:
+We may express the loop bordism as a composite of more elementary bordisms which we have already encountered. Consider the following decomposition of the loop bordism:
 \begin{center}
 \vspace{\topskip}	
 	\begin{tikzpicture}
@@ -866,7 +866,29 @@ We may express the positive loop bordism as a composite of more elementary bordi
 	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
 	\end{tikzpicture}
 \end{center}
-This, and a similar decomposition for the negative loop bordism give formulas for the positive and negative loop bordisms:
+The negative loop bordism has a similar decomposition:
+\begin{center}
+\vspace{\topskip}	
+	\begin{tikzpicture}
+		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
+			to [looseness=1, out = 0, in = 180] (2.5,2)
+			to [looseness=2,out=0,in=0] (2.5,1)
+			to (1.5,1)
+			to [looseness=2,out=180,in=180] (1.5,2)
+			to [looseness=1, out = 0, in = 180] (2.5, 3) -- (4.5,3);
+		\begin{pgfonlayer}{background}
+				\draw[->,outstyle] (4.5,3) -- +(0:\arrowlength);
+		\end{pgfonlayer}	
+		\draw [dashed] (2.5,2.5) rectangle (3.5,0.5);
+		\node (B) at (4.5,1.5) {$ev$};
+		\draw [dashed] (3.5, 1.5) -- (B);	
+		\draw [dashed] (0.5,2.5) rectangle (1.5, 0.5);
+		\node (A) at (-.5, 1.5) {$ev^L$};
+		\draw [dashed] (A) -- (0.5, 1.5);
+	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
+	\end{tikzpicture}
+\end{center}
+These decompositions give formulas for the loop bordism and the negative loop bordisms:
 \begin{align*}
 	\cS &\cong (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R) \\
 	\cS^{-1} &\cong (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^L) 
@@ -881,9 +903,9 @@ Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero 
 \begin{center}
 \includegraphics[width=60mm]{cobordism.png}
 \end{center}
-\noindent We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the incoming boundary and pull, it will happily (and very rapidly) trace out this bordism for you. As usual, stabilizing this bordism gives a canonical trivialization of the square of the positive loop for any $n \geq 3$.
+\noindent We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the incoming boundary and pull, it will happily (and very rapidly) trace out this bordism for you. As usual, stabilizing this bordism gives a canonical trivialization of the square of the loop bordism for any $n \geq 3$.
 
-A slight deformation of the belt bordism, which we trust the reader to visualize, results in  the {\bfseries Radford bordism} $\cR: ev^R \to ev^L$.
+If we take the left, that is incoming, cusp of the belt bordism and drag it to the right, so that it becomes an outgoing cusp, the result is a bordism from $ev^R$ to $ev^L$, which we call the {\bfseries Radford bordism}.
 \begin{center}
 	\begin{tikzpicture}
 		\node (R) at (0,0) {$\cR:$};
@@ -905,7 +927,7 @@ A slight deformation of the belt bordism, which we trust the reader to visualize
 	\end{tikzpicture}
 \end{center}
 
-Given any local topological field theory $\cF$, we can look at the image of these various bordisms. The value of the positively framed point gives a fully dualizable object $a$; the images of the negatively framed point, $ev$, and $coev$ give the data witness the dualizability of $a$; If $n \geq 2$, the images of the bordism of the previous section given values and data witnessing the various adjoints of $ev$; the positive loop bordism induces an automorphism of $a$ which we call the {\em Serre automorphism}.  This terminology is motivated by the following example.
+Given a local topological field theory $\cF$ of dimension at least 2, we can look at the images of these various bordisms. The value of the positively framed point gives a fully dualizable object $x$; the images of the negatively framed point, $ev$, and $coev$ give data witnessing the 1-dualizability of $x$; the images of the two infinite chains of bordisms at the end of the previous section give the values of the various adjoints of $\cF(ev)$ and $\cF(coev)$; the loop bordism induces an automorphism of $a$ which we call the {\em Serre automorphism $\cS_x$}.  This terminology is motivated by the following example.
 \begin{example}[{\cite[Rm. 4.2.4]{lurie-ch}}]
 \NScomm{[Example from Lurie Remark 4.2.4]}
 % ... terminology is motivated by the situation where C is the (∞,2)-category of cocomplete differential graded categories over a field k (suitably defined). If D is a fully dualizable object of C which is generated by compact objects, then there is a canonical endofunctor S : D → D (called the Serre functor on D), which is characterized by the existence of natural quasi-isomorphisms
@@ -913,9 +935,9 @@ Given any local topological field theory $\cF$, we can look at the image of thes
 %for every pair of compact objects C and D. In the special case where D is the differential graded category of quasi-coherent complexes on a smooth projective variety X, the Serre functor S : D → D is given by tensoring with the canonical line bundle ωX on X and shifting by the dimension of X, and the quasi-isomorphism is provided by Serre duality.
 \end{example}
 
-If $n \geq 3$, the image of the belt bordism, respectively the Radford bordism, gives a trivialization of the square of the Serre automorphism $\cS_a$, respectively an isomorphism $\cF(\cR): \cF(ev^R) \cong \cF(ev^L)$.
+If $n$ is at least 3, the image of the belt bordism, respectively the Radford bordism, gives a trivialization of the square of the Serre automorphism $\cS_x$, respectively an isomorphism $\cF(\cR): \cF(ev^R) \cong \cF(ev^L)$.
 % Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  
-We call the image of this later the {\em Radford isomorphism}, because, as we will see, it plays the key role in proving Radford's theorem. We summarize the above observations as a proposition.
+We call the image of the Radford bordism the {\em Radford isomorphism on $x$}, because, as we will see, it plays the key role in proving Radford's theorem. We summarize the above observations as a proposition.
 
 \begin{proposition}
 The Serre automorphism of any $3$-dualizable object in an $n$-category is an involution.
@@ -926,7 +948,7 @@ The cobordism hypotheis provides an equivalence between the $\infty$-groupoid of
 \begin{itemize}
 	\item Given a fixed $n$-dualizable object $x \in \cC$, the cobordism hypothesis ensures that 
 	there exists a topological field theory $\cF$ such that $\cF(pt_+)$ is weakly equivalent to $x$. Is it possible to find a field theory which realizes the value $x$ exactly? Suppose this is the case. 
-	\item The formula for the positive loop bordism obtained in the last section suggests that we should be able to compute the Serre automorphism of an object $x$ as follows: choose a dual object $x_-$, and evaluation and coevaluation maps witnessing the duality between $x$ and $x_-$. Then choose appropriate adjoints for the evaluation and coevaluation maps. Finally form the composite:
+	\item The formula for the loop bordism obtained in the last section suggests that we should be able to compute the Serre automorphism of an object $x$ as follows: choose a dual object $x_-$, and evaluation and coevaluation maps witnessing the duality between $x$ and $x_-$. Then choose appropriate adjoints for the evaluation and coevaluation maps. Finally form the composite:
 	\begin{equation*}
 		S_x = (\id_{x} \otimes ev) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev^R)
 	\end{equation*}
