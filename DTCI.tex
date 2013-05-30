@@ -293,7 +293,7 @@ To describe the notion of full dualizability, we will need to refer to certain d
 
 The inclusion of $(\infty,m)$-categories into $(\infty, n)$-categories admits a homotopical right adjoint $\kappa_m$. In other words every $(\infty,n)$-category has a maximal sub-$(\infty,m)$-category $\kappa_m \cC \subseteq \cC$---one thinks of $\kappa_m \cC$ as being obtained from $\cC$ by throwing away all non-invertible morphisms above dimension $m$.   There is another operation that takes an $(\infty,n)$-category $\cC$ and produces an $(n+k,n)$-category $\tau_{n+k} \cC$ by setting equivalent morphisms equal in dimension $n+k$ and ignoring all higher morphisms.  Moreover, given an $(\infty,n)$-category $\cC$, we may form an $(\infty,n-i)$-category whose $k$-morphisms are the $k+i$-morphisms of $\cC$.
 
-Combining these operations, we may extract from every symmetric monoidal $(\infty,n)$-category $\cC$ and every $k$,  $0 \leq k < n$, a bicategory $h^{(k)}_2 X$, whose objects are the $(k-1)$-morphisms of $X$, the morphisms are the $k$-morphisms of $X$, and whose 2-morphisms are the equivalences classes of $(k+1)$-morphisms of $X$.\footnote{When $k=0$ this will be interpreted as the homotopy category of $X$. When $X$ is monoidal this is a monoidal category, which we may also view as a one-object bicategory.}  In detail, this bicategory can be obtained by first forgetting the morphisms below dimension $k-1$, yielding an $(\infty,n-(k-1))$-category, then throwing out the non-invertible morphisms of the original category above dimension $k+1$, at which point we have an $(\infty,2)$-category, and finally truncating down to a $(2,2)$-category, which we may interpret as a bicategory. 
+Combining these operations, we may extract from every symmetric monoidal $(\infty,n)$-category $\cC$ and every $k$,  $-1 \leq k \leq n-2$, a bicategory $h^{(k)}_2 X$, whose objects are the $k$-morphisms of $X$, the morphisms are the $(k+1)$-morphisms of $\cC$, and whose 2-morphisms are the equivalences classes of $(k+2)$-morphisms of $\cC$. (When $k=-1$ this will be interpreted as the homotopy category of $\cC$. When $\cC$ is monoidal this is a monoidal category, which we may also view as a one-object bicategory.)  In detail, this bicategory can be obtained by first forgetting the morphisms below dimension $k$, yielding an $(\infty,n-k)$-category, then throwing out the non-invertible morphisms of the original category above dimension $k+2$, at which point we have an $(\infty,2)$-category, and finally truncating down to a $(2,2)$-category, which we may interpret as a bicategory. 
 
 Because each of the operations in this process can be described using homotopically invariant functors, the assignment
 \begin{equation*}
@@ -302,7 +302,7 @@ Because each of the operations in this process can be described using homotopica
 is model invariant. If we pass to an equivalent model of $(\infty,n)$-categories, then the bicategory  $h^{(k)}_2 X$ will be preserved up to equivalence of bicategories. These bicategories $h^{(k)}_2 X$ are key to formulating the universal property of the bordism $n$-category. 
 
 \begin{example}
-	In the symmetric monoidal Segal 3-category $\TC$ of tensor categories, these bicategories $h^{(0)}_2 \TC$, $h^{(1)}_2 \TC$, and $h^{(2)}_2 \TC$ are easily identified. They are respectively (0) the monoidal category of tensor categories and equivalence classes of bimodule categories (thought of as a one-object bicategory), (1) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (2) the bicategory of bimodule categories, bimodule functors, and natural transformations. 
+	In the symmetric monoidal Segal 3-category $\TC$ of tensor categories, these bicategories $h^{(-1)}_2 \TC$, $h^{(0)}_2 \TC$, and $h^{(1)}_2 \TC$ are easily identified. They are respectively (-1) the monoidal category of tensor categories and equivalence classes of bimodule categories (thought of as a one-object bicategory), (0) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (1) the bicategory of bimodule categories, bimodule functors, and natural transformations. 
 \end{example}
 
 \begin{definition} \label{def:adjoints_in_bicat}
@@ -316,48 +316,38 @@ is model invariant. If we pass to an equivalent model of $(\infty,n)$-categories
 \end{definition}
 
 \begin{definition}
-	Let $X$ be a symmetric monoidal $(\infty,n)$-category. We will say that $X$ {\em has duals for $k$-morphisms} if $h^{(k)}_2 X$ has both left and right adjoints for all 1-morphisms. 
+	Let $\cC$ be a symmetric monoidal $(\infty,n)$-category. We will say that $\C$ {\em has adjoints for $k$-morphisms} if $h^{(k-1)}_2 \cC$ has both left and right adjoints for all 1-morphisms. 
+\end{definition}
+Note that when $k=0$, this property is also referred to has ``having duals for objects", because in the bicateogry category $h^{(-1)}_2 \cC$, the notion of having adjoints for 1-morphisms corresponds to the notion of having duals in the monoidal homotopy category of $\cC$.
+\begin{definition}
+A symmetric monoidal $(\infty,n)$-category $\cC$ \emph{has duals} if it has adjoints for $k$-morphisms, for all $0 \leq k \leq n-1$.
+\end{definition}
+This notion of ``having duals" at all levels $0 \leq k \leq n-1$ is also referred to as being ``fully dualizable".  There are corresponding notions of partial dualizability, as follows.
+\begin{definition}
+A symmetric monoidal $(\infty,n)$-category $\cC$ is $k$-dualizable if the maximal sub-$(\infty,k)$-category $\kappa_k \cC$ is fully dualizable.
 \end{definition}
 
-For any symmetric monoidal $(\infty,n)$-category $X$ there exists a maximal subcategory which has duals for all $k$-morphisms. This can be obtained by throwing out all $k$-morphisms which do not have both adjoints. Let us denote this subcategory by $D^kX$. For each $1 \leq \ell \leq n$ we have an {\em $\ell$-dualizable filtration}:
-\begin{equation*}
-	F^{(\ell)}_0 X \subseteq F^{(\ell)}_1 X \subseteq \cdots \subseteq  F^{(\ell)}_{\ell-1} X \subseteq F^{(\ell)}_{\ell} X = X
-\end{equation*}  
-where 
-\begin{equation*}
-	F_i^{(\ell)} X = \underbrace{D^i( \cdots   (D^{\ell-2}( D^{\ell-1} X)))}_{(\ell - i)\textrm{-times}}.
-\end{equation*}
-The $i^\textrm{th}$ stage $F_i^{(\ell)} X$ consists of the maximal subcategory in which all morphisms with dimensions from $i$ to $(\ell-1)$ have both duals. In particular if the unit or counit of an adjunction has dimension in this range, then the unit or counit also has its own duals. 
-
-\begin{definition} \label{def:k-dualizable}
-	A symmetric monoidal $(\infty,n)$-category $\cC$ is {\em $k$-dualizable} if $F^{(k)}_0 \cC = \cC$.
-\end{definition}
-
-\begin{remark}
-	The maximal $n$-dualizable sub-category of a symmetric monoidal $(\infty,n)$-category $\cC$ is called the {\em fully-dualizable part} of $\cC$ in \cite{lurie-ch}. Its objects are called fully-dualizable objects. 
-\end{remark}
+\nid The maximal $n$-dualizable sub-category of a symmetric monoidal $(\infty,n)$-category $\cC$ is called the ``fully-dualizable part" of $\cC$ and is denoted $d\cC$. Its objects are called ``fully-dualizable objects". 
 
 \begin{example}
-	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. The objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, etc. This symmetric monoidal $(\infty,n)$-category is $n$-dualizable. In the next section we will explore this more thoroughly in the case of tangential framings in dimension three.  
+	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. The objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, etc. This symmetric monoidal $(\infty,n)$-category is $n$-, that is fully, dualizable. In the next section we will explore this more thoroughly in the case of tangential framings in dimension three.  
 \end{example}
 
-Since duals are mapped to duals by any functor, any topological field theory with values in a symmetric monoidal $(\infty,m)$-category $\cC$ must take values in $F_0^{(n)}$ the $n$-dualizable subcategory of $\cC$. In fact we have a much stronger statement:
+Since duals are mapped to duals by any functor, any topological field theory with values in a symmetric monoidal $(\infty,m)$-category $\cC$ must take values in $d\cC$ the $n$-dualizable subcategory of $\cC$. In fact we have a much stronger statement:
 
 \begin{theorem}[The Cobordism Hypothesis, framed version {\cite[Thm 2.4.6, Rmk 2.4.8]{lurie-ch}}]
 	Let $\FrBord_n$ denote the symmetric monoidal $(\infty,n)$-category of tangentially framed cobordisms. Then for every symmetric monoidal $(\infty,n)$-category $\cC$ we have a natural equivalence
 	\begin{equation*}
-		\Fun^\otimes(\FrBord_n, \cC) \simeq k_0 (F^{(n)}_0 \cC ).
+		\Fun^\otimes(\FrBord_n, \cC) \simeq \kappa_0 (d\cC).
 	\end{equation*} 
-	That is the $(\infty,n)$-category of fully local tangentially framed topological field theories with values in $\cC$ is equivalent to the $(\infty,0)$-category obtained by taking the maximal $n$-dualizable subcategory of $\cC$ and trowing away the non-invertible morphisms at all levels. This equivalence is implemented by evaluating a topological field theory on the positively framed point. 
+	That is, the $(\infty,n)$-category of fully local tangentially framed topological field theories with values in $\cC$ is equivalent to the $(\infty,0)$-category obtained by taking the maximal $n$-dualizable subcategory of $\cC$ and throwing away the non-invertible morphisms at all levels. This equivalence is implemented by evaluating a topological field theory on the positively framed point. 
 \end{theorem}
 
 \noindent In particular the $(\infty,n)$-category of topological field theories is in fact an $(\infty,0)$-category, a.k.a. an $\infty$-groupoid or `space'. Moreover the value of a tangentially framed topological field theory is completely determined by the value of the point. 
 
-There is a basic and general mathematical principle which states that for objects $B$ and $C$, the symmetries of $B$ also act on the mappings $\Map(B,C)$. The bordism category $\FrBord_n$ has a natural $O(n)$-action which acts by changing the tangential framings of all cobordisms simultaneously. As an immediate consequence we obtain an $O(n)$-action on the topological field theories from $\FrBord_n$ to any target symmetric monoidal $(\infty,n)$-category $\cC$, and hence on the $n$-dualizable part $k_0 (F^{(n)}_0 \cC )$ of $\cC$. However as this action is obtained by passing through an equivalence it is no longer a true action; it is an $A_\infty$-action. This action is key to formulating the general version of the cobordism hypothesis for $\Bord_n^{(X,\xi)}$, that is for cobordisms with $(X,\xi)$-structure. 
+The bordism category $\FrBord_n$ has a natural $O(n)$-action which acts by changing the tangential framings of all cobordisms simultaneously. As a consequence we obtain an $O(n)$-action on the symmetric monoidal functors from $\FrBord_n$ to any target symmetric monoidal $(\infty,n)$-category $\cC$, and hence on the space $\kappa_0 (d\cC)$ of $n$-dualizable objects of $\cC$. However as this action is obtained by passing through an equivalence it is no longer a true action; it is a homotopy action. This action is key to formulating the general version of the cobordism hypothesis for $\Bord_n^{(X,\xi)}$, that is for cobordisms with $(X,\xi)$-structure. 
 
-Our subsequent work will determine the exact nature of this action and its consequences for various $(X,\xi)$-structured topological field theories valued in the 3-category $\TC$ of tensor categories. In this work however, we will only identify a portion of the action (equivalent to the induced $A_\infty$-action by $\Omega\Sigma\RR\PP^2$). Moreover our primary focus will be on the tangentially framed bordism 3-category and on the $k$-dualizability of the category $\TC$. We will see how even these modest goals provide an important new organizing principle for the subject of tensor categories.   
-%\CDcomm{[Insert a few introductory sentences here, including a statement of the cobordism hypothesis.  That will motivate the need for a notation of n-framed manifolds, and for describing various structure groups.  Then we can forward reference to 3.2 the more detailed discussion of the cobordism hypothesis.]}
-
+Our subsequent work will determine the nature of this action and its consequences for various $(X,\xi)$-structured topological field theories valued in the 3-category $\TC$ of tensor categories. In this work however, we will only identify a portion of the action (equivalent to the induced $A_\infty$-action by $\Omega\Sigma\RR\PP^2$). Moreover our primary focus will be on the tangentially framed bordism 3-category and on the $k$-dualizability of the category $\TC$. We will see how even these goals provide an important new organizing principle for the subject of tensor categories.   
 
 \subsection{Notation for $n$-framed manifolds} 
 
