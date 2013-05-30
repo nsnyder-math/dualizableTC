@@ -967,20 +967,16 @@ The Serre automorphism is unique up to unique isomorphism. In the next section w
 
 
 
-\subsection{A categorical formula for the Radford isomorphism}
+\subsection{A categorical formula for the Radford isomorphism} 
+The Radford isomorphism establishes that in a 3-dualizable symmetric monoidal 3-category, not only does the evaluation pairing have both left and right adjoints, but it has an {\em ambidextrous} adjoint; the left and right adjoints are canonically isomorphic. At first glance this seems to be a very surprising fact, as most adjoints encountered in the wild are not ambidextrous. 
+However in higher categories of dimension at least three, this ambidexterity is much more common, and indeed it is automatic given enough dualizability. The following proposition, which is stated in Remark 3.4.22 \cite{lurie-ch}, expresses the key categorical fact that is responsible for the existence of the Radford isomorphism. 
 
-.% delete this period
-\CSPcomm{The categorical belt trick lemma (left/right duals)}
 
-
-%\CSP{This proposition is stated as a remark, without proof in Jacob's paper.}
-
-\begin{proposition}[Lurie, Remark 3.4.22] \label{prop-ambiadjoints}
+\begin{proposition} \label{prop-ambiadjoints}
 	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
 \end{proposition}
-\CD{The proposition should be moved to the section on the cobordism hypothesis.}
-
-\begin{proof}
+\noindent The role of left adjoints (as opposed to right adjoints) is not essential here. By passing to the opposites of the 3-category $\cA$ we obtain similar propositions where right adjoints and left adjoints are exchanged. All permutations are possible as we may reverse the 1-morphisms and the 2-morphisms independently.  
+\begin{proof}[Proof of Prop.\ref{prop-ambiadjoints}]
 By assumption we are given 3-morphisms,
 \begin{align*}
 	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
