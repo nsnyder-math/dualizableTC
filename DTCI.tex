@@ -1533,7 +1533,7 @@ If $\cC$ and $\cD$ are not rigid the above argument only shows that the right ad
 \end{example}
 
 
-\subsection{Examples of bimodule categories}
+\subsection{Examples of bimodule categories} \label{sec:examples_of_bimods}
 
 In this section we define some notation for producing new bimodule categories from old ones, and prove several technical lemmas allowing us to manipulate these bimodules easily.  Most of these are closely analogous to simple constructions of bimodules over algebras.
 
@@ -1892,16 +1892,21 @@ Since this is a twice categorified TFT (i.e. a functor of $(3,1)$ categories rat
 
 \subsection{Adjoints of bimodules: finite tensor categories are 2-dualizable}  \label{sec-df-modules}
 
-In this section we show that any $1$-morphism ${}_\cC \cM_\cD$ in $\TC$ has left and right adjoints.   Explicitly, the right adjoint of $\cM$ is the category of linear left module functors $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ where the left $\cD$ action is given by precomposition by right multiplication, and the right $\cC$ action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of linear right module functors $\Fun_{\text{mod-}\cD}(\cM, \cD)$.   (We would like to remind the reader that in this paper linear functors are always assumed to be right exact.)  The results of this section depend essentially on Lemma \ref{Lma:FunctorsAsATensorPdt} which rewrites certain Deligne tensor products as functor categories.
+In this section we show that any $1$-morphism ${}_\cC \cM_\cD$ in $\TC$ has left and right adjoints.   Explicitly, the left adjoint of $\cM$ is the category of linear left module functors $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ where the left $\cD$-action is given by precomposition by right multiplication, and the right $\cC$-action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of linear right module functors $\Fun_{\text{mod-}\cD}(\cM, \cD)$.   (We would like to remind the reader that in this paper linear functors are always assumed to be right exact.)  
 
-Recall also from the introduction that $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to $\cM^*$ (which is $\cM^{\op}$ with the bimodule actions twisted by $\cdot^*$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to ${}^*\cM$.  Thus $\cM^*$ is the right adjoint of $\cM$ and ${}^* \cM$ is the left adjoint.
-\CSP{These $M^*$ notation were changed. These need to be re-looked at.}
+Recall from Section \ref{sec:examples_of_bimods} that 
+$\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by $\cdot^*$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.  Thus $\cM^*$ is the right adjoint of $\cM$ and ${}^* \cM$ is the left adjoint.
+The results of this section depend essentially on Lemma \ref{Lma:FunctorsAsATensorPdt} which rewrites certain Deligne tensor products as functor categories. The next lemma is immediate. 
 
 \begin{lemma}
-The map $\ev_R: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $d_1 f(m d_2)  \mapsto d_1 f(m) d_2$ via the right $\cD$-module structure on $f$.  Similarly, $\ev_L: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ is naturally a map of $\cC$--$\cC$ bimodule categories.
+The map $\varepsilon_1: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC$ induced by the $\cD$-balanced bifunctor $(m, f) \mapsto f(m)$ naturally has the structure of a $\cC$--$\cC$ bimodule map via $ f(c_1 m) c_2 \mapsto c_1 f(m) c_2$. Similarly the natural map $\varepsilon_2: \Fun_{{\cD}}(\cM, \cD) \boxtimes_{\cC} \cM \rightarrow \cD$ is a $\cD$--$\cD$ bimodule map. 
+% induced by the $\cC$-balanced bifunctor $(f,m) \mapsto f(m)$ has a natural $\cD$--$\cD$ bimodule structure given by $d_1 f(m d_2)  \mapsto d_1 f(m) d_2$ via the right $\cD$-module structure on $f$.  Similarly, 
 \end{lemma} 
 
-The maps $\ev_R$ and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$ and $\Fun_{\cC}(\cM,\cC) \dashv \cM$ respectively.  The units of the adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product. Fortunately Lemma \ref{Lma:FunctorsAsATensorPdt} provides an alternate description of the tensor product as a category of functors, making it straightforward  to describe the units.
+The maps $\varepsilon_1$ and $\varepsilon_2$ are the counits of adjunctions $\Fun_{\cC}(\cM, \cC) \dashv \cM$ and $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$, respectively. The units of these adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product. Fortunately Lemma \ref{Lma:FunctorsAsATensorPdt} provides an alternate description of the tensor product as a category of functors, making it possible  to describe the unit maps explicitly. 
+
+
+%and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$ and $\Fun_{\cC}(\cM,\cC) \dashv \cM$ respectively.  The units of the adjunctions are 
 
 %\begin{lemma}
 %If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are right exact, then the map $\Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
@@ -1911,11 +1916,11 @@ The maps $\ev_R$ and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fu
 %\end{proof}
 
 \begin{lemma}
-The map $\coev_L: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\coev_R: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
+The map $\eta_1: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\eta_2: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
 \end{lemma}
 
 \begin{theorem} \label{thm:evcoev}
-The pairs $(\ev_R$, $\coev_R)$ and $(\ev_L, \coev_L)$ each provide the unit and counit of an adjunction.
+The pair of maps $(\eta_1, \varepsilon_1)$, respectively $(\eta_2, \varepsilon_2)$, forms the unit and counit of an adjunction $\Fun_{\cC}(\cM, \cC) \dashv \cM$, respectively $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$.
 \end{theorem}
 \begin{proof}
 The following diagram commutes.
