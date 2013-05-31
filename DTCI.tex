@@ -366,7 +366,7 @@ Here the first isomorphism is provided by the inverse of the normal framing $\ph
 When drawing $n$-framed manifolds using the normally framed notation described above, we draw the immersed manifold and draw the normal framing, and leave the induced $n$-framing completely implicit.  When the immersion is codimension-1, the normal framing may be indicated simply by a unidirectional gray corona coming off the manifold.  Moreover, because in the codimension-1 case this corona can propagate without ambiguity, it may be indicated only at one point of each component of the manifold.
 
 \begin{example}
-Let $M$ be a closed connected 2-framed 1-manifold.  By definition $M$ comes equipped with a bundle isomorphism $\phi: TM \oplus \RR \xra{\simeq} \RR^2$. Let $\iota$ denote the orientation of $M$ such that for any point $p \in M$, the pair $(\phi_p(\iota,0),\phi_p(0,1))$ is a positive frame of $\RR^2$.  This orientation provides another 2-framing of $M$, namely $\omega: TM \oplus \RR \xra{\iota \oplus \id} \RR^2$.  The ratio $\phi/\omega$ is a map $M \ra SO(2)$.  Because $M$ is oriented, the homotopy classes of such maps is the integers.  We therefore have a $\ZZ$-valued invariant of closed 2-framed 1-manifolds, and in fact this procedure produces an isomorphism from the 2-framed diffeomorphism classes of closed connected 2-framed 1-manifolds to the integers.  We use our immersion notation to depict, as follows, a series of circles corresponding to each 2-framed diffeomorphism class:
+Let $M$ be a closed connected 2-framed 1-manifold.  By definition $M$ comes equipped with a bundle isomorphism $\phi: TM \oplus \RR \xra{\simeq} \RR^2$. Let $\iota$ denote the orientation of $M$ such that for any point $p \in M$, the pair $(\phi_p(\iota,0),\phi_p(0,1))$ is a positive frame of $\RR^2$.  This orientation provides another 2-framing of $M$, namely $\omega: TM \oplus \RR \xra{\iota \oplus \id} \RR^2$.  The ratio $\omega/\phi$ is a map $M \ra SO(2)$.  Because $M$ is oriented, the homotopy classes of such maps is the integers.  We therefore have a $\ZZ$-valued invariant of closed 2-framed 1-manifolds, and in fact this procedure produces an isomorphism from the 2-framed diffeomorphism classes of closed connected 2-framed 1-manifolds to the integers.  We use our immersion notation to depict, as follows, a series of circles corresponding to each 2-framed diffeomorphism class:
 \[\cdots\quad
 \cb{
 \begin{tikzpicture}
@@ -2049,9 +2049,10 @@ Thus we have proven:
 
 \subsection{Invariants of elementary 2-framed bordisms}
 .\NScomm{[This section is still under construction.]} %!% Remove period
-By the cobordism hypothesis, Theorem \ref{thm:TC_is_2Dualizable} shows that there is a $2$-dimensional $2$-framed TFT attached to every (finite rigid) tensor category, and that this TFT is unique up to equivalence.  Note that this TFT is ``categorified" in the sense that it's a functor of $(3,2)$-categories, not $2$-categories.  For example, this gives an actions of the mapping class groups on the invariants attached to surfaces.  
+Theorem \ref{thm:TC_is_2Dualizable} combined with the cobordism hypothesis shows that there exists a $2$-dimensional $2$-framed topological field theory attached to every (finite rigid) tensor category, and that this topological field theory is unique up to equivalence.  This field theory is ``categorified" in the sense that it is a functor of $(3,2)$-categories, not merely $2$-categories; it associates linear categories to closed 1-dimensional manifolds, functors to 2-framed surfaces, and natural transformations to isotopy classes of 2-framed diffeomorphisms. 
+%In particular this gives actions of the 2-framed mapping class groups.
 
-We now illustrate the behavior of this field theory by describing its value on various simple 2-framed bordisms.  As always, this TFT is only well-defined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \ref{sec:Hom_ext_field_thy}.
+We now illustrate the behavior of this topological field theory by describing its value on a few simple 2-framed bordisms.  As always, this TFT is only determined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \ref{sec:Hom_ext_field_thy}.
 
 \subsubsection{Values for intervals, circles, and 2-dimensional handles}
 
@@ -2059,7 +2060,7 @@ As in Section \ref{sec:framed-duality} we fix the following representatives for 
 
 IMAGE
 
-By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec-df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in the previous section.
+By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec-df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in Section \ref{sec-df-modules}.
 
 
 Thus, without loss of generality, we can assume that the TFT has the following values on framed intervals and circles.
@@ -2069,6 +2070,15 @@ Thus, without loss of generality, we can assume that the TFT has the following v
  We also have the following formulas for the units and counits of adjunctions.
  
  TABLE
+
+\CSPcomm{
+Some values for circles. With framing: $-1$, $0$, $+1$. 
+\begin{align*}
+	\cZ(\cC) & = \ev^L \boxtimes_{\cC \boxtimes \cC^\mp} \ev \cong \Fun_{\cC \boxtimes \cC^\mp}(\cC,\cC) \\
+	\cT(\cC) & = \coev \boxtimes_{\cC^\mp \boxtimes \cC} \tau \boxtimes_{\cC \boxtimes \cC^\mp} \ev \\
+	\overline{\cZ}(\cC) & = \ev^R \boxtimes_{\cC \boxtimes \cC^\mp} \ev \cong \Fun(\cC, \Vec) \boxtimes_{\cC \boxtimes \cC^\mp} \cC.
+\end{align*}
+}
 
 \subsubsection{The Serre automorphism and convention invariance}
 
@@ -2109,13 +2119,19 @@ IMAGE
 
 \CSPcomm{We will actually give four examples, which become representantives of the four 3-framed pants}
 
+\CSP{This section should mention that the center $\cZ(\cC)$ is naturally a braided monoidal category.
+}
+
 \subsubsection{Values for copants}
+
+. %remove period
+\CSPcomm{Mention how the dual center $\overline{\cZ}(\cC)$ is naturally a braided comonoidal category.}
 
 \subsubsection{Values for Tori}
 
 Similarly one can compute the values of $2$-framed surfaces.  Note that there is no $2$-framing on the sphere, while there are many $2$-framings of the torus.  Since our theories are actually $3$-framed, we do not go into detail on the values of $2$-framed surfaces here.
  
- 
+\CSP{Here the equation for the tori is just given in terms of the pants, but the exact value is not computed until the last section when we are in the separable setting.}
 
 
 \NScomm{This is the end of the current outline of the section.  The material below will be canibalized and moved to the appropriate locations above.} 
