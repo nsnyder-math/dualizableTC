@@ -236,9 +236,9 @@ CSP would like to thank Peter Teichner for several fruitful conversations about 
 
 The Atiyah-Segal axioms define a topological field theory as a symmetric monoidal functor from a category of cobordisms to a target symmetric monoidal category $(\cC, \otimes, 1)$, typically an algebraic target such as the category of vector spaces. 
 \begin{equation*}
-	Z: \Cob_n \to \cC
+	\cF: \Cob_n \to \cC
 \end{equation*}
-In this case the objects of $\Cob_n$ are closed compact $(n-1)$-dimensional manifolds and the morphisms are diffeomorphism classes of $n$-dimensional cobordisms between these manifolds. The symmetric monoidal structure is given by the disjoint union of manifolds and cobordisms. A closed $n$-dimensional manifold gives an endomorphism of the monoidal unit, the empty $(n-1)$-manifold. Hence from a topological field theory we obtain an invariant of closed $n$-manifolds $Z(W) \in \End_{\cC}(1)$.  
+In this case the objects of $\Cob_n$ are closed compact $(n-1)$-dimensional manifolds and the morphisms are diffeomorphism classes of $n$-dimensional cobordisms between these manifolds. The symmetric monoidal structure is given by the disjoint union of manifolds and cobordisms. A closed $n$-dimensional manifold gives an endomorphism of the monoidal unit, the empty $(n-1)$-manifold. Hence from a topological field theory we obtain an invariant of closed $n$-manifolds $\cF(W) \in \End_{\cC}(1)$.  
 
 There are many variations on this notion. We may, of course, change the target category quite freely. We may also equip our bordisms with various structures, such as orientations, spin structures, tangential or stable framings, etc. These give variations on the cobordism category, and hence various notions of topological field theory. {\em Tangential structures} form an important class of such structures, including the mentioned examples. Let $\xi: X \to BO(n)$ be a fibration. An $(X, \xi)$-structure on an $n$-manifold is a lift of the classifying map of the tangent bundle:
 \begin{center}
@@ -943,34 +943,22 @@ The Serre automorphism of any $3$-dualizable object in an $n$-category is an inv
 \end{proposition}
 
 \subsection{Homotopy extension for field theories} \label{sec:Hom_ext_field_thy}
-The cobordism hypotheis provides an equivalence between the $\infty$-groupoid of local $n$-framed topological field theories with values in a fixed symmetric monoidal $(\infty,n)$-category $\cC$ and the $\infty$-groupoid of $n$-dualizable objects in $\cC$. This equivalence is induced by the map sending a topological field theory $\cF$ to its value $\cF(pt_+) = x \in \cC$ on the positively framed point. In the last section we saw how the existence of such a topological field theory gives rise to certain additional structures depending on the object $x$, such as the Serre and Radford isomorphisms. We would like this structure to be invariant and to exist for any $n$-dualizable object, however this raises several natural questions:
+The cobordism hypotheis provides an equivalence between the $\infty$-groupoid of local $n$-framed topological field theories with values in a fixed symmetric monoidal $(\infty,n)$-category $\cC$ and the $\infty$-groupoid of $n$-dualizable objects in $\cC$. This equivalence is induced by the map sending a topological field theory $\cF$ to its value $\cF(pt_+) = x \in \cC$ on the positively framed point. In the last section we saw how the existence of such a topological field theory gives rise to certain additional structures depending on the object $x$, such as the Serre and Radford isomorphisms.  Equivalent field theories certain produce equivalent Serre and Radford isomorphisms, but it is sometimes convenient to be able to identifies these isomorphisms more precisely.  To that end, we consider the following questions:
 \begin{itemize}
 	\item Given a fixed $n$-dualizable object $x \in \cC$, the cobordism hypothesis ensures that 
-	there exists a topological field theory $\cF$ such that $\cF(pt_+)$ is weakly equivalent to $x$. Is it possible to find a field theory which realizes the value $x$ exactly? Suppose this is the case. 
-	\item The formula for the loop bordism obtained in the last section suggests that we should be able to compute the Serre automorphism of an object $x$ as follows: choose a dual object $x_-$, and evaluation and coevaluation maps witnessing the duality between $x$ and $x_-$. Then choose appropriate adjoints for the evaluation and coevaluation maps. Finally form the composite:
+	there exists a topological field theory $\cF$ such that $\cF(pt_+)$ is weakly equivalent to $x$. Is it possible to find a field theory which realizes the value $x$ exactly? 
+	\item The formula for the loop bordism obtained in the last section suggests that we should be able to compute the Serre automorphism of an object $x \in \cC$ as follows: choose a dual object $x_- \in \cC$, and evaluation and coevaluation maps witnessing the duality between $x$ and $x_-$. Then choose adjoints for the evaluation and coevaluation maps. Finally form the composite:
 	\begin{equation*}
 		S_x = (\id_{x} \otimes ev) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev^R)
 	\end{equation*}
-	Is there a topological field theory for which this is the corresponding Serre automorphism? 
-	\item More generally, to what extent can we take the value of a given topological field theory and alter it by changing its values to isomorphic values?
-	\item Also given an $n$-dualizable object and a manifold $M$ of dimension $\leq n$, can we reconstruct the {value} of the topological field theory on $M$? What procedure may we use to calculate this value?
+Is there a topological field theory for which this is exactly the corresponding Serre automorphism? 
+	\item More generally, can we alter a topological field theory by adjusting some of its values to specified isomorphic values?
 \end{itemize}
-\noindent The answers to these questions depend on the particular choice of model of symmetric monoidal $(\infty,n)$-categories one uses.   
-The cobordism hypothesis, which is a model invariant statement, does nothing to answer these questions (though a partial answer to the last question can be obtained from carefully examining the proof of the cobordism hypothesis).
+\nid Naively, one expects the answer to all these questions to be `yes', but in fact the answers depend on the choice of model of symmetric monoidal $(\infty,n)$-categories, the choice of model of the bordism category, and the choice of model of the target category $\cC$.  The cobordism hypothesis, which is a model invariant statement, does nothing to answer these questions.  Happily, as we will see, our choices ensure we can make any of these desired alterations to a field theory.
 
-Functors between ordinary 1-dimensional categories have a well-known flexibility; we may alter the individual values of such a functor to any equivalent values we wish. The first three of the above questions ask for a higher categorical analog of this well-known fact. In \cite{3TC} we propose a specific model of symmetric monoidal $(\infty,n)$-categories which enjoys the same familiar flexibility, while simultaneously retaining many desirable properties. This is the Quillen model category of special $\Gamma$-objects in Segal $n$-categories. This model begins with the injective (or equivalently the Reedy) model structure on Segal $n$-categories \cite{Simpson's Book}.
-\CSP{Cite others? Bergner? Pellezier? etc Berger-Moerdijk}
-Then we take the generalized Reedy model structure on functors from Segal's category $\Gamma^{\op}$ to Segal $n$-categories and form a left Bousfield localization of this model structure. Details of this construction are given in \cite{3TC}. For brevity we will refer to these as {\em symmetric monoidal Segal $n$-categories}.
-We summarize some of the properties of these model strucutres:
-\begin{itemize}
-	\item The Segal $n$-category model structure is Cartesian. The cofibrations in this model structure are the inclusions; the fibrations have an explicit inductive definition (they are a mixture of `iso-fibrations', Reedy fibrations, and Segal fibrations). The weak equivalences between fibrant objects also have an elementary description. 
-	\item The model category of symmetric monoidal Segal $n$-categories is a closed monoidal model category with respect to the the smash product. Being a localization of the Reedy model structure, both the fibrations and cofibrations are relatively easy to identify.
-	\item Many examples of higher categories can naturally be realized using the language of symmetirc monoidal Segal $n$-categories. For example one of the results of \cite{3TC} constructs $\TC$ as a fibrant object in the model category of symmetric monoidal Segal 3-categories. Moreover the data used to define the $k$-dualizability filtration used in Definition \ref{def:k-dualizable} is immediately accessible \cite{SP_DLHC_Lectures}. 
-\end{itemize}
-\noindent More to the point, we have the following flexibility result, which answers the first three of the above questions in the affirmative (in this model). In what follows $E$ denotes the free-walking isomorphism, i.e., the (ordinary) category which is both contractible and has two objects, $0$ and $1$. $E_+$ denotes $E$ with a disjoint base point.
-\CSP{cite 3TC}
-\begin{theorem}[ \cite{3TC} ] \ref{thm:HEP}
-	Let $B$ and $T$ be symmetric monoidal $(\infty, n)$-categories, with $B$ cofibrant and $T$ fibrant, and let $f: B  \to T$ be a symmetric monoidal functor. Let  $B_0 \subseteq B$ be an inclusion of pointed Segal $n$-categories into the underlying Segal $n$-category of $B$ and let $H: B_0 \wedge E_+ \to T$ be a pointed functor of (non-monoidal) Segal $n$-categories, such that $H |_{B_0 \times 0} = f|_{B_0}$ extends the given functor.
+Recall that we work with symmetric monoidal Segal $3$-categories, in a specific model structure---see~\cite{TC} for details.  Within this context we can choose a model of the framed bordism category that is cofibrant, and we prove that the model of $TC$ that we construct is fibrant.  Thus equipped, we can make use of the following homotopy extension property for field theories:
+\begin{theorem}[ \cite{3TC} ] \label{thm:HEP}
+	Let $B$ and $T$ be symmetric monoidal Segal $n$-categories, with $B$ cofibrant and $T$ fibrant, and let $f: B  \to T$ be a symmetric monoidal functor. Let $E$ denote the 1-category with two objects $0$ and $1$ and a single non-identity morphism, going from $0$ to $1$.  Let  $B_0 \subseteq B$ be an inclusion of pointed (not necessarily symmetric monoidal) Segal $n$-categories into the underlying Segal $n$-category of $B$ and let $H: B_0 \wedge E_+ \to T$ be a pointed functor of (non-monoidal) Segal $n$-categories, such that $H |_{B_0 \times 0} = f|_{B_0}$ extends the given functor.
 % Assume that  $H|_{\{1\} \times E} = \textrm{const}_{f(1)}$ ($H$ is a {\em pointed} natural isomorphism).
 Then there exists a symmetric monoidal functor $\tilde{H}: B \wedge E_+ \to T$ making the following diagram of functors of Segal $n$-categories commute strictly:
 	\begin{center}
@@ -989,41 +977,39 @@ Then there exists a symmetric monoidal functor $\tilde{H}: B \wedge E_+ \to T$ m
 	\end{center}
 \end{theorem}
 Any un-based inclusion $A \subseteq B$ can be made into a based inclusion $A_+ = B_0 \subseteq B$ by adding the unit object to $A$. 
-We give three examples of how this theorem may be used. In each case $T$ will be a chosen fibrant target, such as $\TC$, and $B = \FrBord_n$ is (a cofibrant version of) the tangentially framed bordism category.
+We give three examples of how this theorem may be used. In each case $T$ will be a chosen fibrant target, such as $\TC$, and $B = \FrBord_n$ is a cofibrant model of the tangentially framed bordism category.
 
 \begin{example}
-	The cobordism hypthesis ensures that for every $n$-dualizbale object $x \in T$, there is a symmetric monoidal functor $\cF: \FrBord_n \to T$ such that $\cF(pt_+) \simeq x$. Letting $A = \{ pt_+ \}$ be subcategory consisting of just the positively framed point, the above theorem allows us to conclude that there exists an equivalent topological field theory obtaining the value $\cF(pt_+) = x$. 	
+	The cobordism hypthesis ensures that for every $n$-dualizbale object $x \in T$, there is a symmetric monoidal functor $\cF: \FrBord_n \to T$ such that $\cF(pt_+) \simeq x$. Letting $A = \{ pt_+ \}$ be subcategory consisting of just the positively framed point, the above theorem allows us to conclude that there exists an equivalent topological field theory having the value $\cF(pt_+) = x$. 	
 %	We know that the functor $(\infty,3)$-category from $X = \FrBord_3$ to a target symmetric monoidal $(\infty,3)$-category $Y$ is equivalent to the $\infty$-groupoid of fully-dualizable objects of $Y$. Letting $A$ be the  for each fully-dualizbale object $y \in Y^{fd}$ there exists a topological field theory which sends the point to $y$ on the nose, not merely to an object equivalent to $y$. 
 \end{example}
 
 \begin{example}	
-	Similarly, suppose that we have a topological field theory which sends the positively framed point to the $n$-dualizable object $x \in T$. Suppose further that we have have chosen a specific dual $x^*$ to $x$. Letting $A$ be the subcategory consisting of both the positively framed point and the negatively framed point and applying the above theorem, we see that we may change our topological field theory to an equivalent one with exact values $Z(pt^+) = x$ and $Z(pt^-) = x^*$.   
+	Similarly, suppose that we have a topological field theory that sends the positively framed point to the $n$-dualizable object $x_+ \in T$. Suppose further that we have have chosen a specific dual $x_-$ to $x_+$. Letting $A$ be the subcategory consisting of both the positively framed point and the negatively framed point and applying the above theorem, we see that we may change our topological field theory to an equivalent one with exact values $\cF(pt^+) = x_+$ and $\cF(pt^-) = x_-$.   
 \end{example}	
 
 \begin{example}
-	Suppose that we have a topological field theory $Z_0$ which sends the positively framed point to the fully-dualizable object $x_+ \in T$, and the negatively framed point to the object $x_- \in T$. Suppose that we have a chosen preferred evaluation and coevaluation witnessing the duality between $x_+$ and $x_-$. 
+	Suppose that we have a topological field theory $\cF_0$ which sends the positively framed point to the fully-dualizable object $x_+ \in T$, and the negatively framed point to the object $x_- \in T$. Suppose that we have a chosen preferred evaluation and coevaluation witnessing the duality between $x_+$ and $x_-$. 
 \begin{equation*}
-	\eta: 1 \to x_+ \otimes x_- \qquad \qquad \varepsilon: x_- \otimes x_+ \to 1.
+	coev_{x_\pm}: 1 \to x_+ \otimes x_- \qquad \qquad ev_{x_\pm}: x_- \otimes x_+ \to 1.
 \end{equation*}	
-	The initial topological field theory $Z_0$ may not send the evaluation and coevaluation bordisms to these specific values, but using the above theorem, we can replace $Z_0$ by an equivalent topological field theory which does take the desired values. To see this let $B_0$ be the subcategory consisting of the five objects:
+	The initial topological field theory $\cF_0$ may not send the evaluation and coevaluation bordisms to these specific values, but using the above theorem, we can replace $\cF_0$ by an equivalent topological field theory which does take the desired values. To see this let $B_0$ be the subcategory consisting of the five objects:
 	\begin{equation*}
 		ob B_0 = \{ \emptyset, pt^+, pt^-, pt^+ \sqcup pt^-, pt^- \sqcup pt^+ \}
 	\end{equation*}
 	Let it also include the evaluation and coevaluation bordisms and the only composite, $coev \circ ev$. 
 	
-Thus the desired values $x_+, x_- \in Y$ for the positively and negatively framed points, and the preferred evaluation and coevaluation $\eta$ and $\varepsilon$ determine a functor $H_1: B_0 \to T$. By the contractibility of the space of adjunction data, we know that there is a canonical natural isomorphism $H: B_0 \wedge E_+ \to T$ between $H_1$ and $H_0 = Z_0|_{B_0}$ (this can be taken to be the identity on $x_+$, but may require a non-trivial automorphism of $x_-$). Now by the above theorem there exists an equivalent topological field theory extending $H_1$, hence taking the desired values. 
+The desired values $x_+, x_- \in Y$ for the positively and negatively framed points, and the preferred evaluation and coevaluation $ev_{x_\pm}$ and $coev_{x_\pm}$ determine a functor $H_1: B_0 \to T$. By the contractibility of the space of adjunction data, we know that there is a canonical natural isomorphism $H: B_0 \wedge E_+ \to T$ between $H_1$ and $H_0 = \cF_0|_{B_0}$ (this can be taken to be the identity on $x_+$, but may require a non-trivial automorphism of $x_-$). Now by the above theorem there exists an equivalent topological field theory extending $H_1$, hence taking the desired values. 
 \end{example}
 
-Similar applications of the above theorem allow us to specify the value of the bordisms $ev$, $ev^L$, $ev^R$, etc. to be our preferred choice of adjunction data. This gives us the following corollary.
-\begin{corollary}
-	The Serre automorphis of an $2$-dualizable object $x \in T$ and its inverse may be computed by the following formulas:
+Similar applications of the above theorem allow us to specify the value of the bordisms $ev$, $ev^L$, $ev^R$, $ev^{LL}$, $ev^{RR}$, etc. to be our preferred choices of adjunction data in the target category.  In particular, we know that for any specified choice of $2$-dualizable object $x_+ \in \TC$ together with a chosen dual object $x_-$ and chosen evaluation $ev_{x_\pm}$ and coevaluation $coev_{x_\pm}$ maps and chosen left $ev_{x_\pm}^L$ and right $ev_{x_\pm}^R$ adjoints, there exists a field theory with the standard positive point mapping to $x_+$ and in which the Serre automorphism of $x_+$ and its inverse are given, exactly, by the following formulas:
 	\begin{align*}
 		S_x &= (\id_{x} \otimes ev) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev^R) \\
 		S_x^{-1} &= (\id_{x} \otimes ev) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev^L)
 	\end{align*}
 	where $x_-$, $ev$, and $coev$ witness the duality between $x$ and $x_-$, and $ev^R$, $ev^L$ are adjoints of $ev$.
 \end{corollary}
-The Serre automorphism is unique up to unique isomorphism. In the next section we will obtain a similar purely categorical formula for the Radford isomorphism. 
+In the next section we will obtain a similar purely categorical formula for the Radford isomorphism. 
  
 
 
