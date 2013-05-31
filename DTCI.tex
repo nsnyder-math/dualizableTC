@@ -1381,7 +1381,7 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 %		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
 %		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
 %	\end{align*}	
-	satisfying the evident pentagon and triangle identities. 
+	satisfying the evident pentagon and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.
 
 \begin{definition}		
 A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that \CD{explain strong}
@@ -1622,50 +1622,51 @@ Equipped with the relative Deligne tensor product and its properties, we can now
 
 In this section we define some notation for producing new bimodule categories from old ones, and prove several technical lemmas allowing us to manipulate these bimodules easily.  Most of these are closely analogous to simple constructions of bimodules over algebras.
 
-${}_\cC \cC_{\cC}$ will always denote the identity bimodule.
-
-Our first source of examples comes from turning actions by $\cC$ on the left into actions of $\cC^\mp$ on the right.  (This is analogous to replacing a left action of an algebra $A$ by a right action of the opposite algebra.)
+As ${}_A A_A$ denotes the identity bimodule, so ${}_\cC \cC_{\cC}$ will denote the identity bimodule category.  Our first source of examples comes from turning left actions by $\cC$ into right actions by $\cC^\mp$.  (This is analogous to replacing a left action of an algebra $A$ by a right action of the opposite algebra.)
 
 \begin{definition}
-Every left $\cC$-module category $\cM$ is naturally a right $\cC^{mp}$-module category in the obvious way, and we will denote this new module category also by $\cM_{\cC^{mp}}$.  More generally, if $\cM$ is a $\cC \boxtimes \cD$-$\cE$ bimodule then $\cM$ is also a $\cC$-$\cD^\mp \boxtimes \cE$ bimodule category which we will again denote ${}_{\cC}\cM_{\cD^\mp \boxtimes \cE}$.  In particular, key roles will be played by $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC \boxtimes \cC^\mp} \cC$.
+Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-module category, and we will denote this new module category by $\cM_{\cC^{mp}}$.  More generally, if ${}_{\cC \boxtimes \cD} \cM_{\cE}$ is a $(\cC \boxtimes \cD)$-$\cE$ bimodule then $\cM$ is also a $\cC$-$(\cD^\mp \boxtimes \cE)$ bimodule category, which we will denote ${}_{\cC}\cM_{\cD^\mp \boxtimes \cE}$.
 \end{definition}
 
-Note that unpacking the definition of ${}_{\cC^\mp}\cC_{\cC^\mp}$ shows that it is the identity bimodule on $\cC^\mp$.
+We will be particularly interested in the modules $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC \boxtimes \cC^\mp} \cC$ obtained by applying this procedure to the identity bimodule ${}_\cC \cC_\cC$.  Note that if you move both actions on ${}_\cC \cC_\cC$ to the opposite side, you obtain a bimodule ${}_{\cC^\mp}\cC_{\cC^\mp}$, which is in fact the identity bimodule on $\cC^\mp$.
 
-A key property of the Deligne tensor product is that tensoring with ${}_\Vec \cC_{\cC \boxtimes \cC^\mp}$ implements the above process of moving a $\cC$ action on one side to a $\cC^\mp$ action on the other side.  The following lemma makes this precise.
+A key property of the relative Deligne tensor product is that tensoring with ${}_{\cD \boxtimes \cD^\mp} \cD$ implements the above process of moving a $\cD$ action on the right to a $\cD^\mp$ action on the left.  The following lemma makes this precise.
 
 \begin{lemma}
 Suppose that $\cM$ is a $\cC$--$\cD$ bimodule, then $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is naturally equivalent as a $\cC \boxtimes \cD^\mp$ module category to ${}_{\cC \boxtimes \cD^\mp}\cM$.
 \end{lemma}
 \begin{proof}
-The map interchanging the latter two tensor factors gives an equivalence between $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ and $\cM \boxtimes_\cD \cD \boxtimes_\cD \cD$.  The latter is clearly identified with $\cM$.
-\end{proof} \NS{Someone should make this argument clearer!}
+%The map interchanging the latter two tensor factors gives an equivalence between $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ and $\cM \boxtimes_\cD \cD \boxtimes_\cD \cD$.  The latter is clearly identified with $\cM$.
+The tensor $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is certainly equivalent as a left $\cC \boxtimes \cD^\mp$ module to $\cM \boxtimes_\cD ({}_{\cD \boxtimes \cD^\mp} \cD)$, which in turn can be identified with ${}_{\cC \boxtimes \cD^\mp}\cM$.
+\end{proof} \CD{Not sure if that is sufficient.}
 
-Indeed the same argument can be generalized somewhat to move individual tensor factors from one side of a bimodule to the other.
+\nid Of course, a similar argument shows that tensoring with ${}_\Vec \cC_{\cC \boxtimes \cC^\mp}$ implements the process of moving a $\cC$ action on the left to a $\cC^\mp$ action on the right. 
+
+This procedure can be generalized to move individual tensor factors from one side of a bimodule to the other.
 
 \begin{lemma}
-Suppose that $\cM$ is a $\cC$--$(\cD \boxtimes \cE)$ bimodule, there's a natural equivalence of bimodule categories
-$$(\cM \boxtimes \cE^\mp) \boxtimes_{\cD \boxtimes \cE \boxtimes \cE^\mp} \cE \rightarrow {}_{\cC \boxtimes \cE^\mp}M_\cE.$$
+Suppose that $\cM$ is a $\cC$--$(\cD \boxtimes \cE)$ bimodule.  There is a natural equivalence of bimodule categories
+$${}_{\cC \boxtimes \cE^\mp} (\cM \boxtimes \cE^\mp) \boxtimes_{\cD \boxtimes \cE \boxtimes \cE^\mp} (\cD \boxtimes \cE)_\cD \simeq {}_{\cC \boxtimes \cE^\mp}M_\cD.$$
 \end{lemma}
 
-In particular we have the following corollary.
+\nid A similar statement holds beginning with a $(\cC \boxtimes \cD)$--$\cE$ bimodule and moving the $\cC$-factor to the right.  The following corollary of this pair of lemmas will come in handy when we consider dualizability of tensor categories.
 
 \begin{corollary}
-$(\cC \boxtimes \cC_{\cC \boxtimes \cC^\mp}) \boxtimes_{\cC \boxtimes \cC^\mp \boxtimes \cC} ({}_{\cC^\mp \boxtimes \cC} \cC \boxtimes \cC)$ is trivial as a $\cC$--$\cC$ bimodule.
+${}_\cC (\cC \boxtimes (\cC_{\cC^\mp \boxtimes \cC})) \boxtimes_{\cC \boxtimes \cC^\mp \boxtimes \cC} (({}_{\cC \boxtimes \cC^\mp} \cC) \boxtimes \cC)_\cC$ is the trivial $\cC$--$\cC$ bimodule ${}_\cC \cC_\cC$.
 \end{corollary}
 
 Just as modules over algebras can be twisted by algebra maps, we can twist module categories by tensor functors.
 
 \begin{definition}
 Suppose that $\cM$ is a $\cC$--$\cD$ bimodule category, and that $\cF: \cC' \rightarrow \cC$ is a tensor functor, let
-${}_{\langle \cF \rangle} \cM$ denote the $\cC'$--$\cD$ bimodule where the action is $c' \cdot m \cdot d = \cF(c') \otimes m \otimes d$ with the obvious natural transformations.  Define $\cM_{\langle \cF \rangle}$ similarly.
+${}_{\langle \cF \rangle} \cM$ denote the $\cC'$--$\cD$ bimodule where the new action is $c' \cdot m \cdot d = \cF(c') \otimes m \otimes d$, together with the obvious natural isomorphisms.  For a functor $F: \cD' \ra \cD$, define $\cM_{\langle \cF \rangle}$ similarly.
 \end{definition}
 
-It is easy to see that ${}_{\langle \cF \rangle} \cC_\cC \boxtimes_{\cC} {}_{\cC} \cM_\cD \cong {}_{\cC \langle \cF \rangle} \cM_\cD$.  Note that ${}_{\langle \cF \rangle \langle \cG \rangle} \cM \cong {}_{\langle \cF \otimes \cG \rangle} \cM$, while $\cM_{\langle \cF \rangle \langle \cG \rangle} \cong  \cM_{\langle \cG \otimes \cF \rangle}$.  Thus we have a tensor functor from the $2$-category of finite tensor categories, tensor functors, and tensor natural transformations to $\TC$ sending $\cF: \cC \rightarrow \cD$ to the bimodule ${}_{\cC \langle \cF \rangle} \cD_{\cD}$, while twisting on the right gives a monoidally opposite functor.
+Note that ${}_{\langle \cF \rangle} \cC_\cC \boxtimes_{\cC} {}_{\cC} \cM_\cD \cong {}_{\cC} ({}_{\langle \cF \rangle} \cM)_\cD$.  Note also ${}_{\langle \cF \rangle \langle \cG \rangle} \cM \cong {}_{\langle \cF \otimes \cG \rangle} \cM$, while $\cM_{\langle \cF \rangle \langle \cG \rangle} \cong  \cM_{\langle \cG \otimes \cF \rangle}$.  Twisting on the left therefore gives a tensor functor from the $2$-category of finite tensor categories, tensor functors, and tensor natural transformations to $\TC$: it is the identity of objects and sends the morphism $\cF: \cC \rightarrow \cD$ to the bimodule ${}_{\cC} ({}_{\langle \cF \rangle} \cD)_{\cD}$.  Twisting on the right gives a functor from the 1-morphism-opposite of the $2$-category to $TC$.
 
 \begin{lemma}
 Suppose that $\cC$ and $\cD$ are finite tensor functors and $\cF: \cC \rightarrow \cD$ is a tensor functor.
-Giving a bimodule isomorphism ${}_{\cC \langle \cF \rangle} \cD_\cD \rightarrow {}_{\cC \langle \cG \rangle} \cD_\cD$ is the same data as giving a an invertible object $D \in \cD$ and a natural isomorphism $\varphi_x: \cF(x) \rightarrow D^{-1} \otimes \cG(x) \otimes D$.
+Giving a bimodule isomorphism ${}_{\cC} ({}_{\langle \cF \rangle} \cD)_\cD \rightarrow {}_{\cC} ({}_{\langle \cG \rangle} \cD)_\cD$ is the same data as giving a an invertible object $D \in \cD$ and a natural isomorphism $\varphi_x: \cF(x) \rightarrow D^{-1} \otimes \cG(x) \otimes D$.
 \end{lemma}
 \begin{proof}
 $D$ is the image of $1$ under the functor, and $\varphi$ is inherited from the tensor isomorphism.  \NScomm{Add more details}
