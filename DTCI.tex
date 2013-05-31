@@ -47,7 +47,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 \end{tikzpicture}
 \tikzexternalenable
 
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \tableofcontents
 %%%%%%%%
 
@@ -332,6 +332,7 @@ This notion of ``having duals" at all levels $0 \leq k \leq n-1$ is also referre
 A symmetric monoidal $(\infty,n)$-category $\cC$ is $k$-dualizable if the maximal sub-$(\infty,k)$-category $\kappa_k \cC$ is fully dualizable.
 \end{definition}
 \NS{I'm not sure I like this definition.  Shouldn't ``has duals" just mean that, you know every object has a dual?  I'd prefer $n$-dualizable or fully dualizable or something.  Or even ``has adjoints."}
+\CD{This is Jacob's original terminology, so we can't redefine ``has duals" at this point (though we can introduce a synonym if we really want to).}
 
 \nid The maximal $n$-dualizable sub-category of a symmetric monoidal $(\infty,n)$-category $\cC$ is called the ``fully-dualizable part" of $\cC$ and is denoted $d\cC$. Its objects are called ``fully-dualizable objects". 
 
@@ -1153,27 +1154,23 @@ Then the required isomorphisms are given by the following composites:
 
 \section{Tensor categories} \label{sec-tc}
 
-In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Most of this section is either standard or taken from the work of Etingof, Gelaki, Nikshych and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  There are two results in section~\ref{sec-tc-deligne} which are somewhat new (Theorem \ref{thm:DelignePrdtOverATCExists} and Lemma \ref{Lma:FunctorsAsATensorPdt}) as well as several well-known results whose proofs do not appear in the literature. The material in Section \ref{sec-tc-separable} is new and based on a suggestion of Ostrik.
-
-%\CDcomm{Our goal is to define $\TC(3)$, ie [...].  We are not trying to include a huge discussion of all the different variations $\TC(i)$, which can occur in DTCII.}
-
+In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Much of this material, particularly in sections~\ref{sec:tc-lincat},~\ref{sec:tc-bimod}, and~\ref{sec:tc-exact}, is either standard or is due to Etingof, Gelaki, Nikshych, and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  In section~\ref{sec-tc-deligne} we construct a relative Deligne tensor product (Theorem \ref{thm:DelignePrdtOverATCExists}), which is essential for the very definition of the 3-category $TC$, and establish some of its basic properties (particularly Lemma \ref{Lma:FunctorsAsATensorPdt}), which are crucial for our dualizability calculations.  In section~\ref{sec-tc-separable}, we introduce the notion of separable module and tensor categories, based on a suggestion of Ostrik, and in section~\ref{sec-tc-fusion} analyze the separability condition in the context of fusion categories.
 
 \subsection{Conventions for duality} \label{sec:conventions}
-%\NS{We've changed conventions here.  Hopefully all of Section 2 is now ok with the new conventions, but this should be double-checked.}
 
-In this paper we ultimately consider a certain 3-category in which several different kinds of duality appear simultaneously. These dualities arise from differing mathematical points of view and so we have been tasked with finding a sensible and consistent notation in which to speak about these various forms of duality. This is no easy task as the literature has well established conventions which are at times contradictory.  The purpose of this section is to explain a compromise and clarify the conventions we will use.
+In this paper we consider a certain 3-category $TC$ in which several different kinds of duality appear simultaneously. These dualities arise from differing mathematical points of view and so we have been tasked with finding a sensible and consistent notation in which to speak about these various forms of duality. This is no easy task as the literature has well established conventions which are at times contradictory.  The purpose of this section is to explain a compromise and clarify the conventions we will use.
 
 There are two conventions which we perceive as fundamental: one for the names of adjoint functors and one for the notation in rigid monoidal categories. 
 
-\begin{convention} \label{conv:Adjoints}
-	The standard conventions for adjoint functors hold. That is a functor $G: \cA \to \cB$  admits a left adjoint if there exists a functor $F: \cB \to \cA$ and natural transformations, the  unit $\eta: id_{\cB} \to G \circ F$ and the  counit $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
+\begin{definition}[Convention for adjoints] \label{def:Adjoints}
+	The standard conventions for adjoint functors hold. That is, a functor $G: \cA \to \cB$  admits a left adjoint if there exists a functor $F: \cB \to \cA$ and natural transformations, the  unit $\eta: id_{\cB} \to G \circ F$ and the  counit $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
 		(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
 		(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
 	\end{align*}
 Here $\circledcirc$ denotes the horizontal composite of natural transformations.
 We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$.
-\end{convention}
+\end{definition}
 
 %\begin{definition} [Convention A]
 %	A functor $G: \cA \to \cB$ {\em admits a left adjoint} if there exists a functor $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
@@ -1184,45 +1181,46 @@ We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} o
 %Here $\circledcirc$ denotes the horizontal composite of natural transformations.
 %We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$. 
 %\end{definition}
-With this standard convention we have a canonical natural isomorphisms $\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y))$. We will use the same convention for left and right adjoints of $1$-morphisms in $2$-categories other than $Cat$.
+\nid With this standard convention we have canonical natural isomorphisms $\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y))$. We will use the same convention for left and right adjoints of $1$-morphisms in $2$-categories other than $Cat$.
 
-\begin{convention} \label{def:rigid}
+\begin{definition}[Convention for rigidity] \label{def:rigid}
 	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zig-zag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
 		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
 	\end{align*}
-\end{convention}
+\end{definition}
 
-\nid A convenient mnemonic for this notation is to think of the $*$ as eating things.  
-
-Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel and Chari-Pressley).  Whichever choice is made we should have the additional meta-convention: 
+Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel and Chari-Pressley).  Which choice to make is influenced by the following compatibility desideratum: 
 %\vspace{1.5ex}
-
-\begin{convention} \label{conv:Compatible}
-	In reasonable settings where something could be called either a dual or an adjoint the left dual should be the left adjoint.
-\end{convention}
-
-%\nid Convention C:
- %\vspace{1.5ex}
-%\CD{It's slightly awkward that the first two conventions are actually definitions, but this one is not.}
+\begin{itemize}
+\item[]
+%\begin{convention} \label{conv:Compatible}
+	\emph{In reasonable settings where something could be called either a dual or an adjoint the left dual should be the left adjoint.}
+%\end{convention}
+\end{itemize}
 
 \nid For example, $\Fun(\cA, \cA)$ is a monoidal category in which the dual of a functor is the adjoint functor.  
 
-More generally, any monoidal category can be thought of as a $2$-category with one object, and in that setting the duals of objects in the monoidal category become adjoints of $1$-morphisms in the $2$-category.  However, in order for convention (C) to resolve the left/right ambiguity we need to decide whether, in the correspondence between monoidal categories and one-object 2-categories, the product $f \otimes g$ corresponds to the composite $f \circ g$ or $g \circ f$.
+More generally, any monoidal category can be thought of as a $2$-category with one object, and in that setting the duals of objects in the monoidal category become adjoints of $1$-morphisms in the $2$-category.  However, in order for this compatibility requirement to resolve the left/right ambiguity we need to decide whether, in the correspondence between monoidal categories and one-object 2-categories, the product $f \otimes g$ corresponds to the composite $f \circ g$ or $g \circ f$.
 
 \begin{definition}[Convention for $\otimes$ and composition]
 If $f$ and $g$ are morphisms or functions or functors or otherwise are composable, then $f \otimes g$ will always mean do $f$ first. In other words, when both expressions make sense, $f \otimes g \sim g \circ f$.
 \end{definition}
 \CD{Maybe we should make this definition/convention more precise; that might make it clearer that it is actually a definition (of $\otimes$ for instance).}
 
-This choice determines the following conventions:
-
+This choice determines the following conventions.
+\begin{definition}[Conventions for duals and bimodules].
 \begin{itemize}
-\item $x^*$ is the right dual and ${}^*x$ is the left dual.
-\item A bimodule ${}_A M_B$ is a $1$-morphism from $A$ to $B$ in the $2$-category of algebras, bimodules, and intertwiners. \CD{Item 2: is it clear enough from what's been said? Restrict to $\CC$-$\CC$-bimodules?}
-\item If $\cC$ is a monoidal category thought of as a $2$-category, then tensoring on the right gives a functor from $\cC$ to $Cat$, while the functor of tensoring on the left reverse the direction of $1$-morphisms. \CD{Item 3: make the functor explicit.}
-\item Taking right modules gives a functor from $Alg$ to $Cat$ while taking left modules reverses the order of composition of $1$-morphisms.
+\item[a.] $x^*$ is the right dual and ${}^*x$ is the left dual.
+\item[b.] A bimodule ${}_A M_B$ is a $1$-morphism from $A$ to $B$ in the $2$-category $\Alg$ of algebras, bimodules, and intertwiners.
+\end{itemize}
+\end{definition}
+
+With the preceding conventions in place, observe the following:
+\begin{itemize}
+\item[1.] Let $\cC$ be a monoidal category, considered as a bicategory with one object.  There is a bifunctor from $\cC$ to $\Cat$ that takes the unique object $\ast \in \cC$ to $\cC \in \Cat$ and takes the morphism $\ast \xra{x} \ast$ of $\cC$ to the functor $\cC \xra{- \otimes x} \cC$.  That is, tensoring on the right provides a bifunctor.  Similarly, tensoring on the left ($x \otimes -$) provides a bifunctor from $\cC$ to $\Cat^{op_1}$, that is where the 1-morphisms of $\Cat$ have been reversed.
+\item[2.] There is a bifunctor from $\Alg$ to $\Cat$ sending an algebra $A \in \Alg$ to the category $\Mod{}{A}$ of right modules.  Similarly there is a bifunctor from $\Alg$ to $\Cat^{op_1}$ taking $A$ to the category $\Mod{A}{}$ of left modules.
 \end{itemize}
 
 %Consider the following example:
@@ -1248,11 +1246,11 @@ This choice determines the following conventions:
 
 %If one insists on the opposite convention, calling $x^*$ the right dual of $x$, then one must also deny Convention (C) and these consequences. We end with a final well-known observation. 
 
-
-\begin{remark}
-	Suppose $x$, an object of a monoidal category, admits a right dual.  There is a category whose objects $(x^*, \eta, \varepsilon)$ consist of right duals to $x$, with compatible choices of unit and counit maps. This category is {\em contractible} (equivalent to the terminal category). Hence the choice of a right dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
-The same observation applies to adjoint functors, adjoints of bimodules, and generally to any adjoint in any 2-category.  
-\end{remark}
+% This remark is no longer needed.
+%\begin{remark}
+%	Suppose $x$, an object of a monoidal category, admits a right dual.  There is a category whose objects $(x^*, \eta, \varepsilon)$ consist of right duals to $x$, with compatible choices of unit and counit maps. This category is contractible (equivalent to the terminal category). Hence the choice of a right dual is unique up to unique isomorphism. In particular there are canonical isomorphism ${}^*(x^*) \cong ({}^*x)^* \cong x$. 
+%The same observation applies to adjoint functors, adjoints of bimodules, and generally to any adjoint in any 2-category.  
+%\end{remark}
 
 
 
@@ -1370,7 +1368,7 @@ Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual
 %The monoidal functor $\ld{(-)}: \cC \ra \cC^{\mop}$ is an equivalence of tensor categories; the inverse functor is $\rd{(-)}: \cC^{\mop} \ra \cC$.
 %\end{remark}
 
-\subsection{Bimodule categories}
+\subsection{Bimodule categories} \label{sec:tc-bimod}
 
 \begin{definition}
 	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that
@@ -1723,7 +1721,7 @@ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are th
 
 \begin{remark}
 	The notation of Definition \ref{def:Dual_bimodule_notation} is consistent with our earlier conventions, specifically the convention that the composition order of tensor products is from left to right; 
-	following all of our conventions the bimodule ${}^*\cM$ is the both the left adjoint and the left dual of $\cM$, while $\cM^*$ is both the right adjoint and right dual. (c.f. Conventions \ref{conv:Adjoints}, \ref{def:rigid}, and \ref{conv:Compatible} in \S \ref{sec:conventions}). 
+	following all of our conventions the bimodule ${}^*\cM$ is the both the left adjoint and the left dual of $\cM$, while $\cM^*$ is both the right adjoint and right dual. (c.f. Definitions \ref{def:Adjoints} and \ref{def:rigid} in \S \ref{sec:conventions}). 
 \end{remark}
 
 \begin{warning}
@@ -1731,7 +1729,7 @@ Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa,
 \end{warning}
 
 
-\subsection{Exact module categories and adjoints of module functors}
+\subsection{Exact module categories and adjoints of module functors} \label{sec-tc-exact}
 Throughout this section we consider only finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  The goal is to be able to show that certain module functors have adjoints in proving $3$-dualizability.
 
 \begin{definition}
