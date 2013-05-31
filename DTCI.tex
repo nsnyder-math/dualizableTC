@@ -1622,7 +1622,7 @@ Equipped with the relative Deligne tensor product and its properties, we can now
 
 In this section we define some notation for producing new bimodule categories from old ones, and prove several technical lemmas allowing us to manipulate these bimodules easily.  Most of these are closely analogous to simple constructions of bimodules over algebras.
 
-As ${}_A A_A$ denotes the identity bimodule, so ${}_\cC \cC_{\cC}$ will denote the identity bimodule category.  Our first source of examples comes from turning left actions by $\cC$ into right actions by $\cC^\mp$.  (This is analogous to replacing a left action of an algebra $A$ by a right action of the opposite algebra.)
+As ${}_A A_A$ denotes the identity bimodule, so ${}_\cC \cC_{\cC}$ will denote the identity bimodule category.  Our first source of examples comes from turning left actions by $\cC$ into right actions by $\cC^\mp$.  This is analogous to replacing a left action of an algebra $A$ by a right action of the opposite algebra.
 
 \begin{definition}
 Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-module category, and we will denote this new module category by $\cM_{\cC^{mp}}$.  More generally, if ${}_{\cC \boxtimes \cD} \cM_{\cE}$ is a $(\cC \boxtimes \cD)$-$\cE$ bimodule then $\cM$ is also a $\cC$-$(\cD^\mp \boxtimes \cE)$ bimodule category, which we will denote ${}_{\cC}\cM_{\cD^\mp \boxtimes \cE}$.
@@ -1637,8 +1637,14 @@ Suppose that $\cM$ is a $\cC$--$\cD$ bimodule, then $(\cM \boxtimes \cD^\mp) \bo
 \end{lemma}
 \begin{proof}
 %The map interchanging the latter two tensor factors gives an equivalence between $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ and $\cM \boxtimes_\cD \cD \boxtimes_\cD \cD$.  The latter is clearly identified with $\cM$.
-The tensor $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is certainly equivalent as a left $\cC \boxtimes \cD^\mp$ module to $\cM \boxtimes_\cD ({}_{\cD \boxtimes \cD^\mp} \cD)$, which in turn can be identified with ${}_{\cC \boxtimes \cD^\mp}\cM$.
-\end{proof} \CD{Not sure if that is sufficient.}
+%The tensor $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is certainly equivalent as a left $\cC \boxtimes \cD^\mp$ module to $\cM \boxtimes_\cD ({}_{\cD \boxtimes \cD^\mp} \cD)$, which in turn can be identified with ${}_{\cC \boxtimes \cD^\mp}\cM$.
+The following functor has an essentially unique structure of a $\cD \boxtimes \cD^\mp$-balanced $\cC \boxtimes \cD^\mp$-module functor:
+\begin{align*}
+	\cM \times \cD^\mp \times \cD & \to \cM \\
+	(m, d, e) & \mapsto m \otimes e \otimes d.
+\end{align*}
+This induces the desired isomorphism from the relative Deligne tensor product. 
+\end{proof} %\CD{Not sure if that is sufficient.}
 
 \nid Of course, a similar argument shows that tensoring with ${}_\Vec \cC_{\cC \boxtimes \cC^\mp}$ implements the process of moving a $\cC$ action on the left to a $\cC^\mp$ action on the right. 
 
