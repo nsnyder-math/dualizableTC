@@ -1651,20 +1651,28 @@ Our first source of examples comes from turning actions by $\cC$ on the left int
 Every left $\cC$-module category $\cM$ is naturally a right $\cC^{mp}$-module category in the obvious way, and we will denote this new module category also by $\cM_{\cC^{mp}}$.  More generally, if $\cM$ is a $\cC \boxtimes \cD$-$\cE$ bimodule then $\cM$ is also a $\cC$-$\cD^\mp \boxtimes \cE$ bimodule category which we will again denote ${}_{\cC}\cM_{\cD^\mp \boxtimes \cE}$.  In particular, key roles will be played by $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC \boxtimes \cC^\mp} \cC$.
 \end{definition}
 
+Note that unpacking the definition of ${}_{\cC^\mp}\cC_{\cC^\mp}$ shows that it is the identity bimodule on $\cC^\mp$.
+
 A key property of the Deligne tensor product is that tensoring with ${}_\Vec \cC_{\cC \boxtimes \cC^\mp}$ implements the above process of moving a $\cC$ action on one side to a $\cC^\mp$ action on the other side.  The following lemma makes this precise.
 
 \begin{lemma}
-Suppose that $\cM$ is a $\cC$--$(\cD \boxtimes \cE)$ bimodule, then the identity functor endowed with the obvious natural isomorphisms gives an equivalence of bimodule categories
-$$(\cM \boxtimes \cE^\mp) \boxtimes_{\cD \boxtimes \cE \boxtimes \cE^\mp} \cE \rightarrow {}_{\cC \boxtimes \cE^\mp}M_\cE.$$
+Suppose that $\cM$ is a $\cC$--$\cD$ bimodule, then $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is naturally equivalent as a $\cC \boxtimes \cD^\mp$ module category to ${}_{\cC \boxtimes \cD^\mp}\cM$.
 \end{lemma}
 \begin{proof}
-\NScomm{Add proof}
-\end{proof}
+The map interchanging the latter two tensor factors gives an equivalence between $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ and $\cM \boxtimes_\cD \cD \boxtimes_\cD \cD$.  The latter is clearly identified with $\cM$.
+\end{proof} \NS{Someone should make this argument clearer!}
+
+Indeed the same argument can be generalized somewhat to move individual tensor factors from one side of a bimodule to the other.
+
+\begin{lemma}
+Suppose that $\cM$ is a $\cC$--$(\cD \boxtimes \cE)$ bimodule, there's a natural equivalence of bimodule categories
+$$(\cM \boxtimes \cE^\mp) \boxtimes_{\cD \boxtimes \cE \boxtimes \cE^\mp} \cE \rightarrow {}_{\cC \boxtimes \cE^\mp}M_\cE.$$
+\end{lemma}
 
 In particular we have the following corollary.
 
 \begin{corollary}
-${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.
+$(\cC \boxtimes \cC_{\cC \boxtimes \cC^\mp}) \boxtimes_{\cC \boxtimes \cC^\mp \boxtimes \cC} ({}_{\cC^\mp \boxtimes \cC} \cC \boxtimes \cC)$ is trivial as a $\cC$--$\cC$ bimodule.
 \end{corollary}
 
 Just as modules over algebras can be twisted by algebra maps, we can twist module categories by tensor functors.
@@ -1684,7 +1692,7 @@ Giving a bimodule isomorphism ${}_{\cC \langle \cF \rangle} \cD_\cD \rightarrow 
 $D$ is the image of $1$ under the functor, and $\varphi$ is inherited from the tensor isomorphism.  \NScomm{Add more details}
 \end{proof}
 
-As we saw above \NScomm{reference} a key role is played by the bimodule category ${}_\cD \Fun_C(\cM,\cC)_\cC$, and it will be convenient to have several alternate descriptions of this bimodule category.
+As we saw in Lemma \ref{Lma:FunctorsAsATensorPdt} a key role is played by the bimodule category ${}_\cD \Fun_C(\cM,\cC)_\cC$, and it will be convenient to have several alternate descriptions of this bimodule category.
 
 \begin{definition} \label{def:Dual_bimodule_notation}
 Let $\cM^*$ denote the category $\cM^{\op}$. We will write objects of $\cM^*$ as $m^*$ where $m$ is the corresponding object of $\cM$. We give $\cM^*$ the structure of a $\cD$--$\cC$ bimodule category where the action is given by
@@ -1733,12 +1741,9 @@ as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are th
 	following all of our conventions the bimodule ${}^*\cM$ is the both the left adjoint and the left dual of $\cM$, while $\cM^*$ is both the right adjoint and right dual. (c.f. Conventions \ref{conv:Adjoints}, \ref{def:rigid}, and \ref{conv:Compatible} in \S \ref{sec:conventions}). 
 \end{remark}
 
-
-We end this section with one calculation which relates the above three constructions.
-
-\begin{lemma}
-
-\end{lemma}
+\begin{warning}
+Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking $*$ of bimodules does not commute with moving tensor factors from one side to the other.  Instead, ${}_\cD (\cM_{\cC \boxtimes \cD^\mp}^*)_\cC \cong {}_{\langle r r \rangle}(\cM^*)$ where $r$ is the right dual functor. \NS{Someone should double-check left vs. right here}
+\end{warning}
 
 
 \subsection{Exact module categories and adjoints of module functors}
@@ -2560,7 +2565,7 @@ Traditionally topological field theories have been used as a tool to apply algeb
 \CSP{This terminology needs updating.}
 Recall from Section ??? that in the $3$-framed bordism category we have a $3$-framed interval called the loop bordism, and a $3$-framed disc called the belt bordism (because it comes from the Dirac belt trick) trivializing the square of the loop bordism.  If $x$ is a fully dualizable object then the images of the loop and belt bordisms are the Serre automorphism $\cS_x: x \rightarrow x$ and the Radford isomorphism $\cR: \cS_x^2 \rightarrow \id_x$.  Furthermore,  in order to write down the Radford isomorphism we do not need the full strength of full dualizability.  Instead it is enough for $x$ to be a Radford object (that is $x$ is $2$-dualizable and certain $2$-morphisms built from $x$ have certain adjoints).
 
-As we've seen in this section, separable fusion categories are fully dualizable, and finite tensor categories are Radford objects.  Hence, we have Serre automorphisms and Radford isomorphisms for finite tensor categories.  If $\cC$ is a finite tensor category, then the Serre automorphism of $\cC$ is a bimodule we denote $\bimod{\cC}{\cS}{\cC}$.  As we saw in Section ??? $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.   Now, the Radford isomorphism for $\cC$ is a canonical bimodule isomorphism ${}_\cC \S \boxtimes_\cC \S_\cC \rightarrow \bimod{\cC}{\cC}{\cC}$.  Using our formula for the Serre, the left hand side is just ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  Thus the Radford isomorphism gives a trivialization of the $\cC$--$\cC$ bimodule ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  By Lemma ???, such a trivialization is given by two pieces of data: the image of $\mathbb{1}$ which we call the distinguished object $D$, and an isomorphism of tensor functors between $\ldd{\ldd{(-)}}$ and the identity functor which abusing notation we also call the Radford isomorphism.  Summarizing we have the following result.
+As we've seen in this section, separable fusion categories are fully dualizable, and finite tensor categories are Radford objects.  Hence, we have Serre automorphisms and Radford isomorphisms for finite tensor categories.  If $\cC$ is a finite tensor category, then the Serre automorphism of $\cC$ is a bimodule we denote $\bimod{\cC}{\cS}{\cC}$.  As we saw in Section ??? $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.   Now, the Radford isomorphism for $\cC$ is a canonical bimodule isomorphism ${}_\cC \S \boxtimes_\cC \S_\cC \rightarrow \bimod{\cC}{\cC}{\cC}$.  Using our formula for the Serre, the left hand side is just ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  Thus the Radford isomorphism gives a trivialization of the $\cC$--$\cC$ bimodule ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  By Lemma ???, such a trivialization is given by two pieces of data: the image of $\mathbf{1}$ which we call the distinguished object $D$, and an isomorphism of tensor functors between $\ldd{\ldd{(-)}}$ and the identity functor which abusing notation we also call the Radford isomorphism.  Summarizing we have the following result.
 
 \begin{theorem}
 If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical tensor functor between the quadruple dual functor and conjugation by the canonical invertible object $D$.
