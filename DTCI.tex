@@ -1008,7 +1008,6 @@ Similar applications of the above theorem allow us to specify the value of the b
 		S_x^{-1} &= (\id_{x} \otimes ev) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev^L)
 	\end{align*}
 	where $x_-$, $ev$, and $coev$ witness the duality between $x$ and $x_-$, and $ev^R$, $ev^L$ are adjoints of $ev$.
-\end{corollary}
 In the next section we will obtain a similar purely categorical formula for the Radford isomorphism. 
  
 
@@ -1065,14 +1064,14 @@ In the next section we will obtain a similar purely categorical formula for the 
 
 
 \subsection{A categorical formula for the Radford isomorphism} 
-The Radford isomorphism establishes that in a 3-dualizable symmetric monoidal 3-category, not only does the evaluation pairing have both left and right adjoints, but it has an {\em ambidextrous} adjoint; the left and right adjoints are canonically isomorphic. At first glance this seems to be a very surprising fact, as most adjoints encountered in the wild are not ambidextrous. 
+The Radford isomorphism establishes that in a 3-dualizable symmetric monoidal 3-category, not only does the evaluation pairing have both left and right adjoints, but it has an {\em ambidextrous} adjoint---the left and right adjoints are canonically isomorphic. At first glance this seems to be a very surprising fact, as most adjoints encountered in the wild are not ambidextrous. 
 However in higher categories of dimension at least three, this ambidexterity is much more common, and indeed it is automatic given enough dualizability. The following lemma, which is stated in Remark 3.4.22 \cite{lurie-ch}, expresses the key categorical fact that is responsible for the existence of the Radford isomorphism. 
 
 
 \begin{lemma} \label{lem-ambiadjoints}
 	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
 \end{lemma}
-\noindent The role of left adjoints (as opposed to right adjoints) is not essential here. By passing to the opposites of the 3-category $\cA$ we obtain similar propositions where right adjoints and left adjoints are exchanged. All permutations are possible as we may reverse the 1-morphisms and the 2-morphisms independently.  
+\noindent Note that by passing to the category $\cA^{op_1}$ where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is in fact a right adjoint; similarly, passing to the category $\cA^{op_2}$ where 2-morphisms are reversed, the roll of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$; and of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right.
 \begin{proof}[Proof of Prop.\ref{lem-ambiadjoints}]
 By assumption we are given 3-morphisms,
 \begin{align*}
@@ -1114,12 +1113,12 @@ Then the required isomorphisms are given by the following composites:
 \end{proof}
 
 \begin{definition} \label{def:Radford-Object}
-	Let $\cC$ be a symmetric monoidal $(\infty,n)$-category and let $x \in \cC$ be a 2-dualizable object. Let
+	Let $\cC$ be a symmetric monoidal $(\infty,n)$-category, $n \geq 3$, and let $x \in \cC$ be a 2-dualizable object. Let
 	\begin{align*}
 		ev: & \; x \otimes \overline{x} \to 1 \\
 		coev: & \;  1 \to  \overline{x} \otimes x
 	\end{align*}
-	 witness the duality between $x$ and $\overline{x}$. Let $ev^L$ be the left adjoint of $ev$ with unit and counit:
+	 witness the duality between $x$ and $\overline{x}$. Let $ev^L$ be the left adjoint of $ev$ with unit and counit
 	\begin{align*}
 		\eta: & \;  \id_1 \to ev \circ ev^L \\
 		\varepsilon: \; & ev^L \circ ev \to \id_{x \otimes \overline{x}}. 
@@ -1128,14 +1127,14 @@ Then the required isomorphisms are given by the following composites:
 \end{definition} 
 
 \begin{proposition} \label{prop-Cat_Radford}
-	Let $x \in \cC$ be a 2-dualizable object in a symmetric monoidal $(\infty,n)$-category. Keeping the notation from above, let $ev^R$ be the right adjoint to the evaluation pairing, at let
+	Let $x \in \cC$ be a 2-dualizable object in a symmetric monoidal $(\infty,n)$-category, $n \geq 3$. Keeping the notation from the preceding definition, let $ev^R$ be the right adjoint to the evaluation pairing, and let
 	\begin{align*}
 		u: & \;  \id_{x \otimes \overline{x}} \to ev^R \circ ev \\
 		v: & \; ev \circ ev^R \to \id_1
 	\end{align*} 
-	be the unit and counit witnessing this adjunction. If $x$ is a Radford object, then there exists a canonical {\em Radford isomorphism} $\cR: ev^R \cong \ev^L$ given as the composite:
+	be the unit and counit witnessing this adjunction. If $x$ is a Radford object, then there exists a canonical {\em Radford isomorphism} $\cR_x: ev^R \cong \ev^L$ given as the following composite:
 	\begin{equation*}
-		\cR: ev^R \stackrel{\varepsilon^L * \id}{\longrightarrow} ev^L \circ ev \circ ev^R \stackrel{\id * v}{\longrightarrow} ev^L.
+		\cR_x: ev^R \xra{\varepsilon^L \circledcirc \id} ev^L \circ ev \circ ev^R \xra{\id \circledcirc v} ev^L.
 	\end{equation*}
 \end{proposition}
 
@@ -1145,11 +1144,11 @@ Then the required isomorphisms are given by the following composites:
 
 
 \begin{corollary}
-	Any 3-dualizable object in a symmetric monoidal $(\infty,n)$-category admits a canonical Radford isomorphism given by the above formula. 
+	Any 3-dualizable object in a symmetric monoidal $(\infty,n)$-category admits a canonical Radford isomorphism given by the formula in Proposition~\ref{prop-Cat_Radford}. 
 \end{corollary}
 
 \begin{example}
-	In $\FrBord_n$, when $n \geq 3$, an enjoyable exercise shows that this canonical Radford isomorphism is indeed given by the Radford bordism. 
+	In $\FrBord_n$, when $n \geq 3$, note that the canonical Radford isomorphism of Proposition~\ref{prop-Cat_Radford} is indeed given by the Radford bordism. 
 \end{example}
 
 \section{Tensor categories} \label{sec-tc}
