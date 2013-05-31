@@ -1266,12 +1266,12 @@ More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories the
 such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
 
 \begin{warning}
-	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the category from the start.  
+	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
 \end{warning}
 
 \CSP{The definition of tensor category should include rigid too, I think.}
 \begin{definition}
-	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor which is also linear. 
+	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor that is also linear. 
 \end{definition}
 
 \begin{example}
@@ -1282,19 +1282,8 @@ such that $F$ is linear in each variable separately. A linear category will be s
 	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category.  Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$.
 \end{example}
 
-Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of tensor product, reverse the order of composition, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the opposite monoidally-opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$, also in the literature $\mp$ is also denoted $rev$.)
+Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the monoidally-opposite opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$; also in the literature $rev$ is sometimes used to denote what we call $\mp$.)
 %We will denote by $\cC^{\op}$ the monoidal category whose underlying category is opposite to the underlying  category of $\cC$, and whose monoidal structure is inherited from the monoidal structure of $\cC$; we call it the {\em opposite monoidal category}.  By contrast, we will let $\cC^{\mp}$ denote the monoidal category whose underlying category is the underlying category of $\cC$, and whose monoidal structure is defined by $[a] \otimes [b] := [b \otimes a]$, where $[a]$ refers to the object $a \in \cC$ viewed as an object of $\cC^{\mp}$; we call this the {\em monoidal opposite category}.  Finally, there is $\cC^{\mop}$, which denotes the monoidal category whose underlying  category is $\cC^{\op}$ and whose monoidal structure is inherited from the monoidal structure of $\cC^{\mp}$; we call this the {\em opposite monoidal opposite category}.
-
-
-%%%%%%%%%%%
-%
-%  Here is where the definition of left/right duals and rigidity were initially. 
-%
-%%%%%%%%%%%%
-
-%\begin{definition}
-%	A monoidal category is {\em rigid} if every object admits both left and right duals (cf. Def. \ref{def:duals}).
-%\end{definition}
 
 
 \begin{lemma} \label{lma:RigidIsExact}
@@ -1310,17 +1299,18 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{proof}
 
 \noindent In particular we have the following sequences of adjunctions:
-\begin{align*}
-	x^* \otimes (-) & \dashv x \otimes (-) & \dashv {}^*x \otimes (-), \\
-	(-) \otimes {}^* y & \dashv (-) \otimes y & \dashv (-) \otimes y^*. 
-\end{align*}
+\begin{alignat*}{5}
+	& x^* \otimes (-)  \quad & &  \dashv \quad &&  \quad x \otimes (-)  \quad &&  \dashv &&  \quad {}^*x \otimes (-), \\
+	& (-) \otimes {}^* y  \quad & &  \dashv \quad &&  \quad (-) \otimes y  \quad &&  \dashv &&  \quad (-) \otimes y^*. 
+\end{alignat*}
 
 \begin{corollary}
 	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
 \end{corollary}
+\CD{semisimple hasn't yet been introduced}
 
 \begin{proof}
-	If $\cC$ is semisimple if and only if every object is projective, in particular the unit object. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective.  
+	If $\cC$ is semisimple then every object is projective, so in particular the unit object is projective. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective, and it follows that $\cC$ is semisimple.  
 \end{proof}
 
 \begin{lemma}
@@ -1339,7 +1329,7 @@ First we construct the functor ${(-)^*}$.  Define ${(-)^*}$ on objects by pickin
 	{(f)^*} := (\varepsilon_b \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes f \otimes \id_{\rd{a}}) (\id_{\rd{b}} \otimes \eta_a).
 \end{equation*}
 
-Next we want to construct a monoidal functor structure on $(-)^*$, that is we need natural transformations $f_{a,b}: (a \otimes b)^* \rightarrow a^* \cdot b^* = b^* \otimes a^*$.  Since the right dual is unique up to unique isomorphism, it is enough to check that $b^* \otimes a^*$ is a right dual to $b \otimes a$.  Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \otimes \rd{a} \xra{\eta_b} a \otimes b \otimes \rd{b} \; \rd{a}$ show that $(\rd{b} \otimes \rd{a})$ is a right dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a \otimes b)}$.  It is straightforward to check that this isomorphism is natural and satisfies the necessary hexagon relation.
+Next we want to construct a monoidal functor structure on $(-)^*$, that is we need natural transformations $f_{a,b}: (a \otimes b)^* \rightarrow a^* \cdot b^* = b^* \otimes a^*$.  Since the right dual is unique up to unique isomorphism, it is enough to check that $b^* \otimes a^*$ is a right dual to $a \otimes b$.  Observe that the morphisms $\rd{b} \otimes \rd{a} \otimes a \otimes b \xra{\varepsilon_a} \rd{b} \otimes b \xra{\varepsilon_b} 1$ and $1 \xra{\eta_a} a \otimes \rd{a} \xra{\eta_b} a \otimes b \otimes \rd{b} \otimes \rd{a}$ show that $(\rd{b} \otimes \rd{a})$ is a right dual to $(a \otimes b)$.  There is therefore a uniquely determined isomorphism from $(\rd{b} \otimes \rd{a})$ to $\rd{(a \otimes b)}$.  It is straightforward to check that this isomorphism is natural and defines a monoidal functor.
 The left dual functor is analogous, and is easily seen to be the quasi-inverse of the right dual functor. 
 %Since the left and right duals are quasi-inverse to each other, they're each equivalences.
 % In principle, need to check naturality and hexagon for those isos.
@@ -1375,16 +1365,17 @@ Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual
 	\begin{itemize}
 		\item all hom categories are linear categories, 
 		\item horizontal composition is multilinear, and
-		\item there are identifications of monoidal categories $\Hom(x,x) \simeq \cD$, $\Hom(y,y) \simeq \cC$, and $\Hom(y,x) \simeq \emptyset$.
+		\item the hom categories $\Hom(x,x)$, $\Hom(y,y)$, and $\Hom(y,x)$ are respectively $\cD$, $\cC$, and empty.
+%		there are identifications of monoidal categories $\Hom(x,x) = \cD$ and $\Hom(y,y) = \cC$, and the set $\Hom(y,x)$ is empty.
 	\end{itemize}
-	We will often abuse notation and refer to the value $\cM = \Hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is a {\em left module category}. If $\cC \simeq \Vect_k$, then $\cM$ is a {\em right module category}.
+	We will often abuse notation and refer to the value $\cM = \Hom(x,y)$ as the bimodule category. If $\cD \simeq \Vect_k$, then $\cM$ is called a {\em left $\cC$-module category}. If $\cC \simeq \Vect_k$, then $\cM$ is called a {\em right $\cD$-module category}.
 \end{definition}
 	
 Unwrapping this definition we see that a left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
 %	\CSP{This looks a little gross. I should change it.}
 	\begin{align*}
-		\alpha: & \;    \otimes^{\cM} \circ (\otimes \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
-		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
+		\alpha: & \;    \otimes^{\cM} \circ (\otimes^{\cC} \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
+		\lambda: & \; 1_{\cC} \otimes^{\cM}(-) \cong id_{\cM},
 	\end{align*}
 %	\begin{align*}
 %		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
@@ -1393,7 +1384,7 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 	satisfying the evident pentagon and triangle identities. 
 
 \begin{definition}		
-A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that 
+A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bicategories such that \CD{explain strong}
 %	\begin{itemize}
 		 $F$ is the identity on objects,
 		  the restriction of $F$ to each hom category is linear,
@@ -1401,18 +1392,18 @@ A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a (strong) functor of bi
 %	\end{itemize}
 A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
 	A {\em bimodule transformation} is a transformation of functors of bicategories, which restricts to the identity on $\Hom(x,x)$ and $\Hom(y,y)$, and such that the component 1-cells are trivial.  
-\end{definition}
+\end{definition} \CD{Do we use lax?} \CD{check this def}
 	
 %
-Bimodule categories, functors, and transformations form a strict 2-category.
+Bimodule categories, functors, and transformations form a strict 2-category.  %!%CD check
 %If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
 
 \begin{example}
-	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. 
+	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way. \CD{essentially unique?}
 \end{example}
 
 \begin{example} \label{ex:ModulesAreModules}
-	For any algebra object $A$ in a tensor category $\cC$ then the category of right modules $\Mod{}{A}(\cC)$ is an \emph{left} $\cC$-module category.  Similarly, the category of left modules $\Mod{A}{}(\cC)$ is a right $\cC$-module categories.
+	For any algebra object $A$ in a tensor category $\cC$, the category of right modules $\Mod{}{A}(\cC)$ is a \emph{left} $\cC$-module category.  Similarly, the category of left modules $\Mod{A}{}(\cC)$ is a \emph{right} $\cC$-module category.
 \end{example}
 
 \begin{example}
