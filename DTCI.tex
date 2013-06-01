@@ -1659,29 +1659,29 @@ Equipped with the relative Deligne tensor product and its properties, we can now
 \end{theorem}
 
 \subsection{Exact module categories and adjoints of module functors} \label{sec-tc-exact}
-Throughout this section we consider only finite rigid tensor categories.  The goal of this section is to summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  The goal is to be able to show that certain module functors have adjoints in proving $3$-dualizability.
+In this section we consider only finite rigid tensor categories.  We summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  We will see, in particular, that certain module functors have adjoints, which will be necessary when we investigate $3$-dualizability.
 
 \begin{definition}
 	Let $\cC$ be a finite rigid tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $M \in \cM$ and  projective object $P \in \cC$, the object $P \otimes M$ is projective in $\cM$. 
 \end{definition}
 
 \begin{example}
-	If $\cC$ is semisimple (e.g. $\cC = \Vect$), then $\cM$ is an exact module category if and only if it is also semisimple.
+	If $\cC$ is semisimple, then $\cM$ is an exact module category if and only if it is semisimple.
 \end{example}
 
 \begin{example}[{\cite[Example 2.6.5]{EGNO}}]
-	The finite rigid tensor category $\cC$ is exact considered as a $\cC$-, $\cC^{mp}$-, or $\cC \otimes \cC^{mp}$-module category. 
+	The finite rigid tensor category $\cC$ is exact when considered as a $\cC$-, $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
 \end{example}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
-\begin{theorem}[ \cite{EGNO}] \label{Thm:ExactModCatOmnibus}
-	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, $\cM''$ be exact $\cC$-module categories, and $\cN$ an arbitrary $\cC$-module category. Then,
+\begin{theorem}[\cite{EGNO}] \label{Thm:ExactModCatOmnibus}
+	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories, and let $\cN$ be an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
-		\item $\cM$ has enough projectives \cite[Lemma 2.7.1]{EGNO}
+		\item $\cM$ has enough projectives. \cite[Lemma 2.7.1]{EGNO}
 		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor 2.7.4]{EGNO}
-		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; In particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
+		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
 		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 2.13.2]{EGNO}		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, it follows that   $\Fun_{\cC}(\cM,\cM)$ is again a finite rigid tensor category. 
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, $\Fun_{\cC}(\cM,\cM)$ is itself a finite rigid tensor category. 
 	\end{enumerate}
 \end{theorem}
 \CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
