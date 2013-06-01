@@ -1957,29 +1957,29 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 \subsection{Fusion categories} \label{sec-tc-fusion}
 
-The goal of this section is to show that under nice circumstances separability is easy to check.  In particular, we show that over an algebraically closed field fusion categories of nonzero global dimension are separable, and that semisimple bimodule categories over such fusion categories are separable.  In this section we do not strive for generality, but instead have the practical aim of showing that separability is easy to check for examples.
+The goal of this section is to show that under nice circumstances separability is easy to check.  In particular, we show that over an algebraically closed field, fusion categories of non-zero global dimension are separable, and that semisimple bimodule categories over such fusion categories are separable.
 
-For the entirety of this section the base field $k$ will be algebraically closed.  Recall that a tensor category over an algebraically closed field is called fusion if it is semisimple rigid finite and the trivial object is simple.  In such a setting there's a well-defined notion of global dimension.  It is well-known \cite{???}, that over an algebraically closed field non-zero global dimension implies that $\cZ(\cC)$ is semisimple and hence $\cC$ is separable.  We quickly sketch a proof of a stronger version of this result which was suggested to us by Victor Ostrik.
+For this section we assume the base field $k$ is algebraically closed.  Recall that a tensor category over an algebraically closed field is called \emph{fusion} if it is semisimple, rigid, finite, and the unit object is simple.  In this setting there is a well-defined notion of global dimension.  \CD{Add brief definition of global dimension.}  It is known \cite{???} that non-zero global dimension implies that $\cZ(\cC)$ is semisimple, and hence $\cC$ is separable.  We sketch a proof of a stronger version of this result which was suggested to us by Ostrik.
 
 \begin{theorem} \label{thm:NonzeroDimension}
 A fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
 \end{theorem}
 \begin{proof}
-We first prove that global dimension non-zero implies separability.  Let $A \in \cC \boxtimes \cC^\mp$ be the algebra of internal endomorphisms of the identity object in $\cC$.  This algebra can be described explicitly, as an object it is $\bigoplus_X X \boxtimes {}^*X$.  This algebra has a Frobenius algebra structure given by the trace given by projection onto the $1 \boxtimes 1$ component.  The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero then $A$ is seperable.
+We first prove that global dimension non-zero implies separability.  Recall that a left $\cC$-module has a natural enrichement over $\cC$; in other words, it has a $\cC$-valued internal $\Hom$~\cite{Ostrik03}.  Let $A \in \cC \boxtimes \cC^\mp$ be the algebra of internal endomorphisms of the identity object in ${}_{\cC \boxtimes \cC^\mp} \cC$.  This algebra can be described explicitly, as an object it is $\bigoplus_X X \boxtimes {}^*X$, where the sum is over the simple objects of $\cC$.  This algebra has a Frobenius algebra structure given by the trace given by projection onto the $1 \boxtimes 1$ component.  The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero then $A$ is seperable.
 
-In the other direction, note that if $\cC$ is separable then the category of $A$-$A$ bimodules is semisimple.  The space of $A$-$A$ bimodule maps from $A \otimes A$ to $A$  is $1$-dimensional, and hence by semisimplicity, there's also a $1$-dimensional space of maps the other direction.  In particular, any bimodule map $A \otimes A \rightarrow A$ is a multiple of $\Delta$.  Since separability says that there's some splitting of multiplication, this splitting must be some multiple of $\Delta$ and so can only exist if $\Delta$ gives such a splitting, that is to say that the global dimension is nonzero.
+\CDcomm{Various changes for this proof: explain why the composition $m \Delta$ is the global dimension, using the earlier addition of definition/explanation about the global dimension.  In next paragraph, explain the first sentence, explain the second sentence using properties of the internal Hom; also point out specific points where simplicity of the unit is used.}
+
+In the other direction, note that if $\cC$ is separable then the category of $A$-$A$ bimodules is semisimple.  The space of $A$-$A$ bimodule maps from $A \otimes A$ to $A$  is $1$-dimensional, and hence by semisimplicity, there is also a $1$-dimensional space of maps the other direction.  Any bimodule map $A \otimes A \rightarrow A$ is a multiple of $\Delta$.  Since separability says that there's some splitting of multiplication, this splitting must be some multiple of $\Delta$ and so can only exist if $\Delta$ gives such a splitting, that is to say that the global dimension is nonzero.
 \end{proof}
+
 
 
 \begin{theorem} \label{thm:SSModuleCatsAreSep}
 If $\cC$ is fusion and $\cM$ is a semisimple module category over $\cC$, then $\cM$ is separable.
 \end{theorem}
 \begin{proof}
-It is easy to reduce to the case where $\cM$ is indecomposable.  Then, by \cite{???}, there is a surjective tensor functor $Z(\cC) \rightarrow \Fun_\cC(\cM, \cM)$.  Thus, by \cite{???}, $\Fun_\cC(\cM, \cM)$ is semisimple and $\cM$ is separable.
+Without loss of generality, assume that $\cM$ is indecomposable.  By \cite{???}, there is then a surjective tensor functor $\cZ(\cC) \rightarrow \Fun_\cC(\cM, \cM)$.  It follows, by \cite{???}, that $\Fun_\cC(\cM, \cM)$ is semisimple and so $\cM$ is separable.
 \end{proof}
-
-It would be nice to give a more direct proof of Theorem \ref{thm:SSModuleCatsAreSep} following the proof of Theorem \ref{thm:NonzeroDimension} .  It's easy to get an algebra with trace, but it was not clear to us why the resulting bilinear form is nondegenerate.  By contrast in the setting of Theorem \ref{thm:NonzeroDimension} we have a concrete formula for the bilinear form.
-
 
 
 \section{Dualizability} \label{sec-dualfusion}
