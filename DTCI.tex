@@ -1181,7 +1181,11 @@ We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} o
 %Here $\circledcirc$ denotes the horizontal composite of natural transformations.
 %We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$. 
 %\end{definition}
-\nid With this standard convention we have canonical natural isomorphisms $\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y))$. We will use the same convention for left and right adjoints of $1$-morphisms in $2$-categories other than $Cat$.
+\nid With this standard convention we have canonical natural isomorphisms
+\begin{equation*}
+	\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y)).
+\end{equation*}
+We will use the same convention for left and right adjoints of $1$-morphisms in $2$-categories other than $Cat$.
 
 \begin{definition}[Convention for rigidity] \label{def:rigid}
 	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zig-zag' equations:
@@ -1191,7 +1195,7 @@ We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} o
 	\end{align*}
 \end{definition}
 
-Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following EGNO and BK)  or the left dual of $x$ (following Kassel and Chari-Pressley).  Which choice to make is influenced by the following compatibility desideratum: 
+Although the above convention is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following Etingof-Gelaki-Nikshych-Ostrik \cite{EGNO} and Bakalov-Kirillov \cite{MR1797619})  or the left dual of $x$ (following Kassel \cite{MR1470954} and Chari-Pressley \cite{MR1358358}).  Which choice to make is influenced by the following compatibility desideratum: 
 %\vspace{1.5ex}
 \begin{itemize}
 \item[]
@@ -1217,7 +1221,7 @@ This choice determines the following conventions.
 \end{itemize}
 \end{definition}
 
-With the preceding conventions in place, observe the following:
+\noindent With the preceding conventions in place, observe the following:
 \begin{itemize}
 \item[1.] Let $\cC$ be a monoidal category, considered as a bicategory with one object.  There is a bifunctor from $\cC$ to $\Cat$ that takes the unique object $\ast \in \cC$ to $\cC \in \Cat$ and takes the morphism $\ast \xra{x} \ast$ of $\cC$ to the functor $\cC \xra{- \otimes x} \cC$.  That is, tensoring on the right provides a bifunctor.  Similarly, tensoring on the left ($x \otimes -$) provides a bifunctor from $\cC$ to $\Cat^{op_1}$, that is where the 1-morphisms of $\Cat$ have been reversed.
 \item[2.] There is a bifunctor from $\Alg$ to $\Cat$ sending an algebra $A \in \Alg$ to the category $\Mod{}{A}$ of right modules.  Similarly there is a bifunctor from $\Alg$ to $\Cat^{op_1}$ taking $A$ to the category $\Mod{A}{}$ of left modules.
@@ -1260,11 +1264,24 @@ With the preceding conventions in place, observe the following:
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
-	Unless otherwise stated {\bfseries all linear functors considered in this paper are  right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
+	Unless otherwise stated {\bfseries all linear functors considered in this paper are  right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the constructions that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
 \end{warning}
 
-We will also tacitly assume that all of our linear categories satisfy a certain finiteness condition, which we will describe momentarily. Unlike the right exactness assumption and the rigidity assumption (described later), this finiteness assumption is not essential for defining either the standard nor the relative Deligne tensor product of linear categories\footnote{The standard Deligne tensor product of abelian categories exists for any abelian categories which arise as `homotopy colimits' of finite abelian categories. It exists in complete generality if we relax the assumption that our categories are {\em abelian} and replace it with the assumption that they are {\em finitely cocomplete} \cite{1212.1545}.}. However this finiteness assumption permit us to give an explicit and simple 
-description of these tensor products of categories, while also simplify the proof of its existence (see section \ref{sec-tc-deligne}). It would be interesting to have non-finite examples which make a compelling case for extending our results to more general linear categories.  
+We will also tacitly assume that all of our linear categories satisfy a certain finiteness condition, which we will describe momentarily. Unlike the right exactness assumption and the rigidity assumption (described later), this finiteness assumption is not essential for defining either the standard nor the relative Deligne tensor product of linear categories\footnote{The standard Deligne tensor product of abelian categories exists for any abelian categories which arise as `homotopy colimits' of finite abelian categories. It exists in complete generality if we relax the assumption that our categories are {\em abelian} and replace it with the assumption that they are {\em finitely cocomplete} \cite{1212.1545}.}. However this finiteness assumption permits us to give an explicit and simple 
+description of these tensor products of categories, while also simplify the proof of their existence (see section \ref{sec-tc-deligne}). It would be interesting to have non-trivial non-finite examples which make a compelling case for extending our results to more general linear categories.  
+
+Recall the following standard terminology:
+\begin{itemize}
+	\item A object of a linear category is {\em simple} if it admits no non-trivial subobjects; an object is simple if and only if its endormorphisms form a division algebra over $k$. 
+	\item An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects
+	\begin{equation*}
+		X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots 
+	\end{equation*}
+	has finite length. 
+	\item A linear category is {\em semi-simple} if every object splits as a finite direct sum of simple objects, equivalently, if every short exact sequence splits. 
+	\item A linear category {\em has enough projectives} if every object $X$ admits a surjection $P \to X$ from some projective object $P$, which may depend on $X$. 
+\end{itemize}
+
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
 	A linear category $\cC$ is {\em finite} if 
@@ -1323,21 +1340,24 @@ More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories the
 \begin{equation*}
 	F: \prod \cA_\alpha \to \cB
 \end{equation*}
-such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
+such that $F$ is linear in each variable separately. 
+%A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
 
 
 
-\CSP{The definition of tensor category should include rigid too, I think. Also finite. And the definition of finite should be moved here.}
+%\CSP{The definition of tensor category should include rigid too, I think. Also finite. And the definition of finite should be moved here.}
 \begin{definition}
-	A {\em tensor category} is a linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor that is also linear. 
+	A {\em tensor category} is a finite rigid linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor that is also linear. 
 \end{definition}
 
+\noindent Note that we are assuming that all our tensor categories are rigid (see Def. \ref{def:rigid}). This assumption appears to be necessary to define the {\em relative} Deligne product, as well as for several other crucial results. We will explain how this assumption is used in sections \ref{sec-tc-deligne}, \ref{sec-tc-exact}, and \ref{sec-tc-separable}.
+
 \begin{example}
-	Both $\overline{\Vect}_k$ and $\Vect_k$ are examples of tensor categories. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also linear categories.
+	The category $\Vect_k$ is a tensor category. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are finite linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also finite linear categories.
 \end{example}
 
 \begin{example}
-	If $\cM$ is a linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category.  Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$.
+	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a tensor category.  Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$.
 \end{example}
 
 Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the monoidally-opposite opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$; also in the literature $rev$ is sometimes used to denote what we call $\mp$.)
@@ -1345,7 +1365,7 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 
 
 \begin{lemma} \label{lma:RigidIsExact}
-	Let $(\cC, \otimes)$ be a rigid tensor category (cf. Def. \ref{def:rigid}). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
+	Let $(\cC, \otimes)$ be a (rigid) tensor category. Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
 \end{lemma}
 
 \begin{proof}
@@ -1363,17 +1383,17 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{alignat*}
 
 \begin{corollary}
-	A rigid tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
+	A (rigid) tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
 \end{corollary}
-\CD{semisimple hasn't yet been introduced}
-\CSP{We are not writing a text book. We don't have to define semisimple.}
+%\CD{semisimple hasn't yet been introduced}
+%\CSP{We are not writing a text book. We don't have to define semisimple.}
 
 \begin{proof}
 	If $\cC$ is semisimple then every object is projective, so in particular the unit object is projective. Conversely, if $1 \in \cC$ is projective, then $\Hom(P, -) = \Hom( 1, (-) \otimes P^*)$ is an exact functor for all $P$. Hence every object is projective, and it follows that $\cC$ is semisimple.  
 \end{proof}
 
 \begin{lemma}
-	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of rigid tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any rigid tensor category. 
+	The assignments $x \mapsto x^*$ and $x \mapsto {}^*x$ gives rise to equivalences of tensor categories $(-)^*: \cC \to \cC^{mop}$ and ${}^*(-): \cC \to \cC^{mop}$. Consequently the assignment $x \mapsto x^{**}$ gives an autoequivalence of any tensor category. 
 \end{lemma}
 
 %\begin{proposition}
@@ -1418,11 +1438,23 @@ Applying this theorem to $\cC^{\op}$ shows that the left dual and the right dual
 %\end{remark}
 
 \subsection{Bimodule categories} \label{sec:tc-bimod}
+We will follow the standard conventions for bicategories and their functors, see for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
+\begin{itemize}
+	\item a {\em lax} functor of bicategories $F: \cB \to \cC$ is equipped with natural 2-morphisms
+	\begin{equation*}
+		F(f) \circ F(g) \to F(f \circ g) \quad \textrm{ and } \quad \id_{F(X)} \to F(\id_X);
+	\end{equation*} 
+	\item an {\em oplax} functor of bicategories $F: \cB \to \cC$ is equipped with natural 2-morphisms
+	\begin{equation*}
+		F(f \circ g) \to F(f) \circ F(g)   \quad \textrm{ and } \quad F(\id_X) \to \id_{F(X)}; and
+	\end{equation*}
+	\item a for {\em strong} functor of bicategories the comparison maps are 2-isomorphisms (hence a strong functor may be regarded as both lax and oplax). 
+\end{itemize}
 
 \begin{definition}
 	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that
 	\begin{itemize}
-		\item all hom categories are linear categories, 
+		\item all hom categories are finite linear categories, 
 		\item horizontal composition is multilinear, and
 		\item the hom categories $\Hom(x,x)$, $\Hom(y,y)$, and $\Hom(y,x)$ are respectively $\cD$, $\cC$, and empty.
 %		there are identifications of monoidal categories $\Hom(x,x) = \cD$ and $\Hom(y,y) = \cC$, and the set $\Hom(y,x)$ is empty.
