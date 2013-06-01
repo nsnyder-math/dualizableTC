@@ -1504,7 +1504,7 @@ Bimodule categories, functors, and transformations form a strict 2-category.  %!
 
 \subsection{The Deligne tensor product and the 3-category of tensor categories} \label{sec-tc-deligne}
 
-In this section we will quickly recall the definition and some of the key properties of the relative Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  The key result in this section is Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that a certain Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^* \cong \mathrm{End}(V)$ plays the key role in showing that finite dimensional vector spaces are $1$-dualizable \cite{???}, this lemma plays the key role in proving the $2$-dualizability of finite tensor categories.
+In this section we will quickly recall the definition and some of the key properties of the relative Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  The key result in this section is Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that a certain relative Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^* \cong \mathrm{End}(V)$ plays the key role in showing that finite dimensional vector spaces are $1$-dualizable \cite{???}, this lemma plays the key role in proving the $2$-dualizability of finite tensor categories.
 
 The Deligne tensor product is easiest to define for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
 
@@ -1752,57 +1752,56 @@ The functor $\alpha$ is, in particular, a right $\cD$-module functor from $\cD$ 
 and hence is equivalent to the data of $\varphi$. 
 \end{proof}
 
-As we saw in Lemma \ref{Lma:FunctorsAsATensorPdt} a key role is played by the bimodule category ${}_\cD \Fun_\cC(\cM,\cC)_\cC$, and it will be convenient to have several alternate descriptions of this bimodule category.
+The bimodule category ${}_\cD \Fun_\cC(\cM,\cC)_\cC$ will play a central role in our dualizability calculations, and it will be convenient to have several alternative descriptions of this bimodule category.
 
 \begin{definition} \label{def:Dual_bimodule_notation}
-Let $\cM^*$ denote the category $\cM^{\op}$. We will write objects of $\cM^*$ as $m^*$ where $m$ is the corresponding object of $\cM$. We give $\cM^*$ the structure of a $\cD$--$\cC$ bimodule category where the action is given by
+For a bimodule category ${}_\cC \cM_\cD$, let $\cM^*$ denote a $\cD$--$\cC$ bimodule category defined as follows.  The underlying category of $\cM^*$ is the category $\cM^{\op}$. An object $m \in \cM$ is denotes $m^*$ when viewed as an object of $\cM^* = \cM^\op$.  The $\cD$--$\cC$ bimodule category structure is given by
 \begin{equation*}
 	d\cdot m^* \cdot c := ({}^*c \otimes m \otimes {}^*d)^*
 \end{equation*}
-Similarly, let ${}^*\cM$ denotes the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and the action is given by $d\cdot {}^*m \cdot c = {}^*(c^* \otimes m \otimes d^*)$.  
+Similarly, let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and whose action is given by $d\cdot {}^*m \cdot c := {}^*(c^* \otimes m \otimes d^*)$.  
 \end{definition}
 
 \begin{definition}
-	Let ${}_{\cC}\cM_\cD$ be a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ be a $\cC$-$\cE$ bimodule category. Temporarily breaking from our convention of only considering right exact functors, let	 $\Fun^L_{\cC}(\cN, \cM)$ denote the category left exact $\Vect$-enriched $\cC$-module functors (which are not necessarily right exact). This is naturally a $\cD$-$\cE$ bimodule category. We may similarly define bimodule categories of left exact right module functors. 
+	Let ${}_{\cC}\cM_\cD$ be a $\cC$-$\cD$ bimodule category and let ${}_{\cC}\cN_\cE$ be a $\cC$-$\cE$ bimodule category. Temporarily breaking from our convention of only considering right exact functors, let	 $\Fun^L_{\cC}(\cN, \cM)$ denote the category of left exact $\Vect$-enriched $\cC$-module functors (which are not necessarily right exact). This is naturally a $\cD$-$\cE$ bimodule category. We may similarly define bimodule categories of left exact right module functors. 
 \end{definition}
 
 \begin{lemma}
-If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodules 
+If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodule categories 
 from $\Fun_{\cC}(\cM, \cN)$ to ${}^*\Fun^L_{\cC}(\cN, \cM)$.
 % where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  
-Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodules ${}^*\Fun_{\cD}(\cM, \cN) \rightarrow \Fun^L_{\cD}(\cN, \cM)$. 
+Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodule categories from ${}^*\Fun_{\cD}(\cM, \cN)$ to $\Fun^L_{\cD}(\cN, \cM)$. 
 \end{lemma}
 \begin{proof}
-	We will prove the first statement as the second follows from a nearly identical argument. 
-We've already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Secondly the right adjoint of right multiplication by $x$ is right multiplication by $x^*$, while in the latter case we have that the right adjoint of left multiplication by $x$ is left multiplication by ${}^*x$. See the remarks directly after the proof of Lemma \ref{lma:RigidIsExact}.
+	We will prove the first statement as the second follows from a similar argument. 
+We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Second, note that, as mentioned after Lemma~\ref{lma:RigidIsExact}, the right adjoint of right multiplication by $e$ is right multiplication by $e^*$.
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
-We have that $\cM^* \cong \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \cong \Fun_{\cC}(\cM, \cC)$.
+For a bimodule category ${}_\cC \cM_\cD$, we have equivalences $\cM^* \simeq \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \simeq \Fun_{\cC}(\cM, \cC)$.
 \end{lemma}
 \begin{proof}
-By the previous lemma, $\Fun_{\cC}(\cM, \cC) \cong {}^*\Fun_{\cC}^L(\cC, \cM)$, but the latter is just ${}^*\cM$ as any $\cC$-module functor $\cF$ from $\cC$ to $\cM$ is given by right multiplication by $\cF(1)$.
+By the previous lemma, $\Fun_{\cC}(\cM, \cC) \simeq {}^*\Fun_{\cC}^L(\cC, \cM)$.  Any left $\cC$-module functor $\cF: \cC \ra \cM$ is given by $c \mapsto c \otimes \cF(1)$; this functor is a right adjoint (see the comments after Lemma~\ref{lma:RigidIsExact}) and therefore is left exact.  It follows that ${}^*\Fun_{\cC}^L(\cC, \cM)$ is ${}^* \cM$ as desired.
 \end{proof}
 
 \begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} we have that if $\cM$ is a finite rigid $\cD$-$\cC$ bimodule and $\cN$ is a finite rigid $\cC$-$\cE$ bimodule, then 
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} and Remark~\ref{remark-tensorasfunctors}, we learn that if $\cM$ is a finite rigid $\cD$-$\cC$ bimodule and $\cN$ is a finite rigid $\cC$-$\cE$ bimodule, then 
 \begin{equation*}
-	\cM \boxtimes_\cC \cN \cong {}^*(\cM^*) \boxtimes_\cC \cN \cong \Fun_{\cC\text{-mod}}(\cM^*,\cN)
+	\cM \boxtimes_\cC \cN \simeq {}^*(\cM^*) \boxtimes_\cC \cN \simeq \Fun_{\cC\text{-mod}}(\cM^*,\cN)
 \end{equation*}
 as $\cD$-$\cE$ bimodule categories.   Similarly, 
 \begin{equation*}
-	\cM \boxtimes_{\cC} \cN \cong \cM \boxtimes_\cC ({}^*\cN)^* \cong \Fun_{\text{mod-}\cC}({}^*\cN,\cM)
+	\cM \boxtimes_{\cC} \cN \simeq \cM \boxtimes_\cC ({}^*\cN)^* \simeq \Fun_{\text{mod-}\cC}({}^*\cN,\cM)
 \end{equation*}
-as $\cD$-$\cE$ bimodule categories.  These bimodule category isomoprhisms are the correct version of \cite[Remark 3.6]{0909.3140} which was originally incorrect as stated for bimodule categories.
+as $\cD$-$\cE$ bimodule categories.  These bimodule category equivalences are a correction of \cite[Remark 3.6]{0909.3140}.
 \end{remark}
 
 \begin{remark}
-	The notation of Definition \ref{def:Dual_bimodule_notation} is consistent with our earlier conventions, specifically the convention that the composition order of tensor products is from left to right; 
-	following all of our conventions the bimodule ${}^*\cM$ is the both the left adjoint and the left dual of $\cM$, while $\cM^*$ is both the right adjoint and right dual. (c.f. Definitions \ref{def:Adjoints} and \ref{def:rigid} in \S \ref{sec:conventions}). 
+	The notation of Definition \ref{def:Dual_bimodule_notation} is consistent with our earlier conventions, specifically the convention that the composition order of tensor products is from left to right; indeed the bimodule ${}^*\cM$ is the both the left adjoint and the left dual of $\cM$, while $\cM^*$ is both the right adjoint and right dual. (c.f. Definitions \ref{def:Adjoints} and \ref{def:rigid} in Section \ref{sec:conventions}). 
 \end{remark}
 
 \begin{warning}
-Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking $*$ of bimodules does not commute with moving tensor factors from one side to the other.  Instead, ${}_\cD (\cM_{\cC \boxtimes \cD^\mp}^*)_\cC \cong {}_{\langle r r \rangle}(\cM^*)$ where $r$ is the right dual functor. \NS{Someone should double-check left vs. right here}
+Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC \boxtimes \cD^\mp})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor. \NS{Someone should double-check left vs. right here}
 \end{warning}
 
 Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemma concerning module categories of this type. 
