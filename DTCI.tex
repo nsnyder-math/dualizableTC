@@ -1843,10 +1843,10 @@ Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categori
 
 
 \subsection{Separability} \label{sec-tc-separable}
-In characteristic $0$, fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger's proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik's show that functor categories between semisimple module categories over fusion categories are semsimple and hence semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down non-zero characteristic.  This happens for two separate reasons, first fusion categories of global dimension $0$ behave poorly, and second (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are some problems related to inseparable field extensions.
+In characteristic $0$, the collection of fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik show that functor categories between semisimple module categories over fusion categories are semsimple and hence (because all relative Deligne tensor products can be expressed as functor categories) semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down in non-zero characteristic.  This happens for two distinct reasons: first, fusion categories of global dimension $0$ behave poorly, and, second, (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are problems related to inseparable field extensions.
 \NS{Add references to Section 2.4 of 1009.2117}
 
-In this section, we introduce a new notion of separability for algebra objects, module categories, and tensor categories which provides the right setting for generalizing the results of M\"uger and Etingof--Nikshych--Ostrik to characteristic $p$.  This theory is a generalization of the classical notion of a separable algebra \cite{???}.   This section was inspired by a suggestion of Ostrik, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
+In this section, we introduce a new notion of separability for module categories and tensor categories that provides the right setting for generalizing the results of M\"uger and Etingof--Nikshych--Ostrik to characteristic $p$.  This theory is a generalization of the classical notion of a separable algebra \cite{???}.   This section was inspired by a suggestion of Ostrik, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
 
 \begin{definition}
 	Let $A$ be an algebra object in a finite tensor category $\cC$. The multiplication map $\mu: A \otimes A \to A$ may be viewed as a morphism of $A$-$A$-bimodule objects in $\cC$. We will say that $A$ is {\em separable} if the multiplication map splits as a map of $A$-$A$-bimodules. 
@@ -1857,7 +1857,7 @@ In this section, we introduce a new notion of separability for algebra objects, 
 \end{remark}
 
 \begin{remark}
-	When $\cC = \Vect_k$, then a separable algebra $A$ is separable in the classical sense. Over a perfect field --- such as a finite field, an algebraically closed field, or a field of characteristic zero --- this is equivalent to $A$ being a finite dimensional semisimple $k$-algebra; more generally it is a stronger condition. 
+	When $\cC = \Vect_k$, the notion of a separable algebra object $A$ in $\cC$ is the same notion as a separable algebra in the classical sense (that is, an algebra $A$ that is projective as an $A$--$A$ bimodule). Over a perfect field --- such as a finite field, an algebraically closed field, or a field of characteristic $0$ --- the algebra $A$ being separable is equivant to $A$ being a finite-dimensional semisimple $k$-algebra; more generally it is a stronger condition. 
 	\CSP{get references to classical notion of separability}
 \end{remark}
 
@@ -1865,7 +1865,7 @@ In this section, we introduce a new notion of separability for algebra objects, 
 	Let $\cC$ be a finite semisimple tensor category and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
 	\begin{enumerate}
 		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is a separable algebra in $\cC$;
-		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is an algebra in $\cC$ which is projective as an $A$-$A$-bimodule;
+		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is an algebra in $\cC$ that is projective as an $A$-$A$-bimodule;
 		\item The identity functor is a projective object of $\Fun_\cC(\cM, \cM)$;
 		\item $\Fun_\cC(\cM, \cM)$ is a semisimple category. 
 	\end{enumerate}
