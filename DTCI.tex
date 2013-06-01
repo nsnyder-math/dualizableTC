@@ -1703,37 +1703,6 @@ Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-mo
 
 We will be particularly interested in the modules $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC \boxtimes \cC^\mp} \cC$ obtained by applying this procedure to the identity bimodule ${}_\cC \cC_\cC$.  Note that if you move both actions on ${}_\cC \cC_\cC$ to the opposite side, you obtain a bimodule ${}_{\cC^\mp}\cC_{\cC^\mp}$, which is in fact the identity bimodule on $\cC^\mp$.
 
-A key property of the relative Deligne tensor product is that tensoring with ${}_{\cD \boxtimes \cD^\mp} \cD$ implements the above process of moving a $\cD$ action on the right to a $\cD^\mp$ action on the left.  The following lemma makes this precise.
-
-\begin{lemma}
-Suppose that $\cM$ is a $\cC$--$\cD$ bimodule, then $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is naturally equivalent as a $\cC \boxtimes \cD^\mp$ module category to ${}_{\cC \boxtimes \cD^\mp}\cM$.
-\end{lemma}
-\begin{proof}
-%The map interchanging the latter two tensor factors gives an equivalence between $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ and $\cM \boxtimes_\cD \cD \boxtimes_\cD \cD$.  The latter is clearly identified with $\cM$.
-%The tensor $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is certainly equivalent as a left $\cC \boxtimes \cD^\mp$ module to $\cM \boxtimes_\cD ({}_{\cD \boxtimes \cD^\mp} \cD)$, which in turn can be identified with ${}_{\cC \boxtimes \cD^\mp}\cM$.
-The following functor has an essentially unique structure of a $\cD \boxtimes \cD^\mp$-balanced $\cC \boxtimes \cD^\mp$-module functor:
-\begin{align*}
-	\cM \times \cD^\mp \times \cD & \to \cM \\
-	(m, d, e) & \mapsto m \otimes e \otimes d.
-\end{align*}
-This induces the desired isomorphism from the relative Deligne tensor product. 
-\end{proof} %\CD{Not sure if that is sufficient.} 
-%\CSP{How is this?}
-
-\nid Of course, a similar argument shows that tensoring with ${}_\Vec \cC_{\cC \boxtimes \cC^\mp}$ implements the process of moving a $\cC$ action on the left to a $\cC^\mp$ action on the right. 
-This procedure can be generalized to move individual tensor factors from one side of a bimodule to the other.
-
-\begin{lemma}
-Suppose that $\cM$ is a $\cC$--$(\cD \boxtimes \cE)$ bimodule.  There is a natural equivalence of bimodule categories
-$${}_{\cC \boxtimes \cE^\mp} (\cM \boxtimes \cE^\mp) \boxtimes_{\cD \boxtimes \cE \boxtimes \cE^\mp} (\cD \boxtimes \cE)_\cD \simeq {}_{\cC \boxtimes \cE^\mp}M_\cD.$$
-\end{lemma}
-
-\nid A similar statement holds beginning with a $(\cC \boxtimes \cD)$--$\cE$ bimodule and moving the $\cC$-factor to the right.  The following corollary of this pair of lemmas will come in handy when we consider dualizability of tensor categories.
-
-\begin{corollary}
-${}_\cC (\cC \boxtimes (\cC_{\cC^\mp \boxtimes \cC})) \boxtimes_{\cC \boxtimes \cC^\mp \boxtimes \cC} (({}_{\cC \boxtimes \cC^\mp} \cC) \boxtimes \cC)_\cC$ is the trivial $\cC$--$\cC$ bimodule ${}_\cC \cC_\cC$.
-\end{corollary}
-
 Just as modules over algebras can be twisted by algebra maps, we can twist module categories by tensor functors.
 
 \begin{definition}
@@ -1985,7 +1954,7 @@ Without loss of generality, assume that $\cM$ is indecomposable.  By \cite{???},
 
 \section{Dualizability} \label{sec-dualfusion}
 
-In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all $1$-morphisms and $2$-morphisms.  First we show that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a substantive result: Lemma \ref{Lma:FunctorsAsATensorPdt} which rewrites certain Deligne tensor products as functor categories (generalizing \cite{???}).  This step is analogous to the fact that the proof of dualizability for finite dimensional vector spaces requires the isomorphism between tensor product and maps $V \otimes V^* \cong \End(V)$.  Finally, the adjoint of a $2$-morphism is given by writing it as a matrix in the basis of simples and transposing that matrix.  This step also requires a substantive result, namely that $\TCsep$ really is a subcategory of $\TC$, a generalization of M\"uger's result on semisimplicity of Drinfel'd centers.
+In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.  First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^* \cong \End(V)$.  Finally, the adjoint of a $2$-morphism is given by writing it as a matrix in the basis of simples and transposing that matrix.  This step also requires work, specifically to see that $\TCsep$ really is a subcategory of $\TC$---this generalizes of M\"uger's result on the semisimplicity of Drinfel'd centers.
 
 Since we have explicit formulas for the dualizing data, we can get explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  We give many such examples.
 
@@ -1995,16 +1964,49 @@ Separability is not required in the proof of $2$-dualizability, so we get a $2$-
 
 In this section we show that $\cC^\mp$ is the dual of $\cC$.  This follows quickly from the definition of Deligne tensor product and does not depend on any substantial theorems about finite tensor categories.
 
-\begin{theorem} \label{thm:objduals}
-The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{\cC \boxtimes \cC^\mp} \cC_{\Vec}$ (each with the obvious actions) give the coevaluation and evaluation of a duality.
-\end{theorem}
-\begin{proof}
-We need to check that the tensor product ${}_\cC (\cC \boxtimes \cC) \boxtimes_{\cC \boxtimes \cC^{\mp} \boxtimes \cC} (\cC \boxtimes \cC)_\cC$ is trivial as a $\cC$--$\cC$ bimodule.  This tensor product is universal for $\cC \boxtimes \cC^{\mp} \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,byc,z,w)$ and the left action is given by $(x,y,azb,cw)$.  Switching the middle two factors, we see that this tensor product is universal for $\cC \boxtimes \cC \boxtimes \cC$-balanced functors out of $\cC \boxtimes \cC \boxtimes \cC \boxtimes \cC$ where the right action of $(a,b,c)$ on $(x,y,z,w)$ is given by $(xa,y, bzc, w)$ and the left action is given by $(x, ayb, z,cw)$.  But this is just the universal property of $\cC \boxtimes_\cC \cC \boxtimes_\cC \cC \boxtimes_\cC \cC$ which is naturally identified with $\cC$.  The other calculations are similar.
-\end{proof}  \NS{This proof abuses notation quite a bit.  We should improve the description} \CD{I think a key fact that is used in the proof is that the Deligne tensor has the property that a left $\cC \boxtimes \cD^\mp$ module can be turned into a $\cC$-$\cD$ bimodule and vice verse.  Getting this into the proof might be good and might also resolve the notational fuzziness.}
+A key property of the relative Deligne tensor product is that tensoring with ${}_{\cD \boxtimes \cD^\mp} \cD$ implements the above process of moving a $\cD$ action on the right to a $\cD^\mp$ action on the left.  The following lemma makes this precise.
 
-\begin{proposition}
-	$\TC$ is $1$-dualizable. 
+\begin{lemma} \label{lemma-actionswitch}
+Suppose that $\cM$ is a $\cC$--$\cD$ bimodule, then $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is naturally equivalent as a $\cC \boxtimes \cD^\mp$ module category to ${}_{\cC \boxtimes \cD^\mp}\cM$.
+\end{lemma}
+\begin{proof}
+%The map interchanging the latter two tensor factors gives an equivalence between $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ and $\cM \boxtimes_\cD \cD \boxtimes_\cD \cD$.  The latter is clearly identified with $\cM$.
+%The tensor $(\cM \boxtimes \cD^\mp) \boxtimes_{\cD \boxtimes \cD^\mp} ({}_{\cD \boxtimes \cD^\mp} \cD)$ is certainly equivalent as a left $\cC \boxtimes \cD^\mp$ module to $\cM \boxtimes_\cD ({}_{\cD \boxtimes \cD^\mp} \cD)$, which in turn can be identified with ${}_{\cC \boxtimes \cD^\mp}\cM$.
+The following functor has an essentially unique structure of a $\cD \boxtimes \cD^\mp$-balanced $\cC \boxtimes \cD^\mp$-module functor:
+\begin{align*}
+	\cM \times \cD^\mp \times \cD & \to \cM \\
+	(m, d, e) & \mapsto m \otimes e \otimes d.
+\end{align*}
+This induces the desired isomorphism from the relative Deligne tensor product. 
+\end{proof} %\CD{Not sure if that is sufficient.} 
+%\CSP{How is this?}
+
+\nid Of course, a similar argument shows that tensoring with ${}_\Vec \cC_{\cC \boxtimes \cC^\mp}$ implements the process of moving a $\cC$ action on the left to a $\cC^\mp$ action on the right. 
+This procedure can be generalized to move individual tensor factors from one side of a bimodule to the other.
+
+\begin{lemma} \label{lemma-actionpartialswitch}
+Suppose that $\cM$ is a $\cC$--$(\cD \boxtimes \cE)$ bimodule.  There is a natural equivalence of bimodule categories
+$${}_{\cC \boxtimes \cE^\mp} (\cM \boxtimes \cE^\mp) \boxtimes_{\cD \boxtimes \cE \boxtimes \cE^\mp} (\cD \boxtimes \cE)_\cD \simeq {}_{\cC \boxtimes \cE^\mp}M_\cD.$$
+\end{lemma}
+
+\nid A similar statement holds beginning with a $(\cC \boxtimes \cD)$--$\cE$ bimodule and moving the $\cC$-factor to the right.  The following corollary of this pair of lemmas will come in handy when we consider dualizability of tensor categories.
+
+\begin{proposition} \label{thm:objduals}
+The bimodule categories ${}_\mathrm{\Vec} \cC_{\cC^\mp \boxtimes \cC}$ and ${}_{\cC \boxtimes \cC^\mp} \cC_{\Vec}$ are the coevaluation and evaluation of a duality between $\cC$ and $\cC^\mp$.
 \end{proposition}
+\begin{proof}
+An application of Lemma~\ref{lemma-actionswitch} and an application of Lemma~\ref{lemma-actionpartialswitch} combine to show that
+\[
+{}_\cC (\cC \boxtimes (\cC_{\cC^\mp \boxtimes \cC})) \boxtimes_{\cC \boxtimes \cC^\mp \boxtimes \cC} (({}_{\cC \boxtimes \cC^\mp} \cC) \boxtimes \cC)_\cC
+\simeq
+{}_\cC \cC_\cC.
+\]
+The other zig-zag is similar.
+\end{proof}
+
+\begin{corollary}
+	$\TC$ is $1$-dualizable. 
+\end{corollary}
 
 %%%
 
