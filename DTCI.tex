@@ -1258,6 +1258,66 @@ With the preceding conventions in place, observe the following:
 
 	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. 
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
+
+\begin{warning}
+	Unless otherwise stated {\bfseries all linear functors considered in this paper are  right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
+\end{warning}
+
+We will also tacitly assume that all of our linear categories satisfy a certain finiteness condition, which we will describe momentarily. Unlike the right exactness assumption and the rigidity assumption (described later), this finiteness assumption is not essential for defining either the standard nor the relative Deligne tensor product of linear categories\footnote{The standard Deligne tensor product of abelian categories exists for any abelian categories which arise as `homotopy colimits' of finite abelian categories. It exists in complete generality if we relax the assumption that our categories are {\em abelian} and replace it with the assumption that they are {\em finitely cocomplete} \cite{1212.1545}.}. However this finiteness assumption permit us to give an explicit and simple 
+description of these tensor products of categories, while also simplify the proof of its existence (see section \ref{sec-tc-deligne}). It would be interesting to have non-finite examples which make a compelling case for extending our results to more general linear categories.  
+
+\begin{definition} % This is from EGNO Definition 1.18.2.
+	A linear category $\cC$ is {\em finite} if 
+	\begin{enumerate}
+		\item $\cC$ has finite dimensional spaces of morphisms;
+		\item every object of $\cC$ has finite length;
+		\item $\cC$ has enough projectives%, i.e. every simple object of $\cC$ has a projective cover
+		; and
+		\item there are finitely many isomorphism classes of simple objects.  
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
+\end{proposition}
+%\CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
+\begin{proof}
+	It is clear that every linear category of the form $\Mod{A}{}$ for a finite dimensional $k$-algebra $A$ satisfies the above properties. % The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite dimensional algebra over a field is semiperfect.
+	In the other direction, assume that $\cC$ is finite. Let $\{X_i\}$ denote a family of representatives for the finitely many isomorphism classes of simples. Let $P_i \to X_i$ be an epimorphism with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite dimensional, $A$ is a finite dimensional algebra. 
+	
+We have an adjunction, which we will show is an equivalence:
+	\begin{equation*}
+		P \otimes_A (-):\Mod{A}{} \leftrightarrows \cC: \Hom_{\cC}(P,-).
+	\end{equation*}
+	The left adjoint is given by $P \otimes_A M = \coeq\{ P \otimes A \otimes M \rightrightarrows P \otimes M\}$. 
+The composite 
+\begin{equation*}
+	\Hom_{\cC}(P, P \otimes_A M) \cong \Hom_{\cC}(P, P) \otimes_A M \cong M
+\end{equation*}
+ is equivalent to the identity functor. It only remains to show that the counit 
+\begin{equation*}
+	ev:P \otimes_A \Hom_{\cC}(P, X) \to X
+\end{equation*}
+is an equivalence for every $X$. The counit becomes an equivalence after applying $\Hom_{\cC}(P,-)$, and so the desired result would follow if we knew $\Hom_{\cC}(P,-)$ reflects isomorphisms. 
+
+As $P$ is a projective object the functor $\Hom_{\cC}(P,-)$ is exact, and so the fact that it reflects isomorphisms is equivalent to that statement that for all $X$, 
+\begin{equation*}
+	\Hom_{\cC}(P,X) \cong 0 \quad \textrm{ if and only if } \quad X \cong 0.
+\end{equation*} 
+By construction this holds for all simple objects (and zero objects). We prove that it holds for all objects by induction on the length. 
+
+Suppose that $X$ is an object of $\cC$ and, by induction, that for all objects $Y$ with length strictly less than the length of $X$, we know $\Hom_{\cC}(P,Y) \cong 0$ if and only if $Y \cong 0$. By assumption there exists an exact sequence in $\cC$
+\begin{equation*}
+	0 \to X' \to X \to X'' \to 0
+\end{equation*}
+with $X''$ simple, and with the length of $X'$ strictly less than $X$. Applying the exact functor $\Hom_{\cC}(P,-)$ we obtain an exact sequence:
+\begin{equation*}
+	0 \to \Hom_{\cC}(P,X') \to \Hom_{\cC}(P,X) \to \Hom_{\cC}(P,X'') \to 0
+\end{equation*}
+If the middle term is zero, then all terms vanish. By our induction hypothesis, we conclude that $X'' \cong X' \cong 0$, and hence $X$ itself was zero. In other words, $\Hom_{\cC}(P,-)$ reflects isomorphisms and realizes an equivalence of linear categories $\cC \simeq \Mod{A}{}$.
+\end{proof}
+
+
 	
 More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
 \begin{equation*}
@@ -1265,9 +1325,7 @@ More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories the
 \end{equation*}
 such that $F$ is linear in each variable separately. A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
 
-\begin{warning}
-	Unless otherwise stated {\em all linear functors considered in this paper are {\bf right exact} functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the construction that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
-\end{warning}
+
 
 \CSP{The definition of tensor category should include rigid too, I think. Also finite. And the definition of finite should be moved here.}
 \begin{definition}
@@ -1418,58 +1476,6 @@ In this section we will quickly recall the definition and some of the key proper
 
 The Deligne tensor product is easiest to define for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
 
-\CSP{I am tempted to move the part about finite linear categories to the section on linear categories.}
-
-\begin{definition} % This is from EGNO Definition 1.18.2.
-	A linear category $\cC$ is {\em finite} if 
-	\begin{enumerate}
-		\item $\cC$ has finite dimensional spaces of morphisms;
-		\item every object of $\cC$ has finite length;
-		\item $\cC$ has enough projectives%, i.e. every simple object of $\cC$ has a projective cover
-		; and
-		\item there are finitely many isomorphism classes of simple objects.  
-	\end{enumerate}
-\end{definition}
-
-\begin{proposition}
-A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite dimensional modules over a finite dimensional $k$-algebra $A$.
-\end{proposition}
-%\CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
-\begin{proof}
-	It is clear that every linear category of the form $\Mod{A}{}$ for a finite dimensional $k$-algebra $A$ satisfies the above properties. % The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite dimensional algebra over a field is semiperfect.
-	In the other direction, assume that $\cC$ is finite. Let $\{X_i\}$ denote a family of representatives for the finitely many isomorphism classes of simples. Let $P_i \to X_i$ be an epimorphism with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite dimensional, $A$ is a finite dimensional algebra. 
-	
-We have an adjunction, which we will show is an equivalence:
-	\begin{equation*}
-		P \otimes_A (-):\Mod{A}{} \leftrightarrows \cC: \Hom_{\cC}(P,-).
-	\end{equation*}
-	The left adjoint is given by $P \otimes_A M = \coeq\{ P \otimes A \otimes M \rightrightarrows P \otimes M\}$. 
-The composite 
-\begin{equation*}
-	\Hom_{\cC}(P, P \otimes_A M) \cong \Hom_{\cC}(P, P) \otimes_A M \cong M
-\end{equation*}
- is equivalent to the identity functor. It only remains to show that the counit 
-\begin{equation*}
-	ev:P \otimes_A \Hom_{\cC}(P, X) \to X
-\end{equation*}
-is an equivalence for every $X$. The counit becomes an equivalence after applying $\Hom_{\cC}(P,-)$, and so the desired result would follow if we knew $\Hom_{\cC}(P,-)$ reflects isomorphisms. 
-
-As $P$ is a projective object the functor $\Hom_{\cC}(P,-)$ is exact, and so the fact that it reflects isomorphisms is equivalent to that statement that for all $X$, 
-\begin{equation*}
-	\Hom_{\cC}(P,X) \cong 0 \quad \textrm{ if and only if } \quad X \cong 0.
-\end{equation*} 
-By construction this holds for all simple objects (and zero objects). We prove that it holds for all objects by induction on the length. 
-
-Suppose that $X$ is an object of $\cC$ and, by induction, that for all objects $Y$ with length strictly less than the length of $X$, we know $\Hom_{\cC}(P,Y) \cong 0$ if and only if $Y \cong 0$. By assumption there exists an exact sequence in $\cC$
-\begin{equation*}
-	0 \to X' \to X \to X'' \to 0
-\end{equation*}
-with $X''$ simple, and with the length of $X'$ strictly less than $X$. Applying the exact functor $\Hom_{\cC}(P,-)$ we obtain an exact sequence:
-\begin{equation*}
-	0 \to \Hom_{\cC}(P,X') \to \Hom_{\cC}(P,X) \to \Hom_{\cC}(P,X'') \to 0
-\end{equation*}
-If the middle term is zero, then all terms vanish. By our induction hypothesis, we conclude that $X'' \cong X' \cong 0$, and hence $X$ itself was zero. In other words, $\Hom_{\cC}(P,-)$ reflects isomorphisms and realizes an equivalence of linear categories $\cC \simeq \Mod{A}{}$.
-\end{proof}
 
 Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the internal Hom for module categories \cite{MR1976459}.
 
