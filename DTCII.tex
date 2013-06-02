@@ -299,7 +299,7 @@ By Proposition~\ref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ 
 \subsection{By the group $SO(2)$}
 
 \begin{prop} \label{prop-so2action}
-The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,E)$, where $S: S^1 \ra \Aut(X)$ is a map and $E$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction applied to $S$.  More precisely, the space of $SO(2)$ actions on $X$ is homotopy equivalent to the homotopy pullback $\Omega \Aut(X) \times_{\Omega^2 \Aut(X)} \ast$, where the map is $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
+The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes of pairs $(S,W)$, where $S: S^1 \ra \Aut(X)$ is a map and $W$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction applied to $S$.  More precisely, the space of $SO(2)$ actions on $X$ is homotopy equivalent to the homotopy pullback $\Omega \Aut(X) \times_{\Omega^2 \Aut(X)} \ast$, where the map is $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
 \end{prop}
 % The construction of q really does provide a map from \Omega \Aut(X) to \Omega^2 \Aut(X) so the statement of the proposition makes sense.
 \begin{proof}
@@ -639,11 +639,11 @@ This follows by combining Proposition~\ref{prop-borptrunc} and Lemma~\ref{lemma-
 \subsection{By the group $SO(3)$}
 
 \begin{theorem} \label{thm-so3action}
-The homotopy classes of $SO(3)$ actions on a 3-type $X$ are the homotopy classes of triples $(S,R,E)$, where 
+The homotopy classes of $SO(3)$ actions on a 3-type $X$ are the homotopy classes of triples $(S,R,W)$, where 
 \begin{itemize}
 \item $S: S^1 \ra \Aut(X)$ is a based loop of automorphisms of $X$,
 \item $R: D^2 \ra \Aut(X)$ is a null homotopy of $S \ast S: S^1 \ra \Aut(X)$, the pointwise (that is, automorphism) square of $S$,
-\item $E: D^3 \ra \Aut(X)$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction~\eqref{eq-q} applied to $S$,
+\item $W: D^3 \ra \Aut(X)$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction~\eqref{eq-q} applied to $S$,
 \end{itemize}
 such that
 \begin{itemize}
@@ -879,14 +879,14 @@ The desired equation $\Sigma p = -q$ follows if $\Sigma p + q = 0$, which follow
 
 \nid Thanks to this lemma we can \emph{pick} a homotopy, call it $H$, between $\Sigma p: S^3 \ra \Sigma \RP^2$ and $\inc_*(-q): S^3 \ra \Sigma \RP^2$.  Note well that this homotopy is not well defined---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between construction~\eqref{eq-p} and the negative of construction~\eqref{eq-q}, and therefore, for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, between the map $p(S,R): S^2 \ra \Aut(X)$ and the map $-q(S): S^2 \ra \Aut(X)$.
 
-Equipped with this homotopy, we can complete the description of the map from $SO(3)$ to the automorphisms of $X$.  Recall from Theorem~\ref{thm-so3action} that a homotopy $SO(3)$ action on a 3-type $X$ is defined by a triple $(S,R,E)$, where $S: S^1 \ra \Aut(X)$, $R: D^2 \ra \Aut(X)$ is a null homotopy of the square of $S$, and $E: D^3 \ra \Aut(X)$ is a null homotpoy of $q(S)$.
+Equipped with this homotopy, we can complete the description of the map from $SO(3)$ to the automorphisms of $X$.  Recall from Theorem~\ref{thm-so3action} that a homotopy $SO(3)$ action on a 3-type $X$ is defined by a triple $(S,R,W)$, where $S: S^1 \ra \Aut(X)$, $R: D^2 \ra \Aut(X)$ is a null homotopy of the square of $S$, and $W: D^3 \ra \Aut(X)$ is a null homotpoy of $q(S)$.
 \begin{proposition} \label{prop-so3map}
-Given a homotopy $SO(3)$ action on a 3-type $X$, defined by the triple $(S,R,E)$, the associated map of spaces $SO(3) \ra \Aut(X)$ is given on the 1-, 2-, and 3-cells of $SO(3)$ by, respectively, the map $S: S^1 \ra \Aut(X)$, the map $R: D^2 \ra \Aut(X)$, and the map $F: D^3 \ra \Aut(X)$, a null homotopy of $p(S,R): S^2 \ra \Aut(X)$ defined by $F:=H \cdot (-E)$.
+Given a homotopy $SO(3)$ action on a 3-type $X$, defined by the triple $(S,R,W)$, the associated map of spaces $SO(3) \ra \Aut(X)$ is given on the 1-, 2-, and 3-cells of $SO(3)$ by, respectively, the map $S: S^1 \ra \Aut(X)$, the map $R: D^2 \ra \Aut(X)$, and the map $M: D^3 \ra \Aut(X)$, a null homotopy of $p(S,R): S^2 \ra \Aut(X)$ defined by $M:=H \cdot (-W)$.
 \end{proposition}
-\nid Here $-E: D^3 \ra \Aut(X)$ refers to the null homotopy of $-q(S)$ obtained by reflecting the null homotopy $E: D^3 \ra \Aut(X)$ across an axis, and $H$ is the homotopy defined above between $p(S,R)$ and $-q(S)$.  We leave the proof to the reader, with the note that the ambiguity in the choice of the homotopy $H$ does not affect the homotopy class of the resulting map $SO(3) \ra \Aut(X)$ precisely because of the fact that for a homotopy $SO(3)$ action, the map $\frac{\eta q}{2}: S^3 \ra \Aut(X)$ is null.
+\nid Here $-W: D^3 \ra \Aut(X)$ refers to the null homotopy of $-q(S)$ obtained by reflecting the null homotopy $W: D^3 \ra \Aut(X)$ across an axis, and $H$ is the homotopy defined above between $p(S,R)$ and $-q(S)$.  We leave the proof to the reader, with the note that the ambiguity in the choice of the homotopy $H$ does not affect the homotopy class of the resulting map $SO(3) \ra \Aut(X)$ precisely because of the fact that for a homotopy $SO(3)$ action, the map $\frac{\eta q}{2}: S^3 \ra \Aut(X)$ is null.
 
 \begin{remark}
-Though there is no a priori reason for this to be the case, it turns out that the map of spaces $SO(3) \ra \Aut(X)$ already contains all the information of a homotopy $SO(3)$ action on $X$.  More specifically, a map $SO(3) \ra \Aut(X)$ is given by a triple $(S, R, F)$, where $S$ is a map $S^1 \ra \Aut(X)$, $R$ is a null homotopy of $2S$, and $F$ is a null homotopy of $p(S,R)$; this triple deloops (and if it does deloops uniquely) to a homotopy $SO(3)$ action if and only if $\frac{\eta q}{2}(S,R) = 0$.
+Though there is no a priori reason for this to be the case, it turns out that the map of spaces $SO(3) \ra \Aut(X)$ already contains all the information of a homotopy $SO(3)$ action on $X$.  More specifically, a map $SO(3) \ra \Aut(X)$ is given by a triple $(S, R, M)$, where $S$ is a map $S^1 \ra \Aut(X)$, $R$ is a null homotopy of $2S$, and $M$ is a null homotopy of $p(S,R)$; this triple deloops (and if it does deloops uniquely) to a homotopy $SO(3)$ action if and only if $\frac{\eta q}{2}(S,R) = 0$.
 \end{remark}
 
 \begin{remark}
