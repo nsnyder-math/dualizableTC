@@ -1616,6 +1616,7 @@ where the first map is given by the coevaluation, the second map is $f_{c^*,m}$,
 
 \NScomm{[Insert diagram here]}
 \CSP{Where are these diagrams?}
+\NS{They haven't been made, they're just string diagrams for the calculations immediately preceding.}
 
 We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagram illustrates this calculation.
 
@@ -1775,7 +1776,7 @@ as $\cD$-$\cE$ bimodule categories.  These bimodule category equivalences are a 
 Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC \boxtimes \cD^\mp})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor. \NS{Someone should double-check left vs. right here}
 \end{warning}
 
-Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemma concerning module categories of this type. 
+Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemma concerning module categories of this type based on \cite{0404504}[\S 3].
 
 \begin{lemma}
 	Let $A$ and $B$ be algebra objects in the tensor category $\cC$. Let $M$ be an $A$-$B$-bimodule (which is, in particular, an object in $\cC$). Then ${}^{**}A$ and $B^{**}$ are naturally algebra object of $\cC$, $M^*$ is naturally a $B^{**}$-$A$-bimodule, and ${}^*M$ is naturally a $B$-${}^{**}A$-bimodule. Moreover these identifications induce equivalences of linear categories:
@@ -2671,7 +2672,7 @@ Thus we have the following equivalent formuls for the values of certain bordisms
 
 TABLE
 
-In particular, by the calculations above we see that $\cC$ can be identified with $A$-mod, while the square of the Serre can be identified with $A^{**}$-mod.  Hence giving a trivialization of the square of the Serre is the same thing as giving a Morita equivalence between $A$ and $A^{**}$.  The trivialization given by ENO comes from the Morita equivalence ${}_A A^*_{A^{**}}$
+In particular, by the calculations above we see that $\cC$ can be identified with $A$-mod, while the square of the Serre can be identified with $A^{**}$-mod.  Hence giving a trivialization of the square of the Serre is the same thing as giving a Morita equivalence between $A$ and $A^{**}$.  The trivialization given by ENO comes from the Morita equivalence ${}_{A^{**}} A^*_{A}$
 
 We now need to compare this to our Radford isomorphism.  In order to do this we will need one more calculation corresponding to the following bordism.
 
@@ -2681,12 +2682,12 @@ IMAGE
 The counit map $A^{**}\text{-mod-}A \rightarrow \Vec$ is given by $M \mapsto \Hom_{A^{**}\text{-mod-}A}(M, A^*)^\vee$.  In other words, it is left adjoint to the map $\Vec \rightarrow A^{**}\text{-mod-}A$ given by tensoring with $A^*$.
 \end{lemma}
 \begin{proof}
-Under the identifications of $\text{mod-}A$ with $\cC$ and $A^{**}\text{-mod}$ with $\Fun(\cC, \Vec)$ the counit $A^{**}\text{-mod} \boxtimes_{\cC \boxtimes \cC^\mp} \text{mod-}A$ is given by $x \boxtimes y \mapsto \Hom_{\text{mod-}A}(x, {}^*y)^\vee$.  In order to check that this agrees with the map $M \mapsto \Hom_{A\text{-mod-}A^{**}}(M, A^*)^*$ it is enough to show that these two maps agree on the projective generator $A \boxtimes A^{**}$.  Here the definition yields $\Hom_{A\text{-mod}}(A, A*)^\vee$, but by Frobenius reciprocity this is the same as $\Hom_{A\text{-mod-}A^{**}}(A \boxtimes A^{**}, A*)^\vee$ which is what we wanted to prove.
+Under the identifications of $\text{mod-}A$ with $\cC$ and $A^{**}\text{-mod}$ with $\Fun(\cC, \Vec)$ the counit $A^{**}\text{-mod} \boxtimes_{\cC \boxtimes \cC^\mp} \text{mod-}A$ is given by $x \boxtimes y \mapsto \Hom_{\text{mod-}A}(y, {}^*x)^\vee$.  In order to check that this agrees with the map $M \mapsto \Hom_{A^{**}\text{-mod-}A}(M, A^*)^\vee$ it is enough to show that these two maps agree on the projective generator $A^{**} \boxtimes A$.  Here the definition yields $\Hom_{\text{mod}-A}(A, A*)^\vee$, but by Frobenius reciprocity this is the same as $\Hom_{A\text{-mod-}A^{**}}(A \boxtimes A^{**}, A*)^\vee$ which is what we wanted to prove.
 \end{proof}
 
 
 \begin{lemma}
-After identifying $\cC$ with $A$-mod and $\cS$ with $A^{**}$-mod, the Radford isomorphism is given by tensoring with ${}_A A^*_{A^{**}}$.
+After identifying $\cC$ with $A$-mod and $\cS$ with $A^{**}$-mod, the Radford isomorphism is given by tensoring with ${}_{A^{**}} A^*_{A}$.
 \end{lemma}
 \begin{proof}
 Recall that the Radford can be computed by the following composition FORMULA.  Thus by the previous lemma the map $A^{**}\text{-mod} \rightarrow A\text{-mod}$ is given by $X \mapsto X \boxtimes A^* \mapsto X \otimes_A A^*$.
