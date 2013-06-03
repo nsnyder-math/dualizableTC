@@ -1569,8 +1569,28 @@ If it exists, the Deligne tensor product is unique up to equivalence, and this e
 		\end{equation*}
 		\item If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
 	\end{enumerate} 
+\nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.	
 \end{theorem}
-\nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.
+
+\begin{proof}
+	 By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. By Lemma \ref{lma:RigidIsExact}, the natural tensor product functor
+	\begin{equation*}
+		\cM \times \cN \simeq \Mod{A}{}(\cC) \times  \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC)
+	\end{equation*}
+	is $\cC$-balanced and exact in each variable separately. Thus $(2) \Rightarrow$ both  $(1)$ and $(3)$. Thus we wish to show that for any $\cD$ the category of right exact functors $\Mod{A}{B}(\cC) \to \cD$ is naturally equivalent to the category of $\cC$-balanced functors $\cM \times \cN \to \cD$ which are right exact in each variable separately. It is clear that every functor of the former type restricts to one of the later type. 
+	
+The key insight is to note that every object of $X \in \Mod{A}{B}(\cC)$ may be functorially written as a coequalizer of objects in the image of $\cM \times \cN$. Namely we have:
+\begin{equation*}
+	{}_A A \otimes A \otimes X_B \rightrightarrows {}_A A \otimes X_B \to {}_A X_B.
+\end{equation*}	
+Thus every right exact functor and every natural transformation between such functors is determined by its restriction to $\cM \times \cN$. Conversely every $\cC$-balanced functor $F: \cM \times \cN \to \cD$ gives rise to a functor $\overline{F}: \Mod{A}{B}(\cC) \to \cD$; its value on ${}_A X_B$ is defined as the coequalizer:
+\begin{equation*}
+		\overline{F}({}_A X_B) := \coeq \left(  F({}_AA \otimes A, X_B) \rightrightarrows F({}_A A, X_B) \right).
+\end{equation*}
+This establishes (1), (2), and (3).
+% To see that the value on natural transformations is determined we can observe that there is a funcotial splitting of F(A, X) \to F(X)  as B-modules (not as A-B bimodules). This is enough to establish that the natural transformation is derimined by its values on $\cM \times \cN$.
+Part (4) is a standard exercise. 
+\end{proof}
 
 %\begin{remark} \label{rmk:rigidpreservedbytensor}
 %	We may use the case $\cC= \Vect_k$ to rewrite part of the data of a tensor category as a linear category $\cD$ equipped with an object $1 \in \cD$ and a linear functor $\otimes: \cD \boxtimes \cD \to \cD $, together with natural transformations $\alpha$, $\lambda$, and $\rho$, as before. Moreover by Corollary \ref{cor:RigidityViaFunctors} the tensor product of two rigid tensor categories is again rigid. 
@@ -1750,23 +1770,26 @@ verify exactness in each variable separately.
 Thus for general $x$ we begin by considering a pair of exact sequences, the first in $\cM$, the second in $\cN$:
 \begin{align*}
 	m_1 \to m_2 \to m_3 \to 0 \\
-	n_1 \to n_2 \to n_3 \to 0.
+	  n_1 \to n_2 \to n_3 \to 0.
 \end{align*}
 By \cite[Prop. 2.3]{MR2119143} if $y$ is a projective object in a finite tensor category then ${}^*y$ is also projective. Thus by Theorem \ref{Thm:ExactModCatOmnibus}.(2) each of the objects ${}^*p \otimes m_i$ and ${}^*q \otimes n_i$ are injective. Hence so is 
 \begin{equation*}
 	z_i :=  ({}^*p \otimes m_i) \boxtimes ({}^*q \otimes n_i).
 \end{equation*}
+Since tensoring with objects of $\cC$ is exact (tensoring with an appropriate dual gives a right adjoint) as is the deligne tensor product, we have an exact sequence of injective objects of $\cM \boxtimes \cN$
+
 Finally it follows from Theorem \ref{thm:EGNO2.11.6} that for every object $x \in \cM \boxtimes \cN$ there exists a short exact sequence
 \begin{equation*}
 	0 \to x'' \to x' \to x \to 0
 \end{equation*}
  such that $x'$ is a finite direct sum of objects of the form $m \boxtimes n$. Putting these facts together we obtain the following commutative diagram with exact rows and columns:
+\CSP{I think I don't want zeros on the left-most side. I should double check that they aren't needed.}
 	\begin{center}
 		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1cm,between origins}] {
 		 &[0.5cm] 0 &[1cm] 0 &[1cm] 0 &[0.5cm]  \\ 
-		0 & \Hom(x, z_1) & \Hom(x, z_2) & \Hom(x, z_3) & \\ 
-		0 & \Hom(x', z_1) & \Hom(x', z_2) & \Hom(x', z_3) & 0 \\
-		0 & \Hom(x'', z_1) & \Hom(x'', z_2) & \Hom(x'', z_3) & \\
+		 & \Hom(x, z_1) & \Hom(x, z_2) & \Hom(x, z_3) & \\ 
+		 & \Hom(x', z_1) & \Hom(x', z_2) & \Hom(x', z_3) & 0 \\
+		 & \Hom(x'', z_1) & \Hom(x'', z_2) & \Hom(x'', z_3) & \\
 		& 0 & 0 & 0 & \\
 		};
 		\foreach \sourcerow/ \sourcecol / \targetrow / \targetcol in 
@@ -1774,13 +1797,16 @@ Finally it follows from Theorem \ref{thm:EGNO2.11.6} that for every object $x \i
 			2/2/3/2, 2/3/3/3, 2/4/3/4,  % second row of down arrows
 			3/2/4/2, 3/3/4/3, 3/4/4/4,  % third row of down arrows
 			4/2/5/2, 4/3/5/3, 4/4/5/4,  % fourth row of down arrows
-			2/1/2/2, 2/2/2/3, 2/3/2/4, % first row of horiz arrows
-			3/1/3/2, 3/2/3/3, 3/3/3/4, 3/4/3/5, % second row of horiz arrows
-			4/1/4/2, 4/2/4/3, 4/3/4/4} % third row of horiz arrows
+			%2/1/2/2, 
+			2/2/2/3, 2/3/2/4, % first row of horiz arrows
+			%3/1/3/2, 
+			3/2/3/3, 3/3/3/4, 3/4/3/5, % second row of horiz arrows
+			%4/1/4/2, 
+			4/2/4/3, 4/3/4/4} % third row of horiz arrows
 			\draw [->] (m-\sourcerow-\sourcecol) -- (m-\targetrow-\targetcol);
 		\end{tikzpicture}
 	\end{center}
-A diagram chase (essentially the snake lemma applied to the middle rows) shows that we always have a short exact sequence
+A diagram chase (essentially a variation on the snake lemma applied to the middle rows) shows that we always have a short exact sequence
 \begin{equation*}
 	0 \to \Hom(x, z_1) \to \Hom(x, z_2) \to \Hom(x, z_3) \to 0
 \end{equation*}
@@ -2697,7 +2723,7 @@ The adjoint functors can also be described explicitly as a transpose.  Linear fu
  $\TCsep$ is fully dualizable; separable fusion categories are fully dualizable.
 \end{theorem}
 \begin{proof}
-By Theorem \ref{thm:objduals} all objects in $\TCsep$ has duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms have adjoints.
+By Theorem \ref{thm:objduals} all objects in $\TCsep$ have duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms have adjoints.
 \end{proof}
 
 
