@@ -1678,7 +1678,7 @@ In this section we consider only finite rigid tensor categories.  We summarize E
 	If $\cC$ is semisimple, then $\cM$ is an exact module category if and only if it is semisimple.
 \end{example}
 
-\begin{example}[{\cite[Example 2.6.5]{EGNO}}]
+\begin{example}[{\cite[Example 2.6.5]{EGNO}}] \label{ex:exactness}
 	The finite rigid tensor category $\cC$ is exact when considered as a $\cC$-, $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
 \end{example}
 
@@ -1699,16 +1699,16 @@ The following omnibus theorem summarizes the key properties of exact module cate
 We say that a $\cC$--$\cD$ bimodule category is exact if it is exact as a $\cC \boxtimes \cD^\mp$ module category.
 \end{definition}
 
-\begin{proposition}
+\begin{lemma} \label{lem:adjoint-exactness}
 Suppose that $\cM$ is an exact $\cC$--$\cD$ bimodule category, then $\cM^*$ and ${}^*\cM$ are exact $\cD$--$\cC$ bimodule categories.
-\end{proposition}
+\end{lemma}
 \begin{proof}
-By \cite[Prop. 2.3]{0301027} if $x$ is a projective object in a finite tensor category then ${}^*x$ is also projective.  By \cite[Lemma 3.5]{0301027} in an exact module category all projective objects are injective and vice-versa.  Now consider $x$ and $y$ are projective objects in $\cC$ and $\cD$ and $m^*$ is an arbitrary object in $\cM^*$, and look at $x \cdot m^* \cdot y = ({}^*y \otimes m \otimes {}^*x)^*$.  Since $x$ and $y$ are projective so are ${}^*x$ and ${}^*y$.  Thus, by exactness of $\cM$, we have that ${}^*y \otimes m \otimes {}^*x$ is projective in $\cM$, and hence injective in $\cM$ and so  $({}^*y \otimes m \otimes {}^*x)^*$ is projective in $\cM^*$.  The case of ${}^*\cM$ is similar.
+By \cite[Prop. 2.3]{MR2119143} if $x$ is a projective object in a finite tensor category then ${}^*x$ is also projective.  By \cite[Corollary 3.6]{MR2119143} in an exact module category all projective objects are injective and vice-versa.  Now consider $x$ and $y$ are projective objects in $\cC$ and $\cD$ and $m^*$ is an arbitrary object in $\cM^*$, and look at $x \cdot m^* \cdot y = ({}^*y \otimes m \otimes {}^*x)^*$.  Since $x$ and $y$ are projective so are ${}^*x$ and ${}^*y$.  Thus, by exactness of $\cM$, we have that ${}^*y \otimes m \otimes {}^*x$ is projective in $\cM$, and hence injective in $\cM$ and so  $({}^*y \otimes m \otimes {}^*x)^*$ is projective in $\cM^*$.  The case of ${}^*\cM$ is similar.
 \end{proof}
 
-\begin{proposition}
+\begin{lemma}\label{lem:tensor-exactness}
 If $\cM$ is an exact $\cC$ module category and $\cN$ is an exact $\cD$ module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$ module category.
-\end{proposition}
+\end{lemma}
 \begin{proof}
 \NScomm{Hrm, I think my proof of this may have a hole...}
 \end{proof}
@@ -1979,7 +1979,7 @@ In this section we prove the main theorem, that separable finite tensor categori
 
 Since we have explicit formulas for the dualizing data, we can get explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  We give many such examples.
 
-Separability is not required in the proof of $2$-dualizability, so we get a $2$-dimensional TFT attached to any finite tensor category.  Furthemore, many important $2$-morphisms between finite tensor categories still have adjoints.  In particular, finite tensor categories are Radford objects in $\TC$.
+Separability is not required in the proof of $2$-dualizability, so we get a $2$-dimensional TFT attached to any finite tensor category.  Furthemore, many important $2$-morphisms between finite tensor categories still have adjoints.  In particular, finite tensor categories are Radford objects in $\TC$ in the sense of Definition \ref{def:Radford-Object}.  Any Radford object has an associated Radford isomorphism, and in the case of finite tensor categories we show that this recovers the Radford's theorem on the quadruple dual \cite{MR0407069, MR2097289}.
 
 \subsection{Duals of objects and invariants of elementary 1-framed bordisms} \label{sec:df-objects}
 
@@ -2633,12 +2633,12 @@ If $\cC$ is fully dualizable, then the $1$-morphism ${}_{\Vec} Z(\cC)_{\Vec}$ is
 \NS{Add reference to CSP's thesis}
 \end{proof}
 
-Although module functors between non-separable module categories do not all have adjoints, nonetheless many of the important examples which appear in defining the values of Morse handles do have adjoints.  Morally, this suggests that although finite tensor categories do not give $3$-dimensional TFTs they do give some kind of ``non-compact" TFT which is only defined on certain $3$-dimensional bordisms.  In particular, we now show that finite tensor categories are Radford objects in $\TC$ in the sense of Section ???.
+Although module functors between non-separable module categories do not all have adjoints, nonetheless many of the important examples which appear in defining the values of Morse handles do have adjoints.  Morally, this suggests that although finite tensor categories do not give $3$-dimensional TFTs they do give some kind of ``non-compact" TFT which is only defined on certain $3$-dimensional bordisms.  In particular, we now show that finite tensor categories are Radford objects in $\TC$ in the sense of Definition \ref{def:Radford-Object}.
 
 \begin{lemma}
-Suppose that $\cM$ and $\cN$ are $\cC$--$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a right exact module functor.
+Suppose that $\cM$ and $\cN$ are $\cC$--$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a linear bimodule functor.
 \begin{itemize}
-\item If $\cM$ is exact as a bimodule category (that is, exact as a $\cC \boxtimes \cD^{mp}$ module category), then $\cF$ has a left adjoint in $\TC$.
+\item If $\cM$ is exact as a bimodule category, then $\cF$ has a left adjoint in $\TC$.
 \item If $\cN$ is exact as a bimodule category, then $\cF$ has a right adjoint in $\TC$.
 \end{itemize}
 \end{lemma}
@@ -2657,7 +2657,7 @@ The following bimodule categories are exact:
 \end{itemize}
 \end{lemma}
 \begin{proof}
-The first claim is clear.  The second one is \NScomm{my argument had a hole}.
+The first claim is clear.  For the second one note that $\ev$ is exact (Example \ref{ex:exactness}), so by Lemma \ref{lem:adjoint-exactness} so is $ev^R$, and hence by Lemma \ref{lem:tensor-exactness} so is $\ev \boxtimes \ev^R$.
 \end{proof}
 
 \begin{theorem}
