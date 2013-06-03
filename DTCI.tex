@@ -1832,12 +1832,16 @@ For a bimodule category ${}_\cC \cM_\cD$, let $\cM^*$ denote a $\cD$--$\cC$ bimo
 Similarly, let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underlying category is $\cM^{\op}$ and whose action is given by $d\cdot {}^*m \cdot c := {}^*(c^* \otimes m \otimes d^*)$.  
 \end{definition}
 
-\begin{lemma} \label{lem:adjoint-exactness}
-Suppose that $\cM$ is an exact $\cC$--$\cD$ bimodule category, then $\cM^*$ and ${}^*\cM$ are exact $\cD$--$\cC$ bimodule categories.
+\begin{lemma}
+Suppose that $\cM$ is an exact $\cC$-mod, that $\cF: \cC \rightarrow \cC^\mop$ is an equivalence of tensor categories, and that $\cM^{\op}$ is the mod-$\cC$ given by $m \cdot c = \cF(c) \otimes m$.  Then $\cM^\op$ is an exact mod-$\cC$.
 \end{lemma}
 \begin{proof}
-By \cite[Prop. 2.3]{MR2119143} if $x$ is a projective object in a finite tensor category then ${}^*x$ is also projective.  By \cite[Corollary 3.6]{MR2119143} in an exact module category all projective objects are injective and vice-versa.  Now consider $x$ and $y$ are projective objects in $\cC$ and $\cD$ and $m^*$ is an arbitrary object in $\cM^*$, and look at $x \cdot m^* \cdot y = ({}^*y \otimes m \otimes {}^*x)^*$.  Since $x$ and $y$ are projective so are ${}^*x$ and ${}^*y$.  Thus, by exactness of $\cM$, we have that ${}^*y \otimes m \otimes {}^*x$ is projective in $\cM$, and hence injective in $\cM$ and so  $({}^*y \otimes m \otimes {}^*x)^*$ is projective in $\cM^*$.  The case of ${}^*\cM$ is similar.
+By \cite[Prop. 2.3]{MR2119143} if $x$ is a projective object in a finite tensor category then ${}^*x$ is also projective.  By \cite[Corollary 3.6]{MR2119143} in an exact module category all projective objects are injective and vice-versa.  Now consider $x$ a projective object in $\cC$ and $m$ an arbitrary object in $\cM^\op$, and look at $m \cdot c = \cF(c) \otimes m$.  Since $\cF(c)$ is projective in $\cC^\mop$ it is also injective in $\cC^\mop$, and hence projective in $\cC$.  Hence $\cF(c) \otimes m$ is projective in $\cM$, hence injective in $\cM^\op$, and thus projective in $\cM^\op$.
 \end{proof}
+
+\begin{corollary} \label{cor:adjoint-exactness}
+Suppose that $\cM$ is an exact $\cC$--$\cD$ bimodule category, then $\cM^*$ and ${}^*\cM$ are exact $\cD$--$\cC$ bimodule categories.
+\end{corollary}
 
 
 \begin{definition}
@@ -2741,7 +2745,7 @@ The following bimodule categories are exact:
 \end{itemize}
 \end{lemma}
 \begin{proof}
-The first claim is clear.  For the second one note that $\ev$ is exact (Example \ref{ex:exactness}), so by Lemma \ref{lem:adjoint-exactness} so is $ev^R$, and hence by Lemma \ref{lem:tensor-exactness} so is $\ev \boxtimes \ev^R$.
+The first claim is clear.  For the second one note that $\ev$ is exact (Example \ref{ex:exactness}), so by Corollary \ref{cor:adjoint-exactness} so is $ev^R$, and hence by Theorem \ref{thm:tensor-exactness} so is $\ev \boxtimes \ev^R$.
 \end{proof}
 
 \begin{theorem}
