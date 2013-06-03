@@ -1695,7 +1695,12 @@ The following omnibus theorem summarizes the key properties of exact module cate
 \end{theorem}
 \CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
 
-
+\begin{proposition}
+If $\cM$ is an exact $\cC$ module category and $\cN$ is an exact $\cD$ module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$ module category.
+\end{proposition}
+\begin{proof}
+\NScomm{Hrm, I think my proof of this may have a hole...}
+\end{proof}
 
 \subsection{Examples of bimodule categories} \label{sec:examples_of_bimods}
 
@@ -2622,7 +2627,7 @@ Although module functors between non-separable module categories do not all have
 \begin{lemma}
 Suppose that $\cM$ and $\cN$ are $\cC$--$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a right exact module functor.
 \begin{itemize}
-\item If $\cM$ is exact as a bimodule category (that is, exact as a $\cC \boxtimes \cD^{mp}$ module category), then $cF$ has a left adjoint in $\TC$.
+\item If $\cM$ is exact as a bimodule category (that is, exact as a $\cC \boxtimes \cD^{mp}$ module category), then $\cF$ has a left adjoint in $\TC$.
 \item If $\cN$ is exact as a bimodule category, then $\cF$ has a right adjoint in $\TC$.
 \end{itemize}
 \end{lemma}
@@ -2636,18 +2641,19 @@ Since $\cF$ is right exact, it has a right adjoint as a functor (which may not i
 \begin{lemma}
 The following bimodule categories are exact:
 \begin{itemize}
-\item $\cC \otimes \cC^*$ as a $\cC \boxtimes \cC^\mp$-bimodule.
-\item $\cC \otimes \cC^\mp$ as a $\cC \boxtimes \cC^\mp$-bimodule.
 \item $\Vec$ as a $\Vec$-bimodule
+\item $\ev \boxtimes \ev^R$ as a $\cC \boxtimes \cC^mp$-bimodule
 \end{itemize}
-
 \end{lemma}
+\begin{proof}
+The first claim is clear.  The second one is \NScomm{My argument had a hole}.
+\end{proof}
 
 \begin{theorem}
 Every object in $\TC$ is a Radford object.
 \end{theorem}
 \begin{proof}
-Since the module categories BLAH and BLAH are exact, the $2$-morphisms BLAH and BLAH have left adjoints.
+We've already seen that $\TC$ is $2$-dualizable.  So we need only show that the unit $u: \cC \boxtimes \cC^\mp \rightarrow \ev \boxtimes \ev^R$ and counit $v: \ev^R \boxtimes_{\cC \boxtimes \cC^\mp} \ev \rightarrow \Vec$ have left adjoints in $\TC$.  This follows immediately from the previous two lemmas.
 \end{proof}
 
 \subsection{The Radford isomorphism of tensor categories}
