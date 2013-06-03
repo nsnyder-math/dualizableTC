@@ -323,23 +323,28 @@ is model invariant. If we pass to an equivalent model of $(\infty,n)$-categories
 	Let $\cC$ be a symmetric monoidal $(\infty,n)$-category. We will say that $\cC$ {\em has adjoints for $k$-morphisms} if $h^{(k-1)}_2 \cC$ has both left and right adjoints for all 1-morphisms. 
 \end{definition}
 Note that when $k=0$, this property is also referred to has ``having duals for objects", because in the bicateogry category $h^{(-1)}_2 \cC$, the notion of having adjoints for 1-morphisms corresponds to the notion of having duals in the monoidal homotopy category of $\cC$.
-\begin{definition}
-A symmetric monoidal $(\infty,n)$-category $\cC$ \emph{has duals} if it has adjoints for $k$-morphisms, for all $0 \leq k \leq n-1$.
-\end{definition}
-This notion of ``having duals" at all levels $0 \leq k \leq n-1$ is also referred to as being ``fully dualizable".  There are corresponding notions of partial dualizability, as follows.
-\begin{definition}
-A symmetric monoidal $(\infty,n)$-category $\cC$ is $k$-dualizable if the maximal sub-$(\infty,k)$-category $\kappa_k \cC$ is fully dualizable.
-\end{definition}
-\NS{I'm not sure I like this definition.  Shouldn't ``has duals" just mean that, you know every object has a dual?  I'd prefer $n$-dualizable or fully dualizable or something.  Or even ``has adjoints."}
-\CD{This is Jacob's original terminology, so we can't redefine ``has duals" at this point (though we can introduce a synonym if we really want to).}
 
-\nid The maximal $n$-dualizable sub-category of a symmetric monoidal $(\infty,n)$-category $\cC$ is called the ``fully-dualizable part" of $\cC$ and is denoted $d\cC$. Its objects are called ``fully-dualizable objects". 
+\begin{definition}
+A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{fully dualizable} if it has adjoints for $k$-morphisms, for all $0 \leq k \leq n-1$.
+A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$k$-dualizable} if the maximal sub-$(\infty,k)$-category $\kappa_k \cC$ is fully dualizable.
+\end{definition}
+%This notion of ``having duals" at all levels $0 \leq k \leq n-1$ is also referred to as being ``fully dualizable".  
+
+
+%There are corresponding notions of partial dualizability, as follows.
+%\NS{I'm not sure I like this definition.  Shouldn't ``has duals" just mean that, you know every object has a dual?  I'd prefer $n$-dualizable or fully dualizable or something.  Or even ``has adjoints."}
+%\CD{This is Jacob's original terminology, so we can't redefine ``has duals" at this point (though we can introduce a synonym if we really want to).}
+
+\noindent The maximal $n$-dualizable sub-category of a symmetric monoidal $(\infty,n)$-category $\cC$ is called the ``fully-dualizable part" of $\cC$ and is denoted $d\cC$. Its objects are called ``fully-dualizable objects". 
+\begin{warning}
+	A fully dualizable symmetric monoidal $(\infty,n)$-category is not the same thing as a fully dualizable object of $\mathrm{SymCat}_{(\infty,n)}$, the symmetric monoidal $(\infty,n+1)$-category of symmetric monoidal $(\infty,n)$-categories. There is no possibility of confusion as we will never have occasion to consider the second sort of object. Being a fully dualizable object of $\mathrm{SymCat}_{(\infty,n)}$ is an extremely restrictive condition. 
+\end{warning}
 
 \begin{example}
 	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. The objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, etc. This symmetric monoidal $(\infty,n)$-category is $n$-, that is fully, dualizable. In the next section we will explore this more thoroughly in the case of tangential framings in dimension three.  
 \end{example}
 
-Since duals are mapped to duals by any functor, any topological field theory with values in a symmetric monoidal $(\infty,m)$-category $\cC$ must take values in $d\cC$ the $n$-dualizable subcategory of $\cC$. In fact we have a much stronger statement:
+Since duals are mapped to duals by any symmetric monoidal functor, any topological field theory with values in a symmetric monoidal $(\infty,m)$-category $\cC$ must take values in $d\cC$ the $n$-dualizable subcategory of $\cC$. In fact we have a much stronger statement:
 
 \begin{theorem}[The Cobordism Hypothesis, framed version {\cite[Thm 2.4.6, Rmk 2.4.8]{lurie-ch}}]
 	Let $\FrBord_n$ denote the symmetric monoidal $(\infty,n)$-category of tangentially framed cobordisms. Then for every symmetric monoidal $(\infty,n)$-category $\cC$ we have a natural equivalence
@@ -707,6 +712,7 @@ $
 $
 }.
 This immersion is certainly isotopic rel boundary to the previous, embedded manifold.
+\CSP{These "inline" tiks figures are gross.}
 
 The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and similarly $ev^R$ has a right adjoint, and so on.  The 1-morphism $coev$ also has an infinite chain of left and right adjoints.  We therefore have two infinite series of adjunctions, as follows:
 \begin{center}
@@ -1140,7 +1146,7 @@ Then the required isomorphisms are given by the following composites:
 \end{proposition}
 
 \begin{proof}
-	Lemma \ref{lem-ambiadjoints} implies that $(ev^L, \varepsilon^L, \eta^L)$ is another right adjoint to $ev$. The formula for the Radford isomorphism comes form the canonical isomorphism between any two given right-adjoints. 
+	Lemma \ref{lem-ambiadjoints} implies that $(ev^L, \varepsilon^L, \eta^L)$ is another right adjoint to $ev$. The formula for the Radford isomorphism comes from the canonical isomorphism between any two given right-adjoints. 
 \end{proof}
 
 
