@@ -70,7 +70,7 @@ An $n$-dimensional topological field theory (TFT), a la Atiyah and Segal \cite{M
 \NS{Should all the TFTs in this paragraph be TQFTs?}
 
 The Turaev--Viro \cite{MR1191386, MR1292673} construction (as generalized by Ocneanu \cite{MR1317353} and Barrett--Westbury \cite{MR1686423}) assigns to any spherical fusion category a 3-dimensional topological field theory.   We would like to think of Turaev--Viro as a local $3$-dimensional TFT.  A natural choice of target $3$-category is $\TC$ (whose whose objects, $1$-morphisms, $2$-morphisms, and $3$-morphisms are tensor categories, bimodule categories, functors, and natural transformations, respectively) which we constructed in \cite{3TC}.  Such a field theory is determined by its value on a point, and we prove that this value can be taken to be any fusion category.  Previous Turaev--Viro constructions assume the given fusion category is spherical, but we relax this assumption by constructing in general not an oriented TFT but a $3$-framed TFT. %; the additional information of a spherical structure ensures that this $3$-framed theory is independent of the $3$-framing.  We also relax the semisimplicity assumption on the fusion category, constructing a local $3$-framed $2$-dimensional TFT for any finite tensor category that has duals for objects.  
-We also avoid several more assumptions that frequently appear in the literature: simplicity of the unit, algebraic closure of the base field, split semisimplicity, and characteristic zero---though in positive characteristic one needs an additional technical assumption which we call {\em separability} (see section \ref{sec-tc-separable}).
+We also avoid several more assumptions that frequently appear in the literature: simplicity of the unit, algebraic closure of the base field, split semisimplicity, and characteristic zero---though in positive characteristic one needs an additional technical assumption which we call {\em separability} (see section \ref{sec:tc-separable}).
 
 The cobordism hypothesis, originally proposed by Baez--Dolan \cite{MR1355899}, but improved and proved by Hopkins and Lurie \cite{0905.0465}, gives an elegant classification of local TFTs (cf. \cite{schommer-pries-thesis} for an alternative approach when $n=2$).  This classification states that an $n$-dimensional $n$-framed local field theory is determined (up to equivalence) by the image of a point, and the possible images of a point are exactly the fully dualizable objects in the target $n$-category.  Furthermore, the $n$-groupoid of fully-dualizable object inherits an $A_\infty$-action of $O(n)$. Other flavors of $n$-dimensional local field theories are classified by certain homotopy fixed points of actions %of certain structure groups 
 on the space of fully dualizable objects induced from this $O(n)$-action. 
@@ -114,12 +114,12 @@ If $\cC$ is a finite rigid tensor category, the image of this bordism provides a
 
 \subsection{Outline and results}
 
-In Section \ref{sec-tc} we rapidly review the theory of finite rigid tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when results from it are applied in the main arguments, or to check notational conventions.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively described in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of entirely new material on separable algebra objects and separable module categories.  
+In Section \ref{sec:tc} we rapidly review the theory of finite rigid tensor categories, bimodule categories, and fusion categories, and we prove several key structural lemmas.  Readers are encouraged to only skim this section on a first reading, referring back to it when results from it are applied in the main arguments, or to check notational conventions.  Most of the material in this section comes from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively described in their lecture notes \cite{EGNO}), but we do need a few new modifications of their results.  Furthermore, there is one subsection of entirely new material on separable algebra objects and separable module categories.  
 
-In Section \ref{sec-lft} we discuss local field theory.  Since $n$-framed bordisms are central to the cobordism hypothesis and therefore to the classification of local field theories, we begin by fixing a convenient notation for $n$-framings and we illustrate the notation with examples.  We also recall the cobordism hypothesis and explain what you can read off about a TFT explicitly from having a fully dualizable object.
+In Section \ref{sec:lft} we discuss local field theory.  Since $n$-framed bordisms are central to the cobordism hypothesis and therefore to the classification of local field theories, we begin by fixing a convenient notation for $n$-framings and we illustrate the notation with examples.  We also recall the cobordism hypothesis and explain what you can read off about a TFT explicitly from having a fully dualizable object.
 %We then introduce a number of $3$-dimensional structure groups that will be particularly important in understanding the field theories associated to fusion and other finite rigid tensor categories.  Then we recall in a bit more detail aspects of the cobordism hypothesis will will need along the way.
 
-In Section \ref{sec-dualfusion} we prove our main result (see Theorem \ref{???} for a more detailed statements).
+In Section \ref{sec:dualfusion} we prove our main result (see Theorem \ref{???} for a more detailed statements).
 
 \CSP{Change the numbering of these theorems to match the correct numbering in the paper.}
 
@@ -172,9 +172,9 @@ Any finite rigid tensor category gives a $2$-framed local $2$-dimensional TFT wh
 The assumptions finite and rigid are probably unneeded in the previous theorem.  We expect that finite can be replaced by locally finite and rigid can be relaxed to the tensor product being biexact.  However, this introduces some technical obstacles which we avoid in this paper.  It's worth noting that you can't relax these two things independently, non-rigid finite tensor categories are not closed under relative tensor product.
 \end{remark}
 
-We give a concrete application of these results in  Section~\ref{sec-serre}.
+We give a concrete application of these results in  Section~\ref{sec:serre}.
 
-% and~\ref{sec-pivot}, focuses on the correspondence between algebraic properties of the tensor categories and topological properties of the corresponding field theories.  We focus particularly on the Serre automorphism, which, roughly speaking, measures the dependence of the field theory on spin structures.
+% and~\ref{sec:pivot}, focuses on the correspondence between algebraic properties of the tensor categories and topological properties of the corresponding field theories.  We focus particularly on the Serre automorphism, which, roughly speaking, measures the dependence of the field theory on spin structures.
 
 \begin{theorem}
 The Serre automorphism of a finite rigid tensor category $\cC$ is the bimodule associated to the double dual functor ${}^{**}(-): \cC \ra \cC$.  %!%Once we adjust all the conventions, this will be the left double dual.
@@ -191,7 +191,7 @@ We then address how this result generalizes to finite rigid tensor categories.  
 The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a finite rigid tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
 \end{corollary}
 
-%In Section \ref{sec-pivot} we discuss TFTs with topological structures other than $3$-framings.  The cobordism hypothesis says that such a TFT corresponds to a dualizable tensor category together with some choice of additional structure.  In particular, we give homotopy invariant generalizations of the notions of sphericality and pivotality and describe the corresponding structure groups and thus the corresponding classes of field theories.  In particular, the following question is a natural topological analog of a question of Etingof--Nikshych--Ostrik.
+%In Section \ref{sec:pivot} we discuss TFTs with topological structures other than $3$-framings.  The cobordism hypothesis says that such a TFT corresponds to a dualizable tensor category together with some choice of additional structure.  In particular, we give homotopy invariant generalizations of the notions of sphericality and pivotality and describe the corresponding structure groups and thus the corresponding classes of field theories.  In particular, the following question is a natural topological analog of a question of Etingof--Nikshych--Ostrik.
 
 %\begin{question}
 %Does every $3$-framed TFT with values in $\TC$ descend to an oriented TFT?
@@ -225,12 +225,12 @@ Finally, the assumptions that we use to get $2$-dualizability (finite and rigid)
 
 We would like to thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Dylan Thurston, and Kevin Walker for helpful conversations.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.  \NS{Anyone else want to add people to the list of non-special thanks?  I feel like one should err on the side of mentioning too many people.}
 
-We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec-tc-separable}.  NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding, among other topics, the structure of the 3-category of tensor categories, the classification of structure spaces in dimension 3,  the homotopy theory of those structure spaces, and the corresponding obstruction theory for structured field theories.
+We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec:tc-separable}.  NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding, among other topics, the structure of the 3-category of tensor categories, the classification of structure spaces in dimension 3,  the homotopy theory of those structure spaces, and the corresponding obstruction theory for structured field theories.
 CSP would like to thank Peter Teichner for several fruitful conversations about the difference between $\Omega \Sigma \RR \PP^2$-actions and $SO(3)\langle p_1 \rangle$-actions. 
 \CD{Most of the acknowledgments now concern content in the other papers.  Perhaps they should shorten here / be less specific, and move to the others?}
 
 
-\section{Local field theory in dimension three} \label{sec-lft}
+\section{Local field theory in dimension three} \label{sec:lft}
 
 
 The Atiyah-Segal axioms define a topological field theory as a symmetric monoidal functor from a category of cobordisms to a target symmetric monoidal category $(\cC, \otimes, 1)$, typically an algebraic target such as the category of vector spaces. 
@@ -928,7 +928,7 @@ If we take the left, that is incoming, cusp of the belt bordism and drag it to t
 
 Given a local topological field theory $\cF$ of dimension at least 2, we can look at the images of these various bordisms. The value of the positively framed point gives a fully dualizable object $x$; the images of the negatively framed point, $ev$, and $coev$ give data witnessing the 1-dualizability of $x$; the images of the two infinite chains of bordisms at the end of the previous section give the values of the various adjoints of $\cF(ev)$ and $\cF(coev)$; the loop bordism induces an automorphism of $a$ which we call the {\em Serre automorphism $\cS_x$}.  This terminology is motivated by the following example.
 \begin{example}[{\cite[Rm. 4.2.4]{lurie-ch}}]
-\NScomm{[Example from Lurie Remark 4.2.4]}
+If $\cC$ is the $(\infty,2)$-category of cocomplete differentially graded categories over a field $k$, and $D$ is a fully dualizable object of $\cC$ consisting of quasi-coherent complexes on a smooth variety $X$, then $\cS_D$ is the Serre functor (which appears in Serre duality) given by tensoring with the canonical line bundle on $X$ and shifting by the dimension of $X$.
 % ... terminology is motivated by the situation where C is the (∞,2)-category of cocomplete differential graded categories over a field k (suitably defined). If D is a fully dualizable object of C which is generated by compact objects, then there is a canonical endofunctor S : D → D (called the Serre functor on D), which is characterized by the existence of natural quasi-isomorphisms
 %MapD(C, S(D)) ≃ MapD(D, C)∨
 %for every pair of compact objects C and D. In the special case where D is the differential graded category of quasi-coherent complexes on a smooth projective variety X, the Serre functor S : D → D is given by tensoring with the canonical line bundle ωX on X and shifting by the dimension of X, and the quasi-isomorphism is provided by Serre duality.
@@ -980,7 +980,7 @@ Any un-based inclusion $A \subseteq B$ can be made into a based inclusion $A_+ =
 We give three examples of how this theorem may be used. In each case $T$ will be a chosen fibrant target, such as $\TC$, and $B = \FrBord_n$ is a cofibrant model of the tangentially framed bordism category.
 
 \begin{example}
-	The cobordism hypthesis ensures that for every $n$-dualizbale object $x \in T$, there is a symmetric monoidal functor $\cF: \FrBord_n \to T$ such that $\cF(pt_+) \simeq x$. Letting $A = \{ pt_+ \}$ be subcategory consisting of just the positively framed point, the above theorem allows us to conclude that there exists an equivalent topological field theory having the value $\cF(pt_+) = x$. 	
+	The cobordism hypthesis ensures that for every $n$-dualizable object $x \in T$, there is a symmetric monoidal functor $\cF: \FrBord_n \to T$ such that $\cF(pt_+) \simeq x$. Letting $A = \{ pt_+ \}$ be subcategory consisting of just the positively framed point, the above theorem allows us to conclude that there exists an equivalent topological field theory having the value $\cF(pt_+) = x$. 	
 %	We know that the functor $(\infty,3)$-category from $X = \FrBord_3$ to a target symmetric monoidal $(\infty,3)$-category $Y$ is equivalent to the $\infty$-groupoid of fully-dualizable objects of $Y$. Letting $A$ be the  for each fully-dualizbale object $y \in Y^{fd}$ there exists a topological field theory which sends the point to $y$ on the nose, not merely to an object equivalent to $y$. 
 \end{example}
 
@@ -1064,14 +1064,15 @@ In the next section we will obtain a similar purely categorical formula for the 
 
 
 \subsection{A categorical formula for the Radford isomorphism} 
-The Radford isomorphism establishes that in a 3-dualizable symmetric monoidal 3-category, not only does the evaluation pairing have both left and right adjoints, but it has an {\em ambidextrous} adjoint---the left and right adjoints are canonically isomorphic. At first glance this seems to be a very surprising fact, as most adjoints encountered in the wild are not ambidextrous. 
-However in higher categories of dimension at least three, this ambidexterity is much more common, and indeed it is automatic given enough dualizability. The following lemma, which is stated in Remark 3.4.22 \cite{lurie-ch}, expresses the key categorical fact that is responsible for the existence of the Radford isomorphism. 
+The cobordism hypothesis says that full dualizability is sufficient to interpret any framed bordism as a morphism.  However, for a particular application you typically only need to interpret a particular bordism, and thus instead of full dualizability, you only need the specific adjoints which come up in the morse decomposition of that bordism.  In this section we work out what weaker dualizability condition is sufficient for the construction of the Radford isomorphism.    The Radford isomorphism establishes that in a 3-dualizable symmetric monoidal 3-category, not only does the evaluation pairing have both left and right adjoints, but it has an {\em ambidextrous} adjoint---the left and right adjoints are canonically isomorphic. 
+%At first glance this seems to be a very surprising fact, as most adjoints encountered in the wild are not ambidextrous. However in higher categories of dimension at least three, this ambidexterity is much more common, and indeed it is automatic given enough dualizability. 
+The following lemma, which is stated in Remark 3.4.22 \cite{lurie-ch}, expresses the key categorical fact that is responsible for the existence of the Radford isomorphism. \NS{I rewrote this paragraph to add some commentary, feel free to edit further.}
 
 
 \begin{lemma} \label{lem-ambiadjoints}
 	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
 \end{lemma}
-\noindent Note that by passing to the category $\cA^{op_1}$ where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is in fact a right adjoint; similarly, passing to the category $\cA^{op_2}$ where 2-morphisms are reversed, the roll of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$; and of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right.
+\noindent Note that by passing to the category $\cA^{op_1}$ where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is in fact a right adjoint; similarly, passing to the category $\cA^{op_2}$ where 2-morphisms are reversed, the role of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$; and of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right.
 \begin{proof}[Proof of Prop.\ref{lem-ambiadjoints}]
 By assumption we are given 3-morphisms,
 \begin{align*}
@@ -1143,17 +1144,22 @@ Then the required isomorphisms are given by the following composites:
 \end{proof}
 
 
-\begin{corollary}
+\begin{corollary} \label{cor:3dualizable-Radford}
 	Any 3-dualizable object in a symmetric monoidal $(\infty,n)$-category admits a canonical Radford isomorphism given by the formula in Proposition~\ref{prop-Cat_Radford}. 
 \end{corollary}
 
+Note that neither Proposition \ref{prop-Cat_Radford} nor Corollary \ref{cor:3dualizable-Radford} depends on the proof of the cobordism hypothesis.
+
 \begin{example}
-	In $\FrBord_n$, when $n \geq 3$, note that the canonical Radford isomorphism of Proposition~\ref{prop-Cat_Radford} is indeed given by the Radford bordism. 
+	In $\FrBord_n$, when $n \geq 3$, note that the canonical Radford isomorphism of Proposition~\ref{prop-Cat_Radford} is indeed given by the Radford bordism.  In particular, Corollary \ref{cor:3dualizable-Radford} can be thought of as giving an explicit proof that $\pi_1(SO(3)) \cong \mathbb{Z}/2$.  Of course, if you unpack this proof it just gives an explicit handle decomposition of the belt bordism.
 \end{example}
 
-\section{Tensor categories} \label{sec-tc}
+\section{Tensor categories} \label{sec:tc}
 
-In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Much of this material, particularly in sections~\ref{sec:tc-lincat},~\ref{sec:tc-bimod}, and~\ref{sec:tc-exact}, is either standard or is due to Etingof, Gelaki, Nikshych, and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  In section~\ref{sec-tc-deligne} we construct a relative Deligne tensor product (Theorem \ref{thm:DelignePrdtOverATCExists}), which is essential for the very definition of the 3-category $TC$, and establish some of its basic properties (particularly Lemma \ref{Lma:FunctorsAsATensorPdt}), which are crucial for our dualizability calculations.  In section~\ref{sec-tc-separable}, we introduce the notion of separable module and tensor categories, based on a suggestion of Ostrik, and in section~\ref{sec-tc-fusion} analyze the separability condition in the context of fusion categories.
+In this section we review the theory of finite tensor categories and some related important definitions and results concerning module categories and the Deligne tensor product.  Much of this material, particularly in sections~\ref{sec:tc-lincat},~\ref{sec:tc-bimod}, and~\ref{sec:tc-exact}, is either standard or is due to Etingof, Gelaki, Nikshych, and Ostrik (\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  In section~\ref{sec:tc-deligne} we construct the relative Deligne tensor product (Theorem \ref{thm:DelignePrdtOverATCExists})
+%, which is essential for the very definition of the 3-category $TC$, 
+and establish some of its basic properties (particularly Lemma \ref{Lma:FunctorsAsATensorPdt}), which are crucial for our dualizability calculations.  This extends the results of \cite{0909.3140} from the case of fusion categories to finite tensor categories, and fixes some holes in \cite{0911.4979}.\NS{Does this language seem reasonable?  I think we have to at least mention Greenough's paper somewhere if only because the referees will be confused otherwise.}
+In section~\ref{sec:tc-separable}, we introduce the notion of separable module and tensor categories, based on a suggestion of Ostrik, and in section~\ref{sec:tc-fusion} we analyze the separability condition in the context of fusion categories.
 
 \subsection{Conventions for duality} \label{sec:conventions}
 
@@ -1257,7 +1263,7 @@ This choice determines the following conventions.
 
 
 
-\subsection{Linear categories and tensor categories} \label{sec-tc-lincat}
+\subsection{Linear categories and tensor categories} \label{sec:tc-lincat}
 
 	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. 
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
@@ -1266,8 +1272,8 @@ A {\em linear functor} is a right exact additive functor, which is also a functo
 	Unless otherwise stated {\bfseries all linear functors considered in this paper are  right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the constructions that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
 \end{warning}
 
-We will also tacitly assume that all of our linear categories satisfy a certain finiteness condition, which we will describe momentarily. Unlike the right exactness assumption and the rigidity assumption (described later), this finiteness assumption is not essential for defining either the standard nor the relative Deligne tensor product of linear categories\footnote{The standard Deligne tensor product of abelian categories exists for any abelian categories which arise as `homotopy colimits' of finite abelian categories. It exists in complete generality if we relax the assumption that our categories are {\em abelian} and replace it with the assumption that they are {\em finitely cocomplete} \cite{1212.1545}.}. However this finiteness assumption permits us to give an explicit and simple 
-description of these tensor products of categories, while also simplify the proof of their existence (see section \ref{sec-tc-deligne}). It would be interesting to have non-trivial non-finite examples which make a compelling case for extending our results to more general linear categories.  
+We will also tacitly assume that all of our linear categories satisfy a certain finiteness condition, which we will describe momentarily. Unlike the right exactness assumption and the rigidity assumption (described later), this finiteness assumption is not essential for defining either the standard nor the relative Deligne tensor product of linear categories \NS{Is this really true for the relative case?}  \footnote{The standard Deligne tensor product of abelian categories exists for any abelian categories which arise as `homotopy colimits' of finite abelian categories. It exists in complete generality if we relax the assumption that our categories are {\em abelian} and replace it with the assumption that they are {\em finitely cocomplete} \cite{1212.1545}.}. However this finiteness assumption permits us to give an explicit and simple 
+description of these tensor products of categories, while also simplify the proof of their existence (see section \ref{sec:tc-deligne}). It would be interesting to have non-trivial non-finite examples which make a compelling case for extending our results to more general linear categories.  
 
 Recall the following standard terminology:
 \begin{itemize}
@@ -1349,7 +1355,7 @@ such that $F$ is linear in each variable separately.
 	A {\em tensor category} is a finite rigid linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor that is also linear. 
 \end{definition}
 
-\noindent Note that we are assuming that all our tensor categories are rigid (see Def. \ref{def:rigid}). This assumption appears to be necessary to define the {\em relative} Deligne product, as well as for several other crucial results. We will explain how this assumption is used in sections \ref{sec-tc-deligne}, \ref{sec-tc-exact}, and \ref{sec-tc-separable}.
+\noindent Note that we are assuming that all our tensor categories are rigid (see Def. \ref{def:rigid}). This assumption appears to be necessary to define the {\em relative} Deligne product \NS{Is it really *necessary*?}, as well as for several other crucial results. We will explain how this assumption is used in sections \ref{sec:tc-deligne}, \ref{sec:tc-exact}, and \ref{sec:tc-separable}.
 
 \begin{example}
 	The category $\Vect_k$ is a tensor category. If $A$ is an algebra in $\Vect_k$, then the categories of finitely presented left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are finite linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also finite linear categories.
@@ -1503,9 +1509,9 @@ Bimodule categories, functors, and transformations form a strict 2-category.  %!
 \end{example}
 
 
-\subsection{The Deligne tensor product and the 3-category of tensor categories} \label{sec-tc-deligne}
+\subsection{The Deligne tensor product and the 3-category of tensor categories} \label{sec:tc-deligne}
 
-In this section we will quickly recall the definition and some of the key properties of the relative Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  The key result in this section is Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that a certain relative Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^* \cong \mathrm{End}(V)$ plays the key role in showing that finite dimensional vector spaces are $1$-dualizable \cite{???}, this lemma plays the key role in proving the $2$-dualizability of finite tensor categories.
+In this section we will quickly recall the definition and some of the key properties of the relative Deligne tensor product, which takes module categories $\cM_\cC$ and ${}_\cC \cN$ and returns a linear category $\cM \boxtimes_\cC \cN$.  The key result in this section is Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that a certain relative Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^\vee \cong \mathrm{End}(V)$ plays the key role in showing that finite dimensional vector spaces are $1$-dualizable \cite[Ex. 1.1.9]{lurie-ch}, this lemma plays the key role in proving the $2$-dualizability of finite tensor categories.
 
 %The Deligne tensor product is easiest to define for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
 
@@ -1661,7 +1667,7 @@ Equipped with the relative Deligne tensor product and its properties, we can now
 	There exists a symmetric monoidal $(3,3)$-category whose objects are the finite rigid tensor categories, whose 1-morphisms are bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule natural transformations. Composition is given by the relative Deligne tensor product of bimodules. The symmetric monoidal structure is given by the usual Deligne tensor product. 
 \end{theorem}
 
-\subsection{Exact module categories and adjoints of module functors} \label{sec-tc-exact}
+\subsection{Exact module categories and adjoints of module functors} \label{sec:tc-exact}
 In this section we consider only finite rigid tensor categories.  We summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  We will see, in particular, that certain module functors have adjoints, which will be necessary when we investigate $3$-dualizability.
 
 \begin{definition}
@@ -1812,11 +1818,10 @@ Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categori
 
 
 
-\subsection{Separability} \label{sec-tc-separable}
+\subsection{Separability} \label{sec:tc-separable}
 In characteristic $0$, the collection of fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik show that functor categories between semisimple module categories over fusion categories are semsimple and hence (because all relative Deligne tensor products can be expressed as functor categories) semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down in non-zero characteristic.  This happens for two distinct reasons: first, fusion categories of global dimension $0$ behave poorly, and, second, (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are problems related to inseparable field extensions.
-\NS{Add references to Section 2.4 of 1009.2117}
 
-In this section, we introduce a new notion of separability for module categories and tensor categories that provides the right setting for generalizing the results of M\"uger and Etingof--Nikshych--Ostrik to characteristic $p$.  This theory is a generalization of the classical notion of a separable algebra \cite{???}.   This section was inspired by a suggestion of Ostrik, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
+In this section, we introduce a new notion of separability for module categories and tensor categories that provides the right setting for generalizing the results of M\"uger and Etingof--Nikshych--Ostrik to characteristic $p$.  This theory is a generalization of the classical notion of a separable algebra \cite{???}.   This section was inspired by a suggestion of Ostrik, the results of \cite[\S 2.4]{1009.2117} for fusion categories over $\mathbb{C}$, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
 
 \begin{definition}
 	Let $A$ be an algebra object in a finite tensor category $\cC$. The multiplication map $\mu: A \otimes A \to A$ may be viewed as a morphism of $A$-$A$-bimodule objects in $\cC$. We will say that $A$ is {\em separable} if the multiplication map splits as a map of $A$-$A$-bimodules. 
@@ -1925,7 +1930,7 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 \end{proof}
 
 
-\subsection{Fusion categories} \label{sec-tc-fusion}
+\subsection{Fusion categories} \label{sec:tc-fusion}
 
 The goal of this section is to show that under nice circumstances separability is easy to check.  In particular, we show that over an algebraically closed field, fusion categories of non-zero global dimension are separable, and that semisimple bimodule categories over such fusion categories are separable.
 
@@ -1952,15 +1957,15 @@ Without loss of generality, assume that $\cM$ is indecomposable.  By \cite{???},
 \end{proof}
 
 
-\section{Dualizability} \label{sec-dualfusion}
+\section{Dualizability} \label{sec:dualfusion}
 
-In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.  First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^* \cong \End(V)$.  Finally, the adjoint of a $2$-morphism is given by writing it as a matrix in the basis of simples and transposing that matrix.  This step also requires work, specifically to see that $\TCsep$ really is a subcategory of $\TC$---this generalizes of M\"uger's result on the semisimplicity of Drinfel'd centers.
+In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.  First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^\vee \cong \End(V)$.  Finally, $2$-morphisms have adjoints because functors between semisimple categories are always exact and because adjoints of module functors always have a module functor structure.  This step also requires a deap result, specifically we need that $\TCsep$ really is a subcategory of $\TC$, which is a generalization of M\"uger's result on the semisimplicity of Drinfel'd centers.
 
 Since we have explicit formulas for the dualizing data, we can get explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  We give many such examples.
 
 Separability is not required in the proof of $2$-dualizability, so we get a $2$-dimensional TFT attached to any finite tensor category.  Furthemore, many important $2$-morphisms between finite tensor categories still have adjoints.  In particular, finite tensor categories are Radford objects in $\TC$.
 
-\subsection{Duals of objects and invariants of elementary 1-framed bordisms} \label{sec-df-objects}
+\subsection{Duals of objects and invariants of elementary 1-framed bordisms} \label{sec:df-objects}
 
 In this section we show that $\cC^\mp$ is the dual of $\cC$.  This follows quickly from the definition of Deligne tensor product and does not depend on any substantial theorems about finite tensor categories.
 
@@ -2072,12 +2077,12 @@ Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not 
 Since this is a twice categorified TFT (i.e. a functor of $(3,1)$ categories rather than discrete $1$-categories), there is more data involved in describing it fully than what we have given above.  For example, we could ask for explicit formulas for the mapping class group action on the invariant of a circle.  The action of the Dehn twist gives a natural transformation from the identity autofunctor $\cT(\cC)$ to itself, and so gives a scalar attached to each object in $\cT(\cC)$.  By analogy, with Reshetikhin-Turaev theory, we expect that these scalars are typically nontrivial and are given by an analogue of the Drinfel'd element.   We will return to this calculation in future work.
 \end{remark} 
 
-\subsection{Adjoints of bimodules: finite tensor categories are 2-dualizable}  \label{sec-df-modules}
+\subsection{Adjoints of bimodules: finite tensor categories are 2-dualizable}  \label{sec:df-modules}
 
 In this section we show that any $1$-morphism ${}_\cC \cM_\cD$ in $\TC$ has left and right adjoints.   Explicitly, the left adjoint of $\cM$ is the category of linear left module functors $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ where the left $\cD$-action is given by precomposition by right multiplication, and the right $\cC$-action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of linear right module functors $\Fun_{\text{mod-}\cD}(\cM, \cD)$.   (We would like to remind the reader that in this paper linear functors are always assumed to be right exact.)  
 
 Recall from Section \ref{sec:examples_of_bimods} that 
-$\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the bimodule actions twisted by $\cdot^*$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.  Thus $\cM^*$ is the right adjoint of $\cM$ and ${}^* \cM$ is the left adjoint.
+$\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the objects written as ${}^*m$ with the action $x \cdot {}^*m \cdot y = {}^*(x^* \otimes m \otimes y^*)$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.  Thus $\cM^*$ is the right adjoint of $\cM$ and ${}^* \cM$ is the left adjoint.
 The results of this section depend essentially on Lemma \ref{Lma:FunctorsAsATensorPdt}, which rewrites certain Deligne tensor products as functor categories. The next lemma is immediate. 
 
 \begin{lemma}
@@ -2147,7 +2152,7 @@ As in Section \ref{sec:framed-duality} we fix the following representatives for 
 
 IMAGE
 
-By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec-df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in Section \ref{sec-df-modules}.
+By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec:df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in Section \ref{sec:df-modules}.
 
 
 Thus, without loss of generality, we can assume that the TFT has the following values on framed intervals and circles.
@@ -2484,7 +2489,7 @@ These generators can be combined into various closed manifolds, such as those de
 \end{table}
 %
 \CD{Add remark about the invariants of the circles in the non-rigid case.}
-The middle and right columns present two different, equivalent, formulations of the associated invariants.  For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$, as discussed in the above remark, and so have reexpressed the invariants in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively---these expressions dervie their names from the invariants in the first column.  The invariant $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ in the first row is called the Drinfeld center of $\cC$ and is often denoted $\cZ(\cC)$.  Computing the invariants in the right column makes use of Theorem~\ref{thm-evcoev} and Remark~\ref{remark-altintervals} above, as well as Lemma~\ref{Lma:FunctorsAsATensorPdt} and Remark~\ref{remark-tensorasfunctors}.
+The middle and right columns present two different, equivalent, formulations of the associated invariants.  For these manifolds, one can of course write the invariants directly as composites using the preceding elementary pieces, resulting in expressions involving $\cC^\op$.  We find it more convenient to think of these algebraic invariant in terms of $\cC^\mp$, as discussed in the above remark, and so have reexpressed the invariants in those terms.  In these expressions, the indicated map specifies the action of the $\cC^\mp$ factor on the second copy of $\cC$, and is therefore written as a tensor functor into ``$\cC_2^\mp$".  These five circle invariants may be briefly denoted as $\cT^{**}(\cC)$, ${}^{**}\cT(\cC)$, $\cT(\cC)$, $\cT^{****}(\cC)$, and ${}^{****}\cT(\cC)$ respectively---these expressions dervie their names from the invariants in the first column.  The invariant $\Fun_{\cC \btimes \cC^\mp}(\cC,\cC)$ in the first row is called the Drinfeld center of $\cC$ and is often denoted $\cZ(\cC)$.  Computing the invariants in the right column makes use of Theorem~\ref{thm:evcoev} and Remark~\ref{remark-altintervals} above, as well as Lemma~\ref{Lma:FunctorsAsATensorPdt} and Remark~\ref{remark-tensorasfunctors}.
 
 In Table~\ref{table-discs}, we record the invariants associated to 2-framed discs. 
 \begin{table}[ht] 
@@ -2569,11 +2574,11 @@ In Table~\ref{table-surfaces}, we record the invariants associated to certain 2-
 
 \vspace{0.5cm}
 
-\subsection{Adjoints of bimodule functors: separable tensor categories are fully dualizable} \label{sec-df-functors}
+\subsection{Adjoints of bimodule functors: separable tensor categories are fully dualizable} \label{sec:df-functors}
 
 In this section we specialize to $\TC$ and give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint. 
 
-Recall from Lemma \ref{lma:module-adjoint} that in order to check that a bimodule functor between bimodules over rigid tensor categories has an adjoint as a bimodule category, it's enough to check that the underlying functor has an adjoint.  In particular, for finite tensor categories, it's enough to check that the underlying functor is exact.
+Recall from Lemma \ref{lma:module-adjoint} that in order to check that a bimodule functor between bimodules over rigid tensor categories has an adjoint as a bimodule functor, it's enough to check that the underlying functor has an adjoint.  In particular, for finite tensor categories, it's enough to check that the underlying functor is exact.
 
 \begin{theorem} \label{thm:adjoints-fusion}
 Any $2$-morphism in $\TCsep$ has a left adjoint and a right adjoint in $\TCsep$.
@@ -2618,14 +2623,14 @@ Although module functors between non-separable module categories do not all have
 Suppose that $\cM$ and $\cN$ are $\cC$--$\cD$ bimodule categories, and $\cF: \cM \rightarrow \cN$ is a right exact module functor.
 \begin{itemize}
 \item If $\cM$ is exact as a bimodule category (that is, exact as a $\cC \boxtimes \cD^{mp}$ module category), then $cF$ has a left adjoint in $\TC$.
-\item If $\cN$ is exact as a bimodule category, then $\cF$ has a right exact right adjoint module functor (i.e. an adjoint in $\TC$).
+\item If $\cN$ is exact as a bimodule category, then $\cF$ has a right adjoint in $\TC$.
 \end{itemize}
 \end{lemma}
 
 \begin{proof}
 Exactness of $\cM$ as a $\cB$-module category guarantees that the underlying functor of $\cF$ is exact (Theorem \ref{Thm:ExactModCatOmnibus} (5)), and thus that $\cF$ has a left adjoint as a functor.  Any left adjoint is automatically right exact.  Then Lemma \ref{lma:module-adjoint} shows that this left adjoint can be made into a $\cC$-$\cD$ bimodule functor.   
 
-Since $\cF$ is right exact, it has a right adjoint as a functor.  Again applying Lemma \ref{lma:module-adjoint} shows that this left adjoint can be made into a $\cC$-$\cD$ bimodule functor.   Finally, since $\cN$ is exact we see that this adjoint functor is itself exact.
+Since $\cF$ is right exact, it has a right adjoint as a functor (which may not itself be right exact).  Again applying Lemma \ref{lma:module-adjoint} shows that this right adjoint can be made into a $\cC$-$\cD$ bimodule functor.   Finally, since $\cN$ is exact we see that this adjoint functor is right exact.
 \end{proof}
 
 \begin{lemma}
@@ -2636,7 +2641,6 @@ The following bimodule categories are exact:
 \item $\Vec$ as a $\Vec$-bimodule
 \end{itemize}
 
-Furthermore $Z(\cC)$ is exact as a $\Vec$-bimodule if and only if $\cC$ is separable.
 \end{lemma}
 
 \begin{theorem}
@@ -2769,7 +2773,7 @@ The Serre automorphism and the Radford isomorphsm are closely related to the $SO
 
 
 
-\section{The Serre automorphism and Radford's theorem} \label{sec-serre}
+\section{The Serre automorphism and Radford's theorem} \label{sec:serre}
 
 Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way giving applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
 
@@ -2804,7 +2808,7 @@ We now specialize to our case of interest, namely where the object in question i
 Suppose that $\cC$ is a finite tensor category and $\cF: \cC \rightarrow \cC$ is an automorphism of tensor categories.  Let ${}_{\langle\cF\rangle} \cC$ denote $\cC$ as a $\cC$--$\cC$ bimodule where the action is $x \cdot c \cdot y = \cF(x) \otimes c \otimes y$ with the obvious natural transformations.  
 \end{definition}
 
-\begin{theorem} \label{thm-serre}
+\begin{theorem} \label{thm:serre}
 If $\cC$ is a finite tensor category, then the Serre bimodule $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.
 \end{theorem}
 
@@ -2928,7 +2932,7 @@ A pivotal structure $p$ is spherical if and only if $p p^{**}$ agrees with the c
 
 \section{CD's dustbin/workbin}
 
-\subsection{This section to be removed after comment addressed} \label{sec-pivot-struc}
+\subsection{This section to be removed after comment addressed} \label{sec:pivot-struc}
 
 \begin{conjecture}
 Every oriented-$p_1$ local field theory with values in tensor categories descends to an oriented local field theory.
@@ -3089,20 +3093,20 @@ Let $\TC(A)$ be the collection of all sextuples $(X, \otimes, \mathbf{1}, \alpha
 
 
 
-\subsection{Tensor products and colimits of linear categories} \label{sec-tc-tensorprod}
+\subsection{Tensor products and colimits of linear categories} \label{sec:tc-tensorprod}
 
 \begin{definition}
 \CDcomm{[Definition of a tensor category, include all the conditions to be an object of the 3-category, ie indemp comp, etc.]}
 \end{definition}
 
-\begin{definition} \label{def-colim}
+\begin{definition} \label{def:colim}
 \CDcomm{[colimits in the 2-category of (appropriate) linear categories]}
 \end{definition}
 
 
 We will have occasion to use both the opposite of a tensor category, and the monoidal opposite of a tensor category; we establish notation to distinguish them.  
 
-\subsection{Tensor category bimodules and bimodule composition} \label{sec-tc-bimod}
+\subsection{Tensor category bimodules and bimodule composition} \label{sec:tc-bimod}
 
 
 \begin{definition}
@@ -3118,7 +3122,7 @@ Let $A$, $B$, and $C$ be tensor categories, and let $\bimod{A}{M}{B}$ and $\bimo
 \end{definition}
 
 \begin{remark} \CD{This remark is not written very precisely or correctly yet---should be fixed after the Deligne tensor is spelled out earlier on.}
-By applying definition~\ref{def-colim}, one can write out explicitly the bimodule $\bimod{A}{M \otimes_B N}{C}$ given by the above colimit of the three-stage two-sided bar construction.  There is however an equivalent bimodule $\bimod{A}{M \otimes_B' N}{C}$ that admits a more compact description, as follows.  The objects of $\bimod{A}{M \otimes_B' N}{C}$ are the objects $m \otimes n$ of the tensor product $M \dtimes N$.  The morphisms are of two kinds: (m1) a morphism $\phi \otimes \psi : m \otimes n \ra m' \otimes n'$ for each pair of morphisms $\phi: m \ra m'$ in $M$ and $\psi: n \ra n'$ in $N$; (m2) a morphism $t_a : ma \otimes n \ra m \otimes an$ for each \CDcomm{triple $(m,a,n)$ ... }.  These morphisms are subject to the two relations: (r1) for each \CDcomm{triple $(\phi, \epsilon, \psi)$}, the composite $ma \otimes n \ra m \otimes an \ra m' \otimes a' n'$ equals the composite $ma \otimes n \ra m' a' \otimes n' \ra m' \otimes a' n'$; (r2) the composite $(ma)b \otimes n \ra ma \otimes bn \ra m \otimes a(bn)$ equals the composite $(ma)b \otimes n \ra m(ab) \otimes n \ra m \otimes (ab)n \ra m \otimes a(bn)$.
+By applying definition~\ref{def:colim}, one can write out explicitly the bimodule $\bimod{A}{M \otimes_B N}{C}$ given by the above colimit of the three-stage two-sided bar construction.  There is however an equivalent bimodule $\bimod{A}{M \otimes_B' N}{C}$ that admits a more compact description, as follows.  The objects of $\bimod{A}{M \otimes_B' N}{C}$ are the objects $m \otimes n$ of the tensor product $M \dtimes N$.  The morphisms are of two kinds: (m1) a morphism $\phi \otimes \psi : m \otimes n \ra m' \otimes n'$ for each pair of morphisms $\phi: m \ra m'$ in $M$ and $\psi: n \ra n'$ in $N$; (m2) a morphism $t_a : ma \otimes n \ra m \otimes an$ for each \CDcomm{triple $(m,a,n)$ ... }.  These morphisms are subject to the two relations: (r1) for each \CDcomm{triple $(\phi, \epsilon, \psi)$}, the composite $ma \otimes n \ra m \otimes an \ra m' \otimes a' n'$ equals the composite $ma \otimes n \ra m' a' \otimes n' \ra m' \otimes a' n'$; (r2) the composite $(ma)b \otimes n \ra ma \otimes bn \ra m \otimes a(bn)$ equals the composite $(ma)b \otimes n \ra m(ab) \otimes n \ra m \otimes (ab)n \ra m \otimes a(bn)$.
 \end{remark} % cf ENOII "Explicit description 1"
 
 
