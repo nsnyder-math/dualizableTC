@@ -1598,52 +1598,55 @@ Suppose we are given a $\cC$-balanced functor $F:\cM \times \cN \to \cD$ which i
 \begin{equation*}
 	\overline{F}({}_A X_B) := \coker \left( \underbrace{{F}(\delta)}_{\textrm{what is this?}}: F({}_A A \otimes A,  X_B) \to {F}({}_A A , X_B) \right).
 \end{equation*} 
-If this were possible, then it would immediately follow that the extension $\overline{F}$ is determined (up to unique natural isomorphism) by its restriction to $\cM \times \cN$. 
-However it is not possible to define $\overline{F}$ in this way, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
+If this were possible, then it would immediately follow that the extension $\overline{F}$ is determined (up to unique natural isomorphism) by its restriction to $\cM \times \cN$, and that, moreover, the category of $\cC$-balanced exact-in-each-variable functors $F:\cM \times \cN \to \cD$ is equivalent to the category of functors  
+$\overline{F}: \Mod{A}{B}(\cC) \to \cD$.
 
-However for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagram\footnote{The fact that this diagram commutes uses the coherence of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.}
-\begin{center}
-	\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1.5cm,between origins}] {
-	 F({}_AA \otimes A \otimes X, B \otimes B_B) &[1cm] F({}_AA \otimes X, B \otimes B_B) &[1cm] F({}_A X, B \otimes B_B) &[0.5cm] 0 \\
-	F({}_AA \otimes A, X \otimes B \otimes B_B) & F({}_AA, X \otimes B \otimes B_B) & & \\
-	F({}_AA \otimes A, X \otimes B_B) & F({}_AA , X \otimes B_B) & & \\
-	 F({}_AA \otimes A \otimes X, B_B) & F({}_AA \otimes X, B_B) & F({}_AX,B_B)  & 0 \\
-	& &\overline{F}({}_AX_B)  & \\
-		};
-		\draw [->] (m-1-1) -- node [above] {$\delta_1$} (m-1-2);
-		\draw [->] (m-1-2) -- node [above] {$$} (m-1-3);
-		\draw [->] (m-1-3) -- node [above] {$$} (m-1-4);
-		\draw [->] (m-4-1) -- node [above] {$\delta_1$} (m-4-2);
-		\draw [->] (m-4-2) -- node [above] {$$} (m-4-3);
-		\draw [->] (m-4-3) -- node [above] {$$} (m-4-4);
-		\draw [->] (m-1-1) -- node [left] {$\cong$} (m-2-1);
-		\draw [->] (m-1-2) -- node [left] {$\cong$} (m-2-2);
-		\draw [->] (m-3-1) -- node [left] {$\cong$} (m-4-1);
-		\draw [->] (m-3-2) -- node [left] {$\cong$} (m-4-2);
-		\draw [->] (m-2-1) -- node [left] {$\delta_2$} (m-3-1);
-		\draw [->] (m-2-2) -- node [left] {$\delta_2$} (m-3-2);
-		\draw [->,dashed] (m-1-3) -- node [left] {$\overline{\delta}$} (m-4-3);
-		\draw [->,dashed] (m-4-3) -- node [left] {$$} (m-5-3);
-		\node [node distance = 1.75cm, left of= m-5-3] {$\coker(\overline{\delta})=:$};
-	\end{tikzpicture}
-\end{center}
+However it is not possible to define $\overline{F}$ in this way, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
+Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the commutative diagram\footnote{The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.} shown in Figure \ref{fig:RelDelingePdtDiagram}.
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1.5cm,between origins}] {
+		 F({}_AA \otimes A \otimes X, B \otimes B_B) &[1cm] F({}_AA \otimes X, B \otimes B_B) &[1cm] F({}_A X, B \otimes B_B) &[0.5cm] 0 \\
+		F({}_AA \otimes A, X \otimes B \otimes B_B) & F({}_AA, X \otimes B \otimes B_B) & & \\
+		F({}_AA \otimes A, X \otimes B_B) & F({}_AA , X \otimes B_B) & & \\
+		 F({}_AA \otimes A \otimes X, B_B) & F({}_AA \otimes X, B_B) & F({}_AX,B_B)  & 0 \\
+		& &\overline{F}({}_AX_B)  & \\
+			};
+			\draw [->] (m-1-1) -- node [above] {$\delta_1$} (m-1-2);
+			\draw [->] (m-1-2) -- node [above] {$$} (m-1-3);
+			\draw [->] (m-1-3) -- node [above] {$$} (m-1-4);
+			\draw [->] (m-4-1) -- node [above] {$\delta_1$} (m-4-2);
+			\draw [->] (m-4-2) -- node [above] {$$} (m-4-3);
+			\draw [->] (m-4-3) -- node [above] {$$} (m-4-4);
+			\draw [->] (m-1-1) -- node [left] {$\cong$} (m-2-1);
+			\draw [->] (m-1-2) -- node [left] {$\cong$} (m-2-2);
+			\draw [->] (m-3-1) -- node [left] {$\cong$} (m-4-1);
+			\draw [->] (m-3-2) -- node [left] {$\cong$} (m-4-2);
+			\draw [->] (m-2-1) -- node [left] {$\delta_2$} (m-3-1);
+			\draw [->] (m-2-2) -- node [left] {$\delta_2$} (m-3-2);
+			\draw [->,dashed] (m-1-3) -- node [left] {$\overline{\delta}_X$} (m-4-3);
+			\draw [->,dashed] (m-4-3) -- node [left] {$$} (m-5-3);
+			\node [node distance = 1.75cm, left of= m-5-3] {$\coker(\overline{\delta}_X)=:$};
+		\end{tikzpicture}
+	\end{center}
+	\caption{A digram demonstrating the universal property of the relative Deligne tensor product.}
+	\label{fig:RelDelingePdtDiagram}
+\end{figure}
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps, as above. 
 
-The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}$, the long dashed arrow in the diagram. This is precisely the missing map, and hence we may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
+The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow in the diagram. This is precisely the missing map, and hence we may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
 \begin{equation*}
-	\overline{F}: \Mod{A}{B}(\cC) \to \cD.
+	\overline{F}: \Mod{A}{B}(\cC) \to \cD,
 \end{equation*} 
-Verifying that this functor is well defined makes use of the pentagon identity satisfied by $\cC$-balanced functors.  	
-
-\CSPcomm{old material...}	
-Thus every right exact functor and every natural transformation between such functors is determined by its restriction to $\cM \times \cN$. Conversely every $\cC$-balanced functor $F: \cM \times \cN \to \cD$ gives rise to a functor $\overline{F}: \Mod{A}{B}(\cC) \to \cD$; its value on ${}_A X_B$ is defined as the coequalizer:
-\begin{equation*}
-		\overline{F}({}_A X_B) := \coeq \left(  F({}_AA \otimes A, X_B) \rightrightarrows F({}_A A, X_B) \right).
-\end{equation*}
-This establishes (1), (2), and (3).
-\CSP{This should be double checked... are maps in $\cM \times \cN$?}
+and implements the desired equivalence between such right exact functors and $\cC$-balanced exact-in-each-variable functors. Verifying that this construction is well defined makes use of the pentagon identity satisfied by $\cC$-balanced functors. This establishes (1), (2), and (3). The final property, part (4), now follows from a routine diagram chase, which we also leave to the reader. 
+%\CSPcomm{old material...}	
+%Thus every right exact functor and every natural transformation between such functors is determined by its restriction to $\cM \times \cN$. Conversely every $\cC$-balanced functor $F: \cM \times \cN \to \cD$ gives rise to a functor $\overline{F}: \Mod{A}{B}(\cC) \to \cD$; its value on ${}_A X_B$ is defined as the coequalizer:
+%\begin{equation*}
+%		\overline{F}({}_A X_B) := \coeq \left(  F({}_AA \otimes A, X_B) \rightrightarrows F({}_A A, X_B) \right).
+%\end{equation*}
+%This establishes (1), (2), and (3).
 % To see that the value on natural transformations is determined we can observe that there is a funcotial splitting of F(A, X) \to F(X)  as B-modules (not as A-B bimodules). This is enough to establish that the natural transformation is derimined by its values on $\cM \times \cN$.
-Part (4) is a standard exercise. 
+%Part (4) is a standard exercise. 
 \end{proof}
 
 %\begin{remark} \label{rmk:rigidpreservedbytensor}
