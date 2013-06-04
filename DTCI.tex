@@ -1601,7 +1601,7 @@ Suppose we are given a $\cC$-balanced functor $F:\cM \times \cN \to \cD$ which i
 If this were possible, then it would immediately follow that the extension $\overline{F}$ is determined (up to unique natural isomorphism) by its restriction to $\cM \times \cN$. 
 However it is not possible to define $\overline{F}$ in this way, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
 
-However for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagram
+However for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagram\footnote{The fact that this diagram commutes uses the coherence of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.}
 \begin{center}
 	\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1.5cm,between origins}] {
 	 F({}_AA \otimes A \otimes X, B \otimes B_B) &[1cm] F({}_AA \otimes X, B \otimes B_B) &[1cm] F({}_A X, B \otimes B_B) &[0.5cm] 0 \\
@@ -1627,7 +1627,6 @@ However for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative d
 		\node [node distance = 1.75cm, left of= m-5-3] {$\coker(\overline{\delta})=:$};
 	\end{tikzpicture}
 \end{center}
-\CSP{Why does the diagram commute?}
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps, as above. 
 
 The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}$, the long dashed arrow in the diagram. This is precisely the missing map, and hence we may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
