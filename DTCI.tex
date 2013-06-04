@@ -1577,9 +1577,9 @@ If it exists, the Deligne tensor product is unique up to equivalence, and this e
 	\begin{equation*}
 		\cM \times \cN \simeq \Mod{A}{}(\cC) \times  \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC)
 	\end{equation*}
-	is exact in each variable separately. It is also $\cC$-balanced. Thus $(2)$ implies both  $(1)$ and $(3)$. We will first prove (2).  We wish to show that for any $\cD$ the category of right exact functors 
+	is exact in each variable separately. It is also $\cC$-balanced. Thus $(2)$ implies both  $(1)$ and $(3)$. We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
 \begin{equation*}
-	\overline{F}:\Mod{A}{B}(\cC) \to \cD$
+	\overline{F}:\Mod{A}{B}(\cC) \to \cD
 \end{equation*}
 	is naturally equivalent to the category of $\cC$-balanced functors $F:\cM \times \cN \to \cD$ which are right exact in each variable separately. It is clear that every functor of the former type restricts to one of the later type, and so we must show that a functor of the later types extends uniquely (up to canonical isomorphism) to one of the former type. 
 	
@@ -1587,8 +1587,8 @@ The key insight is to note that every object of $X \in \Mod{A}{B}(\cC)$ may be f
 \begin{equation*}
 	{}_A A \otimes A \otimes X_B \rightrightarrows {}_A A \otimes X_B \to {}_A X_B.
 \end{equation*}
-Let $\delta: {}_A A \otimes A \otimes X_B \to {}_A A \otimes X_B$ be there difference map. 
-For any right exact functor $\overline{F}$, the value $\overline{F}({}_A X_B)$ is determined as the cokernel of
+Let $\delta: {}_A A \otimes A \otimes X_B \to {}_A A \otimes X_B$ be the difference map. 
+For any right exact functor $\overline{F}$, the value $\overline{F}({}_A X_B)$ is canonically determined as a cokernel:
 \begin{equation*}
 	\overline{F}({}_A X_B) = \coker \left( \overline{F}(\delta): \overline{F}({}_A A \otimes A \otimes X_B) \to \overline{F}({}_A A \otimes X_B) \right).
 \end{equation*} 
@@ -1598,10 +1598,45 @@ Suppose we are given a $\cC$-balanced functor $F:\cM \times \cN \to \cD$ which i
 \begin{equation*}
 	\overline{F}({}_A X_B) := \coker \left( \underbrace{{F}(\delta)}_{\textrm{what is this?}}: F({}_A A \otimes A,  X_B) \to {F}({}_A A , X_B) \right).
 \end{equation*} 
-However this is not possible, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
+If this were possible, then it would immediately follow that the extension $\overline{F}$ is determined (up to unique natural isomorphism) by its restriction to $\cM \times \cN$. 
+However it is not possible to define $\overline{F}$ in this way, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
 
- 	
-	
+However for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagram
+\begin{center}
+	\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1.5cm,between origins}] {
+	 F({}_AA \otimes A \otimes X, B \otimes B_B) &[1cm] F({}_AA \otimes X, B \otimes B_B) &[1cm] F({}_A X, B \otimes B_B) &[0.5cm] 0 \\
+	F({}_AA \otimes A, X \otimes B \otimes B_B) & F({}_AA, X \otimes B \otimes B_B) & & \\
+	F({}_AA \otimes A, X \otimes B_B) & F({}_AA , X \otimes B_B) & & \\
+	 F({}_AA \otimes A \otimes X, B_B) & F({}_AA \otimes X, B_B) & F({}_AX,B_B)  & 0 \\
+	& &\overline{F}({}_AX_B)  & \\
+		};
+		\draw [->] (m-1-1) -- node [above] {$\delta_1$} (m-1-2);
+		\draw [->] (m-1-2) -- node [above] {$$} (m-1-3);
+		\draw [->] (m-1-3) -- node [above] {$$} (m-1-4);
+		\draw [->] (m-4-1) -- node [above] {$\delta_1$} (m-4-2);
+		\draw [->] (m-4-2) -- node [above] {$$} (m-4-3);
+		\draw [->] (m-4-3) -- node [above] {$$} (m-4-4);
+		\draw [->] (m-1-1) -- node [left] {$\cong$} (m-2-1);
+		\draw [->] (m-1-2) -- node [left] {$\cong$} (m-2-2);
+		\draw [->] (m-3-1) -- node [left] {$\cong$} (m-4-1);
+		\draw [->] (m-3-2) -- node [left] {$\cong$} (m-4-2);
+		\draw [->] (m-2-1) -- node [left] {$\delta_2$} (m-3-1);
+		\draw [->] (m-2-2) -- node [left] {$\delta_2$} (m-3-2);
+		\draw [->,dashed] (m-1-3) -- node [left] {$\overline{\delta}$} (m-4-3);
+		\draw [->,dashed] (m-4-3) -- node [left] {$$} (m-5-3);
+		\node [node distance = 1.75cm, left of= m-5-3] {$\coker(\overline{\delta})=:$};
+	\end{tikzpicture}
+\end{center}
+\CSP{Why does the diagram commute?}
+Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps, as above. 
+
+The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}$, the long dashed arrow in the diagram. This is precisely the missing map, and hence we may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
+\begin{equation*}
+	\overline{F}: \Mod{A}{B}(\cC) \to \cD.
+\end{equation*} 
+Verifying that this functor is well defined makes use of the pentagon identity satisfied by $\cC$-balanced functors.  	
+
+\CSPcomm{old material...}	
 Thus every right exact functor and every natural transformation between such functors is determined by its restriction to $\cM \times \cN$. Conversely every $\cC$-balanced functor $F: \cM \times \cN \to \cD$ gives rise to a functor $\overline{F}: \Mod{A}{B}(\cC) \to \cD$; its value on ${}_A X_B$ is defined as the coequalizer:
 \begin{equation*}
 		\overline{F}({}_A X_B) := \coeq \left(  F({}_AA \otimes A, X_B) \rightrightarrows F({}_A A, X_B) \right).
