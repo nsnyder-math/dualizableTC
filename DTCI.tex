@@ -1817,30 +1817,35 @@ Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \bo
 	\Hom((p \boxtimes q) \otimes x, -) \cong \Hom(x, ({}^*p \boxtimes {}^*q) \otimes(-) ): \cM \boxtimes \cN \to \Vec
 \end{equation*}
 
-Note that by our previous observations this follows immediately for objects of the form $ m \boxtimes n$, for then we have
+Note that by our previous observations this follows immediately for primitive tensor products, that is 
+ objects of the form $ m \boxtimes n$, for then we have
 \begin{equation*}
 	(p \boxtimes q) \otimes x = (p \boxtimes q) \otimes (m \boxtimes n) \cong (p \otimes m) \boxtimes (q \otimes n).
 \end{equation*}
 Hence the desired exactness property also holds for finite direct sums of objects of this type. Moverover, by Theorem~\ref{thm:DelignePrdtOverATCExists}.(4), for general $x$ it is enough to restrict to $\cM \times \cN$ and 
-verify exactness in each variable separately. 
+verify exactness in each variable separately. We will show exactness in the variable $\cM$; exactness in the second variable follows from an identical argument. 
 
-Thus for general $x$ we begin by considering a pair of exact sequences, the first in $\cM$, the second in $\cN$:
+Thus for general $x$ we begin by considering a fixed object $n \in \cN$ and an exact sequences in $\cM$:
 \begin{align*}
-	m_1 \to m_2 \to m_3 \to 0 \\
-	  n_1 \to n_2 \to n_3 \to 0.
+	m_1 \to m_2 \to m_3 \to 0. 
+%	  n_1 \to n_2 \to n_3 \to 0.
 \end{align*}
-By \cite[Prop. 2.3]{MR2119143} if $y$ is a projective object in a finite tensor category then ${}^*y$ is also projective. Thus by Theorem \ref{Thm:ExactModCatOmnibus}.(2) each of the objects ${}^*p \otimes m_i$ and ${}^*q \otimes n_i$ are injective. Hence so is 
+By \cite[Prop. 2.3]{MR2119143} if $y$ is a projective object in a finite tensor category then ${}^*y$ is also projective. Thus by Theorem \ref{Thm:ExactModCatOmnibus}.(2) the object ${}^*q \otimes n$ and each of the objects ${}^*p \otimes m_i$ are injective, hence for each $i = 1,2,3$ so is the object 
 \begin{equation*}
-	z_i :=  ({}^*p \otimes m_i) \boxtimes ({}^*q \otimes n_i).
+	z_{i} :=  ({}^*p \otimes m_i) \boxtimes ({}^*q \otimes n).
 \end{equation*}
-Since tensoring with objects of $\cC$ is exact (tensoring with an appropriate dual gives a right adjoint) as is the deligne tensor product, we have an exact sequence of injective objects of $\cM \boxtimes \cN$
+Moreover, since the Deligne tensor product is exact and tensoring with objects of $\cC$ is exact (tensoring with appropriate duals gives each adjoint), we have an exact sequences of injective objects of $\cM \boxtimes \cN$:
+\begin{equation*}
+	z_1 \to z_2 \to z_3 \to 0.
+\end{equation*}
 
 Finally it follows from Theorem \ref{thm:EGNO2.11.6} that for every object $x \in \cM \boxtimes \cN$ there exists a short exact sequence
 \begin{equation*}
 	0 \to x'' \to x' \to x \to 0
 \end{equation*}
- such that $x'$ is a finite direct sum of objects of the form $m \boxtimes n$. Putting these facts together we obtain the following commutative diagram with exact rows and columns:
-\CSP{I think I don't want zeros on the left-most side. I should double check that they aren't needed.}
+ such that $x'$ is a finite direct sum of objects of the form $m \boxtimes n$. Putting these facts together we obtain the commutative diagram in Figure \ref{fig:exact-mod-cat-exact}. 
+%\CSP{I think I don't want zeros on the left-most side. I should double check that they aren't needed.}
+\begin{figure}[htbp]
 	\begin{center}
 		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1cm,between origins}] {
 		 &[0.5cm] 0 &[1cm] 0 &[1cm] 0 &[0.5cm]  \\ 
@@ -1863,11 +1868,16 @@ Finally it follows from Theorem \ref{thm:EGNO2.11.6} that for every object $x \i
 			\draw [->] (m-\sourcerow-\sourcecol) -- (m-\targetrow-\targetcol);
 		\end{tikzpicture}
 	\end{center}
+	\caption{A digram helping show the product of exact module categories is exact.}
+	\label{fig:exact-mod-cat-exact}
+\end{figure}
+The columns are exact because each of the objects $z_i$ is injective. The middle row is exact because $x'$ is a finite direct sum of primitive objects. 
+
 A diagram chase (essentially a variation on the snake lemma applied to the middle rows) shows that we always have a short exact sequence
 \begin{equation*}
-	0 \to \Hom(x, z_1) \to \Hom(x, z_2) \to \Hom(x, z_3) \to 0
+	 \Hom(x, z_1) \to \Hom(x, z_2) \to \Hom(x, z_3) \to 0
 \end{equation*}
-and hence that $(p \boxtimes q) \otimes x$ is projective. 
+and hence $\Hom((p \boxtimes q) \otimes x, -)$ is right exact and $(p \boxtimes q) \otimes x$ is projective. 
 %\NScomm{Hrm, I think my proof of this may have a hole...}
 \end{proof}
 
