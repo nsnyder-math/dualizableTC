@@ -1577,12 +1577,31 @@ If it exists, the Deligne tensor product is unique up to equivalence, and this e
 	\begin{equation*}
 		\cM \times \cN \simeq \Mod{A}{}(\cC) \times  \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC)
 	\end{equation*}
-	is $\cC$-balanced and exact in each variable separately. Thus $(2) \Rightarrow$ both  $(1)$ and $(3)$. Thus we wish to show that for any $\cD$ the category of right exact functors $\Mod{A}{B}(\cC) \to \cD$ is naturally equivalent to the category of $\cC$-balanced functors $\cM \times \cN \to \cD$ which are right exact in each variable separately. It is clear that every functor of the former type restricts to one of the later type. 
+	is exact in each variable separately. It is also $\cC$-balanced. Thus $(2)$ implies both  $(1)$ and $(3)$. We will first prove (2).  We wish to show that for any $\cD$ the category of right exact functors 
+\begin{equation*}
+	\overline{F}:\Mod{A}{B}(\cC) \to \cD$
+\end{equation*}
+	is naturally equivalent to the category of $\cC$-balanced functors $F:\cM \times \cN \to \cD$ which are right exact in each variable separately. It is clear that every functor of the former type restricts to one of the later type, and so we must show that a functor of the later types extends uniquely (up to canonical isomorphism) to one of the former type. 
 	
-The key insight is to note that every object of $X \in \Mod{A}{B}(\cC)$ may be functorially written as a coequalizer of objects in the image of $\cM \times \cN$. Namely we have:
+The key insight is to note that every object of $X \in \Mod{A}{B}(\cC)$ may be functorially written as a coequalizer of objects in the image of $\cM \times \cN$. For example we have:
 \begin{equation*}
 	{}_A A \otimes A \otimes X_B \rightrightarrows {}_A A \otimes X_B \to {}_A X_B.
-\end{equation*}	
+\end{equation*}
+Let $\delta: {}_A A \otimes A \otimes X_B \to {}_A A \otimes X_B$ be there difference map. 
+For any right exact functor $\overline{F}$, the value $\overline{F}({}_A X_B)$ is determined as the cokernel of
+\begin{equation*}
+	\overline{F}({}_A X_B) = \coker \left( \overline{F}(\delta): \overline{F}({}_A A \otimes A \otimes X_B) \to \overline{F}({}_A A \otimes X_B) \right).
+\end{equation*} 
+Moverover the modules ${}_A A \otimes A \otimes X_B$ and ${}_A A \otimes X_B$ are in the image of $\cM \times \cN$. 
+	
+Suppose we are given a $\cC$-balanced functor $F:\cM \times \cN \to \cD$ which is right exact in each variable separately. It is tempting to try to define the extension $\overline{F}: \Mod{A}{B}(\cC) \to \cD$ via a formula of the type:
+\begin{equation*}
+	\overline{F}({}_A X_B) := \coker \left( \underbrace{{F}(\delta)}_{\textrm{what is this?}}: F({}_A A \otimes A,  X_B) \to {F}({}_A A , X_B) \right).
+\end{equation*} 
+However this is not possible, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
+
+ 	
+	
 Thus every right exact functor and every natural transformation between such functors is determined by its restriction to $\cM \times \cN$. Conversely every $\cC$-balanced functor $F: \cM \times \cN \to \cD$ gives rise to a functor $\overline{F}: \Mod{A}{B}(\cC) \to \cD$; its value on ${}_A X_B$ is defined as the coequalizer:
 \begin{equation*}
 		\overline{F}({}_A X_B) := \coeq \left(  F({}_AA \otimes A, X_B) \rightrightarrows F({}_A A, X_B) \right).
