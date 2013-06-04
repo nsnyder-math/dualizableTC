@@ -1702,11 +1702,19 @@ The following result is well-known, but we were unable to find a proof in the li
 We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
 $$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
 where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
-
-\NScomm{[Insert diagram here]}
-\CSP{Where are these diagrams?}
-\NS{They haven't been made, they're just string diagrams for the calculations immediately preceding.}
-
+\begin{center}
+\begin{tikzpicture}
+	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f_{c^*,m}$};
+	\draw (0,0) -- (0,3) arc (180:0:0.75cm) |- (A.135);
+	\draw (A.225) -- (1.5,0);
+	\draw (A.45) -- (2.5,4);
+	\draw (A.315) -- (2.5,1) arc (180:360:0.75cm) -- (4,4);
+	\node at (2.5,4.5) {$\cF$};
+	\node at (4,4.5) {$c \otimes (-)$};
+	\node at (0,-0.5) {$c \otimes (-)$};
+	\node at (1.5, -0.5) {$\cF$};
+\end{tikzpicture}
+\end{center}
 We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagram illustrates this calculation.
 
 \NScomm{[Insert diagram here]}
