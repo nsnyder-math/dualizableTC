@@ -1549,25 +1549,27 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 \end{definition}
 
 \begin{remark}
-	An object $p \in \cM$ is a $\cC$-generator if and only if for each object $x \in \cM$ there exists an object $c \in \cC$ and a surjection $c \otimes p \rightdoublearrow x$ if and only if for each object $x \in \cM$ the canonical map $\IHom(p,x) \otimes p \to x$ is a surjection. 
+	An object $p \in \cM$ is a $\cC$-generator if and only if for each object $x \in \cM$ there exists an object $c \in \cC$ and a surjection $c \otimes p \twoheadrightarrow x$ if and only if for each object $x \in \cM$ the canonical map $\IHom(p,x) \otimes p \twoheadrightarrow x$ is a surjection. 
 \end{remark}
 
-
-
-
+The following is an extension of \cite[Thm 2.11.2]{EGNO} and \cite[Thm 1]{MR1976459}.
 
 \begin{theorem}[{\cite[Thm 2.11.2]{EGNO}, \cite[Thm 1]{MR1976459}}] %!% [Thm 2.11.6(i)]
-	Let $\cM$ be a (finite) left module category over a finite, but not necessarily rigid, tensor category $\cC$. Fix and object $P \in \cM$, and set $A = \IHom(P,P) \in \cC$. The object $A$ is naturally an algebra object in $\cC$. 
-Assume that $P$ is a $\cC$-projective $\cP$-generator. Then the $\cC$-module functor 
-\begin{equation*}
-	\IHom(P, -): {}_\cC \cM \to \Mod{}{A}
-\end{equation*}
-	induces an equivalence of left $\cC$-module categories. 
+	Let $\cM$ be a (finite) left module category over a finite, but not necessarily rigid, tensor category $\cC$. Fix and object $P \in \cM$, and set $A = \IHom(P,P) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to  $\cC$-module functor
+	\begin{align*}
+		F:   \Mod{}{A}(\cC) &\to \cM \\
+		x_A & \mapsto \coeq \Left( x \otimes \IHom(p,p) \otimes p \rightrightarrows x \otimes p \Right)
+	\end{align*}
+The functor $\IHom(P,-): \cM \to \Mod{}{A}(\cC)$ is right adjoint to $F$. 
+
+Assume that $\IHom(P,-)$ may be equipped with the structure of a $\cC$-module functor and that the unit and counit of the adjunction $F \dashv \IHom(P,-)$ are morphisms of $\cC$-module functors. Assume further that $P$ is a $\cC$-projective $\cC$-generator.  Then the $\cC$-module adjunction  $F \dashv \IHom(P,-)$
+	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
 \end{theorem}
 
+\noindent The proofs given in \cite{EGNO} and \cite{MR1976459} appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided.  
 
+The 
 
-This theorem precedes as expected. The proof shows that for objects satisfying certain conditions (which will always be met for some object when $\cM$ is finite), the algebra $A$ can be obtained as the $\cC$-valued enriched endomorphisms of this object. However the proofs given in \cite{EGNO} and \cite{MR1976459} appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. 
 
 
 \begin{example}
