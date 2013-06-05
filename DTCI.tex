@@ -1530,6 +1530,7 @@ Just as any finite linear category is a category of modules over an algebra, any
 
 This theorem precedes as expected. The proof shows that for objects satisfying certain conditions (which will always be met for some object when $\cM$ is finite), the algebra $A$ can be obtained as the $\cC$-valued enriched endomorphisms of this object. However the proofs given in \cite{EGNO} and \cite{MR1976459} appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. 
 
+
 The above theorem is used to show the existence of the relative Deligne tensor product. The existence of the relative Deligne tesnor product is critical for the construction of the symmetric monoidal 3-category of tensor categories; without the relative tensor product of bimodule categories, the 1-morphisms of the 3-category, cannot be composed. This is the primary reason that all our tensor categories are assumed to be rigid. Rigidity also plays a role in the theory of exact module categories described in the next section.  
 
 \begin{definition}
@@ -1949,6 +1950,14 @@ Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-mo
 
 We will be particularly interested in the modules $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC \boxtimes \cC^\mp} \cC$ obtained by applying this procedure to the identity bimodule ${}_\cC \cC_\cC$.  Note that if you move both actions on ${}_\cC \cC_\cC$ to the opposite side, you obtain a bimodule ${}_{\cC^\mp}\cC_{\cC^\mp}$, which is in fact the identity bimodule on $\cC^\mp$.
 
+\begin{example}
+	Let $\cC$ be a tensor category. By Theorem \ref{thm:EGNO2.11.6} there exists an algebra object $A \in \cC \boxtimes \cC^\mp$ and an equivalence of left $\cC \boxtimes \cC^\mp$-module categories
+	\begin{equation*}
+		{}_{\cC \boxtimes \cC^\mp} \cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp).
+	\end{equation*} 
+	In fact the algebra $A$ and this equivalence are easy to describe directly. In addition to the structure of a $\cC \boxtimes \cC^\mp$-module category the category $\cC$ posses a $\cC \boxtimes \cC^\mp$-enrichment $\IHom(-,-)$ which makes it 
+\end{example}
+
 Just as modules over algebras can be twisted by algebra maps, we can twist module categories by tensor functors.
 
 \begin{definition}
@@ -2184,7 +2193,9 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 \subsection{Fusion categories} \label{sec:tc-fusion}
 
-The goal of this section is to show that under nice circumstances separability is easy to check.  In particular, we show that over an algebraically closed field, fusion categories of non-zero global dimension are separable, and that semisimple bimodule categories over such fusion categories are separable.
+The goal of this section is to show that under nice circumstances separability is easy to check.
+
+  In particular, we show that over an algebraically closed field, fusion categories of non-zero global dimension are separable, and that semisimple bimodule categories over such fusion categories are separable.
 
 For this section we assume the base field $k$ is algebraically closed.  Recall that a tensor category over an algebraically closed field is called \emph{fusion} if it is semisimple, rigid, finite, and the unit object is simple.  In this setting there is a well-defined notion of global dimension.  \CD{Add brief definition of global dimension.}  It is known \cite{???} that non-zero global dimension implies that $\cZ(\cC)$ is semisimple, and hence $\cC$ is separable.  We sketch a proof of a stronger version of this result which was suggested to us by Ostrik.
 
