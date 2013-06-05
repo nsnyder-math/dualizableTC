@@ -1555,10 +1555,10 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 The following is an extension of \cite[Thm 2.11.2]{EGNO} and \cite[Thm 1]{MR1976459}.
 
 \begin{theorem}[{\cite[Thm 2.11.2]{EGNO}, \cite[Thm 1]{MR1976459}}] %!% [Thm 2.11.6(i)]
-	Let $\cM$ be a (finite) left module category over a finite, but not necessarily rigid, tensor category $\cC$. Fix and object $P \in \cM$, and set $A = \IHom(P,P) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to  $\cC$-module functor
+	Let $\cM$ be a (finite) left module category over a finite, but not necessarily rigid, tensor category $\cC$. Fix and object $P \in \cM$, and set $A = \IHom(P,P) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to  $\cC$-module functor:
 	\begin{align*}
-		F:   \Mod{}{A}(\cC) &\to \cM \\
-		x_A & \mapsto \coeq \Left( x \otimes \IHom(p,p) \otimes p \rightrightarrows x \otimes p \Right)
+		F:   \Mod{}{A}(\cC) \to \cM \\
+		F(x_A) := \coeq \Left( x \otimes \IHom(p,p) \otimes p \rightrightarrows x \otimes p \Right).
 	\end{align*}
 The functor $\IHom(P,-): \cM \to \Mod{}{A}(\cC)$ is right adjoint to $F$. 
 
@@ -1566,24 +1566,26 @@ Assume that $\IHom(P,-)$ may be equipped with the structure of a $\cC$-module fu
 	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
 \end{theorem}
 
-\noindent The proofs given in \cite{EGNO} and \cite{MR1976459} appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided.  
+\noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}). 
 
-The 
+The Barr-Beck monadicity theorem implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. 
 
+However rigidity of the tensor category $\cC$ plays an essential role in the following result:
 
-
-\begin{example}
-	.\CSPcomm{What goes here is an example of a non-semisimple tensor category (which is not rigid) where the internal hom $\IHom(P,X)$ fails to be projective even if $P$ is projective. Hence $P$ is not a $\cC$-projective. There might not be enough $\cC$-projectives.}
-\end{example}
-
-\CSPcomm{under construction}
-
-
-\begin{theorem}\label{thm:EGNO2.11.6}
+\begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over the finite rigid tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
 \end{theorem}
 
-The above theorem is used to show the existence of the relative Deligne tensor product. The existence of the relative Deligne tesnor product is critical for the construction of the symmetric monoidal 3-category of tensor categories; without the relative tensor product of bimodule categories, the 1-morphisms of the 3-category, cannot be composed. This is the primary reason that all our tensor categories are assumed to be rigid. Rigidity also plays a role in the theory of exact module categories described in the next section.
+\noindent The above theorem is used to show the existence of the relative Deligne tensor product. The existence of the relative Deligne tesnor product is critical for the construction of the symmetric monoidal 3-category of tensor categories; without the relative tensor product of bimodule categories, the 1-morphisms of the 3-category, cannot be composed. This is the primary reason that all our tensor categories are assumed to be rigid. Rigidity also plays a role in the theory of exact module categories described in the next section.
+
+\begin{lemma}
+	If $\cC$ is a rigid finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
+\end{lemma}
+
+\begin{proof}
+	.. \CSPcomm{to be added}
+\end{proof}
+
 
 The following result is well-known, but we were unable to find a proof in the literature.
 
@@ -1891,7 +1893,7 @@ In this section we consider only finite rigid tensor categories.  We summarize E
 		\begin{equation*}
 			p \otimes m \to q \otimes m \to 0.
 		\end{equation*}
-		 The first map admits a section, and hence $q \otimes m$ is a direct summand of $p \otimes m$. By assumption the later is projective, whence $q \otimes p$ is projective for every projective $q \in \cC$ and every $m \in \cM$. 
+		 The first map admits a section, and hence $q \otimes m$ is a direct summand of $p \otimes m$. By assumption the later is projective, whence $q \otimes mß$ is projective for every projective $q \in \cC$ and every $m \in \cM$. 
 \end{proof}
 
 \begin{example}
