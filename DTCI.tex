@@ -1629,7 +1629,7 @@ Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the commutative diagram\footnot
 			\node [node distance = 1.75cm, left of= m-5-3] {$\coker(\overline{\delta}_X)=:$};
 		\end{tikzpicture}
 	\end{center}
-	\caption{A digram demonstrating the universal property of the relative Deligne tensor product.}
+	\caption{A digram useful for demonstrating the existence of the relative Deligne tensor product.}
 	\label{fig:RelDelingePdtDiagram}
 \end{figure}
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps, as above. 
@@ -1657,7 +1657,7 @@ and implements the desired equivalence between such right exact functors and $\c
 	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-bimodule category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced bilinear bimodule functors. 
 \end{remark}
 
-The following lemma is crucial for proving our results.
+The following lemma is crucial for our results.
 
 \begin{lemma} \label{Lma:FunctorsAsATensorPdt}
 	If $\cC$ is a finite rigid tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
@@ -1699,6 +1699,7 @@ The following result is well-known, but we were unable to find a proof in the li
 \end{lemma}
 
 \begin{proof}
+\CSP{I think this might be the lax case, not the oplax.}
 We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
 $$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
 where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
@@ -1794,7 +1795,7 @@ If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only s
 	\end{equation*} 
 	Up to equivalence there are unique choices of associator and unitors making this a tensor category. It is a categorification of the ring $k[x]/(x^2)$ as a finite semisimple tensor category, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
 	
-	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of an $\cR$-module functor. 
+	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor. 
 \end{example}
 
 Equipped with the relative Deligne tensor product and its properties, we can now define the 3-category of interest.
