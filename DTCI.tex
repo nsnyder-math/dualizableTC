@@ -1345,9 +1345,12 @@ with $X''$ simple, and with the length of $X'$ strictly less than $X$. Applying 
 If the middle term is zero, then all terms vanish. By our induction hypothesis, we conclude that $X'' \cong X' \cong 0$, and hence $X$ itself was zero. In other words, $\Hom_{\cC}(P,-)$ reflects isomorphisms and realizes an equivalence of linear categories $\cC \simeq \Mod{A}{}$.
 \end{proof}
 
+\begin{lemma} \label{lma:left_exact=linear}
+	If $\cC$ is a finite linear category, then a functor $G: \cC^\op \to \Vect$ is representable if and only if it is left exact. 
+\end{lemma}
 
 	
-More generally if $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
+If $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
 \begin{equation*}
 	F: \prod \cA_\alpha \to \cB
 \end{equation*}
@@ -1514,6 +1517,26 @@ Bimodule categories, functors, and transformations form a strict 2-category.  %!
 	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are tensor categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category (where, by our conventions, the actions are given by $\cF \otimes \cG = \cG \circ \cF$). 
 \end{example}
 
+\subsection{Enrichment of module categories and rigidity} \label{sec:tc-enrichment}
+
+\begin{theorem}
+	Let $\cC$ be a finite tensor category and let $\cM$ be a finite $\cC$-module category. Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming form the its structure as a $\cC$-module category.
+\end{theorem}
+
+\begin{proof}
+	What this means is that there exist functorial assignments of objects $\IHom(m', m) \in \cC$ and $(m^c) \in \cM$ for every $m,m' \in \cM$ and $c \in \cC$ and natural isomorphisms
+	\begin{equation*}
+		\Hom_\cC(c, \IHom(m', m)) \cong \Hom_\cM(c \otimes m', m) \cong \Hom_\cM( m', (m^c))
+	\end{equation*}
+	witnessing adjunctions
+	\begin{equation*}
+			c \otimes (-) \dashv (-^c) \quad \textrm{ and } \quad (-) \otimes m' \dashv \IHom(m', -).
+	\end{equation*}
+	
+\end{proof}
+
+\noindent In other words 
+
 
 \subsection{The Deligne tensor product and the 3-category of tensor categories} \label{sec:tc-deligne}
 
@@ -1521,6 +1544,7 @@ In this section we will quickly recall the definition and some of the key proper
 
 %The Deligne tensor product is easiest to define for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
 
+\CSP{Move this material to previous section}
 Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.
 
 \begin{theorem}[{\cite[Thm 2.11.2]{EGNO}, \cite[Thm 1]{MR1976459}}] \label{thm:EGNO2.11.6} %!% [Thm 2.11.6(i)]
