@@ -1521,10 +1521,11 @@ Bimodule categories, functors, and transformations form a strict 2-category.  %!
 
 Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.
 
+In this section we will temporarily relax our assumption that tensor categories are rigid. This will lead us to a clearer understanding of how this assumption is utilized in the remainder of this work. 
 
 
 \begin{theorem}
-	Let $\cC$ be a finite tensor category and let $\cM$ be a finite $\cC$-module category. Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming form its structure as a $\cC$-module category.
+	Let $\cC$ be a finite tensor category and let $\cM$ be a finite $\cC$-module category. Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming from its structure as a $\cC$-module category.
 \end{theorem}
 
 \begin{proof}
@@ -1552,17 +1553,21 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 	An object $p \in \cM$ is a $\cC$-generator if and only if for each object $x \in \cM$ there exists an object $c \in \cC$ and a surjection $c \otimes p \twoheadrightarrow x$ if and only if for each object $x \in \cM$ the canonical map $\IHom(p,x) \otimes p \twoheadrightarrow x$ is a surjection. 
 \end{remark}
 
+\begin{example}
+	Let $\cC$ be a tensor category, which we view as a left $\cC$-module category. If $\cC$ is rigid then we have isomorphisms $\IHom(x,y) \cong y \otimes x^*$ and $(y^x) \cong {}^*x \otimes y$. Lemma \ref{lma:RigidIsExact} states that the tensor product is exact in each variable, hence {\em every object} of $\cC$ is $\cC$-projective, even if the object is not a projective object in the usual sense. 
+\end{example}
+
 The following is an extension of \cite[Thm 2.11.2]{EGNO} and \cite[Thm 1]{MR1976459}.
 
 \begin{theorem}[{\cite[Thm 2.11.2]{EGNO}, \cite[Thm 1]{MR1976459}}] %!% [Thm 2.11.6(i)]
-	Let $\cM$ be a (finite) left module category over a finite, but not necessarily rigid, tensor category $\cC$. Fix and object $P \in \cM$, and set $A = \IHom(P,P) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to  $\cC$-module functor:
+	Let $\cM$ be a (finite) left module category over a finite, but not necessarily rigid, tensor category $\cC$. Fix an object $p \in \cM$, and set $A = \IHom(p,p) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to  $\cC$-module functor:
 	\begin{align*}
 		F:   \Mod{}{A}(\cC) \to \cM \\
 		F(x_A) := \coeq \left( x \otimes \IHom(p,p) \otimes p \rightrightarrows x \otimes p \right).
 	\end{align*}
-The functor $\IHom(P,-): \cM \to \Mod{}{A}(\cC)$ is right adjoint to $F$. 
+The functor $\IHom(p,-): \cM \to \Mod{}{A}(\cC)$ is right adjoint to $F$. 
 
-Assume that $\IHom(P,-)$ may be equipped with the structure of a $\cC$-module functor and that the unit and counit of the adjunction $F \dashv \IHom(P,-)$ are morphisms of $\cC$-module functors. Assume further that $P$ is a $\cC$-projective $\cC$-generator.  Then the $\cC$-module adjunction  $F \dashv \IHom(P,-)$
+Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module functor and that the unit and counit of the adjunction $F \dashv \IHom(p,-)$ are morphisms of $\cC$-module functors. Assume further that $P$ is a $\cC$-projective $\cC$-generator.  Then the $\cC$-module adjunction  $F \dashv \IHom(P,-)$
 	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
 \end{theorem}
 
@@ -1570,15 +1575,17 @@ Assume that $\IHom(P,-)$ may be equipped with the structure of a $\cC$-module fu
 
 The Barr-Beck monadicity theorem implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. 
 
-However rigidity of the tensor category $\cC$ plays an essential role in the following result:
+However rigidity of the tensor category $\cC$ plays an essential role in the following result: 
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over the finite rigid tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
 \end{theorem}
 
-\noindent The above theorem is used to show the existence of the relative Deligne tensor product. The existence of the relative Deligne tesnor product is critical for the construction of the symmetric monoidal 3-category of tensor categories; without the relative tensor product of bimodule categories, the 1-morphisms of the 3-category, cannot be composed. This is the primary reason that all our tensor categories are assumed to be rigid. Rigidity also plays a role in the theory of exact module categories described in the next section.
+\noindent This follows immediately from the previous theorem and lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below, which imply that when $\cC$ is rigid $\IHom(P,-)$ may always be enhanced to a $\cC$-module functor and there always exists a $\cC$-projective $\cC$-generator. 
 
-\begin{lemma}
+The above theorem is used to show the existence of the relative Deligne tensor product. The existence of the relative Deligne tesnor product is critical for the construction of the symmetric monoidal 3-category of tensor categories; without the relative tensor product of bimodule categories, the 1-morphisms of the 3-category, cannot be composed. This is the primary reason that all our tensor categories are assumed to be rigid. Rigidity also plays a role in the theory of exact module categories described in the next section.
+
+\begin{lemma} \label{lma:Enough_C-projs}
 	If $\cC$ is a rigid finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
 \end{lemma}
 
