@@ -1715,10 +1715,45 @@ where the first map is given by the coevaluation, the second map is $f_{c^*,m}$,
 	\node at (1.5, -0.5) {$\cF$};
 \end{tikzpicture}
 \end{center}
-We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagram illustrates this calculation.
+We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagrams illustrate this calculation.
 
-\NScomm{[Insert diagram here]}
-\end{proof}
+$$\cb{\begin{tikzpicture}
+	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f_{c^*,m}$};
+	\node (B) at (1,0) [minimum height=1cm,minimum width=2cm, draw] {$f_{c,m}$};
+	\draw (B.135) -- (.5,3) arc (180:0:0.5cm) |- (A.135) ;
+	\draw (A.225) -- (B.45);
+	\draw (A.45) -- (2.5,3.5);
+	\draw (A.315) -- (2.5,1) arc (180:360:0.5cm) -- (3.5,3.5);
+	\draw (B.315) -- (1.5, -1.5);
+	\draw (B.225) -- (.5, -1.5);
+	\node at (2.5,4) {$\cF$};
+	\node at (4,4) {$c \otimes (-)$};
+	\node at (.5, -2) {$\cF$};
+	\node at (1.5, -2) {$c \otimes (-)$};
+\end{tikzpicture}}
+= \hspace{.5cm} \cb{\begin{tikzpicture}
+	\node (A) at (2,2) [minimum height=1cm,minimum width=3cm, draw] {$f_{c \otimes c^*,m}$};
+	\draw (A.153) -- (1,3) arc (180:0:0.5cm) -- (A.90) ;
+	\draw (A.27) -- (3,3.5);
+	\draw (A.333) -- (3,1) arc (180:360:0.5cm) -- (4, 3.5);
+	\draw (A. 270) -- (2,.5);
+	\draw (A.207) -- (1,.5);
+	\node at (3,4) {$\cF$};
+	\node at (4,4) {$c \otimes (-)$};
+	\node at (1,0) {$\cF$};
+	\node at (2,0) {$c \otimes (-)$};
+\end{tikzpicture}}
+=
+\cb{\begin{tikzpicture}
+	\draw (0, 0) -- (2,3.5);
+	\draw (1,0) -- (1,1) arc (180:0:.5cm) arc (180:360:.5cm) -- (3,3.5);
+	\node at (2,4) {$\cF$};
+	\node at (3,4) {$c \otimes (-)$};
+	\node at (0,-.5) {$\cF$};
+	\node at (1,-.5) {$c \otimes (-)$};
+
+\end{tikzpicture}}
+$$\end{proof}
 
 
 \begin{lemma} \label{lma:module-adjoint}
@@ -1731,7 +1766,19 @@ The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \ot
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
 where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the one in the previous lemma.)
 
-\NScomm{[Insert diagram here]}
+\begin{center}
+\begin{tikzpicture}
+	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$\psi_{x,m}$};
+	\draw (0,4) -- (0,1) arc (180:360:0.75cm) -- (A.225);
+	\draw (A.135) -- (1.5,4);
+	\draw (A.315) -- (2.5,0);
+	\draw (A.45) -- (2.5,3) arc (180:0:0.75cm) -- (4,0);
+	\node at (2.5,-.5) {$x \otimes (-)$};
+	\node at (4,-.5) {$\cG$};
+	\node at (0,4.5) {$\cG$};
+	\node at (1.5, 4.5) {$x \otimes (-)$};
+\end{tikzpicture}
+\end{center}
 
 Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is left as an exercise.
 \end{proof}
