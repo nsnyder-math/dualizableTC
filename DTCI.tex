@@ -1745,13 +1745,12 @@ $$\cb{\begin{tikzpicture}
 \end{tikzpicture}}
 =
 \cb{\begin{tikzpicture}
-	\draw (0, 0) -- (2,3.5);
+	\draw (0, 0) to [out=90, in=270] (2,3.5);
 	\draw (1,0) -- (1,1) arc (180:0:.5cm) arc (180:360:.5cm) -- (3,3.5);
 	\node at (2,4) {$\cF$};
 	\node at (3,4) {$c \otimes (-)$};
 	\node at (0,-.5) {$\cF$};
 	\node at (1,-.5) {$c \otimes (-)$};
-
 \end{tikzpicture}}
 $$\end{proof}
 
@@ -1765,7 +1764,7 @@ Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we w
 The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
 where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  (Note that this mate rotates in the opposite direction from the one in the previous lemma.)
-
+\CSP{This looks wrong to me. It doesn't seem to match the formula. Maybe it rotates the same way as the previous one?}
 \begin{center}
 \begin{tikzpicture}
 	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$\psi_{x,m}$};
