@@ -2288,11 +2288,17 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 \subsection{Fusion categories} \label{sec:tc-fusion}
 
-The goal of this section is to show that under nice circumstances separability is easy to check.
+The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
 
-  In particular, we show that over an algebraically closed field, fusion categories of non-zero global dimension are separable, and that semisimple bimodule categories over such fusion categories are separable.
+Fusion tensor categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is known that the when the global dimension is non-zero, then the center 
+$\cZ(\cC)$ is semisimple (See for example \cite[Prop. 3.10]{MR1966525} where this is shown under the assumption of sphericality).
+\CSP{Does M\"uger's proof depend on sphericality? I checked that you always get that the center is rigid (M\"uger Prop 3.9) and this doesn't use spherical or pivotal as far as I can tell. Also the unit object will be simple.} 
+By Theorem \ref{thm:SepModCats} this implies that $\cC$ is separable. 
 
-For this section we assume the base field $k$ is algebraically closed.  Recall that a tensor category over an algebraically closed field is called \emph{fusion} if it is semisimple, rigid, finite, and the unit object is simple.  In this setting there is a well-defined notion of global dimension.  \CD{Add brief definition of global dimension.}  It is known \cite{???} that non-zero global dimension implies that $\cZ(\cC)$ is semisimple, and hence $\cC$ is separable.  We sketch a proof of a stronger version of this result which was suggested to us by Ostrik.
+In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion tensor category and that  semisimple bimodule categories over such fusion categories are separable (on conversely). Many of the ideas in this section we suggested to us by Ostrik. 
+
+\CSPcomm{ Define norm squared of an object. Define global dimension. Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
+
 
 \begin{theorem} \label{thm:NonzeroDimension}
 A fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
