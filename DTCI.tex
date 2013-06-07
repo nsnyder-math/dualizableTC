@@ -2297,10 +2297,30 @@ By Theorem \ref{thm:SepModCats} this implies that $\cC$ is separable.
 
 In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion tensor category and that  semisimple bimodule categories over such fusion categories are separable (on conversely). Many of the ideas in this section we suggested to us by V. Ostrik. 
 
-Let $\cC$ be a fusion tensor category and let $x \in \cC$ be a simple object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite
+Let $\cC$ be a fusion tensor category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
 \begin{equation*}
-	\Tr(a) := \ev \circ ()
+	\Tr(a) := \ev_x \circ (a \otimes id_{{}^*x}) \circ \coev_{{}^*x}.
 \end{equation*}
+% This is the exact same formula as in ENO's On fusion cat
+The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. 
+
+In a fusion category every object is non-canoncially isomorphic to its double dual, and this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object. Then the {\em norm squared} $d^2(x)$ of $x$ is defined by the formula 
+\begin{equation*}
+	d^2(x) := \Tr(a) \cdots \Tr((a^{-1})^*)
+\end{equation*}
+% ENO a: x --> x**,  a^{-1}: x** ---> x,  (a^{-1})*: x* ---> x*** or (**x)* = *x -->  (**x)***= x*
+%  a: **x --> x, a^{-1}: x ---> **x
+% Can I rewrite the second term with just the right dual?
+where $a: {}^{**}x \to x$ is any isomorphism. This is easily seen not to depend on the choice of isomorphism between $x$ and its double dual. Moreover it only depends on the isomorphism class of $x$. 
+
+\begin{definition}
+	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is the sum
+	\begin{equation*}
+		\dim(\cC) := \sum_x d^2(x)
+	\end{equation*}
+	where this sum ranges over a choice of representatives of isomorphism classes of simple objects of $\cC$. 
+\end{definition}
+
 \CSPcomm{finish this...}
 
 \CSPcomm{ Define norm squared of an object. Define global dimension. Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
