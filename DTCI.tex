@@ -2290,10 +2290,10 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
 
-Fusion tensor categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is known that the when the global dimension is non-zero, then the center 
-$\cZ(\cC)$ is semisimple. See for example \cite[Prop. 3.10]{MR1966525} where this is shown under the assumption of sphericality.
-\CSP{Does M\"uger's proof depend on sphericality? I checked that you always get that the center is rigid (M\"uger Prop 3.9) and this doesn't use spherical or pivotal as far as I can tell. Also the unit object will be simple.} 
-By Theorem \ref{thm:SepModCats} this implies that $\cC$ is separable. 
+Fusion tensor categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is generally known that the when the global dimension is non-zero, then the center $\cZ(\cC)$ is semisimple. This shown for example in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 that same paper). 
+%%%
+%\CSP{Does M\"uger's proof depend on sphericality? I checked that you always get that the center is rigid (M\"uger Prop 3.9) and this doesn't use spherical or pivotal as far as I can tell. Also the unit object will be simple.In ENO "On Fusion Cats" Thm 2.15 they prove this without sphericality, but with char zero.} 
+By Theorem \ref{thm:SepModCats} semi-simplicity of the center implies that $\cC$ is separable. 
 
 In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion tensor category and that  semisimple bimodule categories over such fusion categories are separable (on conversely). Many of the ideas in this section we suggested to us by V. Ostrik. 
 
@@ -2304,26 +2304,29 @@ Let $\cC$ be a fusion tensor category and let $x \in \cC$ be an object. Given a 
 % This is the exact same formula as in ENO's On fusion cat
 The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. 
 
-In a fusion category every object is non-canoncially isomorphic to its double dual, and this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object. Then the {\em norm squared} $d^2(x)$ of $x$ is defined by the formula 
+In a fusion category every object is non-canoncially isomorphic to its double dual, and this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object, then the {\em norm square} $d^2(x)$ of $x$ is defined by the formula 
 \begin{equation*}
-	d^2(x) := \Tr(a) \cdots \Tr((a^{-1})^*)
+	d^2(x) := \Tr(a) \cdot \Tr((a^{-1})^*) \in k
 \end{equation*}
 % ENO a: x --> x**,  a^{-1}: x** ---> x,  (a^{-1})*: x* ---> x*** or (**x)* = *x -->  (**x)***= x*
 %  a: **x --> x, a^{-1}: x ---> **x
 % Can I rewrite the second term with just the right dual?
-where $a: {}^{**}x \to x$ is any isomorphism. This is easily seen not to depend on the choice of isomorphism between $x$ and its double dual. Moreover it only depends on the isomorphism class of $x$. 
-
+where $a: {}^{**}x \to x$ is any choice of isomorphism. This is easily seen not to depend on the choice of isomorphism between $x$ and its double dual. Moreover it only depends on the isomorphism class of $x$. 
 \begin{definition}
-	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is the sum
+	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is defined by the formula
 	\begin{equation*}
-		\dim(\cC) := \sum_x d^2(x)
+		\dim(\cC) := \sum_{x} d^2(x)
+		%\sum_{\substack{x \in \cC \\ x \;  \mathrm{simple}}} d^2(x)
 	\end{equation*}
 	where this sum ranges over a choice of representatives of isomorphism classes of simple objects of $\cC$. 
 \end{definition}
+\noindent The norm square of simple objects and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
+
 
 \CSPcomm{finish this...}
 
-\CSPcomm{ Define norm squared of an object. Define global dimension. Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
+\CSPcomm{ Cannonical pairing on $\cC(w, z)$ when $z$ is simple. $\cC(w,z) \times \cC(z,w) \to \cC(z,z) \cong k$
+ Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
 
 
 \begin{theorem} \label{thm:NonzeroDimension}
