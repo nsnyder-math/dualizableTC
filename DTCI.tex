@@ -1373,7 +1373,7 @@ such that $F$ is linear in each variable separately.
 \end{example}
 
 \begin{example}
-	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$. If $\cM$ is semi-simple, then $\Fun(\cM, \cM)$ is rigid and hence a tensor category; Duals are obtained by taking adjoints.  
+	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$. If $\cM$ is semi-simple, then $\Fun(\cM, \cM)$ is rigid and hence a tensor category; Duals are obtained by taking adjoint functors.  
 \end{example}
 
 Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the monoidally-opposite opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$; also in the literature $rev$ is sometimes used to denote what we call $\mp$.)
@@ -1381,7 +1381,7 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 
 
 \begin{lemma} \label{lma:RigidIsExact}
-	Let $(\cC, \otimes)$ be a (rigid) tensor category. Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
+	Let $(\cC, \otimes)$ be a tensor category (so that $\cC$ is rigid). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
 \end{lemma}
 
 \begin{proof}
@@ -1399,7 +1399,7 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 \end{alignat*}
 
 \begin{corollary}
-	A (rigid) tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
+	A tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
 \end{corollary}
 %\CD{semisimple hasn't yet been introduced}
 %\CSP{We are not writing a text book. We don't have to define semisimple.}
@@ -1470,7 +1470,7 @@ We will follow the standard conventions for bicategories and their functors, see
 \begin{definition}
 	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$-$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that
 	\begin{itemize}
-		\item all hom categories are finite linear categories, 
+		\item all hom categories are linear categories, 
 		\item horizontal composition is multilinear, and
 		\item the hom categories $\Hom(x,x)$, $\Hom(y,y)$, and $\Hom(y,x)$ are respectively $\cD$, $\cC$, and empty.
 %		there are identifications of monoidal categories $\Hom(x,x) = \cD$ and $\Hom(y,y) = \cC$, and the set $\Hom(y,x)$ is empty.
@@ -1516,18 +1516,18 @@ Bimodule categories, functors, and transformations form a strict 2-category.  %!
 \end{example}
 
 \begin{example}
-	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are tensor categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category (where, by our conventions, the actions are given by $\cF \otimes \cG = \cG \circ \cF$). 
+	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category (where, by our conventions, the actions are given by $\cF \otimes \cG = \cG \circ \cF$). 
 \end{example}
 
 \subsection{Enrichment of module categories and rigidity} \label{sec:tc-enrichment}
 \NS{In the long run, we might want to move this section and some other stuff into paper 0?  But we can initially post a long version to the arxiv, and then a shorter revision along with paper 0.}
 Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
 
-In this section we will temporarily relax our assumption that tensor categories are rigid. This will lead us to a clearer understanding of how this assumption is utilized in the remainder of this work.  \NS{Are you also relaxing "finite tensor category" to not mean rigid?  Maybe we should say "linear monoidal category" or "non-rigid tensor category."}
+%In this section we will temporarily relax our assumption that tensor categories are rigid. This will lead us to a clearer understanding of how this assumption is utilized in the remainder of this work.  \NS{Are you also relaxing "finite tensor category" to not mean rigid?  Maybe we should say "linear monoidal category" or "non-rigid tensor category."}
 
 
 \begin{theorem} \label{thm:enrichment-of-mod-cats}
-	Let $\cC$ be a finite tensor category and let $\cM$ be a finite $\cC$-module category. Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming from its structure as a $\cC$-module category.
+	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming from its structure as a $\cC$-module category.
 \end{theorem}
 
 \begin{proof}
@@ -1548,7 +1548,7 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 \end{proof}
 
 \begin{definition}
-	Let $\cC$ be a finite tensor category and let $\cM$ be a finite $\cC$-module category. An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful.  \NS{Are you assuming rigidity here?}
+	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful. % \NS{Are you assuming rigidity here?}
 \end{definition}
 
 \begin{remark}
@@ -1556,20 +1556,20 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 \end{remark}
 
 \begin{example} \label{ex:rigid_all_C-proj}
-	Let $\cC$ be a tensor category, which we view as a left $\cC$-module category. If $\cC$ is rigid then we have isomorphisms $\IHom(x,y) \cong y \otimes x^*$ and $(y^x) \cong {}^*x \otimes y$. Lemma \ref{lma:RigidIsExact} states that the tensor product is exact in each variable, hence {\em every object} of $\cC$ is $\cC$-projective, even if the object is not a projective object in the usual sense. \NS{To use that lemma you need to assume rigidity.}
+	Let $\cC$ be a tensor category, i.e., $\cC$ is both finite and rigid. We may view $\cC$ as a left $\cC$-module category over itself. Since $\cC$ is rigid, we have isomorphisms $\IHom(x,y) \cong y \otimes x^*$ and $(y^x) \cong {}^*x \otimes y$. Moreover Lemma \ref{lma:RigidIsExact} states that in this case the tensor product is exact in each variable, hence {\em every object} of $\cC$ is $\cC$-projective, even if the object is not a projective object in the usual sense. %\NS{To use that lemma you need to assume rigidity.}
 \end{example}
 
 The following is an extension of \cite[Thm 2.11.2]{EGNO} and \cite[Thm 1]{MR1976459}.
 
-\begin{theorem}[{\cite[Thm 2.11.2]{EGNO}, \cite[Thm 1]{MR1976459}}] \label{thm:C-module-Embedding} %!% [Thm 2.11.6(i)] 
-	Let $\cM$ be a (finite) left module category over a finite, but not necessarily rigid, tensor category $\cC$. Fix an object $p \in \cM$, and set $A = \IHom(p,p) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to  $\cC$-module functor:
+\begin{theorem} \label{thm:C-module-Embedding} %!% [Thm 2.11.6(i)] 
+	Let $\cM$ be a finite left module category over a finite, but not necessarily rigid, linear monoidal category $\cC$. Fix an object $p \in \cM$, and set $A = \IHom(p,p) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to $\cC$-module functor:
 	\begin{align*}
 		F:   \Mod{}{A}(\cC) \to \cM \\
 		F(x_A) := \coeq \left( x \otimes \IHom(p,p) \otimes p \rightrightarrows x \otimes p \right).
 	\end{align*}
 The functor $\IHom(p,-): \cM \to \Mod{}{A}(\cC)$ is right adjoint to $F$. 
 
-Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module functor and that the unit and counit of the adjunction $F \dashv \IHom(p,-)$ are morphisms of $\cC$-module functors. Assume further that $P$ is a $\cC$-projective $\cC$-generator.  Then the $\cC$-module adjunction  $F \dashv \IHom(P,-)$
+Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module functor and that the unit and counit of the adjunction $F \dashv \IHom(p,-)$ are morphisms of $\cC$-module functors. Assume further that $p$ is a $\cC$-projective $\cC$-generator.  Then the $\cC$-module adjunction  $F \dashv \IHom(p,-)$
 	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
 \end{theorem}
 
@@ -1577,22 +1577,23 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 
 The Barr-Beck monadicity theorem implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. 
 
-If we additionally assume that the tensor category $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(P,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator. In this case we immediately have: 
+If we additionally assume that the tensor category $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator. In this case we immediately have: 
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
-	Let $\cM$ be a finite left module category over the finite rigid tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
+	Let $\cM$ be a left module category over a tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
 \end{theorem}
 
 In the next section the above theorem is used to show the existence of the relative Deligne tensor product. The existence of the relative Deligne tesnor product is critical for the construction of the symmetric monoidal 3-category of tensor categories; without the relative tensor product of bimodule categories the 1-morphisms of the alleged 3-category cannot be composed. This is the primary reason that all our tensor categories are assumed to be rigid. Rigidity also plays a role in the theory of exact module categories described in the section~\ref{sec:tc-exact}.
 
-Without assuming that the category is rigid, the conditions of the theorem \ref{thm:C-module-Embedding} are absolutely necessary. In fact without rigidity the above theorem fails as the following example shows: 
+Without assuming that the category is rigid, the conditions of the theorem \ref{thm:C-module-Embedding} are absolutely necessary. In fact without rigidity theorem \ref{thm:EGNO2.11.6} above fails as the following example shows: 
 
 \begin{example} \label{ex:lax-module}
-	Let $\cR \cong \Vect \oplus \Vect \cdot X$ be the non-rigid tensor category consisting of pairs of vector spaces, which we write as $V_1 + V_2 X$, with tensor product given by 
+	Let $\cR \cong \Vect \oplus \Vect \cdot X$ be the non-rigid linear monoidal category consisting of pairs of vector spaces, which we write as $V_1 + V_2 X$, with tensor product given by 
 	\begin{equation*}
 		(V_1 + V_2 X) \otimes (W_1 + W_2 X) = V_1 \otimes W_1  +  (V_1 \otimes W_2 \oplus V_2 \otimes W_1)X.
 	\end{equation*} 
-	Up to equivalence there are unique choices of associator and unitors making this a tensor category. It is a categorification of the ring $k[x]/(x^2)$ as a finite semisimple tensor category, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
+	Up to equivalence there are unique choices of associator and unitors making this a linear monoidal category. 
+It is both finite and semisimple, and is a categorification of the ring $k[x]/(x^2)$, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
 	
 	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both left and right adjoints, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor. Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. 
 \end{example}
@@ -1600,17 +1601,17 @@ Without assuming that the category is rigid, the conditions of the theorem \ref{
 
 
 \begin{lemma} \label{lma:Enough_C-projs}
-	If $\cC$ is a rigid finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
+	If $\cC$ is a tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
 \end{lemma}
 
 \begin{proof}
-	When $\cC$ is rigid, we claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator, and these are guaranteed to exist since $\cM$ is finite. Thus assume that $p \in \cM$ is projective.  We aim to show that $\IHom(p, -)$ is right exact. 
+	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator, and these are guaranteed to exist since $\cM$ is finite. Thus assume that $p \in \cM$ is projective.  We aim to show that $\IHom(p, -)$ is right exact. 
 	
-Since $\cC$ is rigid, we have a natural isomorphism of functors:
+	Since $\cC$ is a tensor category it is rigid, and hence we have a natural isomorphism of functors:
 \begin{equation*}
 	\Hom_{\cM}(c \otimes p, m) \cong \Hom_{\cM}(p, {}^*c \otimes m).
 \end{equation*}
-Since $p$ is projective, taking an object to its dual is a (contravariant) equivalence of categories hence exact, and   the $\cC$-module structure is right exact, we see that the above functor is left exact in the `$c$' variable and right exact in the `$m$' variable. Said differently, for each projective $p \in \cM$ we have a right exact functor
+Taking an object to its dual is a (contravariant) equivalence of categories hence exact. Moreover since $p$ is projective and the $\cC$-module structure is right exact, we see that the above functor is left exact in the `$c$' variable and right exact in the `$m$' variable. Said differently, for each projective $p \in \cM$ we have a right exact functor
 \begin{align*}
 	G_p: & \; \cM \to \Fun^L(\cC^\op, \Vect) \\
 	& m \mapsto (c \mapsto \Hom(c \otimes p, m)).
@@ -1630,8 +1631,7 @@ The following result is well-known, but we were unable to find a proof in the li
 \end{lemma}
 
 \begin{proof}
-\CSP{I think this might be the lax case, not the oplax.}
-We do the oplax case, the lax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an oplax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
+We do the lax case, the oplax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an lax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
 $$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
 where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
 \begin{center}
@@ -1647,7 +1647,7 @@ where the first map is given by the coevaluation, the second map is $f_{c^*,m}$,
 	\node at (1.5, -0.5) {$\cF$};
 \end{tikzpicture}
 \end{center}
-We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following diagrams illustrate this calculation.
+We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following string diagrams illustrate this calculation.
 
 $$\cb{\begin{tikzpicture}
 	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f_{c^*,m}$};
@@ -1688,19 +1688,19 @@ $$\end{proof}
 
 
 \begin{lemma} \label{lma:module-adjoint}
-Let $\cC$ and $\cD$ be rigid tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
+Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
 \end{lemma}
 \begin{proof}
 Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ naturally has the structure of a $\cC$-$\cD$-bimodule functor.  The result for left adjoints is similar.
 
-The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate
+The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate:
 $$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
 where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  
 \CSP{This looks wrong to me. It doesn't seem to match the formula. Maybe it rotates the same way as the previous one?}
 \NS{I think it's fixed now.  In some sense it rotates in the opposite direction as the previous argument, but we ended up doing the lax case for one and the oplax case for the other so they're the same.  Maybe that's misleading and we should change one of them.}
 \begin{center}
 \begin{tikzpicture}
-	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$\psi_{x,m}$};
+	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f^{-1}_{x,\cG(-)}$};
 	\draw (0,0) -- (0,3) arc (180:0:0.75cm) |- (A.135);
 	\draw (A.225) -- (1.5,0);
 	\draw (A.45) -- (2.5,4);
@@ -1716,10 +1716,10 @@ Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this bi
 \end{proof}
 
 \begin{remark}
-If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to a (lax) module functor has an oplax module functor structure, while the left adjoint of an (oplax) module functor only has a lax module functor structure.  %This is a serious issue as the following example shows. 
+If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an (oplax) module functor has a lax module functor structure, while the left adjoint of a (lax) module functor only has an oplax module functor structure.  %This is a serious issue as the following example shows. 
 \end{remark}
 
-\noindent From this point on we will return to our convention that all module categories are finite and all tensor categories are both rigid and finite. 
+%\noindent From this point on we will return to our convention that all module categories are finite and all tensor categories are both rigid and finite. 
 
 
 \subsection{The Deligne tensor product and the 3-category of tensor categories} \label{sec:tc-deligne}
@@ -1730,6 +1730,7 @@ In this section we will quickly recall the definition and some of the key proper
 
 
 \begin{definition}
+	Let $\cC$ be a linear monoidal category. 
 	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
 \begin{center}
 \begin{tikzpicture}
@@ -1749,13 +1750,15 @@ In this section we will quickly recall the definition and some of the key proper
 
 
 \begin{definition}
-	Let $\cA$ be a right $\cC$-module category and let $\cB$ be a left $\cC$-module category. The {\em Deligne tensor product $\cA \boxtimes_{\cC} \cB$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and the category of linear functors $\cA \boxtimes_{\cC} \cB \to \cD$. 
+	Let $\cA$ be a right $\cC$-module category and let $\cB$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and the category of linear functors $\cA \boxtimes_{\cC} \cB \to \cD$. 
 \end{definition}
 
 If it exists, the Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
 
+In \cite{0909.3140} the existence of the relative Deligne tensor product was established for semisimple module categories over semisimple tensor categories over a field of characteristic zero. The following theorem extends these results and provides an alternative proof of the existence of the relative Deligne tensor product.   
+
 \begin{theorem} \label{thm:DelignePrdtOverATCExists}
-	Let $\cC$ be a finite rigid tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
+	Let $\cC$ be a tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
 	\begin{enumerate}
 		\item The relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$ exists and is a finite linear category;
 		\item If $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$, then $\cA \boxtimes_{\cC} \cB \simeq \Mod{A }{B}(\cC)$;
