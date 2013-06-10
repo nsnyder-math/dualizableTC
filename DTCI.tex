@@ -1275,7 +1275,7 @@ This choice determines the following conventions.
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
-	Unless otherwise stated {\bfseries all linear functors considered in this paper are  right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the constructions that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
+	Unless explicitly stated otherwise {\bfseries all linear functors considered in this paper are  right exact functors}.  We are aware that this deviates from convention, and offer the following justification. Many of the constructions that will be described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering this paper with the adjective `right exact' it is simpler to define right exactness into the framework from the start.  
 \end{warning}
 
 We will also tacitly assume that all of our linear categories satisfy a certain finiteness condition, which we will describe momentarily. Unlike the right exactness assumption and the rigidity assumption (described later), this finiteness assumption is not essential for defining the standard Deligne tensor product tensor product of linear categories\footnote{The standard Deligne tensor product of abelian categories exists for any abelian categories which arise as `homotopy colimits' of finite abelian categories. It exists in complete generality if we relax the assumption that our categories are {\em abelian} and replace it with the assumption that they are {\em finitely cocomplete} \cite{1212.1545}.} and can probably be removed for the relative Deligne as well. However this finiteness assumption permits us to give an explicit and simple 
@@ -1283,14 +1283,14 @@ description of these tensor products of categories, while also simplifying the p
 
 Recall the following standard terminology:
 \begin{itemize}
-	\item A object of a linear category is {\em simple} if it admits no non-trivial subobjects; an object is simple if and only if its endormorphisms form a division algebra over $k$. 
+	\item A object of a linear category is {\em simple} if it admits no non-trivial subobjects; The endormorphism ring of any simple object is a division algebra over $k$. 
 	\item An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects
 	\begin{equation*}
 		X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots 
 	\end{equation*}
 	has finite length. 
 	\item A linear category is {\em semi-simple} if every object splits as a finite direct sum of simple objects, equivalently, if every short exact sequence splits. 
-	\item A linear category {\em has enough projectives} if every object $X$ admits a surjection $P \to X$ from some projective object $P$, which may depend on $X$. 
+	\item A linear category {\em has enough projectives} if every object $X$ admits a surjection $P \twoheadrightarrow X$ from some projective object $P$, which may depend on $X$. 
 \end{itemize}
 
 
@@ -1346,8 +1346,10 @@ If the middle term is zero, then all terms vanish. By our induction hypothesis, 
 \end{proof}
 
 \begin{lemma} \label{lma:left_exact=linear}
-	If $\cC$ is a finite linear category, then a functor $G: \cC^\op \to \Vect$ is representable if and only if it is left exact. 
+	If $\cC$ is a finite linear category, then a  functor $G: \cC^\op \to \Vect$, not necessarily right exact, is representable if and only if it is left exact. 
 \end{lemma}
+
+\noindent Recall that $G$ is representable if there exists an object $x \in \cC$ and a natural isomorphism $G(-) \cong \Hom_{\cC}(-, x)$. 
 
 	
 If $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
@@ -1361,7 +1363,7 @@ such that $F$ is linear in each variable separately.
 
 %\CSP{The definition of tensor category should include rigid too, I think. Also finite. And the definition of finite should be moved here.}
 \begin{definition}
-	A {\em tensor category} is a finite rigid linear monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that the functor $\otimes$ is multilinear. A {\em tensor functor} is a monoidal functor that is also linear. 
+	A {\em linear monoidal category} will mean a monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em tensor category} is a finite rigid linear monoidal category.  
 \end{definition}
 
 \noindent Note that we are assuming that all our tensor categories are rigid (see Def. \ref{def:rigid}). This assumption is necessary for theorem \ref{thm:EGNO2.11.6}, which is one of the main results of \cite{EGNO}, and which is discussed in detail in section \ref{sec:tc-enrichment}. We in turn use this later result as the basis for proving the existence of the {\em relative} Deligne product, as well as for several other crucial results in this paper. We will explain how this assumption is used in sections \ref{sec:tc-enrichment},\ref{sec:tc-deligne}, \ref{sec:tc-exact}, and \ref{sec:tc-separable}.
@@ -2305,13 +2307,12 @@ Let $\cC$ be a fusion tensor category and let $x \in \cC$ be an object. Given a 
 % This is the exact same formula as in ENO's On fusion cat
 The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. 
 
+\CSP{`squared norm' is what ENO use, `dimension squared' is what M\"uger uses. I don't like either because it is not the square of something in general. Is it unreasonable to rename this something like the {\em magnitude} of the object $x$? }
 In a fusion category every object is non-canoncially isomorphic to its double dual, and this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object, then the {\em norm square} $d^2(x)$ of $x$ is defined by the formula 
 \begin{equation*}
-	d^2(x) := \Tr(a) \cdot \Tr((a^{-1})^*) \in k
+	d^2(x) := \Tr(a) \cdot \Tr({}^*(a^{-1})) \in k
 \end{equation*}
-% ENO a: x --> x**,  a^{-1}: x** ---> x,  (a^{-1})*: x* ---> x*** or (**x)* = *x -->  (**x)***= x*
-%  a: **x --> x, a^{-1}: x ---> **x
-% Can I rewrite the second term with just the right dual?
+% This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
 where $a: {}^{**}x \to x$ is any choice of isomorphism. This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual. Moreover it only depends on the isomorphism class of $x$. 
 \begin{definition}
 	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is defined by the formula
