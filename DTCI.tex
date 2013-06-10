@@ -1547,6 +1547,11 @@ Such structure exists precisely if the functors
 are representable. In this case they represent the objects $\IHom(m', m)$ and $(m^c)$, respectively. Both of these functors are left exact, and hence by Lemma \ref{lma:left_exact=linear} (which uses the finiteness of $\cC$ and $\cM$) both of these functors are indeed representable. 
 \end{proof}
 
+\begin{remark}
+	The existence of $\IHom(m', m)$ only requires $\cC$ to be finite, and similarly the existence of $(m^c)$ only requires $\cM$ to be finite.
+\end{remark}
+
+
 \begin{definition}
 	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful. % \NS{Are you assuming rigidity here?}
 \end{definition}
@@ -1857,10 +1862,11 @@ and implements the desired equivalence between such right exact functors and $\c
 	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-bimodule category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced bilinear bimodule functors. 
 \end{remark}
 
-The following lemma is crucial for our results.
+The following lemma is crucial for our results. It is close in spirit to \cite[Prop. 3.5 and Rmk. 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, however these previous result assume semi-simplicity over an algebraically closed field of characteristic zero, and moveover both statements contain minor inaccuracies regarding the equivalence as bimodule categories. See Remark \ref{rmk:Deligne_pdt_as_mod_functor} for details and the corrected version of \cite[Rmk. 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}.
+\CSP{How do these comments read? Too harsh?} 
 
 \begin{lemma} \label{Lma:FunctorsAsATensorPdt}
-	If $\cC$ is a finite rigid tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
+	If $\cC$ is a tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
 	\begin{equation*}
 		\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN \simeq \Fun_\cC(\cM,\cN).
 	\end{equation*}
@@ -1901,16 +1907,16 @@ Equipped with the relative Deligne tensor product and its properties, we can now
 \end{theorem}
 
 \subsection{Exact module categories and adjoints of module functors} \label{sec:tc-exact}
-In this section we consider only finite rigid tensor categories.  We summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  We will see, in particular, that certain module functors have adjoints, which will be necessary when we investigate $3$-dualizability.
+In this section we consider only tensor categories and summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  We will see, in particular, that certain module functors have adjoints, which will be necessary when we investigate $3$-dualizability.
 
 \begin{definition}
-	Let $\cC$ be a finite rigid tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $m \in \cM$ and  projective object $p \in \cC$, the object $p \otimes m$ is projective in $\cM$. 
+	Let $\cC$ be a tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $m \in \cM$ and  projective object $p \in \cC$, the object $p \otimes m$ is projective in $\cM$. 
 \end{definition}
 
 \noindent In fact it is enough to check the above exactness condition for any collection of projective generators of $\cC$. 
 
 \begin{lemma} \label{lma:Exact_checked_on_proj_gens}
-	Let $\cC$ be a finite rigid tensor category and $\cM$ a (left) $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a fixed collection of jointly generating projective objects of  $\cC$. Then the following are equivalent:
+	Let $\cC$ be a tensor category and $\cM$ a finite (left) $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a fixed collection of jointly generating projective objects of  $\cC$. Then the following are equivalent:
 	\begin{enumerate}
 		\item for all $m \in \cM$ and all $p_\alpha \in \cP$, the object $p_\alpha \otimes m \in \cM$ is projective;
 		\item the $\cC$-module category $\cM$ is exact.
@@ -1933,22 +1939,22 @@ In this section we consider only finite rigid tensor categories.  We summarize E
 \end{example}
 
 \begin{example}[{\cite[Example 2.6.5]{EGNO}}] \label{ex:exactness}
-	The finite rigid tensor category $\cC$ is exact when considered as a $\cC$-, $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
+	A tensor category $\cC$ is exact when considered as a $\cC$-, $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
 \end{example}
 %\CSP{I think we might want to add some material to this example discussing the alegbra $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$. }
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
 \begin{theorem}[\cite{EGNO}] \label{Thm:ExactModCatOmnibus}
-	Let $\cC$ be a finite rigid tensor category, and let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories, and let $\cN$ be an arbitrary $\cC$-module category. Then,
+	Let $\cC$ be a tensor category (hence finite and rigid), and let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories (not assumed to be finite), and let $\cN$ be an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
 		\item $\cM$ has enough projectives. \cite[Lemma 2.7.1]{EGNO}
 		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor 2.7.4]{EGNO}
 		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
 		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 2.13.2]{EGNO}		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, $\Fun_{\cC}(\cM,\cM)$ is itself a finite rigid tensor category. 
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, $\Fun_{\cC}(\cM,\cM)$ is itself a tensor category (in particular finite and rigid). 
 	\end{enumerate}
 \end{theorem}
-\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
+%\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
 
 \begin{definition}
 We say that a $\cC$--$\cD$ bimodule category is exact if it is exact as a $\cC \boxtimes \cD^\mp$ module category.
@@ -2045,7 +2051,7 @@ Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-mo
 We will be particularly interested in the modules $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC \boxtimes \cC^\mp} \cC$ obtained by applying this procedure to the identity bimodule ${}_\cC \cC_\cC$.  Note that if you move both actions on ${}_\cC \cC_\cC$ to the opposite side, you obtain a bimodule ${}_{\cC^\mp}\cC_{\cC^\mp}$, which is in fact the identity bimodule on $\cC^\mp$.
 
 \begin{example}[The category of Hopf bimodules]
-	Let $\cC$ be a (rigid) tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$ (cf. section \ref{sec:tc-enrichment}); $A$ is an algebra object in $\cC \boxtimes \cC^\mp$. 
+	Let $\cC$ be a tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$ (cf. section \ref{sec:tc-enrichment}); $A$ is an algebra object in $\cC \boxtimes \cC^\mp$. 
 The object $1 \in \cC$ is a $\cC$-projective $\cC$-generator (cf. example \ref{ex:rigid_all_C-proj}) and hence by Lemma \ref{lma:module-adjoint} and Theorem \ref{thm:C-module-Embedding} the functor $\IHom(1, -)$ induces an 
  equivalence of left $\cC \boxtimes \cC^\mp$-module categories:
 	\begin{equation*}
@@ -2091,7 +2097,7 @@ Similarly, let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underly
 \end{definition}
 
 \begin{lemma}
-Suppose that $\cM$ is an exact $\cC$-mod, that $\cF: \cC \rightarrow \cC^\mop$ is an equivalence of tensor categories, and that $\cM^{\op}$ is the mod-$\cC$ given by $m \cdot c = \cF(c) \otimes m$.  Then $\cM^\op$ is an exact mod-$\cC$.
+Suppose that $\cM$ is an exact $\cC$-module category, that $\cF: \cC \rightarrow \cC^\mop$ is an equivalence of tensor categories, and that $\cM^{\op}$ is the mod-$\cC$ given by $m \cdot c = \cF(c) \otimes m$.  Then $\cM^\op$ is an exact mod-$\cC$.
 \end{lemma}
 \begin{proof}
 By \cite[Prop. 2.3]{MR2119143} and \cite[Corollary 3.6]{MR2119143} the injective objects and projective objects agree in $\cC$ and in $\cM$.  Now consider $x$ a projective object in $\cC$ and $m$ an arbitrary object in $\cM^\op$, and look at $m \cdot c = \cF(c) \otimes m$.  Since $\cF(c)$ is projective in $\cC^\mop$ it is also injective in $\cC^\mop$, and hence projective in $\cC$.  Hence $\cF(c) \otimes m$ is projective in $\cM$, hence injective in $\cM^\op$, and thus projective in $\cM^\op$.
@@ -2124,8 +2130,8 @@ For a bimodule category ${}_\cC \cM_\cD$, we have equivalences $\cM^* \simeq \Fu
 By the previous lemma, $\Fun_{\cC}(\cM, \cC) \simeq {}^*\Fun_{\cC}^L(\cC, \cM)$.  Any left $\cC$-module functor $\cF: \cC \ra \cM$ is given by $c \mapsto c \otimes \cF(1)$; this functor is a right adjoint (see the comments after Lemma~\ref{lma:RigidIsExact}) and therefore is left exact.  It follows that ${}^*\Fun_{\cC}^L(\cC, \cM)$ is ${}^* \cM$ as desired.
 \end{proof}
 
-\begin{remark}
-Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} and Remark~\ref{remark-tensorasfunctors}, we learn that if $\cM$ is a finite rigid $\cD$-$\cC$ bimodule and $\cN$ is a finite rigid $\cC$-$\cE$ bimodule, then 
+\begin{remark} \label{rmk:Deligne_pdt_as_mod_functor}
+Combining Lemmas \ref{lem:dual-formula-for-adjoints} and \ref{Lma:FunctorsAsATensorPdt} and Remark~\ref{remark-tensorasfunctors}, we learn that if $\cM$ is a finite $\cD$-$\cC$ bimodule and $\cN$ is a finite $\cC$-$\cE$ bimodule, then 
 \begin{equation*}
 	\cM \boxtimes_\cC \cN \simeq {}^*(\cM^*) \boxtimes_\cC \cN \simeq \Fun_{\cC\text{-mod}}(\cM^*,\cN)
 \end{equation*}
@@ -2133,7 +2139,14 @@ as $\cD$-$\cE$ bimodule categories.   Similarly,
 \begin{equation*}
 	\cM \boxtimes_{\cC} \cN \simeq \cM \boxtimes_\cC ({}^*\cN)^* \simeq \Fun_{\text{mod-}\cC}({}^*\cN,\cM)
 \end{equation*}
-as $\cD$-$\cE$ bimodule categories.  These bimodule category equivalences are a correction of \cite[Remark 3.6]{0909.3140}.
+as $\cD$-$\cE$ bimodule categories. 
+
+ These bimodule category equivalences are a correction of \cite[Remark 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, both of which give $\cM^\op$ a wrong structure as a $\cD$-$\cE$ bimodule category. Moreover the above results extend these previous works beyond the case of semisimple tensor categories over algebraically closed fields. The proof of \cite[Prop. 3.5]{0909.3140} \\
+\CSPcomm{... working on this...  something like depends on semisimplicity in an essential way.}
+ 
+The proof of \cite[Thm. 3.20]{0911.4979}, however, has a gap. It relies essentially on \cite[Lma. 3.21]{0911.4979} which is false. A counter example is given by setting $\cC = G-\Vect$, the category of $G$-graded vector spaces for a fixed finite group $G$. The forgetful functor $\cC \to \Vect$ is a tensor functor making $\Vect = \cM = \cN$ into a $\cC$-module category (both a left and a right, depending on taste).   
+
+ 
 \end{remark}
 
 \begin{remark}
