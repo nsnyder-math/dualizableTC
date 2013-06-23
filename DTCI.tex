@@ -1235,7 +1235,7 @@ This choice determines the following conventions.
 \noindent With the preceding conventions in place, observe the following:
 \begin{itemize}
 \item[1.] Let $\cC$ be a monoidal category, considered as a bicategory with one object.  There is a bifunctor from $\cC$ to $\Cat$ that takes the unique object $\ast \in \cC$ to $\cC \in \Cat$ and takes the morphism $\ast \xra{x} \ast$ of $\cC$ to the functor $\cC \xra{- \otimes x} \cC$.  That is, tensoring on the right provides a bifunctor.  Similarly, tensoring on the left ($x \otimes -$) provides a bifunctor from $\cC$ to $\Cat^{op_1}$, that is where the 1-morphisms of $\Cat$ have been reversed.
-\item[2.] There is a bifunctor from $\Alg$ to $\Cat$ sending an algebra $A \in \Alg$ to the category $\Mod{}{A}$ of right modules.  Similarly there is a bifunctor from $\Alg$ to $\Cat^{op_1}$ taking $A$ to the category $\Mod{A}{}$ of left modules.
+\item[2.] There is a bifunctor from $\Alg$ to $\Cat$ sending an algebra $A \in \Alg$ to the category $\Mod{}{A}$ of right modules.  Similarly there is a bifunctor from $\Alg$ to $\Cat^{op_1}$ taking $A$ to the category $\Mod{A}{}$ of left modules.  \CD{We should explicitly specify the kind of modules we'll mean we using the notation $\Mod{A}{}$, eg all, or finitely generated, ...}
 \end{itemize}
 
 %Consider the following example:
@@ -1271,7 +1271,7 @@ This choice determines the following conventions.
 
 \subsection{Linear categories and tensor categories} \label{sec:tc-lincat}
 
-	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. 
+	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?}
 A {\em linear functor} is a right exact additive functor, which is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
@@ -1310,7 +1310,7 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 \end{proposition}
 %\CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
 \begin{proof}
-	It is clear that every linear category of the form $\Mod{A}{}$ for a finite dimensional $k$-algebra $A$ satisfies the above properties. % The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite dimensional algebra over a field is semiperfect.
+	It is standard that every linear category of the form $\Mod{A}{}$ for a finite dimensional $k$-algebra $A$ satisfies the above properties. % The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite dimensional algebra over a field is semiperfect.
 	In the other direction, assume that $\cC$ is finite. Let $\{X_i\}$ denote a family of representatives for the finitely many isomorphism classes of simples. Let $P_i \to X_i$ be an epimorphism with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite dimensional, $A$ is a finite dimensional algebra.  (Note that here the algebra structure on $A$ is defined by $a \cdot b := b \circ a$, in accordance with convention~\ref{def-tensorcomp}.)
 	
 We have an adjunction, which we will show is an equivalence:
