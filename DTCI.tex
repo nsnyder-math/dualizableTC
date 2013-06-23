@@ -1219,7 +1219,7 @@ Although the above convention is shared throughout the literature, authorities a
 
 More generally, any monoidal category can be thought of as a $2$-category with one object, and in that setting the duals of objects in the monoidal category become adjoints of $1$-morphisms in the $2$-category.  However, in order for this compatibility requirement to resolve the left/right ambiguity we need to decide whether, in the correspondence between monoidal categories and one-object 2-categories, the product $f \otimes g$ corresponds to the composite $f \circ g$ or $g \circ f$.
 
-\begin{definition}[Convention for $\otimes$ and composition]
+\begin{definition}[Convention for $\otimes$ and composition] \label{def-tensorcomp}
 If $f$ and $g$ are morphisms or functions or functors or otherwise are composable, then $f \otimes g$ will always mean do $f$ first. In other words, when both expressions make sense, $f \otimes g \sim g \circ f$.
 \end{definition}
 \CD{Maybe we should make this definition/convention more precise; that might make it clearer that it is actually a definition (of $\otimes$ for instance).}
@@ -1311,7 +1311,7 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 %\CD{Let's add a reference for this remark (or even a proof?), since it is quite important.}
 \begin{proof}
 	It is clear that every linear category of the form $\Mod{A}{}$ for a finite dimensional $k$-algebra $A$ satisfies the above properties. % The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite dimensional algebra over a field is semiperfect.
-	In the other direction, assume that $\cC$ is finite. Let $\{X_i\}$ denote a family of representatives for the finitely many isomorphism classes of simples. Let $P_i \to X_i$ be an epimorphism with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite dimensional, $A$ is a finite dimensional algebra. 
+	In the other direction, assume that $\cC$ is finite. Let $\{X_i\}$ denote a family of representatives for the finitely many isomorphism classes of simples. Let $P_i \to X_i$ be an epimorphism with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite dimensional, $A$ is a finite dimensional algebra.  (Note that here the algebra structure on $A$ is defined by $a \cdot b := b \circ a$, in accordance with convention~\ref{def-tensorcomp}.)
 	
 We have an adjunction, which we will show is an equivalence:
 	\begin{equation*}
