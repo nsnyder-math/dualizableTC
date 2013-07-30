@@ -2077,12 +2077,12 @@ Note that ${}_{\langle \cF \rangle} \cC_\cC \boxtimes_{\cC} {}_{\cC} \cM_\cD \co
 
 \begin{lemma} \ref{lem:BimoduleToFunctor}
 Suppose that $\cC$ and $\cD$ are tensor categories and $\cF: \cC \rightarrow \cD$ is a tensor functor.
-Giving a bimodule isomorphism $\alpha:{}_{\cC} ({}_{\langle \cF \rangle} \cD)_\cD \rightarrow {}_{\cC} ({}_{\langle \cG \rangle} \cD)_\cD$ is the same data as giving an invertible object $D \in \cD$ and a natural isomorphism $\varphi_x: \cF(x) \rightarrow D^{-1} \otimes \cG(x) \otimes D$.
+Giving a bimodule isomorphism $\alpha:{}_{\cC} ({}_{\langle \cF \rangle} \cD)_\cD \rightarrow {}_{\cC} ({}_{\langle \cG \rangle} \cD)_\cD$ is the same data as giving an invertible object $\theta \in \cD$ and a natural isomorphism $\varphi_x: \cF(x) \rightarrow \theta^{-1} \otimes \cG(x) \otimes \theta$.
 \end{lemma}
 \begin{proof}
-The functor $\alpha$ is, in particular, a right $\cD$-module functor from $\cD$ to $\cD$ and thus is given by tensoring on the left by an object $D \in \cD$, $\alpha(d) \cong D \otimes d$. The object $D$ is the image of $1$, and is $\otimes$-invertible since $\alpha$ is an isomorphism. The left $\cC$-module structure on $\alpha$ may be expressed as a system of natural isomorphisms
+The functor $\alpha$ is, in particular, a right $\cD$-module functor from $\cD$ to $\cD$ and thus is given by tensoring on the left by an object $\theta \in \cD$, $\alpha(d) \cong \theta \otimes d$. The object $\theta$ is the image of $1$, and is $\otimes$-invertible since $\alpha$ is an isomorphism. The left $\cC$-module structure on $\alpha$ may be expressed as a system of natural isomorphisms
 \begin{equation*}
-	D \otimes \cF(c) \otimes d \cong \alpha (c \cdot d) \cong c \cdot \alpha(d) \cong \cG(c) \otimes D \otimes d.
+	\theta \otimes \cF(c) \otimes d \cong \alpha (c \cdot d) \cong c \cdot \alpha(d) \cong \cG(c) \otimes \theta \otimes d.
 \end{equation*}
 and hence is equivalent to the data of $\varphi$. 
 \end{proof}
@@ -3076,22 +3076,24 @@ We've already seen that $\TC$ is $2$-dualizable.  So we need only show that the 
 
 \subsection{The Radford isomorphism of tensor categories}
 
-Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way giving applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
+Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
 
-
-More specifically, recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^R \rightarrow \ev_x^L$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{???}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle rr \rangle}\cC_{\cC}$ \NScomm{check left vs. right and add reference}.  Thus the Radford isomorphism induces a trivialization of the quadruple dual bimodule ${}_{\cC \langle rrrr \rangle}\cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} the data of a trivialization of the quadruple dual bimodule is the same as giving an invertible object $D$ a natural isomorphism of tensor functors $X^{****} \cong D X D^{-1}$.
-
-
-\CSP{This terminology needs updating.}
-Recall from Section ??? that in the $3$-framed bordism category we have a $3$-framed interval called the loop bordism, and a $3$-framed disc called the belt bordism (because it comes from the Dirac belt trick) trivializing the square of the loop bordism.  If $x$ is a fully dualizable object then the images of the loop and belt bordisms are the Serre automorphism $\cS_x: x \rightarrow x$ and the Radford isomorphism $\cR: \cS_x^2 \rightarrow \id_x$.  Furthermore,  in order to write down the Radford isomorphism we do not need the full strength of full dualizability.  Instead it is enough for $x$ to be a Radford object (that is $x$ is $2$-dualizable and certain $2$-morphisms built from $x$ have certain adjoints).
-
-As we've seen in this section, separable fusion categories are fully dualizable, and finite tensor categories are Radford objects.  Hence, we have Serre automorphisms and Radford isomorphisms for finite tensor categories.  If $\cC$ is a finite tensor category, then the Serre automorphism of $\cC$ is a bimodule we denote $\bimod{\cC}{\cS}{\cC}$.  As we saw in Section ??? $\bimod{\cC}{\cS}{\cC}$ for $\cC$ is equivalent as a bimodule category to ${}_{\langle\ldd{(-)}\rangle} \cC$.   Now, the Radford isomorphism for $\cC$ is a canonical bimodule isomorphism ${}_\cC \S \boxtimes_\cC \S_\cC \rightarrow \bimod{\cC}{\cC}{\cC}$.  Using our formula for the Serre, the left hand side is just ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  Thus the Radford isomorphism gives a trivialization of the $\cC$--$\cC$ bimodule ${}_{\langle\ldd{\ldd{(-)}}\rangle} \cC$.  By Lemma ???, such a trivialization is given by two pieces of data: the image of $\mathbf{1}$ which we call the distinguished object $D$, and an isomorphism of tensor functors between $\ldd{\ldd{(-)}}$ and the identity functor which abusing notation we also call the Radford isomorphism.  Summarizing we have the following result.
+Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^R \rightarrow \ev_x^L$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{???}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle rr \rangle}\cC_{\cC}$ \NScomm{check left vs. right and add reference}.  Thus the Radford isomorphism induces a trivialization of the quadruple dual bimodule ${}_{\cC \langle rrrr \rangle}\cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
 
 \begin{theorem}
-If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical tensor functor between the quadruple dual functor and conjugation by the canonical invertible object $D$.
+If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical isomorphism of tensor functors $X^{****} \cong \theta^{-1} X \theta$ where $\theta$ is the canonical invertible object.
 \end{theorem}
 
-This theorem was originally proved by ENO, and generalizes a theorem about Hopf algebras proved by Radford.  We would like to know that our canonical tensor functor agrees with the one constructed by ENO.  So we first recall how their construction worked.  Consider ${}_{\cC \boxtimes \cC^\mp}\cC$, and let $A$ be the algebra in $\cC \boxtimes \cC^\mp$ which is the internal endomorphisms of $\mathbf{1} \in \cC$.  ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.
+This theorem was originally proved by Etingof-Nikshych-Ostrik \cite{MR2097289}, and generalizes a theorem about Hopf algebras proved by Radford \cite{MR0407069}.  In this section, we explicitly calculate the invertible object $\theta$ above and the Radford isomorphism and compare it with the Radford isomorphism constructed in \cite{MR2097289}.  In particular, our $\theta$ is their $D^{-1}$ and the two Radford isomorphisms agree.  
+
+In order to compare the two constructions we first rapidly recall ENO's construction.  Consider ${}_{\cC \boxtimes \cC^\mp}\cC$, and let $A$ be the algebra in $\cC \boxtimes \cC^\mp$ which is the internal endomorphisms of $\mathbf{1} \in \cC$.  ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.
+
+\begin{definition}\cite{MR0407069}
+If $V$ is an $A$-mod then $V^*$ has a canonical structure of an mod-$A$ via $V^* \otimes A \rightarrow V^* \otimes A^* \otimes A \rightarrow V^*$ where the first map is the dual of the module structure and the latter map is the evaluation.  Similarly, if $V$ is an $A$-mod then ${}^*V$ is a mod-$A^{**}$.
+\end{definition}
+
+In particular, we have a canonical bimodule ${}_A A^*_{A^{**}}$ which gives a Morita equivalence between $A$ and $A^{**}$ and tensoring with ${}_A A^*_{A^{**}}$ gives an isomorphism between $A$-mod and $A^{**}$-mod.
+
 
 \begin{lemma}
 The left adjoint of mod-$A$ is $A$-mod, while the right adjoint is $A^{**}$-mod.
