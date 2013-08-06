@@ -2150,7 +2150,7 @@ as $\cD$-$\cE$ bimodule categories.
 \end{remark}
 
 \begin{warning}
-Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC^\mp \boxtimes \cD})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor. %\NS{Someone should double-check left vs. right here} % It is now correct - CSP. 
+Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC^\mp \boxtimes \cD})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor.%\NS{Someone should double-check left vs. right here} % It is now correct - CSP. 
 \end{warning}
 
 Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{0404504}[\S 3].
@@ -3076,9 +3076,9 @@ We've already seen that $\TC$ is $2$-dualizable.  So we need only show that the 
 
 \subsection{The Radford isomorphism of tensor categories}
 
-Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
+Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.  This calculation depends in an essential way on having a TFT which is both fully local and framed.
 
-Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{???}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle rr \rangle}\cC_{\cC}$ \NScomm{check left vs. right and add reference}.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle rr \rangle}\cC_{\cC} \rightarrow {}_{\cC \langle \ell\ell \rangle}\cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
+Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{???}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle \mathfrak{r r} \rangle}\cC_{\cC}$ \NScomm{add reference}.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle \mathfrak{r r} \rangle} \cC_{\cC} \rightarrow {}_{\cC \langle \mathfrak{l l} \rangle} \cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
 
 \begin{theorem}
 If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical isomorphism of tensor functors ${}^{**}X \cong D^{-1} X^{**} D$ where $D$ is the image of $1$ under the Radford map.
@@ -3086,18 +3086,25 @@ If $\cC$ is a finite tensor category then the Radford isomorphism gives a canoni
 
 This theorem was originally proved by Etingof-Nikshych-Ostrik \cite{MR2097289}, and it generalizes a theorem about Hopf algebras proved by Radford \cite{MR0407069}.  In this section, we explicitly calculate the invertible object $D$ above and the Radford isomorphism and compare it with the Radford isomorphism constructed in \cite{MR2097289}.
 
-In order to compare the two constructions we first rapidly recall ENO's construction.  Recall from Example \ref{???} that $\ev_\cC \cong {}_{\cC \boxtimes \cC^\mp}\cC$ can be realized explicitly as mod-$A$ where $A$ is the internal endomorphisms of $\mathbf{1} \in \cC$. 
+In order to compare the two constructions we first rapidly summarize ENO's construction.  Recall from Example \ref{???} that $\ev_\cC \cong {}_{\cC \boxtimes \cC^\mp}\cC$ can be realized explicitly as mod-$A$ where $A$ is the internal endomorphisms of $\mathbf{1} \in \cC$. 
 ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.  By Lemma \ref{???}, we have that $\ev_\cC^L \cong {}^*(\text{mod-}A) \cong A\text{-mod}$ while $\ev_\cC^R \cong (\text{mod-}A)^* \cong A^{**}\text{-mod}$.  Thus, to give a map $\ev_x^L \rightarrow \ev_x^R$ we need only give an invertible $A^{**}$-mod-$A$ bimodule.  ENO's Radford map $\cR_{ENO}: \ev_x^L \rightarrow \ev_x^R$ is given by tensoring with the ${}_{A^{**}}A^*_A$ with the bimodule structure from Lemma \cite{???}.  (ENO prove that $A^*$ is invertible non-constructively via a Frobenius-Perron argument, though our techniques will show that it has an explicit inverse.)
 
 %Since $A^*$ is a right $A$ module it is of the form $(D \boxtimes 1) \otimes A$ for some object $D \in \cC$ which ENO call the canonical invertible.  Our goal is to show that our $\cR$ is also given by tensoring with ${}_{A^{**}}A^*_A$ and that the image of $1$ under this m
 
-In order to compare this map with ours we need to compute the values of certain bordisms in terms of the algebra $A$.
-
-TABLE
+In order to compare this map with ours, we need to compute the values of certain bordisms in terms of the algebra $A$.
 
 Recall that the Radford bordism is given by the following composition.
 
 IMAGE
+
+We now compute the images of the parts of this bordism under the TFT in terms of the algebra $A$.
+
+\begin{lemma}
+The counit map $(\text{mod-}A) \boxtimes (A\text{-mod}) \cong \ev_\cC \boxtimes \ev_\cC^L \rightarrow \cC \boxtimes \cC^\mp$ is given by $M \boxtimes N \mapsto M \otimes_A N$.
+\end{lemma}
+\begin{proof}
+
+\end{proof}
 
 \begin{lemma}
 The counit map $A^{**}\text{-mod-}A \rightarrow \Vec$ is given by $M \mapsto \Hom_{A^{**}\text{-mod-}A}(M, A^*)^\vee$.  In other words, it is left adjoint to the map $\Vec \rightarrow A^{**}\text{-mod-}A$ given by tensoring with $A^*$.
@@ -3108,10 +3115,10 @@ Under the identifications of $\text{mod-}A$ with $\cC$ and $A^{**}\text{-mod}$ w
 
 
 \begin{lemma}
-After identifying $\cC$ with $A$-mod and $\cS$ with $A^{**}$-mod, the Radford isomorphism is given by tensoring with ${}_{A^{**}} A^*_{A}$.
+The Radford isomorphism $\cR_\cC: A\text{-mod} \cong \ev^L \rightarrow \ev^R \cong A^{**}\text{-mod}$ is given by tensoring with ${}_{A^{**}} A^*_{A}$.
 \end{lemma}
 \begin{proof}
-Recall that the Radford can be computed by the following composition FORMULA.  Thus by the previous lemma the map $A\text{-mod} \rightarrow A^{**}\text{-mod}$ is given by $X \mapsto A^* \boxtimes X \mapsto A^* \otimes_A X$.
+This follows from applying the previous two lemmas.  Namely, $A\text{-mod} \rightarrow A^{**}\text{-mod}$ is given by $X \mapsto A^* \boxtimes X \mapsto A^* \otimes_A X$.
 \end{proof}
 
 Thus we have proved the following result.
@@ -3140,6 +3147,21 @@ This is CITE ENO.
 \begin{remark}
 The Serre automorphism and the Radford isomorphsm are closely related to the $SO(3)$ action on the the space of fully dualizable objects guaranteed by the cobordism hypothesis.  The underlying space of $SO(3)$ is $\RR \PP^3$. The inclusion $\RR \PP^2 \to \RR \PP^3 \simeq SO(3)$ induces an $A_\infty$-homomorphism $\Omega \Sigma (\RR \PP^2) \to SO(3)$ from the free $A_\infty$-group generated by the pointed space $\RR \PP^2$.  The data of a Serre and a Radford is exactly the same thing as an action of $\Omega \Sigma (\RR \PP^2)$.  In particular, there's an action of $\Omega \Sigma (\RR \PP^2)$ on the space of finite tensor categories, which is only $2$-dualizable so this action does not come directly from the cobordism hypothesis.  Furthermore, the previous lemma says that a spherical structure gives a homotopy fixed point for the action of $\Omega \Sigma (\RR \PP^2)$.  In fact, we expect that a spherical structure on $\cC$ endows it with the structure of an $SO(3)$ homotopy fixed and thus by the cobordism hypothesis spherical fusion categories give fully local \emph{oriented} $3$-dimensional TFT.  We will address these issues in much greater detail in subsequent papers.
 \end{remark}
+
+
+
+\subsection{Invariants of elementary 3-framed bordisms}
+.%!% remove period
+
+\CSPcomm{Discussion of the basic 3-framed bordisms and their images under the tqft in the separable case.
+\begin{itemize}
+	\item Basic 3D Handles
+	\item Tori revisited, $SL_2(\ZZ)$-action?
+	\item $S^2 \times S^1$, $S^3$. 
+\end{itemize}
+
+}
+
 
 %!% Temporary document end
 
@@ -3181,18 +3203,6 @@ The Serre automorphism and the Radford isomorphsm are closely related to the $SO
 
 
 
-
-\subsection{Invariants of elementary 3-framed bordisms}
-.%!% remove period
-
-\CSPcomm{Discussion of the basic 3-framed bordisms and their images under the tqft in the separable case.
-\begin{itemize}
-	\item Basic 3D Handles
-	\item Tori revisited, $SL_2(\ZZ)$-action?
-	\item $S^2 \times S^1$, $S^3$. 
-\end{itemize}
-
-}
 
 
 
