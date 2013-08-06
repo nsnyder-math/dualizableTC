@@ -2077,12 +2077,12 @@ Note that ${}_{\langle \cF \rangle} \cC_\cC \boxtimes_{\cC} {}_{\cC} \cM_\cD \co
 
 \begin{lemma} \ref{lem:BimoduleToFunctor}
 Suppose that $\cC$ and $\cD$ are tensor categories and $\cF: \cC \rightarrow \cD$ is a tensor functor.
-Giving a bimodule isomorphism $\alpha:{}_{\cC} ({}_{\langle \cF \rangle} \cD)_\cD \rightarrow {}_{\cC} ({}_{\langle \cG \rangle} \cD)_\cD$ is the same data as giving an invertible object $\theta \in \cD$ and a natural isomorphism $\varphi_x: \cF(x) \rightarrow \theta^{-1} \otimes \cG(x) \otimes \theta$.
+Giving a bimodule isomorphism $\alpha:{}_{\cC} ({}_{\langle \cF \rangle} \cD)_\cD \rightarrow {}_{\cC} ({}_{\langle \cG \rangle} \cD)_\cD$ is the same data as giving an invertible object $D \in \cD$ and a natural isomorphism $\varphi_x: \cF(x) \rightarrow D^{-1} \otimes \cG(x) \otimes D$.
 \end{lemma}
 \begin{proof}
-The functor $\alpha$ is, in particular, a right $\cD$-module functor from $\cD$ to $\cD$ and thus is given by tensoring on the left by an object $\theta \in \cD$, $\alpha(d) \cong \theta \otimes d$. The object $\theta$ is the image of $1$, and is $\otimes$-invertible since $\alpha$ is an isomorphism. The left $\cC$-module structure on $\alpha$ may be expressed as a system of natural isomorphisms
+The functor $\alpha$ is, in particular, a right $\cD$-module functor from $\cD$ to $\cD$ and thus is given by tensoring on the left by an object $D \in \cD$, $\alpha(d) \cong D \otimes d$. The object $D$ is the image of $1$, and is $\otimes$-invertible since $\alpha$ is an isomorphism. The left $\cC$-module structure on $\alpha$ may be expressed as a system of natural isomorphisms
 \begin{equation*}
-	\theta \otimes \cF(c) \otimes d \cong \alpha (c \cdot d) \cong c \cdot \alpha(d) \cong \cG(c) \otimes \theta \otimes d.
+	D \otimes \cF(c) \otimes d \cong \alpha (c \cdot d) \cong c \cdot \alpha(d) \cong \cG(c) \otimes D \otimes d.
 \end{equation*}
 and hence is equivalent to the data of $\varphi$. 
 \end{proof}
@@ -3081,10 +3081,10 @@ Traditionally topological field theories have been used as a tool to apply algeb
 Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{???}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle rr \rangle}\cC_{\cC}$ \NScomm{check left vs. right and add reference}.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle rr \rangle}\cC_{\cC} \rightarrow {}_{\cC \langle \ell\ell \rangle}\cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
 
 \begin{theorem}
-If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical isomorphism of tensor functors $X^{**} \cong \theta^{-1} {}^{**}X \theta$ where $\theta$ is the image of $1$ under the Radford map.
+If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical isomorphism of tensor functors ${}^{**}X \cong D^{-1} X^{**} D$ where $D$ is the image of $1$ under the Radford map.
 \end{theorem}
 
-This theorem was originally proved by Etingof-Nikshych-Ostrik \cite{MR2097289}, and it generalizes a theorem about Hopf algebras proved by Radford \cite{MR0407069}.  In this section, we explicitly calculate the invertible object $\theta$ above and the Radford isomorphism and compare it with the Radford isomorphism constructed in \cite{MR2097289}.
+This theorem was originally proved by Etingof-Nikshych-Ostrik \cite{MR2097289}, and it generalizes a theorem about Hopf algebras proved by Radford \cite{MR0407069}.  In this section, we explicitly calculate the invertible object $D$ above and the Radford isomorphism and compare it with the Radford isomorphism constructed in \cite{MR2097289}.
 
 In order to compare the two constructions we first rapidly recall ENO's construction.  Recall from Example \ref{???} that $\ev_\cC \cong {}_{\cC \boxtimes \cC^\mp}\cC$ can be realized explicitly as mod-$A$ where $A$ is the internal endomorphisms of $\mathbf{1} \in \cC$. 
 ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.  By Lemma \ref{???}, we have that $\ev_\cC^L \cong {}^*(\text{mod-}A) \cong A\text{-mod}$ while $\ev_\cC^R \cong (\text{mod-}A)^* \cong A^{**}\text{-mod}$.  Thus, to give a map $\ev_x^L \rightarrow \ev_x^R$ we need only give an invertible $A^{**}$-mod-$A$ bimodule.  ENO's Radford map $\cR_{ENO}: \ev_x^L \rightarrow \ev_x^R$ is given by tensoring with the ${}_{A^{**}}A^*_A$ with the bimodule structure from Lemma \cite{???}.  (ENO prove that $A^*$ is invertible non-constructively via a Frobenius-Perron argument, though our techniques will show that it has an explicit inverse.)
@@ -3141,6 +3141,46 @@ This is CITE ENO.
 The Serre automorphism and the Radford isomorphsm are closely related to the $SO(3)$ action on the the space of fully dualizable objects guaranteed by the cobordism hypothesis.  The underlying space of $SO(3)$ is $\RR \PP^3$. The inclusion $\RR \PP^2 \to \RR \PP^3 \simeq SO(3)$ induces an $A_\infty$-homomorphism $\Omega \Sigma (\RR \PP^2) \to SO(3)$ from the free $A_\infty$-group generated by the pointed space $\RR \PP^2$.  The data of a Serre and a Radford is exactly the same thing as an action of $\Omega \Sigma (\RR \PP^2)$.  In particular, there's an action of $\Omega \Sigma (\RR \PP^2)$ on the space of finite tensor categories, which is only $2$-dualizable so this action does not come directly from the cobordism hypothesis.  Furthermore, the previous lemma says that a spherical structure gives a homotopy fixed point for the action of $\Omega \Sigma (\RR \PP^2)$.  In fact, we expect that a spherical structure on $\cC$ endows it with the structure of an $SO(3)$ homotopy fixed and thus by the cobordism hypothesis spherical fusion categories give fully local \emph{oriented} $3$-dimensional TFT.  We will address these issues in much greater detail in subsequent papers.
 \end{remark}
 
+%!% Temporary document end
+
+\bibliographystyle{alpha}
+\bibliography{bibliography/bibliography}
+\end{document}
+
+%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Invariants of elementary 3-framed bordisms}
 .%!% remove period
@@ -3153,15 +3193,6 @@ The Serre automorphism and the Radford isomorphsm are closely related to the $SO
 \end{itemize}
 
 }
-
-
-%!% Temporary document end
-
-\bibliographystyle{alpha}
-\bibliography{bibliography/bibliography}
-\end{document}
-
-%%%
 
 
 
