@@ -44,7 +44,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 	\node [yshift = -5cm, red!80!black,scale=3,text opacity=0.2] 
 		at (current page.center) {Please Do Not Distribute}; 
 \end{tikzpicture}
-\tikzexternalenable
+%\tikzexternalenable
 
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -2569,7 +2569,7 @@ We have thereby proven:
 
 \subsection{Invariants of elementary 2-framed bordisms}
 .\NScomm{[This section is still under construction.]} %!% Remove period
-Theorem \ref{thm:TC_is_2Dualizable} combined with the cobordism hypothesis shows that there exists a $2$-dimensional $2$-framed topological field theory attached to every (finite rigid) tensor category, and that this topological field theory is unique up to equivalence.  This field theory is ``categorified" in the sense that it is a functor of $(3,2)$-categories, not merely $2$-categories; it associates linear categories to closed 1-dimensional manifolds, functors to 2-framed surfaces, and natural transformations to isotopy classes of 2-framed diffeomorphisms. 
+Theorem \ref{thm:TC_is_2Dualizable} combined with the cobordism hypothesis shows that there exists a $2$-dimensional $2$-framed topological field theory attached to every finite tensor category, and that this topological field theory is unique up to equivalence.  This field theory is ``categorified" in the sense that it is a functor of $(3,2)$-categories, not merely $2$-categories; it associates linear categories to closed 1-dimensional manifolds, functors to 2-framed surfaces, and natural transformations to isotopy classes of 2-framed diffeomorphisms. 
 %In particular this gives actions of the 2-framed mapping class groups.
 
 We now illustrate the behavior of this topological field theory by describing its value on a few simple 2-framed bordisms.  As always, this TFT is only determined up to equivalence, but we can fix a concrete representative using the techniques outlined in Section \ref{sec:Hom_ext_field_thy}.
@@ -2578,16 +2578,125 @@ We now illustrate the behavior of this topological field theory by describing it
 
 As in Section \ref{sec:framed-duality} we fix the following representatives for the positively and negatively framed points with the following fixed evaluation and coevaluation making them dual to each other.
 
-IMAGE
+$$\cb{
+\begin{tikzpicture}
+\filldraw (0,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 1};
+\draw[->,outstyle] (0,0) -- +(90:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 2};
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+,
+\cb{
+\begin{tikzpicture}
+\filldraw (0,0) circle (\pointrad);
+\begin{pgfonlayer}{background}
+\draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 1};
+\draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+,
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
+\end{tikzpicture}
+}
+,
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}$$
+
 
 By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec:df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in Section \ref{sec:df-modules}.
 
 
-Thus, without loss of generality, we can assume that the TFT has the following values on framed intervals and circles.
+Thus, without loss of generality, we can assume that the TFT has the following values on $2$-framed intervals.  The bimodules written in the second column are canonically isomorphic to the ones in the first column by Lemma \ref{???}, and the bimodules in the third column are canonically isomorphic to the ones in the second column by Lemma \ref{???}.
 
- TABLE
+\begin{table}[ht]
+\begin{tabular}{c|c|c|c}
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
+\end{tikzpicture}
+}
+& $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vec}$ 
+& &  \\
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+& $\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC}$ 
+& 
+& \\
+%
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] (0,0) arc (90:270:\smcirclerad);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-2*\smcirclerad) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+& $\bimod{\Vec}{\Fun_{\cC \boxtimes \cC^\mp}(\cC,\cC \boxtimes \cC^\mp)}{\cC \btimes \cC^\mp}$
+& ${}^*({}_\Vec \cC_{\cC \boxtimes \cC^\mp})$
+& \\
+%
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft] (0,0) arc (-90:90:\smcirclerad);
+\end{tikzpicture}
+} 
+& $\bimod{\cC^\mp \btimes \cC}{\Fun_{}(\cC,\Vec)}{\Vec}$
+& ${}^*(\bimod{\Vec}{\cC}{\cC^\mp \btimes \cC})$ 
+& \\
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] 
+(.7,0) to [out=180, in=20] (0,-.1)
+	to [looseness=1.6, out=-160, in=180] (0,-.4)
+	to [looseness=1.6, out=0, in=-20] (0,-.1)
+	to [out=160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+} 
+& ---
+& $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{{}^{**}(-)} \cC$\\
+\cb{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright] 
+(.7,0) to [out=180, in=-20] (0,.1)
+	to [looseness=1.6, out=160, in=180] (0,.4)
+	to [looseness=1.6, out=0, in=20] (0,.1)
+	to [out=-160, in=0] (-.7,0);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+& ---
+& $\bimod{\cC}{\cC}{\cC}$ & via $\cC_{\text{in}} \xra{(-)^{**}} \cC$\\
+
+\end{tabular}
+\caption{Invariants associated to 2-framed intervals.} \label{table-intervals}
+\end{table}
  
- We also have the following formulas for the units and counits of adjunctions.
+We also have the following formulas for the units and counits of adjunctions.
  
  TABLE
 
