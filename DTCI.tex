@@ -903,15 +903,20 @@ We invite the reader to verify that the units and counits from the previous sect
 
 
 
-When $n\geq 3$ we have that $\pi_1(SO(n)) \cong \mathbb{Z}/2$, which implies that the loop bordism $\cS: pt_+ \ra pt_+$ in $\FrBord_n$ is an involution; that is, $\cS \circ \cS : pt_+ \ra pt_+$ is equivalent to the identity automorphism. 
-Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS \circ \cS$ to the  trivial bordism. This bordism is depicted below as a $2$-manifold immersed in $\RR^3$; here the top boundary is incoming, the bottom boundary is outgoing, and the coorientation points into the page away from the reader near the bottom boundary.
+When $n\geq 3$ we have that $\pi_1(SO(n)) \cong \mathbb{Z}/2$, which implies that the loop bordism $\cS: pt_+ \ra pt_+$ in $\FrBord_n$ is an involution; in particular, $\cS^{-1} \cong \cS$.
+%that is, $\cS \circ \cS : pt_+ \ra pt_+$ is equivalent to the identity automorphism. 
+Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS^{-1} \rightarrow \cS$. This bordism is depicted below as a $2$-manifold immersed in $\RR^3$ \NS{Fix diagram and if necessary add sentence explaining which diagrams are incoming vs. outgoing}. %here the top boundary is incoming, the bottom boundary is outgoing, and the coorientation points into the page away from the reader near the bottom boundary.
 \begin{center}
 \includegraphics[width=60mm]{cobordism.png}
 \end{center}
-\noindent We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the incoming boundary and pull, it will happily (and very rapidly) trace out this bordism for you. As usual, stabilizing this bordism gives a canonical trivialization of the square of the loop bordism for any $n \geq 3$.
+%\noindent We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the incoming boundary and pull, it will happily (and very rapidly) trace out this bordism for you. As usual, stabilizing this bordism gives a canonical trivialization of the square of the loop bordism for any $n \geq 3$. 
+\NS{There was a paragraph here but I couldn't figure out how to modify it so I commented it out.}
 
-If we take the left, that is incoming, cusp of the belt bordism and drag it to the right, so that it becomes an outgoing cusp, the result is a bordism from $ev^R$ to $ev^L$, which we call the {\bfseries Radford bordism}.
-\begin{center}
+%If we take the left, that is incoming, cusp of the belt bordism and drag it to the right, so that it becomes an outgoing cusp, the result is a bordism from $ev^R$ to $ev^L$, which we call the {\bfseries Radford bordism}.
+
+Using the above formulas for $\cS^{-1}$ and $\cS$ it is clear that giving a bordism $\cS^{-1} \rightarrow \cS$ is the same data as giving a bordism $\ev^L \rightarrow \ev^R$.  Again there is a unique $3$-framed $2$-dimensional bordism of genus zero which we call this the {\bfseries Radford bordism}.  Explicitly the Radford bordism is given by the following composition.
+
+\begin{center} \NS{This diagram goes the wrong way, but it should be replaced by a more thorough diagram anyway giving the the Radford as a composition}
 	\begin{tikzpicture}
 		\node (R) at (0,0) {$\cR:$};
 			\draw[linestyle,fuzzright] (1.5, 0.5) -- (0.75,0.5)
@@ -940,7 +945,7 @@ If $\cC$ is the $(\infty,2)$-category of cocomplete differentially graded catego
 %for every pair of compact objects C and D. In the special case where D is the differential graded category of quasi-coherent complexes on a smooth projective variety X, the Serre functor S : D → D is given by tensoring with the canonical line bundle ωX on X and shifting by the dimension of X, and the quasi-isomorphism is provided by Serre duality.
 \end{example}
 
-If $n$ is at least 3, the image of the belt bordism, respectively the Radford bordism, gives a trivialization of the square of the Serre automorphism $\cS_x$, respectively an isomorphism $\cF(\cR): \cF(ev^R) \cong \cF(ev^L)$.
+If $n$ is at least 3, the image of the belt bordism, respectively the Radford bordism, gives an isomorphism $\cS^{-1} \cong \cS$, respectively an isomorphism $\cF(\cR): \cF(ev^R) \cong \cF(ev^L)$.
 % Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  
 We call the image of the Radford bordism the {\em Radford isomorphism on $x$}, because, as we will see, it plays the key role in proving Radford's theorem. We summarize the above observations as a proposition.
 
@@ -1126,28 +1131,28 @@ Then the required isomorphisms are given by the following composites:
 		ev: & \; x \otimes \overline{x} \to 1 \\
 		coev: & \;  1 \to  \overline{x} \otimes x
 	\end{align*}
-	 witness the duality between $x$ and $\overline{x}$. Let $ev^L$ be the left adjoint of $ev$ with unit and counit
+	 witness the duality between $x$ and $\overline{x}$. Let $ev^R$ be the right adjoint of $ev$ with unit and counit
 	\begin{align*}
-		\eta: & \;  \id_1 \to ev \circ ev^L \\
-		\varepsilon: \; & ev^L \circ ev \to \id_{x \otimes \overline{x}}. 
+		\eta: & \;  \id_1 \to ev^R \circ ev \\
+		\varepsilon: \; & ev \circ ev^R \to \id_{x \otimes \overline{x}}. 
 	\end{align*}
-	We will say that $x$ is a {\em Radford object} if both $\eta$ and $\varepsilon$ admit left adjoints. 
+	We will say that $x$ is a {\em Radford object} if both $\eta$ and $\varepsilon$ admit right adjoints. 
 \end{definition} 
 
 \begin{proposition} \label{prop-Cat_Radford}
-	Let $x \in \cC$ be a 2-dualizable object in a symmetric monoidal $(\infty,n)$-category, $n \geq 3$. Keeping the notation from the preceding definition, let $ev^R$ be the right adjoint to the evaluation pairing, and let
+	Let $x \in \cC$ be a 2-dualizable object in a symmetric monoidal $(\infty,n)$-category, $n \geq 3$. Keeping the notation from the preceding definition, in addition let $ev^L$ be the left adjoint to the evaluation pairing, and let
 	\begin{align*}
-		u: & \;  \id_{x \otimes \overline{x}} \to ev^R \circ ev \\
-		v: & \; ev \circ ev^R \to \id_1
+		u: & \;  \id_{x \otimes \overline{x}} \to ev \circ ev^L \\
+		v: & \; ev^L \circ ev \to \id_1
 	\end{align*} 
-	be the unit and counit witnessing this adjunction. If $x$ is a Radford object, then there exists a canonical {\em Radford isomorphism} $\cR_x: ev^R \cong \ev^L$ given as the following composite:
+	be the unit and counit witnessing this adjunction. If $x$ is a Radford object, then there exists a canonical {\em Radford isomorphism} $\cR_x: ev^L \cong \ev^R$ given as the following composite:
 	\begin{equation*}
-		\cR_x: ev^R \xra{\varepsilon^L \circledcirc \id} ev^L \circ ev \circ ev^R \xra{\id \circledcirc v} ev^L.
+		\cR_x: ev^L \xra{\id \circledcirc \eta^R} ev^L \circ ev \circ ev^R \xra{v \circledcirc \id} ev^R.
 	\end{equation*}
 \end{proposition}
 
 \begin{proof}
-	Lemma \ref{lem-ambiadjoints} implies that $(ev^L, \varepsilon^L, \eta^L)$ is another right adjoint to $ev$. The formula for the Radford isomorphism comes from the canonical isomorphism between any two given right-adjoints. 
+	Lemma \ref{lem-ambiadjoints} implies that $(ev^R, \varepsilon^R, \eta^R)$ is another left adjoint to $ev$. The formula for the Radford isomorphism comes from the canonical isomorphism between any two given left-adjoints. 
 \end{proof}
 
 
@@ -3128,7 +3133,9 @@ The isomorphism ${}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \cong \cS^{-1} \r
 \end{lemma}
 \begin{proof}
 We need to compute the composition
-%$${}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \rightarrow 
+$${}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \rightarrow {}_\cC {}^*({}_{\cC \boxtimes \cC^\mp} \cC)_\cC \rightarrow {}_\cC {}^*(\text{mod-}A)_\cC \rightarrow  {}_\cC (A\text{-mod})_\cC \rightarrow {}_\cC (A^{**}\text{-mod})_\cC \rightarrow  {}_\cC (\text{mod-}A)^*_\cC \rightarrow {}_\cC ({}_{\cC \boxtimes \cC^\mp} \cC)^*_\cC \rightarrow {}_{\cC \langle \mathfrak{r r}\rangle}\cC_\cC.$$
+We want to show that this map is given by tensoring on the right with $D$.  Instead of showing that $1$ maps to $D$ it is easier to show that ${}^*D \mapsto 1$.  Namely:
+$${}^*D \mapsto {}^*(D) \mapsto {}^*(A^*) \mapsto A \mapsto A^* \mapsto (A)^* \mapsto (1)^* \mapsto 1.$$
 \end{proof}
 
 
@@ -3139,7 +3146,7 @@ In particular, by ENO's results we have the following two results.
 If $\cC$ is semisimple then $D \cong 1$.
 \end{lemma}
 \begin{proof}
-This is CITE ENO.  It is also relatively straightforward to compute directly that our Radford map sends $1$ to $1$ using the explicit formulas given above.
+This is CITE ENO.  It is also relatively straightforward to compute directly that our Radford map sends $1$ to $1$.
 \end{proof}
 
 
@@ -3150,23 +3157,12 @@ A natural tensor isomorphism $f_V: V^{**} \rightarrow V$ gives a spherical struc
 This is CITE ENO.
 \end{proof}
 
+\subsection{???}
+
 \begin{remark}
 The Serre automorphism and the Radford isomorphsm are closely related to the $SO(3)$ action on the the space of fully dualizable objects guaranteed by the cobordism hypothesis.  The underlying space of $SO(3)$ is $\RR \PP^3$. The inclusion $\RR \PP^2 \to \RR \PP^3 \simeq SO(3)$ induces an $A_\infty$-homomorphism $\Omega \Sigma (\RR \PP^2) \to SO(3)$ from the free $A_\infty$-group generated by the pointed space $\RR \PP^2$.  The data of a Serre and a Radford is exactly the same thing as an action of $\Omega \Sigma (\RR \PP^2)$.  In particular, there's an action of $\Omega \Sigma (\RR \PP^2)$ on the space of finite tensor categories, which is only $2$-dualizable so this action does not come directly from the cobordism hypothesis.  Furthermore, the previous lemma says that a spherical structure gives a homotopy fixed point for the action of $\Omega \Sigma (\RR \PP^2)$.  In fact, we expect that a spherical structure on $\cC$ endows it with the structure of an $SO(3)$ homotopy fixed and thus by the cobordism hypothesis spherical fusion categories give fully local \emph{oriented} $3$-dimensional TFT.  We will address these issues in much greater detail in subsequent papers.
 \end{remark}
 
-
-
-\subsection{Invariants of elementary 3-framed bordisms}
-.%!% remove period
-
-\CSPcomm{Discussion of the basic 3-framed bordisms and their images under the tqft in the separable case.
-\begin{itemize}
-	\item Basic 3D Handles
-	\item Tori revisited, $SL_2(\ZZ)$-action?
-	\item $S^2 \times S^1$, $S^3$. 
-\end{itemize}
-
-}
 
 
 %!% Temporary document end
