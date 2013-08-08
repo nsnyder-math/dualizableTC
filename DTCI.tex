@@ -2909,7 +2909,11 @@ We now compute the images of this bordism under the TFT in terms of the algebra 
 The counit map $(\text{mod-}A) \boxtimes (A\text{-mod}) \cong \ev_\cC \boxtimes \ev_\cC^L \rightarrow \cC \boxtimes \cC^\mp$ is given by $M \boxtimes N \mapsto M \otimes_A N$.
 \end{lemma}
 \begin{proof}
+The counit map is given by the composition 
+$$\text{mod-}A \boxtimes A\text{-mod} \rightarrow \text{mod-}A \boxtimes {}^*(\text{-mod}A) \rightarrow \text{mod-}A \boxtimes {}^*\Fun_{\cC\text{-mod}}^{\text{left}}(\cC, \text{mod-}A) \rightarrow \text{mod-}A \boxtimes {}^*\Fun_{\cC\text{-mod}}(\text{mod-}A, \cC) \rightarrow \cC.$$
 
+Since every mod-$A$ is a finite colimit of free modules, it is enough to check that the two maps agree on $V \boxtimes A$.  On the one hand,
+$$V \boxtimes A \mapsto V \boxtimes {}^*(A^*) \rightarrow V \boxtimes {}^*(x \mapsto x \otimes A^*) \rightarrow V \boxtimes (x \mapsto x) \mapsto V.$$  Here we've used that the left adjoint of restriction is the functor $x \mapsto x \otimes A^*$ (in contrast, the right adjoint is the usual induction functor $x \mapsto x \otimes A$).  On the other hand we have $V \otimes_A A \cong V$, so both functors agree.
 \end{proof}
 
 \begin{lemma}
