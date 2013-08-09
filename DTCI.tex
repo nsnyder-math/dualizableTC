@@ -52,7 +52,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 
 %\ignore{ %!%
 
-%\tikzset{external/force remake}
+\tikzset{external/force remake}
 
 %\pgfkeys{/pgf/fpu}
 %\pgfmathparse{16383+1}
@@ -2702,6 +2702,8 @@ Thus, without loss of generality, we can assume that the TFT has the following v
 \caption{Invariants associated to 2-framed intervals.} \label{table-intervals}
 \end{table}
 
+The formulas for the Serre automorphism and its inverse in the above table are computed with the formulas from \S \ref{???}.
+
 Writing $2$-framed circles as compositions of intervals, we get the following formulas for $2$-framed circles.  The values in the third column are canonically isomorphic to the ones in the second column via Lemma \ref{???}.
 
  \begin{table}[ht]
@@ -2882,7 +2884,7 @@ We've already seen that $\TC$ is $2$-dualizable.  So we need only show that the 
 
 \subsection{The Radford isomorphism of tensor categories}
 
-Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.  This calculation depends in an essential way on having a TFT which is both fully local and framed.
+Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
 
 Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{???}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle \mathfrak{r r} \rangle}\cC_{\cC}$ \NScomm{add reference}.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle \mathfrak{r r} \rangle} \cC_{\cC} \rightarrow {}_{\cC \langle \mathfrak{l l} \rangle} \cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
 
@@ -2934,7 +2936,7 @@ This follows from applying the previous two lemmas.  Namely, $A\text{-mod} \righ
 Thus we have proved that our Radford isomorphism agrees with the one in ENO.  In particular, our canonical invertible is given by the same formula as theirs. 
 
 \begin{lemma}
-The isomorphism ${}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \cong \cS^{-1} \rightarrow \cS {}_{\cC \langle \mathfrak{r r}\rangle}\cC_\cC$ is given by tensoring on the right with the unique object $D$ such that $(D \boxtimes 1) A \cong_{\text{mod-}A} A^*$. 
+The isomorphism ${}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \cong \cS^{-1} \rightarrow \cS \cong {}_{\cC \langle \mathfrak{r r}\rangle}\cC_\cC$ is given by tensoring on the right with the unique object $D$ such that $(D \boxtimes 1) A \cong_{\text{mod-}A} A^*$. 
 \end{lemma}
 \begin{proof}
 We need to compute the composition
