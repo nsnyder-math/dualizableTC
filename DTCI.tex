@@ -24,12 +24,12 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 \urladdr{http://people.maths.ox.ac.uk/cdouglas}
       	
 \author{Christopher Schommer-Pries}
-\address{Department of Mathematics\\ Massachusetts Institute of Technology\\ Cambridge, MA 02139\\ USA}
+\address{Department of Mathematics\\ Max Planck Institute for Mathematics \\ 53111 Bonn \\ Germany}
 \email{schommerpries.chris.math@gmail.com}
 \urladdr{http://sites.google.com/site/chrisschommerpriesmath}
 
 \author{Noah Snyder}
-\address{Department of Mathematics\\ Columbia University\\ New York, NY 10027\\ USA}
+\address{Department of Mathematics\\ Indiana University\\ Bloomington, IN 47401\\ USA}
 \email{nsnyder@math.columbia.edu}
 \urladdr{http://www.math.columbia.edu/\!\raisebox{-1mm}{~}nsnyder/}
 
@@ -52,7 +52,7 @@ We show that fusion categories are fully-dualizable objects in the symmetric mon
 
 %\ignore{ %!%
 
-\tikzset{external/force remake}
+%\tikzset{external/force remake}
 
 %\pgfkeys{/pgf/fpu}
 %\pgfmathparse{16383+1}
@@ -2958,10 +2958,12 @@ This is CITE ENO.  It is also relatively straightforward to compute directly tha
 
 
 \begin{lemma}
-A natural tensor isomorphism $f_V: V^{**} \rightarrow V$ gives a spherical structure on $\cC$ if and only if $f \circ f^{**}: V^{****} \rightarrow V$ agrees with the Radford isomorphism.
+If $\cC$ is semisimple, a natural tensor isomorphism $p_V: V \rightarrow V^{**}$ gives a spherical structure on $\cC$ if and only if $p_V^{**} \circ p_V: V \rightarrow V^{****}$ agrees with the tensor isomorphism given by the Radford $R_V: V \rightarrow V^{****}$.
 \end{lemma}
 \begin{proof}
-This is CITE ENO.
+By \cite{???}, the isomorphism $R_V$ is characterized by the property that for any $f: V \rightarrow V^{**}$, we have that $\Tr(f) = \Tr(f^* \circ \delta_{{}^*V})$.  Suppose that $p_V^{**} \circ p_V = c_V R_V$ for some scalars $c_V$, then
+$$\Tr(p_V) = \Tr(p_V^* \circ R_{{}^*V}) = (c_V)^{-1}\Tr(p_V^* \circ p_{{}^*V}^{**} \circ p_{{}^*V}) = (c_V)^{-1}\Tr(p_{V^*}^{-1} \circ p_{V^*} \circ p_{{}^*V}) = (c_V)^{-1}\Tr(p_{{}^*V}).$$
+Thus, we see that $\Tr(p_V) = \Tr(p_{{}^*V})$ if and only if $p_V^{**} \circ p_V = R_V$.
 \end{proof}
 
 \subsection{???}
