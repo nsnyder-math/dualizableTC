@@ -105,6 +105,7 @@ More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) 
 \begin{center}
 \includegraphics[width=60mm]{cobordism.png}
 \end{center}
+\CD{This should be made into a Figure, so it can be referred to later.}
 \CD{We may want to redraw this bordism to instead be the following: start with a sheet, create a circle, pass the two sides of the circle through each other, then saddle with the sheet.  This differs from the existing picture by passing the saddle through the sheet.}
 
 
@@ -123,9 +124,9 @@ In Section \ref{sec:dualfusion} we prove our main result (see Theorem \ref{???} 
 
 \CSP{Change the numbering of these theorems to match the correct numbering in the paper.}
 
-\begin{theorem}
+\begin{maintheorem}
 Separable semisimple rigid tensor categories are fully dualizable.
-\end{theorem}
+\end{maintheorem}
 
 \nid Note that separability is a technical condition which is automatic over a field of characteristic $0$, and is implied by non-zero global dimension over a perfect field.
 \CSP{implied or equivalent to?}
@@ -133,17 +134,17 @@ Separable semisimple rigid tensor categories are fully dualizable.
 %!% Keep this statement this short and snappy in the introduction.  In the main text it can be fleshed out with more precision about the ambient 3-category.
 
 A key application of this theorem is the construction of a plethora of local field theories:
-\begin{corollary}
+\begin{maincor}
 For any separable semisimple rigid tensor category there is a local topological quantum field theory whose value on a point is that tensor category.
-\end{corollary}
+\end{maincor}
 
 \nid Strictly speaking, this TFT is not directly comparable to Turaev--Viro theories, since it is $3$-framed rather than oriented, and it does not depend on either the choice or existence of a spherical structure.  Nonetheless, it should be thought of as a generalization of Turaev--Viro.
 
 We also have a converse to this theorem.
 
-\begin{theorem}
+\begin{maintheorem}
 Fully dualizable rigid finite tensor categories are separable and semisimple.
-\end{theorem}
+\end{maintheorem}
 
 For technical reasons we restrict our attention throughout to finite rigid tensor categories throughout this paper, because we have only given a rigorous definition of the $3$-category of finite rigid tensor categories.  Nonetheless, it is natural to wonder whether rigid and finite are necessary for dualizability.  Since rigidity is not preserved by Morita equivalence (as pointed out to us by Dan Freed), there are finite tensor categories which are fully dualizable but not rigid.  Indeed, semisimplicity and finiteness are also not Morita invariant notions.  We do not know a simple characterization of all fully dualizable tensor categories (indeed we do not know in what generality it even makes sense to ask this question), though to our knowledge all examples are Morita equivalent to a separable finite rigid tensor category.
 \CSP{Maybe mention something about the fact that we only know that the relative Deligne tensor product exists under the assumption of rigidity?}
@@ -159,13 +160,13 @@ For technical reasons we restrict our attention throughout to finite rigid tenso
 %%
 We also establish that there are field theories associated to finite tensor categories that are not necessarily separable:
 
-\begin{theorem}
+\begin{maintheorem}
 Finite rigid tensor categories are $2$-dualizable.
-\end{theorem}
+\end{maintheorem}
 
-\begin{corollary}
+\begin{maincor}
 Any finite rigid tensor category gives a $2$-framed local $2$-dimensional TFT which is categorified in the sense that it sends surfaces to vector spaces rather than numbers.
-\end{corollary}
+\end{maincor}
 \CD{Define `categorified 2-d TFT' before stating the corollary.}
 
 \begin{remark}
@@ -176,20 +177,20 @@ We give a concrete application of these results in  Section~\ref{sec:serre}.
 
 % and~\ref{sec:pivot}, focuses on the correspondence between algebraic properties of the tensor categories and topological properties of the corresponding field theories.  We focus particularly on the Serre automorphism, which, roughly speaking, measures the dependence of the field theory on spin structures.
 
-\begin{theorem}
+\begin{maintheorem}
 The Serre automorphism of a finite rigid tensor category $\cC$ is the bimodule associated to the double dual functor ${}^{**}(-): \cC \ra \cC$.  %!%Once we adjust all the conventions, this will be the left double dual.
-\end{theorem}
+\end{maintheorem}
 
 In $3$-dimensions, the Serre automorphism is necessarily order $2$ (since $\pi_1(SO(3)) \cong \mathbb{Z}/2$). This theorem therefore provides a simple topological proof of the following generalization Radford's theorem \cite{MR0407069} to fusion categories (originally due to Etingof, Nikshych, and Ostrik \cite{MR2183279}).
-\begin{corollary}
+\begin{maincor}
 The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a fusion category is naturally isomorphic to the identity functor.
-\end{corollary}
+\end{maincor}
 
 We then address how this result generalizes to finite rigid tensor categories.  Although $2$-dualizability is not enough (we need a $3$-framed theory, not a $2$-framed theory), finite tensor categories have enough adjoints of $2$-morphisms in order to interpret the belt trick as a trivialization of the Serre automorphism of a finite rigid tensor category.  \CD{During rewrite, probably we'll use the term ``Radford object" here.}  Thus our ``belt trick" approach to the quadruple dual also gives a proof of the generalization of Radford' theorem to finite rigid tensor categories (again due to Etingof, Nikshych, and Ostrik \cite{MR2097289}).
 
-\begin{corollary}
+\begin{maincor}
 The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a finite rigid tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
-\end{corollary}
+\end{maincor}
 
 %In Section \ref{sec:pivot} we discuss TFTs with topological structures other than $3$-framings.  The cobordism hypothesis says that such a TFT corresponds to a dualizable tensor category together with some choice of additional structure.  In particular, we give homotopy invariant generalizations of the notions of sphericality and pivotality and describe the corresponding structure groups and thus the corresponding classes of field theories.  In particular, the following question is a natural topological analog of a question of Etingof--Nikshych--Ostrik.
 
@@ -1534,7 +1535,7 @@ Just as any finite linear category is a category of modules over an algebra, any
 
 \begin{theorem} \label{thm:enrichment-of-mod-cats}
 	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming from its structure as a $\cC$-module category.
-\end{theorem}
+\end{theorem} \CD{Should this theorem be cited to Ostrik? ie move the reference from the previous line into the theorem line.}
 
 \begin{proof}
 	What this means is that there exist functorial assignments of objects $\IHom(m', m) \in \cC$ and $(m^c) \in \cM$ for every $m,m' \in \cM$ and $c \in \cC$ and natural isomorphisms
@@ -1768,7 +1769,7 @@ If it exists, the Deligne tensor product is unique up to equivalence, and this e
 
 In \cite{0909.3140} the existence of the relative Deligne tensor product was established for semisimple module categories over semisimple tensor categories over a field of characteristic zero. The following theorem extends these results and provides an alternative proof of the existence of the relative Deligne tensor product.   
 
-\begin{theorem} \label{thm:DelignePrdtOverATCExists}
+\begin{maintheorem} \label{thm:DelignePrdtOverATCExists}
 	Let $\cC$ be a tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
 	\begin{enumerate}
 		\item The relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$ exists and is a finite linear category;
@@ -1781,7 +1782,7 @@ In \cite{0909.3140} the existence of the relative Deligne tensor product was est
 		\item If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
 	\end{enumerate} 
 \nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.	
-\end{theorem}
+\end{maintheorem}
 
 \begin{proof}
 	 By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. By Lemma \ref{lma:RigidIsExact}, the natural tensor product functor
@@ -1908,7 +1909,7 @@ If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD
 Equipped with the relative Deligne tensor product and its properties, we can now define the 3-category of interest.
 
 \CSP{Get theorem number.}
-\begin{theorem}[ \cite{3TC}]
+\begin{theorem}[\cite{3TC}]
 	There exists a symmetric monoidal $(3,3)$-category whose objects are the finite rigid tensor categories, whose 1-morphisms are bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule natural transformations. Composition is given by the relative Deligne tensor product of bimodules. The symmetric monoidal structure is given by the usual Deligne tensor product. 
 \end{theorem}
 
@@ -2364,9 +2365,9 @@ Recall Example \ref{Ex:Hopf_bimod}
  Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
 
 
-\begin{theorem} \label{thm:NonzeroDimension}
+\begin{maintheorem} \label{thm:NonzeroDimension}
 A fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
-\end{theorem}
+\end{maintheorem}
 \begin{proof}
 We first prove that global dimension non-zero implies separability.  Recall that a left $\cC$-module has a natural enrichement over $\cC$; in other words, it has a $\cC$-valued internal $\Hom$~\cite{Ostrik03}.  Let $A \in \cC \boxtimes \cC^\mp$ be the algebra of internal endomorphisms of the identity object in ${}_{\cC \boxtimes \cC^\mp} \cC$.  This algebra can be described explicitly, as an object it is $\bigoplus_X X \boxtimes {}^*X$, where the sum is over the simple objects of $\cC$.  This algebra has a Frobenius algebra structure given by the trace given by projection onto the $1 \boxtimes 1$ component.  The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero then $A$ is seperable.
 
@@ -2536,7 +2537,7 @@ The map $\eta_1: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \
 
 \begin{theorem} \label{thm:evcoev}
 The pair of maps $(\eta_1, \varepsilon_1)$, respectively $(\eta_2, \varepsilon_2)$, forms the unit and counit of an adjunction $\Fun_{\cC}(\cM, \cC) \dashv \cM$, respectively $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$.
-\end{theorem}
+\end{theorem} \CD{Maybe this should be a Proposition?}
 \begin{proof}
 The following diagram commutes.
 		\begin{center}
@@ -2561,9 +2562,9 @@ The other three calculations are similar.
 \end{proof}
 
 We have thereby proven:
-\begin{theorem} \label{thm:TC_is_2Dualizable}
+\begin{maintheorem} \label{thm:TC_is_2Dualizable}
 	$\TC$ is 2-dualizable. 
-\end{theorem}
+\end{maintheorem}
 
 \nid Thus associated to any finite tensor category, there is a 2-framed 2-dimensional field theory with values in the 3-category of tensor categories.  In the next section we will investigate the invariants provided by these field theories.
 
@@ -2820,9 +2821,9 @@ Any functor out of a semisimple category is exact, and hence has both a left and
 The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{Must check that this formula is right for adjoints of functors of semisimple categories.}
 \end{proof}
 
-\begin{theorem}  \label{thm:TC-dualizable}
+\begin{maintheorem}  \label{thm:TC-dualizable}
  $\TCsep$ is fully dualizable; separable fusion categories are fully dualizable.
-\end{theorem}
+\end{maintheorem}
 \begin{proof}
 By Theorem \ref{thm:objduals} all objects in $\TCsep$ have duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms have adjoints.
 \end{proof}
@@ -2840,9 +2841,9 @@ Although the last step of this argument looks straightforward, we warn the reade
 
 We have a converse result as well.
 
-\begin{theorem}
+\begin{maintheorem}
 If $\cC$ is a finite tensor category which is fully dualizable, then $\cC$ is separable.
-\end{theorem}
+\end{maintheorem}
 \begin{proof}
 If $\cC$ is fully dualizable, then the $1$-morphism ${}_{\Vec} Z(\cC)_{\Vec}$ is fully dualizable as an object in the symmetric monoidal $2$-category $\End(\Vec)$.  The objects in $\End(\Vec)$ are finite linear categories, the $1$-morphisms are right exact functors, and the $2$-morphisms are natural transformations, so $\End(\Vec)$ is equivalent to the $2$-category of finite dimensional algebras, bimodules, and intertwiners.  By \cite{???},  fully dualizable object in this $2$-category must be separable.
 \NS{Add reference to CSP's thesis}
