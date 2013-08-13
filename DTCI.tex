@@ -234,7 +234,15 @@ CSP would like to thank Peter Teichner for several fruitful conversations about 
 
 \section{Local field theory in dimension three} \label{sec:lft}
 
-\CD{We may add a comment referring the reader to the appendix for a refresher on the cobordism hypothesis.}
+Recall that an object $x$ of a symmetric monoidal $(\infty,3)$-category is called ``1-dualizable" if there is a dual object $\overline{x}$, with the duality between $x$ and $\overline{x}$ witnessed by evaluation and coevaluation maps $ev: x \otimes \overline{x} \ra 1$ and $coev: 1 \ra \overline{x} \otimes x$.  The object is called ``2-dualizable" if moreover the evaluation map is part of an infinite chain of adjunctions 
+$$\cdots \dashv ev^{LL} \dashv ev^L \dashv ev \dashv ev^R \dashv ev^{RR} \dashv \cdots$$
+and similarly the coevaluation map is part of an infinite chain of adjunctions 
+$$\cdots \dashv coev^{LL} \dashv coev^L \dashv coev \dashv coev^R \dashv coev^{RR} \dashv \cdots.$$  
+The object is called ``3-dualizable", also known as ``fully dualizable", if, moreover, for every adjunction $F \dashv G$ in each of the two aforementioned infinite chains, witnessed by a unit map $u_{F,G}$ and counit map $v_{F,G}$, it happens that this unit map is part of an infinite chain of adjunctions 
+$$\cdots \dashv u_{F,G}^{LL} \dashv u_{F,G}^L \dashv u_{F,G} \dashv u_{F,G}^R \dashv u_{F,G}^{RR} \dashv \cdots$$ 
+and similarly the counit map is part of an infinite chain of adjunctions 
+$$\cdots \dashv v_{F,G}^{LL} \dashv v_{F,G}^L \dashv v_{F,G} \dashv v_{F,G}^R \dashv v_{F,G}^{RR} \dashv \cdots.$$  
+The cobordism hypothesis shows that the 3-dimensional local framed topological field theories with target a symmetric monoidal $(\infty,3)$-category $\cC$ are in one-to-one correspondence with the fully dualizable objects of $\cC$; in fact, the space of such field theories is homotopy equivalent to the space of fully dualizable objects of $\cC$.  We refer the reader to Appendix~\ref{app:ch} for a more detailed and precise review of the notion of full dualizability and statement of the cobordism hypothesis.
 
 \subsection{Notation for $n$-framed manifolds} 
 
@@ -516,7 +524,7 @@ Up to 2-framed diffeomorphism, there are two 2-framed points. We make the follow
 	\end{pgfonlayer}
 \end{tikzpicture}
 \end{center}
-We refer to the first of these as the {\em positively framed point}, $pt_+$, and the second as the {\em negatively framed point}, $pt_-$.  These two points are dual in the bordism category.  That is, there are bordisms $ev: pt_+ \sqcup pt_- \to \emptyset$ and $coev: \emptyset \to pt_- \sqcup pt_+$, serving as unit and counit maps and satisfying the usual zig-zag equations (see Definition \ref{def:adjoints_in_bicat}). We make the following selection for these bordisms:
+We refer to the first of these as the {\em positively framed point}, $pt_+$, and the second as the {\em negatively framed point}, $pt_-$.  These two points are dual in the bordism category.  That is, there are bordisms $ev: pt_+ \sqcup pt_- \to \emptyset$ and $coev: \emptyset \to pt_- \sqcup pt_+$, serving as unit and counit maps and satisfying the usual zigzag equations (see Definition \ref{def:adjoints_in_bicat}). We make the following selection for these bordisms:
 \begin{center}
 	$ev =$\cb{
 	\begin{tikzpicture}
@@ -538,7 +546,7 @@ Because the bordism category is a {\em symmetric} monoidal $(\infty,n)$-category
 \begin{remark}
 Recall that duals in a symmetric monoidal category $(\cC, \otimes, 1)$ are uniquely determined in the following sense:
 \begin{itemize}
-	\item Let $y_+$ and $ y_-$ be objects of $\cC$, and $ev: y_+ \otimes y_- \to 1$ a morphism.  There exists at most one morphism $coev: 1 \to y_- \otimes y_+$ such that $ev$ and  $coev$ satisfy the zig-zag identities, and hence $ev$ and $coev$ witness the duality between $y_+$ and $y_-$.
+	\item Let $y_+$ and $ y_-$ be objects of $\cC$, and $ev: y_+ \otimes y_- \to 1$ a morphism.  There exists at most one morphism $coev: 1 \to y_- \otimes y_+$ such that $ev$ and  $coev$ satisfy the zigzag identities, and hence $ev$ and $coev$ witness the duality between $y_+$ and $y_-$.
 	\item Fix $y_+ \in \cC$. The category of triples $(y_-, ev, coev)$ that witness a duality between $y_+$ and some object $y_-$ is either contractible or empty.  In this category of triples, a morphism is a map $y_- \to y_-'$ intertwining the two evaluations and the two coevaluations.  
 	\item If $(y_-, ev, coev)$ is a triple witnessing a duality between $y_+$ and $y_-$, and if $f:y_-' \cong y_-$ is any isomorphism, then $ev' = ev \circ (\id_{y_+} \otimes f)$ and $coev' = (f^{-1} \otimes \id_{y_+}) \circ coev$ witness a duality between $y_+$ and $y'_-$.  
 \end{itemize}
@@ -738,12 +746,12 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 }
 \]
 \CD{Painful tikz problems in this,  still unfinished.}
-These adjunctions illustrate the fact that the 2-framed bordism 2-category $\FrBord_2$ is 2-dualizable.
+\nid These adjunctions illustrate the fact that the 2-framed bordism 2-category $\FrBord_2$ is 2-dualizable.
 
 \subsection{The Serre and the Radford bordisms} \label{sec:SerreRadford}
-We now define the loop bordism, which is a particular $1$-morphism in the $n$-framed bordism $n$-category.  We presume $n \geq 2$ throughout.  
+ 
 %For any point $p \in \RR^n$ we can equip the embedding $p \hra \RR^n$ with the canonical coframing, therefore n-framing.  We refer to such a point as the standard positively-framed point---it is an object of $\FrBord_n$, and we denote it by $s$.  
-Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted here:
+Consider the following normally-oriented immersed 1-manifold $\cS \lra \RR^2$:
 \begin{center}
 %	\begin{tikzpicture}
 %	\draw[linestyle,fuzzright] 
@@ -766,13 +774,13 @@ Consider the normally-oriented immersed 1-manifold $\cS \lra \RR^2$ depicted her
 \end{pgfonlayer}
 \end{tikzpicture}
 \end{center}
-\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_n$ from $pt_+$ to $pt_+$.  This automorphism is called the loop bordism.  It will also be called the {\bfseries Serre bordism} for reasons that will be made clear shortly.   
+\nid This manifold is 2-framed, therefore n-framed for any $n \geq 2$.  It can be viewed as a morphism in $\FrBord_n$ from $pt_+$ to $pt_+$.  This automorphism is called the loop bordism.  It will also be called the {\bfseries Serre bordism}, for reasons described in Example~\ref{eg:serrefunctor} below.
 
 \begin{remark}
-Consider the interval $[0,1] \subset \RR$, viewed as a 1-dimensional bordism with one incoming  point at $0$, one outgoing boundary point at $1$, and the standard orientation.  Consider $n$-framings of this interval that restrict to the standard $n$-framing of both boundary points.  (Using the word ``restriction" here only makes sense because the tangent bundle of this interval has been canonically identified with $\RR$.)  This set of $n$-framings, considered up to homotopy, is a group under concatenation of intervals (applying the standard shrinking diffeomorphisms as needed), and this group is canonically identified with $\pi_1(SO(n))$.  In particular, when $n=2$, the set of framings on this interval is canonically identified with $\ZZ$---here we take the counterclockwise rotation as the positive generator of $\pi_1(SO(n))$.  The loop bordism is the framing corresponding to $+1$.  When necessary, we will refer to the bordism corresponding to the $-1$ framing as the negative loop bordism.
+The interval $[0,1] \subset \RR$ can be viewed as a bordism with one incoming boundary point at $0$ and one outgoing boundary point at $1$.  Consider $n$-framings of this interval that induce the standard $n$-framing of both boundary points.  This set of $n$-framings, up to homotopy, is a group under concatenation of intervals, and this group is canonically identified with $\pi_1(SO(n))$.  When $n=2$, the set of framings on this interval is therefore canonically identified with $\ZZ$---here we take the counterclockwise rotation as the positive generator of $\pi_1(SO(2))$.  The loop bordism is the framing corresponding to $-1 \in \ZZ$ under this identification.  We will refer to the bordism corresponding to the $+1$ framing as the inverse loop bordism.
 \end{remark}
 
-We may express the loop bordism as a composite of more elementary bordisms which we have already encountered. Consider the following decomposition of the loop bordism:
+We can express the loop bordism as a composite of more elementary bordisms we have already encountered. There is a decomposition of the loop bordism:
 \begin{center}
 \vspace{\topskip}	
 	\begin{tikzpicture}
@@ -796,7 +804,7 @@ We may express the loop bordism as a composite of more elementary bordisms which
 	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
 	\end{tikzpicture}
 \end{center}
-The negative loop bordism has a similar decomposition:
+The inverse loop bordism has a similar decomposition:
 \begin{center}
 \vspace{\topskip}	
 	\begin{tikzpicture}
@@ -818,30 +826,30 @@ The negative loop bordism has a similar decomposition:
 	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
 	\end{tikzpicture}
 \end{center}
-These decompositions give formulas for the loop bordism and the negative loop bordisms:
+These decompositions give formulas for the loop bordism and the inverse loop bordism:
 \begin{align*}
 	\cS &\cong (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R) \\
 	\cS^{-1} &\cong (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^L) 
 \end{align*}
-We invite the reader to verify that the units and counits from the previous section provide explicit framed surfaces witnessing the isomorphisms $\cS \circ \cS^{-1} \cong id_{pt_+} \cong \cS^{-1} \circ \cS$.  
+As the notation suggests, there are isomorphisms $\cS \circ \cS^{-1} \cong id_{pt_+} \cong \cS^{-1} \circ \cS$.  
 
 
 
 
-When $n\geq 3$ we have that $\pi_1(SO(n)) \cong \mathbb{Z}/2$, which implies that the loop bordism $\cS: pt_+ \ra pt_+$ in $\FrBord_n$ is an involution; in particular, $\cS^{-1} \cong \cS$.
-%that is, $\cS \circ \cS : pt_+ \ra pt_+$ is equivalent to the identity automorphism. 
-Even better, there is a unique $3$-framed $2$-dimensional bordism of genus zero from $\cS^{-1} \rightarrow \cS$. This bordism is depicted below as a $2$-manifold immersed in $\RR^3$ \NS{Fix diagram and if necessary add sentence explaining which diagrams are incoming vs. outgoing}. %here the top boundary is incoming, the bottom boundary is outgoing, and the coorientation points into the page away from the reader near the bottom boundary.
+When $n\geq 3$ we have $\pi_1(SO(n)) \cong \mathbb{Z}/2$, and therefore the loop bordism $\cS: pt_+ \ra pt_+$ in $\FrBord_n$ is an involution; thus the loop bordism and the inverse loop bordism are isomorphic.  In fact, this isomorphism is implemented by the unique (up to $3$-framed diffeomorphism rel boundary) $3$-framed $2$-dimensional bordism of genus zero from $\cS^{-1}$ to $\cS$. This bordism is depicted, as an immersed $2$-manifold in $\RR^3$, in Figure~\ref{fig:loopinvloopbord}.
+\CD{Draw figure 2, any explanation needed in caption.}
+%here the top boundary is incoming, the bottom boundary is outgoing, and the coorientation points into the page away from the reader near the bottom boundary.
 \begin{center}
 \includegraphics[width=60mm]{cobordism.png}
 \end{center}
 %\noindent We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the incoming boundary and pull, it will happily (and very rapidly) trace out this bordism for you. As usual, stabilizing this bordism gives a canonical trivialization of the square of the loop bordism for any $n \geq 3$. 
-\NS{There was a paragraph here but I couldn't figure out how to modify it so I commented it out.}
+\CD{Once the figures are drawn, add back in the content of the paragraph NS removed here.}
 
 %If we take the left, that is incoming, cusp of the belt bordism and drag it to the right, so that it becomes an outgoing cusp, the result is a bordism from $ev^R$ to $ev^L$, which we call the {\bfseries Radford bordism}.
 
-Using the above formulas for $\cS^{-1}$ and $\cS$ it is clear that giving a bordism $\cS^{-1} \rightarrow \cS$ is the same data as giving a bordism $\ev^L \rightarrow \ev^R$.  Again there is a unique $3$-framed $2$-dimensional bordism of genus zero which we call this the {\bfseries Radford bordism}.  Explicitly the Radford bordism is given by the following composition.
+By the above formulas for $\cS^{-1}$ and $\cS$, we see that giving a bordism from $\cS^{-1}$ to $\cS$ provides the same information as does giving a bordism from $\ev^L$ to $\ev^R$.  Again there is a unique such $3$-framed $2$-dimensional bordism of genus zero; we call this bordism from $\ev^L$ to $\ev^R$ the belt bordism or the {\bfseries Radford bordism}.  This bordism is given explicitly by the following composition.
 
-\begin{center} \NS{This diagram goes the wrong way, but it should be replaced by a more thorough diagram anyway giving the the Radford as a composition}
+\begin{center} \NS{This diagram goes the wrong way, but it should be replaced by a more thorough diagram anyway giving the the Radford as a composition} \CD{The correct diagram is in email from NS, though add an extra step to that.}
 	\begin{tikzpicture}
 		\node (R) at (0,0) {$\cR:$};
 			\draw[linestyle,fuzzright] (1.5, 0.5) -- (0.75,0.5)
@@ -862,36 +870,40 @@ Using the above formulas for $\cS^{-1}$ and $\cS$ it is clear that giving a bord
 	\end{tikzpicture}
 \end{center}
 
-Given a local topological field theory $\cF$ of dimension at least 2, we can look at the images of these various bordisms. The value of the positively framed point gives a fully dualizable object $x$; the images of the negatively framed point, $ev$, and $coev$ give data witnessing the 1-dualizability of $x$; the images of the two infinite chains of bordisms at the end of the previous section give the values of the various adjoints of $\cF(ev)$ and $\cF(coev)$; the loop bordism induces an automorphism of $a$ which we call the {\em Serre automorphism $\cS_x$}.  This terminology is motivated by the following example.
-\begin{example}[{\cite[Rm. 4.2.4]{lurie-ch}}]
-If $\cC$ is the $(\infty,2)$-category of cocomplete differentially graded categories over a field $k$, and $D$ is a fully dualizable object of $\cC$ consisting of quasi-coherent complexes on a smooth variety $X$, then $\cS_D$ is the Serre functor (which appears in Serre duality) given by tensoring with the canonical line bundle on $X$ and shifting by the dimension of $X$.
+Given a local topological field theory $\cF$ of dimension at least 2, we can study the images of these various bordisms. The value of the positively framed point is a fully dualizable object $x := \cF(pt^+)$.  The images of the negatively framed point, of $\ev$, and of $\coev$ give data witnessing the 1-dualizability of $x$.  The images of the two infinite chains of bordisms at the end of section~\ref{sec:framed-duality} give the values of the various adjoints of $\cF(\ev)$ and $\cF(\coev)$.  The loop bordism induces an automorphism of $x$ which we call the {\em Serre automorphism $\cS_x$}; this terminology is motivated by the following example.
+
+\begin{example}[{\cite[Rm. 4.2.4]{lurie-ch}}] \label{eg:serrefunctor}
+Let $\cC$ be the $(\infty,2)$-category of cocomplete differential graded categories over a field $k$.  Let $D$ be the category of quasi-coherent complexes on a smooth variety $X$.  The object $D \in \cC$ is fully dualizable and the automorphism $\cS_D$ is the Serre functor (appearing in Serre duality) given by tensoring with the canonical line bundle on $X$ and shifting by the dimension of $X$.
 % ... terminology is motivated by the situation where C is the (∞,2)-category of cocomplete differential graded categories over a field k (suitably defined). If D is a fully dualizable object of C which is generated by compact objects, then there is a canonical endofunctor S : D → D (called the Serre functor on D), which is characterized by the existence of natural quasi-isomorphisms
 %MapD(C, S(D)) ≃ MapD(D, C)∨
 %for every pair of compact objects C and D. In the special case where D is the differential graded category of quasi-coherent complexes on a smooth projective variety X, the Serre functor S : D → D is given by tensoring with the canonical line bundle ωX on X and shifting by the dimension of X, and the quasi-isomorphism is provided by Serre duality.
 \end{example}
 
-If $n$ is at least 3, the image of the belt bordism, respectively the Radford bordism, gives an isomorphism $\cS^{-1} \cong \cS$, respectively an isomorphism $\cF(\cR): \cF(ev^R) \cong \cF(ev^L)$.
+If the dimension of the field theory $\cF$ is at least 3, then the image of the bordism in Figure~\ref{fig:loopinvloopbord} gives an isomorphism $\cS^{-1}_x \cong \cS_x$.  Similarly, the image of the Radford bordism in Figure~\ref{fig:radfordbord} is an isomorphism $\cR_x: \cF(\ev^L) \cong \cF(\ev^R)$.  We call this the Radford isomorphism because, as we will see in section~\ref{sec:radiso}, it is a key ingredient in a topological proof of Radford's quadruple dual theorem.
 % Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  
-We call the image of the Radford bordism the {\em Radford isomorphism on $x$}, because, as we will see, it plays the key role in proving Radford's theorem. We summarize the above observations as a proposition.
+We summarize the above observations as follows:
 
 \begin{proposition}
 The Serre automorphism of any $3$-dualizable object in an $n$-category is an involution.
 \end{proposition}
 
+\CD{Do we refer to this prop? If not, remove.  If so, find a better place for it.}
+\CD{The preceding section is awkward at present, needs to be reconsidered/reworked.}
 
+\CDcomm{In reworking this section, add the calculation of $\cS_x$ and $\cS^{-1}_x$ with reference to App A.2.  Say, given a field theory, have these formulas; more is true, given a dualizable x, and any ev, evR, etc, can find a field theory such that these formulas hold---see App A.2.}
 
 \subsection{A categorical formula for the Radford isomorphism} 
 
-The cobordism hypothesis says that full dualizability is sufficient to interpret any framed bordism as a morphism.  However, for a particular application you typically only need to interpret a particular bordism, and thus instead of full dualizability, you only need the specific adjoints which come up in the morse decomposition of that bordism.  In this section we work out what weaker dualizability condition is sufficient for the construction of the Radford isomorphism.    The Radford isomorphism establishes that in a 3-dualizable symmetric monoidal 3-category, not only does the evaluation pairing have both left and right adjoints, but it has an {\em ambidextrous} adjoint---the left and right adjoints are canonically isomorphic. 
-%At first glance this seems to be a very surprising fact, as most adjoints encountered in the wild are not ambidextrous. However in higher categories of dimension at least three, this ambidexterity is much more common, and indeed it is automatic given enough dualizability. 
-The following lemma, which is stated in Remark 3.4.22 \cite{lurie-ch}, expresses the key categorical fact that is responsible for the existence of the Radford isomorphism. \NS{I rewrote this paragraph to add some commentary, feel free to edit further.}
+In this section we describe a dualizability condition on an object $x$, weaker than full dualizability, sufficient for the construction of the Radford isomorphism $\cR_x$.  As expected, the condition is the existence of the specific adjoints that arise in a Morse decomposition of the Radford bordism.
+
+In a 3-dualizable symmetric monoidal 3-category, the evaluation pairing on any object has both a left and a right adjoint, but the Radford isomorphism witnesses that the evaluation has, in fact, an {\em ambidextrous} adjoint: the left and right adjoints are canonically isomorphic.  The following lemma, stated as Remark 3.4.22 in \cite{lurie-ch}, expresses the categorical fact that is responsible for this ambidexterity.
 
 
 \begin{lemma} \label{lem-ambiadjoints}
-	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  so we have unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ also as a left adjoint to $f$. 
+	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  with unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ as a left adjoint to $f$. 
 \end{lemma}
-\noindent Note that by passing to the category $\cA^{op_1}$ where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is in fact a right adjoint; similarly, passing to the category $\cA^{op_2}$ where 2-morphisms are reversed, the role of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$; and of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right.
-\begin{proof}[Proof of Prop.\ref{lem-ambiadjoints}]
+\noindent Note that using the category $\cA^{op_1}$, where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is, in fact, a right adjoint.  Similarly, using the category $\cA^{op_2}$ where 2-morphisms are reversed, the role of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$.  Of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right occurring in the Lemma.
+\begin{proof}[Proof of Lemma \ref{lem-ambiadjoints}]
 By assumption we are given 3-morphisms,
 \begin{align*}
 	\varepsilon_v: v^L \circ v & \Rightarrow id_{f \circ f^R} \\
@@ -899,37 +911,43 @@ By assumption we are given 3-morphisms,
 	\varepsilon_u: u^L \circ u & \Rightarrow id_{id_x} \\
 	\eta_u: id_{f^R \circ f} & \Rightarrow  u \circ u^L
 \end{align*}
-which satisfy the Zig-Zag identities:
+which satisfy the zigzag identities:
 \begin{align*}
-	 id_v  &= (id_v \circledcirc \varepsilon_v) \circ (\eta_v \circledcirc id_v)  \\
-	 id_{v^L}  &= (\varepsilon_v \circledcirc id_{v^L} ) \circ (id_{v^L} \circledcirc \eta_v)  \\
-	 id_u  &= (id_u \circledcirc \varepsilon_u) \circ (\eta_u \circledcirc id_u)  \\
-	 id_{u^L}  &= (\varepsilon_u \circledcirc id_{u^L} ) \circ (id_{u^L} \circledcirc \eta_u).  
+	 id_v  &= (id_v \circ \varepsilon_v) (\eta_v \circ id_v)  \\
+	 id_{v^L}  &= (\varepsilon_v \circ id_{v^L} ) (id_{v^L} \circ \eta_v)  \\
+	 id_u  &= (id_u \circ \varepsilon_u) (\eta_u \circ id_u)  \\
+	 id_{u^L}  &= (\varepsilon_u \circ id_{u^L} ) (id_{u^L} \circ \eta_u).  
 \end{align*}
-We must show that the following Zig-Zag identities hold:
+Here to avoid a conflict of notation, composition of 3-morphisms in the 3-morphism direction is denoted by juxtaposition, and composition of 3-morphisms in the 2-morphism direction is denoted by $\circ$.
+
+We must show that the following zigzag identities hold:
 \begin{align*}
 	 (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) & \cong id_{f} \\
  	 (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) & \cong id_{f^R} 
 \end{align*}
-By assumption we may also choose isomorphisms as follows:
+As before, here $\circ$ denotes composition of 2-morphisms in the 2-morphism direction, and $\circledcirc$ denotes composition of 2-morphisms in the 1-morphism direction.
+By assumption we may choose isomorphisms as follows:
 \begin{align*}
 	\alpha: id_f &\stackrel{\cong}{\to} (v \circledcirc id_f) \circ (id_f \circledcirc u) \\
 	\beta: id_{f^R} &\stackrel{\cong}{\to} (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} ).
 \end{align*}
-Then the required isomorphisms are given by the following composites:
+The required isomorphisms are given by the following composites:
 \begin{align*}
 	(id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} )
-		& \cong id_f \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
-		& \stackrel{\alpha}{\cong} (v \circledcirc id_f) \circ (id_f \circledcirc u) \circ (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \\
-		&  \stackrel{\varepsilon_u }{\Rightarrow} (v \circledcirc id_f) \circ (v^L \circledcirc id_{f} ) \\
-		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f},  \\
+		& \cong (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \circ id_f\\
+		& \stackrel{\alpha}{\cong} (id_{f} \circledcirc u^L) \circ (v^L \circledcirc id_{f} ) \circ (v \circledcirc id_f) \circ (id_f \circledcirc u) \\
+		&  \stackrel{\varepsilon_v }{\Rightarrow} (id_{f} \circledcirc u^L) \circ (id_f \circledcirc u) \\
+		& \stackrel{\varepsilon_u }{\Rightarrow} id_{f},  \\
 	(u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) 
-		& \cong  id_{f^R} \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L)  \\
-		& \stackrel{\beta}{\cong}  (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} )  \circ (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) \\
-		& \stackrel{\varepsilon_u }{\Rightarrow} (id_{f^R} \circledcirc v) \circ (id_{f^R} \circledcirc v^L) \\
-		& \stackrel{\varepsilon_v }{\Rightarrow} id_{f^R}.
+		& \cong  (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) \circ id_{f^R} \\
+		& \stackrel{\beta}{\cong}  (u^L \circledcirc id_{f^R}) \circ (id_{f^R} \circledcirc v^L) \circ (id_{f^R} \circledcirc v) \circ (u \circledcirc id_{f^R} ) \\
+		& \stackrel{\varepsilon_v }{\Rightarrow} (u^L \circledcirc id_{f^R}) \circ (u \circledcirc id_{f^R} ) \\
+		& \stackrel{\varepsilon_u }{\Rightarrow} id_{f^R}.
 \end{align*}
+The inverses to these composites are the composites $\alpha^{-1} \circ \eta_u \circ \eta_v$ and $\beta^{-1} \circ \eta_u \circ \eta_v$, respectively.
 \end{proof}
+
+The practice we will use the form of the lemma that assumes the unit and counit maps have right adjoints.
 
 \begin{definition} \label{def:Radford-Object}
 	Let $\cC$ be a symmetric monoidal $(\infty,n)$-category, $n \geq 3$, and let $x \in \cC$ be a 2-dualizable object. Let
@@ -939,38 +957,37 @@ Then the required isomorphisms are given by the following composites:
 	\end{align*}
 	 witness the duality between $x$ and $\overline{x}$. Let $ev^R$ be the right adjoint of $ev$ with unit and counit
 	\begin{align*}
-		\eta: & \;  \id_1 \to ev^R \circ ev \\
-		\varepsilon: \; & ev \circ ev^R \to \id_{x \otimes \overline{x}}. 
+		u: & \;  \id_{x \otimes \overline{x}} \to ev^R \circ ev \\
+		v: \; & ev \circ ev^R \to \id_1. 
 	\end{align*}
-	We will say that $x$ is a {\em Radford object} if both $\eta$ and $\varepsilon$ admit right adjoints. 
+	We will say that $x$ is a {\em Radford object} if both $u$ and $v$ admit right adjoints. 
 \end{definition} 
 
 \begin{proposition} \label{prop-Cat_Radford}
-	Let $x \in \cC$ be a 2-dualizable object in a symmetric monoidal $(\infty,n)$-category, $n \geq 3$. Keeping the notation from the preceding definition, in addition let $ev^L$ be the left adjoint to the evaluation pairing, and let
+	Let $x \in \cC$ be a 2-dualizable object in a symmetric monoidal $(\infty,n)$-category, with $n \geq 3$. Let $ev^L$ be the left adjoint of the evaluation pairing between $x$ and its dual $\overline{x}$, and let
 	\begin{align*}
-		u: & \;  \id_{x \otimes \overline{x}} \to ev \circ ev^L \\
-		v: & \; ev^L \circ ev \to \id_1
+		\tilde{u}: & \;  \id_1 \to ev \circ ev^L \\
+		\tilde{v}: & \; ev^L \circ ev \to \id_{x \otimes \overline{x}}
 	\end{align*} 
-	be the unit and counit witnessing this adjunction. If $x$ is a Radford object, then there exists a canonical {\em Radford isomorphism} $\cR_x: ev^L \cong \ev^R$ given as the following composite:
+	be the unit and counit witnessing this adjunction.  Let $ev^R$ be the right adjoint of the evaluation pairing, with unit and counit maps $u$ and $v$.  If $x$ is a Radford object, then there exists a canonical isomorphism $\cR_x: ev^L \cong \ev^R$, namely the composite:
 	\begin{equation*}
-		\cR_x: ev^L \xra{\id \circledcirc \eta^R} ev^L \circ ev \circ ev^R \xra{v \circledcirc \id} ev^R.
+		\cR_x: ev^L \xra{\id \circledcirc v^R} ev^L \circ ev \circ ev^R \xra{\tilde{v} \circledcirc \id} ev^R.
 	\end{equation*}
 \end{proposition}
 
 \begin{proof}
-	Lemma \ref{lem-ambiadjoints} implies that $(ev^R, \varepsilon^R, \eta^R)$ is another left adjoint to $ev$. The formula for the Radford isomorphism comes from the canonical isomorphism between any two given left-adjoints. 
+The 2-morphism opposite version of Lemma \ref{lem-ambiadjoints} shows that $(ev^R, u^R, v^R)$ is another left adjoint to $ev$. The formula for the isomorphism between $ev^L$ and $ev^R$ is the canonical isomorphism between any two given left adjoints. 
 \end{proof}
+
+We refer to the isomorphism in the above proposition as the {\em Radford isomorphism}.  As the terminology suggests, when an object $x \in \cC$ is 3-dualizable, this isomorphism is the Radford isomorphism, described in Section~\ref{sec:SerreRadford}, given as the image of the Radford bordism under the field theory associated to $x$.  Because a 3-dualizable object is obviously Radford, we have the following corollary:
 
 
 \begin{corollary} \label{cor:3dualizable-Radford}
-	Any 3-dualizable object in a symmetric monoidal $(\infty,n)$-category admits a canonical Radford isomorphism given by the formula in Proposition~\ref{prop-Cat_Radford}. 
+If $x \in \cC$ is 3-dualizable in a symmetric monoidal $(\infty,n)$-category, with dual $(\overline{x}, ev, coev)$, and adjunction data $(ev^R, u, v)$ and $(ev^L, \tilde{u}, \tilde{v})$, then the composite $(\tilde{v} \circledcirc \id) \circ (\id \circledcirc v^R)$ is an isomorphism from $ev^L$ to $ev^R$.
 \end{corollary}
 
-Note that neither Proposition \ref{prop-Cat_Radford} nor Corollary \ref{cor:3dualizable-Radford} depends on the proof of the cobordism hypothesis.
+\nid Note well that neither Proposition \ref{prop-Cat_Radford} nor Corollary \ref{cor:3dualizable-Radford} depends on the cobordism hypothesis.
 
-\begin{example}
-	In $\FrBord_n$, when $n \geq 3$, note that the canonical Radford isomorphism of Proposition~\ref{prop-Cat_Radford} is indeed given by the Radford bordism.  In particular, Corollary \ref{cor:3dualizable-Radford} can be thought of as giving an explicit proof that $\pi_1(SO(3)) \cong \mathbb{Z}/2$.  Of course, if you unpack this proof it just gives an explicit handle decomposition of the belt bordism.
-\end{example}
 
 \section{Tensor categories} \label{sec:tc}
 
@@ -986,7 +1003,7 @@ In this paper we consider a certain 3-category $\TC$ in which several different 
 There are two conventions which we perceive as fundamental: one for the names of adjoint functors and one for the notation in rigid monoidal categories. 
 
 \begin{definition}[Convention for adjoints] \label{def:Adjoints}
-	The standard conventions for adjoint functors hold. That is, a functor $G: \cA \to \cB$  admits a left adjoint if there exists a functor $F: \cB \to \cA$ and natural transformations, the  unit $\eta: id_{\cB} \to G \circ F$ and the  counit $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
+	The standard conventions for adjoint functors hold. That is, a functor $G: \cA \to \cB$  admits a left adjoint if there exists a functor $F: \cB \to \cA$ and natural transformations, the  unit $\eta: id_{\cB} \to G \circ F$ and the  counit $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zigzag' equations:
 	\begin{align*}
 		(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
 		(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
@@ -996,7 +1013,7 @@ We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} o
 \end{definition}
 
 %\begin{definition} [Convention A]
-%	A functor $G: \cA \to \cB$ {\em admits a left adjoint} if there exists a functor $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
+%	A functor $G: \cA \to \cB$ {\em admits a left adjoint} if there exists a functor $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zigzag' equations:
 %	\begin{align*}
 %		(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
 %		(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
@@ -1011,7 +1028,7 @@ We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} o
 We will use the same convention for left and right adjoints of $1$-morphisms in $2$-categories other than $Cat$.
 
 \begin{definition}[Convention for rigidity] \label{def:rigid}
-	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zig-zag' equations:
+	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zigzag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
 		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
@@ -2313,7 +2330,7 @@ An application of Lemma~\ref{lemma-actionswitch} and an application of Lemma~\re
 \simeq
 {}_\cC \cC_\cC.
 \]
-The other zig-zag is similar.
+The other zigzag is similar.
 \end{proof}
 
 \begin{corollary}
@@ -2761,7 +2778,7 @@ Every object in $\TC$ is a Radford object.
 We've already seen that $\TC$ is $2$-dualizable.  So we need only show that the unit $u: \cC \boxtimes \cC^\mp \rightarrow \ev \boxtimes \ev^R$ and counit $v: \ev^R \boxtimes_{\cC \boxtimes \cC^\mp} \ev \rightarrow \Vec$ have right adjoints in $\TC$.  This follows immediately from the previous two lemmas.
 \end{proof}
 
-\subsection{The Radford isomorphism of tensor categories}
+\subsection{The Radford isomorphism of tensor categories} \label{sec:radiso}
 
 Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
 
@@ -2890,7 +2907,7 @@ It is a well-known open question to determine whether all fusion categories are 
 \appendix 
 \renewcommand{\thesubsection}{\Alph{section}.{\arabic{subsection}}}
 
-\section{The cobordism hypothesis}
+\section{The cobordism hypothesis} \label{app:ch}
 
 The Atiyah-Segal axioms define a topological field theory as a symmetric monoidal functor from a category of cobordisms to a target symmetric monoidal category $(\cC, \otimes, 1)$, typically an algebraic target such as the category of vector spaces: 
 \begin{equation*}
@@ -2964,7 +2981,7 @@ is model invariant. That is, if we pass to a different but equivalent model of $
 We now recall the notion of full dualizability.
 
 \begin{definition} \label{def:adjoints_in_bicat}
-		A 1-morphism $G: \cA \to \cB$ in a bicategory {\em admits a left adjoint} if there exists a 1-morphism $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zig-zag' equations:
+		A 1-morphism $G: \cA \to \cB$ in a bicategory {\em admits a left adjoint} if there exists a 1-morphism $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zigzag' equations:
 		\begin{align*}
 			(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
 			(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
