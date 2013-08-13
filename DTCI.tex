@@ -2096,7 +2096,7 @@ Note that $\cC$ is always seperable as a $\cC$-$\cC$ bimodule category.  However
 
 With this definition, observe that Theorem~\ref{thm:SepModCats} implies the following.
 
-\begin{corollary}
+\begin{corollary} \label{cor:Sep=semisimplecenter}
 	The following are equivalent for an absolutely semisimple finite tensor category $\cC$.
 	\begin{enumerate}
 		\item $\cC$ is separable;
@@ -2121,7 +2121,7 @@ Fusion tensor categories have an invariant known as the \emph{global dimension} 
 %\CSP{Does M\"uger's proof depend on sphericality? I checked that you always get that the center is rigid (M\"uger Prop 3.9) and this doesn't use spherical or pivotal as far as I can tell. Also the unit object will be simple.In ENO "On Fusion Cats" Thm 2.15 they prove this without sphericality, but with char zero.} 
 By Theorem \ref{thm:SepModCats} semi-simplicity of the center implies that $\cC$ is separable. 
 
-In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion tensor category and that  semisimple bimodule categories over such fusion categories are separable (on conversely). Many of the ideas in this section we suggested to us by V. Ostrik. 
+In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion tensor category and that  semisimple bimodule categories over such fusion categories are separable (on conversely). Many of the ideas in this section were suggested to us by V. Ostrik. 
 
 Let $\cC$ be a fusion tensor category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
 \begin{equation*}
@@ -2147,38 +2147,111 @@ where $a: {}^{**}x \to x$ is any choice of isomorphism. This is easily seen to b
 \end{definition}
 \noindent The norm square of simple objects and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
 
-Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
+Consider $\cC$ as a left $\cC \boxtimes \cC^\mp$-module category. Since $\cC$ is rigid, every object is $\cC$-projective (Example \ref{ex:rigid_all_C-proj}) and the object $1 \in \cC$ is clearly a $\cC$-generator. Thus by Theorem \ref{thm:C-module-Embedding} 
 \begin{equation*}
-	\cC(y,z) \otimes \cC(z,y) \to \cC(z,z) \cong k
+	\cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp),
 \end{equation*}
-induced by composition is non-degenerate. Since these vector spaces are finite dimensional this induces a canonical copairing, an element
+where  $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$ is the induced algebra object (see also Example \ref{Ex:Hopf_bimod}).  
+
+When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. It is easiest to describe this structure from the perspective of the Yoneda lemma, i.e. via the functor of points. 
+
+\begin{lemma}
+	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections between the following four sets:
+	\begin{enumerate}
+		\item $\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A)$; 
+		\item $\Hom_{\cC}(X \otimes Y, 1)$;
+		\item $\Hom_{\cC}(Y, {}^*X)$;
+		\item $\oplus_i \Hom_{\cC}(X, L_i) \otimes \Hom_{\cC}(Y, {}^*L_i)$;
+	\end{enumerate}
+	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects. 
+\end{lemma}
+
+\noindent The proof of this lemma is an elementary exercise. As a consequence we obtain a canonical isomorphism $A \cong L_i \boxtimes {}^*L_i \in \cC \boxtimes \cC^\mp$. We have a similar functor of points description of $A \otimes A$:
+
+\begin{lemma}
+	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections between the following sets:
+	\begin{enumerate}
+		\item $\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A)$;
+		\item $\oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1)$;
+		\item $\oplus_i \Hom_{\cC}({}^*L_i \otimes L_i \otimes Y, {}^*X)$;
+		\item $\oplus_i \Hom_{\cC}( {}^*L_i \otimes X \otimes Y \otimes {}^{**}L_i, 1)$;
+		\item $\oplus_i \Hom_{\cC}(  Y, {}^*X \otimes {}^{**}L_i  \otimes {}^*L_i)$;
+		\item $\oplus_{i,j} \Hom_{\cC}(X, L_i \otimes L_j) \otimes \Hom_{\cC}(Y, {}^*(L_i \otimes L_j))$;
+	\end{enumerate}
+	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects. 
+\end{lemma}
+
+\noindent The first of these bijections is obtained by dualizing the second factor of $A$, and applying the previous lemma:  
+\begin{align*}
+	\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) &\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes {}^*A, A) \\
+	&\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes (\oplus_i {}^*L_i \boxtimes L_i), A) \\
+	&\cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1).
+\end{align*}
+In the above we used the isomorphism $A \cong \oplus_i L_i \boxtimes {}^*L_i$ for one factor of $A$, and the Yoneda description for the other factor. A similar calculation, obtained by dualizing the first factor of $A$ yields the fourth and fifth descriptions. 
+
+The different structures on $A$ are easiest to describe using one or the other of these descriptions. For example the multiplication map $\mu: A \otimes A \to A$ has an easy description as a map of sets:
 \begin{equation*}
-	c \in \cC(y,z) \otimes \cC(z,y) \cong \cC(y,z)\otimes \cC({}^*y, {}^*z).
+	\oplus_i \Hom_{\cC}({}^*L_i \otimes L_i \otimes Y, {}^*X) \to \Hom_{\cC}(Y, {}^*X).
+\end{equation*} 
+In each factor it is simply given by precomposition with the coevaluation of $L_i$,  $\coev_{L_i}$. Similarly the comultiplication map
+ $\Delta: A \to A \otimes A$ is most easily described as a map of sets:
+\begin{equation*}
+	\Hom_{\cC}(Y, {}^*X) \to \oplus_i \Hom_{\cC}(  Y, {}^*X \otimes {}^{**}L_i  \otimes {}^*L_i),
 \end{equation*}
-Consider $\cC$ as a left $\cC \boxtimes \cC^\mp$-module category, and let $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$ be the induced algebra object. The object $A$ and its algebra structure has a particularly simple description when $\cC$ is Fusion. 
+which is obtained by tensoring with the coevaluation of ${}^*L_i$.
+
+In any Frobenius algebra $R$, the composite map $\mu \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $\mu \circ \Delta(1): 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the identity, and consequently $\mu \circ \Delta$ is given by multiplication by this scalar element. 
+
+\begin{proposition}
+	The window element of the Frobenius algebra $A$ is given by the global dimension of the Fusion category $\cC$. 
+\end{proposition}
+
+\begin{proof}
+	
+\CSPcomm{\begin{itemize}
+	\item Describe the bijection between descriptions (3) and (5) of the previous lemma.
+	\item One of the maps is easy to describe. Its inverse involves choose isomorphisms $a:L_i \to {}^{**}L_i$, and (?) dividing each by the magnitude $d^2(L_i)$. (the fact that this is an isomorphism uses that the quantum trace of each factor is individually zero). 
+	\item Now a simple calculation using this isomorphism given that $\mu \circ \Delta$ is multiplication by $\dim \cC$. 
+	\item This is easiest to see in terms of string diagrams. 
+\end{itemize}}	
+
+\end{proof}
+
+
+%\CSPcomm{We don't need the following anymore...}
+
+%Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
+%\begin{equation*}
+%	\cC(y,z) \otimes \cC(z,y) \to \cC(z,z) \cong k
+%\end{equation*}
+%induced by composition is non-degenerate. Since these vector spaces are finite dimensional this induces a canonical copairing, an element
+%\begin{equation*}
+%	c \in \cC(y,z) \otimes \cC(z,y) \cong \cC(y,z)\otimes \cC({}^*y, {}^*z).
+%\end{equation*}
 
 
 
-Since $\cC$ is rigid, every object is $\cC$-projective (Example \ref{ex:rigid_all_C-proj}) and the object $1 \in \cC$ is clearly a $\cC$-generator. Thus by Theorem \ref{thm:C-module-Embedding} $\cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp)$.  
 
-Recall Example \ref{Ex:Hopf_bimod}
  
 
-\CSPcomm{finish this...}
+%\CSPcomm{finish this...}
 
-\CSPcomm{ Cannonical pairing on $\cC(w, z)$ when $z$ is simple. $\cC(w,z) \times \cC(z,w) \to \cC(z,z) \cong k$
- Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
+%\CSPcomm{ Cannonical pairing on $\cC(w, z)$ when $z$ is simple. $\cC(w,z) \times \cC(z,w) \to \cC(z,z) \cong k$
+ %Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
 
 
 \begin{maintheorem} \label{thm:NonzeroDimension}
 A fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
 \end{maintheorem}
 \begin{proof}
-We first prove that global dimension non-zero implies separability.  Recall that a left $\cC$-module has a natural enrichement over $\cC$; in other words, it has a $\cC$-valued internal $\Hom$~\cite{Ostrik03}.  Let $A \in \cC \boxtimes \cC^\mp$ be the algebra of internal endomorphisms of the identity object in ${}_{\cC \boxtimes \cC^\mp} \cC$.  This algebra can be described explicitly, as an object it is $\bigoplus_X X \boxtimes {}^*X$, where the sum is over the simple objects of $\cC$.  This algebra has a Frobenius algebra structure given by the trace given by projection onto the $1 \boxtimes 1$ component.  The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero then $A$ is seperable.
+We first prove that global dimension non-zero implies separability. The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero this provides (after rescaling) a spliting of the multiplication map, and thus $A$ is seperable.
 
-\CDcomm{Various changes for this proof: explain why the composition $m \Delta$ is the global dimension, using the earlier addition of definition/explanation about the global dimension.  In next paragraph, explain the first sentence, explain the second sentence using properties of the internal Hom; also point out specific points where simplicity of the unit is used.}
+% Recall that a left $\cC$-module has a natural enrichement over $\cC$; in other words, it has a $\cC$-valued internal $\Hom$~\cite{Ostrik03}.  Let $A \in \cC \boxtimes \cC^\mp$ be the algebra of internal endomorphisms of the identity object in ${}_{\cC \boxtimes \cC^\mp} \cC$.  This algebra can be described explicitly, as an object it is $\bigoplus_X X \boxtimes {}^*X$, where the sum is over the simple objects of $\cC$.  This algebra has a Frobenius algebra structure given by the trace given by projection onto the $1 \boxtimes 1$ component.  The comultiplication for this Frobenius algebra gives a bimodule map $\Delta: {}_A A_A \rightarrow {}_A A \otimes A_A$.  The composition $m \circ \Delta$ is exactly the global dimension of $\cC$.  Hence, if the global dimension is nonzero then $A$ is seperable.
 
-In the other direction, note that if $\cC$ is separable then the category of $A$-$A$ bimodules is semisimple.  The space of $A$-$A$ bimodule maps from $A \otimes A$ to $A$  is $1$-dimensional, and hence by semisimplicity, there is also a $1$-dimensional space of maps the other direction.  Any bimodule map $A \otimes A \rightarrow A$ is a multiple of $\Delta$.  Since separability says that there's some splitting of multiplication, this splitting must be some multiple of $\Delta$ and so can only exist if $\Delta$ gives such a splitting, that is to say that the global dimension is nonzero.
+%\CDcomm{Various changes for this proof: explain why the composition $m \Delta$ is the global dimension, using the earlier addition of definition/explanation about the global dimension.  In next paragraph, explain the first sentence, explain the second sentence using properties of the internal Hom; also point out specific points where simplicity of the unit is used.}
+
+In the other direction, note that $\cZ(\cC)$ is equivalent to the category of $A$-$A$ bimodules, and hence if  if $\cC$ is separable then the category of $A$-$A$ bimodules is semisimple (Cor. \ref{cor:Sep=semisimplecenter}).  
+ Moreover the automorphisms of the identity $A$-$A$ bimodule $A$ as easily seen to coincide with $\End_{\cC}(1) \cong k$ (since $\cC$ is fusion). Hence the space of $A$-$A$ bimodule maps from $A \otimes A$ to $A$  is $1$-dimensional. By semisimplicity there is also a $1$-dimensional space of maps in the other direction. The comultiplication map is non-zero and hence any bimodule map $A \otimes A \rightarrow A$ is a multiple of $\Delta$.  Since separability says that there's some splitting of the multiplication map, this splitting must be some multiple of $\Delta$ and so can only exist if $\Delta$ gives such a splitting, that is to say that the global dimension is nonzero.
 \end{proof}
 
 
