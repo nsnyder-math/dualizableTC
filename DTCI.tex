@@ -2170,52 +2170,111 @@ Consider $\cC$ as a left $\cC \boxtimes \cC^\mp$-module category. Since $\cC$ is
 \end{equation*}
 where  $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$ is the induced algebra object (see also Example \ref{Ex:Hopf_bimod}).  
 
-When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. It is easiest to describe this structure from the perspective of the Yoneda lemma, i.e. via the functor of points. 
+When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact is a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. It is easiest to describe this structure from the perspective of the Yoneda lemma, i.e. via the functor of points. 
 
 \begin{lemma}
-	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections between the following four sets:
+	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections:
 	\begin{enumerate}
-		\item $\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A)$; 
-		\item $\Hom_{\cC}(X \otimes Y, 1)$;
-		\item $\Hom_{\cC}(Y, {}^*X)$;
-		\item $\oplus_i \Hom_{\cC}(X, L_i) \otimes \Hom_{\cC}(Y, {}^*L_i)$;
+		\item 
+		\begin{align*}
+			\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A) &\cong \Hom_{\cC}(X \otimes Y, 1) \\
+				& \cong \Hom_{\cC}(Y, {}^*X) \\
+				& \cong \oplus_i \Hom_{\cC}(X, L_i) \otimes \Hom_{\cC}(Y, {}^*L_i);
+		\end{align*}
+		\item 
+		\begin{equation*}
+			\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) \cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1);
+		\end{equation*}
 	\end{enumerate}
-	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects. 
+	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects.
 \end{lemma}
 
-\noindent The proof of this lemma is an elementary exercise. As a consequence we obtain a canonical isomorphism $A \cong L_i \boxtimes {}^*L_i \in \cC \boxtimes \cC^\mp$. We have a similar functor of points description of $A \otimes A$:
-
-\begin{lemma}
-	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections between the following sets:
-	\begin{enumerate}
-		\item $\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A)$;
-		\item $\oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1)$;
-		\item $\oplus_i \Hom_{\cC}({}^*L_i \otimes L_i \otimes Y, {}^*X)$;
-		\item $\oplus_i \Hom_{\cC}( {}^*L_i \otimes X \otimes Y \otimes {}^{**}L_i, 1)$;
-		\item $\oplus_i \Hom_{\cC}(  Y, {}^*X \otimes {}^{**}L_i  \otimes {}^*L_i)$;
-		\item $\oplus_{i,j} \Hom_{\cC}(X, L_i \otimes L_j) \otimes \Hom_{\cC}(Y, {}^*(L_i \otimes L_j))$;
-	\end{enumerate}
-	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects. 
-\end{lemma}
-
-\noindent The first of these bijections is obtained by dualizing the second factor of $A$, and applying the previous lemma:  
+\noindent The first set of bijections follows from unpacking the definition of the $\cC \boxtimes \cC^\mp$-enriched hom and some elementary manipulations. From this it follows that we have a canonical isomorphism $A \cong L_i \boxtimes {}^*L_i \in \cC \boxtimes \cC^\mp$. The second bijection is obtained by dualizing the second factor of $A$:  
 \begin{align*}
 	\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) &\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes {}^*A, A) \\
 	&\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes (\oplus_i {}^*L_i \boxtimes L_i), A) \\
 	&\cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1).
 \end{align*}
-In the above we used the isomorphism $A \cong \oplus_i L_i \boxtimes {}^*L_i$ for one factor of $A$, and the Yoneda description for the other factor. A similar calculation, obtained by dualizing the first factor of $A$ yields the fourth and fifth descriptions. 
+Careful attention must be paid to use the monoidal structure and dualality in $\cC \boxtimes \cC^\mp$. 
+%In the above manipulations we used the isomorphism $A \cong \oplus_i L_i \boxtimes {}^*L_i$ for one factor of $A$, and the Yoneda description for the other factor.
 
-The different structures on $A$ are easiest to describe using one or the other of these descriptions. For example the multiplication map $\mu: A \otimes A \to A$ has an easy description as a map of sets:
+Using these identifications, the multiplication map $\mu: A \otimes A \to A$ has an easy description as a map of sets:
 \begin{equation*}
-	\oplus_i \Hom_{\cC}({}^*L_i \otimes L_i \otimes Y, {}^*X) \to \Hom_{\cC}(Y, {}^*X).
+	\oplus_i \Hom_{\cC}(X \otimes {}^*L_i \otimes L_i \otimes Y,) \to \Hom_{\cC}(X \otimes Y, 1),
 \end{equation*} 
-In each factor it is simply given by precomposition with the coevaluation of $L_i$,  $\coev_{L_i}$. Similarly the comultiplication map
- $\Delta: A \to A \otimes A$ is most easily described as a map of sets:
-\begin{equation*}
-	\Hom_{\cC}(Y, {}^*X) \to \oplus_i \Hom_{\cC}(  Y, {}^*X \otimes {}^{**}L_i  \otimes {}^*L_i),
-\end{equation*}
-which is obtained by tensoring with the coevaluation of ${}^*L_i$.
+which in each factor is given simply by precomposition with the coevaluation of $L_i$,  $\coev_{L_i}$. 
+
+The canonical description of $A$ as the direct sum $\oplus L_i \boxtimes {}^*L_i$ induces inclusion and projection maps:
+\begin{align*}
+	u: & 1 \boxtimes 1  \to A \\
+	\varepsilon: & A \to 1 \boxtimes 1 
+\end{align*}
+These use the direct sum decomposition of $A$ and the canonical identification $1 \cong {}^*1$. 
+
+\CSPcomm{I claim that $u$ is the unit for the multiplication (more or less clear) and that $\varepsilon$ is the counit for a comultiplication. 
+
+Also the comultiplication can be obtained by choosing an isomorphism $a: L_i \cong {}^{**}L_i$ and using an evaluation. (to make this independant of $a$, we normalize each factor by the quantum trace). }
+
+
+We leave it to the reader to check that the first of these 
+
+
+, it follows that there is a canonical inclusion $1 \boxtimes 1 \to A$, and  
+
+
+The comultiplication map
+ $\Delta: A \to A \otimes A$ is more delicate. 
+
+
+%
+%----
+%
+%\begin{lemma}
+%	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections between the following four sets:
+%	\begin{enumerate}
+%		\item $\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A)$; 
+%		\item $\Hom_{\cC}(X \otimes Y, 1)$;
+%		\item $\Hom_{\cC}(Y, {}^*X)$;
+%		\item $\oplus_i \Hom_{\cC}(X, L_i) \otimes \Hom_{\cC}(Y, {}^*L_i)$;
+%	\end{enumerate}
+%	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects. 
+%\end{lemma}
+%
+%\noindent The proof of this lemma is an elementary exercise. As a consequence we obtain a canonical isomorphism $A \cong L_i \boxtimes {}^*L_i \in \cC \boxtimes \cC^\mp$. We have a similar functor of points description of $A \otimes A$:
+%
+%\begin{lemma}
+%	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections between the following sets:
+%	\begin{enumerate}
+%		\item $\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A)$;
+%		\item $\oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1)$;
+%		\item $\oplus_i \Hom_{\cC}({}^*L_i \otimes L_i \otimes Y, {}^*X)$;
+%		\item $\oplus_i \Hom_{\cC}( L_i^* \otimes X \otimes Y \otimes {}^{**}L_i, 1)$;
+%		\item $\oplus_i \Hom_{\cC}(  Y, {}^*X \otimes L_i  \otimes {}^*L_i)$;
+%		\item $\oplus_{i,j} \Hom_{\cC}(X, L_i \otimes L_j) \otimes \Hom_{\cC}(Y, {}^*(L_i \otimes L_j))$;
+%	\end{enumerate}
+%	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects. 
+%\end{lemma}
+%
+%\noindent The first of these bijections is obtained by dualizing the second factor of $A$, and applying the previous lemma:  
+%\begin{align*}
+%	\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) &\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes {}^*A, A) \\
+%	&\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes (\oplus_i {}^*L_i \boxtimes L_i), A) \\
+%	&\cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1).
+%\end{align*}
+%In the above we used the isomorphism $A \cong \oplus_i L_i \boxtimes {}^*L_i$ for one factor of $A$, and the Yoneda description for the other factor. A similar calculation, obtained by dualizing the first factor of $A$ yields the fourth and fifth descriptions. 
+%
+%The different structures on $A$ are easiest to describe using one or the other of these descriptions. For example the multiplication map $\mu: A \otimes A \to A$ has an easy description as a map of sets:
+%\begin{equation*}
+%	\oplus_i \Hom_{\cC}({}^*L_i \otimes L_i \otimes Y, {}^*X) \to \Hom_{\cC}(Y, {}^*X).
+%\end{equation*} 
+%In each factor it is simply given by precomposition with the coevaluation of $L_i$,  $\coev_{L_i}$. Similarly the comultiplication map
+% $\Delta: A \to A \otimes A$ is most easily described as a map of sets:
+%\begin{equation*}
+%	\Hom_{\cC}(Y, {}^*X) \to \oplus_i \Hom_{\cC}(  Y, {}^*X \otimes {}^{**}L_i  \otimes {}^*L_i),
+%\end{equation*}
+%which is obtained by tensoring with the coevaluation of ${}^*L_i$.
+
+
 
 In any Frobenius algebra $R$, the composite map $\mu \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $\mu \circ \Delta(1): 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the identity, and consequently $\mu \circ \Delta$ is given by multiplication by this scalar element. 
 
