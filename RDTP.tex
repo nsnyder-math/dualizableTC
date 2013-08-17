@@ -205,9 +205,9 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 \end{proof}
 
 
-	If $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
+	If $\{\cM_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cM_\alpha\}$ into a linear category $\cN$ consists of a functor
 \begin{equation*}
-	F: \prod \cA_\alpha \to \cB
+	F: \prod \cM_\alpha \to \cN
 \end{equation*}
 such that $F$ is linear in each variable separately. 
 %A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
@@ -235,12 +235,12 @@ such that $F$ is linear in each variable separately.
 %	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$. If $\cM$ is semisimple, then $\Fun(\cM, \cM)$ is rigid and hence a tensor category; Duals are obtained by taking adjoint functors.  
 %\end{example}
 
-\begin{lemma} \cite{???}  \label{lma:RigidIsExact}
+\begin{lemma} \cite[2.1.8]{MR1797619} \cite[Prop. 1.13.1]{EGNO}  \label{lma:RigidIsExact}
 	Let $(\cC, \otimes)$ be a finite tensor category (so that $\cC$ is rigid). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
 \end{lemma}
 
 \begin{proof}
-	The units and counits give rise to natural isomorphisms %\NS{Currently we have both $\Hom$ and $\Hom$ in the paper.  We should pick one.}
+	The units and counits give rise to natural isomorphisms
  \begin{equation*} 
  	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
  \end{equation*}
@@ -265,11 +265,11 @@ such that $F$ is linear in each variable separately.
 \section{Module categories and bimodule categories} \label{sec:tc-bimod}
 We will follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
 \begin{itemize}
-	\item a {\em lax} functor of bicategories $F: \cB \to \cC$ is equipped with natural 2-morphisms
+	\item a {\em lax} functor of bicategories $F: \cN \to \cC$ is equipped with natural 2-morphisms
 	\begin{equation*}
 		F(f) \circ F(g) \to F(f \circ g) \quad \textrm{ and } \quad \id_{F(X)} \to F(\id_X);
 	\end{equation*} 
-	\item an {\em oplax} functor of bicategories $F: \cB \to \cC$ is equipped with natural 2-morphisms
+	\item an {\em oplax} functor of bicategories $F: \cN \to \cC$ is equipped with natural 2-morphisms
 	\begin{equation*}
 		F(f \circ g) \to F(f) \circ F(g)   \quad \textrm{ and } \quad F(\id_X) \to \id_{F(X)}; and
 	\end{equation*}
@@ -386,7 +386,7 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 
 \noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}). 
 
-The Barr-Beck monadicity theorem implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. 
+The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
 
 If we additionally assume that the tensor category $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator. In this case we immediately have:
 
@@ -433,7 +433,7 @@ The claim now follows from the well-known fact that the Yoneda embedding reflect
 \end{proof}
 
 
-The following result is well-known, but we were unable to find a proof in the literature. \CD{Explain that this is needed for the next lemma.}
+The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature, it is needed in the proof of Lemma  \ref{lma:module-adjoint}.
 
 \begin{lemma} \label{lem:laxisstrong}
 	Let $\cC$ be a tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong. This holds even if the functor is not right exact.   
@@ -458,7 +458,7 @@ where the first map is given by the coevaluation, the second map is $f_{c^*,m}$,
 \end{center} \CD{shrink this picture and the next two}
 We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following string diagrams illustrate this calculation.
 
-$$\cb{\begin{tikzpicture}
+$$\cN{\begin{tikzpicture}
 	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f_{c^*,m}$};
 	\node (B) at (1,0) [minimum height=1cm,minimum width=2cm, draw] {$f_{c,m}$};
 	\draw (B.135) -- (.5,3) arc (180:0:0.5cm) |- (A.135) ;
@@ -472,7 +472,7 @@ $$\cb{\begin{tikzpicture}
 	\node at (.5, -2) {$\cF$};
 	\node at (1.5, -2) {$c \otimes (-)$};
 \end{tikzpicture}}
-= \hspace{.5cm} \cb{\begin{tikzpicture}
+= \hspace{.5cm} \cN{\begin{tikzpicture}
 	\node (A) at (2,2) [minimum height=1cm,minimum width=3cm, draw] {$f_{c \otimes c^*,m}$};
 	\draw (A.153) -- (1,3) arc (180:0:0.5cm) -- (A.90) ;
 	\draw (A.27) -- (3,3.5);
@@ -485,7 +485,7 @@ $$\cb{\begin{tikzpicture}
 	\node at (2,0) {$c \otimes (-)$};
 \end{tikzpicture}}
 =
-\cb{\begin{tikzpicture}
+\cN{\begin{tikzpicture}
 	\draw (0, 0) to [out=90, in=270] (2,3.5);
 	\draw (1,0) -- (1,1) arc (180:0:.5cm) arc (180:360:.5cm) -- (3,3.5);
 	\node at (2,4) {$\cF$};
@@ -557,24 +557,24 @@ In this section we prove our main result, the existence of the Deligne tensor pr
 
 
 \begin{definition}
-	Let $\cA$ be a right $\cC$-module category and let $\cB$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and the category of linear functors $\cA \boxtimes_{\cC} \cB \to \cD$. 
+	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced multilinear functors $\cM \times \cN \to \cD$ and the category of linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
 \end{definition}
 
 If it exists, the Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
 
-In \cite{0909.3140} the existence of the relative Deligne tensor product was established for semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the relative Deligne tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite{???}. The following theorem extends these results to arbitrary finite tensor categories and finite module categories. 
+In \cite{0909.3140} the existence of the relative Deligne tensor product was established for semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the relative Deligne tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite[Thm 3.1]{1102.3411}. The following theorem extends these results to arbitrary finite tensor categories and finite module categories. 
 
 \begin{maintheorem} \label{thm:DelignePrdtOverATCExists}
-	Let $\cC$ be a tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
+	Let $\cC$ be a tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. Then,
 	\begin{enumerate}
-		\item The relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$ exists and is a finite linear category;
-		\item If $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$, then $\cA \boxtimes_{\cC} \cB \simeq \Mod{A }{B}(\cC)$;
+		\item The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category;
+		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$;
 
 		\item The functor $\boxtimes_{\cC}$ is exact in each variable and satisfies 
 		\begin{equation*}
-			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes_{\cC} \cB} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
+			\Hom_{\cM}(x,x') \otimes \Hom_{\cN}(y, y') \cong \Hom_{\cM \boxtimes_{\cC} \cN} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
 		\end{equation*}
-		\item If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
+		\item If $F: \cM \times \cN \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cM \boxtimes_{\cC} \cN \to \cD$. 
 	\end{enumerate} 
 \nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.	
 \end{maintheorem}
@@ -649,11 +649,11 @@ and implements the desired equivalence between such right exact functors and $\c
 \end{proof}
 
 \begin{remark}
-	If ${}_{\cD}\cA_{\cC}$ and ${}_{\cC}\cB_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-bimodule category structure on $\cA \boxtimes_{\cC} \cB$. This bimodule category satisfies the analogous universal property for $\cC$-balanced bilinear bimodule functors. 
+	If ${}_{\cD}\cM_{\cC}$ and ${}_{\cC}\cN_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-bimodule category structure on $\cM \boxtimes_{\cC} \cN$. This bimodule category satisfies the analogous universal property for $\cC$-balanced bilinear bimodule functors. 
 \end{remark}
 
 \begin{remark}
-The above theorem assumes that $\cC$ is a finite tensor category, that is a finite rigid linear monoidal category.  The non-relative Deligne tensor product can be defined substantially more generally \cite{???}, and we hope that the relative Deligne tensor product can also be defined more generally.
+The above theorem assumes that $\cC$ is a finite tensor category, that is a finite rigid linear monoidal category.  The non-relative Deligne tensor product can be defined substantially more generally \cite{1212.1545}, and we hope that the relative Deligne tensor product can also be defined more generally.
 \end{remark}
 \CD{Add comment on importance/essentialness of right exactness in the theorem?}
 
