@@ -77,7 +77,7 @@ In this paper we show that separable tensor categories are the fully-dualizable 
 \CSP{do we show they are exactly the fully-dualizable objects?}
 \NS{Yes.}
 Though not fully dualizable, finite tensor categories are $2$-dualizable, and it is therefore still possible to extract a partial field theory from them.  
-Our proof that separable tensor categories categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2119143, MR2183279, MR2097289}.
+Our proof that separable tensor categories categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2119143, MR2183279, MR2097289}.  More specifically, the three key elements in the proof of full dualizability are: the relative Deligne tensor product can be realized as a category of module functors, module functors between semisimple categories have adjoints as module functors, and separability is closed under relative Deligne tensor product.
 
 
 \NS{I commented out a paragraph on the $O(3)$ action here}
@@ -93,11 +93,6 @@ Our proof that separable tensor categories categories are fully-dualizable build
 Topological field theories are often thought of as a tool for applying algebra to topology.  If you have a fusion category, this yields a topological field theory, and hence topological invariants of manifolds and representations of mapping class groups.  However, you can also take the opposite perspective.  A topological field theory gives a way of interpreting bordisms as calculations inside your symmetric monoidal $3$-category.  Thus many statements about fusion categories (or other algebraic gadgets) could come from simpler facts about the bordism category.  This point of view has had great successes recently in the work of Ben--Zvi--Nadler \cite{0904.1247} and in interpretating the Madsen-Weiss proof of the Mumford conjecture \cite{MR2335797, lurie-ch}.  We give one such application of topology to algebra, showing that the belt trick, which demonstrates $\pi_1 \Omega \Sigma \RR \PP^2 \cong \pi_1 SO(3) \cong \mathbb{Z}/2$, immediately implies Radford's theorem for finite tensor categories.
 
 %We use as a key tool in our analysis is the cobordism hypothesis
-
-
-
-
-
 
 More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) \cong \pi_1(\Omega \Sigma \RR \PP^2)$ corresponds to the interval with a nontrivial $3$-framing which we call the loop bordism.  The image of the loop bordism under the TFT is called the Serre automorphism.  The Dirac belt trick gives a canonical minimal genus $3$-framed bordism between the loop bordism and its inverse depicted below.  Applying the TFT to this belt bordism we get a canonical identification of the Serre autormorphism and its inverse which we call the Radford isomorphism.  It turns out that in order to write down the Radford isomorphism, one does not use all the conditions of full dualizability, and so you get a Radford isomorphism for any Radford object.  
 
@@ -1142,6 +1137,7 @@ Given a monoidal category $\cC$, there are three important notions of opposite. 
 
 
 %\subsection{Bimodule categories} \label{sec:tc-bimod}
+\begin{definition}
 A left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
 %	\CSP{This looks a little gross. I should change it.}
 	\begin{align*}
@@ -1153,9 +1149,8 @@ A left $\cC$-module category is a linear category $\cM$ together with a multilin
 %		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
 %	\end{align*}	
 	satisfying the evident pentagon and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.
-	
-A $\cC$-$\cD$ bimodule category is a left $\cC$-module category and a right $\cD$-module category endowed with an associator $(c \otimes m) \otimes d \rightarrow c \otimes (m \otimes d)$ satisfying the usual hexagon axiom.
-
+	A $\cC$-$\cD$ bimodule category is a left $\cC$-module category and a right $\cD$-module category endowed with an associator $(c \otimes m) \otimes d \rightarrow c \otimes (m \otimes d)$ satisfying the usual hexagon axiom.
+\end{definition}
 
 \begin{definition}		
 A {\em $\cC$-module functor} $F:\cM \to \cN$ is a functor $F:\cM \to \cN$ together with a binatural transformations $f_{c,m}:F(c \otimes m) \rightarrow c \otimes F(m)$ satisfying a pentagon relation.  A right module functor and a bimodule functor are defined similarly
@@ -1244,7 +1239,7 @@ Equipped with the relative Deligne tensor product and its properties, we can now
 
 \subsection{Exact module categories} \label{sec:tc-exact}
 % The results here are used in section 4.4 to build adjoints.
-In this section we consider only tensor categories and summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  This theory will be used when we prove that finite tensor categories are Radford objects.   We also prove a new lemma about exactness and Deligne tensor products.
+In this section we summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  This theory will be used when we prove that finite tensor categories are Radford objects.   We also prove a new lemma about exactness of Deligne tensor products.
 
 \begin{definition}
 	Let $\cC$ be a tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $m \in \cM$ and  projective object $p \in \cC$, the object $p \otimes m$ is projective in $\cM$. 
