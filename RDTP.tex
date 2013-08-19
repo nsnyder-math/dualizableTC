@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\title{Relative Deligne tensor product}
+\title{The relative Deligne tensor product}
 
 \begin{abstract}
 A key role in the theory of tensor categories is played by the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ which is a higher dimensional analogue of the tensor product of a right and a left module over a non-commutative ring.  The relative Deligne tensor product is characterized by a universal property, but such a characterization does not guarantee existence.  In this paper, we give a construction of the relative Deligne tensor product for finite tensor categories (in the sense of Etingof-Ostrik) and their finite module categories.  This generalizes results of Etingof-Nikshych-Ostrik in the semisimple case.  Explicitly, we realize the relative Deligne tensor product as a category of bimodule objects in $\cC$.
@@ -33,6 +33,9 @@ A key role in the theory of tensor categories is played by the relative Deligne 
 
 \tikzexternaldisable
 
+\setcounter{tocdepth}{2}
+\tableofcontents
+
 
 
 \section{Introduction}
@@ -51,7 +54,7 @@ The key result underlying our construction shows that any module category can be
 Our main result is the following construction of the relative Deligne tensor product.
 
 \begin{theorem}
-If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the relative Deligne tensor product $A\text{-mod} \boxtimes_\cC \text{mod-}B$.
+If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the relative Deligne tensor product $A\text{-Mod} \boxtimes_\cC \text{Mod-}B$.
 \end{theorem}
 
 \begin{corollary}
@@ -61,6 +64,8 @@ If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module categ
 This construction will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.
 
 \section{Linear categories and tensor categories} \label{sec:tc-lincat}
+
+\subsection{Finite linear categories}
 
 	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?}
 A {\em linear functor} is a right exact additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
@@ -129,6 +134,8 @@ with $X''$ simple, and with the length of $X'$ strictly less than $X$. Applying 
 \end{equation*}
 If the middle term is zero, then all terms vanish. By our induction hypothesis, we conclude that $X'' \cong X' \cong 0$, and hence $X$ itself was zero. In other words, $\Hom_{\cC}(P,-)$ reflects isomorphisms and realizes an equivalence of linear categories $\cC \simeq \Mod{A}{}$.
 \end{proof}
+
+\subsection{Adjoints and representability of linear functors}
 
 The key property of finite linear categories is that they satisfy the following analog of the adjoint functor theorem.  Although this result is well-known, we were unable to find a proof in the literature, so we include one here.  
 
@@ -204,6 +211,7 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
+\subsection{Rigid monoidal categories}
 
 	If $\{\cM_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cM_\alpha\}$ into a linear category $\cN$ consists of a functor
 \begin{equation*}
@@ -262,7 +270,10 @@ such that $F$ is linear in each variable separately.
 \end{proof}
 
 
-\section{Module categories and bimodule categories} \label{sec:tc-bimod}
+\section{Module categories} \label{sec:tc-bimod}
+
+\subsection{Module categories have an internal hom}
+
 We will follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
 \begin{itemize}
 	\item a {\em lax} functor of bicategories $F: \cN \to \cC$ is equipped with natural 2-morphisms
@@ -357,6 +368,8 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 	The existence of $\IHom(m', m)$ only requires $\cC$ to be finite, and similarly the existence of $(m^c)$ only requires $\cM$ to be finite.
 \end{remark}
 
+
+\subsection{Module categories are categories of modules}
 
 \begin{definition}
 	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful. 
@@ -531,7 +544,7 @@ If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only s
 
 
 
-\section{The relative Deligne tensor product} \label{sec:tc-deligne}
+\section{Construction of the relative Deligne tensor product} \label{sec:tc-deligne}
 
 In this section we prove our main result, the existence of the Deligne tensor product of finite module categories over a finite tensor category.
 
