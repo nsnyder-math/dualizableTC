@@ -1075,7 +1075,7 @@ With the preceding conventions in place, observe the following:
 
 \subsection{Tensor categories, bimodule categories, and the Deligne tensor product} \label{sec:tc-lincat}
 
-	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?}
+	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?} \CSP{It means that the addition on homs you get from the structure of an abelian category agrees with the addition on homs you get from being enriched in Vect. They are compatible. }
 A {\em linear functor} is a right exact additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
@@ -1086,7 +1086,7 @@ Recall the following standard terminology:
 \begin{itemize}
 	\item[-] A object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
 	\item[-] An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects $X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots$ has finite length. 
-	\item[-] A linear category is {\em semisimple} if every object splits as a finite direct sum of simple objects, or equivalently, if every short exact sequence splits. \CD{what?} %finite?
+	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects, or equivalently, if every short exact sequence splits. If in addition every object has finite length, then every object splits as a {\em finite} direct sum of simple objects.
 	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a project object $P$ with a surjection $P \twoheadrightarrow X$. 
 \end{itemize}
 
@@ -1698,27 +1698,45 @@ In this section we strengthen this. We provide a direct link between non-zero gl
 
 Let us fix some notational conventions. If $\overline{x}$ is an ambidextrous dual for $x$, then we have pairings and copairings:
 \begin{align*}
-	\eta: & 1 \to \overline{x} \otimes x \\
-	\overline{\eta}: & 1 \to   x \otimes \overline{x} \\
-	\varepsilon: & x \otimes \overline{x} \to 1 \\
+	\eta: & 1 \to \overline{x} \otimes x, \\
+	\overline{\eta}: & 1 \to   x \otimes \overline{x}, \\
+	\varepsilon: & x \otimes \overline{x} \to 1, \\
 	\overline{\varepsilon}: & \overline{x} \otimes x  \to 1. 
 \end{align*} 
-the pair $(\eta, \varepsilon)$ witness $\overline{x}$ as the left dual of $x$, while $(\overline{\eta}, \overline{\varepsilon})$ witness $\overline{x}$ as the right dual.  
+The pair $(\eta, \varepsilon)$ witnesses $\overline{x}$ as the left dual of $x$, while $(\overline{\eta}, \overline{\varepsilon})$ witnesses $\overline{x}$ as the right dual.  
+
+\begin{example}
+	In a braided monoidal tensor category, the braiding allows us to enhance any dual of $x$ to an ambidextrous dual. 
+\end{example}
+
+\begin{example}
+	Let $x$ be an object of a tensor category and let ${}^*x$ be its left dual (with $\varepsilon$ and $\eta$ the corresponding evaluation and coevaluation maps). Then ${}^*x$ may be enhanced to an ambidextrous dual of $x$ precisely if we may choose an isomorphism $a: {}^{**}x \to x$. If this is the case, then structure of an ambidextrous dual is obtained via the assignments:
+	\begin{align*}
+		\overline{\eta} &= (a \otimes id_{{}^*x}) \circ \coev_{*x} \\
+		\overline{\varepsilon} &= ev_{{}^*x} \circ (id_{{}^*x} \otimes a^{-1})
+	\end{align*}
+	Moreover every ambidextrous dual of $x$ may be realized in this way.  
+\end{example}
 
 Let $\cC$ be a fusion tensor category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
 \begin{equation*}
-	\Tr(a) := \ev_x \circ (a \otimes id_{{}^*x}) \circ \coev_{{}^*x}.
+	\Tr(a) := \ev_x \circ (a \otimes id_{{}^*x}) \circ \coev_{{}^*x} = \varepsilon \circ \overline{\eta}.
 \end{equation*}
 % This is the exact same formula as in ENO's On fusion cat
-The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. 
+The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. If $x$ is a simple object, then the quantum trace is zero if and only if $a$ is the zero map. 
+
 
 \CSP{`squared norm' is what ENO use, `dimension squared' is what M\"uger uses. I don't like either because it is not the square of something in general. Is it unreasonable to rename this something like the {\em magnitude} of the object $x$? }
-In a fusion category every object is non-canoncially isomorphic to its double dual, and this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object, then the {\em norm square} $d^2(x)$ of $x$ is defined by the formula 
+In a fusion category every object is non-canoncially isomorphic to its double dual (i.e. every object admits an ambidextrous dual), and this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object, then the {\em magnitude}
+%{\em norm square} 
+$d^2(x)$ of $x$ is defined by the formula 
 \begin{equation*}
-	d^2(x) := \Tr(a) \cdot \Tr({}^*(a^{-1})) \in k
+	d^2(x) := \Tr(a) \cdot \Tr({}^*(a^{-1})) = (\varepsilon \circ \overline{\eta}) \cdot (\overline{\varepsilon} \circ \eta) \in k
 \end{equation*}
 % This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
-where $a: {}^{**}x \to x$ is any choice of isomorphism. This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual. Moreover it only depends on the isomorphism class of $x$. 
+where $a: {}^{**}x \to x$ is any choice of isomorphism.
+
+This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a scalar). Moreover the magnitude only depends on the isomorphism class of $x$. 
 \begin{definition}
 	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is defined by the formula
 	\begin{equation*}
@@ -1727,7 +1745,7 @@ where $a: {}^{**}x \to x$ is any choice of isomorphism. This is easily seen to b
 	\end{equation*}
 	where this sum ranges over a choice of representatives of isomorphism classes of simple objects of $\cC$. 
 \end{definition}
-\noindent The norm square of simple objects and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
+\noindent The magnitude of simple objects (`dimension squared') and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
 
 Consider $\cC$ as a left $\cC \boxtimes \cC^\mp$-module category. Since $\cC$ is rigid, every object is $\cC$-projective (Example \ref{ex:rigid_all_C-proj}) and the object $1 \in \cC$ is clearly a $\cC$-generator. Thus by Theorem \ref{thm:C-module-Embedding} 
 \begin{equation*}
