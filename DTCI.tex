@@ -1685,7 +1685,7 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
 
-Fusion tensor categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is generally known that the when the global dimension is non-zero, then the center $\cZ(\cC)$ is semisimple. This shown for example in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper). 
+Fusion tensor categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is generally known that the when the global dimension is non-zero, then the center $\cZ(\cC)$ is semisimple. This is shown for example in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper). 
 %%%
 %\CSP{Does M\"uger's proof depend on sphericality? I checked that you always get that the center is rigid (M\"uger Prop 3.9) and this doesn't use spherical or pivotal as far as I can tell. Also the unit object will be simple.In ENO "On Fusion Cats" Thm 2.15 they prove this without sphericality, but with char zero.} 
 By Theorem \ref{thm:SepModCats} semisimplicity of the center implies that $\cC$ is separable. 
@@ -1706,11 +1706,11 @@ Let us fix some notational conventions. If $\overline{x}$ is an ambidextrous dua
 The pair $(\eta, \varepsilon)$ witnesses $\overline{x}$ as the left dual of $x$, while $(\overline{\eta}, \overline{\varepsilon})$ witnesses $\overline{x}$ as the right dual.  
 
 \begin{example}
-	In a braided monoidal tensor category, the braiding allows us to enhance any dual of $x$ to an ambidextrous dual. 
+	In a braided tensor category, the braiding allows us to enhance any dual of $x$ to an ambidextrous dual. 
 \end{example}
 
 \begin{example}
-	Let $x$ be an object of a tensor category and let ${}^*x$ be its left dual (with $\varepsilon$ and $\eta$ the corresponding evaluation and coevaluation maps). Then ${}^*x$ may be enhanced to an ambidextrous dual of $x$ precisely if we may choose an isomorphism $a: {}^{**}x \to x$. If this is the case, then structure of an ambidextrous dual is obtained via the assignments:
+	Let $x$ be an object of a tensor category and let ${}^*x$ be its left dual (with $\varepsilon$ and $\eta$ the corresponding evaluation and coevaluation maps). Then ${}^*x$ may be enhanced to an ambidextrous dual of $x$ precisely if we may choose an isomorphism $a: {}^{**}x \to x$. If this is the case, then the structure of an ambidextrous dual is obtained via the assignments:
 	\begin{align*}
 		\overline{\eta} &= (a \otimes id_{{}^*x}) \circ \coev_{*x} \\
 		\overline{\varepsilon} &= ev_{{}^*x} \circ (id_{{}^*x} \otimes a^{-1})
@@ -1735,8 +1735,8 @@ $d^2(x)$ of $x$ is defined by the formula
 \end{equation*}
 % This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
 where $a: {}^{**}x \to x$ is any choice of isomorphism.
+This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$. 
 
-This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a scalar). Moreover the magnitude only depends on the isomorphism class of $x$. 
 \begin{definition}
 	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is defined by the formula
 	\begin{equation*}
@@ -1745,68 +1745,109 @@ This is easily seen to be independent of the choice of isomorphism between $x$ a
 	\end{equation*}
 	where this sum ranges over a choice of representatives of isomorphism classes of simple objects of $\cC$. 
 \end{definition}
-\noindent The magnitude of simple objects (`dimension squared') and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
+\noindent The magnitude of simple objects (under the name `dimension squared') and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
 
-Consider $\cC$ as a left $\cC \boxtimes \cC^\mp$-module category. Since $\cC$ is rigid, every object is $\cC$-projective (Example \ref{ex:rigid_all_C-proj}) and the object $1 \in \cC$ is clearly a $\cC$-generator. Thus by Theorem \ref{thm:C-module-Embedding} 
+
+The global dimension has an elegant but less well-known equivalent description which we find very useful. Before we describe it we will first recall two well-known facts from the theory of finite tensor categories and their module categories.
+ 
+\CSP{These should cite either ENO or RDTP or both.}
+Let $\cC$ be a finite tensor category, which we may consider as a left $\cC \boxtimes \cC^\mp$-module category. First, $\cC$ admits an enrichment in $\cC \boxtimes \cC^\mp$. Thus for every pair of objects $a, b \in \cC$, there exists an object $\IHom(a,b) \in \cC \boxtimes \cC^\mp$. This object is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
 \begin{equation*}
-	\cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp),
+	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , \IHom(a,b)) \cong \Hom_{\cC}(x \otimes a \otimes y, b).
 \end{equation*}
-where  $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$ is the induced algebra object (see also Example \ref{Ex:Hopf_bimod}).  
+Note that for any $a \in \cC$, the object $\IHom(a,a) \in \cC \boxtimes \cC^\mp$ will naturally be an algebra object. 
 
-When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact is a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. It is easiest to describe this structure from the perspective of the Yoneda lemma, i.e. via the functor of points. 
-
-\begin{lemma}
-	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections:
-	\begin{enumerate}
-		\item 
-		\begin{align*}
-			\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A) &\cong \Hom_{\cC}(X \otimes Y, 1) \\
-				& \cong \Hom_{\cC}(Y, {}^*X) \\
-				& \cong \oplus_i \Hom_{\cC}(X, L_i) \otimes \Hom_{\cC}(Y, {}^*L_i);
-		\end{align*}
-		\item 
-		\begin{equation*}
-			\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) \cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1);
-		\end{equation*}
-	\end{enumerate}
-	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects.
-\end{lemma}
-
-\noindent The first set of bijections follows from unpacking the definition of the $\cC \boxtimes \cC^\mp$-enriched hom and some elementary manipulations. From this it follows that we have a canonical isomorphism $A \cong L_i \boxtimes {}^*L_i \in \cC \boxtimes \cC^\mp$. The second bijection is obtained by dualizing the second factor of $A$:  
-\begin{align*}
-	\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) &\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes {}^*A, A) \\
-	&\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes (\oplus_i {}^*L_i \boxtimes L_i), A) \\
-	&\cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1).
-\end{align*}
-Careful attention must be paid to use the monoidal structure and dualality in $\cC \boxtimes \cC^\mp$. 
-%In the above manipulations we used the isomorphism $A \cong \oplus_i L_i \boxtimes {}^*L_i$ for one factor of $A$, and the Yoneda description for the other factor.
-
-Using these identifications, the multiplication map $\mu: A \otimes A \to A$ has an easy description as a map of sets:
+Second, as a left $\cC \boxtimes \cC^\mp$-module category, $\cC$ is equivalent to the category $\Mod{}{A}(\cC \boxtimes \cC^\mp)$ of right $A$-modules in $\cC \boxtimes \cC^\mp$. Here $A = \IHom(1,1)$ with its natural algebra structure, and the identification is via the functor 
 \begin{equation*}
-	\oplus_i \Hom_{\cC}(X \otimes {}^*L_i \otimes L_i \otimes Y,) \to \Hom_{\cC}(X \otimes Y, 1),
-\end{equation*} 
-which in each factor is given simply by precomposition with the coevaluation of $L_i$,  $\coev_{L_i}$. 
+	\IHom(1, -): \cC \to \Mod{}{A}(\cC \boxtimes \cC^\mp).
+\end{equation*}
+%\CSPcomm{This part needs updating to cite the correct section. Presumably this will already be stated.}
+% Since $\cC$ is rigid, every object is $\cC$-projective (Example \ref{ex:rigid_all_C-proj}) and the object $1 \in \cC$ is clearly a $\cC$-generator. Thus by Theorem \ref{thm:C-module-Embedding} 
+%\begin{equation*}
+%	\cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp),
+%\end{equation*}
+%where  $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$ is the induced algebra object (see also Example \ref{Ex:Hopf_bimod}).  
 
-The canonical description of $A$ as the direct sum $\oplus L_i \boxtimes {}^*L_i$ induces inclusion and projection maps:
-\begin{align*}
-	u: & 1 \boxtimes 1  \to A \\
-	\varepsilon: & A \to 1 \boxtimes 1 
-\end{align*}
-These use the direct sum decomposition of $A$ and the canonical identification $1 \cong {}^*1$. 
+When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact is canonically a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. We will describe this Frobenius algebra structure explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
+\CSP{See if there is another term for `normalized'}
 
-\CSPcomm{I claim that $u$ is the unit for the multiplication (more or less clear) and that $\varepsilon$ is the counit for a comultiplication. 
-
-Also the comultiplication can be obtained by choosing an isomorphism $a: L_i \cong {}^{**}L_i$ and using an evaluation. (to make this independant of $a$, we normalize each factor by the quantum trace). }
-
-
-We leave it to the reader to check that the first of these 
+\CSPcomm{Identify $A = \oplus_i L_i \boxtimes {}^* L_i$, and multiplication.}
 
 
-, it follows that there is a canonical inclusion $1 \boxtimes 1 \to A$, and  
+Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
+\begin{equation*}
+	\cC(y,z) \otimes \cC(z,y) \to \cC(z,z) \cong k
+\end{equation*}
+induced by composition is non-degenerate. Since these vector spaces are finite-dimensional this induces a canonical copairing, an element
+\begin{equation*}
+	c \in \cC(y,z) \otimes \cC(z,y) \cong \cC(y,z)\otimes \cC({}^*y, {}^*z).
+\end{equation*}
+\CSPcomm{dual basis... dual of evaluation/coevaluation. }
 
+\CSPcomm{ note that dual of evaluation and coevaluation do not satisfy the zig-zag identities (hence don't give a duality structure). Remark that we get a duality structure if we multiply one by the magnitude of the given object.}
 
-The comultiplication map
- $\Delta: A \to A \otimes A$ is more delicate. 
+\CSPcomm{Identify the multiplication in terms of above copairing. }
+
+\CSPcomm{There is a unique normalized trace. This defines $b: A \otimes A \to 1 \boxtimes 1$. Write this out explicitly (uses evaluation and dual of coevaluation?)}
+
+\CSPcomm{ Forumla for the $c: 1 \boxtimes 1 \to A \otimes A$ (uses the coevaluation and the dual of the evaluation scaled by the magnitude.) Compute the window element as the global dimension.}
+
+-----
+
+%It is easiest to describe this structure from the perspective of the Yoneda lemma, i.e. via the functor of points. 
+%
+%\begin{lemma}
+%	Let $X,Y$ be objects of $\cC$ and let $A = \IHom(1,1)$, as above. Then there are natural bijections:
+%	\begin{enumerate}
+%		\item 
+%		\begin{align*}
+%			\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A) &\cong \Hom_{\cC}(X \otimes Y, 1) \\
+%				& \cong \Hom_{\cC}(Y, {}^*X) \\
+%				& \cong \oplus_i \Hom_{\cC}(X, L_i) \otimes \Hom_{\cC}(Y, {}^*L_i);
+%		\end{align*}
+%		\item 
+%		\begin{equation*}
+%			\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) \cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1);
+%		\end{equation*}
+%	\end{enumerate}
+%	where $\{L_i\}$ is a fixed collection of representatives for each isomorphism class of simple objects.
+%\end{lemma}
+%
+%\noindent The first set of bijections follows from unpacking the definition of the $\cC \boxtimes \cC^\mp$-enriched hom and some elementary manipulations. From this it follows that we have a canonical isomorphism $A \cong L_i \boxtimes {}^*L_i \in \cC \boxtimes \cC^\mp$. The second bijection is obtained by dualizing the second factor of $A$:  
+%\begin{align*}
+%	\Hom_{\cC \boxtimes \cC^\mp}(X \boxtimes Y, A \otimes A) &\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes {}^*A, A) \\
+%	&\cong \Hom_{\cC \boxtimes \cC^\mp}((X \boxtimes Y) \otimes (\oplus_i {}^*L_i \boxtimes L_i), A) \\
+%	&\cong \oplus_i \Hom_{\cC}( X \otimes {}^*L_i \otimes L_i \otimes Y, 1).
+%\end{align*}
+%Careful attention must be paid to use the monoidal structure and dualality in $\cC \boxtimes \cC^\mp$. 
+%%In the above manipulations we used the isomorphism $A \cong \oplus_i L_i \boxtimes {}^*L_i$ for one factor of $A$, and the Yoneda description for the other factor.
+%
+%Using these identifications, the multiplication map $\mu: A \otimes A \to A$ has an easy description as a map of sets:
+%\begin{equation*}
+%	\oplus_i \Hom_{\cC}(X \otimes {}^*L_i \otimes L_i \otimes Y,) \to \Hom_{\cC}(X \otimes Y, 1),
+%\end{equation*} 
+%which in each factor is given simply by precomposition with the coevaluation of $L_i$,  $\coev_{L_i}$. 
+%
+%The canonical description of $A$ as the direct sum $\oplus L_i \boxtimes {}^*L_i$ induces inclusion and projection maps:
+%\begin{align*}
+%	u: & 1 \boxtimes 1  \to A \\
+%	\varepsilon: & A \to 1 \boxtimes 1 
+%\end{align*}
+%These use the direct sum decomposition of $A$ and the canonical identification $1 \cong {}^*1$. 
+%
+%\CSPcomm{I claim that $u$ is the unit for the multiplication (more or less clear) and that $\varepsilon$ is the counit for a comultiplication. 
+%
+%Also the comultiplication can be obtained by choosing an isomorphism $a: L_i \cong {}^{**}L_i$ and using an evaluation. (to make this independant of $a$, we normalize each factor by the quantum trace). }
+%
+%
+%We leave it to the reader to check that the first of these 
+%
+%
+%, it follows that there is a canonical inclusion $1 \boxtimes 1 \to A$, and  
+%
+%
+%The comultiplication map
+% $\Delta: A \to A \otimes A$ is more delicate. 
 
 
 %
@@ -1879,14 +1920,6 @@ In any Frobenius algebra $R$, the composite map $\mu \circ \Delta: R \to R$ is g
 
 %\CSPcomm{We don't need the following anymore...}
 
-%Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
-%\begin{equation*}
-%	\cC(y,z) \otimes \cC(z,y) \to \cC(z,z) \cong k
-%\end{equation*}
-%induced by composition is non-degenerate. Since these vector spaces are finite-dimensional this induces a canonical copairing, an element
-%\begin{equation*}
-%	c \in \cC(y,z) \otimes \cC(z,y) \cong \cC(y,z)\otimes \cC({}^*y, {}^*z).
-%\end{equation*}
 
 
 
