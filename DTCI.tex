@@ -1698,15 +1698,19 @@ In this section we strengthen this. We provide a direct link between non-zero gl
 
 Let us fix some notational conventions. If $\overline{x}$ is an ambidextrous dual for $x$, then we have pairings and copairings:
 \begin{align*}
-	\eta: & 1 \to \overline{x} \otimes x, \\
-	\overline{\eta}: & 1 \to   x \otimes \overline{x}, \\
-	\varepsilon: & x \otimes \overline{x} \to 1, \\
-	\overline{\varepsilon}: & \overline{x} \otimes x  \to 1. 
+	\eta: 					& \; 1 \to \overline{x} \otimes x, \\
+	\overline{\eta}: 		& \;  1 \to   x \otimes \overline{x}, \\
+	\varepsilon: 			& \;  x \otimes \overline{x} \to 1, \\
+	\overline{\varepsilon}: & \;   \overline{x} \otimes x  \to 1. 
 \end{align*} 
 The pair $(\eta, \varepsilon)$ witnesses $\overline{x}$ as the left dual of $x$, while $(\overline{\eta}, \overline{\varepsilon})$ witnesses $\overline{x}$ as the right dual.  
 
 \begin{example}
 	In a braided tensor category, the braiding allows us to enhance any dual of $x$ to an ambidextrous dual. 
+\end{example}
+
+\begin{example}
+	In any tensor category any {\em self-dual} object is canonically an ambidextrous dual of itself. A self-dual object is object $x$ equipped with evaluation and coevaluation maps $\varepsilon: x \otimes x \to 1$ and $\eta: 1 \to x \otimes x$. This is then an ambidextrous dualaity via $\overline{\varepsilon} = \varepsilon$ and $\overline{\eta} = \eta$. For example the isomorphism $1 \otimes 1 \cong 1$ canonically realizes the unit object $1$ as a self-dual, hence ambidetrously self-dual, object in any tensor category.  
 \end{example}
 
 \begin{example}
@@ -1734,7 +1738,7 @@ $d^2(x)$ of $x$ is defined by the formula
 	d^2(x) := \Tr(a) \cdot \Tr({}^*(a^{-1})) = (\varepsilon \circ \overline{\eta}) \cdot (\overline{\varepsilon} \circ \eta) \in k
 \end{equation*}
 % This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
-where $a: {}^{**}x \to x$ is any choice of isomorphism.
+where $a: {}^{**}x \to x$ is any choice of isomorphism and $(\varepsilon, \ets, \overline{\varepsilon}, \overline{\eta})$ is the corresonding ambidextrous duality.
 This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$. 
 
 \begin{definition}
@@ -1771,26 +1775,61 @@ Second, as a left $\cC \boxtimes \cC^\mp$-module category, $\cC$ is equivalent t
 When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact is canonically a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. We will describe this Frobenius algebra structure explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
 \CSP{See if there is another term for `normalized'}
 
-\CSPcomm{Identify $A = \oplus_i L_i \boxtimes {}^* L_i$, and multiplication.}
-
-
-Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
+Let us now make some observations about the algebra $A$. For each $x$ and $y$ have the following series of canonical isomorphisms:
+\begin{align*}
+	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , A) & \cong \Hom_{\cC}(x \otimes y, 1) \\
+	 & \cong \Hom_{\cC}(x, y^*) \\
+	 & \cong \oplus_i \Hom_{\cC}(x, L_i) \otimes \Hom_{\cC}(L_i, y^*) \\
+	 & \cong \oplus_i \Hom_{\cC}(x, L_i) \otimes \Hom_{\cC}(y, {}^*L_i)	 
+\end{align*}
+where $\{L_i\}$ is any fixed collection of representatives for each isomorphism class of simple objects. Thus we deduce a canonical isomorphism
 \begin{equation*}
-	\cC(y,z) \otimes \cC(z,y) \to \cC(z,z) \cong k
+	A \cong \oplus_i L_i \boxtimes {}^*L_i.
 \end{equation*}
-induced by composition is non-degenerate. Since these vector spaces are finite-dimensional this induces a canonical copairing, an element
+From this it follows that 
+\begin{align*}
+	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , A \otimes A) & \cong \oplus_{i,j} \Hom_{\cC}(x, L_i \otimes L_j) \otimes \Hom_{\cC}(y, {}^* L_j \otimes {}^*L_i) \\
+	& \cong \oplus_{i,j} \Hom_{\cC}(x, L_i \otimes L_j) \otimes \Hom_{\cC}(L_i \otimes L_j, y^*).
+\end{align*}
+The unit map $u: 1 \boxtimes 1 \to A$ is given by the cononcial inclusion of the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$. The multiplication map $m: A \otimes A \to A$ may be described via its functor of points as the composition map:
 \begin{equation*}
-	c \in \cC(y,z) \otimes \cC(z,y) \cong \cC(y,z)\otimes \cC({}^*y, {}^*z).
+	\oplus_{i,j} \Hom_{\cC}(x, L_i \otimes L_j) \otimes \Hom_{\cC}(L_i \otimes L_j, y^*) \to \Hom_{\cC}(x, y^*).
 \end{equation*}
-\CSPcomm{dual basis... dual of evaluation/coevaluation. }
+We will see an explicite formula for the multiplication map momentarily. 
 
-\CSPcomm{ note that dual of evaluation and coevaluation do not satisfy the zig-zag identities (hence don't give a duality structure). Remark that we get a duality structure if we multiply one by the magnitude of the given object.}
+Any Frobenius algebra structure $(m,u, \Delta, \lambda)$ on $A$ is determined by the algebra structure together with the counit $\lambda: A \to 1 \boxtimes 1$. Since we see that $\Hom_{\cC \boxtimes \cC^\mp}(A, 1 \boxtimes 1)$ is one dimensional, there is a unique map $\lambda:A \to 1 \boxtimes 1$ satisfying $\lambda \circ u = id_{1 \boxtimes 1}$. It follows that there can be at most one normalized Frobenius algebra structure on the algebra $A$; if it exists, then it is unique. 
 
-\CSPcomm{Identify the multiplication in terms of above copairing. }
+In any Frobenius algebra $R$, the composite of the comultiplication followed by the multiplication $\mu \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $\mu \circ \Delta(1): 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the unit, and consequently $\mu \circ \Delta$ is given by multiplication by this scalar element. 
 
-\CSPcomm{There is a unique normalized trace. This defines $b: A \otimes A \to 1 \boxtimes 1$. Write this out explicitly (uses evaluation and dual of coevaluation?)}
+\begin{proposition}
+	The unique normalized map $\lambda:A \to 1 \boxtimes 1$ (so that $\lambda \circ u = id_{1 \boxtimes 1}$) determines the structure of a Frobenius algebra on $A$. Moreover the window element of this Frobenius algebra is precisely the global dimension of the Fusion category $\cC$. 
+\end{proposition}
 
-\CSPcomm{ Forumla for the $c: 1 \boxtimes 1 \to A \otimes A$ (uses the coevaluation and the dual of the evaluation scaled by the magnitude.) Compute the window element as the global dimension.}
+\begin{proof}
+	...
+	
+	Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
+	\begin{equation*}
+		\cC(y,z) \otimes \cC(z,y) \to \cC(z,z) \cong k
+	\end{equation*}
+	induced by composition is non-degenerate. Since these vector spaces are finite-dimensional this induces a canonical copairing, an element
+	\begin{equation*}
+		c \in \cC(y,z) \otimes \cC(z,y) \cong \cC(y,z)\otimes \cC({}^*y, {}^*z).
+	\end{equation*}
+	\CSPcomm{dual basis... dual of evaluation/coevaluation. }
+
+	\CSPcomm{ note that dual of evaluation and coevaluation do not satisfy the zig-zag identities (hence don't give a duality structure). Remark that we get a duality structure if we multiply one by the magnitude of the given object.}
+
+	\CSPcomm{Identify the multiplication in terms of above copairing. }
+
+	\CSPcomm{There is a unique normalized trace. This defines $b: A \otimes A \to 1 \boxtimes 1$. Write this out explicitly (uses evaluation and dual of coevaluation?)}
+
+	\CSPcomm{ Forumla for the $c: 1 \boxtimes 1 \to A \otimes A$ (uses the coevaluation and the dual of the evaluation scaled by the magnitude.) Compute the window element as the global dimension.}
+	
+	
+\end{proof}
+
+
 
 -----
 
@@ -1900,25 +1939,8 @@ induced by composition is non-degenerate. Since these vector spaces are finite-d
 
 
 
-In any Frobenius algebra $R$, the composite map $\mu \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $\mu \circ \Delta(1): 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the identity, and consequently $\mu \circ \Delta$ is given by multiplication by this scalar element. 
-
-\begin{proposition}
-	The window element of the Frobenius algebra $A$ is given by the global dimension of the Fusion category $\cC$. 
-\end{proposition}
-
-\begin{proof}
-	
-\CSPcomm{\begin{itemize}
-	\item Describe the bijection between descriptions (3) and (5) of the previous lemma.
-	\item One of the maps is easy to describe. Its inverse involves choose isomorphisms $a:L_i \to {}^{**}L_i$, and (?) dividing each by the magnitude $d^2(L_i)$. (the fact that this is an isomorphism uses that the quantum trace of each factor is individually zero). 
-	\item Now a simple calculation using this isomorphism given that $\mu \circ \Delta$ is multiplication by $\dim \cC$. 
-	\item This is easiest to see in terms of string diagrams. 
-\end{itemize}}	
-
-\end{proof}
 
 
-%\CSPcomm{We don't need the following anymore...}
 
 
 
