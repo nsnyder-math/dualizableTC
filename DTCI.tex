@@ -228,27 +228,38 @@ Finally, the assumptions that we use to get $2$-dualizability (finite and rigid)
 \subsection*{Acknowledgments}
 \addtocontents{toc}{\SkipTocEntry}
 
-We would like to thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Dylan Thurston, and Kevin Walker for helpful conversations.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.  \NS{Anyone else want to add people to the list of non-special thanks?  I feel like one should err on the side of mentioning too many people.}
+We would like to thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Peter Teichner, Dylan Thurston, and Kevin Walker for helpful conversations.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.  \NS{Anyone else want to add people to the list of non-special thanks?  I feel like one should err on the side of mentioning too many people.}
 
-We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec:tc-separable}.  NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding, among other topics, the structure of the 3-category of tensor categories, the classification of structure spaces in dimension 3,  the homotopy theory of those structure spaces, and the corresponding obstruction theory for structured field theories.
-CSP would like to thank Peter Teichner for several fruitful conversations about the difference between $\Omega \Sigma \RR \PP^2$-actions and $SO(3)\langle p_1 \rangle$-actions. 
-\CD{Most of the acknowledgments now concern content in the other papers.  Perhaps they should shorten here / be less specific, and move to the others?}
-\NS{Victor and Pavel are for this paper.  I'd suggest CD making the AH thanks less specific (the more specific one can go in the other papers).  The PT thanks may still be appropriate here, I'm not sure.}
-
+We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec:tc-separable}.  NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding the 3-category of tensor categories and 3-dimensional local field theory.
+\CD{I moved the other acknowledgments to the relevant papers DTCn}
 
 \section{Local field theory in dimension three} \label{sec:lft}
 
 \NS{We need to define what it means to say that a $3$-category is $1$-dualizable, $2$-dualizable, etc. so that the definitions are compatible with the statements in Section 4.}
 
-Recall that an object $x$ of a symmetric monoidal $(\infty,3)$-category is called ``1-dualizable" if there is a dual object $\overline{x}$, with the duality between $x$ and $\overline{x}$ witnessed by evaluation and coevaluation maps $ev: x \otimes \overline{x} \ra 1$ and $coev: 1 \ra \overline{x} \otimes x$.  The object is called ``2-dualizable" if moreover the evaluation map is part of an infinite chain of adjunctions 
+The cobordism hypothesis classifies local field theories in terms of sufficiently dualizable objects of target higher categories.  Recall that an object $x$ of a symmetric monoidal $(\infty,3)$-category is called ``1-dualizable" if there is a dual object $\overline{x}$, with the duality between $x$ and $\overline{x}$ witnessed by evaluation and coevaluation maps $ev: x \otimes \overline{x} \ra 1$ and $coev: 1 \ra \overline{x} \otimes x$.  (Note well that the zigzag equations relating $ev$ and $coev$ are only required to hold up to equivalence, and there is no coherence condition on those equivalences.)  The object is called ``2-dualizable" if moreover the evaluation map is part of an infinite chain of adjunctions 
 $$\cdots \dashv ev^{LL} \dashv ev^L \dashv ev \dashv ev^R \dashv ev^{RR} \dashv \cdots$$
 and similarly the coevaluation map is part of an infinite chain of adjunctions 
 $$\cdots \dashv coev^{LL} \dashv coev^L \dashv coev \dashv coev^R \dashv coev^{RR} \dashv \cdots.$$  
+(Again, note that for each of these adjunctions, the zigzag equations are only required to hold up to isomorphism, and there are no coherence conditions on those isomorphisms.)
 The object is called ``3-dualizable", also known as ``fully dualizable", if, moreover, for every adjunction $F \dashv G$ in each of the two aforementioned infinite chains, witnessed by a unit map $u_{F,G}$ and counit map $v_{F,G}$, it happens that this unit map is part of an infinite chain of adjunctions 
 $$\cdots \dashv u_{F,G}^{LL} \dashv u_{F,G}^L \dashv u_{F,G} \dashv u_{F,G}^R \dashv u_{F,G}^{RR} \dashv \cdots$$ 
 and similarly the counit map is part of an infinite chain of adjunctions 
-$$\cdots \dashv v_{F,G}^{LL} \dashv v_{F,G}^L \dashv v_{F,G} \dashv v_{F,G}^R \dashv v_{F,G}^{RR} \dashv \cdots.$$  
-The cobordism hypothesis shows that the 3-dimensional local framed topological field theories with target a symmetric monoidal $(\infty,3)$-category $\cC$ are in one-to-one correspondence with the fully dualizable objects of $\cC$; in fact, the space of such field theories is homotopy equivalent to the space of fully dualizable objects of $\cC$.  We refer the reader to Appendix~\ref{app:ch} for a more detailed and precise review of the notion of full dualizability and statement of the cobordism hypothesis. \NS{I think we need a statement of the cobordism hypothesis set off in an environment so that it's actually findable.}
+$$\cdots \dashv v_{F,G}^{LL} \dashv v_{F,G}^L \dashv v_{F,G} \dashv v_{F,G}^R \dashv v_{F,G}^{RR} \dashv \cdots.$$
+These definitions suffice to make sense of our main theorem, that every separable tensor category is fully dualizable.  
+%!% CD to discuss with CSP this definition: confirm that he agrees that it is obviously equivalent, because any equivalence can be promoted to an adjoint equivalence, and those adjoint equivalences can be used to transport the dualization structure to the other object.  In particular, Jacob's use of "essential image" was a red-herring, arising from the way Jacob decided to define the f.d. subcategory as anything satisfying the universal property.
+
+There is, however, an alternative, equivalent formulation of dualizability conditions, focusing on ``$k$-dualizable $3$-categories" rather than ``$k$-dualizable objects", that will be more convenient for proving our results.  A symmetric monoidal $3$-category $\cC$ is called ``$1$-dualizable" if every object has a dual---as before, here `dual' means dual in the symmetric monoidal $1$-category of objects of $\cC$ and equivalence classes of morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$2$-dualizable" if it is 1-dualizable and moreover every $1$-morphism has a left and a right adjoint---as before, here `adjoint' means adjoint in the $2$-category of objects, morphisms, and isomorphism classes of 2-morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$3$-dualizable", also called ``fully dualizable", if it is $1$-dualizable and $2$-dualizable and if every $2$-morphism of $\cC$ has a left and a right adjoint.  An object of a symmetric monoidal $3$-category is ``fully dualizable" if it is in some fully dualizable subcategory of $\cC$.  %!% CD to again confirm that CSP agrees with this last sentence.
+
+Equipped with the notion of full dualizability, we can state the cobordism hypothesis classification of local field theories: \vspace{7pt}
+
+\setlength{\leftskip}{.75cm}
+
+\nid {\bfseries Cobordism hypothesis:} \emph{Three-dimensional local framed topological field theories with target a symmetric monoidal $(\infty,3)$-category $\cC$ are in one-to-one correspondence with the fully dualizable objects of $\cC$; in fact, the space of such field theories is homotopy equivalent to the space of fully dualizable objects of $\cC$.} \vspace{7pt}
+
+\setlength{\leftskip}{0cm}
+
+\nid In the next section we describe the notion of framing referred to in this classification.  We refer the reader to Appendix~\ref{app:modelindep} for a more detailed and precise review of the notion of full dualizability and statement of the cobordism hypothesis.  
 
 \subsection{Notation for $n$-framed manifolds} 
 
@@ -2672,7 +2683,7 @@ A local topological field theory (or `fully extended topological field theory') 
 The cobordism hypothesis, conjectured by Baez and Dolan \cite{MR1355899} and later proven by Hopkins and Lurie~\cite{lurie-ch}, provides a classification of local topological field theories.  In the tangentially framed case, this classification is particularly simple to state: the local tangentially framed topological field theories with target $\cC$ correspond to the fully-dualizable objects of $\cC$.
 
 
-\subsection{Model independence of the cobordism hypothesis}
+\subsection{Model independence of the cobordism hypothesis} \label{app:modelindep}
 
 The Hopkins-Lurie formulation of the Baez-Dolan cobordism hypothesis uses the language of symmetric monoidal $(\infty,n)$-categories. There are several different approaches to the theory of $(\infty,n)$-categories. In each approach one obtains, at a bare minimum, an {\em abstract homotopy theory}, by which we mean simply a category together with a subcategory of weak equivalences.  One could instead use any other equivalent model of abstract homotopy theory, such as quasicategories \cite{Joyal_quasicats} or Rezk's complete Segal spaces \cite{Rezk_complete_Segal_Spaces}. 
 
@@ -2728,7 +2739,8 @@ We now recall the notion of full dualizability.
 \noindent Note that when $k=0$, this property is also referred to as ``having duals for objects", because in the bicateogry category $h^{(-1)}_2 \cC$, the notion of having adjoints for 1-morphisms corresponds to the notion of having duals in the monoidal homotopy category of $\cC$.
 
 \begin{definition}
-A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$n$-dualizable}, also called\emph{fully dualizable}, if it has adjoints for $k$-morphisms, for all $0 \leq k \leq n-1$.
+A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$n$-dualizable}, also called
+\emph{fully dualizable}, if it has adjoints for $k$-morphisms, for all $0 \leq k \leq n-1$.
 A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$m$-dualizable}, for $m<n$, if the maximal sub-$(\infty,m)$-category $\kappa_m \cC$ is fully dualizable.
 \end{definition} \CD{Why phrased in terms of $\kappa_m \cC$ rather than just has adjoints for $0 \leq k \leq m-1$?}
 %This notion of ``having duals" at all levels $0 \leq k \leq n-1$ is also referred to as being ``fully dualizable".  
@@ -2739,6 +2751,7 @@ A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$m$-dualizable}, for $
 %\CD{This is Jacob's original terminology, so we can't redefine ``has duals" at this point (though we can introduce a synonym if we really want to).}
 
 \noindent The maximal fully-dualizable sub-category of the symmetric monoidal $(\infty,n)$-category $\cC$ is denoted $d\cC$. The objects of $d\cC$ are called ``fully dualizable objects". 
+\CD{A priori, f.d. objects are those in the essential image of the inclusion of $d\cC$ ...}
 
 \begin{example}
 	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. The objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, and so forth. This symmetric monoidal $(\infty,n)$-category is fully dualizable. 
