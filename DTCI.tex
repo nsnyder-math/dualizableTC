@@ -73,9 +73,9 @@ on the space of fully dualizable objects induced from this $O(n)$-action.
 
 %is the cobordism hypothesis (originally proposed by Baez--Dolan \cite{MR1355899}, but improved and proved by Hopkins and Lurie \cite{0905.0465}) which gives a classification of local TFTs.  This classification states that an $n$-dimensional $n$-framed local field theory is determined (up to equivalence) by the image of a point, and the possible images of a point are exactly the fully dualizable objects in the target $n$-category.  Furthermore, the $n$-groupoid of fully-dualizable object inherits an infinitely homotopy coherent action by $O(n)$. Other flavors of $n$-dimensional local field theories are classified by the homotopy fixed points of actions of certain structure groups on the space of fully dualizable objects induced from the $O(n)$-action.  %Being fully dualizable is a \emph{property} while being a homotopy fixed point is a choice of \emph{structure}.  Being fusion is a property (semisimple, finitely many simple objects, duals exist for each object), while being spherical is a structure (choice of natural isomorphism between the identity and the double dual).  
 
-In this paper we show that separable tensor categories are the fully-dualizable objects of the symmetric monoidal 3-category $\TC$. Utilizing the cobordism hypothesis, this gives a 3-framed local TFT for every separable tensor category. 
-\CSP{do we show they are exactly the fully-dualizable objects?}
-\NS{Yes.}
+In this paper we show that separable tensor categories are the fully-dualizable objects of the symmetric monoidal 3-category $\TC$ \cite{3TC}. Utilizing the cobordism hypothesis, this gives a 3-framed local TFT for every separable tensor category. 
+%\CSP{do we show they are exactly the fully-dualizable objects?}
+%\NS{Yes.}
 Though not fully dualizable, finite tensor categories are $2$-dualizable, and it is therefore still possible to extract a partial field theory from them.  
 Our proof that separable tensor categories categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2119143, MR2183279, MR2097289}.  More specifically, the three key elements in the proof of full dualizability are: the relative Deligne tensor product can be realized as a category of module functors, module functors between semisimple categories have adjoints as module functors, and separability is closed under relative Deligne tensor product.
 
@@ -230,7 +230,9 @@ Finally, the assumptions that we use to get $2$-dualizability (finite and rigid)
 
 We would like to thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Peter Teichner, Dylan Thurston, and Kevin Walker for helpful conversations.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.  \NS{Anyone else want to add people to the list of non-special thanks?  I feel like one should err on the side of mentioning too many people.}
 
-We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec:tc-separable}.  NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding the 3-category of tensor categories and 3-dimensional local field theory.
+We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec:tc-separable}.
+\CSP{Is it this section we are thanking Ostrik for or 3.6? (Fusion cats)}
+  NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding the 3-category of tensor categories and 3-dimensional local field theory.
 \CD{I moved the other acknowledgments to the relevant papers DTCn}
 
 \section{Local field theory in dimension three} \label{sec:lft}
@@ -2819,8 +2821,8 @@ Is there a topological field theory for which this composite is exactly the imag
 \end{itemize}
 \nid Naively, one expects the answer to all these questions to be `yes', but in fact the answers depend on the choice of model of symmetric monoidal $(\infty,n)$-categories, the choice of model of the bordism category, and the choice of model of the target category $\cC$.  The cobordism hypothesis, which is a model invariant statement, does nothing to answer these questions.  However, as we will see, our specific choices of models ensure we can make any of these desired alterations to a field theory.
 
-Recall that we work with symmetric monoidal Segal $3$-categories---see~\cite{TC} for details about the category and its model structure.  Within this context we can choose a model of the framed bordism category that is cofibrant, and in~\cite{TC} we prove that the model of $\TC$ that we construct is fibrant.  We can therefore make use of the following homotopy extension property for field theories:
-\begin{theorem}[\cite{TC}] \label{thm:HEP}
+Recall that we work with symmetric monoidal Segal $3$-categories---see~\cite{3TC} for details about the category and its model structure.  Within this context we can choose a model of the framed bordism category that is cofibrant, and in~\cite{3TC} we prove that the model of $\TC$ that we construct is fibrant.  We can therefore make use of the following homotopy extension property for field theories:
+\begin{theorem}[\cite{3TC}] \label{thm:HEP}
 	Let $B$ and $T$ be symmetric monoidal Segal $n$-categories, with $B$ cofibrant and $T$ fibrant, and let $f: B  \to T$ be a symmetric monoidal functor. Let $E$ denote the 1-category with two objects $0$ and $1$ and a single non-identity morphism, from $0$ to $1$.  Let  $B_0 \subseteq B$ be an inclusion of pointed (not necessarily symmetric monoidal) Segal $n$-categories and let $H: B_0 \wedge E_+ \to T$ be a pointed functor of (non-monoidal) Segal $n$-categories, such that $H |_{B_0 \times 0} = f|_{B_0}$.
 Then there exists a symmetric monoidal functor $\tilde{H}: B \wedge E_+ \to T$ such that the following diagram of functors of Segal $n$-categories commutes strictly:
 	\begin{center}
@@ -2920,7 +2922,7 @@ Similar applications of Theorem~\ref{thm:HEP} allow us to specify the values of 
 
 
 \bibliographystyle{alpha}
-\bibliography{bibliography/bibliography}
+\bibliography{dtcbib}
 \end{document}
 
 %%%
