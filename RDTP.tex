@@ -421,17 +421,19 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 
 For the second part of the theorem, our assumptions ensure that:
 \begin{enumerate}
-	\item the functor $\IHom(p, -)$ is fully-faithful;
-	\item the functor $\IHom(p, -)$ is exact; and
-	\item the functor $\IHom(p, -)$ (coherently) commutes with the $\cC$-action. 
-\end{enumerate}	
-
-By (2)	
-	
-...	
+	\item the functor $\IHom(p, -)$ commutes (coherently) with the $\cC$-action;
+	\item the functor $\IHom(p, -)$ is fully-faithful; and
+	\item the functor $\IHom(p, -)$ is exact; 
+\end{enumerate}
+We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module categories. By Lemma \ref{lem:Recog_equiv_of_bimod} and (1), it is enough to show that it induces an equivalence of underlying categories. Moreover by (2) it is enough to show that the unit map $B \to \IHom(p, F(B))$ is an equivalence for all right $A$-modules $B$. This last statement follows from the following sequence of canonical isomorphisms (which utilize (2) and (3)):
+\begin{align*}
+	B & \cong \coeq \left( B \otimes \IHom(p,p) \otimes \IHom(p,p) \rightrightarrows B \otimes \IHom(p,p) \right)\\
+	& \cong \coeq \left(\IHom(p,B  \otimes \IHom(p,p) \otimes p) \rightrightarrows \IHom(p,B \otimes p) \right)\\
+	& \cong \IHom(p, F(B)).
+\end{align*}	
 \end{proof}
 
-The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
+%The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
 
 If we additionally assume that the tensor category $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator. In this case we immediately have:
 
