@@ -77,7 +77,8 @@ In this paper we show that separable tensor categories are the fully-dualizable 
 %\CSP{do we show they are exactly the fully-dualizable objects?}
 %\NS{Yes.}
 Though not fully dualizable, finite tensor categories are $2$-dualizable, and it is therefore still possible to extract a partial field theory from them.  
-Our proof that separable tensor categories categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2119143, MR2183279, MR2097289}.  More specifically, the three key elements in the proof of full dualizability are: the relative Deligne tensor product can be realized as a category of module functors, module functors between semisimple categories have adjoints as module functors, and separability is closed under relative Deligne tensor product.
+Our proof that separable tensor categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2119143, MR2183279, MR2097289}.  More specifically, the three key elements in the proof of full dualizability are: the relative Deligne tensor product can be realized as a category of module functors, module functors between semisimple categories have adjoints as module functors, and separability is closed under relative Deligne tensor product.
+\CSP{Do we want to cite RDTP here?}
 
 
 \NS{I commented out a paragraph on the $O(3)$ action here}
@@ -94,17 +95,23 @@ Topological field theories are often thought of as a tool for applying algebra t
 
 %We use as a key tool in our analysis is the cobordism hypothesis
 
-More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) \cong \pi_1(\Omega \Sigma \RR \PP^2)$ corresponds to the interval with a nontrivial $3$-framing which we call the loop bordism.  The image of the loop bordism under the TFT is called the Serre automorphism.  The Dirac belt trick gives a canonical minimal genus $3$-framed bordism between the loop bordism and its inverse depicted below.  Applying the TFT to this belt bordism we get a canonical identification of the Serre autormorphism and its inverse which we call the Radford isomorphism.  It turns out that in order to write down the Radford isomorphism, one does not use all the conditions of full dualizability, and so you get a Radford isomorphism for any Radford object.  
+More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) \cong \pi_1(\Omega \Sigma \RR \PP^2)$ corresponds to the interval with a nontrivial $3$-framing which we call the loop bordism.  The image of the loop bordism under the TFT is called the Serre automorphism.  The Dirac belt trick gives a canonical minimal genus $3$-framed bordism between the loop bordism and its inverse depicted below.  Applying the TFT to this belt bordism we get a canonical identification of the Serre autormorphism and its inverse which we call the Radford isomorphism.  It turns out that in order to write down the Radford isomorphism, one does not use all the conditions of full dualizability, and so you get a Radford isomorphism for any `Radford object' (Def.~\ref{def:Radford-Object}).  
 
-\begin{center}
-\includegraphics[width=60mm]{cobordism.png}
-\end{center}
+\begin{figure}[htbp]
+	\begin{center}
+	\includegraphics[width=60mm]{cobordism.png}
+	\end{center}
+	\caption{The Belt Bordism}
+	\label{fig:belt_bordism}
+\end{figure}
 \CD{This should be made into a Figure, so it can be referred to later.}
+\CSP{done.}
 \NS{This should be redrawn.}
 
-We prove that finite tensor categories are Radford objects in $\TC$, and the Serre automorphism of $\cC$ is $\cC$ as a $\cC$--$\cC$ bimodule category where the left action has been twisted by the right double dual.  The inverse of the Serre automorphism is the bimodule where the left action has been twisted by the left double dual.  Thus, the Radford isomorphism relates the left double dual and the right double dual and recovers the generalization of Radford's theorem for finite tensor categories \cite{MR0407069, MR2097289} stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories the distinguished object is trivial, and thus the quadruple dual for fusion categories is trivial.  
 
-Altogether, an elegant, transparent topological fact, concerning the fundamental group of the space of $3$-framings, implies the a priori rather more opaque theorem that the quadruple dual on a fusion category is canonically trivializable. This makes rigorous the intuition (implicit in \cite{MR2559711}, and stated explicitly in \cite{0901.3975}) that Radford's theorem is related to the belt trick.    Furthermore, we have a generalization of Radford's theorem to any Radford object in any symmetric monoidal $3$-category.
+We prove that finite tensor categories are Radford objects in $\TC$, and the Serre automorphism of $\cC$ is $\cC$ as a $\cC$--$\cC$ bimodule category where the left action has been twisted by the right double dual functor.  The inverse of the Serre automorphism is the bimodule where the left action has been twisted by the left double dual.  Thus, the Radford isomorphism relates the left double dual and the right double dual and recovers the generalization of Radford's theorem for finite tensor categories \cite{MR0407069, MR2097289} stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories the distinguished object is trivial, and thus the quadruple dual for fusion categories is trivial.  
+
+Altogether, an elegant, transparent topological fact, concerning the fundamental group of the space of $3$-framings, implies the a priori rather more opaque theorem that the quadruple dual on a fusion category is canonically trivializable. This makes rigorous the intuition (implicit in \cite{MR2559711}, and stated explicitly in \cite{0901.3975}) that Radford's theorem is related to the belt trick.    Furthermore, we have a generalization of Radford's theorem to any Radford object in any symmetric monoidal $3$-category (Prop.~\ref{prop-Cat_Radford}).
 
 
 %As another example of the algebra-topology correspondence in this context, note that since the nontrivial $3$-framed interval and the trivial $3$-framed interval have the same underlying oriented interval, reducing the $3$-framed field theory associated to a fusion category to an oriented field theory should be related to picking a trivialization of the double dual---that is to having a spherical structure.
@@ -126,7 +133,6 @@ Separable tensor categories are fully dualizable.
 \end{maintheorem}
 
 \nid Note that separability is a technical condition which is automatic over a field of characteristic $0$, and is equivalent non-zero global dimension for fusion categories over an algebraically closed field.
-\CSP{implied or equivalent to?}
 
 %!% Keep this statement this short and snappy in the introduction.  In the main text it can be fleshed out with more precision about the ambient 3-category.
 
@@ -142,6 +148,7 @@ We also have a converse to the main theorem.
 \begin{maintheorem}
 Fully dualizable finite tensor categories are separable.
 \end{maintheorem}
+\CSP{Should Thm1 and Thm 3 be combined?}
 
 For technical reasons we restrict our attention throughout to finite tensor categories throughout this paper, because we have only given a rigorous definition of the $3$-category of finite tensor categories.  In particular, the relative Deligne tensor product is not easy to define in more generality.  Nonetheless, it is natural to wonder whether finiteness or even rigidity (which is part of the definition of tensor category) are necessary for dualizability.  Since rigidity is not preserved by Morita equivalence (as pointed out to us by Dan Freed), there are finite monoidal categories which are fully dualizable but not rigid.  Indeed, semisimplicity and finiteness are also not Morita invariant notions.  We do not know a simple characterization of all fully dualizable monoidal categories (indeed we do not know in what generality it even makes sense to ask this question).
 %\CSP{Maybe mention something about the fact that we only know that the relative Deligne tensor product exists under the assumption of rigidity?}
@@ -161,10 +168,15 @@ We also establish that there are field theories associated to finite tensor cate
 Finite tensor categories are $2$-dualizable.
 \end{maintheorem}
 
+An $n$-dimensional topological field theory which takes values in an $(n+1)$-category is sometimes referred to as a `categorified' topological field theory.
+\CSP{do we have a reference for `categorified'? or is it just word of mouth?}
+ In dimension two such a field theory would sends surfaces to vector spaces rather than numbers and these vecotr spaces would inherit actions of mapping class groups. (A prototypical example of a categorified TFT is the concept of a {\em modular functor}).
+
 \begin{maincor}
-Any finite rigid tensor category gives a $2$-framed local $2$-dimensional TFT which is categorified in the sense that it sends surfaces to vector spaces rather than numbers.
+Any finite rigid tensor category gives a $2$-framed local $2$-dimensional TFT which is categorified in the above sense. 
 \end{maincor}
 \CD{Define `categorified 2-d TFT' before stating the corollary.}
+\CSP{How's that?}
 
 %\begin{remark}
 %The assumptions finite and rigid are probably unneeded in the previous theorem.  We expect that finite can be replaced by locally finite and rigid can be relaxed to the tensor product being biexact.  However, this introduces some technical obstacles which we avoid in this paper.  It's worth noting that you can't relax these two things independently, non-rigid finite tensor categories are not closed under relative tensor product.
