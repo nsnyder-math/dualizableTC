@@ -460,12 +460,12 @@ We do the lax case, the oplax case is similar.  Suppose that $f_{c,m}:  c \otime
 $$\cF(c \otimes m) \rightarrow c \otimes c^* \otimes \cF(c \otimes m) \rightarrow c \otimes \cF(c^* \otimes c \otimes m) \rightarrow c \otimes \cF(m)$$
 where the first map is given by the coevaluation, the second map is $f_{c^*,m}$, and the third map is evaluation.
 \begin{center}
-\begin{tikzpicture}
+\begin{tikzpicture}[yscale=0.6]
 	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f_{c^*,m}$};
 	\draw (0,0) -- (0,3) arc (180:0:0.75cm) |- (A.135);
 	\draw (A.225) -- (1.5,0);
 	\draw (A.45) -- (2.5,4);
-	\draw (A.315) -- (2.5,1) arc (180:360:0.75cm) -- (4,4);
+	\draw (A.315) -| (2.5,1) arc (180:360:0.75cm) -- (4,4);
 	\node at (2.5,4.5) {$\cF$};
 	\node at (4,4.5) {$c \otimes (-)$};
 	\node at (0,-0.5) {$c \otimes (-)$};
@@ -473,10 +473,10 @@ where the first map is given by the coevaluation, the second map is $f_{c^*,m}$,
 \end{tikzpicture}
 \end{center} \CD{shrink this picture and the next two}
 We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following string diagrams illustrate this calculation.
-
-$$\cN{\begin{tikzpicture}
-	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f_{c^*,m}$};
-	\node (B) at (1,0) [minimum height=1cm,minimum width=2cm, draw] {$f_{c,m}$};
+\begin{center}
+\begin{tikzpicture}[yscale=0.8, xscale=0.8, smooth]
+	\node (A) at (2,2) [minimum height=1cm,minimum width=1.5cm, draw] {$f_{c^*,m}$};
+	\node (B) at (1,0) [minimum height=1cm,minimum width=1.5cm, draw] {$f_{c,m}$};
 	\draw (B.135) -- (.5,3) arc (180:0:0.5cm) |- (A.135) ;
 	\draw (A.225) -- (B.45);
 	\draw (A.45) -- (2.5,3.5);
@@ -487,29 +487,36 @@ $$\cN{\begin{tikzpicture}
 	\node at (4,4) {$c \otimes (-)$};
 	\node at (.5, -2) {$\cF$};
 	\node at (1.5, -2) {$c \otimes (-)$};
-\end{tikzpicture}}
-= \hspace{.5cm} \cN{\begin{tikzpicture}
-	\node (A) at (2,2) [minimum height=1cm,minimum width=3cm, draw] {$f_{c \otimes c^*,m}$};
-	\draw (A.153) -- (1,3) arc (180:0:0.5cm) -- (A.90) ;
-	\draw (A.27) -- (3,3.5);
-	\draw (A.333) -- (3,1) arc (180:360:0.5cm) -- (4, 3.5);
-	\draw (A. 270) -- (2,.5);
-	\draw (A.207) -- (1,.5);
-	\node at (3,4) {$\cF$};
-	\node at (4,4) {$c \otimes (-)$};
-	\node at (1,0) {$\cF$};
-	\node at (2,0) {$c \otimes (-)$};
-\end{tikzpicture}}
-=
-\cN{\begin{tikzpicture}
-	\draw (0, 0) to [out=90, in=270] (2,3.5);
-	\draw (1,0) -- (1,1) arc (180:0:.5cm) arc (180:360:.5cm) -- (3,3.5);
-	\node at (2,4) {$\cF$};
-	\node at (3,4) {$c \otimes (-)$};
-	\node at (0,-.5) {$\cF$};
-	\node at (1,-.5) {$c \otimes (-)$};
-\end{tikzpicture}}
-$$\end{proof}
+	
+	\node at (5, 1) {$=$};
+	
+	\begin{scope}[xshift=5cm, yshift = -1cm]
+		\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f_{c \otimes c^*,m}$};
+		\draw (A.153) -| (1,3) arc (180:0:0.5cm) -- (A.90) ;
+		\draw (A.27) -| (3,3.5);
+		\draw (A.333) -| (3,1) arc (180:360:0.5cm) -- (4, 3.5);
+		\draw (A. 270) -- (2,.5);
+		%\draw (A) -- (1,.5);
+		\draw (A.207) -| (1,.5);
+		\node at (3,4) {$\cF$};
+		\node at (4,4) {$c \otimes (-)$};
+		\node at (1,0) {$\cF$};
+		\node at (2,0) {$c \otimes (-)$};
+	\end{scope}
+	
+	\node at (9.75, 1) {$=$};
+	
+	\begin{scope}[xshift=10.5cm, yshift=-1cm]
+		\draw (0, 0) to [out=90, in=270] (2,3.5);
+		\draw (1,0) -- (1,1) arc (180:0:.5cm) arc (180:360:.5cm) -- (3,3.5);
+		\node at (2,4) {$\cF$};
+		\node at (3,4) {$c \otimes (-)$};
+		\node at (0,-.5) {$\cF$};
+		\node at (1,-.5) {$c \otimes (-)$};
+	\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{proof}
 
 
 \begin{lemma} \label{lma:module-adjoint}
