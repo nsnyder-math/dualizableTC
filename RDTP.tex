@@ -78,7 +78,7 @@ Recall the following standard terminology:
 \begin{itemize}
 	\item[-] A object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
 	\item[-] An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects $X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots$ has finite length. 
-	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects, or equivalently, if every short exact sequence splits. If in addition every object has finite length, then every object splits as a finite direct sum of simple objects.
+	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects, or equivalently, if every short exact sequence splits. If in addition every object has finite length, then every object splits as a {\em finite} direct sum of simple objects.
 	\CD{what?} %finite?
 	\CSP{Is this better?}
 	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a project object $P$ with a surjection $P \twoheadrightarrow X$. 
@@ -168,7 +168,7 @@ Finally, suppose that $\cG$ is left exact. We must show that it satisfies the so
 
 Thus we must show that the class $S_d$ has finitely many isomorphism classes of objects. Let $q \in \cC$ denote the direct sum of representatives of the isomorphism classes of simple objects in $\cC$ ($q$ exists because we have assumed there exist only a finite number of simple objects, up to isomorphism). Choose a basis $\{e_j\}$ for the vector space $\hom_{\cD}(d, \cG q)$, and consider the object $x = \oplus_j( q, e_j) \bigoplus (q,0) \in (d \downarrow \cG)$. We will show that every object of $S_d$ is isomorphic to a subobject of $x$, and hence there are only a finite number of isomorphism classes of objects of $S_d$. To this end, note that as every object of $\cC$ has finite length, $q$ is a {\em cogenerator} of $\cC$, i.e. the functor $\hom(-, q)$ is faithful. Let $(c, f)$ be an element of $S_d$. If $f: d \to \cG c$ is the zero map then $c$ is necessarily simple in $\cC$. In this case $(c, f)$ is a subobject of $(q, 0)$, and hence also $x$. 
 
-Thus we may assume, without loss of generality, that  $(c, f)$ be an element of $S_d$ in which $f$ is {\em not} the zero map. In this case consider the map of vector spaces:
+Thus we may assume, without loss of generality, that  $(c, f)$ is an element of $S_d$ in which $f$ is {\em not} the zero map. In this case consider the map of vector spaces:
 \begin{equation*}
 	\hom_{\cC}(c,q) \stackrel{\cG}{\to} \hom_{\cD}(\cG c, \cG q) \stackrel{f^*}{\to} \hom_{\cD}(d, \cG q).
 \end{equation*} 
@@ -186,7 +186,7 @@ is a monomorphism in $\cC$. The desired result, that $(c,f)$ is a subobject of $
 \end{remark}
 
 \begin{corollary}
-	A linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it admits a left adjoint which is a linear functor. 
+	A (right exact) linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it admits a left adjoint which is a linear functor. 
 \end{corollary}
 
 \begin{proof}
@@ -254,9 +254,9 @@ such that $F$ is linear in each variable separately.
  \begin{equation*} 
  	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
  \end{equation*}
-	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. 
+	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. Moreover both the left and right adjoints are themselves of this form, hence are also  exact. 
 \end{proof}
-\CD{(assuming right exact? only using left adj for left exact?)}
+%\CD{(assuming right exact? only using left adj for left exact?)}
 
 \noindent In particular we have the following sequences of adjunctions:
 \begin{alignat*}{5}
