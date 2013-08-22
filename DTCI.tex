@@ -128,7 +128,7 @@ The heart of the paper is Section \ref{sec:dualfusion} where we prove the follow
 
 \CSP{Change the numbering of these theorems to match the correct numbering in the paper.}
 
-\begin{maintheorem}
+\begin{maintheorem} \label{thm1}
 Separable tensor categories are fully dualizable.
 \end{maintheorem}
 
@@ -137,7 +137,7 @@ Separable tensor categories are fully dualizable.
 %!% Keep this statement this short and snappy in the introduction.  In the main text it can be fleshed out with more precision about the ambient 3-category.
 
 A key application of this theorem is the construction of a plethora of local field theories:
-\begin{maincor}
+\begin{maincor} \label{cor2}
 For any separable tensor category there is a local topological quantum field theory whose value on a point is that tensor category.
 \end{maincor}
 
@@ -145,7 +145,7 @@ For any separable tensor category there is a local topological quantum field the
 
 We also have a converse to the main theorem.
 
-\begin{maintheorem}
+\begin{maintheorem} \label{thm3}
 Fully dualizable finite tensor categories are separable.
 \end{maintheorem}
 \CSP{Should Thm1 and Thm 3 be combined?}
@@ -164,7 +164,7 @@ For technical reasons we restrict our attention throughout to finite tensor cate
 %%
 We also establish that there are field theories associated to finite tensor categories that are not necessarily separable:
 
-\begin{maintheorem}
+\begin{maintheorem} \label{thm4}
 Finite tensor categories are $2$-dualizable.
 \end{maintheorem}
 
@@ -172,7 +172,7 @@ An $n$-dimensional topological field theory which takes values in an $(n+1)$-cat
 \CSP{do we have a reference for `categorified'? or is it just word of mouth?}
  In dimension two such a field theory would sends surfaces to vector spaces rather than numbers and these vecotr spaces would inherit actions of mapping class groups. (A prototypical example of a categorified TFT is the concept of a {\em modular functor}).
 
-\begin{maincor}
+\begin{maincor} \label{cor5}
 Any finite rigid tensor category gives a $2$-framed local $2$-dimensional TFT which is categorified in the above sense. 
 \end{maincor}
 \CD{Define `categorified 2-d TFT' before stating the corollary.}
@@ -186,18 +186,18 @@ We give a concrete application of these results to Radford's theorem.
 
 % and~\ref{sec:pivot}, focuses on the correspondence between algebraic properties of the tensor categories and topological properties of the corresponding field theories.  We focus particularly on the Serre automorphism, which, roughly speaking, measures the dependence of the field theory on spin structures.
 
-\begin{maintheorem}
+\begin{maintheorem} \label{thm6}
 The Serre automorphism of a finite rigid tensor category $\cC$ is the bimodule associated to the double dual functor ${}^{**}(-): \cC \ra \cC$.  %!%Once we adjust all the conventions, this will be the left double dual.
 \end{maintheorem}
 
 In $3$-dimensions, the Serre automorphism is necessarily order $2$ (since $\pi_1(SO(3)) \cong \mathbb{Z}/2$). This theorem therefore provides a simple topological proof of the following generalization Radford's theorem \cite{MR0407069} to fusion categories (originally due to Etingof, Nikshych, and Ostrik \cite{MR2183279}).
-\begin{maincor}
+\begin{maincor} \label{cor7}
 The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a fusion category is naturally isomorphic to the identity functor.
 \end{maincor}
 
 We then address how this result generalizes to finite tensor categories.  Although $2$-dualizability is not enough to prove Radford's theorem  (we need a $3$-framed theory, not a $2$-framed theory), finite tensor categories have certain additional adjoints for $2$-morphisms which makes them Radford objects.  Thus our ``belt trick" approach to the quadruple dual also gives a proof of the generalization of Radford' theorem to finite rigid tensor categories (again due to Etingof, Nikshych, and Ostrik \cite{MR2097289}).
 
-\begin{maincor}
+\begin{maincor} \label{cor8}
 The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a finite rigid tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
 \end{maincor}
 
@@ -236,6 +236,16 @@ As we note at several points in the paper, finite tensor categories give a field
 We do not prove in this paper that our $3$-manifold invariants actually agree with Turaev--Viro in the spherical case.  This involves several calculations which would distract from the main points of the paper.  We do note that by the uniqueness part of the cobordism hypothesis, the construction of a fully extended version of Turaev--Viro via other techniques would automatically show that our construction also gives Turaev--Viro.  We hope in the future to give a more direct proof that our $3$-manifold invariants can be computed by state-sums. %!% The statements in this paragraph are not really quite right, and should be changed.
 
 Finally, the assumptions that we use to get $2$-dualizability (finite and rigid) are too strong, and we hope to generalize that result to other monoidal categories.
+
+\subsection*{Model independence} \CD{I'm not actually sure what this subsection should be called.}
+\addtocontents{toc}{\SkipTocEntry}
+
+In this paper, we work with symmetric monoidal 3-categories in a model free way, rather than fixing one of many options for axiomatizing 3-categories.  This may make certain readers nervous, and to those readers we offer two assurances.  First, in the appendix and in \cite{3TC} we show that everything in this paper can be made precise in a particular choice of model.  Second, every major theorem in this paper is actually only a statement about 2-categories (either by restricting to a Hom 2-category between objects, or by identifying all isomorphic 2-morphisms), and the theory of 2-categories does not suffer from any of the theoretical complications of higher categories.  It is only the corollaries which relate the algebraic theorems to local TFTs which depend (via the cobordism hypothesis) on having a robust theory of categories in dimensions above 2.  More specifically, Theorems \ref{thm1}, \ref{thm3}, \ref{thm4}, and \ref{thm6}, and Corollaries \ref{cor7} and \ref{cor8} depend neither
+on the theory of higher categories nor on the cobordism hypothesis;
+Corollary \ref{cor5} depends on the theory of $(\infty,2)$-categories and on the
+cobordism hypothesis in dimension 2; and Corollary \ref{cor2} depends on the theory
+of $(\infty,3)$-categories and on the cobordism hypothesis in dimension
+3.
 
 \subsection*{Acknowledgments}
 \addtocontents{toc}{\SkipTocEntry}
