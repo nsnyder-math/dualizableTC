@@ -329,7 +329,12 @@ A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a strong functor of bica
 %
 \nid Bimodule categories, functors, and transformations form a strict 2-category.  %!%CD check
 %If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
-It happens that any lax (or oplax) functor of bicategories between bimodules is automatically strong---see Lemma~\ref{lem:laxisstrong}.
+It happens that any lax (or oplax) functor of bicategories between bimodules (between tensor categories) is automatically strong---see Lemma~\ref{lem:laxisstrong}. The above description in terms of bicategories permits us to effortlessly import several 2-categorical theorems into the world of bimodule categories. For example we have the following characterization of equivalences of bimodule categories (c.f. \cite{MR2664622})
+
+\begin{lemma} \label{lem:Recog_equiv_of_bimod}
+	Given two $\cC$-$\cD$-bimodule categories $\cM$ and $\cN$, and a bimodule functor $F:\cM \to \cN$, then $F$ is an equivalence of $\cC$-$\cD$-bimodule categories if and only if it induces an equivalence of underlying categories: $F: \Hom_{\cM}(x,y) \stackrel{\simeq}{\to} \Hom_{\cN}(x,y)$. 
+\end{lemma}
+
 
 \begin{example}
 	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way (that is any two such structures are naturally isomorphic via a unique isomorphism). %\CD{essentially unique?}
@@ -401,6 +406,30 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 \end{theorem}
 
 \noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}). 
+
+\begin{proof}[Proof of Thm.~\ref{thm:C-module-Embedding}]
+	First, we have a series of natural isomorphisms:
+	\begin{align*}
+		\Hom_{\Mod{}{A}(\cC)}&(b, \IHom(p,x))  \cong \Hom_{\Mod{}{A}(\cC)}( \coeq \left( b \otimes A \otimes A_A \rightrightarrows b \otimes A_A  \right), \IHom(p,x)) \\
+		& \cong \eq \left( \Hom_{\Mod{}{A}(\cC)}(b \otimes A_A, \IHom(p,x) )  \rightrightarrows \Hom_{\Mod{}{A}(\cC)}(  b \otimes A \otimes A_A, \IHom(p,x))  \right) \\
+		& \cong \eq \left( \Hom_{\cC}(b, \IHom(p,x) )  \rightrightarrows \Hom_{\cC}(  b \otimes A, \IHom(p,x))  \right) \\
+		& \cong \eq \left( \Hom_{\cM}(b \cdot p, x )  \rightrightarrows \Hom_{\cM}(  b \otimes A \cdot p, x)  \right) \\
+		& \Hom_{\cM}( \coeq \left( b \otimes \IHom(p,p) \cdot p \rightrightarrows b \cdot p \right), x) \\
+		& \Hom_{\cM}( F(b), x)
+	\end{align*}
+	where $b \in \Mod{}{A}(\cC)$ and $x \in \cM$. This establishes that $\IHom(p,-): \cM \to \Mod{}{A}(\cC)$ is indeed right adjoint to $F$.
+
+For the second part of the theorem, our assumptions ensure that:
+\begin{enumerate}
+	\item the functor $\IHom(p, -)$ is fully-faithful;
+	\item the functor $\IHom(p, -)$ is exact; and
+	\item the functor $\IHom(p, -)$ (coherently) commutes with the $\cC$-action. 
+\end{enumerate}	
+
+By (2)	
+	
+...	
+\end{proof}
 
 The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
 
