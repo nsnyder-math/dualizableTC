@@ -1824,7 +1824,7 @@ The pair $(u,m)$ give $R$ the structure of an algebra object, the pair $(\lambda
 
 
 We will describe the Frobenius algebra structure on $A \in \cC \boxtimes \cC^mp$ explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
-\CSP{See if there is another term for `normalized'}
+%\CSP{See if there is another term for `normalized'}
 
 Let us now make some observations about the algebra $A$. For each $x$ and $y$ we have the following series of canonical isomorphisms:
 \begin{align*}
@@ -1861,48 +1861,69 @@ Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be a
 \begin{equation*}
 	\Hom_{\cC}(y,z) \otimes \Hom_{\cC}(z,y) \to \Hom_{\cC}(z,z) \cong k
 \end{equation*}
-induced by composition is non-degenerate. This has several useful consequences.
+induced by composition is non-degenerate. This has several useful consequences, for example:
 
-\begin{lemma}
-	Let $x$ and $\overine{x}$ be simple objects in a fusion category, and suppose that $\varepsilon: x \otimes \overline{x} \to 1$ is a non-zero morphism. Then $\overline{x}$ canonically admits the structure of an ambidexterous dual to $x$. 
-	
-	...
+\begin{lemma} \label{lma:canonical_ambidextrous}
+	Let $x$ and $\overline{x}$ be simple objects in a fusion category, and suppose that $\varepsilon: x \otimes \overline{x} \to 1$ is a chosen non-zero morphism. Then $\overline{x}$ canonically admits the structure of an ambidexterous dual to $x$, characterized by the normalization $\varepsilon \circ \overline{\eta} = 1 \in k = \End(1)$. 
 \end{lemma}
 
-...
-\CSPcomm{in progress}
-
-
-\begin{proof}[Proof of Prop.~\cite{prop:FrobAlg_for_fusion}] There are several equivalent ways to describe a Frobenius algebra structure on a given algebra. We will use the following characterization: the counit map $\lambda: A \to 1 \boxtimes 1$ gives $A$ the structure of a Frobenius algebra if and only if the induced pairing
-	\begin{equation*}
-		b = \lambda \circ m: A \otimes A \to 1 \boxtimes 1
-	\end{equation*}
-is the evaluation map of a self-duality structure on $A$. That is, $\lambda$ gives $A$ the structure of a Frobenius algebra if and only if there exists a map 
-\begin{equation*}
-	c: 1 \boxtimes 1 \to A \otimes A
-\end{equation*}	
-such that both 
-\begin{align*}
-	(id_A \otimes b) (c \otimes id_A) & = id_A, \quad \textrm{ and} \\
-	(b \otimes id_A) (id_A \otimes c) & = id_A
-\end{align*}	
-are satisfied. 	
+\begin{proof}
+	The pairing $\varepsilon$ induces an isomorphism $\overline{x} \cong {}^*x$, and hence there exists a unique morphism $\eta: 1 \to \overline{x} \otimes x$ such that the pair $(\varepsilon, \eta)$ expresses $\overline{x}$ as the left dual of $x$. Since $x$ and $\overline{x}$ are simple objects the vector spaces $\Hom(1, \overline{x} \otimes x)$, $\Hom(\overline{x} \otimes x, 1)$, $\Hom(1, x \otimes \overline{x})$, and $\Hom(x \otimes \overline{x}, 1)$ are one dimensional. It follows that there exists a unique morphism $\overline{\eta}: 1 \to x \otimes \overline{x}$ satisfying the normalization condition $\varepsilon \circ \overline{\eta} = id_1$. The single morphism $\varepsilon$ provides a basis for $\Hom(x \otimes \overline{x}, 1)$ and $\overline{\eta}$ is the corresponding dual basis vector for $\Hom(1, x \otimes \overline{x})$. 
 	
+	The morphism $\overline{\eta}$ is non-zero and hence induces an isomorphism $\overline{x} \cong x^*$, and hence a unique morphism $\overline{\varepsilon}: \overline{x} \otimes x \to 1$ such that the pair $(\overline{\varepsilon}, \overline{\eta})$ witnesses $\overline{x}$ as the right dual of $x$. In other words we have constructed the desired ambidextrous duality. 
+\end{proof}
 
-	
-We will now fix a basis $\{e_{ij, k}^\alpha\}$ for each of the vector spaces $\Hom_{\cC}(L_i \otimes L_j, L_k)$ (where $\alpha$ runs over a finite indexing set which depends on $i,j$ and $k$). Since the above pairing is non-degenerate, we have an induced dual basis $\{\hat{e}_{ij, k}^\alpha \}$ for the vector space $\Hom_{\cC}(L_k, L_i \otimes L_j)$. Let $\{{}^*\hat{e}_{ij, k}^\alpha\}$ denote the induced basis of $\Hom_{\cC}({}^*L_j \otimes {}^*L_i, {}^*L_k)$. 
-
-In the special case $L_k = 1$, the vector space $\Hom_{\cC}(L_i \otimes L_j, L_k)$ is the zero vector space unless $L_j \cong {}^*L_i$, in which case it is one-dimensional. In this later case, we will take the basis vector $e_{i {}^*i, 1}$ to be the evaluation map $\ev_{L_i}:L_i \otimes {}^*L_i \to 1$. The dual basis element is the unique map
+Just as $\varepsilon$ constituted a basis for $\Hom(x \otimes \overline{x}, 1)$, with dual basis given by $\overline{\eta}$, the single morphism $\eta$ constitutes a basis for $\Hom(1, \overline{x} \otimes x)$. Hence there exists a canonical morphisms $\hat{\eta}$ which provides the dual basis of $\Hom(\overline{x} \otimes x, 1)$. These satisfy the normalization $\hat{\eta} \circ \eta = id_1$. One might be tempted to think that $\hat{\eta}$ is equal to  $\overline{\varepsilon}$, but this is generally incorrect. Instead we have the following formula:
 \begin{equation*}
-	\widehat{\ev}_{L_i}: 1 \to L_i \otimes {}^*L_i
+	\overline{\varepsilon} = \hat{\eta} \cdot d^2(x).
 \end{equation*} 
-with the property that $\ev_{L_i} \circ \widehat{\ev}_{L_i} = id_1$. Similarly $\widehat{\coev}_{L_i}: {}^*L_i \otimes L_i \to 1$ is the unique map such that $\widehat{\coev}_{L_i} \circ \coev_{L_i} = id_1$. 
 
-The maps $\widehat{\ev}$ and $\widehat{\coev}$ {\em do not} provide ${}^*L_i$ with the structure of an ambidextrous dual to $L_i$; they fail to satisfy the defining equations of a duality. This can also be seen from the formula
-\begin{equation*}
-	(\ev \circ \widehat{\ev}) \cdot (\widehat{\coev} \circ \coev) = 1.
-\end{equation*}
-If $\widehat{\ev}$ and $\widehat{\coev}$ were to give ${}^*L_i$  the structure of an ambidextrous dual to $L_i$, then this formula would need to compute the magnitude of $L_i$, which in general it does not. An ambidextrous duality may be obtained by scaling either $\widehat{\ev}$ or $\widehat{\coev}$ by the magnitude of $L_i$. 
+%...
+%\CSPcomm{in progress}
+
+
+\begin{proof}[Proof of Prop.~\ref{prop:FrobAlg_for_fusion}] 
+We have already specified the algebra structure $(u,m)$ on $A$ as well as the counit $\lambda$. This gives us the pairing map $b= \lambda \circ m: A \otimes A \to 1 \boxtimes 1$. To show that this induces a Frobenius algebra structure on $A$ is suffices to construct a copairing (necessarily unique) $c: 1 \boxtimes 1 \to A \otimes A$ such that $(b,c)$ gives a self-duality for $A$. 	
+	
+%	There are several equivalent ways to describe a Frobenius algebra structure on a given algebra. We will use the following characterization: the counit map $\lambda: A \to 1 \boxtimes 1$ gives $A$ the structure of a Frobenius algebra if and only if the induced pairing
+%	\begin{equation*}
+%		b = \lambda \circ m: A \otimes A \to 1 \boxtimes 1
+%	\end{equation*}
+%is the evaluation map of a self-duality structure on $A$. That is, $\lambda$ gives $A$ the structure of a Frobenius algebra if and only if there exists a map 
+%\begin{equation*}
+%	c: 1 \boxtimes 1 \to A \otimes A
+%\end{equation*}	
+%such that both 
+%\begin{align*}
+%	(id_A \otimes b) (c \otimes id_A) & = id_A, \quad \textrm{ and} \\
+%	(b \otimes id_A) (id_A \otimes c) & = id_A
+%\end{align*}	
+%are satisfied. 	
+	
+
+As before we fix a chosen collection $\{L_i\}$ of representatives for each isomorphism class of simple objects. 	
+We will now also fix a basis $\{e_{ij, k}^\alpha\}$ for each of the vector spaces $\Hom_{\cC}(L_i \otimes L_j, L_k)$ (where $\alpha$ runs over a finite indexing set which depends on $i,j$ and $k$). We have an induced dual basis $\{\hat{e}_{ij, k}^\alpha \}$ for the vector space $\Hom_{\cC}(L_k, L_i \otimes L_j)$. Let $\{{}^*\hat{e}_{ij, k}^\alpha\}$ denote the induced basis of $\Hom_{\cC}({}^*L_j \otimes {}^*L_i, {}^*L_k)$. 
+
+For each index $i$, there exists exactly one index $j$ such that $\Hom(L_i \otimes L_j, 1)$ is non-zero. We will denote this distinguished index by $j = \overline{i}$ and write $L_j = {L}_{\overline{i}}$. Moreover the choice of basis $e_{i \overline{i}, 1}$ induces on ${L}_{\overline{i}}$, via lemma \ref{lma:canonical_ambidextrous}, a canonical structure of an ambidextrous dual to $L_i$. We will denote the ambidexterous duality structure maps as: 
+\begin{align*}
+	\eta_i: 					& \; 1 \to L_{\overline{i}} \otimes L_i, \\
+	\overline{\eta}_i: 		& \;  1 \to   L_i \otimes L_{\overline{i}}, \\
+	\varepsilon_i: 			& \;  L_i \otimes L_{\overline{i}} \to 1, \\
+	\overline{\varepsilon}_i: & \;   L_{\overline{i}} \otimes L_i  \to 1. 
+\end{align*}
+By construction we have $e_{i \overline{i}, 1} = \varepsilon_i$ and $\hat{e}_{i \overline{i}, 1} = \overline{\eta}_i$. 
+
+%In the special case $L_k = 1$, the vector space $\Hom_{\cC}(L_i \otimes L_j, L_k)$ is the zero vector space unless $L_j \cong {}^*L_i$, in which case it is one-dimensional. In this later case, we will take the basis vector $e_{i {}^*i, 1}$ to be the evaluation map $\ev_{L_i}:L_i \otimes {}^*L_i \to 1$. The dual basis element is the unique map
+%\begin{equation*}
+%	\widehat{\ev}_{L_i}: 1 \to L_i \otimes {}^*L_i
+%\end{equation*} 
+%with the property that $\ev_{L_i} \circ \widehat{\ev}_{L_i} = id_1$. Similarly $\widehat{\coev}_{L_i}: {}^*L_i \otimes L_i \to 1$ is the unique map such that $\widehat{\coev}_{L_i} \circ \coev_{L_i} = id_1$. 
+%
+%The maps $\widehat{\ev}$ and $\widehat{\coev}$ {\em do not} provide ${}^*L_i$ with the structure of an ambidextrous dual to $L_i$; they fail to satisfy the defining equations of a duality. This can also be seen from the formula
+%\begin{equation*}
+%	(\ev \circ \widehat{\ev}) \cdot (\widehat{\coev} \circ \coev) = 1.
+%\end{equation*}
+%If $\widehat{\ev}$ and $\widehat{\coev}$ were to give ${}^*L_i$  the structure of an ambidextrous dual to $L_i$, then this formula would need to compute the magnitude of $L_i$, which in general it does not. An ambidextrous duality may be obtained by scaling either $\widehat{\ev}$ or $\widehat{\coev}$ by the magnitude of $L_i$. 
 
 The Frobenius algebra structure on $A$ may now be described by explicit formulas. The multiplication map 
 \begin{equation*}
@@ -1912,12 +1933,16 @@ is given on individual summands by the sum $\sum_\alpha (e_{ij,k}^\alpha) \boxti
 \begin{equation*}
 	b=\lambda \circ m: A \otimes A \to 1 \boxtimes 1
 \end{equation*}
- is given by first projecting onto the factor where $L_j = {}^*L_i$, and then applying $\ev_{L_i} \boxtimes {}^*\widehat{\ev}_{L_i}$ to each factor separately. 
+ is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $\varepsilon_i \boxtimes {}^*\overline{\eta}_i$ to each factor separately. 
 
-The copairing $c: 1 \boxtimes 1 \to A \otimes A \cong \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^*L_j \otimes {}^*L_i)$ has a equally explicit description. It is zero on all summands except those in which $L_j = {}^*L_i$. On these later it is given by
+The copairing $c: 1 \boxtimes 1 \to A \otimes A \cong \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^*L_j \otimes {}^*L_i)$ has a equally explicit description. It is zero on all summands except those in which $L_j = L_{\overline{i}}$. On these latter it is given by
 \begin{equation*}
-	c = \oplus_i \widehat{\ev}_{L_i} \boxtimes {}^*( {\ev}_{L_i} \cdot d^2(L_i)).
+	c = \oplus_i \overline{\eta}_i \boxtimes {}^*( \varepsilon_i \cdot d^2(L_i)).
 \end{equation*}
+From this description is it clear that the window element $b \circ c = \dim(\cC)$, the global dimension of $\cC$. 
+
+...
+
 Verifying that this formula does indeed provide the desired copairing is quite tedious and we leave this calculation to the reader. 
 %that this formula does indeed define the unique map making the pair $(b,c)$ into a self-duality of $A$.
  A useful tool when making these calculations is the canonical identification
