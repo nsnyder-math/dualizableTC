@@ -1809,7 +1809,21 @@ Second, as a left $\cC \boxtimes \cC^\mp$-module category, $\cC$ is equivalent t
 %\end{equation*}
 %where  $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$ is the induced algebra object (see also Example \ref{Ex:Hopf_bimod}).  
 
-When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact is canonically a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. We will describe this Frobenius algebra structure explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
+When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact is canonically a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. Recall that for Frobenius algebra object $R$ in a monoidal category we have the following maps:
+\begin{equation*}
+	\begin{array}{l c  r c c c}
+		\textrm{(unit)} & \quad & u: & 1 & \to & R \\
+		\textrm{(multiplication)} && m: & R \otimes R & \to & R \\
+		\textrm{(counit)} && \lambda: & R &\to &1 \\
+		\textrm{(comultiplication)} && \Delta: & R &\to& R \otimes R \\
+		\textrm{(pairing)} && b = \lambda \circ m: & R \otimes R& \to& 1 \\
+		\textrm{(copairing)} && c = \Delta \circ u: & 1&\to&  R \otimes R.
+	\end{array}
+\end{equation*}
+The pair $(u,m)$ give $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ give $R$ the structure of coalgebra object, and the pair $(b,c)$ give $R$ the structure of a self-dual object. The entire structure is completely determine by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
+
+
+We will describe the Frobenius algebra structure on $A \in \cC \boxtimes \cC^mp$ explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
 \CSP{See if there is another term for `normalized'}
 
 Let us now make some observations about the algebra $A$. For each $x$ and $y$ we have the following series of canonical isomorphisms:
@@ -1834,13 +1848,15 @@ The unit map $u: 1 \boxtimes 1 \to A$ is given by the cononcial inclusion of the
 \end{equation*}
 We will see another explicit formula for the multiplication map momentarily. 
 
-Any Frobenius algebra structure $(m,u, \Delta, \lambda)$ on $A$ is determined by the algebra structure together with the counit $\lambda: A \to 1 \boxtimes 1$. Since we see that $\Hom_{\cC \boxtimes \cC^\mp}(A, 1 \boxtimes 1)$ is one dimensional, it follows that there is a unique map $\lambda:A \to 1 \boxtimes 1$ satisfying $\lambda \circ u = id_{1 \boxtimes 1}$, and hence there can be at most one normalized Frobenius algebra structure on the algebra $A$; if it exists, then it is unique. 
+Since the Frobenius algebra structure $(m,u, \Delta, \lambda)$ on $A$ is determined by the algebra structure together with the counit $\lambda: A \to 1 \boxtimes 1$, and since we see that $\Hom_{\cC \boxtimes \cC^\mp}(A, 1 \boxtimes 1)$ is one dimensional, it follows that there is a unique map $\lambda:A \to 1 \boxtimes 1$ satisfying $\lambda \circ u = id_{1 \boxtimes 1}$, and hence there can be at most one normalized Frobenius algebra structure on the algebra $A$; if it exists, then it is unique. 
 
-In any Frobenius algebra $R$, the composite of the comultiplication followed by the multiplication $\mu \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $\mu \circ \Delta \circ u: 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the monoidal unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the unit map of $A$, and consequently $\mu \circ \Delta$ is given by multiplication by this scalar element. 
+In any Frobenius algebra $R$, the composite of the comultiplication followed by the multiplication $m \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $m \circ \Delta \circ u: 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the monoidal unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the unit map of $A$, and consequently $m \circ \Delta$ is given by multiplication by this scalar element. It can be computed as the value of $ b \circ c =  \lambda \circ m \circ \Delta \circ u \in \End(1 \boxtimes 1) = k$. 
 
 \begin{proposition}
 	The unique normalized map $\lambda:A \to 1 \boxtimes 1$ (so that $\lambda \circ u = id_{1 \boxtimes 1}$) determines the structure of a Frobenius algebra on $A$. Moreover the window element of this Frobenius algebra is precisely the global dimension of the Fusion category $\cC$. 
 \end{proposition}
+
+\CSPcomm{first describe}
 
 \begin{proof} There are several equivalent ways to describe a Frobenius algebra structure on a given algebra. We will use the following characterization: the counit map $\lambda: A \to 1 \boxtimes 1$ gives $A$ the structure of a Frobenius algebra if and only if the induced pairing
 	\begin{equation*}
