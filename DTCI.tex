@@ -1852,13 +1852,28 @@ Since the Frobenius algebra structure $(m,u, \Delta, \lambda)$ on $A$ is determi
 
 In any Frobenius algebra $R$, the composite of the comultiplication followed by the multiplication $m \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $m \circ \Delta \circ u: 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the monoidal unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the unit map of $A$, and consequently $m \circ \Delta$ is given by multiplication by this scalar element. It can be computed as the value of $ b \circ c =  \lambda \circ m \circ \Delta \circ u \in \End(1 \boxtimes 1) = k$. 
 
-\begin{proposition}
+\begin{proposition} \label{prop:FrobAlg_for_fusion}
 	The unique normalized map $\lambda:A \to 1 \boxtimes 1$ (so that $\lambda \circ u = id_{1 \boxtimes 1}$) determines the structure of a Frobenius algebra on $A$. Moreover the window element of this Frobenius algebra is precisely the global dimension of the Fusion category $\cC$. 
 \end{proposition}
 
-\CSPcomm{first describe}
+To demonstrate the existence of this Frobenius algebra structure, it will be useful to employ another bit of structure available in fusion tensor categories. 
+Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
+\begin{equation*}
+	\Hom_{\cC}(y,z) \otimes \Hom_{\cC}(z,y) \to \Hom_{\cC}(z,z) \cong k
+\end{equation*}
+induced by composition is non-degenerate. This has several useful consequences.
 
-\begin{proof} There are several equivalent ways to describe a Frobenius algebra structure on a given algebra. We will use the following characterization: the counit map $\lambda: A \to 1 \boxtimes 1$ gives $A$ the structure of a Frobenius algebra if and only if the induced pairing
+\begin{lemma}
+	Let $x$ and $\overine{x}$ be simple objects in a fusion category, and suppose that $\varepsilon: x \otimes \overline{x} \to 1$ is a non-zero morphism. Then $\overline{x}$ canonically admits the structure of an ambidexterous dual to $x$. 
+	
+	...
+\end{lemma}
+
+...
+\CSPcomm{in progress}
+
+
+\begin{proof}[Proof of Prop.~\cite{prop:FrobAlg_for_fusion}] There are several equivalent ways to describe a Frobenius algebra structure on a given algebra. We will use the following characterization: the counit map $\lambda: A \to 1 \boxtimes 1$ gives $A$ the structure of a Frobenius algebra if and only if the induced pairing
 	\begin{equation*}
 		b = \lambda \circ m: A \otimes A \to 1 \boxtimes 1
 	\end{equation*}
@@ -1873,12 +1888,7 @@ such that both
 \end{align*}	
 are satisfied. 	
 	
-	To demonstrate the existence of this Frobenius algebra structure, it will be useful to employ another bit of structure available in fusion tensor categories. 
-	Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
-	\begin{equation*}
-		\Hom_{\cC}(y,z) \otimes \Hom_{\cC}(z,y) \to \Hom_{\cC}(z,z) \cong k
-	\end{equation*}
-	induced by composition is non-degenerate. This has several useful consequences. 
+
 	
 We will now fix a basis $\{e_{ij, k}^\alpha\}$ for each of the vector spaces $\Hom_{\cC}(L_i \otimes L_j, L_k)$ (where $\alpha$ runs over a finite indexing set which depends on $i,j$ and $k$). Since the above pairing is non-degenerate, we have an induced dual basis $\{\hat{e}_{ij, k}^\alpha \}$ for the vector space $\Hom_{\cC}(L_k, L_i \otimes L_j)$. Let $\{{}^*\hat{e}_{ij, k}^\alpha\}$ denote the induced basis of $\Hom_{\cC}({}^*L_j \otimes {}^*L_i, {}^*L_k)$. 
 
