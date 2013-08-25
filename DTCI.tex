@@ -1776,8 +1776,8 @@ $d^2(x)$ of $x$ is defined by the formula
 \end{equation*}
 % This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
 where $a: {}^{**}x \to x$ is any choice of isomorphism and $(\varepsilon, \eta, \overline{\varepsilon}, \overline{\eta})$ is the corresonding ambidextrous duality.
-This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$. 
-
+This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$. Also, it is clear that $d^2(x) = d^2(\overline{x})$ for any ambidextrous 
+dual of $x$. 
 \begin{definition}
 	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is defined by the formula
 	\begin{equation*}
@@ -1904,14 +1904,16 @@ We have already specified the algebra structure $(u,m)$ on $A$ as well as the co
 As before we fix a chosen collection $\{L_i\}$ of representatives for each isomorphism class of simple objects. 	
 We will now also fix a basis $\{e_{ij, k}^\alpha\}$ for each of the vector spaces $\Hom_{\cC}(L_i \otimes L_j, L_k)$ (where $\alpha$ runs over a finite indexing set which depends on $i,j$ and $k$). We have an induced dual basis $\{\hat{e}_{ij, k}^\alpha \}$ for the vector space $\Hom_{\cC}(L_k, L_i \otimes L_j)$. Let $\{{}^*\hat{e}_{ij, k}^\alpha\}$ denote the induced basis of $\Hom_{\cC}({}^*L_j \otimes {}^*L_i, {}^*L_k)$. 
 
-For each index $i$, there exists exactly one index $j$ such that $\Hom(L_i \otimes L_j, 1)$ is non-zero. We will denote this distinguished index by $j = \overline{i}$ and write $L_j = {L}_{\overline{i}}$. Moreover the choice of basis $e_{i \overline{i}, 1}$ induces on ${L}_{\overline{i}}$, via lemma \ref{lma:canonical_ambidextrous}, a canonical structure of an ambidextrous dual to $L_i$. We will denote the ambidexterous duality structure maps as: 
+For each index $i$, there exists exactly one index $j$ such that $\Hom(L_i \otimes L_j, 1)$ is non-zero. We will denote this distinguished index by $j = \overline{i}$ and write $L_j = {L}_{\overline{i}}$. Moreover the choice of basis vector $e_{i \overline{i}, 1}$ induces on ${L}_{\overline{i}}$, via lemma \ref{lma:canonical_ambidextrous}, a canonical structure of an ambidextrous dual to $L_i$. We will denote the ambidexterous duality structure maps as: 
 \begin{align*}
 	\eta_i: 					& \; 1 \to L_{\overline{i}} \otimes L_i, \\
 	\overline{\eta}_i: 		& \;  1 \to   L_i \otimes L_{\overline{i}}, \\
 	\varepsilon_i: 			& \;  L_i \otimes L_{\overline{i}} \to 1, \\
 	\overline{\varepsilon}_i: & \;   L_{\overline{i}} \otimes L_i  \to 1. 
 \end{align*}
-By construction we have $e_{i \overline{i}, 1} = \varepsilon_i$ and $\hat{e}_{i \overline{i}, 1} = \overline{\eta}_i$. 
+By construction we have $e_{i \overline{i}, 1} = \varepsilon_i$ and $\hat{e}_{i \overline{i}, 1} = \overline{\eta}_i$. It seems prudent to warn the reader at this point that, although it is true that $\overline{\overline{i}} = i$, in general we have $\overline{\eta}_i$ not equal to $\eta_{\overline{i}}$, and similar inequalities. 
+
+
 
 %In the special case $L_k = 1$, the vector space $\Hom_{\cC}(L_i \otimes L_j, L_k)$ is the zero vector space unless $L_j \cong {}^*L_i$, in which case it is one-dimensional. In this later case, we will take the basis vector $e_{i {}^*i, 1}$ to be the evaluation map $\ev_{L_i}:L_i \otimes {}^*L_i \to 1$. The dual basis element is the unique map
 %\begin{equation*}
@@ -1929,7 +1931,7 @@ The Frobenius algebra structure on $A$ may now be described by explicit formulas
 \begin{equation*}
 	m: \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^*L_j \otimes {}^*L_i) = A \otimes A \to A = \oplus_k L_k \boxtimes {}^*L_k
 \end{equation*}
-is given on individual summands by the sum $\sum_\alpha (e_{ij,k}^\alpha) \boxtimes ({}^*\hat{e}_{ij, k}^\alpha)$. The counit map $\lambda: A \to 1 \boxtimes 1$ is given by projecting onto the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$. Thus the composite pairing 
+is given on individual summands by the sum $\sum_\alpha (e_{ij,k}^\alpha) \boxtimes ({}^*\hat{e}_{ij, k}^\alpha)$. The counit map $\lambda: A \to 1 \boxtimes 1$ is given by projecting onto the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$; the unit is the inclusion of this factor. Thus the composite pairing 
 \begin{equation*}
 	b=\lambda \circ m: A \otimes A \to 1 \boxtimes 1
 \end{equation*}
@@ -1939,17 +1941,54 @@ The copairing $c: 1 \boxtimes 1 \to A \otimes A \cong \oplus_{i,j} (L_i \otimes 
 \begin{equation*}
 	c = \oplus_i \overline{\eta}_i \boxtimes {}^*( \varepsilon_i \cdot d^2(L_i)).
 \end{equation*}
-From this description is it clear that the window element $b \circ c = \dim(\cC)$, the global dimension of $\cC$. 
+From this description we calculate the window element
+\begin{equation*}
+	b \circ c = \sum_i (\varepsilon_i \circ \overline{\eta}_i) \cdot ({}^*\overline{\eta}_i \circ {}^*\varepsilon_i) \cdot d^2(L_i) = \sum_i d^2(L_i) = \dim \cC
+\end{equation*} 
+and see it is given by the global dimension of $\cC$. 
+
+What remains is to verify that $c$ and $b$ do indeed form a self-duality for $A$. We will demonstrate the identity
+\begin{equation*}
+	(id_A \otimes b) (c \otimes id_A)  = id_A,
+\end{equation*}
+the other one is similar. In a moment we will expand the composite $(id_A \otimes b) (c \otimes id_A)$ in terms of the above formulas, but first let us make the following useful observation. Suppose that $x$ and $y$ are simple objects which happen to be isomorphic. Then there exists a canonical isomorphism
+\begin{equation*}
+	F: x \boxtimes {}^{*}x \stackrel{\cong}{\to}  y \boxtimes {}^*y 
+\end{equation*}
+in $\cC \boxtimes \cC^\mp$. Here $F = f \boxtimes {}^{*}(f^{-1})$ where $f: x \to y$ is any choice of isomorphism; the morphism $F$ is independent of the choice of $f$.
+
+Thus we may expand the composite $(id_A \otimes b) (c \otimes id_A)$ in terms of the above formulas as follows (where $f_i: L_{\overline{\overline{i}}} \to L_i$ are any choices of isomorphism):
+\begin{align*}
+	&(id_A \otimes b) (c \otimes id_A) \\
+	 &= \oplus_i [ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \boxtimes (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i)] \circ [(id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) \boxtimes ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} ) \cdot d^2(L_i)] \circ  [f_i \boxtimes {}^*(f_i^{-1})] \\
+	&= \oplus_i [(\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) \circ f_i] \boxtimes [ (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} ) \circ {}^*(f_i^{-1}) \cdot d^2(L_i)].
+\end{align*}
+These formulas are of course independent of the choices of $f_i$. 
+We wish to show that this composite is the identity morphism of $A$. It is certainly sufficient to show that the individual composites
+\begin{align*}
+	(\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) \circ f_i \\
+	(id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} ) \circ {}^*(f_i^{-1}) \cdot d^2(L_i)
+\end{align*}
+are the identity separately. 
+
+We make two initial observations, first, the above formula is independent of the choice of $f$
+
+
+Expanding the composite $(id_A \otimes b) (c \otimes id_A)$ in terms of the above formulas yields a morphism:
+\begin{equation*}
+	A = \oplus_i L_i \boxtimes {}^*L_i \to \oplus_i L_{\overline{\overline{i}}} \boxtimes {}^*L_{\overline{\overline{i}}} = A
+\end{equation*} 
+which in each $i$-component is given by:
+\begin{equation*}
+	 ...
+\end{equation*}
+(recall $d^2(L_i) = d^2(L_{\overline{i}})$).
 
 ...
 
 Verifying that this formula does indeed provide the desired copairing is quite tedious and we leave this calculation to the reader. 
 %that this formula does indeed define the unique map making the pair $(b,c)$ into a self-duality of $A$.
- A useful tool when making these calculations is the canonical identification
-\begin{equation*}
-	a \boxtimes {}^{*}(a^{-1}): {}^{**}L_i \boxtimes {}^{***}L_i \stackrel{\cong}{\to}  L_i \boxtimes {}^*L_i  
-\end{equation*}
-where $a: {}^{**}L_i \to L_i$ is any choice of isomorphism. The above identification is independent of the choice of $a$, but choosing $a$ carefully allows the formula for $c$ to be rewritten in terms of coevaluations and their duals.  
+ , but choosing $a$ carefully allows the formula for $c$ to be rewritten in terms of coevaluations and their duals.  
 
 From this explicit description it is clear that the window element of the Frobenius algebra $A$ is given by exactly the global dimension of the fusion tensor category $\cC$. 
 \end{proof}
