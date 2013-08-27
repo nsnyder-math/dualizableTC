@@ -64,6 +64,7 @@ We show that separable tensor categories are the fully dualizable objects in the
 
 An $n$-dimensional topological field theory (TFT), a la Atiyah and Segal \cite{MR1001453,Segal}, is a symmetric monoidal functor from the category of $n$-dimensional bordisms to the category of vector spaces.  Hence, a TFT assigns to any closed $(n-1)$-manifold a vector space, and to any $n$-dimensional bordism it assigns a linear map between the corresponding vector spaces.  In particular, to a closed $n$-manifold a TFT assigns an endomorphism of the trivial vector space, that is a scalar.  Thus, TFTs can be thought of as topological invariants which can be computed by chopping the manifold up into smaller pieces.  A local (that is, fully extended) TFT allows one to cut the manifold not just along codimension one boundaries, but along boundaries with corners of arbitrary codimension.  That is, the invariants are built up by gluing together bordisms with corners.  Just as ordinary bordisms form a symmetric monoidal category, bordisms with corners  form a symmetric monoidal $n$-category.  A local TFT is therefore a functor of symmetric monoidal $n$-categories from the $n$-category of bordisms with corners to another symmetric monoidal $n$-category.  %Because points are much simpler than $(n-1)$-manifolds, local theories are easier to understand than ordinary TFTs.
 \NS{Should all the TFTs in this paragraph be TQFTs?}
+\CD{I vote for everything to be TFTs, not TQFTs}
 
 The Turaev--Viro \cite{MR1191386, MR1292673} construction (as generalized by Ocneanu \cite{MR1317353} and Barrett--Westbury \cite{MR1686423}) assigns to any spherical fusion category a 3-dimensional topological field theory.   We would like to think of Turaev--Viro as a local $3$-dimensional TFT.  A natural choice of target $3$-category is $\TC$ (whose whose objects, $1$-morphisms, $2$-morphisms, and $3$-morphisms are tensor categories, bimodule categories, functors, and natural transformations, respectively) which we constructed in \cite{3TC}.  Such a field theory is determined by its value on a point, and we prove that this value can be taken to be any fusion category.  Previous Turaev--Viro constructions assume the given fusion category is spherical, but we relax this assumption by constructing in general not an oriented TFT but a $3$-framed TFT. %; the additional information of a spherical structure ensures that this $3$-framed theory is independent of the $3$-framing.  We also relax the semisimplicity assumption on the fusion category, constructing a local $3$-framed $2$-dimensional TFT for any finite tensor category that has duals for objects.  
 We also avoid several more assumptions that frequently appear in the literature: simplicity of the unit, algebraic closure of the base field, split semisimplicity, and characteristic zero---though in positive characteristic one needs an additional technical assumption which we call {\em separability} (see section \ref{sec:tc-separable}).
@@ -104,8 +105,6 @@ More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) 
 	\caption{The Belt Bordism}
 	\label{fig:belt_bordism}
 \end{figure}
-\CD{This should be made into a Figure, so it can be referred to later.}
-\CSP{done.}
 \NS{This should be redrawn.}
 
 
@@ -127,6 +126,7 @@ In Section \ref{sec:tc} we rapidly review the theory of finite tensor categories
 The heart of the paper is Section \ref{sec:dualfusion} where we prove the following main results.
 
 \CSP{Change the numbering of these theorems to match the correct numbering in the paper.}
+\CD{I vote for dealing with the numbering slightly differently --- I'll implement it and you can see if you like it --- if not, we can then do what you propose.}
 
 \begin{maintheorem} \label{thm1}
 Separable tensor categories are fully dualizable.
@@ -149,6 +149,7 @@ We also have a converse to the main theorem.
 Fully dualizable finite tensor categories are separable.
 \end{maintheorem}
 \CSP{Should Thm1 and Thm 3 be combined?}
+\CD{I vote for them being separate.}
 
 For technical reasons we restrict our attention throughout to finite tensor categories throughout this paper, because we have only given a rigorous definition of the $3$-category of finite tensor categories.  In particular, the relative Deligne tensor product is not easy to define in more generality.  Nonetheless, it is natural to wonder whether finiteness or even rigidity (which is part of the definition of tensor category) are necessary for dualizability.  Since rigidity is not preserved by Morita equivalence (as pointed out to us by Dan Freed), there are finite monoidal categories which are fully dualizable but not rigid.  Indeed, semisimplicity and finiteness are also not Morita invariant notions.  We do not know a simple characterization of all fully dualizable monoidal categories (indeed we do not know in what generality it even makes sense to ask this question).
 %\CSP{Maybe mention something about the fact that we only know that the relative Deligne tensor product exists under the assumption of rigidity?}
@@ -255,11 +256,8 @@ We would like to thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov J
 We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec:tc-separable}.
 \CSP{Is it this section we are thanking Ostrik for or 3.6? (Fusion cats)}
   NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding the 3-category of tensor categories and 3-dimensional local field theory.
-\CD{I moved the other acknowledgments to the relevant papers DTCn}
 
 \section{Local field theory in dimension three} \label{sec:lft}
-
-\NS{We need to define what it means to say that a $3$-category is $1$-dualizable, $2$-dualizable, etc. so that the definitions are compatible with the statements in Section 4.}
 
 The cobordism hypothesis classifies local field theories in terms of sufficiently dualizable objects of target higher categories.  Recall that an object $x$ of a symmetric monoidal $(\infty,3)$-category is called ``1-dualizable" if there is a dual object $\overline{x}$, with the duality between $x$ and $\overline{x}$ witnessed by evaluation and coevaluation maps $ev: x \otimes \overline{x} \ra 1$ and $coev: 1 \ra \overline{x} \otimes x$.  (Note well that the zigzag equations relating $ev$ and $coev$ are only required to hold up to equivalence, and there is no coherence condition on those equivalences.)  The object is called ``2-dualizable" if moreover the evaluation map is part of an infinite chain of adjunctions 
 $$\cdots \dashv ev^{LL} \dashv ev^L \dashv ev \dashv ev^R \dashv ev^{RR} \dashv \cdots$$
@@ -283,7 +281,7 @@ Equipped with the notion of full dualizability, we can state the cobordism hypot
 
 \setlength{\leftskip}{0cm}
 
-\NS{Maybe only define 1, 2, and 3 dualizability, but state the cobordism hypothesis for all n (noting that we only use it for $n \leq 3$)?}
+\NS{Maybe only define 1, 2, and 3 dualizability, but state the cobordism hypothesis for all n (noting that we only use it for $n \leq 3$)?} \CD{I'll do this.}
 
 \nid In the next section we describe the notion of framing referred to in this classification.  We refer the reader to Appendix~\ref{app:modelindep} for a more detailed and precise review of the notion of full dualizability and statement of the cobordism hypothesis.  
 
@@ -1112,8 +1110,7 @@ With the preceding conventions in place, observe the following:
 
 \subsection{Tensor categories, bimodule categories, and the Deligne tensor product} \label{sec:tc-lincat}
 
-	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?} \CSP{It means that the addition on homs you get from the structure of an abelian category agrees with the addition on homs you get from being enriched in Vect. They are compatible. }
-A {\em linear functor} is a right exact additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
+	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$ (that is, an enrichment whose underlying enrichment over the category of abelian groups agrees with the given abelian structure). A {\em linear functor} is a right exact additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
 	Unless explicitly stated otherwise, {\bfseries all linear functors considered in this paper are  right exact functors}.  Many of the constructions described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering the paper with the adjective `right exact', we build right exactness into the basic definitions, even though this deviates from convention in the literature.  
