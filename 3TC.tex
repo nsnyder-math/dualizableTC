@@ -1590,6 +1590,134 @@ The fibrant objects are described in the following definition:
 \NS{Some discussion of why the cobordism hypothesis is model independent?}
 
 
+\section{The cobordism hypothesis} \label{app:ch}
+
+\CDcomm{This entire section was just copy-pasted from DTCI.  Bits of it may or may not get used for TC3.}
+
+The Atiyah-Segal axioms define a topological field theory as a symmetric monoidal functor from a category of cobordisms to a target symmetric monoidal category $(\cC, \otimes, 1)$, typically an algebraic target such as the category of vector spaces: 
+\begin{equation*}
+	\cF: \Cob_n \to \cC
+\end{equation*}
+In this case the objects of $\Cob_n$ are closed compact $(n-1)$-dimensional manifolds and the morphisms are diffeomorphism classes of $n$-dimensional cobordisms between these manifolds. The symmetric monoidal structure is given by the disjoint union of manifolds and cobordisms. A closed $n$-dimensional manifold gives an endomorphism of the monoidal unit, the empty $(n-1)$-manifold. Hence from a topological field theory we obtain an invariant of closed $n$-manifolds $\cF(W) \in \End_{\cC}(1)$.  
+
+There are many variations on this notion. We may change the target category, or may equip our bordisms with various structures, such as orientations, spin structures, tangential or stable framings, etc. These give variations on the cobordism category, and hence different notions of topological field theory. A broad class of such variations, including all the aforementioned examples, can be described as follows.  Let $\xi: X \to BO(n)$ be a fibration. An $(X, \xi)$-structure on an $n$-manifold is a lift of the classifying map of the tangent bundle of $X$:
+\begin{center}
+\begin{tikzpicture}
+%	\node (LT) at (0, 1.5) {$$};
+	\node (LB) at (0, 0) {$M$};
+	\node (RT) at (2, 1.5) {$X$};
+	\node (RB) at (2, 0) {$BO(n)$};
+%	\draw [->] (LT) -- node [left] {$$} (LB);
+	\draw [->, dashed] (LB) -- node [above] {$$} (RT);
+	\draw [->] (RT) -- node [right] {$\xi$} (RB);
+	\draw [->] (LB) -- node [below] {$\tau$} (RB);
+	%\node at (0.5, 1) {$\ulcorner$};
+	%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+If the dimension of $M$ is less than $n$, then an $(X,\xi)$-structure is a lift of the stabilization (up to dimension $n$) of the tangent bundle of $M$ by trivial bundles.  For example, the case $X = BSO(n)$ gives orientations, the case $X = BSpin(n)$ gives spin structures, and the case $X = EO(n) \simeq pt$ gives tangential framings, also called $n$-framings for clarity, especially when referring to manifolds of dimension less than $n$.  
+In each case we have a category $\Cob_n^{(X, \xi)}$, and a topological field theory on this category gives invariants of $(X,\xi)$-manifolds. For tangential framings we denote this category as $\Cob_n^{\fr}$.
+
+The topological field theory formalism entails a locality property for the resulting manifold invariants. We can decompose or `cut' a given manifold, along codimension-one submanifolds, into smaller pieces. The topological field theory assigns invariants to both the codimension-one submanifold and to each of the smaller codimension-zero pieces.  The invariant of the whole manifold can be recovered from the invariants of these pieces, by a composition or `gluing' operation.
+
+A local topological field theory (or `fully extended topological field theory') has a stronger locality property which allows decompositions of the manifold (and of any of the submanifolds used for cutting) into pieces with corners of all codimensions. This notion can be formalized using the language of higher categories, specifically the language of $(\infty,n)$-categories. The bordism $n$-category $\Bord_n$ is a symmetric monoidal $(\infty,n)$-category whose objects are compact 0-manifolds, whose 1-morphisms are cobordisms between these, whose 2-morphisms are cobordisms between those 1-morphisms, and so on until dimension $n$. See \cite[\S 2.2]{lurie-ch} for a construction of $\Bord_n^{(X,\xi)}$ as an {\em $n$-fold complete Segal space}\footnote{$n$-fold complete Segal spaces are one of a handful of equivalent models of $(\infty,n)$-categories.}.
+ A local topological field theory for $(X,\xi)$-manifolds is then a symmetric monoidal functor from $\Bord_n^{(X,\xi)}$ to a target symmetric monoidal $(\infty,n)$-category $\cC$. 
+
+The cobordism hypothesis, conjectured by Baez and Dolan \cite{MR1355899} and later proven by Hopkins and Lurie~\cite{lurie-ch}, provides a classification of local topological field theories.  In the tangentially framed case, this classification is particularly simple to state: the local tangentially framed topological field theories with target $\cC$ correspond to the fully-dualizable objects of $\cC$.
+
+
+\subsection{Model independence of the cobordism hypothesis} \label{app:modelindep}
+
+The Hopkins-Lurie formulation of the Baez-Dolan cobordism hypothesis uses the language of symmetric monoidal $(\infty,n)$-categories. There are several different approaches to the theory of $(\infty,n)$-categories. In each approach one obtains, at a bare minimum, an {\em abstract homotopy theory}, by which we mean simply a category together with a subcategory of weak equivalences.  One could instead use any other equivalent model of abstract homotopy theory, such as quasicategories \cite{Joyal_quasicats} or Rezk's complete Segal spaces \cite{Rezk_complete_Segal_Spaces}. 
+
+
+The unicity theorem of C. Barwick and the second author \cite{Barwick-SP} provides a simple axiomatization of the homotopy theory of $(\infty,n)$-categories. Any homotopy theory satisfying these axioms is equivalent to any other homotopy theory satisfying the same axioms. It follows that most of the common approaches to $(\infty, n)$-categories are interchangable. See \cite{Barwick-SP} for details and \cite{SP_DLHC_Lectures} for an expository account. This uniqueness result extends to the theory of {\em symmetric monoidal} $(\infty, n)$-categories as well, by considering the theory of special $\Gamma$-objects in $(\infty,n)$-categories. 
+
+Several features of the homotopy theory of $(\infty,n)$-categories are preserved under equivalence and hence are common to any of the models of $(\infty,n)$-categories. This applies in particular to the universal property of the bordism $n$-category described by the cobordism hypothesis. Thus the cobordism hypothesis, proven by Hopkins--Lurie \cite{Lurie_cobhyp} in Barwick's model of $n$-fold complete Segal spaces, in fact holds in any model of symmetric monoidal $(\infty,n)$-categories. 
+
+(For definitiveness, the model for symmetric monoidal $(\infty,3)$-categories that we use is an injective model structure on symmetric monoidal Segal $3$-categories. \CSP{cite simpson and others?}
+More precisely it is a Bousfield localization of the generalized Reedy model structure on $\Gamma$-objects in Segal 3-categories, where the localization enforces the Segal condition. \CD{injective/Reedy?} For details of this model we refer the reader to the paper \cite{3TC} where we construct the  symmetric monoidal Segal 3-category $\TC$ of finite rigid tensor categories, finite bimodule categories, functors, and transformations. We show that this 3-category $\TC$ is a fibrant object in the aforementioned model structure on symmetric monoidal $(\infty,3)$-categories.) 
+\CSP{We must verify that this is indeed shown in 3TC.}
+
+% We will now sketch how the known invariance properties of the theory of $(\infty,n)$-categories imply that model independence of the cobordism hypothesis. In the next section we will sketch how one can see this invariance, but let us first address the statement of the cobordism hypothesis. 
+
+
+
+%CD: good but too detailed for this paper. // A consequence of the unicity theorem of \cite{Barwick-SP} is that the homotopy theory of $(\infty,n)$-categories contains a distinguished subcategory, the sub-category of so-called {\em gaunt strict $n$-categories}. This subcategory is preserved under any equivalence of homotopy theories, and is itself a fairly rigid object. It only has $(\ZZ/2)^n$-worth of automorphisms, given by sending an $n$-category to one of its $2^n$ different kinds of opposites. 
+
+%CD: good but too detailed for this paper. // This distinguished subcategory can be used to define other invariant subcategories and structures of the theory of $(\infty,n)$-categories. For example we may localize with respect to certain distinguished maps of gaunt $n$-categories to obtain the theories of $(\infty,k)$-categories for $k\leq n$. This will be a sub-theory of the theory of  $(\infty,n)$-categories which is preserved by any equivalence. Using the theory of $(\infty,k)$-categories and the gaunt $n$-categories in conjunction we may obtain more complicated distinguished invariant subcategories, such as the theory of  $(n+k, n)$-categories. This localization was describe by Rezk \cite{Rezk} in the context of his $\Theta_n$-spaces. As a caricature, $(\infty,n)$-categories may be described as $\infty$-categories in which all morphisms are invertible above dimension $n$ and $(n+k, n)$-categories are weak $(n+k)$-categories in which all morphisms are invertible above dimension $n$. This caricature can be made precise is some cases; the theory of $(2,2)$-categories is equivalent to the usual theory of bicategories. 
+
+To describe the notion of full dualizability, we will need to refer to certain distinguished subcategories of the category of $(\infty,n)$-categories.  Note that an $(\infty,n)$-category may be thought of as an $\infty$-category in which all morphisms above dimension $n$ are invertible.  The subcategory of $(\infty,m)$-categories consists of all $(\infty,n)$-categories whose morphisms above dimension $m$ are in fact invertible, and the subcategory of $(n+k,n)$-categories consists of all $(\infty,n)$-categories with only identity morphisms above dimension $n+k$.  (For precise definitions of these subcategories, see~\cite{Rezk} or~\cite{Barwick-SP}.)
+
+The inclusion of the subcategory of $(\infty,m)$-categories into the category of $(\infty, n)$-categories admits a homotopical right adjoint $\kappa_m$. \CD{clarify homotopical right adjoint} In other words every $(\infty,n)$-category has a maximal sub-$(\infty,m)$-category $\kappa_m \cC \subseteq \cC$---one thinks of $\kappa_m \cC$ as being obtained from $\cC$ by throwing away all non-invertible morphisms above dimension $m$.   There is another operation, truncation, that takes an $(\infty,n)$-category $\cC$ and produces an $(n+k,n)$-category $\tau_{n+k} \cC$ by setting equivalent morphisms equal in dimension $n+k$ and ignoring all higher morphisms.  Moreover, given an $(\infty,n)$-category $\cC$, we may form an $(\infty,n-i)$-category whose $k$-morphisms are the $(k+i)$-morphisms of $\cC$.
+
+Combining these operations, we can extract from every symmetric monoidal $(\infty,n)$-category $\cC$ and every $k$, for $-1 \leq k \leq n-2$, a bicategory $h^{(k)}_2 X$, whose objects are the $k$-morphisms of $X$, whose 1-morphisms are the $(k+1)$-morphisms of $\cC$, and whose 2-morphisms are the equivalences classes of $(k+2)$-morphisms of $\cC$. (When $k=-1$, this construction will be interpreted as producing the homotopy category of $\cC$---when $\cC$ is monoidal the homotopy category is a monoidal category, which we may view as a one-object bicategory.)  More precisely, the bicategory $h^{(k)}_2 X$ is obtained by first removing the morphisms below dimension $k$, yielding an $(\infty,n-k)$-category, then throwing away the non-invertible morphisms of the original category above dimension $k+2$, at which point we have an $(\infty,2)$-category, and then finally truncating to a $(2,2)$-category, which we interpret as a bicategory. 
+
+Because each of the operations in this process can be described using homotopically invariant functors, the assignment
+\begin{equation*}
+	X \mapsto h^{(k)}_2 X
+\end{equation*}
+is model invariant. That is, if we pass to a different but equivalent model of $(\infty,n)$-categories, then the bicategory  $h^{(k)}_2 X$ will be preserved up to equivalence of bicategories. These bicategories $h^{(k)}_2 X$ play a central role in formulating the cobordism hypothesis.
+
+\begin{example}
+	In the symmetric monoidal Segal 3-category $\TC$ of tensor categories, the bicategories $h^{(-1)}_2 \TC$, $h^{(0)}_2 \TC$, and $h^{(1)}_2 \TC$ are respectively (-1) the monoidal category of tensor categories and equivalence classes of bimodule categories, (0) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (1) the bicategory of bimodule categories, bimodule functors, and natural transformations.
+\end{example}
+
+We now recall the notion of full dualizability.
+
+\begin{definition} \label{def:adjoints_in_bicat}
+		A 1-morphism $G: \cA \to \cB$ in a bicategory {\em admits a left adjoint} if there exists a 1-morphism $F: \cB \to \cA$ and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zigzag' equations:
+		\begin{align*}
+			(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
+			(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
+		\end{align*}
+	Here $\circledcirc$ denotes the horizontal composite of 2-morphisms.
+	We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$, and we denote this situation $F \dashv G$.
+\end{definition}
+
+\begin{definition}
+	Let $\cC$ be a symmetric monoidal $(\infty,n)$-category. We will say that $\cC$ {\em has adjoints for $k$-morphisms} if $h^{(k-1)}_2 \cC$ has both left and right adjoints for all 1-morphisms. 
+\end{definition}
+
+\noindent Note that when $k=0$, this property is also referred to as ``having duals for objects", because in the bicateogry category $h^{(-1)}_2 \cC$, the notion of having adjoints for 1-morphisms corresponds to the notion of having duals in the monoidal homotopy category of $\cC$.
+
+\begin{definition}
+A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$n$-dualizable}, also called
+\emph{fully dualizable}, if it has adjoints for $k$-morphisms, for all $0 \leq k \leq n-1$.
+A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$m$-dualizable}, for $m<n$, if the maximal sub-$(\infty,m)$-category $\kappa_m \cC$ is fully dualizable.
+\end{definition} \CD{Why phrased in terms of $\kappa_m \cC$ rather than just has adjoints for $0 \leq k \leq m-1$?}
+%This notion of ``having duals" at all levels $0 \leq k \leq n-1$ is also referred to as being ``fully dualizable".  
+
+
+%There are corresponding notions of partial dualizability, as follows.
+%\NS{I'm not sure I like this definition.  Shouldn't ``has duals" just mean that, you know every object has a dual?  I'd prefer $n$-dualizable or fully dualizable or something.  Or even ``has adjoints."}
+%\CD{This is Jacob's original terminology, so we can't redefine ``has duals" at this point (though we can introduce a synonym if we really want to).}
+
+\noindent The maximal fully-dualizable sub-category of the symmetric monoidal $(\infty,n)$-category $\cC$ is denoted $d\cC$. The objects of $d\cC$ are called ``fully dualizable objects". 
+\CD{A priori, f.d. objects are those in the essential image of the inclusion of $d\cC$ ...}
+
+\begin{example}
+	Let $\Bord^{(X,\xi)}_n$ denote the symmetric monoidal $(\infty,n)$-category of cobordisms with $(X,\xi)$-structures. The objects of $\Bord^{(X,\xi)}_n$ are 0-manifolds with $(X, \xi)$-structure, the 1-morphisms are 1-dimensional bordisms with $(X,\xi)$-structure, and so forth. This symmetric monoidal $(\infty,n)$-category is fully dualizable. 
+\end{example}
+
+Because adjoints are mapped to adjoints by any symmetric monoidal functor, a topological field theory with values in the symmetric monoidal $(\infty,m)$-category $\cC$ must take values in $d\cC$, the $n$-dualizable subcategory of $\cC$. In fact these field theories are precisely controlled by that subcategory:
+
+\begin{theorem}[The Cobordism Hypothesis, framed version {\cite[Thm 2.4.6, Rmk 2.4.8]{lurie-ch}}]
+	Let $\FrBord_n$ denote the symmetric monoidal $(\infty,n)$-category of tangentially framed cobordisms, and let $\cC$ be a symmetric monoidal $(\infty,n)$-category.  There is an equvialence of $(\infty,n)$-categories
+	\begin{equation*}
+		\Fun^\otimes(\FrBord_n, \cC) \simeq \kappa_0 (d\cC).
+	\end{equation*} 
+	That is, the $(\infty,n)$-category of local tangentially framed topological field theories with values in $\cC$ is equivalent to the $(\infty,0)$-category obtained by taking the maximal fully dualizable subcategory of $\cC$ and discarding the non-invertible morphisms at every level. This equivalence is given by evaluating a topological field theory on the standard positively $n$-framed point. 
+\end{theorem}
+
+\noindent In particular the $(\infty,n)$-category of topological field theories is in fact an $(\infty,0)$-category, that is an $\infty$-groupoid or space. Moreover a tangentially framed topological field theory is completely determined by its value on a point. 
+
+The bordism category $\FrBord_n$ has a natural $O(n)$-action by changing the tangential framings of all cobordisms at every point simultaneously.  By precomposition this provides an $O(n)$-action on the symmetric monoidal functors from $\FrBord_n$ to the target symmetric monoidal $(\infty,n)$-category $\cC$.  Transporting this action across the equivalence in the cobordism hypothesis provides a homotopy $O(n)$-action on the space $\kappa_0(d\cC)$ of $n$-dualizable objects of $\cC$.  The general version of the cobordism hypothesis classifies $(X,\xi)$-structured topological field theories as the homotopy fixed points of a certain action induced from that $O(n)$-action.
+
+\CD{It's not very clear at the moment what this section is for.  Clarify the worry it addresses?  Shorten substantially?}
+
+
+
 
 %%%%% Homotopy Hypothesis Stuff %%%%%
 %
