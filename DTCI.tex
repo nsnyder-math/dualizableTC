@@ -74,11 +74,11 @@ on the space of fully dualizable objects induced from this $O(n)$-action.
 
 %is the cobordism hypothesis (originally proposed by Baez--Dolan \cite{MR1355899}, but improved and proved by Hopkins and Lurie \cite{0905.0465}) which gives a classification of local TFTs.  This classification states that an $n$-dimensional $n$-framed local field theory is determined (up to equivalence) by the image of a point, and the possible images of a point are exactly the fully dualizable objects in the target $n$-category.  Furthermore, the $n$-groupoid of fully-dualizable object inherits an infinitely homotopy coherent action by $O(n)$. Other flavors of $n$-dimensional local field theories are classified by the homotopy fixed points of actions of certain structure groups on the space of fully dualizable objects induced from the $O(n)$-action.  %Being fully dualizable is a \emph{property} while being a homotopy fixed point is a choice of \emph{structure}.  Being fusion is a property (semisimple, finitely many simple objects, duals exist for each object), while being spherical is a structure (choice of natural isomorphism between the identity and the double dual).  
 
-In this paper we show that separable tensor categories are the fully-dualizable objects of the symmetric monoidal 3-category $\TC$ \cite{3TC}. Utilizing the cobordism hypothesis, this gives a 3-framed local TFT for every separable tensor category. 
+In this paper we show that separable tensor categories are the fully-dualizable objects of the symmetric monoidal 3-category $\TC$. Utilizing the cobordism hypothesis, this gives a 3-framed local TFT for every separable tensor category. 
 %\CSP{do we show they are exactly the fully-dualizable objects?}
 %\NS{Yes.}
 Though not fully dualizable, finite tensor categories are $2$-dualizable, and it is therefore still possible to extract a partial field theory from them.  
-Our proof that separable tensor categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, MR2119143, MR2183279, MR2097289}.  More specifically, the three key elements in the proof of full dualizability are: the relative Deligne tensor product can be realized as a category of module functors, module functors between semisimple categories have adjoints as module functors, and separability is closed under relative Deligne tensor product.
+Our proof that separable tensor categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, EO-ftc, MR2183279, MR2097289}.  More specifically, the three key elements in the proof of full dualizability are: the relative Deligne tensor product can be realized as a category of module functors, module functors between semisimple categories have adjoints as module functors, and separability is closed under relative Deligne tensor product.
 \CSP{Do we want to cite RDTP here?}
 
 
@@ -123,7 +123,7 @@ In Section \ref{sec:lft} we discuss local field theory.  Since $n$-framed bordis
 
 In Section \ref{sec:tc} we rapidly review the theory of finite tensor categories, bimodule categories, Deligne tensor product, exact bimodule categories, separable tensor categories, and fusion categories, and we prove several key structural lemmas.  This section mixes some background material coming from the work of Etingof, Gelaki, Nikshych, and Ostrik (which is most comprehensively described in their lecture notes \cite{EGNO}), with some new extensions of their results, and several original results.  A reader who is already well acquainted with EGNO's may prefer to skim this section, but should nevertheless read \S 3.1 which sets out our conventions and  \S 3.7 which gives our notation for bimodule categories and proves several important new lemmas.  In addition, a reader interested in characteristic $p$ should read sections 3.8 and 3.9.  \NS{This needs to be rewritten in light of the rewrite.}
 
-The heart of the paper is Section \ref{sec:dualfusion} where we prove the following main results.
+The heart of the paper is Section \ref{sec:dualizability} where we prove the following main results.
 
 \CSP{Change the numbering of these theorems to match the correct numbering in the paper.}
 \CD{I vote for dealing with the numbering slightly differently --- I'll implement it and you can see if you like it --- if not, we can then do what you propose.}
@@ -271,19 +271,18 @@ $$\cdots \dashv v_{F,G}^{LL} \dashv v_{F,G}^L \dashv v_{F,G} \dashv v_{F,G}^R \d
 These definitions suffice to make sense of our main theorem, that every separable tensor category is fully dualizable.  
 %!% CD to discuss with CSP this definition: confirm that he agrees that it is obviously equivalent, because any equivalence can be promoted to an adjoint equivalence, and those adjoint equivalences can be used to transport the dualization structure to the other object.  In particular, Jacob's use of "essential image" was a red-herring, arising from the way Jacob decided to define the f.d. subcategory as anything satisfying the universal property.
 
-There is, however, an alternative, equivalent formulation of dualizability conditions, focusing on ``$k$-dualizable $3$-categories" rather than ``$k$-dualizable objects", that will be more convenient for proving our results.  A symmetric monoidal $3$-category $\cC$ is called ``$1$-dualizable" if every object has a dual---as before, here `dual' means dual in the symmetric monoidal $1$-category of objects of $\cC$ and equivalence classes of morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$2$-dualizable" if it is 1-dualizable and moreover every $1$-morphism has a left and a right adjoint---as before, here `adjoint' means adjoint in the $2$-category of objects, morphisms, and isomorphism classes of 2-morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$3$-dualizable", also called ``fully dualizable", if it is $1$-dualizable and $2$-dualizable and if every $2$-morphism of $\cC$ has a left and a right adjoint.  An object of a symmetric monoidal $3$-category is ``fully dualizable" if it is in some fully dualizable subcategory of $\cC$.  %!% CD to again confirm that CSP agrees with this last sentence.
+There is, however, an alternative, equivalent formulation of dualizability conditions, focusing on ``$k$-dualizable $3$-categories" rather than ``$k$-dualizable objects", that will be more convenient for proving our results.  A symmetric monoidal $3$-category $\cC$ is called ``$1$-dualizable" if every object has a dual---as before, here `dual' means dual in the symmetric monoidal $1$-category of objects of $\cC$ and equivalence classes of morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$2$-dualizable" if it is 1-dualizable and moreover every $1$-morphism has a left and a right adjoint---as before, here `adjoint' means adjoint in the $2$-category of objects, morphisms, and isomorphism classes of 2-morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$3$-dualizable", also called ``fully dualizable", if it is $1$-dualizable and $2$-dualizable and if every $2$-morphism of $\cC$ has a left and a right adjoint.  An object of a symmetric monoidal $3$-category is ``fully dualizable" if it is in some fully dualizable subcategory of $\cC$.  \CD{Check}%!% CD to again confirm that CSP agrees with this last sentence.
+(There are corresponding notions of fully-dualizable objects of an $n$-category, for any $n$.)
 
 Equipped with the notion of full dualizability, we can state the cobordism hypothesis classification of local field theories: \vspace{7pt}
 
 \setlength{\leftskip}{.75cm}
 
-\nid {\bfseries Cobordism hypothesis:} \emph{Three-dimensional local framed topological field theories with target a symmetric monoidal $(\infty,3)$-category $\cC$ are in one-to-one correspondence with the fully dualizable objects of $\cC$; in fact, the space of such field theories is homotopy equivalent to the space of fully dualizable objects of $\cC$.} \vspace{7pt}
+\nid {\bfseries Cobordism hypothesis:} \emph{$n$-dimensional local framed topological field theories with target a symmetric monoidal $(\infty,n)$-category $\cC$ are in one-to-one correspondence with the fully dualizable objects of $\cC$; in fact, the space of such field theories is homotopy equivalent to the space of fully dualizable objects of $\cC$.} \vspace{7pt}
 
 \setlength{\leftskip}{0cm}
 
-\NS{Maybe only define 1, 2, and 3 dualizability, but state the cobordism hypothesis for all n (noting that we only use it for $n \leq 3$)?} \CD{I'll do this.}
-
-\nid In the next section we describe the notion of framing referred to in this classification.  We refer the reader to Appendix~\ref{app:ch} for a more detailed and precise review of the notion of full dualizability and statement of the cobordism hypothesis.  
+\nid In the next section we describe the notion of framing referred to in this classification.  We refer the reader to Appendix~A for a more detailed and precise review of the notion of full dualizability and statement of the cobordism hypothesis.  
 
 \subsection{Notation for $n$-framed manifolds} 
 
@@ -1032,11 +1031,7 @@ If $x \in \cC$ is 3-dualizable in a symmetric monoidal $(\infty,n)$-category, wi
 
 \section{Tensor categories} \label{sec:tc}
 
-\CD{Rewrite the first paragraph of section 3 after section is done.}
-In this section we discuss the theory of finite tensor categories and their module categories.  Much of this material, particularly in sections~\ref{sec:tc-lincat},~\ref{sec:tc-bimod}, and~\ref{sec:tc-exact}, is either standard or is due to Etingof, Gelaki, Nikshych, and Ostrik \cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  In section~\ref{sec:tc-deligne} we construct the relative Deligne tensor product (Theorem \ref{thm:DelignePrdtOverATCExists})
-%, which is essential for the very definition of the 3-category $\TC$, 
-and establish some of its basic properties (particularly Lemma \ref{Lma:FunctorsAsATensorPdt}), which are crucial for our dualizability calculations.  This extends the results of \cite{0909.3140} from the case of fusion categories to finite tensor categories, and fixes some holes in \cite{0911.4979} (cf. Rmk.~\ref{rmk:Deligne_pdt_as_mod_functor}).\NS{Does this language seem reasonable?  I think we have to at least mention Greenough's paper somewhere if only because the referees will be confused otherwise.}
-In section~\ref{sec:tc-separable}, we introduce the notion of separable module and tensor categories, based on a suggestion of Ostrik, and in section~\ref{sec:tc-fusion} we analyze the separability condition in the context of fusion categories.
+In Section~\ref{sec:conventions}, we establish systematic, compatible conventions for dualities and adjunctions in various monoidal and higher-categorical contexts.  In Section~\ref{sec:tc-lincat} we review the theory of finite tensor categories and their bimodules, following Eitingof, Gelaki, Nikshych, and Ostrik~\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}, and recall the existence of the relative Deligne tensor product from~\cite{BTP} and the 3-category of tensor categories from~\cite{3TC}.  In Section~\ref{sec:tc-exact}, we summarize Etingof and Ostrik's theory of exact module categories~\cite{EO-ftc} and then prove that the Deligne tensor product of exact module categories is exact.  In Section~\ref{sec:tc-bimodules} we discuss the expression of the duals and tensor products of bimodules categories as functor categories, which will be an essential technique in the dualizability calculations in Section~\ref{sec:dualizability}.  In Section~\ref{sec:tc-separable}, we introduce the notion of separable tensor categories and module categories, based on a suggestion of Ostrik, as the proper context for the theory of finite tensor categories in arbitrary, particularly finite, characteristic, and we prove that the relative Deligne tensor product of separable bimodule categories is separable.  In Section~\ref{sec:tc-fusion}, we prove one of our main theorems, that a fusion category is separable if and only if its global dimension is non-zero.
 
 \subsection{Conventions for duality} \label{sec:conventions}
 
@@ -1280,7 +1275,7 @@ Equipped with the relative Deligne tensor product and its properties, we can now
 
 \subsection{Exact module categories} \label{sec:tc-exact}
 % The results here are used in section 4.4 to build adjoints.
-In this section we summarize Etingof and Ostrik's theory of exact module categories \cite{MR2119143}.  This theory will be used when we prove that finite tensor categories are Radford objects.   We also prove a new lemma about exactness of Deligne tensor products.
+In this section we summarize Etingof and Ostrik's theory of exact module categories \cite{EO-ftc}.  This theory will be used when we prove that finite tensor categories are Radford objects.   We also prove a new lemma about exactness of Deligne tensor products.
 
 \begin{definition}
 	Let $\cC$ be a tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $m \in \cM$ and  projective object $p \in \cC$, the object $p \otimes m$ is projective in $\cM$. 
@@ -1361,7 +1356,7 @@ Thus for general $x$ we begin by considering a fixed object $n \in \cN$ and an e
 	m_1 \to m_2 \to m_3 \to 0. 
 %	  n_1 \to n_2 \to n_3 \to 0.
 \end{align*}
-By \cite[Prop. 2.3]{MR2119143} if $y$ is a projective object in a finite tensor category then ${}^*y$ is also projective. Thus by Theorem \ref{Thm:ExactModCatOmnibus}.(2) the object ${}^*q \otimes n$ and each of the objects ${}^*p \otimes m_i$ are injective, hence for each $i = 1,2,3$ so is the object 
+By \cite[Prop. 2.3]{EO-ftc} if $y$ is a projective object in a finite tensor category then ${}^*y$ is also projective. Thus by Theorem \ref{Thm:ExactModCatOmnibus}.(2) the object ${}^*q \otimes n$ and each of the objects ${}^*p \otimes m_i$ are injective, hence for each $i = 1,2,3$ so is the object 
 \begin{equation*}
 	z_{i} :=  ({}^*p \otimes m_i) \boxtimes ({}^*q \otimes n).
 \end{equation*}
@@ -1414,7 +1409,7 @@ and hence $\Hom((p \boxtimes q) \otimes x, -)$ is right exact and $(p \boxtimes 
 
 
 
-\subsection{Dual bimodule categories} \label{sec:examples_of_bimods}
+\subsection{Dual bimodule categories} \label{sec:tc-bimodules}
 
 In this section we define some notation for producing new bimodule categories from old ones, and prove several technical lemmas allowing us to manipulate these bimodules easily.  Most of these are closely analogous to simple constructions of bimodules over algebras.  In particular, we prove Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that a certain relative Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^\vee \cong \mathrm{End}(V)$ plays the key role in showing that finite-dimensional vector spaces are $1$-dualizable \cite[Ex. 1.1.9]{lurie-ch}, this lemma plays the key role in proving the $2$-dualizability of finite tensor categories.
 
@@ -1478,7 +1473,7 @@ Recall that a $\cC$-module category $\cM$ is called {\em exact} if $p \otimes m 
 Suppose that $\cM$ is an exact $\cC$-module category, that $\cF: \cC \rightarrow \cC^\mop$ is an equivalence of tensor categories, and that $\cM^{\op}$ is the mod-$\cC$ given by $m \cdot c = \cF(c) \otimes m$.  Then $\cM^\op$ is an exact mod-$\cC$.
 \end{lemma}
 \begin{proof}
-By \cite[Prop. 2.3]{MR2119143} and \cite[Corollary 3.6]{MR2119143} the injective objects and projective objects agree in $\cC$ and in $\cM$.  Now consider $x$ a projective object in $\cC$ and $m$ an arbitrary object in $\cM^\op$, and look at $m \cdot c = \cF(c) \otimes m$.  Since $\cF(c)$ is projective in $\cC^\mop$ it is also injective in $\cC^\mop$, and hence projective in $\cC$.  Hence $\cF(c) \otimes m$ is projective in $\cM$, hence injective in $\cM^\op$, and thus projective in $\cM^\op$.
+By \cite[Prop. 2.3]{EO-ftc} and \cite[Corollary 3.6]{EO-ftc} the injective objects and projective objects agree in $\cC$ and in $\cM$.  Now consider $x$ a projective object in $\cC$ and $m$ an arbitrary object in $\cM^\op$, and look at $m \cdot c = \cF(c) \otimes m$.  Since $\cF(c)$ is projective in $\cC^\mop$ it is also injective in $\cC^\mop$, and hence projective in $\cC$.  Hence $\cF(c) \otimes m$ is projective in $\cM$, hence injective in $\cM^\op$, and thus projective in $\cM^\op$.
 \end{proof}
 
 \begin{corollary} \label{cor:adjoint-exactness}
@@ -2165,7 +2160,7 @@ Without loss of generality, assume that $\cM$ is indecomposable.  By \cite{???},
 \end{proof}
 
 
-\section{Dualizability} \label{sec:dualfusion}
+\section{Dualizability} \label{sec:dualizability}
 
 In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.  First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite-dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^\vee \cong \End(V)$.  Finally, $2$-morphisms have adjoints because functors between semisimple categories are always exact and because adjoints of module functors always have a module functor structure.  This step requires a deep result, that $\TCsep$ really is a subcategory of $\TC$, which is a generalization of M\"uger's result on the semisimplicity of Drinfel'd centers.
 
@@ -2289,7 +2284,7 @@ Since this is a twice categorified TFT (i.e. a functor of $(3,1)$ categories rat
 
 In this section we show that any $1$-morphism ${}_\cC \cM_\cD$ in $\TC$ has left and right adjoints.   Explicitly, the left adjoint of $\cM$ is the category of linear left module functors $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ where the left $\cD$-action is given by precomposition by right multiplication, and the right $\cC$-action is given by postcomposition by right multiplication.  Similarly, the left adjoint is given by the category of linear right module functors $\Fun_{\text{mod-}\cD}(\cM, \cD)$.   (We would like to remind the reader that in this paper linear functors are always assumed to be right exact.)  
 
-Recall from Section \ref{sec:examples_of_bimods} that 
+Recall from Section \ref{sec:tc-bimodules} that 
 $\Fun_{{\cC}}(\cM, \cC)$ is equivalent as a bimodule category to ${}^*\cM$ (which is $\cM^{\op}$ with the objects written as ${}^*m$ with the action $x \cdot {}^*m \cdot y = {}^*(x^* \otimes m \otimes y^*)$), while $\Fun_{\cD}(\cM, \cD)$ is equivalent as a bimodule category to $\cM^*$.  Thus $\cM^*$ is the right adjoint of $\cM$ and ${}^* \cM$ is the left adjoint.
 The results of this section depend essentially on Lemma \ref{Lma:FunctorsAsATensorPdt}, which rewrites certain Deligne tensor products as functor categories. The next lemma is immediate. 
 
@@ -2821,7 +2816,7 @@ It is a well-known open question to determine whether all fusion categories are 
 \nopagebreak
 \addtocontents{toc}{\SkipTocEntry}
 \section*{Appendix A. The cobordism hypothesis} \label{app:ch}
-\addtocontents{toc}{\protect\contentsline{section}{\protect\tocsection{}{}{App. A. The cobordism hypothesis\hspace{\fill}}}{\thepage}{}}%\hspace{-3.4pt}}{}}
+\addtocontents{toc}{\protect\contentsline{section}{\protect\tocsection{}{}{App. A. The cobordism hypothesis\hspace{\fill}}}{\thepage}{section*.7}}%\hspace{-3.4pt}}{}}
 %\addtocontents{toc}{\SkipTocEntry}
 
 
@@ -2886,7 +2881,7 @@ The framed bordism category $\FrBord_n$ has an $O(n)$-action by simultaneously r
 
 \addtocontents{toc}{\SkipTocEntry}
 \section*{Appendix B. Homotopy extension for field theories} \label{sec:Hom_ext_field_thy}
-\addtocontents{toc}{\protect\contentsline{section}{\protect\tocsection{}{}{App. B. Homotopy extension for field theories\hspace{\fill}}}{\thepage}{}}%\hspace{-3.4pt}}{}}
+\addtocontents{toc}{\protect\contentsline{section}{\protect\tocsection{}{}{App. B. Homotopy extension for field theories\hspace{\fill}}}{\thepage}{section*.8}}%\hspace{-3.4pt}}{}}
 %\addtocontents{toc}{\SkipTocEntry}
 
 The cobordism hypotheis provides an equivalence between the $\infty$-groupoid of local $n$-framed topological field theories with values in a fixed symmetric monoidal $(\infty,n)$-category $\cC$ and the $\infty$-groupoid of $n$-dualizable objects in $\cC$. This equivalence is the map sending a topological field theory $\cF$ to its value $\cF(pt_+) = x \in \cC$ on the positively framed point. Consider the following questions:
