@@ -2806,8 +2806,8 @@ It is a well-known open question to determine whether all fusion categories are 
 %\appendix 
 %\renewcommand{\thesubsection}{\Alph{section}.{\arabic{subsection}}}
 
-\renewcommand{\thetheorem}{A.\arabic{theorem}}
-\setcounter{theorem}{0}
+\renewcommand{\theapptheorem}{A.\arabic{apptheorem}}
+\setcounter{apptheorem}{0}
 
 %\addtocontents{toc}{\SkipTocEntry}
 %\section*{Appendix.}
@@ -2834,10 +2834,10 @@ taking a symmetric monoidal $(\infty,n)$-category $\cC$ to the bicategory (that 
 	In the symmetric monoidal 3-category $\TC$ of tensor categories, the bicategories $h^{(-1)}_2 \TC$, $h^{(0)}_2 \TC$, and $h^{(1)}_2 \TC$ are respectively (-1) the monoidal category of tensor categories and equivalence classes of bimodule categories, (0) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (1) the bicategory of bimodule categories, bimodule functors, and natural transformations.
 \end{appexample}
 
-We can now recall the notion of full dualizability.
+We can now recall the notion of full dualizability.  The notion of adjoint functors, given in Definition~\ref{def:Adjoints}, can be transported verbatim into any bicategory:
 
 \begin{appdefinition} \label{def:adjoints_in_bicat}
-		A 1-morphism $G: \cA \to \cB$ in a bicategory {\em admits a left adjoint} if there exists a 1-morphism $F: \cB \to \cA$, and natural transformations, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of `zigzag' equations:
+		A 1-morphism $G: \cA \to \cB$ in a bicategory {\em admits a left adjoint} if there exists a 1-morphism $F: \cB \to \cA$, and 2-morphisms, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of equations:
 		\begin{align*}
 			(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
 			(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
@@ -2876,8 +2876,8 @@ Often, one is interested not only in tangentially framed field theories, but in 
 The framed bordism category $\FrBord_n$ has an $O(n)$-action by simultaneously rotating the $n$-framing at every point of all bordisms.  The provides an action, by precomposition, on the $(\infty,n)$-category of functors $\Fun^\otimes(\FrBord_n,\cC)$.  By the framed version of the cobordism hypothesis above, there is therefore an action (really a homotopy action) of $O(n)$ on the space $\widetilde{d\cC}$ for any $(\infty,n)$-category $\cC$.  Composition with the map $\Omega \xi: \Omega X \ra O(n)$ then gives a homotopy action of $\Omega X$ on $\widetilde{d\cC}$.  The structured version of the cobordism hypothesis classifies structured field theories in terms of this action: given a map $\xi: X \ra BO(n)$, with $X$ connected, there is an equivalence of $(\infty,n)$-categories from $\Fun^\otimes(\Bord_n^{(X,\xi)})$ to the space of homotopy fixed points $(\widetilde{d\cC})^{h\Omega X}$.
 
 
-\renewcommand{\thetheorem}{B.\arabic{theorem}}
-\setcounter{theorem}{0}
+\renewcommand{\theapptheorem}{B.\arabic{apptheorem}}
+\setcounter{apptheorem}{0}
 
 \addtocontents{toc}{\SkipTocEntry}
 \section*{Appendix B. Homotopy extension for field theories} \label{sec:Hom_ext_field_thy}
