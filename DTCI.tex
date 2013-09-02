@@ -1520,7 +1520,7 @@ as $\cD$-$\cE$ bimodule categories.
 
 \begin{warning} \label{warning:DualTwist}
 Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC^\mp \boxtimes \cD})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor.%\NS{Someone should double-check left vs. right here} % It is now correct - CSP. 
-\end{warning}
+\end{warning}\NS{We refer to the fact in this warning later, so maybe it should be a lemma instead?}
 
 Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{MR2097289}[\S 3].
 
@@ -1610,7 +1610,7 @@ Finally if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \otim
 	If any of the equivalent conditions of Theorem \ref{thm:SepModCats} are satisfied, then we will say that $\cM$ is a {\em separable} module category. If $\cM$ is a $\cC$-$\cD$-bimodule category then we will say $\cM$ is separable if it is separable over both $\cC$ and $\cD$ independently. 
 \end{definition}
 
-A linear category $\cC$ is separable (as a $\Vect$-module) if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is $\Vect$-separable if and only if $K_X/k$ is a finite separable field extension for all $X$.  Equivalently, a linear category is $\Vect$-separable if and only if it is absolutely semisimple in the sense that the category remains semisimple under arbitrary base changes.  Since the word ``separable" is somewhat overloaded in this section we will say ``absolutely semisimple" instead of ``$\Vect$-separable".
+A linear category $\cC$ is separable (as a $\Vect$-module) if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is $\Vect$-separable if and only if $K_X/k$ is a finite separable field extension for all $X$.  Equivalently, a linear category is $\Vect$-separable if and only if it is absolutely semisimple in the sense that the category remains semisimple under arbitrary base changes.  Since the word ``separable" is somewhat overloaded in this section we will say ``absolutely semisimple" instead of ``$\Vect$-separable".  \NS{We should add a reference}
 
 \begin{theorem} \label{thm:compositeOfSep}
 	If ${}_\cB\cM_\cC$ and ${}_\cC\cN_\cD$ are separable bimodule categories over semisimple tensor categories, then $\cM \boxtimes_{\cC} \cN$ is a separable $\cB$-$\cD$-bimodule category.
@@ -1664,7 +1664,7 @@ With this definition, observe that Theorem~\ref{thm:SepModCats} implies the foll
 Separable finite tensor categories, finite absolutely semisimple separable bimodule categories, bimodule functors, and bimodule natural transformations, form a symmetric monoidal $3$-subcategory of $\TC$.
 \end{theorem}
 \begin{proof}
-This follows from applying the previous theorem a bunch of times.  $\Vect$ separability of the bimodule categories is needed for the monoidal structure
+This follows from applying the previous theorem a bunch of times.  $\Vect$ separability of the bimodule categories is needed for the monoidal structure.  \NS{Maybe we should add more detail.}
 \end{proof}
 
 
@@ -1672,12 +1672,12 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
 
-Fusion tensor categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is generally known that the when the global dimension is non-zero, then the center $\cZ(\cC)$ is semisimple. This is shown for example in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper). 
+fusion categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is generally known that the when the global dimension is non-zero, then the center $\cZ(\cC)$ is semisimple. This is shown for example in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper). 
 %%%
 %\CSP{Does M\"uger's proof depend on sphericality? I checked that you always get that the center is rigid (M\"uger Prop 3.9) and this doesn't use spherical or pivotal as far as I can tell. Also the unit object will be simple.In ENO "On Fusion Cats" Thm 2.15 they prove this without sphericality, but with char zero.} 
 By Theorem \ref{thm:SepModCats} semisimplicity of the center implies that $\cC$ is separable. 
 
-In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion tensor category and that  semisimple bimodule categories over such fusion categories are separable (and conversely). Many of the ideas in this section were suggested to us by V. Ostrik. 
+In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion category and that  semisimple bimodule categories over such fusion categories are separable (and conversely). Many of the ideas in this section were suggested to us by V. Ostrik. 
 
 \begin{definition}
 	Let $x \in \cC$ be an object of a tensor category. An {\em ambidextrous dual} for $x$ is an object $\overline{x}$ which is simultaneously equipped with the structure of both a left dual and a right dual of $x$. 
@@ -1709,7 +1709,7 @@ The pair $(\eta, \varepsilon)$ witnesses $\overline{x}$ as the left dual of $x$,
 	Moreover every ambidextrous dual of $x$ may be realized in this way.  
 \end{example}
 
-Let $\cC$ be a fusion tensor category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
+Let $\cC$ be a fusion category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
 \begin{equation*}
 	\Tr(a) := \ev_x \circ (a \otimes id_{{}^*x}) \circ \coev_{{}^*x} = \varepsilon \circ \overline{\eta}.
 \end{equation*}
@@ -1729,7 +1729,7 @@ where $a: {}^{**}x \to x$ is any choice of isomorphism and $(\varepsilon, \eta, 
 This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$. Also $d^2(x) = d^2(\overline{x})$ for any ambidextrous 
 dual of $x$. 
 \begin{definition}
-	Let $\cC$ be a fusion tensor category. The {\em global dimension} of $\cC$ is defined by the formula
+	Let $\cC$ be a fusion category. The {\em global dimension} of $\cC$ is defined by the formula
 	\begin{equation*}
 		\dim(\cC) := \sum_{x} d^2(x)
 		%\sum_{\substack{x \in \cC \\ x \;  \mathrm{simple}}} d^2(x)
@@ -1806,7 +1806,7 @@ In any Frobenius algebra $R$, the composite of the comultiplication followed by 
 	The unique normalized map $\lambda:A \to 1 \boxtimes 1$ (so that $\lambda \circ u = id_{1 \boxtimes 1}$) determines the structure of a Frobenius algebra on $A$. Moreover the window element of this Frobenius algebra is precisely the global dimension of the Fusion category $\cC$. 
 \end{proposition}
 
-To demonstrate the existence of this Frobenius algebra structure, it will be useful to employ another bit of structure available in fusion tensor categories. 
+To demonstrate the existence of this Frobenius algebra structure, it will be useful to employ another bit of structure available in fusion categories. 
 Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
 \begin{equation*}
 	\Hom_{\cC}(y,z) \otimes \Hom_{\cC}(z,y) \to \Hom_{\cC}(z,z) \cong k
