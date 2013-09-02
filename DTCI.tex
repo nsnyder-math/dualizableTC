@@ -1533,7 +1533,7 @@ Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categori
 \end{proof}
 
 \subsection{Separable module categories and separable tensor categories} \label{sec:tc-separable}
-In characteristic zero, the collection of fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik show that functor categories between semisimple module categories over fusion categories are semsimple and hence (because all relative Deligne tensor products can be expressed as functor categories) semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down in non-zero characteristic.  This happens for two distinct reasons: first, fusion categories of global dimension zero behave poorly, and, second, (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are problems related to inseparable field extensions.
+In characteristic zero, the collection of fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik show that functor categories between semisimple module categories over fusion categories are semsimple and hence (because all relative Deligne tensor products can be expressed as functor categories) semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down in non-zero characteristic.  This happens for two distinct reasons: first, fusion categories of global dimension zero behave poorly, and, second, (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are problems related to inseparable field extensions.  The reader unintersted in characteristic $p$ can skip this section and the next section and use \cite[Theorem 2.16]{MR2183279} as a substitute for \ref{thm:closure-of-separability}. \NS{I added a sentence here}
 
 In this section, we introduce a new notion of separability for module categories and tensor categories that provides the right setting for generalizing the results of M\"uger and Etingof--Nikshych--Ostrik to characteristic $p$.  This theory is a generalization of the classical notion of a separable algebra \cite{???}.\NS{CSP what citations did you want?}   This section was inspired by a suggestion of Ostrik, the results of \cite[\S 2.4]{MR3039775} for fusion categories over $\mathbb{C}$, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
 
@@ -1636,7 +1636,7 @@ With this definition, observe that Theorem~\ref{thm:SepModCats} implies the foll
 	\end{enumerate} 
 \end{corollary}
 
-\begin{theorem}
+\begin{theorem} \label{thm:closure-of-separability}
 Separable finite tensor categories, finite absolutely semisimple separable bimodule categories, bimodule functors, and bimodule natural transformations, form a symmetric monoidal $3$-subcategory of $\TC$.
 \end{theorem}
 \begin{proof}
@@ -1646,76 +1646,151 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 \subsection{Fusion categories and separability} \label{sec:tc-fusion}
 
-The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
+The goal of this section is to show that under some additional common assumptions separability is easy to verify.  Throughout this section we assume that the ground field is algebraically closed.  Recall that a finite tensor category is called a \emph{fusion category} if it is semisimple and the unit object is simple.  Fusion categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily).  The goal of this section is to prove that a fusion category is separable if and only if the global dimension is non-zero.  Many of the ideas in this section were suggested to us by V. Ostrik. 
 
-Fusion categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is generally known that the when the global dimension is non-zero, then the center $\cZ(\cC)$ is semisimple. This is shown for example in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper). 
-By Theorem \ref{thm:SepModCats} semisimplicity of the center implies that $\cC$ is separable. 
+This result strengthens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  By Corollary \ref{cor:Sep=semisimplecenter} separability is equivalent to the semisimplicity of $\cZ(\cC)$.  That non-vanishing of global dimension implies semisimplicity of $\cZ(\cC)$ was first proved in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper).  The converse was proved in the pivotal setting \cite{MR3079759}.  We give a proof in both directions only assuming that $\cC$ is a fusion category over an algebraically closed field.
 
-In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion category and that  semisimple bimodule categories over such fusion categories are separable (and conversely).  The converse was proved in the pivotal setting \cite{MR3079759} by Brugui\`eres and Virelizier.
+Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up to normalization) only one bimodule map $A \rightarrow A \otimes A$ where $A$ is the relevant algebra in $\cC \boxtimes \cC^\mp$ and that the composition this map with the multiplication map is given by scaling by the global dimension.  More specifically we show that there's an essentially unique Frobenius algebra structure on $A$ and the map $A \rightarrow A \otimes A$ is the comultiplication for this Frobenius algebra.
 
-Many of the ideas in this section were suggested to us by V. Ostrik. 
+
+%The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
+
+%Fusion categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily). It is generally known that the when the global dimension is non-zero, then the center $\cZ(\cC)$ is semisimple. This is shown for example in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper). By Theorem \ref{thm:SepModCats} semisimplicity of the center implies that $\cC$ is separable. 
+
+%In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion category and that  semisimple bimodule categories over such fusion categories are separable (and conversely).  The converse was proved in the pivotal setting \cite{MR3079759} by Brugui\`eres and Virelizier.
+
+We begin by recalling the definition of the global dimension of a fusion category.  Intuitively the global dimension is meant to be an analogue of the size of a finite group, and so is given by the sum of the squares of the dimensions of the simple objects,  However, without additional assumptions there's no adequate definition of the dimension of a simple object, furthermore even when this dimension is well-defined it may not be real.  Nonetheless M\"uger and ENO found a replacement for the square of the absolute value of the dimension of a simple object $x$ which we will call the magnitude of $x$ and denote $\lVert x \rVert$ .  This is sufficient for defining the global dimension.
+
+If $x$ is a simple object in a fusion category the simple object ${}*x$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(x \otimes {}^*x, 1) = 1$, and $x^*$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(1, x \otimes x^*) = 1$  Thus, by semisimplicity there's a non-natural isomorphism ${}^*x \cong x^*$, and similarly ${}^{**}x \cong x$.  
 
 \begin{definition}
-	Let $x \in \cC$ be an object of a tensor category. An {\em ambidextrous dual} for $x$ is an object $\overline{x}$ which is simultaneously equipped with the structure of both a left dual and a right dual of $x$. 
-\end{definition}
-
-Let us fix some notational conventions. If $\overline{x}$ is an ambidextrous dual for $x$, then we have pairings and copairings:
-\begin{align*}
-	\eta: 					& \; 1 \to \overline{x} \otimes x, \\
-	\overline{\eta}: 		& \;  1 \to   x \otimes \overline{x}, \\
-	\varepsilon: 			& \;  x \otimes \overline{x} \to 1, \\
-	\overline{\varepsilon}: & \;   \overline{x} \otimes x  \to 1. 
-\end{align*} 
-The pair $(\eta, \varepsilon)$ witnesses $\overline{x}$ as the left dual of $x$, while $(\overline{\eta}, \overline{\varepsilon})$ witnesses $\overline{x}$ as the right dual.  
-
-\begin{example}
-	In a braided tensor category, the braiding allows us to enhance any dual of $x$ to an ambidextrous dual. 
-\end{example}
-
-\begin{example}
-	In any tensor category any {\em self-dual} object is canonically an ambidextrous dual of itself. A self-dual object is object $x$ equipped with evaluation and coevaluation maps $\varepsilon: x \otimes x \to 1$ and $\eta: 1 \to x \otimes x$. This is then an ambidextrous duality via $\overline{\varepsilon} = \varepsilon$ and $\overline{\eta} = \eta$. For example the isomorphism $1 \otimes 1 \cong 1$ canonically realizes the unit object $1$ as a self-dual, hence ambidextrously self-dual, object in any tensor category.  
-\end{example}
-
-\begin{example}
-	Let $x$ be an object of a tensor category and let ${}^*x$ be its left dual (with $\varepsilon$ and $\eta$ the corresponding evaluation and coevaluation maps). Then ${}^*x$ may be enhanced to an ambidextrous dual of $x$ precisely if we may choose an isomorphism $a: {}^{**}x \to x$. If this is the case, then the structure of an ambidextrous dual is obtained via the assignments:
-	\begin{align*}
-		\overline{\eta} &= (a \otimes id_{{}^*x}) \circ \coev_{*x} \\
-		\overline{\varepsilon} &= ev_{{}^*x} \circ (id_{{}^*x} \otimes a^{-1})
-	\end{align*}
-	Moreover every ambidextrous dual of $x$ may be realized in this way.  
-\end{example}
-
 Let $\cC$ be a fusion category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
 \begin{equation*}
-	\Tr(a) := \ev_x \circ (a \otimes id_{{}^*x}) \circ \coev_{{}^*x} = \varepsilon \circ \overline{\eta}.
+	\Tr(a) := \ev_x \circ (a \otimes id_{{}^*x}) \circ \coev_{{}^*x}.
 \end{equation*}
 % This is the exact same formula as in ENO's On fusion cat
-The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. If $x$ is a simple object, then the quantum trace is zero if and only if $a$ is the zero map. 
+map.  The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. If $x$ is a simple object, then the quantum trace is zero if and only if $a$ is the zero 
+\end{definition}
 
-
-%\CSP{`squared norm' is what ENO use, `dimension squared' is what M\"uger uses. I don't like either because it is not the square of something in general. Is it unreasonable to rename this something like the {\em magnitude} of the object $x$? }
-In a fusion category every object is isomorphic to its double dual (i.e. every object admits an ambidextrous dual), but not uniquely so. Nevertheless this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object, then the {\em magnitude}
+\begin{definition}
+Let $x \in \cC$ be a simple object, then the {\em magnitude}
 %{\em norm square} 
-$d^2(x)$ of $x$ is defined by the formula 
+$\lVert x \rVert$ of $x$ is defined by the formula 
 \begin{equation*}
-	d^2(x) := \Tr(a) \cdot \Tr({}^*(a^{-1})) = (\varepsilon \circ \overline{\eta}) \cdot (\overline{\varepsilon} \circ \eta) \in k
+	\lVert x \rVert := \Tr(a) \cdot \Tr({}^*(a^{-1})) \in k
 \end{equation*}
 % This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
-where $a: {}^{**}x \to x$ is any choice of isomorphism and $(\varepsilon, \eta, \overline{\varepsilon}, \overline{\eta})$ is the corresonding ambidextrous duality.
-This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$. Also $d^2(x) = d^2(\overline{x})$ for any ambidextrous 
-dual of $x$. 
+where $a: {}^{**}x \mapsto x$ is any choice of isomorphism.  This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$.
+\end{definition}
+
 \begin{definition}
 	Let $\cC$ be a fusion category. The {\em global dimension} of $\cC$ is defined by the formula
 	\begin{equation*}
-		\dim(\cC) := \sum_{x} d^2(x)
-		%\sum_{\substack{x \in \cC \\ x \;  \mathrm{simple}}} d^2(x)
+		\dim(\cC) := \sum_{x} \lVert x \rVert
 	\end{equation*}
 	where this sum ranges over a choice of representatives of isomorphism classes of simple objects of $\cC$. 
 \end{definition}
-\noindent The magnitude of simple objects (under the name `dimension squared') and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
+
+It will be useful for us to have an alternate description of $\dim(\cC)$.  We first build some notation.
+
+\begin{definition}
+Suppose that $x$ and $y$ satisfy $\dim \Hom(x \otimes y, 1) = 1$.  We define the following maps:
+\begin{itemize}
+\item $\alpha_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, y \otimes x)$ via $(f \otimes \id_x) \circ (\id_x \alpha(f)) = \id_x$.
+\item $\beta_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, x \otimes y)$ via $f \circ \beta(f)  = 1$.
+\item ${}^*(-): \Hom(x \otimes y, 1) \rightarrow \Hom(1, {}^*y \otimes {}^*x)$.
+\end{itemize}
+\end{definition}
+
+We will usually abuse notation by dropping the subscripts from $\alpha$ and $\beta$.  Note that by considering two zigzags, we also have that $(\id_y \otimes f) \circ (\alpha(f) \otimes \id_y) = \id_y$.  Thus $f$ and $\alpha(f)$ exhibit $y$ as a left dual to $x$
+
+\begin{lemma}
+The identifications $\alpha$ and $\beta$ are homogenous of degree $-1$, while taking left duals is homogenous of degree $1$.  In other words:
+\begin{itemize}
+\item $\alpha(cf) = c^{-1} \alpha(f)$,
+\item $\beta(cf) = c^{-1} \beta(f)$,
+\item ${}^*(cf) = c {}^*f$.
+\end{itemize}
+\end{lemma}
+
+In particular, we see that for nonzero $f: x \otimes y \rightarrow 1$ and $g: y \otimes x \rightarrow 1$ we have that $(f \circ \alpha(g)) \cdot (g \circ \alpha(f))$ is homogenous of degree $0$ in both $f$ and $g$ and thus gives an invariant not depending on the choice of non-zero $f$ and $g$.  It is easy to see that this invariant is exactly $\lVert x \rVert$.
+
+Perhaps surprisingly the identifications $\alpha$ and $\beta$ fail to commute.
+
+\begin{lemma}
+We have the following commutation relations for $\alpha$, $\beta$ and ${}^*$.
+
+\begin{itemize}
+\item ${}^*(\alpha(f)) = \alpha^{-1}({}^*f)$.
+\item ${}^*(\beta(f)) = \beta^{-1}({}^*f)$.
+\item $\alpha^{-1} \circ \beta = \lVert x \rVert \beta^{-1} \circ \alpha$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+The first two are obvious.  For the third one, choosing $\alpha(g) = \beta(f)$ we have 
+$$ \lVert x \rVert (\beta^{-1}(\alpha(f)) \circ \alpha(f) = \lVert x \rVert = (f \circ \beta(f)) \cdot (\alpha^{-1}(\beta(f)) \circ \alpha(f) = (\alpha^{-1}(\beta(f)) \circ \alpha(f).$$
+\end{proof}
 
 
-The global dimension has an elegant but less well-known equivalent description which we find very useful. Before we describe it we will first recall two well-known facts from the theory of finite tensor categories and their module categories.
+
+%\begin{definition}
+%	Let $x \in \cC$ be an object of a tensor category. An {\em ambidextrous dual} for $x$ is an object $\overline{x}$ which is simultaneously equipped with the structure of both a left dual and a right dual of $x$. 
+%\end{definition}
+%
+%Let us fix some notational conventions. If $\overline{x}$ is an ambidextrous dual for $x$, then we have pairings and copairings:
+%\begin{align*}
+%	\eta: 					& \; 1 \to \overline{x} \otimes x, \\
+%	\overline{\eta}: 		& \;  1 \to   x \otimes \overline{x}, \\
+%	\varepsilon: 			& \;  x \otimes \overline{x} \to 1, \\
+%	\overline{\varepsilon}: & \;   \overline{x} \otimes x  \to 1. 
+%\end{align*} 
+%The pair $(\eta, \varepsilon)$ witnesses $\overline{x}$ as the left dual of $x$, while $(\overline{\eta}, \overline{\varepsilon})$ witnesses $\overline{x}$ as the right dual.  
+
+%\begin{example}
+%	In a braided tensor category, the braiding allows us to enhance any dual of $x$ to an ambidextrous dual. 
+%\end{example}
+
+%\begin{example}
+%	In any tensor category any {\em self-dual} object is canonically an ambidextrous dual of itself. A self-dual object is object $x$ equipped with evaluation and coevaluation maps $\varepsilon: x \otimes x \to 1$ and $\eta: 1 \to x \otimes x$. This is then an ambidextrous duality via $\overline{\varepsilon} = \varepsilon$ and $\overline{\eta} = \eta$. For example the isomorphism $1 \otimes 1 \cong 1$ canonically realizes the unit object $1$ as a self-dual, hence ambidextrously self-dual, object in any tensor category.  
+%\end{example}
+
+%\begin{example}
+%	Let $x$ be an object of a tensor category and let ${}^*x$ be its left dual (with $\varepsilon$ and $\eta$ the corresponding evaluation and coevaluation maps). Then ${}^*x$ may be enhanced to an ambidextrous dual of $x$ precisely if we may choose an isomorphism $a: {}^{**}x \to x$. If this is the case, then the structure of an ambidextrous dual is obtained via the assignments:
+%	\begin{align*}
+%		\overline{\eta} &= (a \otimes id_{{}^*x}) \circ \coev_{*x} \\
+%		\overline{\varepsilon} &= ev_{{}^*x} \circ (id_{{}^*x} \otimes a^{-1})
+%	\end{align*}
+%	Moreover every ambidextrous dual of $x$ may be realized in this way.  
+%\end{example}
+
+%Let $\cC$ be a fusion category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
+%\begin{equation*}
+%	\Tr(a) := \ev_x \circ (a \otimes id_{{}^*x}) \circ \coev_{{}^*x} = \varepsilon \circ \overline{\eta}.
+%\end{equation*}
+% This is the exact same formula as in ENO's On fusion cat
+%The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. If $x$ is a simple object, then the quantum trace is zero if and only if $a$ is the zero map. 
+
+
+%\CSP{`squared norm' is what ENO use, `dimension squared' is what M\"uger uses. I don't like either because it is not the square of something in general. Is it unreasonable to rename this something like the {\em magnitude} of the object $x$? }
+%In a fusion category every object is isomorphic to its double dual (i.e. every object admits an ambidextrous dual), but not uniquely so. Nevertheless this allows us to define an invariant of simple objects. Let $x \in \cC$ be a simple object, then the {\em magnitude}
+%{\em norm square} 
+%$d^2(x)$ of $x$ is defined by the formula 
+%\begin{equation*}
+%	d^2(x) := \Tr(a) \cdot \Tr({}^*(a^{-1})) = (\varepsilon \circ \overline{\eta}) \cdot (\overline{\varepsilon} \circ \eta) \in k
+%\end{equation*}
+% This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
+%where $a: {}^{**}x \to x$ is any choice of isomorphism and $(\varepsilon, \eta, \overline{\varepsilon}, \overline{\eta})$ is the corresonding ambidextrous duality.  This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$. Also $d^2(x) = d^2(\overline{x})$ for any ambidextrous dual of $x$. 
+%\begin{definition}
+%	Let $\cC$ be a fusion category. The {\em global dimension} of $\cC$ is defined by the formula
+%	\begin{equation*}
+%		\dim(\cC) := \sum_{x} d^2(x)
+%		%\sum_{\substack{x \in \cC \\ x \;  \mathrm{simple}}} d^2(x)
+%	\end{equation*}
+%	where this sum ranges over a choice of representatives of isomorphism classes of simple objects of $\cC$. 
+%\end{definition}
+%\noindent The magnitude of simple objects (under the name `dimension squared') and the global dimension were introduced by M\"uger \cite{MR1966524} in the context of spherical fusion categories.
+
+%The global dimension has an elegant but less well-known equivalent description which we find very useful. Before we describe it we will first recall two well-known facts from the theory of finite tensor categories and their module categories.
  
 \CSP{These should cite either ENO or BTP or both.}
 Let $\cC$ be a finite tensor category, which we may consider as a left $\cC \boxtimes \cC^\mp$-module category. First, $\cC$ admits an enrichment in $\cC \boxtimes \cC^\mp$. Thus for every pair of objects $a, b \in \cC$, there exists an object $\IHom(a,b) \in \cC \boxtimes \cC^\mp$. This object is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
@@ -1782,30 +1857,29 @@ In any Frobenius algebra $R$, the composite of the comultiplication followed by 
 	The unique normalized map $\lambda:A \to 1 \boxtimes 1$ (so that $\lambda \circ u = id_{1 \boxtimes 1}$) determines the structure of a Frobenius algebra on $A$. Moreover the window element of this Frobenius algebra is precisely the global dimension of the Fusion category $\cC$. 
 \end{proposition}
 
-To demonstrate the existence of this Frobenius algebra structure, it will be useful to employ another bit of structure available in fusion categories. 
-Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
-\begin{equation*}
-	\Hom_{\cC}(y,z) \otimes \Hom_{\cC}(z,y) \to \Hom_{\cC}(z,z) \cong k
-\end{equation*}
-induced by composition is non-degenerate. This has several useful consequences, for example:
 
-\begin{lemma} \label{lma:canonical_ambidextrous}
-	Let $x$ and $\overline{x}$ be simple objects in a fusion category, and suppose that $\varepsilon: x \otimes \overline{x} \to 1$ is a chosen non-zero morphism. Then $\overline{x}$ canonically admits the structure of an ambidexterous dual to $x$, characterized by the normalization $\varepsilon \circ \overline{\eta} = 1 \in k = \End(1)$. 
-\end{lemma}
 
-\begin{proof}
-	The pairing $\varepsilon$ induces an isomorphism $\overline{x} \cong {}^*x$, and hence there exists a unique morphism $\eta: 1 \to \overline{x} \otimes x$ such that the pair $(\varepsilon, \eta)$ expresses $\overline{x}$ as the left dual of $x$. Since $x$ and $\overline{x}$ are simple objects the vector spaces $\Hom(1, \overline{x} \otimes x)$, $\Hom(\overline{x} \otimes x, 1)$, $\Hom(1, x \otimes \overline{x})$, and $\Hom(x \otimes \overline{x}, 1)$ are one dimensional. It follows that there exists a unique morphism $\overline{\eta}: 1 \to x \otimes \overline{x}$ satisfying the normalization condition $\varepsilon \circ \overline{\eta} = id_1$. The single morphism $\varepsilon$ provides a basis for $\Hom(x \otimes \overline{x}, 1)$ and $\overline{\eta}$ is the corresponding dual basis vector for $\Hom(1, x \otimes \overline{x})$. 
+%To demonstrate the existence of this Frobenius algebra structure, it will be useful to employ another bit of structure available in fusion categories. 
+%Let $z \in \cC$ be a simple object of a fusion category and let $y \in \cC$ be arbitrary. Then the pairing
+%\begin{equation*}
+%	\Hom_{\cC}(y,z) \otimes \Hom_{\cC}(z,y) \to \Hom_{\cC}(z,z) \cong k
+%\end{equation*}
+%induced by composition is non-degenerate. This has several useful consequences, for example:
+
+%\begin{lemma} \label{lma:canonical_ambidextrous}
+%	Let $x$ and $\overline{x}$ be simple objects in a fusion category, and suppose that $\varepsilon: x \otimes \overline{x} \to 1$ is a chosen non-zero morphism. Then $\overline{x}$ canonically admits the structure of an ambidexterous dual to $x$, characterized by the normalization $\varepsilon \circ \overline{\eta} = 1 \in k = \End(1)$. 
+%\end{lemma}
+
+%\begin{proof}
+%	The pairing $\varepsilon$ induces an isomorphism $\overline{x} \cong {}^*x$, and hence there exists a unique morphism $\eta: 1 \to \overline{x} \otimes x$ such that the pair $(\varepsilon, \eta)$ expresses $\overline{x}$ as the left dual of $x$. Since $x$ and $\overline{x}$ are simple objects the vector spaces $\Hom(1, \overline{x} \otimes x)$, $\Hom(\overline{x} \otimes x, 1)$, $\Hom(1, x \otimes \overline{x})$, and $\Hom(x \otimes \overline{x}, 1)$ are one dimensional. It follows that there exists a unique morphism $\overline{\eta}: 1 \to x \otimes \overline{x}$ satisfying the normalization condition $\varepsilon \circ \overline{\eta} = id_1$. The single morphism $\varepsilon$ provides a basis for $\Hom(x \otimes \overline{x}, 1)$ and $\overline{\eta}$ is the corresponding dual basis vector for $\Hom(1, x \otimes \overline{x})$. 
 	
-	The morphism $\overline{\eta}$ is non-zero and hence induces an isomorphism $\overline{x} \cong x^*$, and hence a unique morphism $\overline{\varepsilon}: \overline{x} \otimes x \to 1$ such that the pair $(\overline{\varepsilon}, \overline{\eta})$ witnesses $\overline{x}$ as the right dual of $x$. In other words we have constructed the desired ambidextrous duality. 
-\end{proof}
+%	The morphism $\overline{\eta}$ is non-zero and hence induces an isomorphism $\overline{x} \cong x^*$, and hence a unique morphism $\overline{\varepsilon}: \overline{x} \otimes x \to 1$ such that the pair $(\overline{\varepsilon}, \overline{\eta})$ witnesses $\overline{x}$ as the right dual of $x$. In other words we have constructed the desired ambidextrous duality. 
+%\end{proof}
 
-Just as $\varepsilon$ constituted a basis for $\Hom(x \otimes \overline{x}, 1)$, with dual basis given by $\overline{\eta}$, the single morphism $\eta$ constitutes a basis for $\Hom(1, \overline{x} \otimes x)$. Hence there exists a canonical morphisms $\hat{\eta}$ which provides the dual basis of $\Hom(\overline{x} \otimes x, 1)$. These satisfy the normalization $\hat{\eta} \circ \eta = id_1$. One might be tempted to think that $\hat{\eta}$ is equal to  $\overline{\varepsilon}$, but this is generally incorrect. Instead we have the following formula:
-\begin{equation*}
-	\overline{\varepsilon} = \hat{\eta} \cdot d^2(x).
-\end{equation*} 
-
-%...
-%\CSPcomm{in progress}
+%Just as $\varepsilon$ constituted a basis for $\Hom(x \otimes \overline{x}, 1)$, with dual basis given by $\overline{\eta}$, the single morphism $\eta$ constitutes a basis for $\Hom(1, \overline{x} \otimes x)$. Hence there exists a canonical morphisms $\hat{\eta}$ which provides the dual basis of $\Hom(\overline{x} \otimes x, 1)$. These satisfy the normalization $\hat{\eta} \circ \eta = id_1$. One might be tempted to think that $\hat{\eta}$ is equal to  $\overline{\varepsilon}$, but this is generally incorrect. Instead we have the following formula:
+%\begin{equation*}
+%	\overline{\varepsilon} = \hat{\eta} \cdot d^2(x).
+%\end{equation*} 
 
 
 \begin{proof}[Proof of Prop.~\ref{prop:FrobAlg_for_fusion}] 
@@ -1825,117 +1899,118 @@ We have already specified the algebra structure $(u,m)$ on $A$ as well as the co
 %	(b \otimes id_A) (id_A \otimes c) & = id_A
 %\end{align*}	
 %are satisfied. 	
-	
 
-As before we fix a chosen collection $\{L_i\}$ of representatives for each isomorphism class of simple objects. 	
-We will now also fix a basis $\{e_{ij, k}^\alpha\}$ for each of the vector spaces $\Hom_{\cC}(L_i \otimes L_j, L_k)$ (where $\alpha$ runs over a finite indexing set which depends on $i,j$ and $k$). We have an induced dual basis $\{\hat{e}_{ij, k}^\alpha \}$ for the vector space $\Hom_{\cC}(L_k, L_i \otimes L_j)$. Let $\{{}^*\hat{e}_{ij, k}^\alpha\}$ denote the induced basis of $\Hom_{\cC}({}^*L_j \otimes {}^*L_i, {}^*L_k)$. 
-
-For each index $i$, there exists exactly one index $j$ such that $\Hom(L_i \otimes L_j, 1)$ is non-zero. We will denote this distinguished index by $j = \overline{i}$ and write $L_j = {L}_{\overline{i}}$. Moreover the choice of basis vector $e_{i \overline{i}, 1}$ induces on ${L}_{\overline{i}}$, via lemma \ref{lma:canonical_ambidextrous}, a canonical structure of an ambidextrous dual to $L_i$. We will denote the ambidexterous duality structure maps as: 
-\begin{align*}
-	\eta_i: 					& \; 1 \to L_{\overline{i}} \otimes L_i, \\
-	\overline{\eta}_i: 		& \;  1 \to   L_i \otimes L_{\overline{i}}, \\
-	\varepsilon_i: 			& \;  L_i \otimes L_{\overline{i}} \to 1, \\
-	\overline{\varepsilon}_i: & \;   L_{\overline{i}} \otimes L_i  \to 1. 
-\end{align*}
-By construction we have $e_{i \overline{i}, 1} = \varepsilon_i$ and $\hat{e}_{i \overline{i}, 1} = \overline{\eta}_i$. However be warned! Although it is true that $\overline{\overline{i}} = i$, in general we have that $\overline{\eta}_i$ is not equal to $\eta_{\overline{i}}$, and similar inequalities. 
-
-
-
-%In the special case $L_k = 1$, the vector space $\Hom_{\cC}(L_i \otimes L_j, L_k)$ is the zero vector space unless $L_j \cong {}^*L_i$, in which case it is one-dimensional. In this later case, we will take the basis vector $e_{i {}^*i, 1}$ to be the evaluation map $\ev_{L_i}:L_i \otimes {}^*L_i \to 1$. The dual basis element is the unique map
-%\begin{equation*}
-%	\widehat{\ev}_{L_i}: 1 \to L_i \otimes {}^*L_i
-%\end{equation*} 
-%with the property that $\ev_{L_i} \circ \widehat{\ev}_{L_i} = id_1$. Similarly $\widehat{\coev}_{L_i}: {}^*L_i \otimes L_i \to 1$ is the unique map such that $\widehat{\coev}_{L_i} \circ \coev_{L_i} = id_1$. 
-%
-%The maps $\widehat{\ev}$ and $\widehat{\coev}$ {\em do not} provide ${}^*L_i$ with the structure of an ambidextrous dual to $L_i$; they fail to satisfy the defining equations of a duality. This can also be seen from the formula
-%\begin{equation*}
-%	(\ev \circ \widehat{\ev}) \cdot (\widehat{\coev} \circ \coev) = 1.
-%\end{equation*}
-%If $\widehat{\ev}$ and $\widehat{\coev}$ were to give ${}^*L_i$  the structure of an ambidextrous dual to $L_i$, then this formula would need to compute the magnitude of $L_i$, which in general it does not. An ambidextrous duality may be obtained by scaling either $\widehat{\ev}$ or $\widehat{\coev}$ by the magnitude of $L_i$. 
+As before we fix a chosen collection $\{L_i\}$ of representatives for each isomorphism class of simple objects. 	We will now also fix a basis $\{e_{ij, k}^r\}$ for each of the vector spaces $\Hom_{\cC}(L_i \otimes L_j, L_k)$ (where $r$ runs over a finite indexing set which depends on $i,j$ and $k$). We have an induced dual basis $\{\hat{e}_{ij, k}^r \}$ for the vector space $\Hom_{\cC}(L_k, L_i \otimes L_j)$. Let $\{{}^*\hat{e}_{ij, k}^r\}$ denote the induced basis of $\Hom_{\cC}({}^*L_j \otimes {}^*L_i, {}^*L_k)$. For each index $i$, there exists exactly one index $j$ such that $\Hom(L_i \otimes L_j, 1)$ is non-zero. We will denote this distinguished index by $j = \overline{i}$ and write $L_j = {L}_{\overline{i}}$.  We set $e_i = e_{i \overline{i}, 1}^1$ and note that $\beta(e_i) = \hat{e}_{i \overline{i}, 1}^1$.
 
 The Frobenius algebra structure on $A$ may now be described by explicit formulas. The multiplication map 
 \begin{equation*}
 	m: \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^*L_j \otimes {}^*L_i) = A \otimes A \to A = \oplus_k L_k \boxtimes {}^*L_k
 \end{equation*}
-is given on individual summands by the sum $\sum_\alpha (e_{ij,k}^\alpha) \boxtimes ({}^*\hat{e}_{ij, k}^\alpha)$. The counit map $\lambda: A \to 1 \boxtimes 1$ is given by projecting onto the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$; the unit is the inclusion of this factor. Thus the composite pairing 
+is given on individual summands by the sum $\sum_r (e_{ij,k}^r) \boxtimes ({}^*\hat{e}_{ij, k}^r)$. The counit map $\lambda: A \to 1 \boxtimes 1$ is given by projecting onto the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$; the unit is the inclusion of this factor. Thus the composite pairing 
 \begin{equation*}
 	b=\lambda \circ m: A \otimes A \to 1 \boxtimes 1
 \end{equation*}
- is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $\varepsilon_i \boxtimes {}^*\overline{\eta}_i$ to each factor separately. 
+ is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $e_i \boxtimes {}^*\beta(e_i)$ to each factor separately. Thus there is only one possible copairing which is given on the $(L_{\overline{i}} \otimes L_i) \boxtimes ({}^*L_i \otimes {}^*L_{\overline{i}})$ component by $\alpha(e_{\overline{i}}) \boxtimes \alpha({}^*\beta(e_{\overline{i}})$.
+  
+We now need to compute the composition of the pairing and copairing.  This is given on components by $(e_i \circ \alpha(e_{\overline{i}}) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}}))$.  Using the commutation relations, this is $\lVert x \rVert (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ {}^*\beta^{-1} (\alpha(e_{\overline{i}})$)).  Since this is homogeneous of degree $0$ in $\alpha(e_{\overline{i}})$ we may replace $\alpha(e_{\overline{i}})$ with $\beta(e_i)$.  Then the composition on the $e_i$ component is given by $\lVert x \rVert (e_i \circ \beta(e_i)) \cdot ({}^*\beta(e_i) \circ {}^*e_i) = \lVert x \rVert$.  The whole composition of pairing and copairing is thus given by the global dimension.
 
-The copairing $c: 1 \boxtimes 1 \to A \otimes A \cong \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^*L_j \otimes {}^*L_i)$ has an equally explicit description. It is zero on all summands except those in which $L_j = L_{\overline{i}}$. On these latter it is given by
-\begin{equation*}
-	c = \oplus_i \overline{\eta}_i \boxtimes {}^*( \varepsilon_i \cdot d^2(L_i)).
-\end{equation*}
-From this description we calculate the window element
-\begin{equation*}
-	b \circ c = \sum_i (\varepsilon_i \circ \overline{\eta}_i) \cdot ({}^*\overline{\eta}_i \circ {}^*\varepsilon_i) \cdot d^2(L_i) = \sum_i d^2(L_i) = \dim \cC
-\end{equation*} 
-and see it is given by the global dimension of $\cC$ (recall that $\varepsilon_i \circ \overline{\eta}_i = id_1$ by our conventions in lemma \ref{lma:canonical_ambidextrous}). 
-
-What remains is to verify that $c$ and $b$ do indeed form a self-duality for $A$. We will demonstrate the identity
-\begin{equation*}
-	(id_A \otimes b) (c \otimes id_A)  = id_A;
-\end{equation*}
-the remaining one is similar. 
-
-In a moment we will expand the composite $(id_A \otimes b) (c \otimes id_A)$ in terms of the above formulas, but first let us make the following useful observation. Suppose that $x$ and $y$ are simple objects which happen to be isomorphic. Then there exists a canonical isomorphism
-\begin{equation*}
-	F: x \boxtimes {}^{*}x \stackrel{\cong}{\to}  y \boxtimes {}^*y 
-\end{equation*}
-in $\cC \boxtimes \cC^\mp$. This canonical isomorphism is given by $F = f \boxtimes {}^{*}(f^{-1})$ where $f: x \to y$ is any choice of isomorphism; the morphism $F$ is independent of the choice of $f$.
-
-Thus we may expand the composite $(id_A \otimes b) (c \otimes id_A)$ in terms of the above formulas as follows (where $f_i: L_{\overline{\overline{i}}} \to L_i$ are any choices of isomorphism, and recall $d^2(L_i) = d^2(L_{\overline{i}})$):
-\begin{align*}
-	&(id_A \otimes b) (c \otimes id_A) \\
-	 &= \oplus_i   [f_i \boxtimes {}^*(f_i^{-1})] \circ [ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \boxtimes (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i)] \circ [(id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) \boxtimes ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} ) \cdot d^2(L_{\overline{i}})] \\
-	&= \oplus_i [f_i \circ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) ] \boxtimes [ {}^*(f_i^{-1}) \circ (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )  \cdot d^2(L_i)].
-\end{align*}
-This formula is of course independent of the choices of $f_i$, which we include for convenience. 
-
-We wish to show that this composite is the identity morphism of $A$. It is certainly sufficient to show that the individual composites
-\begin{align}
-	&  f_i \circ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} )  \label{eqn:1} \\
-	& {}^*(f_i^{-1}) \circ (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )   \cdot d^2(L_i) \label{eqn:2}
-\end{align}
-are each, separately, the identity map, and to achieve this we will have to make a judicious choice of the isomorphism $f_i$. 
-
-We choose $f_i$ to be the unique isomorphism which conjugates $\overline{\eta}_{\overline{i}}$ into $\eta_i$. That is to say:
-\begin{equation*}
-	(id_{L_{\overline{i}}} \otimes f_i) \circ \overline{\eta}_{\overline{i}} = \eta_i.
-\end{equation*}
-With this choice equation (\ref{eqn:1}) becomes:
-\begin{align*}
-	& f_i \circ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) \\
-	& = (\varepsilon_i \otimes id_{L_{{{i}}}}) \circ (id_{L_i} \otimes id_{L_{\overline{i}}} \otimes f_i) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} )\\
-	& = (\varepsilon_i \otimes id_{L_{{{i}}}}) \circ (id_{L_i} \otimes {\eta}_{{i}} ) \\
-	& = id_{L_i},
-\end{align*}
-as desired. Before calculating equation (\ref{eqn:2}) we observe that
-\begin{align*}
-	\varepsilon_{\overline{i}} \circ (id_{L_{\overline{i}}}  \otimes (f_i^{-1})) \circ \eta_i 
-	& = \varepsilon_{\overline{i}} \circ (id_{L_{\overline{i}}}  \otimes (f_i^{-1})) \circ (id_{L_{\overline{i}}} \otimes f_i) \circ \overline{\eta}_{\overline{i}}  \\
-	& = \varepsilon_{\overline{i}} \circ \overline{\eta}_{\overline{i}} \\
-	& = id_1
-\end{align*}
-(c.f. our conventions in lemma \ref{lma:canonical_ambidextrous}). From this we conclude that 
-\begin{equation*}
-	\varepsilon_{\overline{i}} \circ (id_{L_{\overline{i}}}  \otimes (f_i^{-1})) = \hat{\eta}_i,
-\end{equation*}
-the dual basis vector to $\eta_i$. We now compute equation (\ref{eqn:2}):
-\begin{align*}
-	& {}^*(f_i^{-1}) \circ (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )   \cdot d^2(L_i) \\
-	& = (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*(f_i^{-1}) \otimes id_{{}^*L_{\overline{i}}} \otimes id_{{}^*L_i}) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )   \cdot d^2(L_i) \\
-	& = (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*(\varepsilon_{\overline{i}} \circ
-	 (id_{L_{\overline{i}}}  \otimes (f_i^{-1}))  ) \otimes id_{{}^*L_i} ) \cdot d^2(L_i) \\
-	&= (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ
-	 ({}^* \hat{\eta}_i  \otimes id_{{}^*L_i} ) \cdot d^2(L_i)  \\
-	& = (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ 
-	({}^* \overline{\varepsilon}_i  \otimes id_{{}^*L_i} ) \\
-	&= id_{{}^* L_i}, 
-\end{align*}
-as desired. Thus we conclude that  $(id_A \otimes b) (c \otimes id_A)  = id_A$, as claimed.
 \end{proof}
+
+%As before we fix a chosen collection $\{L_i\}$ of representatives for each isomorphism class of simple objects.  We will now also fix a basis $\{e_{ij, k}^\alpha\}$ for each of the vector spaces $\Hom_{\cC}(L_i \otimes L_j, L_k)$ (where $\alpha$ runs over a finite indexing set which depends on $i,j$ and $k$). We have an induced dual basis $\{\hat{e}_{ij, k}^\alpha \}$ for the vector space $\Hom_{\cC}(L_k, L_i \otimes L_j)$. Let $\{{}^*\hat{e}_{ij, k}^\alpha\}$ denote the induced basis of $\Hom_{\cC}({}^*L_j \otimes {}^*L_i, {}^*L_k)$. 
+
+%For each index $i$, there exists exactly one index $j$ such that $\Hom(L_i \otimes L_j, 1)$ is non-zero. We will denote this distinguished index by $j = \overline{i}$ and write $L_j = {L}_{\overline{i}}$. Moreover the choice of basis vector $e_{i \overline{i}, 1}$ induces on ${L}_{\overline{i}}$, via lemma \ref{lma:canonical_ambidextrous}, a canonical structure of an ambidextrous dual to $L_i$. We will denote the ambidexterous duality structure maps as: 
+%\begin{align*}
+%	\eta_i: 					& \; 1 \to L_{\overline{i}} \otimes L_i, \\
+%	\overline{\eta}_i: 		& \;  1 \to   L_i \otimes L_{\overline{i}}, \\
+%	\varepsilon_i: 			& \;  L_i \otimes L_{\overline{i}} \to 1, \\
+%	\overline{\varepsilon}_i: & \;   L_{\overline{i}} \otimes L_i  \to 1. 
+%\end{align*}
+%By construction we have $e_{i \overline{i}, 1} = \varepsilon_i$ and $\hat{e}_{i \overline{i}, 1} = \overline{\eta}_i$. However be warned! Although it is true that $\overline{\overline{i}} = i$, in general we have that $\overline{\eta}_i$ is not equal to $\eta_{\overline{i}}$, and similar inequalities. 
+
+
+%The Frobenius algebra structure on $A$ may now be described by explicit formulas. The multiplication map 
+%\begin{equation*}
+%	m: \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^*L_j \otimes {}^*L_i) = A \otimes A \to A = \oplus_k L_k \boxtimes {}^*L_k
+%\end{equation*}
+%is given on individual summands by the sum $\sum_\alpha (e_{ij,k}^\alpha) \boxtimes ({}^*\hat{e}_{ij, k}^\alpha)$. The counit map $\lambda: A \to 1 \boxtimes 1$ is given by projecting onto the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$; the unit is the inclusion of this factor. Thus the composite pairing 
+%\begin{equation*}
+%	b=\lambda \circ m: A \otimes A \to 1 \boxtimes 1
+%\end{equation*}
+% is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $\varepsilon_i \boxtimes {}^*\overline{\eta}_i$ to each factor separately. 
+
+%The copairing $c: 1 \boxtimes 1 \to A \otimes A \cong \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^*L_j \otimes {}^*L_i)$ has an equally explicit description. It is zero on all summands except those in which $L_j = L_{\overline{i}}$. On these latter it is given by
+%\begin{equation*}
+%	c = \oplus_i \overline{\eta}_i \boxtimes {}^*( \varepsilon_i \cdot d^2(L_i)).
+%\end{equation*}
+%From this description we calculate the window element
+%\begin{equation*}
+%	b \circ c = \sum_i (\varepsilon_i \circ \overline{\eta}_i) \cdot ({}^*\overline{\eta}_i \circ {}^*\varepsilon_i) \cdot d^2(L_i) = \sum_i d^2(L_i) = \dim \cC
+%\end{equation*} 
+%and see it is given by the global dimension of $\cC$ (recall that $\varepsilon_i \circ \overline{\eta}_i = id_1$ by our conventions in lemma \ref{lma:canonical_ambidextrous}). 
+
+%What remains is to verify that $c$ and $b$ do indeed form a self-duality for $A$. We will demonstrate the identity
+%\begin{equation*}
+%	(id_A \otimes b) (c \otimes id_A)  = id_A;
+%\end{equation*}
+%the remaining one is similar. 
+
+%In a moment we will expand the composite $(id_A \otimes b) (c \otimes id_A)$ in terms of the above formulas, but first let us make the following useful observation. Suppose that $x$ and $y$ are simple objects which happen to be isomorphic. Then there exists a canonical isomorphism
+%\begin{equation*}
+%	F: x \boxtimes {}^{*}x \stackrel{\cong}{\to}  y \boxtimes {}^*y 
+%\end{equation*}
+%in $\cC \boxtimes \cC^\mp$. This canonical isomorphism is given by $F = f \boxtimes {}^{*}(f^{-1})$ where $f: x \to y$ is any choice of isomorphism; the morphism $F$ is independent of the choice of $f$.
+
+%Thus we may expand the composite $(id_A \otimes b) (c \otimes id_A)$ in terms of the above formulas as follows (where $f_i: L_{\overline{\overline{i}}} \to L_i$ are any choices of isomorphism, and recall $d^2(L_i) = d^2(L_{\overline{i}})$):
+%\begin{align*}
+%	&(id_A \otimes b) (c \otimes id_A) \\
+%	 &= \oplus_i   [f_i \boxtimes {}^*(f_i^{-1})] \circ [ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \boxtimes (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i)] \circ [(id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) \boxtimes ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} ) \cdot d^2(L_{\overline{i}})] \\
+%	&= \oplus_i [f_i \circ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) ] \boxtimes [ {}^*(f_i^{-1}) \circ (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )  \cdot d^2(L_i)].
+%\end{align*}
+%This formula is of course independent of the choices of $f_i$, which we include for convenience. 
+
+%We wish to show that this composite is the identity morphism of $A$. It is certainly sufficient to show that the individual composites
+%\begin{align}
+%	&  f_i \circ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} )  \label{eqn:1} \\
+%	& {}^*(f_i^{-1}) \circ (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )   \cdot d^2(L_i) \label{eqn:2}
+%\end{align}
+%are each, separately, the identity map, and to achieve this we will have to make a judicious choice of the isomorphism $f_i$. 
+
+%We choose $f_i$ to be the unique isomorphism which conjugates $\overline{\eta}_{\overline{i}}$ into $\eta_i$. That is to say:
+%\begin{equation*}
+%	(id_{L_{\overline{i}}} \otimes f_i) \circ \overline{\eta}_{\overline{i}} = \eta_i.
+%\end{equation*}
+%With this choice equation (\ref{eqn:1}) becomes:
+%\begin{align*}
+%	& f_i \circ (\varepsilon_i \otimes id_{L_{\overline{\overline{i}}}}) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} ) \\
+%	& = (\varepsilon_i \otimes id_{L_{{{i}}}}) \circ (id_{L_i} \otimes id_{L_{\overline{i}}} \otimes f_i) \circ (id_{L_i} \otimes \overline{\eta}_{\overline{i}} )\\
+%	& = (\varepsilon_i \otimes id_{L_{{{i}}}}) \circ (id_{L_i} \otimes {\eta}_{{i}} ) \\
+%	& = id_{L_i},
+%\end{align*}
+%as desired. Before calculating equation (\ref{eqn:2}) we observe that
+%\begin{align*}
+%	\varepsilon_{\overline{i}} \circ (id_{L_{\overline{i}}}  \otimes (f_i^{-1})) \circ \eta_i 
+%	& = \varepsilon_{\overline{i}} \circ (id_{L_{\overline{i}}}  \otimes (f_i^{-1})) \circ (id_{L_{\overline{i}}} \otimes f_i) \circ \overline{\eta}_{\overline{i}}  \\
+%	& = \varepsilon_{\overline{i}} \circ \overline{\eta}_{\overline{i}} \\
+%	& = id_1
+%\end{align*}
+%(c.f. our conventions in lemma \ref{lma:canonical_ambidextrous}). From this we conclude that 
+%\begin{equation*}
+%	\varepsilon_{\overline{i}} \circ (id_{L_{\overline{i}}}  \otimes (f_i^{-1})) = \hat{\eta}_i,
+%\end{equation*}
+%the dual basis vector to $\eta_i$. We now compute equation (\ref{eqn:2}):
+%\begin{align*}
+%	& {}^*(f_i^{-1}) \circ (id_{{}^* L_{\overline{\overline{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )   \cdot d^2(L_i) \\
+%	& = (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*(f_i^{-1}) \otimes id_{{}^*L_{\overline{i}}} \otimes id_{{}^*L_i}) \circ ( {}^*\varepsilon_{\overline{i}} \otimes id_{{}^*L_i} )   \cdot d^2(L_i) \\
+%	& = (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ ( {}^*(\varepsilon_{\overline{i}} \circ
+%	 (id_{L_{\overline{i}}}  \otimes (f_i^{-1}))  ) \otimes id_{{}^*L_i} ) \cdot d^2(L_i) \\
+%	&= (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ
+%	 ({}^* \hat{\eta}_i  \otimes id_{{}^*L_i} ) \cdot d^2(L_i)  \\
+%	& = (id_{{}^* L_{{{i}}}} \otimes {}^* \overline{\eta}_i) \circ 
+%	({}^* \overline{\varepsilon}_i  \otimes id_{{}^*L_i} ) \\
+%	&= id_{{}^* L_i}, 
+%\end{align*}
+%as desired. Thus we conclude that  $(id_A \otimes b) (c \otimes id_A)  = id_A$, as claimed.
+%\end{proof}
 
 
 
