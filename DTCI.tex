@@ -1138,7 +1138,7 @@ A left $\cC$-module category is a linear category $\cM$ together with a multilin
 %		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
 %	\end{align*}	
 	satisfying the evident pentagon identity and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.  A right $\cD$-module category is defined similarly.
-	A $\cC$-$\cD$ bimodule category is a left $\cC$-module category and a right $\cD$-module category together with a natural associator isomorphism $(c \otimes m) \otimes d \rightarrow c \otimes (m \otimes d)$ satisfying two additional pentagon axioms and two additional triangle axioms.
+	A $\cC$-$\cD$ bimodule category is a left $\cC$-module category and a right $\cD$-module category together with a natural associator isomorphism $(c \otimes m) \otimes d \cong c \otimes (m \otimes d)$ satisfying two additional pentagon axioms and two additional triangle axioms.
 \end{definition}
 
 \begin{definition}		
@@ -1161,17 +1161,18 @@ A {\em $\cC$-module functor} $\cF:\cM \to \cN$ is a linear functor $F:\cM \to \c
 \end{example} %!%!%CD
 
 \begin{example}
-	Let $\cC$ be a finite linear monoidal category, and let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category , with actions given by $\cF \otimes \cG = \cG \circ \cF$. 
+	Let $\cC$ be a finite linear monoidal category, and let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category, with actions given by $\cF \otimes \cG := \cG \circ \cF$. 
 \end{example} \CD{tensor?}
 
 The following lemma is crucial in constructing adjoints of $2$-morphisms in $\TC$.
 
 \begin{lemma} \label{lma:module-adjoint}
-Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
-\end{lemma} \CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
+Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (respectively left) adjoint $\cC$-$\cD$-bimodule functor. 
+\end{lemma} \CD{Why is this lemma here? Move to where it is needed?}
+\CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
 
 
-Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite rigid tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
+Just as any finite linear category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying the proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over a tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
@@ -1183,55 +1184,42 @@ Just as any finite linear category is a category of modules over an algebra, any
 
 %The Deligne tensor product is easiest to define for categories satisfying certain smallness properties, so we first introduce the notion of finite tensor categories and discuss their properties.
 
-Just as one can tensor bimodules over algebras, there's a Deligne tensor product of finite bimodule categories over finite tensor categories.
+The balanced tensor product provides a way to compose two ordinary bimodules $_A M_B$ and $_B N_C$ into a new bimodule $_A M \otimes_B N_C$.  The categorification of this construction (which is known as the relative Deligne tensor product) provides a composition of finite bimodule categories over tensor categories.
 
 \begin{definition}
 	Let $\cC$ be a linear monoidal category. 
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
-\begin{center}
-\begin{tikzpicture}
-	\node (LT) at (0, 1) {$F(M \otimes^{\cM} C, N)$};
-	\node (LB) at (0, 0) {$G(M \otimes^{\cM} C, N)$};
-	\node (RT) at (3, 1) {$F(M, C \otimes^{\cN} N)$};
-	\node (RB) at (3, 0) {$G(M, C \otimes^{\cN} N)$};
-	\draw [->] (LT) -- node [left] {$$} (LB);
-	\draw [->] (LT) -- node [above] {$$} (RT);
-	\draw [->] (RT) -- node [right] {$$} (RB);
-	\draw [->] (LB) -- node [below] {$$} (RB);
-	%\node at (0.5, 1) {$\ulcorner$};
-	%\node at (1.5, 0.5) {$\lrcorner$};
-\end{tikzpicture}.
-\end{center}
+	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. A {\em $\cC$-balanced functor} from $\cM$ and $\cN$ into a linear category $\cL$ is a bilinear functor $\cF: \cM \times \cN \to \cL$ together with a natural isomorphism $\alpha: \cF \circ (\otimes^{\cM} \times \id_{\cN}) \cong \cF \circ (\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:\cF \to \cG$ of $\cC$-balanced functors commuting with the isomorphism $\alpha$.
 \end{definition}
 
+The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ is the universal linear category admitting a $\cC$-balanced bilinear functor from $\cM \times \cN$.  More specifically we have the following definition:
 
 \begin{definition}
-	Let $\cA$ be a right $\cC$-module category and let $\cB$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cA \times \cB \to \cA \boxtimes_{\cC} \cB$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced multilinear functors $\cA \times \cB \to \cD$ and the category of linear functors $\cA \boxtimes_{\cC} \cB \to \cD$. 
+	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category.  The {\em relative Deligne tensor product} is a linear category $\cM \boxtimes_{\cC} \cN$ together with a $\cC$-balanced bilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ that induces, for all linear categories $\cL$, an equivalence between the category of $\cC$-balanced bilinear functors $\cM \times \cN \to \cL$ and the category of linear functors $\cM \boxtimes_{\cC} \cN \to \cL$. 
 \end{definition}
 
-If it exists, the Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
+\noindent If it exists, the relative Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty.  Observe that, because of its definition as a universal object, if the relative Deligne tensor product exists, it is functorial in the modules categories $\cM$ and $\cN$. \CD{? TD}
 
-\begin{maintheorem}[\cite{BTP}] \label{thm:DelignePrdtOverATCExists}
-	Let $\cC$ be a tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
+Provided the category $\cC$ is tensor and the module categories are finite, the relative Deligne tensor product does indeed exist.
+
+\begin{theorem}[\cite{BTP}] \label{thm:DelignePrdtOverATCExists}
+	Let $\cC$ be a tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. 
 	\begin{enumerate}
-		\item The relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$ exists and is a finite linear category;
-		\item If $\cA = \Mod{A}{}(\cC)$ and $\cB = \Mod{}{B}(\cC)$, then $\cA \boxtimes_{\cC} \cB \simeq \Mod{A }{B}(\cC)$;
+		\item The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category.
+		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$. Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.
 
 		\item The functor $\boxtimes_{\cC}$ is exact in each variable and satisfies 
 		\begin{equation*}
-			\Hom_{\cA}(x,x') \otimes \Hom_{\cB}(y, y') \cong \Hom_{\cA \boxtimes_{\cC} \cB} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
+			\Hom_{\cM}(x,x') \otimes \Hom_{\cN}(y, y') \cong \Hom_{\cM \boxtimes_{\cC} \cN} (x \boxtimes y, x' \boxtimes y').
 		\end{equation*}
-		\item If $F: \cA \times \cB \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cA \boxtimes_{\cC} \cB \to \cD$. 
-	\end{enumerate} 
-\nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.	
-\end{maintheorem}
+		\item If $\cF: \cM \times \cN \to \cL$ is a $\cC$-balanced bilinear functor that is exact in each variable, then the corresponding functor $\overline{\cF}: \cM \boxtimes_{\cC} \cN \to \cL$ is exact. 
+	\end{enumerate} 	
+\end{theorem}
 
-Equipped with the relative Deligne tensor product and its properties, we can now define the 3-category of interest.
+The relative Deligne tensor product provides the composition of 1-morphisms, which is the key ingredient, for the 3-category of finite tensor categories.  When a relative Deligne tensor product is taken over the tensor category $\Vect_k$, it is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.
 
-\CSP{Get theorem number.}
-\begin{maintheorem}[\cite{3TC}]
-	There exists a symmetric monoidal $(3,3)$-category whose objects are the finite rigid tensor categories, whose 1-morphisms are bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule natural transformations. Composition is given by the relative Deligne tensor product of bimodules. The symmetric monoidal structure is given by the usual Deligne tensor product. 
-\end{maintheorem}
+\begin{theorem}[\cite{3TC}]
+	There exists a symmetric monoidal $(3,3)$-category $\TC$ whose objects are the finite tensor categories, whose 1-morphisms are finite bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule transformations. Composition of 1-morphisms is given by the relative Deligne tensor product, and the symmetric monoidal structure is given by the ordinary Deligne tensor product. 
+\end{theorem}
 
 \subsection{Exact module categories} \label{sec:tc-exact}
 % The results here are used in section 4.4 to build adjoints.
