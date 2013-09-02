@@ -1525,7 +1525,7 @@ Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa,
 
 Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{MR2097289}[\S 3].
 
-\begin{lemma}
+\begin{lemma} \label{lem:dualing-amod}
 	Let $A$ and $B$ be algebra objects in the tensor category $\cC$. Let $M$ be an $A$-$B$-bimodule (which is, in particular, an object in $\cC$). Then ${}^{**}A$ and $B^{**}$ are naturally algebra object of $\cC$, $M^*$ is naturally a $B^{**}$-$A$-bimodule, and ${}^*M$ is naturally a $B$-${}^{**}A$-bimodule. Moreover these identifications induce equivalences of linear categories:
 	\begin{equation*}
 		\Mod{B^{**}}{A}(\cC) \simeq \Mod{A}{B}(\cC) \simeq \Mod{B}{{}^{**}A}(\cC).
@@ -2353,7 +2353,7 @@ By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively frame
 
 Thus, without loss of generality, we can assume that the TFT has the following values on $2$-framed intervals.  The bimodules written in the third column are canonically isomorphic to the ones in the second column by Lemma \ref{lem:dual-formula-for-adjoints}, and the bimodules in the fourth column are canonically isomorphic to the ones in the third column by Warning \ref{warning:DualTwist}.
 
-\begin{table}[ht]
+\begin{table}[ht] \label{table:intervals}
 \begin{tabular}{c|c|c|c}
 \cb{
 \begin{tikzpicture}
@@ -2619,7 +2619,7 @@ We've already seen that $\TC$ is $2$-dualizable.  So we need only show that the 
 
 Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
 
-Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{???}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle \mathfrak{r r} \rangle}\cC_{\cC}$ \NScomm{add reference}.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle \mathfrak{r r} \rangle} \cC_{\cC} \rightarrow {}_{\cC \langle \mathfrak{l l} \rangle} \cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
+Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{table:intervals}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle \mathfrak{r r} \rangle}\cC_{\cC}$ \NScomm{add reference}.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle \mathfrak{r r} \rangle} \cC_{\cC} \rightarrow {}_{\cC \langle \mathfrak{l l} \rangle} \cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
 
 \begin{theorem}
 If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical isomorphism of tensor functors ${}^{**}X \cong D^{-1} X^{**} D$ where $D$ is the image of $1$ under the Radford map.
@@ -2628,7 +2628,7 @@ If $\cC$ is a finite tensor category then the Radford isomorphism gives a canoni
 This theorem was originally proved by Etingof-Nikshych-Ostrik \cite{MR2097289}, and it generalizes a theorem about Hopf algebras proved by Radford \cite{MR0407069}.  In this section, we explicitly calculate the invertible object $D$ above and the Radford isomorphism and compare it with the Radford isomorphism constructed in \cite{MR2097289}.
 
 In order to compare the two constructions we first rapidly summarize ENO's construction.  Recall from Example \ref{???} that $\ev_\cC \cong {}_{\cC \boxtimes \cC^\mp}\cC$ can be realized explicitly as mod-$A$ where $A$ is the internal endomorphisms of $\mathbf{1} \in \cC$. 
-ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.  By Lemma \ref{???}, we have that $\ev_\cC^L \cong {}^*(\text{mod-}A) \cong A\text{-mod}$ while $\ev_\cC^R \cong (\text{mod-}A)^* \cong A^{**}\text{-mod}$.  Thus, to give a map $\ev_x^L \rightarrow \ev_x^R$ we need only give an invertible $A^{**}$-mod-$A$ bimodule.  ENO's Radford map $\cR_{ENO}: \ev_x^L \rightarrow \ev_x^R$ is given by tensoring with ${}_{A^{**}}A^*_A$ (with the bimodule structure from Lemma \cite{???}).  (ENO prove that $A^*$ is invertible non-constructively via a Frobenius-Perron argument, though our techniques will show that it has an explicit inverse.)
+ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.  By Lemma \ref{lem:dualing-amod}, we have that $\ev_\cC^L \cong {}^*(\text{mod-}A) \cong A\text{-mod}$ while $\ev_\cC^R \cong (\text{mod-}A)^* \cong A^{**}\text{-mod}$.  Thus, to give a map $\ev_x^L \rightarrow \ev_x^R$ we need only give an invertible $A^{**}$-mod-$A$ bimodule.  ENO's Radford map $\cR_{ENO}: \ev_x^L \rightarrow \ev_x^R$ is given by tensoring with ${}_{A^{**}}A^*_A$ (with the bimodule structure from Lemma \ref{lem:dualing-amod}).  (ENO prove that $A^*$ is invertible non-constructively via a Frobenius-Perron argument, though our techniques will show that it has an explicit inverse.)
 
 %Since $A^*$ is a right $A$ module it is of the form $(D \boxtimes 1) \otimes A$ for some object $D \in \cC$ which ENO call the canonical invertible.  Our goal is to show that our $\cR$ is also given by tensoring with ${}_{A^{**}}A^*_A$ and that the image of $1$ under this m
 
@@ -2686,11 +2686,11 @@ In particular, by ENO's results we have the following two results.
 If $\cC$ is semisimple then $D \cong 1$.
 \end{lemma}
 \begin{proof}
-This is CITE ENO.  It is also relatively straightforward to compute directly that our Radford map sends $1$ to $1$ by computing each part of the Radford bordism directly in terms of the simple objects without referring to $A$ at all.
+This is \cite[Cor 6.4]{MR2097289}.  It is also relatively straightforward to compute directly that our Radford map sends $1$ to $1$ by computing each part of the Radford bordism directly in terms of the simple objects without referring to $A$ at all.
 \end{proof}
 
 
-\begin{lemma} \cite{???}
+\begin{lemma} \cite[Cor. 7.4]{MR2097289} \label{lem:characterize-Radford}
 The isomorphism $R_V:V \rightarrow V^{****}$ induced by the Radford is characterized by the property that for any $f: V \rightarrow V^{**}$, we have that $\Tr(f) = \Tr(f^* \circ R_{{}^*V})$. 
 \end{lemma}
 
@@ -2717,9 +2717,9 @@ A spherical structure is a pivotal structure which in addition satisfies the con
 If $\cC$ is semisimple, a pivotal structure $p_V: V \rightarrow V^{**}$ gives a spherical structure on $\cC$ if and only if $p_V^{**} \circ p_V: V \rightarrow V^{****}$ agrees with the tensor isomorphism given by the Radford $R_V: V \rightarrow V^{****}$.
 \end{lemma}
 \begin{proof}
-By Lemma \ref{???}, $R_V$ is characterized by the property that for any $f: V \rightarrow V^{**}$, we have that $\Tr(f) = \Tr(f^* \circ R_{{}^*V})$.  Suppose that $p_V^{**} \circ p_V = c_V R_V$ for some scalars $c_V$, then
+By Lemma \ref{lem:characterize-Radford}, $R_V$ is characterized by the property that for any $f: V \rightarrow V^{**}$, we have that $\Tr(f) = \Tr(f^* \circ R_{{}^*V})$.  Suppose that $p_V^{**} \circ p_V = c_V R_V$ for some scalars $c_V$, then
 $$\Tr(p_V) = \Tr(p_V^* \circ R_{{}^*V}) = (c_V)^{-1}\Tr(p_V^* \circ p_{{}^*V}^{**} \circ p_{{}^*V}) = (c_V)^{-1}\Tr(p_{V^*}^{-1} \circ p_{V^*} \circ p_{{}^*V}) = (c_V)^{-1}\Tr(p_{{}^*V}).$$
-(Here we have repeated used the well-known fact that $(p_W)^* = (p_{W^*})^{-1}$ \cite{???}.)  Thus, we see that $\Tr(p_V) = \Tr(p_{{}^*V})$ if and only if $p_V^{**} \circ p_V = R_V$.
+(Here we have repeated used the well-known fact that $(p_W)^* = (p_{W^*})^{-1}$ \cite[Lemma 4.11]{0908.3347}.)  Thus, we see that $\Tr(p_V) = \Tr(p_{{}^*V})$ if and only if $p_V^{**} \circ p_V = R_V$.
 \end{proof}
 
 \begin{corollary}
@@ -2747,19 +2747,19 @@ Surprisingly, in the non-semisimple case a spherical structure does \emph{not} g
 \begin{example}
 Let $H$ be Sweedler's $4$-dimensional Hopf algebra.  This algebra is generated by an element $x$ and an invertible element $g$ subject to the relations $x^2 = 0$, $g^2 = 1$, and $gx = -xg$.  The Hopf structure is determined by the coproducts $\Delta(g) = g \otimes g$ and $\Delta(x) = 1 \otimes x + x \otimes g$.  It is straightforward to compute that $S(g) = g^{-1}$ while $S(x) = - x g^{-1}$.  The Hopf algebra $H$ has four indecomposable representations: two irreducible $1$-dimensional representations $V_{\pm}$ (where $x$ acts by $0$ and $g$ acts by $\pm 1$), and two $2$-dimensional projective representations $W_\pm$ (where $x$ sends $w_1$ to $w_0$ and kills $w_0$ and $g$ acts on $w_1$ by $\pm 1$ and on $w_0$ by $\minusplus 1$). We will show that $\Rep(H)$ is a spherical finite tensor category but does not have the structure of a $\Omega \Sigma (\RR \PP^2)$ homotopy fixed point.
 
-First, note that $\Rep(H)$ is spherical.  To give a pivotal structure on the category of representations of a Hopf algebra it is enough to give a grouplike object such that $S^2$ acts by conjugation by that invertible object.  For Sweedler's Hopf algebra, $g$ has that property.  This pivotal structure is spherical if for every representation $U$ and any endomorphism $\theta$ of $U$ we have $\Tr_U(\theta g) = \Tr_U(\theta g^{-1})$ \cite{???}.  This condition is easily verified in our case.
+First, note that $\Rep(H)$ is spherical.  To give a pivotal structure on the category of representations of a Hopf algebra it is enough to give a grouplike object such that $S^2$ acts by conjugation by that invertible object.  For Sweedler's Hopf algebra, $g$ has that property.  This pivotal structure is spherical if for every representation $U$ and any endomorphism $\theta$ of $U$ we have $\Tr_U(\theta g) = \Tr_U(\theta g^{-1})$ \cite{MR1686423}.  This condition is easily verified in our case.
 
 Second, we show that the canonical invertible object is not the tensor square of any invertible object, and hence $\Rep(H)$ is not an $\Omega \Sigma (\RR \PP^2)$ homotopy fixed point.  To compute the canonical invertible object we use the characterization that the projective cover of $1$ is dual to the projective cover of $D$.  The projective cover of $V_+$ is $W_+$, the projective cover of $V_-$ is $W_-$.  Furthermore, the dual of $W_+$ has a basis of delta functions $\delta_1$ and $\delta_0$, and $W_+^* \cong W_-$ via $\delta_1 \mapsto -w_0$ and $\delta_0 \mapsto w_1$.  Hence, the canonical invertible is $V_-$.  But $V_+$ and $V_-$ both tensor square to the trivial.
 \end{example}
 
 \begin{remark}
-In particular, we should not expect Sweedler's $4$-dimensional Hopf algebra to give an oriented non-compact $3$-dimensional field theory.  Instead, it only has the structure of an $SO(2)$ fixed point and thus only descends to give a combed non-compact $3$-dimensional field theory (that is one which depends on a choice of nontrivial vector field).  This explains why Kuperberg's invariant for Sweedler's $4$-dimensional Hopf algebra \cite{???}depends on a combing even though this Hopf algebra is spherical so one might have expected an oriented invariant by analogy with Turaev-Viro.
+In particular, we should not expect Sweedler's $4$-dimensional Hopf algebra to give an oriented non-compact $3$-dimensional field theory.  Instead, it only has the structure of an $SO(2)$ fixed point and thus only descends to give a combed non-compact $3$-dimensional field theory (that is one which depends on a choice of nontrivial vector field).  This explains why Kuperberg's invariant for Sweedler's $4$-dimensional Hopf algebra \cite{MR1394749} depends on a combing even though this Hopf algebra is spherical so one might have expected an oriented invariant by analogy with Turaev--Viro.
 \end{remark}
 
-In fact, even if $D \cong 1$, sphericality is still not the right notion for non-semisimple finite tensor categories, see Remark 7.5 \cite{???}.
+In fact, even if $D \cong 1$, sphericality is still not the right notion for non-semisimple finite tensor categories, see \cite[Rem. 7.5]{MR0407069}.
 
 \begin{remark}
-It is a well-known open question to determine whether all fusion categories are spherical.  In particular, all known examples of fusion categories are $SO(3)$ homotopy fixed points, and thus the TFTs should descend to oriented TFTs.  As we saw above, not all finite tensor categories are $SO(3)$ homotopy fixed points, but one could ask whether they're at least all $SO(2)$ homotopy fixed points.  There are known examples of finite tensor categories which are not pivotal \cite{???}, but their duals are pivotal and being an $SO(2)$ homotopy fixed point is Morita invariant.  Thus all known finite tensor categories are $SO(2)$ homotopy fixed points.
+It is a well-known open question to determine whether all fusion categories are spherical.  In particular, all known examples of fusion categories are $SO(3)$ homotopy fixed points, and thus the TFTs should descend to oriented TFTs.  As we saw above, not all finite tensor categories are $SO(3)$ homotopy fixed points, but one could ask whether they're at least all $SO(2)$ homotopy fixed points.  There are known examples of finite tensor categories which are not pivotal \cite[Rem. 2.11]{1204.5807}, but their duals are pivotal and being an $SO(2)$ homotopy fixed point is Morita invariant.  Thus all known finite tensor categories are $SO(2)$ homotopy fixed points.
 \end{remark}
 
 %\appendix 
