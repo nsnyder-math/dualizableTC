@@ -1091,7 +1091,7 @@ We now impose a strong finiteness condition on linear categories.  Recall the fo
 \end{definition}
 
 There is a well-known characterization of finite linear categories, as follows; see~\cite{BTP} for a proof:
-\begin{proposition}
+\begin{proposition} \label{prop:catismod}
 A linear category is finite if and only if it is equivalent to the category of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
 \end{proposition}
 
@@ -1127,7 +1127,7 @@ We turn to the notions of module and bimodule categories.
 
 \begin{definition}
 Let $\cC$ and $\cD$ be linear monoidal categories.
-A left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+A left $\cC$-module category is a linear category $\cM$ together with a bilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
 %	\CSP{This looks a little gross. I should change it.}
 	\begin{align*}
 		\alpha: & \;    \otimes^{\cM} \circ \; (\otimes^{\cC} \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}), \\
@@ -1223,104 +1223,98 @@ The relative Deligne tensor product provides the composition of 1-morphisms, whi
 
 \subsection{Exact module categories} \label{sec:tc-exact}
 % The results here are used in section 4.4 to build adjoints.
-In this section we summarize Etingof and Ostrik's theory of exact module categories \cite{EO-ftc}.  This theory will be used when we prove that finite tensor categories are Radford objects.   We also prove a new lemma about exactness of Deligne tensor products.
+In this section we summarize Etingof and Ostrik's theory of exact module categories \cite{EO-ftc}, and prove a new result about the exactness of Deligne tensor products.  These exactness properties will be essential in constructing adjoints of bimodules between finite tensor categories.
 
 \begin{definition}
-	Let $\cC$ be a tensor category. A (left) $\cC$-module category $\cM$ will be called {\em exact} if for any object $m \in \cM$ and  projective object $p \in \cC$, the object $p \otimes m$ is projective in $\cM$. 
+	Let $\cC$ be a tensor category. A (left) $\cC$-module category $\cM$ is {\em exact} if for any object $m \in \cM$ and  any projective object $p \in \cC$, the object $p \otimes m \in \cM$ is projective. 
 \end{definition}
 
+\begin{definition}
+We say that a $\cC$--$\cD$ bimodule category is exact if it is exact as a $\cC \boxtimes \cD^\mp$-module category.
+\end{definition}
+
+
 \begin{example}
-	If $\cC$ is semisimple, then $\cM$ is an exact module category if and only if it is semisimple.
-\end{example}
+	Assume $\cC$ is semisimple.  The $\cC$-module category $\cM$ is exact if and only if it is semisimple.
+\end{example} %!%CD
 
 \begin{example}[{\cite[Ex. 3.3]{EO-ftc} \cite[Ex. 2.6.5]{EGNO}}] \label{ex:exactness}
-	A tensor category $\cC$ is exact when considered as a $\cC$-, $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
-\end{example}
+	A tensor category $\cC$ is exact when considered as a $\cC$-, or $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
+\end{example} %!%CD
 %\CSP{I think we might want to add some material to this example discussing the alegbra $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$. }
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
 \begin{theorem}[\cite{EO-ftc, EGNO}] \label{Thm:ExactModCatOmnibus}
-	Let $\cC$ be a tensor category (hence finite and rigid), and let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories (not assumed to be finite), and let $\cN$ be an arbitrary $\cC$-module category. Then,
+	Let $\cC$ be a tensor category (hence finite and rigid), let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories (not assumed to be finite), and let $\cN$ be an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
-		\item $\cM$ has enough projectives. \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}
-		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}
+		\item $\cM$ has enough projectives \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}.
+		\item Every projective object in $\cM$  is injective, and vice versa \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
 		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
-		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, $\Fun_{\cC}(\cM,\cM)$ is itself a tensor category (in particular finite and rigid). 
-	\end{enumerate}
-\end{theorem}
-%\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
+		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}	.	
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}. In particular every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has left and right adjoints (which are therefore themselves exact). Thus, $\Fun_{\cC}(\cM,\cM)$ is itself a tensor category (in particular finite and rigid). 
+	\end{enumerate} %!% Middle sent CDNC cf Eg 3.2.6
+\end{theorem}\CD{Discuss logic}
+\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
 
-\noindent In fact it is enough to check exactness condition for any collection of projective generators of $\cC$. 
+\noindent We now prove that exactness is preserved by the Deligne tensor product.  We will need the following lemma, saying that to check exactness of a module category it suffices to check the exactness condition for a collection of projective generators. 
 
 \begin{lemma} \label{lma:Exact_checked_on_proj_gens}
-	Let $\cC$ be a tensor category and $\cM$ a finite (left) $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a fixed collection of jointly generating projective objects of  $\cC$. Then the following are equivalent:
+	Let $\cC$ be a tensor category and $\cM$ a finite (left) $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a fixed collection of jointly generating projective objects of  $\cC$. The following are equivalent:
 	\begin{enumerate}
 		\item for all $m \in \cM$ and all $p_\alpha \in \cP$, the object $p_\alpha \otimes m \in \cM$ is projective;
 		\item the $\cC$-module category $\cM$ is exact.
 	\end{enumerate}
-	(Recall that to say the family $\cP$ is {\em jointly generating} means the functor $\prod_\alpha\cC(p_\alpha, -): \cC \to \Set$ is faithful)
 \end{lemma}
 
+\noindent (Recall that to say the family $\cP$ is {\em jointly generating} means the functor $\prod_\alpha \Hom_\cC(p_\alpha, -): \cC \to \Set$ is faithful.) \CD{Why defined this way?}
+
 \begin{proof}
-	It is clear $(2) \Rightarrow (1)$; we prove the converse. Since $\cP$ forms a jointly generating collection of object it follows that for any object $q \in \cC$ there exists a finite sum $p = \oplus_i p_i$ of object of $\cP$ and a surjection $\pi:p \twoheadrightarrow q$. 
-	
-		 If $q$ is projective, then there exists a section of $\pi$, realizing $q$ as a direct summand of $p$. For every $m \in \cM$, the functor $(-)\otimes m$ is right exact, hence we have an exact sequence
-		\begin{equation*}
-			p \otimes m \to q \otimes m \to 0.
-		\end{equation*}
-		 The first map admits a section, and hence $q \otimes m$ is a direct summand of $p \otimes m$. By assumption the later is projective, whence $q \otimes mß$ is projective for every projective $q \in \cC$ and every $m \in \cM$. 
+	It is clear that $(2) \Rightarrow (1)$.  We prove the converse. Since $\cP$ is a jointly generating collection of objects, we know that for any object $q \in \cC$ there exists a finite sum $p = \oplus_i p_i$ of objects of $\cP$ and a surjection $\pi:p \twoheadrightarrow q$. If $q$ is projective, then there exists a section of $\pi$, realizing $q$ as a direct summand of $p$. For every $m \in \cM$, the functor $(-)\otimes m$ is right exact, hence we have a surjection $p \otimes m \twoheadrightarrow q \otimes m$. This map admits a section, and hence $q \otimes m$ is a direct summand of $p \otimes m$. By assumption $p \otimes m$ is projective, and thus $q \otimes m$ is projective, as required.
 \end{proof}
 
 
-
-\begin{definition}
-We say that a $\cC$--$\cD$ bimodule category is exact if it is exact as a $\cC \boxtimes \cD^\mp$ module category.
-\end{definition}
-
-
-
 \begin{theorem}\label{thm:tensor-exactness}
-If $\cM$ is an exact $\cC$ module category and $\cN$ is an exact $\cD$ module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$ module category.
+Let $\cC$ and $\cD$ be tensor categories.  If $\cM$ is an exact $\cC$-module category and $\cN$ is an exact $\cD$-module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$-module category.
 \end{theorem} %This thereorem is new, not stated anywhere because no one needed it.
 \begin{proof}
-We begin by observing that the Deligne tensor product preserves projective/injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective. Similarly if $m$ and $n$ are injective, then $m \boxtimes n$ will be injective. This closure property follows directly from Theorem \ref{thm:DelignePrdtOverATCExists}.(4) describing the universal property of the Deligne tensor product. 	
-	
-Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for projective objects $p \in \cC$ and $q \in \cD$. Then $\cP$ forms a jointly generating family of projectives. The fact that this family is jointly generating can be seen, for example, from Thm. \ref{thm:EGNO2.11.6}. By Lemma \ref{lma:Exact_checked_on_proj_gens} above, it is enough to check that $(p \boxtimes q) \otimes x$ is projective for every object $x \in \cM \boxtimes \cN$. In other words we wish to show that the following functor is exact:
-\begin{equation*}
-	\Hom((p \boxtimes q) \otimes x, -) \cong \Hom(x, ({}^*p \boxtimes {}^*q) \otimes(-) ): \cM \boxtimes \cN \to \Vec
-\end{equation*}
+We begin by observing that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective. This closure property follows from parts (3) and (4) of Theorem \ref{thm:DelignePrdtOverATCExists}. Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for projective objects $p \in \cC$ and $q \in \cD$. The collection $\cP$ is a jointly generating family of projectives, as can be seen by expressing $\cC \boxtimes \cD$ as $(A \otimes B)-\mathrm{mod}$, using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}. 
 
-Note that by our previous observations this follows immediately for primitive tensor products, that is 
- objects of the form $ m \boxtimes n$, for then we have
+By Lemma \ref{lma:Exact_checked_on_proj_gens}, it is enough to check that $(p \boxtimes q) \otimes x$ is projective for every object $x \in \cM \boxtimes \cN$. In other words we need to show that the following functor is exact:
 \begin{equation*}
-	(p \boxtimes q) \otimes x = (p \boxtimes q) \otimes (m \boxtimes n) \cong (p \otimes m) \boxtimes (q \otimes n).
+	\Hom((p \boxtimes q) \otimes x, -) \cong \Hom(x, ({}^*p \boxtimes {}^*q) \otimes(-) ): \cM \boxtimes \cN \to \Vect
 \end{equation*}
-Hence the desired exactness property also holds for finite direct sums of objects of this type. Moverover, by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}, for general $x$ it is enough to restrict to $\cM \times \cN$ and 
-verify exactness in each variable separately. We will show exactness in the variable $\cM$; exactness in the second variable follows from an identical argument. 
+When $x$ is a primitive tensor $m \boxtimes n$, we have
+\begin{equation*}
+	(p \boxtimes q) \otimes x = (p \boxtimes q) \otimes (m \boxtimes n) \cong (p \otimes m) \boxtimes (q \otimes n),
+\end{equation*}
+and $\Hom((p \boxtimes q) \otimes x,-)$ is exact by part (4) of Theorem~\ref{thm:DelignePrdOverATCExists}.
+The desired exactness property also certainly holds for finite direct sums of such primitive tensors. 
 
-Thus for general $x$ we begin by considering a fixed object $n \in \cN$ and an exact sequences in $\cM$:
+For general objects $x \in \cM \boxtimes \cN$, again by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}, it is enough to consider the functor $\cF: \cM \times \cN \rightarrow \Vect$, $m \times n \mapsto \Hom_{\cM \boxtimes \cN}((p \boxtimes q) \otimes x, m \boxtimes n)$, and verify exactness in each of the variables $\cM$ and $\cN$ separately. We will show exactness in the variable $\cM$; exactness in the second variable follows by the same argument. 
+
+Begin by considering a fixed object $n \in \cN$ and an exact sequences in $\cM$:
 \begin{align*}
 	m_1 \to m_2 \to m_3 \to 0. 
 %	  n_1 \to n_2 \to n_3 \to 0.
 \end{align*}
-By \cite[Prop. 2.3]{EO-ftc} if $y$ is a projective object in a finite tensor category then ${}^*y$ is also projective. Thus by Theorem \ref{Thm:ExactModCatOmnibus}.(2) the object ${}^*q \otimes n$ and each of the objects ${}^*p \otimes m_i$ are injective, hence for each $i = 1,2,3$ so is the object 
+If $y$ is a projective object in a finite tensor category then ${}^*y$ is also projective \cite[Prop. 2.3]{EO-ftc}. Thus by part (2) of Theorem \ref{Thm:ExactModCatOmnibus} the object ${}^*q \otimes n$ and each of the objects ${}^*p \otimes m_i$ are injective, hence so are the objects 
 \begin{equation*}
 	z_{i} :=  ({}^*p \otimes m_i) \boxtimes ({}^*q \otimes n).
 \end{equation*}
-Moreover, since the Deligne tensor product is exact and tensoring with objects of $\cC$ is exact (tensoring with appropriate duals gives each adjoint), we have an exact sequences of injective objects of $\cM \boxtimes \cN$:
+The sequence of injective objects
 \begin{equation*}
-	z_1 \to z_2 \to z_3 \to 0.
+	z_1 \to z_2 \to z_3 \to 0
 \end{equation*}
+is exact, because $(c \otimes -): \cM \rightarrow \cM$ is exact for any object $c \in \cC$ (as tensoring with appropriate duals gives the adjoint functors) and $(- \boxtimes \tilde{n}):\cM \ra \cM \boxtimes \cN$ is exact for any $\tilde{n} \in \cN$.
 
-Finally it follows from Theorem \ref{thm:EGNO2.11.6} that for every object $x \in \cM \boxtimes \cN$ there exists a short exact sequence
+Utilizing Theorem~\cite{thm:EGNO2.11.6} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}, note that for every object $x \in \cM \boxtimes \cN$ there exists a short exact sequence
 \begin{equation*}
 	0 \to x'' \to x' \to x \to 0
 \end{equation*}
- such that $x'$ is a finite direct sum of objects of the form $m \boxtimes n$. Putting these facts together we obtain the commutative diagram in Figure \ref{fig:exact-mod-cat-exact}. 
+where $x'$ is a finite direct sum of objects of the form $m \boxtimes n$. \CD{Why direct sum?}
+Consider the following diagram
 %\CSP{I think I don't want zeros on the left-most side. I should double check that they aren't needed.}
-\begin{figure}[htbp]
-	\begin{center}
+\[
 		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1cm,between origins}] {
 		 &[0.5cm] 0 &[1cm] 0 &[1cm] 0 &[0.5cm]  \\ 
 		 & \Hom(x, z_1) & \Hom(x, z_2) & \Hom(x, z_3) & \\ 
@@ -1341,17 +1335,9 @@ Finally it follows from Theorem \ref{thm:EGNO2.11.6} that for every object $x \i
 			4/2/4/3, 4/3/4/4} % third row of horiz arrows
 			\draw [->] (m-\sourcerow-\sourcecol) -- (m-\targetrow-\targetcol);
 		\end{tikzpicture}
-	\end{center}
-	\caption{A digram helping show the product of exact module categories is exact.}
-	\label{fig:exact-mod-cat-exact}
-\end{figure}
-The columns are exact because each of the objects $z_i$ is injective. The middle row is exact because $x'$ is a finite direct sum of primitive objects. 
-
-A diagram chase (essentially a variation on the snake lemma applied to the middle rows) shows that we always have a short exact sequence
-\begin{equation*}
-	 \Hom(x, z_1) \to \Hom(x, z_2) \to \Hom(x, z_3) \to 0
-\end{equation*}
-and hence $\Hom((p \boxtimes q) \otimes x, -)$ is right exact and $(p \boxtimes q) \otimes x$ is projective. 
+\]
+The columns are exact because each of the objects $z_i$ is injective. The middle row is exact because $x'$ is a finite direct sum of primitive tensor products. A diagram chase shows that the map $\Hom(x,z_2) \rightarrow \Hom(x,z_3)$ is surjective,
+and hence $\Hom((p \boxtimes q) \otimes x, -)$ is right exact, as required. 
 %\NScomm{Hrm, I think my proof of this may have a hole...}
 \end{proof}
 
