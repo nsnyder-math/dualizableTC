@@ -898,7 +898,7 @@ In a 3-dualizable symmetric monoidal 3-category, the evaluation pairing on any o
 \begin{lemma} \label{lem-ambiadjoints} \NS{Add a remark explaining why this Lemma actually only involves $2$-categories, assuming it does only involve $2$-categories}
 	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  with unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ as a left adjoint to $f$. 
 \end{lemma}
-\noindent Note that using the category $\cA^{op_1}$, where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is, in fact, a right adjoint.  Similarly, using the category $\cA^{op_2}$ where 2-morphisms are reversed, the role of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$.  Of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right occurring in the Lemma.
+\noindent Note that using the category $\cA^{\op_1}$, where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is, in fact, a right adjoint.  Similarly, using the category $\cA^{\op_2}$ where 2-morphisms are reversed, the role of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$.  Of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right occurring in the Lemma.
 \begin{proof}[Proof of Lemma \ref{lem-ambiadjoints}]
 By assumption we are given 3-morphisms,
 \begin{align*}
@@ -1003,7 +1003,7 @@ There are two conventions we perceive as fundamental: one for the names of adjoi
 		(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
 		(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
 	\end{align*}
-(Here $B \circ A$ denotes composition of functors, which is to say, apply $A$ and then apply $B$, while $\beta \circledcirc \alpha$ denotes horizontal composition of natural transformations, again with $\alpha$ first and then $\beta$; this ensure, for instance, that the source $s(\beta \circledcirc \alpha)$ of $\beta \circledcirc \alpha$ is the functor $s(\beta) \circ s(\alpha)$.  We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$.
+(Here $B \circ A$ denotes composition of functors, which is to say, apply $A$ and then apply $B$, while $\beta \circledcirc \alpha$ denotes horizontal composition of natural transformations, again with $\alpha$ first and then $\beta$; this ensure, for instance, that the source $s(\beta \circledcirc \alpha)$ of $\beta \circledcirc \alpha$ is the functor $s(\beta) \circ s(\alpha)$).  We say $F$ is the {\em left adjoint} of $G$ and $G$ is the {\em right adjoint} of $F$.
 \end{definition}
 
 %\begin{definition} [Convention A]
@@ -1019,7 +1019,7 @@ There are two conventions we perceive as fundamental: one for the names of adjoi
 \begin{equation*}
 	\Hom_\cA(F(x), y) \cong \Hom_\cB(x, G(y)).
 \end{equation*}
-We apply this the same convention for left and right adjoints to $1$-morphisms in $2$-categories other than $\Cat$.
+We apply the same convention for adjoints to $1$-morphisms in $2$-categories other than $\Cat$; cf. Definition~\ref{def:adjoints_in_bicat} in the appendix.
 
 \begin{definition}[Convention for rigidity] \label{def:rigid}
 	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zigzag' equations:
@@ -1056,25 +1056,26 @@ A bimodule ${}_A M_B$ is a $1$-morphism from $A$ to $B$ in the $2$-category $\Al
 
 With the preceding conventions in place, observe the following:
 \begin{itemize}
-\item[1.] Let $\cC$ be a monoidal category, considered as a 2-category with one object.  There is a 2-functor from $\cC$ to $\Cat$ that takes the unique object $\ast \in \cC$ to $\cC \in \Cat$ and takes the morphism $\ast \xra{x} \ast$ of $\cC$ to the functor $\cC \xra{- \otimes x} \cC$.  That is, tensoring on the right provides a 2-functor.  Similarly, tensoring on the left ($x \otimes -$) provides a 2-functor from $\cC$ to $\Cat^{op_1}$; here ``$op_1$" indicates that the 1-morphisms of $\Cat$ have been reversed.
-\item[2.] There is a 2-functor from $\Alg$ to $\Cat$ sending an algebra $A$ to the category $\Mod{}{A}$ of right modules.  Similarly there is a 2-functor from $\Alg$ to $\Cat^{op_1}$ taking $A$ to the category $\Mod{A}{}$ of left modules.
+\item[1.] Let $\cC$ be a monoidal category, considered as a 2-category with one object.  There is a 2-functor from $\cC$ to $\Cat$ that takes the unique object $\ast \in \cC$ to $\cC \in \Cat$ and takes the morphism $\ast \xra{x} \ast$ of $\cC$ to the functor $\cC \xra{- \otimes x} \cC$.  That is, tensoring on the right provides a 2-functor.  Similarly, tensoring on the left ($x \otimes -$) provides a 2-functor from $\cC$ to $\Cat^{\op_1}$; here ``$\op_1$" indicates that the 1-morphisms of $\Cat$ have been reversed.
+\item[2.] There is a 2-functor from $\Alg$ to $\Cat$ sending an algebra $A$ to the category $\Mod{}{A}$ of right modules.  Similarly there is a 2-functor from $\Alg$ to $\Cat^{\op_1}$ taking $A$ to the category $\Mod{A}{}$ of left modules.
 \end{itemize}
 
 
 \subsection{Tensor categories, bimodule categories, and the Deligne tensor product} \label{sec:tc-lincat}
 
-	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, i.e. an enrichment in which the addition of morphisms agrees with the given abelian structure. A {\em linear functor} is a right exact additive functor that is also a functor of $\overline{\Vect}_k$-enriched categories. 
+We begin by defining linear categories and linear functors.  Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, i.e. an enrichment in which the addition of morphisms agrees with the given abelian structure. A {\em linear functor} is a right exact additive functor that is also a functor of $\overline{\Vect}_k$-enriched categories. 
+\CD{TD. Recall anything about nat transf of additive funcs between additive cats? cf 3.2.11}
 
 \begin{warning}
 	Unless explicitly stated otherwise, {\bfseries all linear functors considered in this paper are  right exact functors}.  Many of the constructions described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering the paper with the adjective `right exact', we build right exactness into the basic definitions, even though this deviates from convention in the literature.  
 \end{warning}
 
-Recall the following standard terminology:
+We now impose a strong finiteness condition on linear categories.  Recall the following standard terminology:
 \begin{itemize}
-	\item[-] An object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
+	\item[-] An object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of a simple object is a division algebra over $k$. %!%CD
 	\item[-] An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects $X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots$ has finite length. 
-	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects, or equivalently, if every short exact sequence splits. If in addition every object has finite length, then every object splits as a finite direct sum of simple objects.
-	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a project object $P$ with a surjection $P \twoheadrightarrow X$. 
+	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects, or equivalently if every short exact sequence splits. If in addition every object has finite length, then every object splits as a finite direct sum of simple objects. %!%CD
+	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a projective object $P$ with a surjection $P \twoheadrightarrow X$. 
 \end{itemize}
 
 
@@ -1089,27 +1090,27 @@ Recall the following standard terminology:
 	\end{enumerate}
 \end{definition}
 
+There is a well-known characterization of finite linear categories, as follows; see~\cite{BTP} for a proof:
 \begin{proposition}
-A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
+A linear category is finite if and only if it is equivalent to the category of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
 \end{proposition}
 
 \begin{lemma} \label{lma:left_exact=linear}
 	If $\cC$ is a finite linear category, then a  functor $G: \cC^\op \to \Vect$, not necessarily right exact, is representable if and only if it is left exact. 
 \end{lemma}
 
-\noindent Recall that $G$ is representable if there exists an object $x \in \cC$ and a natural isomorphism $G(-) \cong \Hom_{\cC}(-, x)$. 
+%\noindent Recall that $G$ is representable if there exists an object $x \in \cC$ and a natural isomorphism $G(-) \cong \Hom_{\cC}(-, x)$.
+\CD{Move this lemma to where it is needed and/or provide some context/rationale for it being here.
 	
+Next we consider monoidal structures on linear categories.	
 If $\{\cA_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cA_\alpha\}$ into a linear category $\cB$ consists of a functor
-\begin{equation*}
-	F: \prod \cA_\alpha \to \cB
-\end{equation*}
+$F: \prod \cA_\alpha \to \cB$
 such that $F$ is linear in each variable separately. 
 
 \begin{definition}
-	A {\em linear monoidal category} will mean a monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.  
+	A {\em linear monoidal category} is a monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that $\cC$ is a linear category and the functor $\otimes$ is bilinear. A {\em tensor category} is a rigid linear monoidal category.  
 \end{definition}
-
-\noindent Note that we are assuming that all our tensor categories are rigid (see Def. \ref{def:rigid}).  The reasons for this assumption are laid out in \cite{BTP}.
+\CD{Add (back) brief comment on while we'll stick to rigid?}
 %This assumption is necessary for theorem \ref{thm:EGNO2.11.6}, which is one of the main results of \cite{EGNO}, and which is discussed in detail in section \ref{sec:tc-bimod}. We in turn use this later result as the basis for proving the existence of the {\em relative} Deligne product, as well as for several other crucial results in this paper. We will explain how this assumption is used in sections \ref{sec:tc-bimod}, \ref{sec:tc-deligne}, \ref{sec:tc-exact}, and \ref{sec:tc-separable}.
 
 %\begin{example}
@@ -1117,50 +1118,51 @@ such that $F$ is linear in each variable separately.
 %\end{example}
 
 \begin{example}
-	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$. If $\cM$ is semisimple, then $\Fun(\cM, \cM)$ is rigid and hence a tensor category; Duals are obtained by taking adjoint functors.  
-\end{example}
+	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall our convention that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$. If $\cM$ is semisimple, then $\Fun(\cM, \cM)$ is rigid---duals are obtained by taking adjoint functors---and hence a tensor category.  
+\end{example} %!%CD
 
-Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the monoidally-opposite opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$; also in the literature $rev$ is sometimes used to denote what we call $\mp$. )  If $\cC$ is rigid then the left dual and the right dual functors each give isomorphisms $\cC^\op \cong \cC^\mp$ and from $\cC \cong \cC^\mop$. \NS{I added the last sentence.}
+Given a monoidal category $\cC$, there are three distinct notions of the opposite monoidal category: we can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the monoidally-opposite, opposite category).  (Note that in the literature `$\op$' sometimes refers to what we call `$\op$' and sometimes to what we call `$\mp$'; also in the literature `$rev$' is sometimes used to denote what we call `$\mp$'.)  If $\cC$ is rigid then the left dual and the right dual functors each give isomorphisms $\cC^\op \cong \cC^\mp$ and from $\cC \cong \cC^\mop$. \NS{I added the last sentence.}
 
+We turn to the notions of module and bimodule categories.
 
-%\subsection{Bimodule categories} \label{sec:tc-bimod}
 \begin{definition}
+Let $\cC$ and $\cD$ be linear monoidal categories.
 A left $\cC$-module category is a linear category $\cM$ together with a multilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
 %	\CSP{This looks a little gross. I should change it.}
 	\begin{align*}
-		\alpha: & \;    \otimes^{\cM} \circ (\otimes^{\cC} \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}) \\
-		\lambda: & \; 1_{\cC} \otimes^{\cM}(-) \cong id_{\cM},
+		\alpha: & \;    \otimes^{\cM} \circ \,(\otimes^{\cC} \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}), \\
+		\lambda: & \; \otimes^\{\cM} (1_{\cC} \times -) \cong id_{\cM},
 	\end{align*}
 %	\begin{align*}
 %		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
 %		\lambda: & \; 1 \otimes^{\cM}(-) \cong id_{\cM},
 %	\end{align*}	
-	satisfying the evident pentagon and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.
-	A $\cC$-$\cD$ bimodule category is a left $\cC$-module category and a right $\cD$-module category endowed with an associator $(c \otimes m) \otimes d \rightarrow c \otimes (m \otimes d)$ satisfying the usual hexagon axiom.
+	satisfying the evident pentagon identity and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.  A right $\cD$-module category is defined similarly.
+	A $\cC$-$\cD$ bimodule category is a left $\cC$-module category and a right $\cD$-module category together with a natural associator isomorphism $(c \otimes m) \otimes d \rightarrow c \otimes (m \otimes d)$ satisfying two additional pentagon axioms and two additional triangle axioms.
 \end{definition}
 
 \begin{definition}		
-A {\em $\cC$-module functor} $F:\cM \to \cN$ is a functor $F:\cM \to \cN$ together with a binatural transformations $f_{c,m}:F(c \otimes m) \rightarrow c \otimes F(m)$ satisfying a pentagon relation.  A right module functor and a bimodule functor are defined similarly
-	A {\em $\cC$-module transformation}  is a natural transformation $\eta: \cF \rightarrow \cG$ satisfying $f_{c,m} \circ (\id \otimes \eta_m)= \eta_{c \otimes m}\circ g_{c,m}$.  Again left module natural transformations and bimodule natural transformations are defined similarly.
+A {\em $\cC$-module functor} $\cF:\cM \to \cN$ is a linear functor $F:\cM \to \cN$ together with a natural transformations $f_{c,m}:\cF(c \otimes m) \rightarrow c \otimes \cF(m)$ satisfying the evident pentagon relation and triangle relation.  A right module functor and a bimodule functor are defined similarly.
+\end{definition}
+\begin{definition}
+	A {\em $\cC$-module transformation} between $\cC$-module functors $\cF$ and $\cG$ is a natural transformation $\eta: \cF \rightarrow \cG$ satisfying $(\id_c \otimes \eta_m) \circ f_{c,m} = g_{c,m} \circ \eta_{c \otimes m}$.  Left module transformations and bimodule transformations are defined similarly.
 \end{definition} %\CD{Explain lax} 
 %\CD{check this def}
 	
 %
-\nid $\cC$-$\cD$ bimodule categories, bimodule functors, and bimodule transformations form a strict 2-category.  \NS{I edited this sentence}
-%If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
-%It happens that any lax (or oplax) functor of bicategories between bimodules is automatically strong---see Lemma~\ref{lem:laxisstrong}.
+\nid Observe that $\cC$-$\cD$ bimodule categories, bimodule functors, and bimodule transformations form a strict 2-category.  By a finite module or bimodule category we will mean simply a module or bimodule category whose underlying linear category is finite.
 
 \begin{example}
-	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way (that is any two such structures are naturally isomorphic via a unique isomorphism). %\CD{essentially unique?}
-\end{example}
+	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way: any two such structures are naturally isomorphic via a unique isomorphism.
+\end{example} %!%CD
 
 \begin{example} \label{ex:ModulesAreModules}
-	For any algebra object $A$ in a tensor category $\cC$, the category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a \emph{left} $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a \emph{right} $\cC$-module category.
-\end{example}
+	For any algebra object $A$ in a linear monoidal category $\cC$, the category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a \emph{left} $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a \emph{right} $\cC$-module category.
+\end{example} %!%!%CD
 
 \begin{example}
-	Let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category (where, by our conventions, the actions are given by $\cF \otimes \cG = \cG \circ \cF$). 
-\end{example}
+	Let $\cC$ be a finite linear monoidal category, and let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category , with actions given by $\cF \otimes \cG = \cG \circ \cF$. 
+\end{example} \CD{tensor?}
 
 The following lemma is crucial in constructing adjoints of $2$-morphisms in $\TC$.
 
@@ -2782,20 +2784,20 @@ The cobordism hypothesis, conjectured by Baez and Dolan~\cite{MR1355899} and lat
 
 Here, a tangentially framed $n$-manifold is an $n$-manifold $M$ with a trivialization of its tangent bundle $\tau_M$, and a tangentially ($n$-)framed $k$-manifold, for $k < n$, is a $k$-manifold $N$ with a trivialization of the stabilized-up-to-dimension-$n$ tangent bundle $\tau_N \oplus \RR^{n-k}$; this structure is also referred to simply as an $n$-framing.  There is an $(\infty,n)$-category $\FrBord_n$ with objects being $n$-framed $0$-manifolds, morphisms being $n$-framed bordisms between those objects, 2-morphisms being $n$-framed bordisms between those 1-morphisms, and so on, up to the $n$-morphisms, which are the spaces of $n$-framed $n$-manifold bordisms between the $(n-1)$-morphisms.  A local tangentially framed $n$-dimensional topological field theory is by definition a symmetric monoidal functor from $\FrBord_n$ to a target symmetric monoidal $(\infty,n)$-category $\cC$.
 
-A succinct and elementary definition of full dualizability can be stated in terms of the existence of adjoints in a collection of bicategories extracted from the target category $\cC$.  For each $k$, with $-1 \leq k \leq n-2$, there is a functorial association
+A succinct and elementary definition of full dualizability can be stated in terms of the existence of adjoints in a collection of 2-categories extracted from the target category $\cC$.  For each $k$, with $-1 \leq k \leq n-2$, there is a functorial association
 \[
 \cC \mapsto h_2^{(k)} \cC
 \]
-taking a symmetric monoidal $(\infty,n)$-category $\cC$ to the bicategory (that is $(2,2)$-category) of $k$-morphisms of $\cC$.  More specifically, for $0 \leq k$, the bicategory $h_2^{(k)} \cC$ has objects the $k$-morphisms of $\cC$, 1-morphisms the $(k+1)$-morphisms of $\cC$, and 2-morphisms the equivalence classes of $(k+2)$-morphisms of $\cC$.  For $k=-1$, the bicategory $h_2^{(-1)} \cC$ has a single object, has 1-morphisms the objects of $\cC$ with composition given by the monoidal product of $\cC$, and has 2-morphisms the equivalence classes of 1-morphisms of $\cC$.
+taking a symmetric monoidal $(\infty,n)$-category $\cC$ to the 2-category (that is $(2,2)$-category) of $k$-morphisms of $\cC$.  More specifically, for $0 \leq k$, the 2-category $h_2^{(k)} \cC$ has objects the $k$-morphisms of $\cC$, 1-morphisms the $(k+1)$-morphisms of $\cC$, and 2-morphisms the equivalence classes of $(k+2)$-morphisms of $\cC$.  For $k=-1$, the 2-category $h_2^{(-1)} \cC$ has a single object, has 1-morphisms the objects of $\cC$ with composition given by the monoidal product of $\cC$, and has 2-morphisms the equivalence classes of 1-morphisms of $\cC$.
 
 \begin{appexample}
-	In the symmetric monoidal 3-category $\TC$ of tensor categories, the bicategories $h^{(-1)}_2 \TC$, $h^{(0)}_2 \TC$, and $h^{(1)}_2 \TC$ are respectively (-1) the monoidal category of tensor categories and equivalence classes of bimodule categories, (0) the bicategory of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (1) the bicategory of bimodule categories, bimodule functors, and natural transformations.
+	In the symmetric monoidal 3-category $\TC$ of tensor categories, the 2-categories $h^{(-1)}_2 \TC$, $h^{(0)}_2 \TC$, and $h^{(1)}_2 \TC$ are respectively (-1) the monoidal category of tensor categories and equivalence classes of bimodule categories, (0) the 2-category of tensor categories, bimodule categories, and natural isomophism classes of bimodule functors, and (1) the 2-category of bimodule categories, bimodule functors, and natural transformations.
 \end{appexample}
 
-We can now recall the notion of full dualizability.  The notion of adjoint functors, given in Definition~\ref{def:Adjoints}, can be transported verbatim into any bicategory:
+We can now recall the notion of full dualizability.  The notion of adjoint functors, given in Definition~\ref{def:Adjoints}, can be transported verbatim into any 2-category:
 
 \begin{appdefinition} \label{def:adjoints_in_bicat}
-		A 1-morphism $G: \cA \to \cB$ in a bicategory {\em admits a left adjoint} if there exists a 1-morphism $F: \cB \to \cA$, and 2-morphisms, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of equations:
+		A 1-morphism $G: \cA \to \cB$ in a 2-category {\em admits a left adjoint} if there exists a 1-morphism $F: \cB \to \cA$, and 2-morphisms, the {\em unit} $\eta: id_{\cB} \to G \circ F$ and the {\em counit} $\varepsilon: F \circ G \to id_{\cA}$, satisfying the following pair of equations:
 		\begin{align*}
 			(id_{G} \circledcirc \varepsilon  ) \circ (  \eta \circledcirc id_{G}) &= id_{G} \\
 			(\varepsilon \circledcirc id_{F}) \circ (id_{F} \circledcirc \eta) &= id_{F}.
