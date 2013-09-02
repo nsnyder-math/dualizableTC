@@ -982,12 +982,14 @@ We refer to the isomorphism in the above proposition as the {\em Radford isomorp
 If $x \in \cC$ is 3-dualizable in a symmetric monoidal $(\infty,n)$-category, with dual $(\overline{x}, ev, coev)$, and adjunction data $(ev^R, u, v)$ and $(ev^L, \tilde{u}, \tilde{v})$, then the composite $(\tilde{v} \circledcirc \id) \circ (\id \circledcirc v^R)$ is an isomorphism from $ev^L$ to $ev^R$.
 \end{corollary}
 
-\nid Note well that neither Proposition \ref{prop-Cat_Radford} nor Corollary \ref{cor:3dualizable-Radford} depends on the cobordism hypothesis.  More generally, specific applications of the cobordism hypothesis which only use particular bordisms should not depend on the full strength of the cobordism hypothesis since it is easier to prove something about a specific bordism than it is to prove a result about all bordisms.
+\nid Note well that neither Proposition \ref{prop-Cat_Radford} nor Corollary \ref{cor:3dualizable-Radford} depends on the cobordism hypothesis.  More generally, specific applications of the cobordism hypothesis which only use particular bordisms should not depend on the full strength of the cobordism hypothesis since it is easier to prove something about a specific bordism than it is to prove a result about all bordisms. \NS{I added a sentence here.}
 
 
 \section{Tensor categories} \label{sec:tc}
 
 In Section~\ref{sec:conventions}, we establish systematic, compatible conventions for dualities and adjunctions in various monoidal and higher-categorical contexts.  In Section~\ref{sec:tc-lincat} we review the theory of finite tensor categories and their bimodules, following Eitingof, Gelaki, Nikshych, and Ostrik~\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}, and recall the existence of the relative Deligne tensor product from~\cite{BTP} and the 3-category of tensor categories from~\cite{3TC}.  In Section~\ref{sec:tc-exact}, we summarize Etingof and Ostrik's theory of exact module categories~\cite{EO-ftc} and then prove that the Deligne tensor product of exact module categories is exact.  In Section~\ref{sec:tc-bimodules} we discuss the expression of the duals and tensor products of bimodules categories as functor categories, which will be an essential technique in the dualizability calculations in Section~\ref{sec:dualizability}.  In Section~\ref{sec:tc-separable}, we introduce the notion of separable tensor categories and module categories, based on a suggestion of Ostrik, as the proper context for the theory of finite tensor categories in arbitrary, particularly finite, characteristic, and we prove that the relative Deligne tensor product of separable bimodule categories is separable.  In Section~\ref{sec:tc-fusion}, we prove one of our main theorems, that a fusion category is separable if and only if its global dimension is non-zero.
+
+Sections \ref{sec:conventions} and \ref{sec:tc-bimodules} are essential for all readers.  Section \ref{sec:tc-lincat} is background, we encourage experts to only refer back to it when needed, and encourage readers who are new to tensor categories to read \cite{BTP} for a more thorough explanation.  Sections \ref{sec:tc-separable} and \ref{sec:tc-fusion} are aimed at experts and  concentrate on the characteristic $p$ case.  \NS{I just added this paragraph}
 
 \subsection{Conventions for duality} \label{sec:conventions}
 
@@ -1069,7 +1071,7 @@ With the preceding conventions in place, observe the following:
 
 Recall the following standard terminology:
 \begin{itemize}
-	\item[-] A object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
+	\item[-] An object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
 	\item[-] An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects $X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots$ has finite length. 
 	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects, or equivalently, if every short exact sequence splits. If in addition every object has finite length, then every object splits as a finite direct sum of simple objects.
 	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a project object $P$ with a surjection $P \twoheadrightarrow X$. 
@@ -1118,7 +1120,7 @@ such that $F$ is linear in each variable separately.
 	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $\cF \otimes \cG = \cG \circ \cF$. If $\cM$ is semisimple, then $\Fun(\cM, \cM)$ is rigid and hence a tensor category; Duals are obtained by taking adjoint functors.  
 \end{example}
 
-Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the monoidally-opposite opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$; also in the literature $rev$ is sometimes used to denote what we call $\mp$.)
+Given a monoidal category $\cC$, there are three important notions of opposite. We can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these $\cC^{\op}$ (the opposite category), $\cC^{\mp}$ (the monoidally-opposite category), and $\cC^{\mop}$ (the monoidally-opposite opposite category).  (Note that in the literature $\op$ sometimes refers to what we call $\op$ and sometimes to what we call $\mp$; also in the literature $rev$ is sometimes used to denote what we call $\mp$. )  If $\cC$ is rigid then the left dual and the right dual functors each give isomorphisms $\cC^\op \cong \cC^\mp$ and from $\cC \cong \cC^\mop$. \NS{I added the last sentence.}
 
 
 %\subsection{Bimodule categories} \label{sec:tc-bimod}
@@ -1144,7 +1146,7 @@ A {\em $\cC$-module functor} $F:\cM \to \cN$ is a functor $F:\cM \to \cN$ togeth
 %\CD{check this def}
 	
 %
-\nid Bimodule categories, functors, and transformations form a strict 2-category.
+\nid $\cC$-$\cD$ bimodule categories, bimodule functors, and bimodule transformations form a strict 2-category.  \NS{I edited this sentence}
 %If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
 %It happens that any lax (or oplax) functor of bicategories between bimodules is automatically strong---see Lemma~\ref{lem:laxisstrong}.
 
@@ -1207,7 +1209,7 @@ Just as one can tensor bimodules over algebras, there's a Deligne tensor product
 
 If it exists, the Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
 
-\begin{maintheorem} \label{thm:DelignePrdtOverATCExists}
+\begin{maintheorem}[\cite{BTP}] \label{thm:DelignePrdtOverATCExists}
 	Let $\cC$ be a tensor category and let $\cA_{\cC}$ and ${}_{\cC}\cB$ be finite right and left $\cC$-module categories, respectively. Then,
 	\begin{enumerate}
 		\item The relative Deligne tensor product $\cA \boxtimes_{\cC} \cB$ exists and is a finite linear category;
@@ -1241,20 +1243,20 @@ In this section we summarize Etingof and Ostrik's theory of exact module categor
 	If $\cC$ is semisimple, then $\cM$ is an exact module category if and only if it is semisimple.
 \end{example}
 
-\begin{example}[{\cite[Example 2.6.5]{EGNO}}] \label{ex:exactness}
+\begin{example}[{\cite[Ex. 3.3]{EO-ftc} \cite[Ex. 2.6.5]{EGNO}}] \label{ex:exactness}
 	A tensor category $\cC$ is exact when considered as a $\cC$-, $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
 \end{example}
 %\CSP{I think we might want to add some material to this example discussing the alegbra $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$. }
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
-\begin{theorem}[\cite{EGNO}] \label{Thm:ExactModCatOmnibus}
+\begin{theorem}[\cite{EO-ftc, EGNO}] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a tensor category (hence finite and rigid), and let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories (not assumed to be finite), and let $\cN$ be an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
-		\item $\cM$ has enough projectives. \cite[Lemma 2.7.1]{EGNO}
-		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor 2.7.4]{EGNO}
+		\item $\cM$ has enough projectives. \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}
+		\item Every projective object in $\cM$  is injective, and vice versa. \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}
 		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
-		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 2.13.2]{EGNO}		
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, $\Fun_{\cC}(\cM,\cM)$ is itself a tensor category (in particular finite and rigid). 
+		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable. \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}		
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}. Hence every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has exact left and right adjoints. Moreover, $\Fun_{\cC}(\cM,\cM)$ is itself a tensor category (in particular finite and rigid). 
 	\end{enumerate}
 \end{theorem}
 %\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
@@ -1365,7 +1367,7 @@ and hence $\Hom((p \boxtimes q) \otimes x, -)$ is right exact and $(p \boxtimes 
 
 
 
-\subsection{Dual bimodule categories} \label{sec:tc-bimodules}
+\subsection{Dual bimodule categories} \label{sec:tc-bimodules} \NS{Is this the right title for this subsection?  I don't love it, but I also don't have a suggestion for a better one.}
 
 In this section we define some notation for producing new bimodule categories from old ones, and prove several technical lemmas allowing us to manipulate these bimodules easily.  Most of these are closely analogous to simple constructions of bimodules over algebras.  In particular, we prove Lemma \ref{Lma:FunctorsAsATensorPdt}, which shows that a certain relative Deligne tensor product is equivalent to a functor category.  Much as $V \otimes V^\vee \cong \mathrm{End}(V)$ plays the key role in showing that finite-dimensional vector spaces are $1$-dualizable \cite[Ex. 1.1.9]{lurie-ch}, this lemma plays the key role in proving the $2$-dualizability of finite tensor categories.
 
@@ -1377,7 +1379,7 @@ Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-mo
 
 We will be particularly interested in the modules $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC^\mp \boxtimes \cC} \cC$ obtained by applying this procedure to the identity bimodule ${}_\cC \cC_\cC$.  Note that if you move both actions on ${}_\cC \cC_\cC$ to the opposite side, you obtain a bimodule ${}_{\cC^\mp}\cC_{\cC^\mp}$, which is in fact the identity bimodule on $\cC^\mp$.
 
-\begin{example}[The category of Hopf bimodules] \label{Ex:Hopf_bimod}
+\begin{example}[The category of Hopf bimodules] \label{Ex:Hopf_bimod} \NS{This example needs to be rewritten post BTP}
 	Let $\cC$ be a tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$ (cf. section \ref{sec:tc-bimod}); $A$ is an algebra object in $\cC \boxtimes \cC^\mp$. 
 The object $1 \in \cC$ is a $\cC$-projective $\cC$-generator (cf. example \ref{ex:rigid_all_C-proj}) and hence by Lemma \ref{lma:module-adjoint} and Theorem \ref{thm:C-module-Embedding} the functor $\IHom(1, -)$ induces an 
  equivalence of left $\cC \boxtimes \cC^\mp$-module categories:
@@ -1449,7 +1451,7 @@ Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD
 \end{lemma}
 \begin{proof}
 	We will prove the first statement as the second follows from a similar argument. 
-We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Second, note that, as mentioned after Lemma~\ref{lma:RigidIsExact}, the right adjoint of right multiplication by $e$ is right multiplication by $e^*$.
+We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Second, note that, as mentioned after Lemma~\ref{lma:RigidIsExact}, the right adjoint of right multiplication by $e$ is right multiplication by $e^*$.  \NS{This reference is broken due to BTP.}
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
