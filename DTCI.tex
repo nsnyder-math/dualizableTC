@@ -218,7 +218,7 @@ NS would especially like to thank Pavel Etingof for several long and fruitful co
 
 \section{Local field theory in dimension three} \label{sec:lft}
 
-The cobordism hypothesis classifies local field theories in terms of sufficiently dualizable objects of target higher categories.  Recall that an object $x$ of a symmetric monoidal $(\infty,3)$-category is called ``1-dualizable" if there is a dual object $\overline{x}$, with the duality between $x$ and $\overline{x}$ witnessed by evaluation and coevaluation maps $ev: x \otimes \overline{x} \ra 1$ and $coev: 1 \ra \overline{x} \otimes x$.  (Note well that the zigzag equations relating $ev$ and $coev$ are only required to hold up to equivalence, and there is no coherence condition on those equivalences.)  The object is called ``2-dualizable" if moreover the evaluation map is part of an infinite chain of adjunctions 
+The cobordism hypothesis \cite{MR1355899, lurie-ch} classifies local field theories in terms of sufficiently dualizable objects of target higher categories.  Recall that an object $x$ of a symmetric monoidal $(\infty,3)$-category is called ``1-dualizable" if there is a dual object $\overline{x}$, with the duality between $x$ and $\overline{x}$ witnessed by evaluation and coevaluation maps $ev: x \otimes \overline{x} \ra 1$ and $coev: 1 \ra \overline{x} \otimes x$.  (Note well that the zigzag equations relating $ev$ and $coev$ are only required to hold up to equivalence, and there is no coherence condition on those equivalences.)  The object is called ``2-dualizable" if moreover the evaluation map is part of an infinite chain of adjunctions 
 $$\cdots \dashv ev^{LL} \dashv ev^L \dashv ev \dashv ev^R \dashv ev^{RR} \dashv \cdots$$
 and similarly the coevaluation map is part of an infinite chain of adjunctions 
 $$\cdots \dashv coev^{LL} \dashv coev^L \dashv coev \dashv coev^R \dashv coev^{RR} \dashv \cdots.$$  
@@ -226,11 +226,11 @@ $$\cdots \dashv coev^{LL} \dashv coev^L \dashv coev \dashv coev^R \dashv coev^{R
 The object is called ``3-dualizable", also known as ``fully dualizable", if, moreover, for every adjunction $F \dashv G$ in each of the two aforementioned infinite chains, witnessed by a unit map $u_{F,G}$ and counit map $v_{F,G}$, it happens that this unit map is part of an infinite chain of adjunctions 
 $$\cdots \dashv u_{F,G}^{LL} \dashv u_{F,G}^L \dashv u_{F,G} \dashv u_{F,G}^R \dashv u_{F,G}^{RR} \dashv \cdots$$ 
 and similarly the counit map is part of an infinite chain of adjunctions 
-$$\cdots \dashv v_{F,G}^{LL} \dashv v_{F,G}^L \dashv v_{F,G} \dashv v_{F,G}^R \dashv v_{F,G}^{RR} \dashv \cdots.$$
+$$\cdots \dashv v_{F,G}^{LL} \dashv v_{F,G}^L \dashv v_{F,G} \dashv v_{F,G}^R \dashv v_{F,G}^{RR} \dashv \cdots.$$  \NS{This sentence is very long and I think it should be chopped in two.}
 These definitions suffice to make sense of our main theorem, that every separable tensor category is fully dualizable.  
 %!% CD to discuss with CSP this definition: confirm that he agrees that it is obviously equivalent, because any equivalence can be promoted to an adjoint equivalence, and those adjoint equivalences can be used to transport the dualization structure to the other object.  In particular, Jacob's use of "essential image" was a red-herring, arising from the way Jacob decided to define the f.d. subcategory as anything satisfying the universal property.
 
-There is, however, an alternative, equivalent formulation of dualizability conditions, focusing on ``$k$-dualizable $3$-categories" rather than ``$k$-dualizable objects", that will be more convenient for proving our results.  A symmetric monoidal $3$-category $\cC$ is called ``$1$-dualizable" if every object has a dual---as before, here `dual' means dual in the symmetric monoidal $1$-category of objects of $\cC$ and equivalence classes of morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$2$-dualizable" if it is 1-dualizable and moreover every $1$-morphism has a left and a right adjoint---as before, here `adjoint' means adjoint in the $2$-category of objects, morphisms, and isomorphism classes of 2-morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$3$-dualizable", also called ``fully dualizable", if it is $1$-dualizable and $2$-dualizable and if every $2$-morphism of $\cC$ has a left and a right adjoint.  An object of a symmetric monoidal $3$-category is ``fully dualizable" if it is in some fully dualizable subcategory of $\cC$.  \CD{Check}%!% CD to again confirm that CSP agrees with this last sentence.
+In proving our results, it will be more convenient to use an alternative, equivalent forumulation of dualizability focusing on ``$k$-dualizable $3$-categories" rather than ``$k$-dualizable objects."  A symmetric monoidal $3$-category $\cC$ is called ``$1$-dualizable" if every object has a dual---as before, here `dual' means dual in the symmetric monoidal $1$-category of objects of $\cC$ and equivalence classes of morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$2$-dualizable" if it is 1-dualizable and moreover every $1$-morphism has a left and a right adjoint---as before, here `adjoint' means adjoint in the $2$-category of objects, morphisms, and isomorphism classes of 2-morphisms of $\cC$.  The symmetric monoidal $3$-category $\cC$ is called ``$3$-dualizable", also called ``fully dualizable", if it is $1$-dualizable and $2$-dualizable and if every $2$-morphism of $\cC$ has a left and a right adjoint.  An object of a symmetric monoidal $3$-category is ``fully dualizable" if it is in some fully dualizable subcategory of $\cC$.  \CD{Check}%!% CD to again confirm that CSP agrees with this last sentence.
 (There are corresponding notions of fully-dualizable objects of an $n$-category, for any $n$.)
 
 Equipped with the notion of full dualizability, we can state the cobordism hypothesis classification of local field theories: \vspace{7pt}
@@ -245,9 +245,9 @@ Equipped with the notion of full dualizability, we can state the cobordism hypot
 
 \subsection{Notation for $n$-framed manifolds} 
 
-Since they play a fundamental role in the cobordism hypothesis, it will be important to have convenient notation to denote $n$-framed manifolds.  In this section, we describe one such notation involving immersions.
+Since they play a fundamental role in the cobordism hypothesis, it will be important to have convenient notation to denote $n$-framed manifolds.  In this section, we describe one such notation using decorated immersions.
 
-Recall that by definition an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \looparrowright \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
+By definition, an $n$-framed $k$-manifold $(M,\tau)$ is a k-manifold $M$ equipped with a trivialization $\tau$ of $TM \oplus \RR^{n-k}$.  A convenient way to specify an $n$-framing on a $k$-manifold is to give an immersion $\iota: M \looparrowright \RR^n$ together with a framing $\phi$ of the normal bundle of this immersion.  The framing $\phi$ is by definition an ordered collection of $n-k$ orthonormal sections of the normal bundle $\nu(\iota)$; this framing can be viewed as a trivialization $\phi: \nu(\iota) \simeq \RR^{n-k}$ of the normal bundle.  The normally framed immersion $(\iota, \phi)$ provides an $n$-framing on $M$ by the composite
 \[TM \oplus \RR^{n-k} \simeq TM \oplus \nu(\iota) \simeq  \RR^n.\]
 Here the first isomorphism is provided by the inverse of the normal framing $\phi$, and the second isomorphism is given by the standard (``blackboard") identification of the sum of the tangent bundle and the normal bundle with the trivial bundle.
 
@@ -321,7 +321,7 @@ Let $M$ be a closed connected 2-framed 1-manifold.  By definition $M$ comes equi
 \end{example}
 
 \begin{remark}
-Not every $n$-framed $n$-manifold can be specified using the immersion notation. For example the circle has no immersion into $\RR^1$ but does have a (unique up to diffeomorphism) $1$-framing. However the Hirsch-Smale immersion theorem guarantees that every $n$-framing of an $(n-k)$-manifold can be realized by an immersion provided that either $k > 0$ or each component of the $(n-k)$-manifold is non-compact. 
+Not every $n$-framed $n$-manifold can be specified using the immersion notation. For example the circle has no immersion into $\RR^1$ but does have a (unique up to diffeomorphism) $1$-framing. However the Hirsch-Smale immersion theorem \cite{MR0119214, MR0105117} guarantees that every $n$-framing of an $(n-k)$-manifold can be realized by an immersion provided that either $k > 0$ or each component of the $(n-k)$-manifold is non-compact. 
 \end{remark}
 
 For $m < n$, an $m$-framed $k$-manifold $(M,\tau)$ is naturally $n$-framed by the trivialization $\tau \oplus \gamma$ where $\gamma$ is the canonical trivialization of $\RR^{n-m}$.  Similarly, given a normally framed immersion $(\iota: M \looparrowright \RR^m, \phi: \nu(\iota) \simeq \RR^{m-k})$, there is a naturally associated normally framed immersion $(M \looparrowright \RR^m \ra \RR^n, \phi \oplus \id_{\RR^{n-m}})$.  This stabilization of a normally framed immersion is clearly compatible with the stabilization of the associated $m$-framed manifold.
@@ -466,11 +466,8 @@ Here is a picture of another $2$-framed $2$-manifold, specifically a 2-morphism 
 The source and target of this bordism are as indicated.  Notice that the source of the source (a pair of $2$-framed points) is indeed the source of the target, and similarly the target of the source is the target of the target.
 \end{example}
 
-
-
-
-\begin{example}
-Figure~\ref{fig:beltbord} in the introduction depicts a $3$-framed $2$-manifold called the belt bordism.  Its source is the stabilization of the $2$-framed $1$-manifold
+\begin{example}\NS{Once the picture is done this example may need to be rephrased.}
+Figure~\ref{fig:beltbord} in the introduction depicts a $3$-framed $2$-manifold called the belt bordism.  Its source is the stabilization of the $2$-framed $1$-manifold 
 \[
 \cb{
 \begin{tikzpicture}
@@ -898,7 +895,7 @@ In this section we describe a dualizability condition on an object $x$, weaker t
 In a 3-dualizable symmetric monoidal 3-category, the evaluation pairing on any object has both a left and a right adjoint, but the Radford isomorphism witnesses that the evaluation has, in fact, an {\em ambidextrous} adjoint: the left and right adjoints are canonically isomorphic.  The following lemma, stated as Remark 3.4.22 in \cite{lurie-ch}, expresses the categorical fact that is responsible for this ambidexterity.
 
 
-\begin{lemma} \label{lem-ambiadjoints}
+\begin{lemma} \label{lem-ambiadjoints} \NS{Add a remark explaining why this Lemma actually only involves $2$-categories, assuming it does only involve $2$-categories}
 	Let $\cA$ be a symmetric monoidal 3-category. Let $f: x \to y$ be a 1-morphism in $\cA$, and suppose that $f$ admits a right adjoint $f^R$,  with unit and counit maps $u:id_x \to f^R \circ f$ and $v:f \circ f^R \to id_y$. If $u$ and $v$ admit left adjoints $u^L$ and $v^L$, then $u^L$ and $v^L$ exhibit $f^R$ as a left adjoint to $f$. 
 \end{lemma}
 \noindent Note that using the category $\cA^{op_1}$, where 1-morphisms are reversed, the role of the right adjoint $f^R$ is replaced by the left adjoint $f^L$ and the conclusion is that it is, in fact, a right adjoint.  Similarly, using the category $\cA^{op_2}$ where 2-morphisms are reversed, the role of the left adjoints $u^L$ and $v^L$ are replaced by right adjoints $u^R$ and $v^R$.  Of course we may reverse both 1- and 2-morphisms to exchange all instances of left and right occurring in the Lemma.
@@ -985,7 +982,7 @@ We refer to the isomorphism in the above proposition as the {\em Radford isomorp
 If $x \in \cC$ is 3-dualizable in a symmetric monoidal $(\infty,n)$-category, with dual $(\overline{x}, ev, coev)$, and adjunction data $(ev^R, u, v)$ and $(ev^L, \tilde{u}, \tilde{v})$, then the composite $(\tilde{v} \circledcirc \id) \circ (\id \circledcirc v^R)$ is an isomorphism from $ev^L$ to $ev^R$.
 \end{corollary}
 
-\nid Note well that neither Proposition \ref{prop-Cat_Radford} nor Corollary \ref{cor:3dualizable-Radford} depends on the cobordism hypothesis.
+\nid Note well that neither Proposition \ref{prop-Cat_Radford} nor Corollary \ref{cor:3dualizable-Radford} depends on the cobordism hypothesis.  More generally, specific applications of the cobordism hypothesis which only use particular bordisms should not depend on the full strength of the cobordism hypothesis since it is easier to prove something about a specific bordism than it is to prove a result about all bordisms.
 
 
 \section{Tensor categories} \label{sec:tc}
