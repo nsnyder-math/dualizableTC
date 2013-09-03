@@ -146,13 +146,13 @@ An $n$-dimensional topological field theory which takes values in an $(n+1)$-cat
 \NS{I don't know anywhere that this word is used.  Ben-Zvi--Nadler say ``two dimensional part of a three dimensional field theory."  I've tweeked the paragraph to remove any insuation that other people call it this.}
 
 \begin{maincor} \label{cor5}
-Any finite rigid tensor category gives a $2$-framed local $2$-dimensional TFT which is categorified in the above sense. 
+Any finite tensor category gives a $2$-framed local $2$-dimensional TFT which is categorified in the above sense. 
 \end{maincor}
 
 We give a concrete application of these results to Radford's theorem.
 
 \begin{maintheorem} \label{thm6}
-The Serre automorphism of a finite rigid tensor category $\cC$ is the bimodule associated to the double dual functor ${}^{**}(-): \cC \ra \cC$.  %!%Once we adjust all the conventions, this will be the left double dual.
+The Serre automorphism of a finite tensor category $\cC$ is the bimodule associated to the double dual functor ${}^{**}(-): \cC \ra \cC$.  %!%Once we adjust all the conventions, this will be the left double dual.
 \end{maintheorem}
 
 In $3$-dimensions, the Serre automorphism is necessarily order $2$ (since $\pi_1(SO(3)) \cong \mathbb{Z}/2$). This theorem therefore provides a simple topological proof of the following generalization Radford's theorem \cite{MR0407069} to fusion categories (originally due to Etingof, Nikshych, and Ostrik \cite{MR2183279}).
@@ -163,7 +163,7 @@ The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a fusion category is n
 We then address how this result generalizes to finite tensor categories.  Although $2$-dualizability is not enough to prove Radford's theorem  (we need a $3$-framed theory, not a $2$-framed theory), finite tensor categories have certain additional adjoints for $2$-morphisms which makes them Radford objects.  Thus our ``belt trick" approach to the quadruple dual generalizes to Radford objects, and thus gives a proof of the generalization of Radford' theorem to finite rigid tensor categories (again due to Etingof, Nikshych, and Ostrik \cite{MR2097289}).  This argument does not depend on the proof of the cobordism hypothesis, as it is much easier to construct the value of one particular bordism than it is to construct a whole TFT.
 
 \begin{maincor} \label{cor8}
-The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a finite rigid tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
+The quadruple dual functor ${}^{****}(-): \cC \ra \cC$ on a finite tensor category is naturally isomorphic to conjugation by the distinguished invertible object $D$.
 \end{maincor}
 
 We conclude with a brief discussion about $\Omega \Sigma \RP^2$ fixed points and their relationship to the Serre and Radford isomorphisms and to pivotal and spherical structures.  Surprisingly, it turns out that the right generalization from the point of view of topology of spherical structures to non-semisimple categories differs from the usual notion of spherical.  In later papers we will consider the full $SO(3)$.
@@ -1172,10 +1172,10 @@ Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$
 \CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
 
 
-Just as any finite linear category is a category of modules over an algebra, any finite module category over a tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying the proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
+Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying the proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
-	Let $\cM$ be a left module category over a tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
+	Let $\cM$ be a left module category over a finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
 \end{theorem}
 
 %\subsection{The Deligne tensor product and the 3-category of tensor categories} \label{sec:tc-deligne}
@@ -1202,7 +1202,7 @@ The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ is the universal l
 Provided the category $\cC$ is tensor and the module categories are finite, the relative Deligne tensor product does indeed exist.
 
 \begin{theorem}[\cite{BTP}] \label{thm:DelignePrdtOverATCExists}
-	Let $\cC$ be a tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. 
+	Let $\cC$ be a finite tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. 
 	\begin{enumerate}
 		\item The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category.
 		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$. Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.
@@ -1226,7 +1226,7 @@ The relative Deligne tensor product provides the composition of 1-morphisms, whi
 In this section we summarize Etingof and Ostrik's theory of exact module categories \cite{EO-ftc}, and prove a new result about the exactness of Deligne tensor products.  These exactness properties will be essential in constructing adjoints of bimodules between finite tensor categories.
 
 \begin{definition}
-	Let $\cC$ be a tensor category. A (left) $\cC$-module category $\cM$ is {\em exact} if for any object $m \in \cM$ and  any projective object $p \in \cC$, the object $p \otimes m \in \cM$ is projective. 
+	Let $\cC$ be a finite tensor category. A (left) $\cC$-module category $\cM$ is {\em exact} if for any object $m \in \cM$ and  any projective object $p \in \cC$, the object $p \otimes m \in \cM$ is projective. 
 \end{definition}
 
 \begin{definition}
@@ -1239,19 +1239,19 @@ We say that a $\cC$--$\cD$ bimodule category is exact if it is exact as a $\cC \
 \end{example} %!%CD
 
 \begin{example}[{\cite[Ex. 3.3]{EO-ftc} \cite[Ex. 2.6.5]{EGNO}}] \label{ex:exactness}
-	A tensor category $\cC$ is exact when considered as a $\cC$-, or $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
+	A finite tensor category $\cC$ is exact when considered as a $\cC$-, or $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
 \end{example} %!%CD
 %\CSP{I think we might want to add some material to this example discussing the alegbra $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$. }
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
 \begin{theorem}[\cite{EO-ftc, EGNO}] \label{Thm:ExactModCatOmnibus}
-	Let $\cC$ be a tensor category (hence finite and rigid), let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories (not assumed to be finite), and let $\cN$ be an arbitrary $\cC$-module category. Then,
+	Let $\cC$ be a finite tensor category, let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories (not assumed to be finite), and let $\cN$ be an arbitrary $\cC$-module category. Then,
 	\begin{enumerate}
 		\item $\cM$ has enough projectives \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}.
 		\item Every projective object in $\cM$  is injective, and vice versa \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
 		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
 		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}	.	
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}. In particular every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has left and right adjoints (which are therefore themselves exact). Thus, $\Fun_{\cC}(\cM,\cM)$ is itself a tensor category (in particular finite and rigid). 
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}. In particular every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has left and right adjoints (which are therefore themselves exact). Thus, $\Fun_{\cC}(\cM,\cM)$ is itself a finite tensor category. 
 	\end{enumerate} %!% Middle sent CDNC cf Eg 3.2.6
 \end{theorem}\CD{Discuss logic}
 \CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
@@ -1259,7 +1259,7 @@ The following omnibus theorem summarizes the key properties of exact module cate
 \noindent We now prove that exactness is preserved by the Deligne tensor product.  We will need the following lemma, saying that to check exactness of a module category it suffices to check the exactness condition for a collection of projective generators. 
 
 \begin{lemma} \label{lma:Exact_checked_on_proj_gens}
-	Let $\cC$ be a tensor category and $\cM$ a finite (left) $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a fixed collection of jointly generating projective objects of  $\cC$. The following are equivalent:
+	Let $\cC$ be a finite tensor category and $\cM$ a finite (left) $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a fixed collection of jointly generating projective objects of  $\cC$. The following are equivalent:
 	\begin{enumerate}
 		\item for all $m \in \cM$ and all $p_\alpha \in \cP$, the object $p_\alpha \otimes m \in \cM$ is projective;
 		\item the $\cC$-module category $\cM$ is exact.
@@ -1356,7 +1356,7 @@ Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-mo
 We will be particularly interested in the modules $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC^\mp \boxtimes \cC} \cC$ obtained by applying this procedure to the identity bimodule ${}_\cC \cC_\cC$.  Note that if you move both actions on ${}_\cC \cC_\cC$ to the opposite side, you obtain a bimodule ${}_{\cC^\mp}\cC_{\cC^\mp}$, which is in fact the identity bimodule on $\cC^\mp$.
 
 \begin{example}[The category of Hopf bimodules] \label{Ex:Hopf_bimod} \NS{This example needs to be rewritten post BTP}
-	Let $\cC$ be a tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$ (cf. section \ref{sec:tc-bimod}); $A$ is an algebra object in $\cC \boxtimes \cC^\mp$. 
+	Let $\cC$ be a finite tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$ (cf. section \ref{sec:tc-bimod}); $A$ is an algebra object in $\cC \boxtimes \cC^\mp$. 
 The object $1 \in \cC$ is a $\cC$-projective $\cC$-generator (cf. example \ref{ex:rigid_all_C-proj}) and hence by Lemma \ref{lma:module-adjoint} and Theorem \ref{thm:C-module-Embedding} the functor $\IHom(1, -)$ induces an 
  equivalence of left $\cC \boxtimes \cC^\mp$-module categories:
 	\begin{equation*}
@@ -1443,7 +1443,7 @@ It is close in spirit to \cite[Prop. 3.5 and Rmk. 3.6]{0909.3140} and \cite[Thm.
 \CD{Perhaps rephrase this paragraph now that it is so close to \ref{rmk:Deligne_pdt_as_mod_functor}}
 
 \begin{lemma} \label{Lma:FunctorsAsATensorPdt}
-	If $\cC$ is a tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
+	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
 	\begin{equation*}
 		\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN \simeq \Fun_\cC(\cM,\cN).
 	\end{equation*}
@@ -1498,10 +1498,10 @@ as $\cD$-$\cE$ bimodule categories.
 Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC^\mp \boxtimes \cD})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor.%\NS{Someone should double-check left vs. right here} % It is now correct - CSP. 
 \end{warning}\NS{We refer to the fact in this warning later, so maybe it should be a lemma instead?}
 
-Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{MR2097289}[\S 3].
+Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the finite tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{MR2097289}[\S 3].
 
 \begin{lemma} \label{lem:dualing-amod}
-	Let $A$ and $B$ be algebra objects in the tensor category $\cC$. Let $M$ be an $A$-$B$-bimodule (which is, in particular, an object in $\cC$). Then ${}^{**}A$ and $B^{**}$ are naturally algebra object of $\cC$, $M^*$ is naturally a $B^{**}$-$A$-bimodule, and ${}^*M$ is naturally a $B$-${}^{**}A$-bimodule. Moreover these identifications induce equivalences of linear categories:
+	Let $A$ and $B$ be algebra objects in a finite tensor category $\cC$. Let $M$ be an $A$-$B$-bimodule (which is, in particular, an object in $\cC$). Then ${}^{**}A$ and $B^{**}$ are naturally algebra object of $\cC$, $M^*$ is naturally a $B^{**}$-$A$-bimodule, and ${}^*M$ is naturally a $B$-${}^{**}A$-bimodule. Moreover these identifications induce equivalences of linear categories:
 	\begin{equation*}
 		\Mod{B^{**}}{A}(\cC) \simeq \Mod{A}{B}(\cC) \simeq \Mod{B}{{}^{**}A}(\cC).
 	\end{equation*}
@@ -1520,7 +1520,7 @@ Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categori
 \end{proof}
 
 \begin{lemma}
-	Let $A$ be an algebra object in the tensor category $\cC$. Then we have an equivalences of $\cC$-module categories: 
+	Let $A$ be an algebra object in a finite tensor category $\cC$. Then we have an equivalences of $\cC$-module categories: 
 	\begin{align*}
 		(\Mod{}{A}(\cC))^* & \simeq \Mod{A^{**}}{}(\cC) \\
 		(L)^* & \mapsto L^*.
@@ -1551,7 +1551,7 @@ In this section, we introduce a new notion of separability for module categories
 \end{remark}
 
 \begin{theorem} \label{thm:SepModCats}
-	Let $\cC$ be a  semisimple tensor category and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
+	Let $\cC$ be a  semisimple finite tensor category and let $\cM$ be a finite right $\cC$-module category. Then the following are equivalent:
 	\begin{enumerate}
 		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is a separable algebra in $\cC$;
 		\item $\cM_\cC \simeq \Mod{A}{}(\cC)$, where $A$ is an algebra in $\cC$ that is projective as an $A$-$A$-bimodule;
@@ -1618,7 +1618,7 @@ Thus $T(A)$ is separable.
 Note that $\cC$ is always seperable as a $\cC$-$\cC$ bimodule category.  However, we will often need to consider $\cC$ as a $\cC \boxtimes \cC^\mp$--$\Vect$ bimodule as well.  This suggests the following definition.
 
 \begin{definition}
-	A semisimple tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$--$\Vect$-bimodule category.  
+	A semisimple finite tensor category is {\em separable} if it is separable as a $\cC \boxtimes \cC^\mp$--$\Vect$-bimodule category.  
 \end{definition}
 
 
@@ -2289,7 +2289,7 @@ By the cobordism hypothesis, this result shows that there is a $1$-dimensional T
 \nid The gray fuzz on the points here indicates the normal orientation of their immersions in $\RR^1$, and therefore specifies their 1-framing.  The small arrows indicate which boundary components are incoming (when there are no arrows, therefore arrows implicitly pointing into the bulk manifold) and which are outgoing (when there are arrows pointing out of the bulk manifold).  \NS{Do we need the first two sentences?  Or would it be better to just say "For the first four we specify the framing as explained Section 2."}  Note that the circle here is not depicted as an immersed normally-framed manifold, but directly as a framed manifold; indeed this depicts the unique 1-framing on the circle.  As indicated, the invariant of this circle is $\cC \btimes_{\cC \btimes \cC^\mp} \cC$, where both actions are the naive ones; we will denote this cyclic self-tensor product by $\cT(\cC)$.
 
 \begin{warning}
-Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a tensor category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  This will be explained in more detail when we discuss the $2$-dimensional $2$-framed theory.  Nonetheless $\cT(\cC)$ can be described in a similar way to the usual definition of $Z(\cC)$.  By Lemma \ref{Lma:FunctorsAsATensorPdt} $\cT(\cC) \cong \Fun_{\cC\text{-mod-}\cC}(\bimod{\langle\mathfrak{r r}\rangle}{\cC}{}, \cC)$, or in other words an object in $\cT(\cC)$ is an object $x$ in $\cC$ endowed with a natural twisted half-braiding $y^{**} \otimes x \rightarrow x \otimes y$.
+Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a monoidal category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  This will be explained in more detail when we discuss the $2$-dimensional $2$-framed theory.  Nonetheless $\cT(\cC)$ can be described in a similar way to the usual definition of $Z(\cC)$.  By Lemma \ref{Lma:FunctorsAsATensorPdt} $\cT(\cC) \cong \Fun_{\cC\text{-mod-}\cC}(\bimod{\langle\mathfrak{r r}\rangle}{\cC}{}, \cC)$, or in other words an object in $\cT(\cC)$ is an object $x$ in $\cC$ endowed with a natural twisted half-braiding $y^{**} \otimes x \rightarrow x \otimes y$.
 \end{warning}
 \NS{Check which action is twisted by which dual}
 \begin{remark}
