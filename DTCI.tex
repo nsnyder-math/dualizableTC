@@ -1657,7 +1657,7 @@ The goal of this section is to show that under some common assumptions separabil
 
 This result sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  By Corollary \ref{cor:Sep=semisimplecenter} separability is equivalent to the semisimplicity of $\cZ(\cC)$.  That non-vanishing of global dimension implies semisimplicity of $\cZ(\cC)$ was first proved in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper).  The converse was proved in the pivotal setting \cite{MR3079759}.  We give a proof in both directions only assuming that $\cC$ is a fusion category over an algebraically closed field.
 
-Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up to normalization) only one bimodule map $A \rightarrow A \otimes A$ where $A$ is nice algebra in $\cC \boxtimes \cC^\mp$ such that $\cC \cong \text{mod-}A$ and that the composition this map with the multiplication map is given by scaling by the global dimension.  More specifically we show that there's an essentially unique Frobenius algebra structure on $A$ and the map $A \rightarrow A \otimes A$ is the comultiplication for this Frobenius algebra.
+Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up to normalization) only one bimodule map $A \rightarrow A \otimes A$ where $A$ is nice algebra in $\cC \boxtimes \cC^\mp$ such that $\cC \cong \text{mod-}A$, and furthermore that the composition this map with the multiplication map is given by scaling by the global dimension.  More specifically we show that there's an essentially unique Frobenius algebra structure on $A$ and the map $A \rightarrow A \otimes A$ is the comultiplication for this Frobenius algebra.
 
 
 %The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
@@ -1709,7 +1709,7 @@ Suppose that $x$ and $y$ are simple objects satisfying $\dim \Hom(x \otimes y, 1
 \end{itemize}
 \end{definition}
 
-We will usually abuse notation by dropping the subscripts from $\alpha$ and $\beta$.  Note that by considering two zigzags, we also have that $(\id_y \otimes f) \circ (\alpha(f) \otimes \id_y) = \id_y$.  Thus $f$ and $\alpha(f)$ exhibit $y$ as a left dual to $x$
+We will usually abuse notation by dropping the subscripts from $\alpha$ and $\beta$.  Note that by considering $(f \otimes f) \circ (\id_x \otimes \alpha(f) \otimes \id_x)$ in two ways, we also have that $(\id_y \otimes f) \circ (\alpha(f) \otimes \id_y) = \id_y$.  Thus $f$ and $\alpha(f)$ exhibit $y$ as a left dual to $x$
 
 \begin{lemma}
 The identifications $\alpha$ and $\beta$ are homogenous of degree $-1$, while taking left duals is homogenous of degree $1$.  In other words:
@@ -1838,7 +1838,7 @@ When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in f
 		\textrm{(copairing)} && c = \Delta \circ u: & 1&\to&  R \otimes R.
 	\end{array}
 \end{equation*}
-The pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of coalgebra object, and these two structures are related by the usual Frobenius algebra axioms.  In particular, $b$ and $c$ satisfy the usual zig-zag relations. The entire structure is completely determine by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
+The pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of coalgebra object, and these two structures are related by the usual Frobenius algebra axioms.  In particular, $b$ and $c$ satisfy the usual zig-zag relations. The entire structure is completely determined by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
 
 We will describe the Frobenius algebra structure on $A \in \cC \boxtimes \cC^\mp$ explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
 %\CSP{See if there is another term for `normalized'}
@@ -1928,7 +1928,9 @@ is given on individual summands by the sum $\sum_r (e_{ij,k}^r) \boxtimes ({}^*\
 \end{equation*}
  is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $e_i \boxtimes {}^*\beta(e_i)$ to each factor separately. Thus there is only one possible copairing which by the definition of $\alpha$ is given on the $(L_{\overline{i}} \otimes L_i) \boxtimes ({}^*L_i \otimes {}^*L_{\overline{i}})$ component by $\alpha(e_{\overline{i}}) \boxtimes \alpha({}^*\beta(e_{\overline{i}}))$.
   
-We now need to compute the composition of the pairing and copairing to recover the window element.  This is given on components by $$w_i = (e_i \circ \alpha(e_{\overline{i}}) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}})).$$  Using the commutation relations, we see that $$w_i = \lVert x \rVert (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ {}^*\beta^{-1} (\alpha(e_{\overline{i}}))).$$ Since this is homogeneous of degree $0$ in $\alpha(e_{\overline{i}})$ we may replace $\alpha(e_{\overline{i}})$ with $\beta(e_i)$.  Then $w_i$ is given by $$\lVert x \rVert (e_i \circ \beta(e_i)) \cdot ({}^*\beta(e_i) \circ {}^*e_i) = \lVert x \rVert (e_i \circ \beta(e_i)) \cdot {}^*(e_i \circ \beta(e_i)) = \lVert x \rVert.$$  In conclusion the window element is $w = \sum_i w_i = \dim \cC$.
+We now need to compute the composition of the pairing and copairing to recover the window element.  This is given on components by 
+$$w_i = (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}})).$$  
+Using the commutation relations, we see that $$w_i = \lVert x \rVert (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ {}^*\beta^{-1} (\alpha(e_{\overline{i}}))).$$ Since this is homogeneous of degree $0$ in $\alpha(e_{\overline{i}})$ we may replace $\alpha(e_{\overline{i}})$ with $\beta(e_i)$.  Then $w_i$ is given by $$\lVert x \rVert (e_i \circ \beta(e_i)) \cdot ({}^*\beta(e_i) \circ {}^*e_i) = \lVert x \rVert (e_i \circ \beta(e_i)) \cdot {}^*(e_i \circ \beta(e_i)) = \lVert x \rVert.$$  In conclusion the window element is $w = \sum_i w_i = \dim \cC$.
 
 \end{proof}
 
@@ -2187,7 +2189,7 @@ Without loss of generality, assume that $\cM$ is indecomposable.  By \cite[Prop.
 
 \section{Dualizability} \label{sec:dualizability}
 
-In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.  First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite-dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^\vee \cong \End(V)$.  Finally, $2$-morphisms have adjoints because functors between semisimple categories are always exact and because adjoints of module functors always have a module functor structure.  This step requires a deep result, that $\TCsep$ really is a subcategory of $\TC$, which is a generalization of M\"uger's result on the semisimplicity of Drinfel'd centers.
+In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.  First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite-dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^\vee \cong \End(V)$.  Finally, $2$-morphisms have adjoints because functors between semisimple categories are always exact and because adjoints of module functors always have a module functor structure.  This step requires Theorem \ref{thm:closure-of-separability}, that $\TCsep$ really is a subcategory of $\TC$, which is a generalization of M\"uger's result on the semisimplicity of Drinfel'd centers.
 
 Since we have explicit formulas for the dualizing data, we can get explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  We give many such examples.
 
@@ -2301,9 +2303,16 @@ By the cobordism hypothesis, this result shows that there is a $1$-dimensional T
 Contrary to what you might expect,  if $\cC$ is not pivotal $\cT(\cC)$ need not be equivalent to the Drinfel'd center $Z(\cC)$.  Indeed $\cT(\cC)$ need not even be a monoidal category.  This is because there is no $2$-framed pair of pants whose boundary circles all have the $2$-framing induced from the unique $1$-framing on the circle.  This will be explained in more detail when we discuss the $2$-dimensional $2$-framed theory.  Nonetheless $\cT(\cC)$ can be described in a similar way to the usual definition of $Z(\cC)$.  By Lemma \ref{Lma:FunctorsAsATensorPdt} $\cT(\cC) \cong \Fun_{\cC\text{-mod-}\cC}(\bimod{\langle\mathfrak{r r}\rangle}{\cC}{}, \cC)$, or in other words an object in $\cT(\cC)$ is an object $x$ in $\cC$ endowed with a natural twisted half-braiding $y^{**} \otimes x \rightarrow x \otimes y$.
 \end{warning}
 \NS{Check which action is twisted by which dual}
+
 \begin{remark}
 Since this is a twice categorified TFT (i.e. a functor of $(3,1)$ categories rather than discrete $1$-categories), there is more data involved in describing it fully than what we have given above.  For example, we could ask for explicit formulas for the mapping class group action on the invariant of a circle.  The action of the Dehn twist gives a natural transformation from the identity autofunctor $\cT(\cC)$ to itself, and so gives a scalar attached to each object in $\cT(\cC)$.  By analogy, with Reshetikhin-Turaev theory, we expect that these scalars are typically nontrivial and are given by an analogue of the Drinfel'd element.   We will return to this calculation in future work.
 \end{remark} 
+
+\begin{remark}
+When we say that $\cF(pt_+) \cong \cC$ we mean that we have picked a specific isomorphism between them.  Since $pt_+$ and $pt_-$ have a specific duality between them (as explained in Section \ref{sec:framed-duality}) this determines an isomorphism $\cF(pt_+) \cong \cC^\mp$ and (after making these identifications) we have $\cF(\ev) \cong \bimod{\cC \boxtimes \cC^\mp}{\cC}{\Vec}$.  In fact, one can do better: the functor $\cF$ is naturally isomorphic as a tensor functor to another functor $\cF'$ such that all these isomorphisms become equalities.  This is a homotopy extension property, and it depends on the cofibrancy of $\TC$ among other things, and will be proved rigorously in \cite{3TC}.
+\end{remark}
+\NS{This remark should be removed if we keep Appendix B}
+
 
 \subsection{Adjoints of bimodules: finite tensor categories are 2-dualizable}  \label{sec:df-modules}
 
@@ -2357,7 +2366,7 @@ The following diagram commutes.
 			\end{tikzpicture}
 		\end{center}
 Thus instead of computing along the left side of the diagram, we can compute along the right side of the diagram to see that the composition ${}_\cC \cM_\cD \rightarrow {}_\cC \cM_\cD$ is given by right multiplication by $1 \in \cD$, and hence is the identity.
-The other three calculations are similar.
+The other three calculations are similar.  \NS{I hope someone other than me has read this proof at some point.}
 \end{proof}
 
 We have thereby proven:
@@ -2414,8 +2423,7 @@ $$\cb{
 }$$
 
 
-By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec:df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in Section \ref{sec:df-modules}.
-
+By Theorem \ref{thm:HEP}, we may assume that our TFT sends this positively framed point to $\cC$, this negatively framed point to its dual $\cC^\mp$, and the evaluation and coevaluation bordisms to the evaluation and coevaluation constructed in Section \ref{sec:df-objects}.  Similarly, following Section \ref{sec:framed-duality} we fix certain other intervals as the adjoints of evaluation and coevaluation.  Again, by Theorem \ref{thm:HEP}, we can assume that the values of these intervals are given by the adjoints constructed in Section \ref{sec:df-modules}.  \NS{Possibly remove this paragraph and rewrite the next sentence if we remove appendix B.}
 
 Thus, without loss of generality, we can assume that the TFT has the following values on $2$-framed intervals.  The bimodules written in the third column are canonically isomorphic to the ones in the second column by Lemma \ref{lem:dual-formula-for-adjoints}, and the bimodules in the fourth column are canonically isomorphic to the ones in the third column by Warning \ref{warning:DualTwist}.
 
@@ -2544,9 +2552,9 @@ Note that $\cZ(\cC)$ is automatically a (braided) monoidal category with the uni
 As we will see later on, we really only need to consider $3$-framed TFTs.  In this setting there are only two $3$-framings on the circle (corresponding to $\cZ(\cC)$ and $\cT(\cC)$).  Furthermore, in the $3$-framed setting we see that $\cZ(\cC)$ has a rigid structure since there is a $3$-framed macaroni agreeing with the $\cZ(\cC)$ framing on the boundary.
 \end{remark}
 
-We also have the following formulas for the units and counits of adjunctions.
+We also have the following formulas for the units and counits of adjunctions given in Table \ref{table:discs}.
 
-\begin{table}[ht] 
+\begin{table}[ht] \label{table:discs}
 \begin{tabular}{c|l}
 \cb{
 \begin{tikzpicture}
@@ -2606,7 +2614,7 @@ We also have the following formulas for the units and counits of adjunctions.
 
 \subsection{Adjoints of bimodule functors: separable tensor categories are fully dualizable} \label{sec:df-functors}
 
-In this section we give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between semisimple module categories over fusion categories has a left adjoint and a right adjoint. 
+In this section we give sufficient conditions for a bimodule functor $\cF: {}_\cC \cM_\cD \rightarrow {}_\cC \cN_\cD$ to have a left adjoint and a right adjoint.  In particular, we show that any module functor between separable module categories over a separable tensor category has a left adjoint and a right adjoint.  This shows that $\TCsep$ is fully dualizable.  We also show that finite tensor categories are Radford objects using the theory of exact tensor categories.
 
 Recall from Lemma \ref{lma:module-adjoint} that in order to check that a bimodule functor between bimodules over rigid tensor categories has an adjoint as a bimodule functor, it's enough to check that the underlying functor has an adjoint.  In particular, for finite tensor categories, it's enough to check that the underlying functor is exact.
 
@@ -2614,7 +2622,7 @@ Recall from Lemma \ref{lma:module-adjoint} that in order to check that a bimodul
 Any $2$-morphism in $\TCsep$ has a left adjoint and a right adjoint in $\TCsep$.
 \end{theorem}
 \begin{proof}
-Any functor out of a semisimple category is exact, and hence has both a left and a right adjoint as a functor which in turn are also functors out of semisimple categories and so exact.  By Proposition \ref{prop:AFT} these adjoints can be given the structure of module functors.
+Any functor out of a semisimple category is exact, and hence has both a left and a right adjoint as a functor which in turn are also functors out of semisimple categories and so exact.  By Lemma \ref{lma:module-adjoint} these adjoints can be given the structure of module functors.
 
 The adjoint functors can also be described explicitly as a transpose.  Linear functors between semisimple categories are determined by what they do on objects, since all morphisms are matrices in the identity morphisms.  Let $\{x_i\}$ and $\{y_j\}$ be a choice of representatives of isomorphism classes of simple objects in $\cM$ and $\cN$ respectively.  Suppose that $\cF(x_i) = \sum_j a_{ij} y_j$, then $\cF^L(y_j) = \cF^R(y_j) = \sum_i a_{ij} x_i$. \NS{Must check that this formula is right for adjoints of functors of semisimple categories.}
 \end{proof}
@@ -2671,7 +2679,7 @@ The following bimodule categories are exact:
 \end{itemize}
 \end{lemma}
 \begin{proof}
-The first claim is clear.  For the second one note that $\ev$ is exact (Example \ref{ex:exactness}), so by Corollary \ref{cor:adjoint-exactness} so is $ev^R$, and hence by Theorem \ref{thm:tensor-exactness} so is $\ev \boxtimes \ev^R$.
+The first claim is clear.  For the second one note that $\ev$ is exact (Example \ref{ex:exactness}), so by Corollary \ref{cor:adjoint-exactness} so is $\ev^R$, and hence by Theorem \ref{thm:tensor-exactness} so is $\ev \boxtimes \ev^R$.
 \end{proof}
 
 \begin{theorem} \label{thm:TCisRadford}
@@ -2681,19 +2689,19 @@ Every object in $\TC$ is a Radford object.
 We've already seen that $\TC$ is $2$-dualizable.  So we need only show that the unit $u: \cC \boxtimes \cC^\mp \rightarrow \ev \boxtimes \ev^R$ and counit $v: \ev^R \boxtimes_{\cC \boxtimes \cC^\mp} \ev \rightarrow \Vec$ have right adjoints in $\TC$.  This follows immediately from the previous two lemmas.
 \end{proof}
 
-\subsection{The Radford isomorphism of tensor categories} \label{sec:radiso}
+\subsection{The Radford isomorphism of tensor categories} \label{sec:radiso} \NS{Someone other than me needs to edit this section.}
 
 Traditionally topological field theories have been used as a tool to apply algebra to topology.  That is to say, a particular algebraic object yields a topological field theory which in turn gives topological invariants which can be used to prove results in topology.  However, the correspondence between algebra and topology can run the other way to give applications of topology to algebra.  A single topological calculation can be used to prove theorems in algebra by looking at the value of a bordism under a topological field theory.  In this section, we give one example of this correspondence, showing that Radford's theorem on the quadruple dual functor for finite tensor categories follows from the Dirac belt trick in topology.
 
-Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in \ref{table:intervals}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle \mathfrak{r r} \rangle}\cC_{\cC}$ \NScomm{add reference}.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle \mathfrak{r r} \rangle} \cC_{\cC} \rightarrow {}_{\cC \langle \mathfrak{l l} \rangle} \cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
+Recall from \S \ref{sec:SerreRadford} that if $x$ is fully dualizable object in a $3$-category, or more generally Radford object, then we have a Radford isomorphism $\cR: \ev_x^L \rightarrow \ev_x^R$.  Furthermore, this Radford isomorphism also gives an isomorphism between the Serre autormorphism and its inverse.  As we saw in \ref{thm:TCisRadford} any object in $\TC$ is a Radford object.  As we saw in Table \ref{table:intervals}, the Serre automorphism of a finite tensor category is given by the double dual bimodule ${}_{\cC \langle \mathfrak{r r} \rangle}\cC_{\cC}$.  Thus the Radford isomorphism induces an isomorphism of bimodules ${}_{\cC \langle \mathfrak{r r} \rangle} \cC_{\cC} \rightarrow {}_{\cC \langle \mathfrak{l l} \rangle} \cC_{\cC}$.  By Lemma \ref{lem:BimoduleToFunctor} we have the following result.
 
 \begin{theorem}
-If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical isomorphism of tensor functors ${}^{**}X \cong D^{-1} X^{**} D$ where $D$ is the image of $1$ under the Radford map.
+If $\cC$ is a finite tensor category then the Radford isomorphism gives a canonical isomorphism of tensor functors ${}^{**}X \cong D^{-1} \otimes X^{**} \otimes D$ where $D$ is the image of $1$ under the Radford isomorphism.
 \end{theorem}
 
 This theorem was originally proved by Etingof-Nikshych-Ostrik \cite{MR2097289}, and it generalizes a theorem about Hopf algebras proved by Radford \cite{MR0407069}.  In this section, we explicitly calculate the invertible object $D$ above and the Radford isomorphism and compare it with the Radford isomorphism constructed in \cite{MR2097289}.
 
-In order to compare the two constructions we first rapidly summarize ENO's construction.  Recall from Example \ref{???} that $\ev_\cC \cong {}_{\cC \boxtimes \cC^\mp}\cC$ can be realized explicitly as mod-$A$ where $A$ is the internal endomorphisms of $\mathbf{1} \in \cC$. 
+In order to compare the two constructions we first rapidly summarize ENO's construction.  Recall from Example \ref{Ex:Hopf_bimod} that $\ev_\cC \cong {}_{\cC \boxtimes \cC^\mp}\cC$ can be realized explicitly as mod-$A$ where $A$ is the internal endomorphisms of $\mathbf{1} \in \cC$. 
 ENO call $A$-mod the category of Hopf bimodules, and it plays a key role in their proof.  By Lemma \ref{lem:dualing-amod}, we have that $\ev_\cC^L \cong {}^*(\text{mod-}A) \cong A\text{-mod}$ while $\ev_\cC^R \cong (\text{mod-}A)^* \cong A^{**}\text{-mod}$.  Thus, to give a map $\ev_x^L \rightarrow \ev_x^R$ we need only give an invertible $A^{**}$-mod-$A$ bimodule.  ENO's Radford map $\cR_{ENO}: \ev_x^L \rightarrow \ev_x^R$ is given by tensoring with ${}_{A^{**}}A^*_A$ (with the bimodule structure from Lemma \ref{lem:dualing-amod}).  (ENO prove that $A^*$ is invertible non-constructively via a Frobenius-Perron argument, though our techniques will show that it has an explicit inverse.)
 
 %Since $A^*$ is a right $A$ module it is of the form $(D \boxtimes 1) \otimes A$ for some object $D \in \cC$ which ENO call the canonical invertible.  Our goal is to show that our $\cR$ is also given by tensoring with ${}_{A^{**}}A^*_A$ and that the image of $1$ under this m
@@ -2702,19 +2710,24 @@ In order to compare this map with ours, we need to compute the values of certain
 
 Recall that the Radford bordism is given by the following composition.
 
-IMAGE
+\vspace{.5in}
+\nid \NScomm{repeat the usual image}
+\vspace{.5in}
 
-We now compute the images of this bordism under the TFT in terms of the algebra $A$.
+We now compute the image of this bordism under the TFT in terms of the algebra $A$.
 
 \begin{lemma}
 The counit map $(\text{mod-}A) \boxtimes (A\text{-mod}) \cong \ev_\cC \boxtimes \ev_\cC^L \rightarrow \cC \boxtimes \cC^\mp$ is given by $M \boxtimes N \mapsto M \otimes_A N$.
 \end{lemma}
 \begin{proof}
 The counit map is given by the composition 
-$$\text{mod-}A \boxtimes A\text{-mod} \rightarrow \text{mod-}A \boxtimes {}^*(\text{mod-}A) \rightarrow \text{mod-}A \boxtimes \Fun_{\cC\text{-mod}}^{\text{left}}(\cC, \text{mod-}A) \rightarrow \text{mod-}A \boxtimes {}^*\Fun_{\cC\text{-mod}}(\text{mod-}A, \cC) \rightarrow \cC.$$
+\begin{align*}
+\text{mod-}A \boxtimes A\text{-mod} \rightarrow \text{mod-}A \boxtimes & {}^*(\text{mod-}A) \rightarrow \text{mod-}A \boxtimes \Fun_{\cC\text{-mod}}^{\text{left}}(\cC, \text{mod-}A) \\ 
+& \rightarrow \text{mod-}A \boxtimes {}^*\Fun_{\cC\text{-mod}}(\text{mod-}A, \cC) \rightarrow \cC.
+\end{align*}
 
 Since every mod-$A$ is a finite colimit of free modules, it is enough to check that the two maps agree on $V \boxtimes A$.  On the one hand,
-$$V \boxtimes A \mapsto V \boxtimes {}^*(A^*) \rightarrow V \boxtimes {}^*(x \mapsto x \otimes A^*) \rightarrow V \boxtimes (x \mapsto x) \mapsto V.$$  Here we've used that the left adjoint of restriction is the functor $x \mapsto x \otimes A^*$ (in contrast, the right adjoint is the usual induction functor $x \mapsto x \otimes A$).  On the other hand we have $V \otimes_A A \cong V$, so both functors agree.
+we can compute $$V \boxtimes A \mapsto V \boxtimes {}^*(A^*) \rightarrow V \boxtimes {}^*(x \mapsto x \otimes A^*) \rightarrow V \boxtimes (x \mapsto x) \mapsto V.$$  Here we've used that the left adjoint of restriction is the functor $x \mapsto x \otimes A^*$ (in contrast, the right adjoint is the usual induction functor $x \mapsto x \otimes A$).\NS{Should we include a prove about the left adjoint of restriction?}  On the other hand we have $V \otimes_A A \cong V$, so both functors agree.
 \end{proof}
 
 \begin{lemma}
@@ -2739,7 +2752,10 @@ The isomorphism ${}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \cong \cS^{-1} \r
 \end{lemma}
 \begin{proof}
 We need to compute the composition
-$${}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \rightarrow {}_\cC {}^*({}_{\cC \boxtimes \cC^\mp} \cC)_\cC \rightarrow {}_\cC {}^*(\text{mod-}A)_\cC \rightarrow  {}_\cC (A\text{-mod})_\cC \rightarrow {}_\cC (A^{**}\text{-mod})_\cC \rightarrow  {}_\cC (\text{mod-}A)^*_\cC \rightarrow {}_\cC ({}_{\cC \boxtimes \cC^\mp} \cC)^*_\cC \rightarrow {}_{\cC \langle \mathfrak{r r}\rangle}\cC_\cC.$$
+\begin{align*}
+{}_{\cC \langle \mathfrak{l l}\rangle}\cC_\cC \rightarrow {}_\cC {}^*({}_{\cC \boxtimes \cC^\mp}& \cC)_\cC \rightarrow {}_\cC {}^*(\text{mod-}A)_\cC \rightarrow  {}_\cC (A\text{-mod})_\cC \rightarrow {}_\cC (A^{**}\text{-mod})_\cC 
+\\ & \rightarrow  {}_\cC (\text{mod-}A)^*_\cC \rightarrow {}_\cC ({}_{\cC \boxtimes \cC^\mp} \cC)^*_\cC \rightarrow {}_{\cC \langle \mathfrak{r r}\rangle}\cC_\cC.
+\end{align*}
 We want to show that this map is given by tensoring on the right with $D$.  Instead of showing that $1$ maps to $D$ it is easier to show that ${}^*D \mapsto 1$.  Namely:
 $${}^*D \mapsto {}^*(D) \mapsto {}^*(A^*) \mapsto A \mapsto A^* \mapsto (A)^* \mapsto (1)^* \mapsto 1.$$
 \end{proof}
@@ -2761,7 +2777,7 @@ The isomorphism $R_V:V \rightarrow V^{****}$ induced by the Radford is character
 \end{lemma}
 
 
-\subsection{The $SO(3)$ action and spherical structures}
+\subsection{The $SO(3)$ action and spherical structures}  \NS{Someone other than me needs to edit this section.}
 
 Our TFT depends on a $3$-framing of the bordism, but only depends on a choice of fusion category with no extra chosen structure.  By contrast, Turaev-Viro theory is oriented, but depends on an additional choice of spherical structure on the fusion category.  By the cobordism hypothesis, oriented fully local TFTs depend not just on a choice of fully dualizable object, but in addition a choice of a $SO(3)$ homotopy fixed point structure on that fully dualizable object.  Thus one should anticipate that spherical structures are closely related to $SO(3)$ fixed points.  Indeed this appears to be the case for semisimple tensor categories, but as we will see in this section for non-semisimple tensor categories sphericality is no longer the right notion.
 
