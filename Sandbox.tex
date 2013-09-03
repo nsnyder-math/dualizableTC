@@ -1,0 +1,377 @@
+\documentclass{amsart}
+
+\include{DTC-Preamble}
+\tikzexternaldisable
+
+\usepgflibrary{decorations.pathreplacing}
+
+\begin{document}
+	
+	\title{Sandbox}
+	
+	\maketitle
+
+\section{Bordism pics}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{tikzpicture}[
+			% This decoration will be used to make portions of curves into "bouckground curves". It allows us to dash a portion of the curve.
+			decoration={border, 
+				segment length = 4pt, 	% determines the distance between consecutive ticks.
+				amplitude = 2pt, 		% determines the length of the ticks.
+				angle = 0  				% determines the angle between the ticks and the line of the path. 
+				}, 
+			% Styles
+			contour line/.style={thin, blue}
+				]
+				
+			% Colors
+			\colorlet{surfacecolor1}{blue!15}
+			\colorlet{surfacecolor2}{blue!10}	
+			
+			% The graphic
+			\draw [step = 1cm, help lines] (-0.9,-0.9) grid (11.9, 10.9);
+			
+			% First we fill the surfaces with the background colors.
+			% region 1
+			\fill [color = surfacecolor1] (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% region 2
+			\fill [color = surfacecolor1] (7, 6.5) parabola bend (8.5, 5.8) (8.25, 5.8) 
+				to [out = 45, in = 260] (9, 7)
+				parabola bend (7.75, 6.4) (7, 6.5);
+			
+			% region 3
+			\fill [color = surfacecolor2] (4, 6) arc (90:180:2cm and 3.5cm)
+				-- (4, 1.5) -- (4,6);
+			
+			% region 4
+			\fill [color = surfacecolor2] (6, 5.5) parabola (7, 6.5) parabola bend (8.5, 5.8) (11, 6)
+				to [out = 240, in = 30] (8, 2.5) -- (6, 1.5) -- (6, 5.5);
+			
+			
+			% Now we draw the lines of the surface
+			%first around region 1
+			\draw (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% then the rest 
+			\draw (2,2.5) -- (4,1.5) 
+				decorate {-- (5,1) to [out = -30, in = 135] (6,0.5)
+					  (4,0.5) to [out = 45, in = 210] (5,1) -- (6,1.5)} 
+				-- (8, 2.5) to [out = 30, in = 240] (11, 6);
+				% then off to cusp points
+			\draw decorate { (5, 1) arc (0:90:1cm and 5cm)};
+			\draw decorate {(2,2.5) -- (7,5) to [out = 30, in = 225] (8.25, 5.8)} to [out = 45, in = 260] (9, 7) ;
+			\draw decorate {(2,2.5) to [out = 150, in = 0] (1,3) arc (90:180:1cm and 0.5cm)};
+			% cusp
+			\draw (4, 6) to [out = 90, in = 270] (4.5, 8.5);
+			\draw (6, 5.5) decorate { parabola (4.5, 8.5)} (6, 5.5) parabola (7, 6.5)
+				parabola bend (7.75, 6.4) (9, 7);
+			\draw (7, 6.5) parabola bend (8.5, 5.8) (11, 6);
+			
+%		% now the contour lines
+%		% the first contour line
+%		\draw [contour line] (2.25, 10) arc (180:360:1.5cm and 0.5cm)
+%			decorate {(2.25, 10) arc (180:0:1.5cm and 0.5cm)};
+%		
+%		
+%		% the second contour line
+%		
+%		% the third contour line
+%		\draw [contour line] 
+%			decorate {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
+%			 -- (4, 5.5) 
+%			decorate {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
+%			arc (360: 180: 1cm and 0.5cm)
+%			decorate { to [out = 45, in = 210] (4.5,5.25)};
+%		
+%		\draw [contour line] 
+%		 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
+%		 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
+			
+			%\draw (0,3) decorate {to (2,3)} -- (3,4);
+				
+		\end{tikzpicture}
+		\end{center}	
+	\caption{Without contour lines}
+	%\label{fig:label}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{tikzpicture}[
+			% This decoration will be used to make portions of curves into "bouckground curves". It allows us to dash a portion of the curve.
+			decoration={border, 
+				segment length = 4pt, 	% determines the distance between consecutive ticks.
+				amplitude = 2pt, 		% determines the length of the ticks.
+				angle = 0  				% determines the angle between the ticks and the line of the path. 
+				}, 
+			% Styles
+			contour line/.style={thin, blue}
+				]
+				
+			% Colors
+			\colorlet{surfacecolor1}{blue!15}
+			\colorlet{surfacecolor2}{blue!10}	
+			
+			% The graphic
+			\draw [step = 1cm, help lines] (-0.9,-0.9) grid (11.9, 10.9);
+			
+			% First we fill the surfaces with the background colors.
+			% region 1
+			\fill [color = surfacecolor1] (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% region 2
+			\fill [color = surfacecolor1] (7, 6.5) parabola bend (8.5, 5.8) (8.25, 5.8) 
+				to [out = 45, in = 260] (9, 7)
+				parabola bend (7.75, 6.4) (7, 6.5);
+			
+			% region 3
+			\fill [color = surfacecolor2] (4, 6) arc (90:180:2cm and 3.5cm)
+				-- (4, 1.5) -- (4,6);
+			
+			% region 4
+			\fill [color = surfacecolor2] (6, 5.5) parabola (7, 6.5) parabola bend (8.5, 5.8) (11, 6)
+				to [out = 240, in = 30] (8, 2.5) -- (6, 1.5) -- (6, 5.5);
+			
+			
+			% Now we draw the lines of the surface
+			%first around region 1
+			\draw (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% then the rest 
+			\draw (2,2.5) -- (4,1.5) 
+				decorate {-- (5,1) to [out = -30, in = 135] (6,0.5)
+					  (4,0.5) to [out = 45, in = 210] (5,1) -- (6,1.5)} 
+				-- (8, 2.5) to [out = 30, in = 240] (11, 6);
+				% then off to cusp points
+			\draw decorate { (5, 1) arc (0:90:1cm and 5cm)};
+			\draw decorate {(2,2.5) -- (7,5) to [out = 30, in = 225] (8.25, 5.8)} to [out = 45, in = 260] (9, 7) ;
+			\draw decorate {(2,2.5) to [out = 150, in = 0] (1,3) arc (90:180:1cm and 0.5cm)};
+			% cusp
+			\draw (4, 6) to [out = 90, in = 270] (4.5, 8.5);
+			\draw (6, 5.5) decorate { parabola (4.5, 8.5)} (6, 5.5) parabola (7, 6.5)
+				parabola bend (7.75, 6.4) (9, 7);
+			\draw (7, 6.5) parabola bend (8.5, 5.8) (11, 6);
+			
+			% now the contour lines
+			% the first contour line
+			\draw [contour line] (2.3, 10) arc (180:360:1.45cm and 0.5cm)
+				decorate {(2.3, 10) arc (180:0:1.45cm and 0.5cm)};
+			
+			
+			% the second contour line
+			\draw [contour line] (1.75,8) arc (180:320:1.45cm and 0.5cm)
+				decorate {to [out = 30,in = 135](4.65, 7.6) to [out = -45, in = 45] (4.2, 7.1) }
+				arc (180:270:0.5cm and 0.2cm) to [out = 0, in = -90] (5.75,8)
+			;
+			\draw [contour line] decorate {(1.75,8) arc (180:0:2cm and 0.6cm)};
+			
+			% the third contour line
+			\draw [contour line] 
+				decorate {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
+				 -- (4, 5.5) 
+				decorate {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
+				arc (360: 180: 1cm and 0.5cm)
+				decorate { to [out = 45, in = 210] (4.5,5.25)};
+			
+			\draw [contour line] 
+			 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
+			 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
+			
+			%\draw (0,3) decorate {to (2,3)} -- (3,4);
+				
+		\end{tikzpicture}
+		\end{center}	
+	\caption{with contour lines}
+	%\label{fig:label}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{tikzpicture}[
+			% This decoration will be used to make portions of curves into "bouckground curves". It allows us to dash a portion of the curve.
+			decoration={border, 
+				segment length = 4pt, 	% determines the distance between consecutive ticks.
+				amplitude = 2pt, 		% determines the length of the ticks.
+				angle = 0  				% determines the angle between the ticks and the line of the path. 
+				}, 
+			% Styles
+			contour line/.style={thin, blue}
+				]
+				
+			% Colors
+			\colorlet{surfacecolor1}{blue!15}
+			\colorlet{surfacecolor2}{blue!10}	
+			
+			% The graphic
+			\draw [step = 1cm, help lines] (-3.9,-0.9) grid (11.9, 10.9);
+			
+			% First we fill the surfaces with the background colors.
+			% region 1
+			\fill [color = surfacecolor1] (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% region 2
+			\fill [color = surfacecolor1] (7, 6.5) parabola bend (8.5, 5.8) (8.25, 5.8) 
+				to [out = 45, in = 260] (9, 7)
+				parabola bend (7.75, 6.4) (7, 6.5);
+			
+			% region 3
+			\fill [color = surfacecolor2] (4, 6) arc (90:180:2cm and 3.5cm)
+				-- (4, 1.5) -- (4,6);
+			
+			% region 4
+			\fill [color = surfacecolor2] (6, 5.5) parabola (7, 6.5) parabola bend (8.5, 5.8) (11, 6)
+				to [out = 240, in = 30] (8, 2.5) -- (6, 1.5) -- (6, 5.5);
+			
+			
+			% Now we draw the lines of the surface
+			%first around region 1
+			\draw (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% then the rest 
+			\draw (2,2.5) -- (4,1.5) 
+				decorate {-- (5,1) to [out = -30, in = 135] (6,0.5)
+					  (4,0.5) to [out = 45, in = 210] (5,1) -- (6,1.5)} 
+				-- (8, 2.5) to [out = 30, in = 240] (11, 6);
+				% then off to cusp points
+			\draw decorate { (5, 1) arc (0:90:1cm and 5cm)};
+			\draw decorate {(2,2.5) -- (7,5) to [out = 30, in = 225] (8.25, 5.8)} to [out = 45, in = 260] (9, 7) ;
+			\draw decorate {(2,2.5) to [out = 150, in = 0] (1,3) arc (90:180:1cm and 0.5cm)};
+			% cusp
+			\draw (4, 6) to [out = 90, in = 270] (4.5, 8.5);
+			\draw (6, 5.5) decorate { parabola (4.5, 8.5)} (6, 5.5) parabola (7, 6.5)
+				parabola bend (7.75, 6.4) (9, 7);
+			\draw (7, 6.5) parabola bend (8.5, 5.8) (11, 6);
+			
+			% now the contour lines
+			% the first contour line
+			\draw [contour line] (2.3, 10) arc (180:360:1.45cm and 0.5cm)
+				decorate {(2.3, 10) arc (180:0:1.45cm and 0.5cm)};
+			
+			
+			% the second contour line
+			\draw [contour line] (1.75,8) arc (180:320:1.45cm and 0.5cm)
+				decorate {to [out = 30,in = 135](4.65, 7.6) to [out = -45, in = 45] (4.2, 7.1) }
+				arc (180:270:0.5cm and 0.2cm) to [out = 0, in = -90] (5.75,8)
+			;
+			\draw [contour line] decorate {(1.75,8) arc (180:0:2cm and 0.6cm)};
+			
+			% the third contour line
+			\draw [contour line] 
+				decorate {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
+				 -- (4, 5.5) 
+				decorate {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
+				arc (360: 180: 1cm and 0.5cm)
+				decorate { to [out = 45, in = 210] (4.5,5.25)};
+			
+			\draw [contour line] 
+			 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
+			 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
+			
+			
+			\begin{scope}[xshift = -6cm]
+				% now the contour lines
+				% the first contour line
+				\draw [contour line] (2.3, 10) arc (180:360:1.45cm and 0.5cm)
+					 {(2.3, 10) arc (180:0:1.45cm and 0.5cm)};
+			
+			
+				% the second contour line
+				\draw [contour line] (1.75,8) arc (180:320:1.45cm and 0.5cm)
+					 {to [out = 30,in = 135](4.65, 7.6) to [out = -45, in = 45] (4.2, 7.1) }
+					arc (180:270:0.5cm and 0.2cm) to [out = 0, in = -90] (5.75,8)
+				;
+				\draw [contour line]  {(1.75,8) arc (180:0:2cm and 0.6cm)};
+			
+				% the third contour line
+				\draw [contour line] 
+					 {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
+					 -- (4, 5.5) 
+					 {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
+					arc (360: 180: 1cm and 0.5cm)
+					 { to [out = 45, in = 210] (4.5,5.25)};
+			
+				\draw [contour line] 
+				 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
+				 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
+			\end{scope}
+			
+			
+			
+							
+		\end{tikzpicture}
+		\end{center}	
+	\caption{with contour lines and translated contour lines}
+	%\label{fig:label}
+\end{figure}
+\end{document}
+	
+	
