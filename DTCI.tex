@@ -1658,7 +1658,7 @@ The goal of this section is to show that under some common assumptions separabil
 
 This result sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  By Corollary \ref{cor:Sep=semisimplecenter} separability is equivalent to the semisimplicity of $\cZ(\cC)$.  That non-vanishing of global dimension implies semisimplicity of $\cZ(\cC)$ was first proved in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper).  The converse was proved in the pivotal setting \cite{MR3079759}.  We give a proof in both directions only assuming that $\cC$ is a fusion category over an algebraically closed field.
 
-Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up to normalization) only one bimodule map $A \rightarrow A \otimes A$ where $A$ is nice algebra in $\cC \boxtimes \cC^\mp$ such that $\cC \cong \text{mod-}A$, and furthermore that the composition this map with the multiplication map is given by scaling by the global dimension.  More specifically we show that there's an essentially unique Frobenius algebra structure on $A$ and the map $A \rightarrow A \otimes A$ is the comultiplication for this Frobenius algebra.
+Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up to normalization) only one bimodule map $A \rightarrow A \otimes A$ where $A$ is nice algebra in $\cC \boxtimes \cC^\mp$ such that $\cC \cong \text{mod-}A$, and furthermore that the composition of this map with the multiplication map is given by scaling by the global dimension.  More specifically we show that there's an essentially unique Frobenius algebra structure on $A$ and the map $A \rightarrow A \otimes A$ is the comultiplication for this Frobenius algebra.
 
 
 %The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
@@ -1669,7 +1669,7 @@ Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up 
 
 We begin by recalling the definition of the global dimension of a fusion category.  Intuitively the global dimension is meant to be an analogue of the size of a finite group, and so is given by the sum of the squares of the dimensions of the simple objects,  However, without additional assumptions there's no adequate definition of the dimension of a simple object.  Furthermore even when this dimension is well-defined it may not be real.  Nonetheless M\"uger and ENO found a replacement for the square of the absolute value of the dimension of a simple object $x$ which we will call the magnitude of $x$ and denote $\lVert x \rVert$.  This is sufficient for defining the global dimension.
 
-If $x$ is a simple object in a fusion category the simple object ${}*x$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(x \otimes {}^*x, 1) = 1$, and $x^*$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(1, x \otimes x^*) = 1$  Thus, by semisimplicity there's a non-natural isomorphism ${}^*x \cong x^*$, and similarly ${}^{**}x \cong x$.  
+If $x$ is a simple object in a fusion category, the simple object ${}^*x$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(x \otimes {}^*x, 1) = 1$, and $x^*$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(1, x \otimes x^*) = 1$  Thus, by semisimplicity there's a non-natural isomorphism ${}^*x \cong x^*$, and similarly ${}^{**}x \cong x$.  
 
 \begin{definition}
 Let $\cC$ be a fusion category and let $x \in \cC$ be an object. Given a morphism $a: {}^{**}x \to x$ the {\em quantum trace} $\Tr(a)$ of $a$ is defined as the composite: %\cite[pg 4]{MR2183279} % they cite BK pg 39.
@@ -1704,7 +1704,7 @@ It will be useful for us to have an alternate description of $\dim(\cC)$.  We fi
 \begin{definition}
 Suppose that $x$ and $y$ are simple objects satisfying $\dim \Hom(x \otimes y, 1) = 1$.  We define the following isomorphisms:
 \begin{itemize}
-\item $\alpha_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, y \otimes x)$ characterized by $(f \otimes \id_x) \circ (\id_x \alpha_{x,y}(f)) = \id_x$.
+\item $\alpha_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, y \otimes x)$ characterized by $(f \otimes \id_x) \circ (\id_x \otimes \alpha_{x,y}(f)) = \id_x$.
 \item $\beta_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, x \otimes y)$ characterized by $f \circ \beta(f)  = 1$.
 \item ${}^*(-): \Hom(x \otimes y, 1) \rightarrow \Hom(1, {}^*y \otimes {}^*x)$.
 \end{itemize}
@@ -1927,7 +1927,7 @@ is given on individual summands by the sum $\sum_r (e_{ij,k}^r) \boxtimes ({}^*\
 \begin{equation*}
 	b=\lambda \circ m: A \otimes A \to 1 \boxtimes 1
 \end{equation*}
- is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $e_i \boxtimes {}^*\beta(e_i)$ to each factor separately. Thus there is only one possible copairing which by the definition of $\alpha$ is given on the $(L_{\overline{i}} \otimes L_i) \boxtimes ({}^*L_i \otimes {}^*L_{\overline{i}})$ component by $\alpha(e_{\overline{i}}) \boxtimes \alpha({}^*\beta(e_{\overline{i}}))$.
+ is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $e_i \boxtimes {}^*\beta(e_i)$ to each factor separately. Thus there is a copairing, necessarily unique, which by the definition of $\alpha$ is given on the $(L_{\overline{i}} \otimes L_i) \boxtimes ({}^*L_i \otimes {}^*L_{\overline{i}})$ component by $\alpha(e_{\overline{i}}) \boxtimes \alpha({}^*\beta(e_{\overline{i}}))$. In particular $\lambda$ gives $A$ the structure of a Frobenius algebra, as claimed. 
   
 We now need to compute the composition of the pairing and copairing to recover the window element.  This is given on components by 
 $$w_i = (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}})).$$  
