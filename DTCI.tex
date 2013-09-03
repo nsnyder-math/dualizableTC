@@ -1149,8 +1149,7 @@ A {\em $\cC$-module functor} $\cF:\cM \to \cN$ is a linear functor $F:\cM \to \c
 \end{definition}
 \begin{definition}
 	A {\em $\cC$-module transformation} between $\cC$-module functors $\cF$ and $\cG$ is a natural transformation $\eta: \cF \rightarrow \cG$ satisfying $(\id_c \otimes \eta_m) \circ f_{c,m} = g_{c,m} \circ \eta_{c \otimes m}$.  Left module transformations and bimodule transformations are defined similarly.
-\end{definition} %\CD{Explain lax} 
-%\CD{check this def}
+\end{definition} 
 	
 %
 \nid Observe that $\cC$-$\cD$ bimodule categories, bimodule functors, and bimodule transformations form a strict 2-category.  By a finite module or bimodule category we will mean simply a module or bimodule category whose underlying linear category is finite.
@@ -1244,7 +1243,7 @@ We say that a $\cC$--$\cD$ bimodule category is exact if it is exact as a $\cC \
 \begin{example}[{\cite[Ex. 3.3]{EO-ftc} \cite[Ex. 2.6.5]{EGNO}}] \label{ex:exactness}
 	A finite tensor category $\cC$ is exact when considered as a $\cC$-, or $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
 \end{example} %!%CD
-%\CSP{I think we might want to add some material to this example discussing the alegbra $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$. }
+\CSP{I think we might want to add some material to this example discussing the alegbra $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$. CD: This comment was old and commented out --- is this still in play?}
 
 The following omnibus theorem summarizes the key properties of exact module categories: 
 \begin{theorem}[\cite{EO-ftc, EGNO}] \label{Thm:ExactModCatOmnibus}
@@ -1316,7 +1315,6 @@ Utilizing Theorem~\ref{thm:EGNO2.11.6} and part (2) of Theorem~\ref{thm:DeligneP
 \end{equation*}
 where $x'$ is a primitive tensor, that is an object of the form $m \boxtimes n$.
 Consider the following diagram
-%\CSP{I think I don't want zeros on the left-most side. I should double check that they aren't needed.}
 \[
 		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1cm,between origins}] {
 		 &[0.5cm] 0 &[1cm] 0 &[1cm] 0 &[0.5cm]  \\ 
@@ -1341,7 +1339,6 @@ Consider the following diagram
 \]
 The columns are exact because each of the objects $z_i$ is injective. The middle row is exact because $x'$ is a primitive tensor product. A diagram chase shows that the map $\Hom(x,z_2) \rightarrow \Hom(x,z_3)$ is surjective,
 and hence $\Hom((p \boxtimes q) \otimes x, -)$ is right exact, as required. 
-%\NScomm{Hrm, I think my proof of this may have a hole...}
 \end{proof}
 
 
@@ -1457,7 +1454,7 @@ the functor $f$ is equivalent to the one determined by the bimodule $f(A)$. Thus
 %\end{equation*}
 %When $\cC = \Vect$, this is classical. More generally we must show that the right-hand-side has the desired universal property. For this purpose let $F:\Mod{}{A}(\cC) \times \Mod{B}{}(\cC) \to \cA$ be a $\cC$-balanced bilinear functor. There is a unique right exact linear functor $\overline F: \Mod{B}{A}(\cC) \to \cA$ such that $F = \overline{F} \circ T$ which is defined as follows. On free bimodules $A \otimes X \otimes B \cong T(A \otimes X, B)$, we necessarily have $\overline{F}(A \otimes X \otimes B) \cong F(A \otimes X, B)$. Since $\overline{F}$ is right exact and every $A$-$B$-bimodule is a coequalizer of free $A$-$B$-bimodules, the result follows. 	
 \end{proof}
-%\CD{Did that really prove that the natural functor is an equivalence, or just that there is an equivalence?}
+%!%\CD{Did that really prove that the natural functor is an equivalence, or just that there is an equivalence?}
 
 \begin{remark} \label{remark-tensorasfunctors}
 If $\cM$ and $\cN$ are right $\cD$-modules, then we have that $\cN \boxtimes_\cD \Fun_{\cD}(\cM,\cD) \simeq \Fun_{\cD}(\cM,\cN)$, and again if $\cM$ and $\cN$ are bimodule categories, then this equivalence is a bimodule equivalence. 
@@ -1486,7 +1483,7 @@ as $\cD$-$\cE$ bimodule categories.
 \end{remark}
 
 \begin{warning} \label{warning:DualTwist}
-Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC^\mp \boxtimes \cD})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor.%\NS{Someone should double-check left vs. right here} % It is now correct - CSP. 
+Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa, taking the left or right dual of a bimodule does not commute with moving the tensor categories acting from one side to the other.  Instead, we have ${}_\cD ((\cM_{\cC^\mp \boxtimes \cD})^*)_\cC \simeq {}_{\langle \mathfrak{r r} \rangle}(({}_\cC \cM_\cD)^*)$ where $\mathfrak{r}$ is the right dual functor.
 \end{warning}\NS{We refer to the fact in this warning later, so maybe it should be a lemma instead?}
 
 Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the finite tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{MR2097289}[\S 3].
@@ -1819,7 +1816,6 @@ In order to apply the definition of separability, we need to find an explicit al
 \end{equation*}
 See \cite{MR1976459, EO-ftc, EGNO} and \cite[\S ~\ref{sec:conventions}--3.2]{BTP} for more details on the internal hom construction and this identification.
 
-%\CSP{These should cite either ENO or BTP or both.}
 %Let $\cC$ be a finite tensor category, which we may consider as a left $\cC \boxtimes \cC^\mp$-module category. First, $\cC$ admits an enrichment in $\cC \boxtimes \cC^\mp$. Thus for every pair of objects $a, b \in \cC$, there exists an object $\IHom(a,b) \in \cC \boxtimes \cC^\mp$. This object is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
 %\begin{equation*}
 %	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , \IHom(a,b)) \cong \Hom_{\cC}(x \otimes a \otimes y, b).
@@ -1845,7 +1841,6 @@ When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in f
 The pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of coalgebra object, and these two structures are related by the usual Frobenius algebra axioms.  In particular, $b$ and $c$ satisfy the usual zig-zag relations. The entire structure is completely determined by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
 
 We will describe the Frobenius algebra structure on $A \in \cC \boxtimes \cC^\mp$ explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
-%\CSP{See if there is another term for `normalized'}
 
 Let us now make some observations about the algebra $A$ following \cite{MR1966524, MR2097289}. For each $x$ and $y$ we have the following series of canonical isomorphisms:
 \begin{align*}
@@ -2147,17 +2142,6 @@ Using the commutation relations, we see that $$w_i = \lVert x \rVert (e_i \circ 
 
 
 
-
-
-
- 
-
-%\CSPcomm{finish this...}
-
-%\CSPcomm{ Cannonical pairing on $\cC(w, z)$ when $z$ is simple. $\cC(w,z) \times \cC(z,w) \to \cC(z,z) \cong k$
- %Recall the algebra $A \in \cC \boxtimes \cC^\mp$. Show that it is naturally a frobenius algebra and that the "window element" is the global dimension. }
-
-
 \begin{maintheorem} \label{thm:NonzeroDimension}
 A fusion category $\cC$ is seperable if and only if its global dimension is non-zero.
 \end{maintheorem}
@@ -2217,8 +2201,7 @@ The following functor has an essentially unique structure of a $\cD \boxtimes \c
 	(m, d, e) & \mapsto m \otimes e \otimes d.
 \end{align*}
 This induces the desired isomorphism from the relative Deligne tensor product. 
-\end{proof} %\CD{Not sure if that is sufficient.} 
-%\CSP{How is this?}
+\end{proof} %!%\CD{Not sure if that is sufficient. -- CSP: how is this?} 
 
 \nid Of course, a similar argument shows that tensoring with ${}_\Vec \cC_{\cC \boxtimes \cC^\mp}$ implements the process of moving a $\cC$ action on the left to a $\cC^\mp$ action on the right. 
 This procedure can be generalized to move individual tensor factors from one side of a bimodule to the other.
@@ -2333,15 +2316,6 @@ The map $\varepsilon_1: \cM \boxtimes_{\cD} \Fun_{\cC}(\cM, \cC) \rightarrow \cC
 
 The maps $\varepsilon_1$ and $\varepsilon_2$ are the counits of adjunctions $\Fun_{\cC}(\cM, \cC) \dashv \cM$ and $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$, respectively. The units of these adjunctions are more delicate, since it is more difficult to describe maps into a tensor product than maps out of a tensor product. Fortunately Lemma \ref{Lma:FunctorsAsATensorPdt} provides an alternate description of the tensor product as a category of functors, making it possible  to describe the unit maps explicitly. 
 
-
-%and $\ev_L$ give the counits of the adjunctions $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$ and $\Fun_{\cC}(\cM,\cC) \dashv \cM$ respectively.  The units of the adjunctions are 
-
-%\begin{lemma}
-%If ${}_\cC\cM_\cD$ and ${}_\cC \cN_\cE$ are finite bimodule categories where the bimodule actions are right exact, then the map $\Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cN \rightarrow \Fun_{\cC}(\cM,\cN)$ induced by $(f,n) \mapsto (m \mapsto f(m)n)$ is an equivalence of $\cD$--$\cE$ bimodules.
-%\end{lemma}
-%\begin{proof}
-%\CSPcomm{This is now  move that here?}
-%\end{proof}
 
 \begin{lemma}
 The map $\eta_1: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\eta_2: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
@@ -2993,74 +2967,11 @@ Similar applications of Theorem~\ref{thm:HEP} allow us to specify the values of 
  
 
 
-%
-%
-%
-%\CSPcomm{As per our discussion on 2.27.13, I am adding a precise theorem which dictates the invariance of functors. The proof and details will forward/back reference TC3. Please feel free to debate this so we can get something that is workable for everyone. Note that as formulate $B_0$ does not have to be a symmetic monoidal 3-cateogry. In fact we can get away with less. $B_0$ can be any $3$-fold simpicial subspace of $B= \Bord_3$, but I thought saying it is a category strikes a balance between generality and understandability. If we have some subset of objects and morphisms etc, I think we can just say `sub-3-category generated by...' and get away with it. What do you think?
-%One question: Is this enough or do we explicitly need a similar theorem for higher transformations (such a theorem exist).}
-%
-%Following the conventions set forth in \CSPcomm{ cite TC3}, a symmetric monoidal $(\infty,3)$-category is a special $\Gamma$-object in Segal $3$-categories. In particular finite rigid tensor categories are shown to be a fibrant object among these. Let
-% The category of symmetric monoidal $(\infty,3)$-categories is enriched and tensored over Segal $3$-categories. In particular for every symmetric monoidal $(\infty,3)$-category $X$ and Segal $3$-category $A$, there exists a symmetric monoidal $(\infty,3)$-category $X \otimes A$ with the universal property:
-%\begin{equation*}
-%	\Fun^{\otimes}(X \otimes A, Y) \cong \Fun(A, \underline{\Hom}^\otimes(X,Y))
-%\end{equation*}
-%for all fibrant symmetric monoidal $(\infty,3)$-categories $Y$. Here $\underline{\Hom}(X,Y)$ denotes the Segal $3$-category of symmetric monoidal functors from $X$ to $Y$. 
-%
-%
-%%\begin{example}
-%%	 
-%%	
-%%	 the sub-Segal $3$-category generated by a specified collection of objects, 1-morphisms, and 2-morphisms, etc. Suppose we have a functor $F_0:B \to X$. Suppose further that we have an equivalent functor on the subcategory $B_0$, encoded as a functor $H:B_0 \times E \to X$. Then the above theorem ensures that there is a functor $F_1:B \to X$ and an equivalence $H: B \times E \to X$ between $F_1$ and $F_0$ extending the given equivalence $H$. 
-%%	\CSPcomm{Perhaps this example can be flushed out a bit to be more suggestive of how we are going to use it in the sext section?}
-%%\end{example}
-%
-%
-%\CSPcomm{
-%\begin{itemize}
-%	\item Before the technical lemma add some details about how constructable is the topological field theory. 
-%	\item Maybe comment on proof of cobordism hypothesis, via framed generalized morse functions.? Inductive proof.  
-%\end{itemize}
-%
-%}
-%
-%
-%
-%
-%
-%\CSPcomm{--- Begin older material---}
-%
-%In this section we review aspects of the cobordism hypothesis which are relevant to the results of this paper. In \cite{lurie-ch}     Jacob Lurie gives a expository account of his proof of the cobordism hypothesis, expanding on his joint work with M. Hopkins in dimension two. Portions of this account are quite detailed, while other portions leave a lot to the imagination of the reader. We will explain the precise statement of the cobordism hypothesis in due course, but very roughly it describes a universal property for maps out of the bordism. Lurie's proof proceeds in two steps:
-%\begin{enumerate}
-%	\item Prove the cobordism hypothesis for the symmetric monoidal $(\infty,n)$-category of bordisms equipped with {\em framed generalized Morse functions} in the sense of Igusa.
-%	\item Prove that the forgetful functor from this symmetric monoidal $(\infty,n)$-category to the usual symmetric monoidal $(\infty,n)$-category of bordisms is an equivalence. To accomplish this he
-%	\begin{enumerate}
-%		\item Uses Igusa's connectivity result on the connectivity of the space of framed generalized Morse functions to conclude that the forgetful functor is `an $(n+1, n)$-equivalence';
-%		\item Uses a generalization of the theorem of Galatius-Madsen-Tillmann-Weiss to conclude that the forgetful functor induces an equivalence in cohomology for every `twisted coefficient system'; and 
-%		\item Uses obstruction theory for symmetric monoidal $(\infty,n)$-categories to deduce that the forgetful functor is an equivalence. 
-%	\end{enumerate}
-%\end{enumerate}
-%The first step is given a fairly detailed treatment in Lurie's exposition.
-%The second stage of his proof is an elaborate (and highly original) way to prove the equivalent result that the space of framed generalized Morse functions is contractible for any manifold. Fortunately, the second part of the proof can be entirely circumvented by showing directly that Igusa's space of framed generalized Morse functions is contractible. This has now been done by several authors: [Igusa, unpublished], [Galatius, unpublished], and [Eliashberg-Mishachev] (on the arxiv).  
 
 
 \bibliographystyle{alpha}
 \bibliography{dtcbib}
 \end{document}
-
-%%%
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
