@@ -40,38 +40,37 @@ A key role in the theory of tensor categories is played by the relative Deligne 
 
 \section{Introduction}
 
-The theory of tensor categories is a higher dimensional analogue of the theory of algebras.  Just as modules and bimodules play a key role in the theory of algebras, the analogous notions of module categories and bimodule categories play a key role in the study of tensor categories (as pioneered by Ostrik \cite{MR1976459}).  One of the key constructions in the theory of modules and bimodules is the relative tensor product $M \otimes_A N$, and a similar role is played by the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ in the theory of tensor categories (for example, see \cite{MR1966524, 0909.3140, MR2909758, 1202.4396}).  The relative Deligne tensor product is characterized by a universal property.  Thus, if it exists the Deligne tensor product is unique up to unique isomorphism.  However, in order to prove existence one needs a direct construction.  Such a construction depends on $\cM$, $\cC$, and $\cN$ satisfying certain niceness properties.  
+The theory of tensor categories is a higher dimensional analogue of the theory of algebras.  Just as modules and bimodules play a key role in the theory of algebras, the analogous notions of module categories and bimodule categories play a key role in the study of tensor categories (as pioneered by Ostrik \cite{MR1976459}).  One of the key constructions in the theory of modules and bimodules is the relative tensor product $M \otimes_A N$ which is universal for $A$-balanced bilinear functions out of $M \times N$.   A similar role is played by the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ in the theory of tensor categories (for example, see \cite{MR1966524, 0909.3140, MR2511638, MR2909758, 1202.4396, MR3022755, MR3063919}).  The relative Deligne tensor product is again characterized by a universal property.  Thus, if it exists this tensor product is unique up to unique isomorphism.  However, in order to prove existence one needs a direct construction.  Such a construction depends on $\cM$, $\cC$, and $\cN$ satisfying certain niceness properties.  
 
 The relative Deligne tensor product was first constructed by Etingof-Nikshych-Ostrik under the assumption that $\cC$ is a fusion category and $\cM$ and $\cN$ are finite semisimple module categories \cite{0909.3140}.  A construction of the relative Deligne tensor product for certain non-semisimple categories can also be extracted from \cite[Thm 3.1]{1102.3411}.   In this paper, we give a construction of the Deligne tensor product under the assumption that $\cC$ is a finite tensor category in the sense of \cite{EO-ftc} and $\cM$ and $\cN$ are finite module categories.  
 
-The key result underlying our construction shows that any module category can be realized as a category of modules.  It is due to Ostrik in the fusion case, Etingof-Ostrik for exact module categories, and in the general case appears in Etingof-Gelaki-Nikshych-Ostrik's lecture notes.
+\begin{theorem}
+If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module category, and $\cN$ is a finite left $\cC$-module category, then there exists a finite tensor category $\cM \boxtimes_\cC \cN$ representing $\cC$ balanced right exact bilinear functors out of $\cM \boxtimes \cN$.
+\end{theorem}
 
+The key result underlying our construction shows that any module category can be realized as a category of modules.  It is due to Ostrik in the fusion case, Etingof-Ostrik for exact module categories, and in the general case appears in Etingof-Gelaki-Nikshych-Ostrik's lecture notes.
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	If $\cM$ is a finite left module category over a finite tensor category $\cC$, then there exists an algebra object $A \in \cC$ together with an equivalence of left $\cC$-module categories between $\cM$ and the category of right $A$-module objects in $\cC$.  Similarly, any finite right module category over a finite tensor category is equivalent to a category of left $A$-modules for some algebra object $A \in \cC$.
 \end{theorem}
 
-Our main result is the following construction of the relative Deligne tensor product.
+Using this theorem we have the following explicit construction of the relative Deligne tensor product.
 
 \begin{theorem}
 If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the relative Deligne tensor product $A\text{-Mod} \boxtimes_\cC \text{Mod-}B$.
 \end{theorem}
 
-\begin{corollary}
-If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module category, and $\cN$ is a finite left $\cC$-module category, then the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ exists.
-\end{corollary}
-
-This construction will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.
+The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.
 
 \section{Linear categories and tensor categories} \label{sec:tc-lincat}
 
 \subsection{Finite linear categories}
 
 	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?} \CSP{This means that the additive structure on homs from the abelian category agrees with the additive structure from the Vect-enrichement.}
-A {\em linear functor} is a right exact additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
+A {\em linear functor} is an additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
-	Unless explicitly stated otherwise, {\bfseries all linear functors considered in this paper are  right exact functors}.  The Deligne tensor product of linear categories is only functorial with respect to right exact functors. To avoid littering the paper with the adjective `right exact', and to emphasize the analogy with the ordinary tensor product (which is universal for multi-linear maps) we build right exactness into the basic definitions, even though this deviates from convention in the literature.  
+	In \cite{3TC, DTCI} we will use the word ``linear functor" to mean what we call ``right exact linear functor" in this paper.  This is because in the $3$-category of tensor categories the $3$-morphisms are assumed to be right exact, because the Deligne tensor product of linear categories is only functorial with respect to right exact functors.  Since this paper concerns the definition of the Deligne tensor product itself, we will not use this convention.
 \end{warning}
 
 Recall the following standard terminology:
@@ -186,7 +185,7 @@ is a monomorphism in $\cC$. The desired result, that $(c,f)$ is a subobject of $
 \end{remark}
 
 \begin{corollary}
-	A (right exact) linear functor between finite linear categories always admits a right adjoint (which may not be a linear functor as we have defined it; it may fail to be right exact). If the linear functor is left exact, then it admits a left adjoint which is a linear functor. 
+	A right exact linear functor between finite linear categories always admits a right adjoint (which may not be right exact). If the linear functor is left exact, then it admits a left adjoint (which is a right exact). 
 \end{corollary}
 
 \begin{proof}
@@ -215,15 +214,10 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 
 \subsection{Rigid monoidal categories}
 
-	If $\{\cM_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cM_\alpha\}$ into a linear category $\cN$ consists of a functor
-\begin{equation*}
-	F: \prod \cM_\alpha \to \cN
-\end{equation*}
-such that $F$ is linear in each variable separately. 
 %A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
 
 \begin{definition}[Convention for rigidity] \label{def:rigid}
-	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zigzag' equations:
+	A monoidal category $\cC$\NS{I removed the extra data entirely, it was $(C, \otimes,1)$} is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zigzag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
 		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
@@ -232,13 +226,20 @@ such that $F$ is linear in each variable separately.
 
 
 \begin{definition}
-	A {\em linear monoidal category} will mean a monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.  
+	A {\em linear monoidal category} will mean a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.  \NS{I'm not sure if we want to say ``right exact" somewhere here.  Rigidity implies exactness of tensor product so it may not be necessary.}
 \end{definition}
+
+	Here by multilinear we mean the following.  If $\{\cM_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cM_\alpha\}$ into a linear category $\cN$ consists of a functor
+\begin{equation*}
+	F: \prod \cM_\alpha \to \cN
+\end{equation*}
+such that $F$ is linear in each variable separately. 
+
 
 %\noindent Note that we are assuming that all our tensor categories are rigid (see Def. \ref{def:rigid}). This assumption is necessary for theorem \ref{thm:EGNO2.11.6}, which is one of the main results of \cite{EGNO}, and which is discussed in detail in section \ref{sec:tc-bimod}. We in turn use this later result as the basis for proving the existence of the relative Deligne tensor product. We will explain how this assumption is used in sections \ref{sec:tc-bimod}, \ref{sec:tc-deligne}, \ref{sec:tc-exact}, and \ref{sec:tc-separable}.
 
 \begin{example}
-	The category $\Vect_k$ is a tensor category. If $A$ is an algebra in $\Vect_k$, then the categories of finite-dimensional left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are finite linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also finite linear categories.
+	The category $\Vect_k$ is a finite tensor category. If $A$ is an algebra in $\Vect_k$, then the categories of finite-dimensional left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are finite linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also finite linear categories.
 \end{example}
 
 %\begin{example}
@@ -246,7 +247,7 @@ such that $F$ is linear in each variable separately.
 %\end{example}
 
 \begin{lemma} \cite[2.1.8]{MR1797619} \cite[Prop. 1.13.1]{EGNO}  \label{lma:RigidIsExact}
-	Let $(\cC, \otimes)$ be a finite tensor category (so that $\cC$ is rigid). Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
+	Let $(\cC, \otimes)$ be a finite tensor category. Then the multilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
 \end{lemma}
 
 \begin{proof}
@@ -379,6 +380,27 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 
 \subsection{Module categories are categories of modules}
 
+The goal of this subsection is to prove the following result.
+
+\begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
+	Let $\cM$ be a left module category over a finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
+\end{theorem}
+
+Without assuming that the category is rigid, this statement is false as the following example shows: 
+
+\begin{example} \label{ex:lax-module}
+	Let $\cR \cong \Vect \oplus \Vect \cdot X$ be the non-rigid linear monoidal category consisting of pairs of vector spaces, which we write as $V_1 + V_2 X$, with tensor product given by 
+	\begin{equation*}
+		(V_1 + V_2 X) \otimes (W_1 + W_2 X) = V_1 \otimes W_1  +  (V_1 \otimes W_2 \oplus V_2 \otimes W_1)X.
+	\end{equation*} 
+	Up to equivalence there are unique choices of associator and unitors making this a linear monoidal category. 
+It is both finite and semisimple, and is a categorification of the ring $k[x]/(x^2)$, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
+	
+	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both left and right adjoints, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor. Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. 
+\end{example}
+
+In order to show exactly how rigidity appears we first prove a more general result which does not assume rigidity.  Stating this more general theorem requires the following definition.
+
 \begin{definition}
 	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful. 
 \end{definition}
@@ -388,7 +410,7 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 \end{remark}
 
 \begin{example} \label{ex:rigid_all_C-proj}
-	Let $\cC$ be a tensor category, i.e., $\cC$ is both finite and rigid. We may view $\cC$ as a left $\cC$-module category over itself. Since $\cC$ is rigid, we have isomorphisms $\IHom(x,y) \cong y \otimes x^*$ and $(y^x) \cong {}^*x \otimes y$. Moreover Lemma \ref{lma:RigidIsExact} states that in this case the tensor product is exact in each variable, hence {\em every object} of $\cC$ is $\cC$-projective, even if the object is not a projective object in the usual sense. %\NS{To use that lemma you need to assume rigidity.}
+	Let $\cC$ be a finite tensor category. We may view $\cC$ as a left $\cC$-module category over itself. Since $\cC$ is rigid, we have isomorphisms $\IHom(x,y) \cong y \otimes x^*$ and $(y^x) \cong {}^*x \otimes y$. Moreover Lemma \ref{lma:RigidIsExact} states that in this case the tensor product is exact in each variable, hence {\em every object} of $\cC$ is $\cC$-projective, even if the object is not a projective object in the usual sense. %\NS{To use that lemma you need to assume rigidity.}
 \end{example}
 
 The following is an extension of \cite[Thm 2.11.2]{EGNO} and \cite[Thm 1]{MR1976459}.
@@ -405,7 +427,7 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
 \end{theorem}
 
-\noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of the tensor category $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}). 
+\noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}). 
 
 \begin{proof}[Proof of Thm.~\ref{thm:C-module-Embedding}]
 	First, we have a series of natural isomorphisms:
@@ -435,29 +457,10 @@ We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module catego
 
 %The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
 
-If we additionally assume that the tensor category $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator. In this case we immediately have:
-
-\begin{cor}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
-	Let $\cM$ be a left module category over a tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
-\end{cor}
-
-Without assuming that the category is rigid, the conditions of the theorem \ref{thm:C-module-Embedding} are absolutely necessary. In fact without rigidity theorem \ref{thm:EGNO2.11.6} above fails as the following example shows: 
-
-\begin{example} \label{ex:lax-module}
-	Let $\cR \cong \Vect \oplus \Vect \cdot X$ be the non-rigid linear monoidal category consisting of pairs of vector spaces, which we write as $V_1 + V_2 X$, with tensor product given by 
-	\begin{equation*}
-		(V_1 + V_2 X) \otimes (W_1 + W_2 X) = V_1 \otimes W_1  +  (V_1 \otimes W_2 \oplus V_2 \otimes W_1)X.
-	\end{equation*} 
-	Up to equivalence there are unique choices of associator and unitors making this a linear monoidal category. 
-It is both finite and semisimple, and is a categorification of the ring $k[x]/(x^2)$, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
-	
-	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both left and right adjoints, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor. Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. 
-\end{example}
-
-
+If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator.
 
 \begin{lemma} \label{lma:Enough_C-projs}
-	If $\cC$ is a tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
+	If $\cC$ is a finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
 \end{lemma} \CD{This is point 1 after remark 2.11.3 in ENGO.}
 
 \begin{proof}
@@ -480,10 +483,10 @@ The claim now follows from the well-known fact that the Yoneda embedding reflect
 \end{proof}
 
 
-The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature, it is needed in the proof of Lemma  \ref{lma:module-adjoint}.
+The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature, it is needed in the proof of Lemma  \ref{lma:module-adjoint}.  We will use it to prove Lemma \ref{lma:module-adjoint}.
 
 \begin{lemma} \label{lem:laxisstrong}
-	Let $\cC$ be a tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong. This holds even if the functor is not right exact.   
+	Let $\cC$ be a tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
 \end{lemma} \CD{This is a remark in Ost03}
 
 \begin{proof}
@@ -584,7 +587,9 @@ Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this bi
 If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an (oplax) module functor has a lax module functor structure, while the left adjoint of a (lax) module functor only has an oplax module functor structure.  %This is a serious issue as the following example shows. 
 \end{remark}
 
-
+\begin{proof}[Proof of Thm.~\ref{thm:EGNO2.11.6}]
+By Lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint}, the assumptions of Theorem~\ref{thm:C-module-Embedding} are satisfied.
+\end{proof}
 
 
 \section{Construction of the relative Deligne tensor product} \label{sec:tc-deligne}
@@ -594,7 +599,7 @@ In this section we prove our main result, the existence of the Deligne tensor pr
 
 \begin{definition}
 	Let $\cC$ be a linear monoidal category. 
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact multilinear functor $\cM \times \cN \to \cL$ together with a natural isomorphism $\otimes^{\cM} \times id_{\cN} \cong id_{\cM} \times \otimes^{\cN}$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $M \in \cM$, $C \in \cC$, and $N \in \cN$:
 \begin{center}
 \begin{tikzpicture}
 	\node (LT) at (0, 1) {$F(M \otimes^{\cM} C, N)$};
@@ -613,7 +618,7 @@ In this section we prove our main result, the existence of the Deligne tensor pr
 
 
 \begin{definition}
-	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$} is the universal linear category admitting a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced multilinear functors $\cM \times \cN \to \cD$ and the category of linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
+	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$} is the universal linear category admitting a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced right exact multilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
 \end{definition}
 
 If it exists, the Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
@@ -621,7 +626,7 @@ If it exists, the Deligne tensor product is unique up to equivalence, and this e
 In \cite{0909.3140} the existence of the relative Deligne tensor product was established for semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the relative Deligne tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite[Thm 3.1]{1102.3411}. The following theorem extends these results to arbitrary finite tensor categories and finite module categories. 
 
 \begin{theorem} \label{thm:DelignePrdtOverATCExists}
-	Let $\cC$ be a tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. Then,
+	Let $\cC$ be a finite tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. Then,
 	\begin{enumerate}
 		\item The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category;
 		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$;
@@ -665,8 +670,8 @@ If this were possible, then it would immediately follow that the extension $\ove
 $\overline{F}: \Mod{A}{B}(\cC) \to \cD$.
 
 However it is not possible to define $\overline{F}$ in this way, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
-Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the commutative diagram\footnote{The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.} shown in Figure \ref{fig:RelDelingePdtDiagram}.
-\begin{figure}[htbp]
+Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the commutative diagram\footnote{The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.} shown in Figure %\ref{fig:RelDelingePdtDiagram}.
+%\begin{figure}[htbp]
 	\begin{center}
 		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1.5cm,between origins}] {
 		 F({}_AA \otimes A \otimes X, B \otimes B_B) &[1cm] F({}_AA \otimes X, B \otimes B_B) &[1cm] F({}_A X, B \otimes B_B) &[0.5cm] 0 \\
@@ -692,9 +697,9 @@ Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the commutative diagram\footnot
 			\node [node distance = 1.75cm, left of= m-5-3] {$\coker(\overline{\delta}_X)=:$};
 		\end{tikzpicture}
 	\end{center}
-	\caption{A digram useful for demonstrating the existence of the relative Deligne tensor product.}
-	\label{fig:RelDelingePdtDiagram}
-\end{figure}
+%	\caption{A digram useful for demonstrating the existence of the relative Deligne tensor product.}
+%	\label{fig:RelDelingePdtDiagram}
+%\end{figure}
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps, as above. 
 
 The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow in the diagram. This is precisely the missing map, and hence we may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
