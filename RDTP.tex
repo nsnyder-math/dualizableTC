@@ -268,7 +268,7 @@ If $G$ is a finite group, then the category of finite dimensional $G$-graded vec
 \begin{alignat*}{5}
 	& x^* \otimes (-)  \quad & &  \dashv \quad &&  \quad x \otimes (-)  \quad &&  \dashv &&  \quad {}^*x \otimes (-), \\
 	& (-) \otimes {}^* y  \quad & &  \dashv \quad &&  \quad (-) \otimes y  \quad &&  \dashv &&  \quad (-) \otimes y^*. 
-\end{alignat*}  \NS{Is this in the right place?  We don't refer to it in this paper, we do use it briefly in the other paper in the proof of the tensor products are functor categories theorem.  It should probably be moved to DTCI.}
+\end{alignat*}  \NS{Is this remark on adjunctions in the right place?  We don't refer to it in this paper, we do use it briefly in the other paper in the proof of the tensor products are functor categories theorem.  It should probably be moved to DTCI.}
 
 %\NS{I don't think this corollary is needed}
 %\begin{corollary}\cite[Cor 1.13.7]{EGNO}
@@ -351,7 +351,7 @@ A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a strong functor of bica
 %
 \nid Bimodule categories, functors, and transformations form a strict 2-category.  %!%CD check
 %If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
-It happens that any lax (or oplax) functor of bicategories between bimodules (between tensor categories) is automatically strong---see Lemma~\ref{lem:laxisstrong}. The above description in terms of bicategories permits us to effortlessly import several 2-categorical theorems into the world of bimodule categories. For example we have the following characterization of equivalences of bimodule categories (c.f. \cite{MR2664622})  \NS{I find this forward citing a bit odd.  I think we should move Lemma 3.21 back to here, as it clears up the in this section, and makes the next section read better.}
+It happens that any lax (or oplax) functor of bicategories between bimodules (between tensor categories) is automatically strong---see Lemma~\ref{lem:laxisstrong}. The above description in terms of bicategories permits us to effortlessly import several 2-categorical theorems into the world of bimodule categories. For example we have the following characterization of equivalences of bimodule categories (c.f. \cite{MR2664622})  \NS{I find this forward citing a bit odd.  I think we should move Lemma 3.21 back to here, as it clears up the logic in this section, and makes the next section read better.}
 
 \begin{lemma} \label{lem:Recog_equiv_of_bimod}
 	Given two $\cC$-$\cD$-bimodule categories $\cM$ and $\cN$, and a bimodule functor $F:\cM \to \cN$, then $F$ is an equivalence of $\cC$-$\cD$-bimodule categories if and only if it induces an equivalence of underlying categories: $F: \Hom_{\cM}(x,y) \stackrel{\simeq}{\to} \Hom_{\cN}(x,y)$. 
@@ -484,9 +484,9 @@ We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module catego
 
 If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular Lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator.
 
-\begin{lemma} \label{lma:Enough_C-projs}
+\begin{lemma}{\cite[\S 2.11]{EGNO}} \label{lma:Enough_C-projs}
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
-\end{lemma} \CD{This is point 1 after remark 2.11.3 in ENGO.}
+\end{lemma} \CD{This is point 1 after remark 2.11.3 in EGNO.}
 
 \begin{proof}
 	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator, and these are guaranteed to exist since $\cM$ is finite. Thus assume that $p \in \cM$ is projective.  We aim to show that $\IHom(p, -)$ is right exact. 
@@ -510,7 +510,7 @@ The claim now follows from the well-known fact that the Yoneda embedding reflect
 
 The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature, it is needed in the proof of Lemma  \ref{lma:module-adjoint}.  We will use it to prove Lemma \ref{lma:module-adjoint}.
 
-\begin{lemma} \label{lem:laxisstrong}
+\begin{lemma} \label{lem:laxisstrong}  \NS{I think Lemma 3.21 should be moved earlier}
 	Let $\cC$ be a tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
 \end{lemma} \CD{This is a remark in Ost03}
 
@@ -579,6 +579,7 @@ We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightfor
 \end{center}
 \end{proof}
 
+The following Lemma was left as an exercise to the reader in \cite[\S 3.3]{EO-ftc}.
 
 \begin{lemma} \label{lma:module-adjoint}
 Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
@@ -619,7 +620,7 @@ By Lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint}, the assumptions
 
 \section{Construction of the relative Deligne tensor product} \label{sec:tc-deligne}
 
-In this section we prove our main result, the existence of the Deligne tensor product of finite module categories over a finite tensor category.
+In this section we prove our main result, the existence of the Deligne tensor product of finite module categories over a finite tensor category.  We begin by recalling the definition of the Deligne tensor product from \cite{0909.3140}
 
 
 \begin{definition}
