@@ -1533,7 +1533,7 @@ Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categori
 \end{proof}
 
 \subsection{Separable module categories and separable tensor categories} \label{sec:tc-separable}
-In characteristic zero, the collection of fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik show that functor categories between semisimple module categories over fusion categories are semsimple and hence (because all relative Deligne tensor products can be expressed as functor categories) semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down in non-zero characteristic.  This happens for two distinct reasons: first, fusion categories of global dimension zero behave poorly, and, second, (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are problems related to inseparable field extensions.  The reader unintersted in characteristic $p$ can skip this section and the next section and use \cite[Theorem 2.16]{MR2183279} as a substitute for \ref{thm:closure-of-separability}. \NS{I added a sentence here}
+In characteristic zero, the collection of fusion categories and their semisimple bimodule categories have many good closure properties.  For example, M\"uger proves that the Drinfel'd center  of a fusion category is fusion \cite[Theorem 3.16]{MR1966525} and Etingof--Nikshych--Ostrik show that functor categories between semisimple module categories over fusion categories are semsimple and hence (because all relative Deligne tensor products can be expressed as functor categories) semisimplicity is preserved by relative Deligne tensor product \cite[Theorem 2.16]{MR2183279}.  However, it is well-known that these results break down in non-zero characteristic.  This happens for two distinct reasons: first, fusion categories of global dimension zero behave poorly, and, second, (as observed by Kuperberg \cite[Question 5.1]{MR1995781}) if you work over a non-perfect field there are problems related to inseparable field extensions.  The reader unintersted in characteristic $p$ can skip this section and the next section and use \cite[Theorem 2.16]{MR2183279} as a substitute for Theorem \ref{thm:closure-of-separability}. \NS{I added a sentence here}
 
 In this section, we introduce a new notion of separability for module categories and tensor categories that provides the right setting for generalizing the results of M\"uger and Etingof--Nikshych--Ostrik to characteristic $p$.  This theory is a generalization of the classical notion of a separable algebra \cite{???}.\NS{CSP what citations did you want?}   This section was inspired by a suggestion of Ostrik, the results of \cite[\S 2.4]{MR3039775} for fusion categories over $\mathbb{C}$, and by the appearance of separability in the classification of $2$-dimensional local field theories \cite{schommer-pries-thesis}.
 
@@ -1586,7 +1586,7 @@ Finally if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \otim
 	If any of the equivalent conditions of Theorem \ref{thm:SepModCats} are satisfied, then we will say that $\cM$ is a {\em separable} module category. If $\cM$ is a $\cC$-$\cD$-bimodule category then we will say $\cM$ is separable if it is separable over both $\cC$ and $\cD$ independently. 
 \end{definition}
 
-A linear category $\cC$ is separable (as a $\Vect$-module) if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is $\Vect$-separable if and only if $K_X/k$ is a finite separable field extension for all $X$.  Equivalently, a linear category is $\Vect$-separable if and only if it is absolutely semisimple in the sense that the category remains semisimple under arbitrary base changes.  Since the word ``separable" is somewhat overloaded in this section we will say ``absolutely semisimple" instead of ``$\Vect$-separable".  \NS{We should add a reference}
+A linear category $\cC$ is separable (as a $\Vect$-module) if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is $\Vect$-separable if and only if $K_X/k$ is a finite separable field extension for all $X$.  Equivalently, a linear category is $\Vect$-separable if and only if it is absolutely semisimple in the sense that the category remains semisimple under arbitrary base changes.  Since the word ``separable" is somewhat overloaded in this section we will say ``absolutely semisimple" instead of ``$\Vect$-separable".  \NS{Needs classical separability references}
 
 \begin{theorem} \label{thm:compositeOfSep}
 	If ${}_\cB\cM_\cC$ and ${}_\cC\cN_\cD$ are separable bimodule categories over semisimple tensor categories, then $\cM \boxtimes_{\cC} \cN$ is a separable $\cB$-$\cD$-bimodule category.
@@ -1646,11 +1646,11 @@ This follows from applying the previous theorem a bunch of times.  $\Vect$ separ
 
 \subsection{Fusion categories and separability} \label{sec:tc-fusion}
 
-The goal of this section is to show that under some additional common assumptions separability is easy to verify.  Throughout this section we assume that the ground field is algebraically closed.  Recall that a finite tensor category is called a \emph{fusion category} if it is semisimple and the unit object is simple.  Fusion categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily).  The goal of this section is to prove that a fusion category is separable if and only if the global dimension is non-zero.  Many of the ideas in this section were suggested to us by V. Ostrik. 
+The goal of this section is to show that under some common assumptions separability is easy to verify.  Throughout this section we assume that the ground field is algebraically closed.  Recall that a finite tensor category is called a \emph{fusion category} if it is semisimple and the unit object is simple.  Fusion categories have an invariant known as the \emph{global dimension} which lives in the ground field. (We will recall its definition momentarily).  Our main result is that a fusion category is separable if and only if the global dimension is non-zero.  We also show that a semisimple module category over a fusion category of non-zero global dimension is always separable. Many of the ideas in this section were suggested to us by V. Ostrik. 
 
-This result strengthens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  By Corollary \ref{cor:Sep=semisimplecenter} separability is equivalent to the semisimplicity of $\cZ(\cC)$.  That non-vanishing of global dimension implies semisimplicity of $\cZ(\cC)$ was first proved in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper).  The converse was proved in the pivotal setting \cite{MR3079759}.  We give a proof in both directions only assuming that $\cC$ is a fusion category over an algebraically closed field.
+This result sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  By Corollary \ref{cor:Sep=semisimplecenter} separability is equivalent to the semisimplicity of $\cZ(\cC)$.  That non-vanishing of global dimension implies semisimplicity of $\cZ(\cC)$ was first proved in \cite[Prop. 3.10]{MR1966525} under the assumption that the fusion category is spherical, and it is shown in \cite[Thm. 2.15]{MR2183279} without assuming sphericality but with the assumption that the ground field is characteristic zero (but see also section 9 of that same paper).  The converse was proved in the pivotal setting \cite{MR3079759}.  We give a proof in both directions only assuming that $\cC$ is a fusion category over an algebraically closed field.
 
-Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up to normalization) only one bimodule map $A \rightarrow A \otimes A$ where $A$ is the relevant algebra in $\cC \boxtimes \cC^\mp$ and that the composition this map with the multiplication map is given by scaling by the global dimension.  More specifically we show that there's an essentially unique Frobenius algebra structure on $A$ and the map $A \rightarrow A \otimes A$ is the comultiplication for this Frobenius algebra.
+Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up to normalization) only one bimodule map $A \rightarrow A \otimes A$ where $A$ is nice algebra in $\cC \boxtimes \cC^\mp$ such that $\cC \cong \text{mod-}A$ and that the composition this map with the multiplication map is given by scaling by the global dimension.  More specifically we show that there's an essentially unique Frobenius algebra structure on $A$ and the map $A \rightarrow A \otimes A$ is the comultiplication for this Frobenius algebra.
 
 
 %The goal of this section is to show that under nice circumstances of classical interest  separability is easy to verify. In this section we restrict ourselves to working over an algebraically closed field. Recall that a (finite rigid) tensor category is called \emph{fusion} if it is semisimple and if the unit object is simple. Since we are working over an algebraically closed field this implies that the endomorphisms of the unit object, indeed any simple object, are canonically isomorphic to the ground field. 
@@ -1659,7 +1659,7 @@ Rather than considering $\cZ(\cC)$, we instead prove directly that there is (up 
 
 %In this section we strengthen this. We provide a direct link between non-zero global dimension and separability. We show that non-zero global dimension is equivalent to separability of the fusion category and that  semisimple bimodule categories over such fusion categories are separable (and conversely).  The converse was proved in the pivotal setting \cite{MR3079759} by Brugui\`eres and Virelizier.
 
-We begin by recalling the definition of the global dimension of a fusion category.  Intuitively the global dimension is meant to be an analogue of the size of a finite group, and so is given by the sum of the squares of the dimensions of the simple objects,  However, without additional assumptions there's no adequate definition of the dimension of a simple object, furthermore even when this dimension is well-defined it may not be real.  Nonetheless M\"uger and ENO found a replacement for the square of the absolute value of the dimension of a simple object $x$ which we will call the magnitude of $x$ and denote $\lVert x \rVert$ .  This is sufficient for defining the global dimension.
+We begin by recalling the definition of the global dimension of a fusion category.  Intuitively the global dimension is meant to be an analogue of the size of a finite group, and so is given by the sum of the squares of the dimensions of the simple objects,  However, without additional assumptions there's no adequate definition of the dimension of a simple object.  Furthermore even when this dimension is well-defined it may not be real.  Nonetheless M\"uger and ENO found a replacement for the square of the absolute value of the dimension of a simple object $x$ which we will call the magnitude of $x$ and denote $\lVert x \rVert$.  This is sufficient for defining the global dimension.
 
 If $x$ is a simple object in a fusion category the simple object ${}*x$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(x \otimes {}^*x, 1) = 1$, and $x^*$ is characterized up to non-unique isomorphism by the property that $\dim \Hom(1, x \otimes x^*) = 1$  Thus, by semisimplicity there's a non-natural isomorphism ${}^*x \cong x^*$, and similarly ${}^{**}x \cong x$.  
 
@@ -1680,7 +1680,7 @@ $\lVert x \rVert$ of $x$ is defined by the formula
 	\lVert x \rVert := \Tr(a) \cdot \Tr({}^*(a^{-1})) \in k
 \end{equation*}
 % This agrees with M\'uger's definition. This differs superficially from ENO's definition in that my x is their v**. So this would define d^2(v**) in their formulas, but since v and v** are isomorphic and this is invaraint under isomorphism this agrees with ENO's definition too. 
-where $a: {}^{**}x \mapsto x$ is any choice of isomorphism.  This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$.
+where $a: {}^{**}x \mapsto x$ is any choice of isomorphism.  This is easily seen to be independent of the choice of isomorphism between $x$ and its double dual (since $x$ is simple, different choices of $a$ only differ by multiplication by a non-zero scalar). Moreover the magnitude only depends on the isomorphism class of $x$ and we have $\lVert x \rVert = \lVert {}^*x \rVert$.
 \end{definition}
 
 \begin{definition}
@@ -1691,13 +1691,13 @@ where $a: {}^{**}x \mapsto x$ is any choice of isomorphism.  This is easily seen
 	where this sum ranges over a choice of representatives of isomorphism classes of simple objects of $\cC$. 
 \end{definition}
 
-It will be useful for us to have an alternate description of $\dim(\cC)$.  We first build some notation.
+It will be useful for us to have an alternate description of $\dim(\cC)$.  We first fix some notation for identifying several $1$-dimensional hom spaces.
 
 \begin{definition}
-Suppose that $x$ and $y$ satisfy $\dim \Hom(x \otimes y, 1) = 1$.  We define the following maps:
+Suppose that $x$ and $y$ are simple objects satisfying $\dim \Hom(x \otimes y, 1) = 1$.  We define the following isomorphisms:
 \begin{itemize}
-\item $\alpha_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, y \otimes x)$ via $(f \otimes \id_x) \circ (\id_x \alpha(f)) = \id_x$.
-\item $\beta_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, x \otimes y)$ via $f \circ \beta(f)  = 1$.
+\item $\alpha_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, y \otimes x)$ characterized by $(f \otimes \id_x) \circ (\id_x \alpha_{x,y}(f)) = \id_x$.
+\item $\beta_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, x \otimes y)$ characterized by $f \circ \beta(f)  = 1$.
 \item ${}^*(-): \Hom(x \otimes y, 1) \rightarrow \Hom(1, {}^*y \otimes {}^*x)$.
 \end{itemize}
 \end{definition}
@@ -1709,13 +1709,15 @@ The identifications $\alpha$ and $\beta$ are homogenous of degree $-1$, while ta
 \begin{itemize}
 \item $\alpha(cf) = c^{-1} \alpha(f)$,
 \item $\beta(cf) = c^{-1} \beta(f)$,
-\item ${}^*(cf) = c {}^*f$.
+\item ${}^*(cf) = c ({}^*f)$.
 \end{itemize}
 \end{lemma}
 
-In particular, we see that for nonzero $f: x \otimes y \rightarrow 1$ and $g: y \otimes x \rightarrow 1$ we have that $(f \circ \alpha(g)) \cdot (g \circ \alpha(f))$ is homogenous of degree $0$ in both $f$ and $g$ and thus gives an invariant not depending on the choice of non-zero $f$ and $g$.  It is easy to see that this invariant is exactly $\lVert x \rVert$.
+Consequently, for nonzero $f: x \otimes y \rightarrow 1$ and $g: y \otimes x \rightarrow 1$ we have that $(f \circ \alpha(g)) \cdot (g \circ \alpha(f))$ is homogenous of degree $0$ in both $f$ and $g$ and thus gives an invariant scalar which doesn't depend on the choice of non-zero $f$ and $g$.  It is easy to see that this invariant is exactly $\lVert x \rVert$.
 
-Perhaps surprisingly the identifications $\alpha$ and $\beta$ fail to commute.
+\begin{warning}
+Perhaps surprisingly the identifications $\alpha$ and $\beta$ fail to commute.  Instead we have the following lemma.
+\end{warning}
 
 \begin{lemma}
 We have the following commutation relations for $\alpha$, $\beta$ and ${}^*$.
@@ -1727,8 +1729,8 @@ We have the following commutation relations for $\alpha$, $\beta$ and ${}^*$.
 \end{itemize}
 \end{lemma}
 \begin{proof}
-The first two are obvious.  For the third one, choosing $\alpha(g) = \beta(f)$ we have 
-$$ \lVert x \rVert (\beta^{-1}(\alpha(f)) \circ \alpha(f) = \lVert x \rVert = (f \circ \beta(f)) \cdot (\alpha^{-1}(\beta(f)) \circ \alpha(f) = (\alpha^{-1}(\beta(f)) \circ \alpha(f).$$
+The first two are obvious.  For the third one, choosing $g$ such that $\alpha(g) = \beta(f)$ in the definition of the magnitude we have 
+$$ \lVert x \rVert (\beta^{-1}(\alpha(f)) \circ \alpha(f)) = \lVert x \rVert = (f \circ \beta(f)) \cdot (\alpha^{-1}(\beta(f)) \circ \alpha(f) = (\alpha^{-1}(\beta(f)) \circ \alpha(f).$$
 \end{proof}
 
 
@@ -1792,23 +1794,29 @@ $$ \lVert x \rVert (\beta^{-1}(\alpha(f)) \circ \alpha(f) = \lVert x \rVert = (f
 
 %The global dimension has an elegant but less well-known equivalent description which we find very useful. Before we describe it we will first recall two well-known facts from the theory of finite tensor categories and their module categories.
  
+
 \CSP{These should cite either ENO or BTP or both.}
-Let $\cC$ be a finite tensor category, which we may consider as a left $\cC \boxtimes \cC^\mp$-module category. First, $\cC$ admits an enrichment in $\cC \boxtimes \cC^\mp$. Thus for every pair of objects $a, b \in \cC$, there exists an object $\IHom(a,b) \in \cC \boxtimes \cC^\mp$. This object is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
+In order to apply the definition of separability, we need to find an explicit algebra $A$ in $\cC \boxtimes \cC^\mp$ with the property that $\cC \cong \text{mod-}A$ as a left $\cC \boxtimes \cC^\mp$-module category.  This can be constructed using Ostrik's internal hom construction, namely we can take $A = \IHom(1,1)$ where $\IHom(1,1)$ is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
 \begin{equation*}
 	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , \IHom(a,b)) \cong \Hom_{\cC}(x \otimes a \otimes y, b).
 \end{equation*}
-Note that for any $a \in \cC$, the object $\IHom(a,a) \in \cC \boxtimes \cC^\mp$ will naturally be an algebra object. 
-
-Second, as a left $\cC \boxtimes \cC^\mp$-module category, $\cC$ is equivalent to the category $\Mod{}{A}(\cC \boxtimes \cC^\mp)$ of right $A$-modules in $\cC \boxtimes \cC^\mp$. Here $A = \IHom(1,1)$ with its natural algebra structure, and the identification is via the functor 
+ Here $A = \IHom(1,1)$ with its natural algebra structure, and the identification of module categories is via the functor 
 \begin{equation*}
 	\IHom(1, -): \cC \to \Mod{}{A}(\cC \boxtimes \cC^\mp).
 \end{equation*}
-%\CSPcomm{This part needs updating to cite the correct section. Presumably this will already be stated.}
-% Since $\cC$ is rigid, every object is $\cC$-projective (Example \ref{ex:rigid_all_C-proj}) and the object $1 \in \cC$ is clearly a $\cC$-generator. Thus by Theorem \ref{thm:C-module-Embedding} 
+See \cite{MR1976459, EO-ftc, EGNO} and \cite[\S 3.1--3.2]{BTP} for more details on the internal hom construction and this identification.
+
+%\CSP{These should cite either ENO or BTP or both.}
+%Let $\cC$ be a finite tensor category, which we may consider as a left $\cC \boxtimes \cC^\mp$-module category. First, $\cC$ admits an enrichment in $\cC \boxtimes \cC^\mp$. Thus for every pair of objects $a, b \in \cC$, there exists an object $\IHom(a,b) \in \cC \boxtimes \cC^\mp$. This object is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
 %\begin{equation*}
-%	\cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp),
+%	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , \IHom(a,b)) \cong \Hom_{\cC}(x \otimes a \otimes y, b).
 %\end{equation*}
-%where  $A = \IHom(1,1) \in \cC \boxtimes \cC^\mp$ is the induced algebra object (see also Example \ref{Ex:Hopf_bimod}).  
+%Note that for any $a \in \cC$, the object $\IHom(a,a) \in \cC \boxtimes \cC^\mp$ will naturally be an algebra object. 
+
+%Second, as a left $\cC \boxtimes \cC^\mp$-module category, $\cC$ is equivalent to the category $\Mod{}{A}(\cC \boxtimes \cC^\mp)$ of right $A$-modules in $\cC \boxtimes \cC^\mp$. Here $A = \IHom(1,1)$ with its natural algebra structure, and the identification is via the functor 
+%\begin{equation*}
+%	\IHom(1, -): \cC \to \Mod{}{A}(\cC \boxtimes \cC^\mp).
+%\end{equation*}
 
 When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in fact is canonically a {\em Frobenius algebra} in $\cC \boxtimes \cC^\mp$. Recall that for Frobenius algebra objects $R$ in a monoidal category we have the following maps:
 \begin{equation*}
@@ -1821,7 +1829,7 @@ When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in f
 		\textrm{(copairing)} && c = \Delta \circ u: & 1&\to&  R \otimes R.
 	\end{array}
 \end{equation*}
-The pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of coalgebra object, and the pair $(b,c)$ gives $R$ the structure of a self-dual object. The entire structure is completely determine by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
+The pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of coalgebra object, and $b$ and $c$ satisfy the usual zig-zag relations. The entire structure is completely determine by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
 
 
 We will describe the Frobenius algebra structure on $A \in \cC \boxtimes \cC^\mp$ explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
@@ -1851,10 +1859,10 @@ Below we will see another explicit formula for the multiplication map.
 
 Since the Frobenius algebra structure $(m,u, \Delta, \lambda)$ on $A$ is determined by the algebra structure together with the counit $\lambda: A \to 1 \boxtimes 1$, and since we see that $\Hom_{\cC \boxtimes \cC^\mp}(A, 1 \boxtimes 1)$ is one dimensional, it follows that there is a unique map $\lambda:A \to 1 \boxtimes 1$ satisfying $\lambda \circ u = id_{1 \boxtimes 1}$, and hence there can be at most one normalized Frobenius algebra structure on the algebra $A$; if it exists, then it is unique. 
 
-In any Frobenius algebra $R$, the composite of the comultiplication followed by the multiplication $m \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $m \circ \Delta \circ u: 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the monoidal unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the unit map of $A$, and consequently $m \circ \Delta$ is given by multiplication by this scalar element. It can be computed as the value of $ b \circ c =  \lambda \circ m \circ \Delta \circ u \in \End(1 \boxtimes 1) = k$. 
+In any Frobenius algebra $R$, the composite of the comultiplication followed by the multiplication $m \circ \Delta: R \to R$ is given by multiplication by the {\em window element} $w := m \circ \Delta \circ u: 1 \to R$. In the case at hand, namely $R = A \cong \oplus_i L_i \boxtimes {}^*L_i$, there is a 1-dimensional vector space of morphisms from the monoidal unit $1 \boxtimes 1$ into $A$. Thus the window element of $A$ is a scalar multiple of the unit map of $A$, and consequently $m \circ \Delta$ is given by multiplication by this scalar element. It can be computed as the value of $ b \circ c =  \lambda \circ m \circ \Delta \circ u \in \End(1 \boxtimes 1) = k$. 
 
 \begin{proposition} \label{prop:FrobAlg_for_fusion}
-	The unique normalized map $\lambda:A \to 1 \boxtimes 1$ (so that $\lambda \circ u = id_{1 \boxtimes 1}$) determines the structure of a Frobenius algebra on $A$. Moreover the window element of this Frobenius algebra is precisely the global dimension of the Fusion category $\cC$. 
+	The unique normalized map $\lambda:A \to 1 \boxtimes 1$ (so that $\lambda \circ u = id_{1 \boxtimes 1}$) determines the structure of a Frobenius algebra on $A$. Moreover the window element of this Frobenius algebra is precisely the global dimension of the fusion category $\cC$. 
 \end{proposition}
 
 
@@ -1883,7 +1891,7 @@ In any Frobenius algebra $R$, the composite of the comultiplication followed by 
 
 
 \begin{proof}[Proof of Prop.~\ref{prop:FrobAlg_for_fusion}] 
-We have already specified the algebra structure $(u,m)$ on $A$ as well as the counit $\lambda$. This gives us the pairing map $b= \lambda \circ m: A \otimes A \to 1 \boxtimes 1$. To show that this induces a Frobenius algebra structure on $A$ it suffices to construct a copairing (necessarily unique) $c: 1 \boxtimes 1 \to A \otimes A$ such that $(b,c)$ gives a self-duality for $A$. 	
+We have already specified the algebra structure $(u,m)$ on $A$ as well as the counit $\lambda$. This gives us the pairing map $b= \lambda \circ m: A \otimes A \to 1 \boxtimes 1$. To show that this induces a Frobenius algebra structure on $A$ it suffices to construct a copairing (necessarily unique) $c: 1 \boxtimes 1 \to A \otimes A$ such that $b$ and $c$ satisfy the usual zig-zag relations. 	
 	
 %	There are several equivalent ways to describe a Frobenius algebra structure on a given algebra. We will use the following characterization: the counit map $\lambda: A \to 1 \boxtimes 1$ gives $A$ the structure of a Frobenius algebra if and only if the induced pairing
 %	\begin{equation*}
@@ -1910,9 +1918,9 @@ is given on individual summands by the sum $\sum_r (e_{ij,k}^r) \boxtimes ({}^*\
 \begin{equation*}
 	b=\lambda \circ m: A \otimes A \to 1 \boxtimes 1
 \end{equation*}
- is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $e_i \boxtimes {}^*\beta(e_i)$ to each factor separately. Thus there is only one possible copairing which is given on the $(L_{\overline{i}} \otimes L_i) \boxtimes ({}^*L_i \otimes {}^*L_{\overline{i}})$ component by $\alpha(e_{\overline{i}}) \boxtimes \alpha({}^*\beta(e_{\overline{i}})$.
+ is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $e_i \boxtimes {}^*\beta(e_i)$ to each factor separately. Thus there is only one possible copairing which by the definition of $\alpha$ is given on the $(L_{\overline{i}} \otimes L_i) \boxtimes ({}^*L_i \otimes {}^*L_{\overline{i}})$ component by $\alpha(e_{\overline{i}}) \boxtimes \alpha({}^*\beta(e_{\overline{i}}))$.
   
-We now need to compute the composition of the pairing and copairing.  This is given on components by $(e_i \circ \alpha(e_{\overline{i}}) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}}))$.  Using the commutation relations, this is $\lVert x \rVert (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ {}^*\beta^{-1} (\alpha(e_{\overline{i}})$)).  Since this is homogeneous of degree $0$ in $\alpha(e_{\overline{i}})$ we may replace $\alpha(e_{\overline{i}})$ with $\beta(e_i)$.  Then the composition on the $e_i$ component is given by $\lVert x \rVert (e_i \circ \beta(e_i)) \cdot ({}^*\beta(e_i) \circ {}^*e_i) = \lVert x \rVert$.  The whole composition of pairing and copairing is thus given by the global dimension.
+We now need to compute the composition of the pairing and copairing to recover the window element.  This is given on components by $$w_i = (e_i \circ \alpha(e_{\overline{i}}) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}})).$$  Using the commutation relations, we see that $$w_i = \lVert x \rVert (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ {}^*\beta^{-1} (\alpha(e_{\overline{i}}))).$$ Since this is homogeneous of degree $0$ in $\alpha(e_{\overline{i}})$ we may replace $\alpha(e_{\overline{i}})$ with $\beta(e_i)$.  Then $w_i$ is given by $$\lVert x \rVert (e_i \circ \beta(e_i)) \cdot ({}^*\beta(e_i) \circ {}^*e_i) = \lVert x \rVert.$$  In conclusion the window element is $w = \sum_i w_i = \dim \cC$.
 
 \end{proof}
 
