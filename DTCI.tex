@@ -1172,7 +1172,7 @@ Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$
 \CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
 
 
-Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying the proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
+Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying the proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459, EO-ftc}.  
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over a finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
@@ -1412,7 +1412,7 @@ Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD
 \end{lemma}
 \begin{proof}
 	We will prove the first statement as the second follows from a similar argument. 
-We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Second, note that, as mentioned after Lemma~\ref{lma:RigidIsExact}, the right adjoint of right multiplication by $e$ is right multiplication by $e^*$.  \NS{This reference is broken due to BTP.}
+We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Second, note that, as mentioned after Lemma~\ref{lma:RigidIsExact}, the right adjoint of right multiplication by $e$ is right multiplication by $e^*$.  \NS{This reference is broken due to BTP.  I think we should just remove the parenthetical}
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
@@ -1422,10 +1422,12 @@ For a bimodule category ${}_\cC \cM_\cD$, we have equivalences $\cM^* \simeq \Fu
 By the previous lemma, $\Fun_{\cC}(\cM, \cC) \simeq {}^*\Fun_{\cC}^L(\cC, \cM)$.  Any left $\cC$-module functor $\cF: \cC \ra \cM$ is given by $c \mapsto c \otimes \cF(1)$; this functor is a right adjoint (see the comments after Lemma~\ref{lma:RigidIsExact}) and therefore is left exact.  It follows that ${}^*\Fun_{\cC}^L(\cC, \cM)$ is ${}^* \cM$ as desired.
 \end{proof}
 
-The following lemma is crucial for our results. \CD{Explain this sentence.}
-It is close in spirit to \cite[Prop. 3.5 and Rmk. 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, however these previous result assume semisimplicity over an algebraically closed field of characteristic zero, and moveover both statements contain minor inaccuracies regarding the equivalence as bimodule categories. See Remark \ref{rmk:Deligne_pdt_as_mod_functor} for details and the corrected version of \cite[Rmk. 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}.
+The following lemma is crucial to the proof of $1$-dualizability much as $\End(V) \cong V \otimes V^\vee$ is crucial to the proof of $1$-dualizability of $\Vec$.  In particular, it allows us to construct maps to Deligne tensor products, which is difficult to do directly since the universal property is for maps out of the Deligne tensor product.  \CD{Explain this sentence.}  \NS{Is it better now?}
+As explained Remark \ref{rmk:Deligne_pdt_as_mod_functor} it is closely related to \cite[Prop. 3.5 and Rmk. 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}.
+%It is close in spirit to \cite[Prop. 3.5 and Rmk. 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, however these previous result assume semisimplicity over an algebraically closed field of characteristic zero, and moveover both statements contain minor inaccuracies regarding the equivalence as bimodule categories. See Remark \ref{rmk:Deligne_pdt_as_mod_functor} for details and the corrected version of \cite[Rmk. 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}.
 \CSP{How do these comments read? Too harsh?} 
 \CD{Perhaps rephrase this paragraph now that it is so close to \ref{rmk:Deligne_pdt_as_mod_functor}}
+\NS{I agree with CD, so I commented out the old version and replaced it by one sentence referring forward to the remark.}
 
 \begin{lemma} \label{Lma:FunctorsAsATensorPdt}
 	If $\cC$ is a finite tensor category and $\cM$ and $\cN$ are finite left $\cC$-module categories then the natural functor induces an equivalence
@@ -1472,7 +1474,8 @@ as $\cD$-$\cE$ bimodule categories.   Similarly,
 \end{equation*}
 as $\cD$-$\cE$ bimodule categories. 
 
-	 These bimodule category equivalences are a correction of \cite[Remark 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, both of which give $\cM^\op$ the structure of a $\cC$-$\cD$ bimodule category, which differs by twisting the $\cD$-action by the double dual functor. Note also that the proof of \cite[Thm. 3.20]{0911.4979} is incomplete. In particular it relies on \cite[Lma. 3.21]{0911.4979} which is false. A counterexample is given by setting $\cC = \Vect_G$, the category of $G$-graded vector spaces for a fixed finite group $G$, and $\cM = \cN = \Vect$. The forgetful functor $U:\cC \to \Vect$ which forgets the grading is a tensor functor and endows $\cM$ and $\cN$ with the structure of right and left $\cC$-module categories, respectively. In this case \cite[Lma. 3.21]{0911.4979} asserts an equivalence between $\cM \boxtimes \cN \simeq \Vect \boxtimes \Vect \simeq \Vect$ and $\Fun_\cC(\Vect, \Vect) \simeq \Rep(G)$, which is false unless $G$ is the trivial group.
+	 These bimodule category equivalences are a correction of \cite[Remark 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, both of which give $\cM^\op$ the structure of a $\cC$-$\cD$ bimodule category, which differs by twisting the $\cD$-action by the double dual functor.\footnote{Note also that the proof of \cite[Thm. 3.20]{0911.4979} is incomplete. In particular it relies on \cite[Lma. 3.21]{0911.4979} which is false. A counterexample is given by setting $\cC = \Vect_G$, the category of $G$-graded vector spaces for a fixed finite group $G$, and $\cM = \cN = \Vect$. The forgetful functor $U:\cC \to \Vect$ which forgets the grading is a tensor functor and endows $\cM$ and $\cN$ with the structure of right and left $\cC$-module categories, respectively. In this case \cite[Lma. 3.21]{0911.4979} asserts an equivalence between $\cM \boxtimes \cN \simeq \Vect \boxtimes \Vect \simeq \Vect$ and $\Fun_\cC(\Vect, \Vect) \simeq \Rep(G)$, which is false unless $G$ is the trivial group.}\NS{I removed the additional Greenough error to a footnote}
+
 \end{remark}
 
 \begin{remark}
@@ -1800,7 +1803,9 @@ $$ \lVert x \rVert (\beta^{-1}(\alpha(f)) \circ \alpha(f)) = \lVert x \rVert = (
  
 
 \CSP{These should cite either ENO or BTP or both.}
+\NS{I think the citations are now dealt with}
 In order to apply the definition of separability, we need to find an explicit algebra $A$ in $\cC \boxtimes \cC^\mp$ with the property that $\cC \cong \text{mod-}A$ as a left $\cC \boxtimes \cC^\mp$-module category.  This can be constructed using Ostrik's internal hom construction, namely we can take $A = \IHom(1,1)$ where $\IHom(1,1)$ is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
+\NS{I'm not sure when I'm supposed to say ``internal hom" versus ``enriched hom."  Someone else should fix anywhere I've used the wrong one.}
 \begin{equation*}
 	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , \IHom(a,b)) \cong \Hom_{\cC}(x \otimes a \otimes y, b).
 \end{equation*}
