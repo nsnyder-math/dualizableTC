@@ -61,6 +61,7 @@ We show that separable tensor categories are the fully dualizable objects in the
 % 1.2. Results
 % 1.3. Acknowledgments
 \CD{Rewrite/reconsider intro once rest is done.}
+\NS{I've rewritten.}
 
 An $n$-dimensional topological field theory (TFT), a la Atiyah and Segal \cite{MR1001453,Segal}, is a symmetric monoidal functor from the category of $n$-dimensional bordisms to the category of vector spaces.  Hence, a TFT assigns to any closed $(n-1)$-manifold a vector space, and to any $n$-dimensional bordism it assigns a linear map between the corresponding vector spaces.  In particular, to a closed $n$-manifold a TFT assigns an endomorphism of the trivial vector space, that is a scalar.  Thus, TFTs can be thought of as topological invariants which can be computed by chopping the manifold up into smaller pieces.  A local (that is, fully extended) TFT allows one to cut the manifold not just along codimension one boundaries, but along boundaries with corners of arbitrary codimension.  That is, the invariants are built up by gluing together bordisms with corners.  Just as ordinary bordisms form a symmetric monoidal category, bordisms with corners  form a symmetric monoidal $n$-category.  A local TFT is therefore a functor of symmetric monoidal $n$-categories from the $n$-category of bordisms with corners to another symmetric monoidal $n$-category.
 \NS{Should all the TFTs in this paragraph be TQFTs?}
@@ -2343,9 +2344,9 @@ The maps $\varepsilon_1$ and $\varepsilon_2$ are the counits of adjunctions $\Fu
 The map $\eta_1: \cD \rightarrow \Fun_{\cC}(\cM,\cM) \cong \Fun_{\cC}(\cM,\cC) \boxtimes_\cC \cM$ sending $d$ to right multiplication by $d$ is a map of $\cD$-$\cD$ bimodules.  Similarly, the map $\eta_2: \cC \rightarrow \Fun_{\cD}(\cM,\cM) \cong \Fun_{\cD}(\cM,\cD) \boxtimes_\cD \cM$ sending $c$ to left multiplication by $c$ is a map of $\cC$-$\cC$ bimodules.
 \end{lemma}
 
-\begin{theorem} \label{thm:evcoev}
+\begin{proposition} \label{prop:evcoev}
 The pair of maps $(\eta_1, \varepsilon_1)$, respectively $(\eta_2, \varepsilon_2)$, forms the unit and counit of an adjunction $\Fun_{\cC}(\cM, \cC) \dashv \cM$, respectively $\cM \dashv \Fun_{{\cD}}(\cM, \cD)$.
-\end{theorem} \CD{Maybe this should be a Proposition?}
+\end{proposition} \CD{Maybe this should be a Proposition?}  \NS{Sounds reasonable, I changed it}
 \begin{proof}
 The following diagram commutes.
 		\begin{center}
@@ -2631,7 +2632,7 @@ The adjoint functors can also be described explicitly as a transpose.  Linear fu
  $\TCsep$ is fully dualizable; separable tensor categories are fully dualizable.
 \end{maintheorem}
 \begin{proof}
-By Theorem \ref{thm:objduals} all objects in $\TCsep$ have duals, by Theorem \ref{thm:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms have adjoints.
+By Theorem \ref{thm:objduals} all objects in $\TCsep$ have duals, by Proposition \ref{prop:evcoev} all $1$-morphisms in $\TCsep$ have left and right adjoints, and by Theorem \ref{thm:adjoints-fusion} all $2$-morphisms have adjoints.
 \end{proof}
 
 
