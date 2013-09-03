@@ -878,7 +878,12 @@ The Serre automorphism of any $3$-dualizable object in an $n$-category is an inv
 \CD{Do we refer to this prop? If not, remove.  If so, find a better place for it.}
 \CD{The preceding section is awkward at present, needs to be reconsidered/reworked.}
 
-\CDcomm{In reworking this section, add the calculation of $\cS_x$ and $\cS^{-1}_x$ with reference to App A.2.  Say, given a field theory, have these formulas; more is true, given a dualizable x, and any ev, evR, etc, can find a field theory such that these formulas hold---see App A.2.}
+\CDcomm{In reworking this section, add the calculation of $\cS_x$ and $\cS^{-1}_x$ with reference to App A.2.  Say, given a field theory, have these formulas; more is true, given a dualizable x, and any ev, evR, etc, can find a field theory such that these formulas hold---see App A.2 --- or maybe now it's the remark in section 4.1.  The formulas:
+	\begin{align*}
+		S_x &= (\id_{x} \otimes ev_{x_\pm}) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev_{x_\pm}^R) \\
+		S_x^{-1} &= (\id_{x} \otimes ev_{x_\pm}) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev_{x_\pm}^L)
+	\end{align*}
+}
 
 \subsection{A categorical formula for the Radford isomorphism} 
 
@@ -2287,10 +2292,8 @@ Since this is a twice categorified TFT (i.e. a functor of $(3,1)$ categories rat
 \end{remark} 
 
 \begin{remark}
-When we say that $\cF(pt_+) \cong \cC$ we mean that we have picked a specific isomorphism between them.  Since $pt_+$ and $pt_-$ have a specific duality between them (as explained in Section \ref{sec:framed-duality}) this determines an isomorphism $\cF(pt_+) \cong \cC^\mp$ and (after making these identifications) we have $\cF(\ev) \cong \bimod{\cC \boxtimes \cC^\mp}{\cC}{\Vec}$.  In fact, one can do better: the functor $\cF$ is naturally isomorphic as a tensor functor to another functor $\cF'$ such that all these isomorphisms become equalities.  This is a homotopy extension property, and it depends on the cofibrancy of $\TC$ among other things, and will be proved rigorously in \cite{3TC}.
+When we say that $\cF(pt_+) \cong \cC$ we mean that we have picked a specific isomorphism between them.  Since $pt_+$ and $pt_-$ have a specific duality between them (as explained in Section \ref{sec:framed-duality}) this determines an isomorphism $\cF(pt_-) \cong \cC^\mp$ and (after making these identifications) we have $\cF(\ev) \cong \bimod{\cC \boxtimes \cC^\mp}{\cC}{\Vec}$.  In fact, one can do better: the functor $\cF$ is naturally isomorphic as a tensor functor to another functor $\cF'$ such that all these isomorphisms become equalities.  This is a homotopy extension property, and it depends on the fibrancy of $\TC$ among other things; this property will be proved in \cite{3TC}.
 \end{remark}
-\NS{This remark should be removed if we keep Appendix B}
-
 
 \subsection{Adjoints of bimodules: finite tensor categories are 2-dualizable}  \label{sec:df-modules}
 
@@ -2884,78 +2887,6 @@ Often, one is interested not only in tangentially framed field theories, but in 
 
 The framed bordism category $\FrBord_n$ has an $O(n)$-action by simultaneously rotating the $n$-framing at every point of all bordisms.  The provides an action, by precomposition, on the $(\infty,n)$-category of functors $\Fun^\otimes(\FrBord_n,\cC)$.  By the framed version of the cobordism hypothesis above, there is therefore an action (really a homotopy action) of $O(n)$ on the space $\widetilde{d\cC}$ for any $(\infty,n)$-category $\cC$.  Composition with the map $\Omega \xi: \Omega X \ra O(n)$ then gives a homotopy action of $\Omega X$ on $\widetilde{d\cC}$.  The structured version of the cobordism hypothesis classifies structured field theories in terms of this action: given a map $\xi: X \ra BO(n)$, with $X$ connected, there is an equivalence of $(\infty,n)$-categories from $\Fun^\otimes(\Bord_n^{(X,\xi)})$ to the space of homotopy fixed points $(\widetilde{d\cC})^{h\Omega X}$.
 
-
-\renewcommand{\theapptheorem}{B.\arabic{apptheorem}}
-\setcounter{apptheorem}{0}
-
-\addtocontents{toc}{\SkipTocEntry}
-\section*{Appendix B. Homotopy extension for field theories} \label{sec:Hom_ext_field_thy}
-\addtocontents{toc}{\protect\contentsline{section}{\protect\tocsection{}{}{App. B. Homotopy extension for field theories\hspace{\fill}}}{\thepage}{section*.8}}%\hspace{-3.4pt}}{}}
-%\addtocontents{toc}{\SkipTocEntry}
-
-\NS{We need to decide whether to keep this appendix or move it entirely to 3TC}
-
-The cobordism hypotheis provides an equivalence between the $\infty$-groupoid of local $n$-framed topological field theories with values in a fixed symmetric monoidal $(\infty,n)$-category $\cC$ and the $\infty$-groupoid of $n$-dualizable objects in $\cC$. This equivalence is the map sending a topological field theory $\cF$ to its value $\cF(pt_+) = x \in \cC$ on the positively framed point. Consider the following questions:
-\begin{itemize}
-	\item Given a fixed $n$-dualizable object $x \in \cC$, the cobordism hypothesis ensures that 
-	there exists a topological field theory $\cF$ such that $\cF(pt_+)$ is equivalent to $x$. Is it possible to find a field theory $\cF$ such that on $pt_+$, the functor $\cF$ takes the value $x$ exactly? 
-	\item The formula for the loop bordism in Section~\ref{sec:SerreRadford} suggests that we should be able to compute the Serre automorphism of an object $x \in \cC$ as follows: choose a dual object $x_- \in \cC$, and evaluation and coevaluation maps witnessing the duality between $x$ and $x_-$; choose a right adjoint for the evaluation map; finally form the composite
-	\begin{equation*}
-		S_x = (\id_{x} \otimes ev) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev^R)
-	\end{equation*}
-Is there a topological field theory for which this composite is exactly the image of the Serre bordism? 
-	\item More generally, can we alter a topological field theory by adjusting some of its values to specified isomorphic values?
-\end{itemize}
-\nid Naively, one expects the answer to all these questions to be `yes', but in fact the answers depend on the choice of model of symmetric monoidal $(\infty,n)$-categories, the choice of model of the bordism category, and the choice of model of the target category $\cC$.  The cobordism hypothesis, which is a model invariant statement, does nothing to answer these questions.  However, as we will see, our specific choices of models ensure we can make any of these desired alterations to a field theory.
-
-Recall that we work with symmetric monoidal Segal $3$-categories---see~\cite{3TC} for details about the category and its model structure.  Within this context we can choose a model of the framed bordism category that is cofibrant, and in~\cite{3TC} we prove that the model of $\TC$ that we construct is fibrant.  We can therefore make use of the following homotopy extension property for field theories:
-\begin{apptheorem}[\cite{3TC}] \label{thm:HEP}
-	Let $B$ and $T$ be symmetric monoidal Segal $n$-categories, with $B$ cofibrant and $T$ fibrant, and let $f: B  \to T$ be a symmetric monoidal functor. Let $E$ denote the 1-category with two objects $0$ and $1$ and a single non-identity morphism, from $0$ to $1$.  Let  $B_0 \subseteq B$ be an inclusion of pointed (not necessarily symmetric monoidal) Segal $n$-categories and let $H: B_0 \wedge E_+ \to T$ be a pointed functor of (non-monoidal) Segal $n$-categories, such that $H |_{B_0 \times 0} = f|_{B_0}$.
-Then there exists a symmetric monoidal functor $\tilde{H}: B \wedge E_+ \to T$ such that the following diagram of functors of Segal $n$-categories commutes strictly:
-	\begin{center}
-	\begin{tikzpicture}
-		\node (LT) at (0, 1.5) {$(B_0 \wedge E_+) \sqcup_{B_0 \times 0} B$};
-		\node (LB) at (0, 0) {$B \wedge E_+$};
-		\node (RT) at (3.5, 1.5) {$T$};
-		%\node (RB) at (2, 0) {$$};
-		\draw [right hook->] (LT) -- node [left] {$$} (LB);
-		\draw [->] (LT) -- node [above] {$ H \sqcup f$} (RT);
-		%\draw [->] (RT) -- node [right] {$$} (RB);
-		\draw [->] (LB) -- node [below right] {$\tilde{H}$} (RT);
-		%\node at (0.5, 1) {$\ulcorner$};
-		%\node at (1.5, 0.5) {$\lrcorner$};
-	\end{tikzpicture}.
-	\end{center}
-\end{apptheorem}
-
-Note that any unpointed inclusion $A \subseteq B$ can be made into a pointed inclusion $A_+ =: B_0 \subseteq B$ by adding the unit object of $B$ to $A$. 
-
-We give three examples of how this theorem may be applied. In each case $T$ will be a chosen fibrant target, such as $\TC$, and $B = \FrBord_n$ is a cofibrant model of the tangentially framed bordism category.
-
-\begin{appexample}
-	The cobordism hypothesis ensures that for every $n$-dualizable object $x \in T$, there is a symmetric monoidal functor $\cF: \FrBord_n \to T$ such that $\cF(pt_+) \simeq x$. Setting $A = \{ pt_+ \}$ be subcategory consisting of just the positively framed point, the above theorem provides an equivalent topological field theory having the exact value $\cF(pt_+) = x$. 	
-%	We know that the functor $(\infty,3)$-category from $X = \FrBord_3$ to a target symmetric monoidal $(\infty,3)$-category $Y$ is equivalent to the $\infty$-groupoid of fully-dualizable objects of $Y$. Letting $A$ be the  for each fully-dualizbale object $y \in Y^{fd}$ there exists a topological field theory which sends the point to $y$ on the nose, not merely to an object equivalent to $y$. 
-\end{appexample}
-
-\begin{appexample}	
-	Suppose we have a topological field theory that sends the positively framed point to the $n$-dualizable object $x_+ \in T$. Suppose further that we have have chosen a specific dual $x_-$ to $x_+$. Let $A$ be the subcategory consisting of both the positively framed point and the negatively framed point; applying the above theorem, we can change our topological field theory to an equivalent one with exact values $\cF(pt^+) = x_+$ and $\cF(pt^-) = x_-$.   
-\end{appexample}	
-
-\begin{appexample}
-	Suppose $\cF_0$ is a topological field theory that sends the positively framed point to the $n$-dualizable object $x_+ \in T$, and the negatively framed point to the object $x_- \in T$.  Let 
-\begin{equation*}
-	coev_{x_\pm}: 1 \to x_- \otimes x_+ \qquad \qquad ev_{x_\pm}: x_+ \otimes x_- \to 1.
-\end{equation*}	
-be chosen coevaluation and evaluation maps witnessing the duality between $x_+$ and $x_-$. The field theory $\cF_0$ may not send the evaluation and coevaluation bordisms to the specific preferred values.  Let $B_0$ be the subcategory having the five objects $ob B_0 = \{ \emptyset, pt^+, pt^-, pt^+ \sqcup pt^-, pt^- \sqcup pt^+ \}$, and as morphisms the evaluation and coevaluation bordisms and the single composite, $coev \circ ev: pt^+ \sqcup pt^- \to pt^- \sqcup pt^+$.  The values $x_+, x_- \in Y$ for the positively and negatively framed points, and the preferred evaluation and coevaluation $ev_{x_\pm}$ and $coev_{x_\pm}$ determine a functor $H_1: B_0 \to T$. The contractibility of the space of adjunction data implies that there is a natural isomorphism $H: B_0 \wedge E_+ \to T$ between $H_1$ and $H_0 = \cF_0|_{B_0}$ (this can be taken to be the identity on $x_+$, but may require a non-trivial automorphism of $x_-$). By the above theorem there exists a topological field theory equivalent to $\cF_0$ and extending $H_1$, hence taking the desired values. 
-\end{appexample}
-
-Similar applications of Theorem~\ref{thm:HEP} allow us to specify the values of the bordisms $ev$, $ev^L$, $ev^R$, $ev^{LL}$, $ev^{RR}$, etc. to be our preferred choices of adjunction data in the target category.  In particular, for any specified choice of $2$-dualizable object $x_+ \in \TC$, together with a chosen dual object $x_-$ and chosen evaluation $ev_{x_\pm}$ and coevaluation $coev_{x_\pm}$ maps, and chosen left $ev_{x_\pm}^L$ and right $ev_{x_\pm}^R$ adjoints, there exists a field theory with the positive point mapping to $x_+$ and in which the Serre automorphism of $x_+$ and its inverse are given, exactly, by the following formulas:
-	\begin{align*}
-		S_x &= (\id_{x} \otimes ev_{x_\pm}) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev_{x_\pm}^R) \\
-		S_x^{-1} &= (\id_{x} \otimes ev_{x_\pm}) \circ (\tau_{x, x} \otimes \id_{x_-}) \circ (\id_{x} \otimes ev_{x_\pm}^L)
-	\end{align*}
- 
- 
 
 
 
