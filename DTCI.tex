@@ -1108,9 +1108,9 @@ $F: \prod \cA_\alpha \to \cB$
 such that $F$ is linear in each variable separately. 
 
 \begin{definition}
-	A {\em linear monoidal category} is a monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that $\cC$ is a linear category and the functor $\otimes$ is bilinear. A {\em tensor category} is a rigid linear monoidal category.  
+	A {\em linear monoidal category} is a monoidal category $(\cC, \otimes, 1, \alpha, \lambda, \rho)$ such that $\cC$ is a linear category and the functor $\otimes$ is bilinear. A {\em tensor category} is a rigid linear monoidal category.  \NS{I did a search through for ``tensor category" and the notational confusions of whether to say finite or rigid should be fixed now.  Tensor includes rigid but does not include finite.}
 \end{definition}
-\CD{Add (back) brief comment on while we'll stick to rigid?}
+\CD{Add (back) brief comment on why we'll stick to rigid?}
 %This assumption is necessary for theorem \ref{thm:EGNO2.11.6}, which is one of the main results of \cite{EGNO}, and which is discussed in detail in section \ref{sec:tc-bimod}. We in turn use this later result as the basis for proving the existence of the {\em relative} Deligne product, as well as for several other crucial results in this paper. We will explain how this assumption is used in sections \ref{sec:tc-bimod}, \ref{sec:tc-deligne}, \ref{sec:tc-exact}, and \ref{sec:tc-separable}.
 
 %\begin{example}
@@ -1276,7 +1276,7 @@ The following omnibus theorem summarizes the key properties of exact module cate
 \begin{theorem}\label{thm:tensor-exactness}
 Let $\cC$ and $\cD$ be tensor categories.  If $\cM$ is an exact $\cC$-module category and $\cN$ is an exact $\cD$-module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$-module category.
 \end{theorem} %This thereorem is new, not stated anywhere because no one needed it.
-\begin{proof}
+\begin{proof}  \NS{At some point me or CD should read this proof}
 We begin by observing that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective. This closure property follows from parts (3) and (4) of Theorem \ref{thm:DelignePrdtOverATCExists}. Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for projective objects $p \in \cC$ and $q \in \cD$. The collection $\cP$ is a jointly generating family of projectives, as can be seen by expressing $\cC \boxtimes \cD$ as $(A \otimes B)-\mathrm{mod}$, using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}. 
 
 By Lemma \ref{lma:Exact_checked_on_proj_gens}, it is enough to check that $(p \boxtimes q) \otimes x$ is projective for every object $x \in \cM \boxtimes \cN$. In other words we need to show that the following functor is exact:
@@ -1354,21 +1354,6 @@ Every left $\cC$-module category ${}_\cC \cM$ is naturally a right $\cC^{mp}$-mo
 \end{definition}
 
 We will be particularly interested in the modules $\cC_{\cC \boxtimes \cC^\mp}$ and ${}_{\cC^\mp \boxtimes \cC} \cC$ obtained by applying this procedure to the identity bimodule ${}_\cC \cC_\cC$.  Note that if you move both actions on ${}_\cC \cC_\cC$ to the opposite side, you obtain a bimodule ${}_{\cC^\mp}\cC_{\cC^\mp}$, which is in fact the identity bimodule on $\cC^\mp$.
-
-\begin{example}[The category of Hopf bimodules] \label{Ex:Hopf_bimod} \NS{This example needs to be rewritten post BTP}
-	Let $\cC$ be a finite tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$ (cf. section \ref{sec:tc-bimod}); $A$ is an algebra object in $\cC \boxtimes \cC^\mp$. 
-The object $1 \in \cC$ is a $\cC$-projective $\cC$-generator (cf. example \ref{ex:rigid_all_C-proj}) and hence by Lemma \ref{lma:module-adjoint} and Theorem \ref{thm:C-module-Embedding} the functor $\IHom(1, -)$ induces an 
- equivalence of left $\cC \boxtimes \cC^\mp$-module categories:
-	\begin{equation*}
-		{}_{\cC \boxtimes \cC^\mp} \cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp).
-	\end{equation*} 
-In particular it follows that every object $x \in \Mod{}{A}(\cC \boxtimes \cC^\mp)$ may be written as 
-\begin{equation*}
-	x \cong (c \boxtimes 1) \otimes A
-\end{equation*}
-for some object $c \in \cC$, unique up to isomorphism. 
-\CSP{do we want to define the distinguished invertible object?}
-\end{example}
 
 Just as modules over algebras can be twisted by algebra maps, we can twist module categories by tensor functors.
 
@@ -1499,6 +1484,25 @@ Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa,
 \end{warning}\NS{We refer to the fact in this warning later, so maybe it should be a lemma instead?}
 
 Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the finite tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{MR2097289}[\S 3].
+
+\NS{I moved this example from earlier in the section}
+\begin{example}[The category of Hopf bimodules] \label{Ex:Hopf_bimod} \NS{I rewrote the references since the theorems have been moved out of this paper}
+	Let $\cC$ be a finite tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$; $A$ is an algebra object in $\cC \boxtimes \cC^\mp$.  
+%The object $1 \in \cC$ is a $\cC$-projective $\cC$-generator (cf. example \ref{ex:rigid_all_C-proj}) and hence by Lemma \ref{lma:module-adjoint} and Theorem \ref{thm:C-module-Embedding} 
+The functor $\IHom(1, -)$ induces an 
+ equivalence of left $\cC \boxtimes \cC^\mp$-module categories:
+	\begin{equation*}
+		{}_{\cC \boxtimes \cC^\mp} \cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp).
+	\end{equation*} 
+In particular it follows that every object $x \in \Mod{}{A}(\cC \boxtimes \cC^\mp)$ may be written as 
+\begin{equation*}
+	x \cong (c \boxtimes 1) \otimes A
+\end{equation*}
+for some object $c \in \cC$, unique up to isomorphism.  See \cite{MR1976459, EO-ftc, EGNO} and \cite[\S ~\ref{sec:conventions}--3.2]{BTP} for more detail on internal endomorphisms and this equivalence, and see \cite[\S 2]{MR2097289} for a detailed discussion of the category of Hopf bimodules.  This example will be used in comparing our Radford isomrophism to the one constructed in \cite{MR2097289} in \S \ref{sec:radiso}
+\CSP{do we want to define the distinguished invertible object?}
+\NS{I think that's better left for the Radford section}
+\end{example}
+
 
 \begin{lemma} \label{lem:dualing-amod}
 	Let $A$ and $B$ be algebra objects in a finite tensor category $\cC$. Let $M$ be an $A$-$B$-bimodule (which is, in particular, an object in $\cC$). Then ${}^{**}A$ and $B^{**}$ are naturally algebra object of $\cC$, $M^*$ is naturally a $B^{**}$-$A$-bimodule, and ${}^*M$ is naturally a $B$-${}^{**}A$-bimodule. Moreover these identifications induce equivalences of linear categories:
