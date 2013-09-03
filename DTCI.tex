@@ -1067,7 +1067,7 @@ With the preceding conventions in place, observe the following:
 In this section we rapidly review the theory of linear categories, tensor categories, finite tensor categories, bimodule categories, and the Deligne tensor product.  This section is heavily based on the lecture notes \cite{EGNO}, and many of the statements are taken verbatim from \cite{BTP} which also includes proofs of these statements.  \NS{Added this paragraph}
 
 We begin by defining linear categories and linear functors.  Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$, i.e. an enrichment in which the addition of morphisms agrees with the given abelian structure. A {\em linear functor} is a right exact additive functor that is also a functor of $\overline{\Vect}_k$-enriched categories. 
-\CD{TD. Recall anything about nat transf of additive funcs between additive cats? cf 3.2.11}
+\CD{TD. Recall anything about nat transf of additive funcs between additive cats? cf 3.2.12}
 
 \begin{warning}
 	Unless explicitly stated otherwise, {\bfseries all linear functors considered in this paper are  right exact functors}.  Many of the constructions described in this paper, such as the Deligne tensor product of linear categories and the composition of bimodule categories, are only functorial with respect to right exact functors. To avoid littering the paper with the adjective `right exact', we build right exactness into the basic definitions, even though this deviates from convention in the literature.  We follow the same convention in \cite{3TC} but not in \cite{BTP}.  \NS{Added this sentence}
@@ -1164,7 +1164,7 @@ A {\em $\cC$-module functor} $\cF:\cM \to \cN$ is a linear functor $F:\cM \to \c
 \end{example} %!%!%CD
 
 \begin{example}
-	Let $\cC$ be a finite linear monoidal category, and let $\cM$ and $\cN$ be left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category, with actions given by $\cF \otimes \cG := \cG \circ \cF$. 
+	Let $\cC$ be a finite linear monoidal category, and let $\cM$ and $\cN$ be finite left $\cC$-module categories. The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories. The linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$-$\Fun_{\cC}(\cN, \cN)$-bimodule category, with actions given by $\cF \otimes \cG := \cG \circ \cF$. 
 \end{example} \CD{tensor?}
 
 The following lemma is crucial in constructing adjoints of $2$-morphisms in $\TC$.
@@ -1200,7 +1200,7 @@ The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ is the universal l
 	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category.  The {\em relative Deligne tensor product} is a linear category $\cM \boxtimes_{\cC} \cN$ together with a $\cC$-balanced bilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ that induces, for all linear categories $\cL$, an equivalence between the category of $\cC$-balanced bilinear functors $\cM \times \cN \to \cL$ and the category of linear functors $\cM \boxtimes_{\cC} \cN \to \cL$. 
 \end{definition}
 
-\noindent If it exists, the relative Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty.  Observe that, because of its definition as a universal object, if the relative Deligne tensor product exists, it is functorial in the modules categories $\cM$ and $\cN$. \CD{? TD}
+\noindent If it exists, the relative Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty.  Observe that, because of its definition as a universal object, if the relative Deligne tensor product exists, it is functorial in the modules categories $\cM$ and $\cN$.
 
 Provided the category $\cC$ is tensor and the module categories are finite, the relative Deligne tensor product does indeed exist.
 
@@ -1252,14 +1252,15 @@ The following omnibus theorem summarizes the key properties of exact module cate
 	\begin{enumerate}
 		\item $\cM$ has enough projectives \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}.
 		\item Every projective object in $\cM$  is injective, and vice versa \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
-		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite.
+		\item $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ is finite. %!%CDNC
 		\item Composition $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}	.	
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}. In particular every functor $F \in \Fun_{\cC}(\cM, \cM')$ is exact, and has left and right adjoints (which are therefore themselves exact). Thus, $\Fun_{\cC}(\cM,\cM)$ is itself a finite tensor category. 
-	\end{enumerate} %!% Middle sent CDNC cf Eg 3.2.6
-\end{theorem}\CD{Discuss logic}
-\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.
+		\item If $\cM$ and $\cM'$ are moreover finite, then $\Fun_{\cC}(\cM,\cM')$ is a finite tensor category.
+	\end{enumerate}
+\end{theorem}\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
+\noindent The last item is seen as follows.  Because every functor $\cF \in \Fun_{\cC}(\cM,\cM')$ is exact, it has left and right adjoints as a linear functor.  By Lemma~\ref{lma:module-adjoint}, the functor $\cF$ therefore also has adjoints as a module functor---these adjoints provide the rigid structure.
 
-\noindent We now prove that exactness is preserved by the Deligne tensor product.  We will need the following lemma, saying that to check exactness of a module category it suffices to check the exactness condition for a collection of projective generators. 
+We now prove that exactness is preserved by the Deligne tensor product.  We will need the following lemma, saying that to check exactness of a module category it suffices to check the exactness condition for a collection of projective generators. 
 
 \begin{lemma} \label{lma:Exact_checked_on_proj_gens}
 	Let $\cC$ be a finite tensor category and $\cM$ a finite (left) $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a fixed collection of jointly generating projective objects of  $\cC$. The following are equivalent:
@@ -1277,10 +1278,10 @@ The following omnibus theorem summarizes the key properties of exact module cate
 
 
 \begin{theorem}\label{thm:tensor-exactness}
-Let $\cC$ and $\cD$ be tensor categories.  If $\cM$ is an exact $\cC$-module category and $\cN$ is an exact $\cD$-module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$-module category.
+Let $\cC$ and $\cD$ be finite tensor categories.  If $\cM$ is a finite exact $\cC$-module category and $\cN$ is a finite exact $\cD$-module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$-module category.
 \end{theorem} %This thereorem is new, not stated anywhere because no one needed it.
 \begin{proof}  \NS{At some point me or CD should read this proof}
-We begin by observing that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective. This closure property follows from parts (3) and (4) of Theorem \ref{thm:DelignePrdtOverATCExists}. Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for projective objects $p \in \cC$ and $q \in \cD$. The collection $\cP$ is a jointly generating family of projectives, as can be seen by expressing $\cC \boxtimes \cD$ as $(A \otimes B)-\mathrm{mod}$, using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}. 
+We begin by observing that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective. This closure property follows from parts (3) and (4) of Theorem \ref{thm:DelignePrdtOverATCExists}. Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for projective objects $p \in \cC$ and $q \in \cD$. The collection $\cP$ is a jointly generating family of projectives, as can be seen by expressing $\cC \boxtimes \cD$ as $(A \otimes B)\textrm{-}\mathrm{mod}$, using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}. 
 
 By Lemma \ref{lma:Exact_checked_on_proj_gens}, it is enough to check that $(p \boxtimes q) \otimes x$ is projective for every object $x \in \cM \boxtimes \cN$. In other words we need to show that the following functor is exact:
 \begin{equation*}
@@ -1290,8 +1291,7 @@ When $x$ is a primitive tensor $m \boxtimes n$, we have
 \begin{equation*}
 	(p \boxtimes q) \otimes x = (p \boxtimes q) \otimes (m \boxtimes n) \cong (p \otimes m) \boxtimes (q \otimes n),
 \end{equation*}
-and $\Hom((p \boxtimes q) \otimes x,-)$ is exact by part (4) of Theorem~\ref{thm:DelignePrdOverATCExists}.
-The desired exactness property also certainly holds for finite direct sums of such primitive tensors. 
+and $\Hom((p \boxtimes q) \otimes x,-)$ is exact by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}.
 
 For general objects $x \in \cM \boxtimes \cN$, again by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}, it is enough to consider the functor $\cF: \cM \times \cN \rightarrow \Vect$, $m \times n \mapsto \Hom_{\cM \boxtimes \cN}((p \boxtimes q) \otimes x, m \boxtimes n)$, and verify exactness in each of the variables $\cM$ and $\cN$ separately. We will show exactness in the variable $\cM$; exactness in the second variable follows by the same argument. 
 
@@ -1314,7 +1314,7 @@ Utilizing Theorem~\ref{thm:EGNO2.11.6} and part (2) of Theorem~\ref{thm:DeligneP
 \begin{equation*}
 	0 \to x'' \to x' \to x \to 0
 \end{equation*}
-where $x'$ is a finite direct sum of objects of the form $m \boxtimes n$. \CD{Why direct sum?}
+where $x'$ is a primitive tensor, that is an object of the form $m \boxtimes n$.
 Consider the following diagram
 %\CSP{I think I don't want zeros on the left-most side. I should double check that they aren't needed.}
 \[
@@ -1339,7 +1339,7 @@ Consider the following diagram
 			\draw [->] (m-\sourcerow-\sourcecol) -- (m-\targetrow-\targetcol);
 		\end{tikzpicture}
 \]
-The columns are exact because each of the objects $z_i$ is injective. The middle row is exact because $x'$ is a finite direct sum of primitive tensor products. A diagram chase shows that the map $\Hom(x,z_2) \rightarrow \Hom(x,z_3)$ is surjective,
+The columns are exact because each of the objects $z_i$ is injective. The middle row is exact because $x'$ is a primitive tensor product. A diagram chase shows that the map $\Hom(x,z_2) \rightarrow \Hom(x,z_3)$ is surjective,
 and hence $\Hom((p \boxtimes q) \otimes x, -)$ is right exact, as required. 
 %\NScomm{Hrm, I think my proof of this may have a hole...}
 \end{proof}
