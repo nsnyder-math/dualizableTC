@@ -64,8 +64,6 @@ We show that separable tensor categories are the fully dualizable objects in the
 \NS{I've rewritten.}
 
 An $n$-dimensional topological field theory (TFT), a la Atiyah and Segal \cite{MR1001453,Segal}, is a symmetric monoidal functor from the category of $n$-dimensional bordisms to the category of vector spaces.  Hence, a TFT assigns to any closed $(n-1)$-manifold a vector space, and to any $n$-dimensional bordism it assigns a linear map between the corresponding vector spaces.  In particular, to a closed $n$-manifold a TFT assigns an endomorphism of the trivial vector space, that is a scalar.  Thus, TFTs can be thought of as topological invariants which can be computed by chopping the manifold up into smaller pieces.  A local (that is, fully extended) TFT allows one to cut the manifold not just along codimension one boundaries, but along boundaries with corners of arbitrary codimension.  That is, the invariants are built up by gluing together bordisms with corners.  Just as ordinary bordisms form a symmetric monoidal category, bordisms with corners  form a symmetric monoidal $n$-category.  A local TFT is therefore a functor of symmetric monoidal $n$-categories from the $n$-category of bordisms with corners to another symmetric monoidal $n$-category.
-\NS{Should all the TFTs in this paragraph be TQFTs?}
-\CD{I vote for everything to be TFTs, not TQFTs}
 
 The Turaev--Viro \cite{MR1191386, MR1292673} construction (as generalized by Ocneanu \cite{MR1317353} and Barrett--Westbury \cite{MR1686423}) assigns to any spherical fusion category a 3-dimensional oriented topological field theory.   We would like to think of Turaev--Viro as a local $3$-dimensional TFT.  A natural choice of target $3$-category is $\TC$ (whose whose objects, $1$-morphisms, $2$-morphisms, and $3$-morphisms are tensor categories, bimodule categories, functors, and natural transformations, respectively) which we constructed in \cite{3TC}.  Such a field theory is determined by its value on a point, and we prove that this value can be taken to be any fusion category.  Previous Turaev--Viro constructions assume the given fusion category is spherical, but we relax this assumption by constructing in general not an oriented TFT but a $3$-framed TFT.   We also avoid several more assumptions that frequently appear in the literature: simplicity of the unit, algebraic closure of the base field, split semisimplicity, and characteristic zero---though in positive characteristic one needs an additional technical assumption which we call {\em separability} (see section \ref{sec:tc-separable}).
 
@@ -73,8 +71,6 @@ The cobordism hypothesis, originally proposed by Baez--Dolan \cite{MR1355899}, b
 on the space of fully dualizable objects induced from this $O(n)$-action.  
 
 In this paper we show that separable tensor categories are the fully-dualizable objects of the symmetric monoidal 3-category $\TC$. Utilizing the cobordism hypothesis, this gives a 3-framed local TFT for every separable tensor category. Though not fully dualizable, finite tensor categories are $2$-dualizable, and it is therefore still possible to extract a partial field theory from them.  Our proof that separable tensor categories are fully-dualizable builds on the algebraic approach to finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik \cite{EGNO, EO-ftc, MR2183279, MR2097289}.  More specifically, the three key elements in the proof of full dualizability are: the relative Deligne tensor product can be realized as a category of module functors, module functors between semisimple categories have adjoints as module functors, and separability is closed under relative Deligne tensor product.
-\CSP{Do we want to cite BTP here?}
-\NS{I don't think so, as the proof that relative Deligne tensor product is a category of functors is still in this paper.}
 
 Topological field theories are often thought of as a tool for applying algebra to topology.  If you have a fusion category, this yields a topological field theory, and hence topological invariants of manifolds and representations of mapping class groups.  However, you can also take the opposite perspective.  A topological field theory gives a way of interpreting bordisms as calculations inside your symmetric monoidal $3$-category.  Thus many statements about fusion categories (or other algebraic gadgets) could come from simpler facts about the bordism category.  This point of view has had great successes recently in the work of Ben--Zvi--Nadler \cite{0904.1247} and in interpretating the Madsen-Weiss proof of the Mumford conjecture \cite{MR2335797, lurie-ch}.  We give one such application of topology to algebra, showing that the belt trick, which demonstrates $\pi_1 \Omega \Sigma \RR \PP^2 \cong \pi_1 SO(3) \cong \mathbb{Z}/2$, immediately implies Radford's theorem for finite tensor categories.
 
@@ -143,8 +139,6 @@ Finite tensor categories are $2$-dualizable.
 \end{maintheorem}
 
 An $n$-dimensional topological field theory which takes values in an $(n+1)$-category is in a sense `categorified'.  For example, in dimension two such a field theory would sends surfaces to vector spaces rather than numbers.  As usual, the categorified structure has extra richness, in this case the vector spaces would then inherit actions of mapping class groups. The prototypical example of a categorified TFT is the concept of a {\em modular functor}.  For another example of a categorified $2$-dimensional TFT see \cite{0904.1247}.
-\CSP{do we have a reference for `categorified'? or is it just word of mouth?}
-\NS{I don't know anywhere that this word is used.  Ben-Zvi--Nadler say ``two dimensional part of a three dimensional field theory."  I've tweeked the paragraph to remove any insuation that other people call it this.}
 
 \begin{maincor} \label{cor5}
 Any finite tensor category gives a $2$-framed local $2$-dimensional TFT which is categorified in the above sense. 
@@ -179,7 +173,7 @@ The history of local field theories is somewhat complicated, as the language too
 
 All of the above work on TFTs from fusion categories assumes sphericality in an essential way.  The history of framed field theories is a bit different.  Here the main precursors are the theory of spin TFTs \cite{MR1117149, MR1171303, MR1387228, MR1880321}, and Kuperberg's work on $3$-manifold invariants coming from nonsemisimple Hopf algebras \cite{MR1394749}.
 
-Most previous examples of fully dualizable objects are in dimension $2$.  Schommer-Pries's thesis proves $2$-dualizability of separable algebras \cite{schommer-pries-thesis}.    Ben-Zvi--Nadler \cite{0904.1247} prove $2$-dualizabilty for certain monoidal categories, but in the derived category setting instead of the abelian setting of this paper.   Two other programs closely related to ours are Bartels--Douglas--Henriques \cite{0912.5307} and work in progress of Freed--Teleman who look at different versions of local Witten--Reshetikhin--Turaev field theories \cite{MR990772, MR1091619} through the lens of the cobordism hypothesis. \NS{CD are there any other of your future papers we should cite?  We should ask Freed--Teleman if they have a title.}
+Most previous examples of fully dualizable objects are in dimension $2$.  Schommer-Pries's thesis proves $2$-dualizability of separable algebras \cite{schommer-pries-thesis}.    Ben-Zvi--Nadler \cite{0904.1247} prove $2$-dualizabilty for certain monoidal categories, but in the derived category setting instead of the abelian setting of this paper.   Two other programs closely related to ours are Bartels--Douglas--Henriques \cite{0912.5307} and work in progress of Freed--Teleman who look at different versions of local Witten--Reshetikhin--Turaev field theories \cite{MR990772, MR1091619} through the lens of the cobordism hypothesis. \NS{We should ask Freed--Teleman if they have a title.}
 
 The original version of Radford's theorem \cite{MR0407069} is an explicit formula for the fourth power of the antipode in a finite-dimensional Hopf algebra.  This was generalized to the context of fusion categories, and then to finite rigid tensor categories by Etingof--Nikshych--Ostrik \cite{MR2183279,MR2097289}.  The first indication that Radford's formula is related to topology came in Kuperberg's proof of Radford's theorem for Hopf algebras (and indeed Hopf algebra objects in symmetric tensor categories) \cite{MR1394749}.  Next Hagge--Hong \cite{MR2559711} gave a skein theoretical proof of Radford's theorem for fusion categories.  As pointed out by Bartlett \cite{0901.3975} the Hagge--Hong proof is reminiscent of the belt trick.
 
@@ -196,8 +190,7 @@ We do not prove in this paper that our $3$-manifold invariants actually agree wi
 
 Finally, the assumptions that we use to get $2$-dualizability (finite and rigid) are too strong, and we hope to generalize that result to other monoidal categories.  This depends on constructing a more general version of the Deligne tensor product.
 
-\subsection*{Model independence} \CD{I'm not actually sure what this subsection should be called.}
-\NS{I vote for something more along the lines of ``What do we mean by a $3$-category?" or ``Higher category theory."  This paragraph isn't aimed at people who would understand what model independence is referring to.}
+\subsection*{Higher categories} \CD{Other options for this title: ``What do we mean by a $3$-category?" or ``Higher category theory."}
 \addtocontents{toc}{\SkipTocEntry}
 
 In this paper, we work with symmetric monoidal 3-categories in a model free way, rather than fixing one of many options for axiomatizing 3-categories.  This may make certain readers nervous, and to those readers we offer two assurances.  First, in \cite{3TC} we show that everything in this paper can be made precise in a particular choice of model.  Second, every major theorem in this paper is actually only a statement about 2-categories (either by restricting to a Hom 2-category between objects, or by identifying all isomorphic 2-morphisms), and the theory of 2-categories does not suffer from any of the theoretical complications of higher categories.  It is only the corollaries which relate the algebraic theorems to local TFTs which depend (via the cobordism hypothesis) on having a robust theory of categories in dimensions above 2.  More specifically, Theorems \ref{thm1}, \ref{thm3}, \ref{thm4}, and \ref{thm6}, and Corollaries \ref{cor7} and \ref{cor8} depend neither
@@ -210,11 +203,9 @@ of $(\infty,3)$-categories and on the cobordism hypothesis in dimension
 \subsection*{Acknowledgments}
 \addtocontents{toc}{\SkipTocEntry}
 
-We would like to thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Peter Teichner, Dylan Thurston, and Kevin Walker for helpful conversations.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.  \NS{Anyone else want to add people to the list of non-special thanks?  I feel like one should err on the side of mentioning too many people.}
+We would like to thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Peter Teichner, Dylan Thurston, and Kevin Walker for helpful conversations.   For the first six months of this project we collaborated using Google Wave, and we would like to thank the Google Wave team for their work.  \NS{Anyone else want to add people to the list of non-special thanks?  I feel like one should err on the side of mentioning too many people. CD: I can't think of anyone else.}
 
 We are especially grateful to Victor Ostrik for a key suggestion which lead to the arguments in Section \ref{sec:tc-fusion}.
-\CSP{Is it this section we are thanking Ostrik for or 3.6? (Fusion cats)}
-\NS{You're right, fixed.}
 NS would especially like to thank Pavel Etingof for several long and fruitful conversations.  CD would like to especially thank Andr\'e Henriques for general enlightenment and specific ideas regarding the 3-category of tensor categories and 3-dimensional local field theory.
 
 \section{Local field theory in dimension three} \label{sec:lft}
@@ -1256,7 +1247,7 @@ The following omnibus theorem summarizes the key properties of exact module cate
 		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.
 		\item If $\cM$ and $\cM'$ are moreover finite, then $\Fun_{\cC}(\cM,\cM')$ is a finite tensor category.
 	\end{enumerate}
-\end{theorem}\CD{There are multiple different online documents entitled ``Tensor Categories" by EGNO --- update .bib to have specifying reference, eg url.}
+\end{theorem}
 \noindent The last item is seen as follows.  Because every functor $\cF \in \Fun_{\cC}(\cM,\cM')$ is exact, it has left and right adjoints as a linear functor.  By Lemma~\ref{lma:module-adjoint}, the functor $\cF$ therefore also has adjoints as a module functor---these adjoints provide the rigid structure.
 
 We now prove that exactness is preserved by the Deligne tensor product.  We will need the following lemma, saying that to check exactness of a module category it suffices to check the exactness condition for a collection of projective generators. 
@@ -1279,7 +1270,7 @@ We now prove that exactness is preserved by the Deligne tensor product.  We will
 \begin{theorem}\label{thm:tensor-exactness}
 Let $\cC$ and $\cD$ be finite tensor categories.  If $\cM$ is a finite exact $\cC$-module category and $\cN$ is a finite exact $\cD$-module category, then $\cM \boxtimes \cN$ is an exact $\cC \boxtimes \cD$-module category.
 \end{theorem} %This thereorem is new, not stated anywhere because no one needed it.
-\begin{proof}  \NS{At some point me or CD should read this proof}
+\begin{proof}  \NS{At some point me or CD should read this proof. CD: I not only read it, I rewrote chunks of it.}
 We begin by observing that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective. This closure property follows from parts (3) and (4) of Theorem \ref{thm:DelignePrdtOverATCExists}. Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for projective objects $p \in \cC$ and $q \in \cD$. The collection $\cP$ is a jointly generating family of projectives, as can be seen by expressing $\cC \boxtimes \cD$ as $(A \otimes B)\textrm{-}\mathrm{mod}$, using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}. 
 
 By Lemma \ref{lma:Exact_checked_on_proj_gens}, it is enough to check that $(p \boxtimes q) \otimes x$ is projective for every object $x \in \cM \boxtimes \cN$. In other words we need to show that the following functor is exact:
