@@ -1675,7 +1675,7 @@ map.  The quantum trace lives in $\Tr(a) \in \End_\cC(1) \cong k$. If $x$ is a s
 \begin{definition}
 Let $x \in \cC$ be a simple object, then the {\em magnitude}
 %{\em norm square} 
-$\lVert x \rVert$ of $x$ is defined by the formula 
+ of $x$ is defined by the formula 
 \begin{equation*}
 	\lVert x \rVert := \Tr(a) \cdot \Tr({}^*(a^{-1})) \in k
 \end{equation*}
@@ -1829,13 +1829,12 @@ When $\cC$ is a fusion category, the object $A$ is not only an algebra, but in f
 		\textrm{(copairing)} && c = \Delta \circ u: & 1&\to&  R \otimes R.
 	\end{array}
 \end{equation*}
-The pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of coalgebra object, and $b$ and $c$ satisfy the usual zig-zag relations. The entire structure is completely determine by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
-
+The pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of coalgebra object, and these two structures are related by the usual Frobenius algebra axioms.  In particular, $b$ and $c$ satisfy the usual zig-zag relations. The entire structure is completely determine by specifying the algebra structure $(u,m)$ and the counit $\lambda$.
 
 We will describe the Frobenius algebra structure on $A \in \cC \boxtimes \cC^\mp$ explicitly, but let us first comment that it has a simple characterization: it is the unique Frobenius algebra structure $(m, u, \Delta, \lambda)$ on $A$ extending its natural algebra structure $(m,u)$, and which is {\em normalized} in the sense that the trace of the unit is trivial, $\lambda \circ u = id_{1 \boxtimes 1}$.
 %\CSP{See if there is another term for `normalized'}
 
-Let us now make some observations about the algebra $A$. For each $x$ and $y$ we have the following series of canonical isomorphisms:
+Let us now make some observations about the algebra $A$ following \cite{MR1966524, MR2097289}. For each $x$ and $y$ we have the following series of canonical isomorphisms:
 \begin{align*}
 	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , A) & \cong \Hom_{\cC}(x \otimes y, 1) \\
 	 & \cong \Hom_{\cC}(x, y^*) \\
@@ -1920,7 +1919,7 @@ is given on individual summands by the sum $\sum_r (e_{ij,k}^r) \boxtimes ({}^*\
 \end{equation*}
  is given by first projecting onto the factors where $L_j = L_{\overline{i}}$, and then applying $e_i \boxtimes {}^*\beta(e_i)$ to each factor separately. Thus there is only one possible copairing which by the definition of $\alpha$ is given on the $(L_{\overline{i}} \otimes L_i) \boxtimes ({}^*L_i \otimes {}^*L_{\overline{i}})$ component by $\alpha(e_{\overline{i}}) \boxtimes \alpha({}^*\beta(e_{\overline{i}}))$.
   
-We now need to compute the composition of the pairing and copairing to recover the window element.  This is given on components by $$w_i = (e_i \circ \alpha(e_{\overline{i}}) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}})).$$  Using the commutation relations, we see that $$w_i = \lVert x \rVert (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ {}^*\beta^{-1} (\alpha(e_{\overline{i}}))).$$ Since this is homogeneous of degree $0$ in $\alpha(e_{\overline{i}})$ we may replace $\alpha(e_{\overline{i}})$ with $\beta(e_i)$.  Then $w_i$ is given by $$\lVert x \rVert (e_i \circ \beta(e_i)) \cdot ({}^*\beta(e_i) \circ {}^*e_i) = \lVert x \rVert.$$  In conclusion the window element is $w = \sum_i w_i = \dim \cC$.
+We now need to compute the composition of the pairing and copairing to recover the window element.  This is given on components by $$w_i = (e_i \circ \alpha(e_{\overline{i}}) \cdot ({}^*\beta(e_i) \circ \alpha ({}^*\beta(e_{\overline{i}})).$$  Using the commutation relations, we see that $$w_i = \lVert x \rVert (e_i \circ \alpha(e_{\overline{i}})) \cdot ({}^*\beta(e_i) \circ {}^*\beta^{-1} (\alpha(e_{\overline{i}}))).$$ Since this is homogeneous of degree $0$ in $\alpha(e_{\overline{i}})$ we may replace $\alpha(e_{\overline{i}})$ with $\beta(e_i)$.  Then $w_i$ is given by $$\lVert x \rVert (e_i \circ \beta(e_i)) \cdot ({}^*\beta(e_i) \circ {}^*e_i) = \lVert x \rVert (e_i \circ \beta(e_i)) \cdot {}^*(e_i \circ \beta(e_i)) = \lVert x \rVert.$$  In conclusion the window element is $w = \sum_i w_i = \dim \cC$.
 
 \end{proof}
 
