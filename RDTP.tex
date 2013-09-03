@@ -40,7 +40,7 @@ A key role in the theory of tensor categories is played by the relative Deligne 
 
 \section{Introduction}
 
-The theory of tensor categories is a higher dimensional analogue of the theory of algebras.  Just as modules and bimodules play a key role in the theory of algebras, the analogous notions of module categories and bimodule categories play a key role in the study of tensor categories (as pioneered by Ostrik \cite{MR1976459}).  One of the key constructions in the theory of modules and bimodules is the relative tensor product $M \otimes_A N$ which is universal for $A$-balanced bilinear functions out of $M \times N$.   A similar role is played by the balanced tensor product of module categories $\cM \boxtimes_\cC \cN$ in the theory of tensor categories (for example, see \cite{MR1966524, 0909.3140, MR2511638, MR2909758, 1202.4396, MR3022755, MR3063919}).  This balanced tensor product is called the relative Deligne tensor product, and it is universal for certain balanced functors.  Thus, if it exists this tensor product is unique up to unique isomorphism.  However, in order to prove existence one needs a direct construction.  Such a construction depends on $\cM$, $\cC$, and $\cN$ satisfying certain niceness properties.  
+Tensor categories are a higher dimensional analogue of algebras.  Just as modules and bimodules play a key role in the theory of algebras, the analogous notions of module categories and bimodule categories play a key role in the study of tensor categories (as pioneered by Ostrik \cite{MR1976459}).  One of the key constructions in the theory of modules and bimodules is the relative tensor product $M \otimes_A N$ which is universal for $A$-balanced bilinear functions out of $M \times N$.   A similar role is played by the balanced tensor product of module categories $\cM \boxtimes_\cC \cN$ in the theory of tensor categories (for example, see \cite{MR1966524, 0909.3140, MR2511638, MR2909758, 1202.4396, MR3022755, MR3063919}).  This balanced tensor product is called the relative Deligne tensor product, and it is universal for certain balanced functors.  Since it is defined by a universal property, if it exists this tensor product is unique up to unique isomorphism.  However, in order to prove existence one needs a direct construction.  Such a construction depends on $\cM$, $\cC$, and $\cN$ satisfying certain niceness properties.  
 
 The relative Deligne tensor product was first constructed by Etingof-Nikshych-Ostrik under the assumption that $\cC$ is a fusion category and $\cM$ and $\cN$ are finite semisimple module categories \cite{0909.3140}.  A construction of the relative Deligne tensor product for certain non-semisimple categories can also be extracted from \cite[Thm 3.1]{1102.3411}.   In this paper, we give a construction of the Deligne tensor product under the assumption that $\cC$ is a finite tensor category in the sense of \cite{EO-ftc} and $\cM$ and $\cN$ are finite module categories.  
 
@@ -57,7 +57,7 @@ The key result underlying our construction shows that any module category can be
 Using this theorem we have the following explicit construction of the relative Deligne tensor product.
 
 \begin{theorem}
-If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the relative Deligne tensor product $A\text{-Mod} \boxtimes_\cC \text{Mod-}B$.
+If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the relative Deligne tensor product $(A\text{-Mod}) \boxtimes_\cC (\text{Mod-}B)$.
 \end{theorem}
 
 The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.
@@ -70,7 +70,7 @@ The balanced tensor product will play a key role in our study of the $3$-categor
 A {\em linear functor} is an additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
-	In \cite{3TC, DTCI} we will use the word ``linear functor" to mean what we call ``right exact linear functor" in this paper.  This is because in the $3$-category of tensor categories the $3$-morphisms are assumed to be right exact, because the Deligne tensor product of linear categories is only functorial with respect to right exact functors.  Since this paper concerns the definition of the Deligne tensor product itself, we will not use this convention.
+	In \cite{3TC, DTCI} we will use the word ``linear functor" to mean what we call ``right exact linear functor" in this paper.  This is because in the $3$-category of finite tensor categories the $3$-morphisms are assumed to be right exact, because the Deligne tensor product of linear categories is only functorial with respect to right exact functors.  Since this paper concerns the definition of the Deligne tensor product itself, we will not use this convention here.
 \end{warning}
 
 Recall the following standard terminology:
@@ -101,7 +101,8 @@ The following proposition is well-known, and justifies the definition of finiten
 A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
 \end{proposition}
 \begin{proof}
-	It is standard that, for $A$ a finite-dimensional $k$-algebra, the linear category $\Mod{A}{}$ satisfies the four conditions. % The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite-dimensional algebra over a field is semiperfect.
+	It is standard that, for $A$ a finite-dimensional $k$-algebra, the linear category $\Mod{A}{}$ satisfies the four conditions. \NS{Should we say more here?  Isn't this whole proposition standard?  Should we add a citation?}
+	% The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite-dimensional algebra over a field is semiperfect.
 	Now assume that $\cC$ is finite. Let $\{X_i\}$ denote a set of representatives for the isomorphism classes of simples. Let $P_i \to X_i$ be a surjection, with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite-dimensional, $A$ is a finite-dimensional algebra.  (Note that here the algebra structure on $A$ is defined by $a \cdot b := b \circ a$, as required by the conventions of \cite{DTCI}.)
 	
 We have an adjunction, which we will show is an equivalence:
@@ -185,7 +186,7 @@ is a monomorphism in $\cC$. The desired result, that $(c,f)$ is a subobject of $
 \end{remark}
 
 \begin{corollary}
-	A right exact linear functor between finite linear categories always admits a right adjoint (which may not be right exact). If the linear functor is left exact, then it admits a left adjoint (which is a right exact). 
+	A right exact linear functor between finite linear categories always admits a right adjoint (which may not be right exact). If the linear functor is left exact, then it admits a left adjoint (which is right exact). 
 \end{corollary}
 
 \begin{proof}
@@ -195,7 +196,7 @@ is a monomorphism in $\cC$. The desired result, that $(c,f)$ is a subobject of $
 \noindent Recall that $G$ is representable if there exists an object $x \in \cC$ and a natural isomorphism $G(-) \cong \Hom_{\cC}(-, x)$. 
 
 
-\begin{corollary}
+\begin{corollary} \label{cor:representable}
 If $\cC$ is a finite linear category, then a functor $G: \cC^\textrm{op} \to \Vect_k$ is representable if and only if it is left exact. 
 \end{corollary}
 
@@ -240,6 +241,10 @@ such that $F$ is linear in each variable separately.
 
 \begin{example}
 	The category $\Vect_k$ is a finite tensor category. If $A$ is an algebra in $\Vect_k$, then the categories of finite-dimensional left and right modules, $\Mod{A}{}$ and $\Mod{}{A}$, are finite linear categories. More generally, if $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), then the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also finite linear categories.
+\end{example}
+
+\begin{example}
+If $G$ is a finite group, then the category of finite dimensional $G$-graded vector spaces $\Vec(G)$ is a finite tensor category where the tensor product is given by putting $V_\alpha \otimes V_\beta$ in grade $\alpha \beta$.  Again if $G$ is finite, then the category of finite dimensional representations $\Rep(G)$ is a finite tensor category.  Similarly, if $H$ is a finite dimensional Hopf algebra, then $\Rep(H)$ is a finite tensor category, in particular the category of representations of the small quantum group gives a finite tensor category.
 \end{example}
 
 %\begin{example}
@@ -314,6 +319,22 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 %	\end{align*}	
 	satisfying the evident pentagon and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.
 
+\begin{example}
+	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way (that is any two such structures are naturally isomorphic via a unique isomorphism). %\CD{essentially unique?}
+\end{example}
+
+\begin{example} \label{ex:ModulesAreModules}
+	For any algebra object $A$ in a tensor category $\cC$, the category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a \emph{left} $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a \emph{right} $\cC$-module category.
+\end{example} \NS{I moved these examples earlier and added one new example}
+
+\begin{example}
+$\cC$ is naturally a $\cC$-$\cC$ bimodule category with the actions given by the tensor product and the natural transformations by the associator.
+\end{example}
+
+\begin{example}
+$\Vec$ is a right $\Rep(G)$-module category with the action given by forgetting and then tensoring.  Similarly $\Vec$ is a left $\Vec(G)$ module category.  Note that $\Vec$ can be given the structure of a $\Rep(G)$--$\Vec(G)$ bimodule category in several ways.  In particular, one could choose the associator $V = (V \otimes 1) \otimes 1_g \rightarrow V \otimes (1 \otimes g) = V$ to be the identity, or to be given by the action of $g$.
+\end{example}
+
 \begin{definition}		
 A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a strong functor of bicategories such that 
 %\CD{explain strong}
@@ -336,13 +357,8 @@ It happens that any lax (or oplax) functor of bicategories between bimodules (be
 	Given two $\cC$-$\cD$-bimodule categories $\cM$ and $\cN$, and a bimodule functor $F:\cM \to \cN$, then $F$ is an equivalence of $\cC$-$\cD$-bimodule categories if and only if it induces an equivalence of underlying categories: $F: \Hom_{\cM}(x,y) \stackrel{\simeq}{\to} \Hom_{\cN}(x,y)$. 
 \end{lemma}
 
-
 \begin{example}
-	Every linear category is a $\Vect_k$-$\Vect_k$-bimodule category in an essentially unique way (that is any two such structures are naturally isomorphic via a unique isomorphism). %\CD{essentially unique?}
-\end{example}
-
-\begin{example} \label{ex:ModulesAreModules}
-	For any algebra object $A$ in a tensor category $\cC$, the category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a \emph{left} $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a \emph{right} $\cC$-module category.
+Since any functor from $\Vec$ to $\Vec$ is determined by a choice of finite dimensional vector space $\cF(1)$, a $\Vec(G)$-module functor from $\Vec$ to $\Vec$ consists of a vector space $V$ together which for each $g$ a map $\rho(g): V \rightarrow V$ satisfying $\rho(gh) = \rho(g)\rho(h)$.  Giving a natural isomorphism between two such $(V, \rho)$ is the same data as giving a map of representations.  Thus $\Fun_{\Vec(G)}(\Vec, \Vec) \cong \Rep(G)$.
 \end{example}
 
 \begin{example}
@@ -370,12 +386,16 @@ Such structure exists precisely if the functors
 	\Hom_\cM((-)\otimes m', m): \; & \cC^\op \to \Vect \\
 	\Hom_\cM(c \otimes (-), m): \; & \cM^\op \to \Vect
 \end{align*}
-are representable. In this case they represent the objects $\IHom(m', m)$ and $(m^c)$, respectively. Both of these functors are left exact, and hence by Lemma \ref{lma:left_exact=linear} (which uses the finiteness of $\cC$ and $\cM$) both of these functors are indeed representable. 
+are representable. In this case they represent the objects $\IHom(m', m)$ and $(m^c)$, respectively. Both of these functors are left exact, and hence by Corollary \ref{cor:representable} (which uses the finiteness of $\cC$ and $\cM$) both of these functors are indeed representable.  \NS{I fixed a broken reference here, hopefully I got the right one.}
 \end{proof}
 
 \begin{remark}
 	The existence of $\IHom(m', m)$ only requires $\cC$ to be finite, and similarly the existence of $(m^c)$ only requires $\cM$ to be finite.
 \end{remark}
+
+\begin{example}
+Consider $\Vec$ as a module category over $\Vec(G)$.  Then $\IHom(1,1)$ is $k[G]$ with each $g$ put in grade $g$.
+\end{example}
 
 
 \subsection{Module categories are categories of modules}
@@ -385,6 +405,10 @@ The goal of this subsection is to prove the following result.
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over a finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
 \end{theorem}
+
+\begin{example}
+$\Vec$ as a $\Vec(G)$-module category can be realized as the category of modules over the group algebra $k[G] $ thought of as an object of $\Vec(G)$ by putting $g$ in grade $g$.  
+\end{example}
 
 Without assuming that the category is rigid, this statement is false as the following example shows: 
 
@@ -719,9 +743,9 @@ The above theorem assumes that $\cC$ is a finite tensor category, that is a fini
 \CD{Add comment on importance/essentialness of right exactness in the theorem?}
 
 
-
-
-
+\begin{example}
+$\Vec \otimes_{\Vec(G)} \Vec$ is the category of $k[G]$-mod-$k[G]$ bimodules in $\Vec(G)$. Any left $k[G]$ bimodule is free, so we can identify $k[G]$-mod with $\Vec$, and thus $k[G]$-mod-$k[G]$ can be identified with $\text{mod-}k[G] \cong \Rep(G)$.
+\end{example}
 
 
 
