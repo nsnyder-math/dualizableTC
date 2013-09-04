@@ -74,16 +74,131 @@ In this paper we show that separable tensor categories are the fully-dualizable 
 
 Topological field theories are often thought of as a tool for applying algebra to topology.  If you have a fusion category, this yields a topological field theory, and hence topological invariants of manifolds and representations of mapping class groups.  However, you can also take the opposite perspective.  A topological field theory gives a way of interpreting bordisms as calculations inside your symmetric monoidal $3$-category.  Thus many statements about fusion categories (or other algebraic gadgets) could come from simpler facts about the bordism category.  This point of view has had great successes recently in the work of Ben--Zvi--Nadler \cite{0904.1247} and in interpretating the Madsen-Weiss proof of the Mumford conjecture \cite{MR2335797, lurie-ch}.  We give one such application of topology to algebra, showing that the belt trick, which demonstrates $\pi_1 \Omega \Sigma \RR \PP^2 \cong \pi_1 SO(3) \cong \mathbb{Z}/2$, immediately implies Radford's theorem for finite tensor categories.
 
-More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) \cong \pi_1(\Omega \Sigma \RR \PP^2)$ corresponds to the interval with a nontrivial $3$-framing which we call the loop bordism.  The image of the loop bordism under the TFT is called the Serre automorphism.  The Dirac belt trick gives a canonical minimal genus $3$-framed bordism between the loop bordism and its inverse depicted below.  Applying the TFT to this belt bordism we get a canonical identification of the Serre autormorphism and its inverse which we call the Radford isomorphism.  It turns out that in order to write down the Radford isomorphism, one does not use all the conditions of full dualizability, and so you get a Radford isomorphism for any `Radford object' (Def.~\ref{def:Radford-Object}).  
+More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) \cong \pi_1(\Omega \Sigma \RR \PP^2)$ corresponds to the interval with a nontrivial $3$-framing which we call the loop bordism.  The image of the loop bordism under the TFT is called the Serre automorphism.  The Dirac belt trick gives a canonical minimal genus $3$-framed bordism between the identity and the square of the loop bordism depicted below in Figure~\ref{fig:belt_bordism}.  Applying the TFT to this belt bordism we get a canonical identification of the Serre autormorphism and its inverse which we call the Radford isomorphism.  It turns out that in order to write down the Radford isomorphism, one does not use all the conditions of full dualizability, and so you get a Radford isomorphism for any `Radford object' (Def.~\ref{def:Radford-Object}).  
+
+%\begin{figure}[htbp]
+%	\begin{center}
+%	\includegraphics[width=60mm]{cobordism.png}
+%	\end{center}
+%	\caption{The Belt Bordism}
+%	\label{fig:belt_bordism}
+%\end{figure}
+%\NS{This should be redrawn.}
+
 
 \begin{figure}[htbp]
 	\begin{center}
-	\includegraphics[width=60mm]{cobordism.png}
-	\end{center}
+		\begin{tikzpicture}[
+			yscale=0.5,
+			% This decoration will be used to make portions of curves into "bouckground curves". It allows us to dash a portion of the curve.
+			decoration={border, 
+				segment length = 4pt, 	% determines the distance between consecutive ticks.
+				amplitude = 2pt, 		% determines the length of the ticks.
+				angle = 0  				% determines the angle between the ticks and the line of the path. 
+				}, 
+			% Styles
+			contour line/.style={thin, blue}
+				]
+				
+			% Colors
+			\colorlet{surfacecolor1}{black!15}
+			\colorlet{surfacecolor2}{black!10}	
+			
+			% The graphic
+			%\draw [step = 1cm, help lines] (-0.9,-0.9) grid (11.9, 10.9);
+			
+			% First we fill the surfaces with the background colors.
+			% region 1
+			\fill [color = surfacecolor1] (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% region 2
+			\fill [color = surfacecolor1] (7, 6.5) parabola bend (8.5, 5.8) (8.25, 5.8) 
+				to [out = 45, in = 260] (9, 7)
+				parabola bend (7.75, 6.4) (7, 6.5);
+			
+			% region 3
+			\fill [color = surfacecolor2] (4, 6) arc (90:180:2cm and 3.5cm)
+				-- (4, 1.5) -- (4,6);
+			
+			% region 4
+			\fill [color = surfacecolor2] (6, 5.5) parabola (7, 6.5) parabola bend (8.5, 5.8) (11, 6)
+				to [out = 240, in = 30] (8, 2.5) -- (6, 1.5) -- (6, 5.5);
+			
+			
+			% Now we draw the lines of the surface
+			%first around region 1
+			\draw (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% then the rest 
+			\draw (2,2.5) -- (4,1.5) 
+				decorate {-- (5,1) to [out = -30, in = 135] (6,0.5)
+					  (4,0.5) to [out = 45, in = 210] (5,1) -- (6,1.5)} 
+				-- (8, 2.5) to [out = 30, in = 240] (11, 6);
+				% then off to cusp points
+			\draw decorate { (5, 1) arc (0:90:1cm and 5cm)};
+			\draw decorate {(2,2.5) -- (7,5) to [out = 30, in = 225] (8.25, 5.8)} to [out = 45, in = 260] (9, 7) ;
+			\draw decorate {(2,2.5) to [out = 150, in = 0] (1,3) arc (90:180:1cm and 0.5cm)};
+			% cusp
+			\draw (4, 6) to [out = 90, in = 270] (4.5, 8.5);
+			\draw (6, 5.5) decorate { parabola (4.5, 8.5)} (6, 5.5) parabola (7, 6.5)
+				parabola bend (7.75, 6.4) (9, 7);
+			\draw (7, 6.5) parabola bend (8.5, 5.8) (11, 6);
+			
+%		% now the contour lines
+%		% the first contour line
+%		\draw [contour line] (2.25, 10) arc (180:360:1.5cm and 0.5cm)
+%			decorate {(2.25, 10) arc (180:0:1.5cm and 0.5cm)};
+%		
+%		
+%		% the second contour line
+		\draw [contour line] (1.75,8) arc (180:320:1.45cm and 0.5cm)
+			decorate {to [out = 30,in = 135](4.65, 7.6) to [out = -45, in = 45] (4.2, 7.1) }
+			arc (180:270:0.5cm and 0.2cm) to [out = 0, in = -90] (5.75,8)
+		;
+		\draw [contour line] decorate {(1.75,8) arc (180:0:2cm and 0.6cm)};
+%		% the third contour line
+%		\draw [contour line] 
+%			decorate {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
+%			 -- (4, 5.5) 
+%			decorate {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
+%			arc (360: 180: 1cm and 0.5cm)
+%			decorate { to [out = 45, in = 210] (4.5,5.25)};
+%		
+%		\draw [contour line] 
+%		 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
+%		 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
+			
+			%\draw (0,3) decorate {to (2,3)} -- (3,4);
+				
+		\end{tikzpicture}
+		\end{center}	
 	\caption{The Belt Bordism}
 	\label{fig:belt_bordism}
 \end{figure}
-\NS{This should be redrawn.}
+
+
 
 
 We prove that finite tensor categories are Radford objects in $\TC$, and the Serre automorphism of $\cC$ is $\cC$ as a $\cC$--$\cC$ bimodule category where the left action has been twisted by the right double dual functor.  The inverse of the Serre automorphism is the bimodule where the left action has been twisted by the left double dual.  Thus, the Radford isomorphism relates the left double dual and the right double dual and recovers the generalization of Radford's theorem for finite tensor categories \cite{MR0407069, MR2097289} stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories the distinguished object is trivial, and thus the quadruple dual for fusion categories is trivial.  
@@ -383,7 +498,7 @@ Both boundary points are incoming, and the induced framings on these points are,
 \begin{example} \label{ex:disk_bordism_immerssed}
 Here is a picture of a $2$-framed $2$-manifold:
 \[
-\cb{
+u_1 = \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (.5);
 \end{tikzpicture}
@@ -407,7 +522,7 @@ Note that here the corona denotes that the boundary is outgoing.  This boundary 
 \begin{example} \label{ex:saddle_bordism_immerssed}
 Here is a picture of another $2$-framed $2$-manifold, specifically a 2-morphism in the 2-category of 2-framed $0$-, $1$-, and $2$-manifolds:
 \[
-\cb{
+v_1 = \cb{
 \begin{tikzpicture}
 \filldraw[linestyle,fill=\fillcolor] 
 	(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0)
@@ -458,35 +573,53 @@ Here is a picture of another $2$-framed $2$-manifold, specifically a 2-morphism 
 The source and target of this bordism are as indicated.  Notice that the source of the source (a pair of $2$-framed points) is indeed the source of the target, and similarly the target of the source is the target of the target.
 \end{example}
 
-\begin{example}\NS{Once the picture is done this example may need to be rephrased.}
-Figure~\ref{fig:beltbord} in the introduction depicts a $3$-framed $2$-manifold called the belt bordism.  Its source is the stabilization of the $2$-framed $1$-manifold 
+\begin{example}\NS{Once the picture is done this example may need to be rephrased. --CSP: I changed it to match the picture. }
+Figure~\ref{fig:belt_bordism} in the introduction depicts a $3$-framed $2$-manifold called the belt bordism.  Its source is the stabilization of the $2$-framed $1$-manifold 
 \[
 \cb{
 \begin{tikzpicture}
-\draw[linestyle,fuzzright] 
-(.7,0) to [out=180, in=0] (-1.5,0);
-\begin{pgfonlayer}{background}
-	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
-\end{pgfonlayer}
+	\draw[linestyle,fuzzright] (4,7) to [looseness=1.6,out = 180, in = 180] (4,6);
+	\begin{pgfonlayer}{background}
+		\draw[->,outstyle] (4,7) -- +(0:\arrowlength);
+		\draw[->,outstyle] (4,6) -- +(0:\arrowlength);
+	\end{pgfonlayer}
 \end{tikzpicture}
+%\begin{tikzpicture}
+%\draw[linestyle,fuzzright] 
+%(.7,0) to [out=180, in=0] (-1.5,0);
+%\begin{pgfonlayer}{background}
+%	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+%\end{pgfonlayer}
+%\end{tikzpicture}
 }
 \]
 and its target is the stabilization of the $2$-framed $1$-manifold
 \[
 \cb{
 \begin{tikzpicture}
-\draw[linestyle,fuzzright] 
-(.7,0) to [out=180, in=-20] (0,.1)
-	to [looseness=1.6, out=160, in=180] (0,.4)
-	to [looseness=1.6, out=0, in=20] (0,.1)
-	to [looseness=1, out=-160, in=-20] (-.8,.1)
-	to [looseness=1.6, out=160, in=180] (-.8,.4)
-	to [looseness=1.6, out=0, in=20] (-.8,.1)
-	to [out=-160, in=0] (-1.5,0);
-\begin{pgfonlayer}{background}
-	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
-\end{pgfonlayer}
+	\draw[linestyle,fuzzright] (4, -0.5) -- (1.75, -0.5)
+		to [looseness=2,out = 180, in = 90] (2, -0.25)
+		-- (2, -1.75)
+		to [looseness=2,out = 270, in = 180] (1.75,-1.5)
+		-- (4, -1.5);
+	\begin{pgfonlayer}{background}
+		\draw[->,outstyle] (4,-0.5) -- +(0:\arrowlength);
+		\draw[->,outstyle] (4,-1.5) -- +(0:\arrowlength);
+	\end{pgfonlayer}
 \end{tikzpicture}
+%\begin{tikzpicture}
+%\draw[linestyle,fuzzright] 
+%(.7,0) to [out=180, in=-20] (0,.1)
+%	to [looseness=1.6, out=160, in=180] (0,.4)
+%	to [looseness=1.6, out=0, in=20] (0,.1)
+%	to [looseness=1, out=-160, in=-20] (-.8,.1)
+%	to [looseness=1.6, out=160, in=180] (-.8,.4)
+%	to [looseness=1.6, out=0, in=20] (-.8,.1)
+%	to [out=-160, in=0] (-1.5,0);
+%\begin{pgfonlayer}{background}
+%	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
+%\end{pgfonlayer}
+%\end{tikzpicture}
 }
 \]
 %Here is a picture of a $3$-framed manifold: \CDcomm{[Example here.  Some options: a 1-manifold twisting around, a 2-manifold eg Radford or something else, a 3-manifold, eg solid cylinder with up and cap removed, ...]}
@@ -568,7 +701,7 @@ Similarly, the right adjoint $ev^R$ of $ev$, together with the unit and counit o
 		\end{pgfonlayer}
 	\end{tikzpicture} }
 	\hspace{1.5cm}
-	unit $=$\cb{
+	$u_2 = $ unit $=$\cb{
 	\begin{tikzpicture}
 		\draw[linestyle, fill=\fillcolor] (0.75,0) 
 			to [looseness=1.6, out=180, in=190] +(90:1.5*\smcirclerad)
@@ -593,7 +726,7 @@ Similarly, the right adjoint $ev^R$ of $ev$, together with the unit and counit o
 		\end{pgfonlayer}
 	\end{tikzpicture} }
 	\hspace{1.5cm}
-	counit $=$\cb{
+	$v_2 =$ counit $=$\cb{
 	\begin{tikzpicture}
 		\draw[linestyle, fill=\fillcolor] (0,0) 
 		to [looseness=1.6, out=180, in=190] +(90:1.5*\smcirclerad)
@@ -620,9 +753,9 @@ As before, our notation for $n$-framed manifolds permits immersed rather than em
 \cb{
 \begin{tikzpicture}%[scale=.5]
 			\draw[linestyle,fuzzright] (10.5, 0.5) -- (9.75,0.5)
-				to [looseness=1.6,out = 180, in = 90] (10, 0.75)
+				to [looseness=2,out = 180, in = 90] (10, 0.75)
 				-- (10, -0.75)
-				to [looseness=1.6,out = 270, in = 180] (9.75,-0.5)
+				to [looseness=2,out = 270, in = 180] (9.75,-0.5)
 				-- (10.5, -0.5);
 			\begin{pgfonlayer}{background}
 				\draw[->,outstyle] (10.5,0.5) -- +(0:\arrowlength);
@@ -631,7 +764,7 @@ As before, our notation for $n$-framed manifolds permits immersed rather than em
 \end{tikzpicture}
 }
 \]
-\CD{Replace the second tikz picture here.}
+\CD{Replace the second tikz picture here. -- CSP: I fixed the tikz glitch, so I think it is fine now. }
 
 The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and similarly $ev^R$ has a right adjoint, and so on.  The 1-morphism $coev$ also has a chain of left and right adjoints.  We therefore have two infinite series of adjunctions, as follows:
 \CD{Replace the first and last pictures in the first row; draw the last picture in the second row.}
@@ -640,9 +773,9 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 		\node at (0,0) {$\cdots$};
 		\node at (1,0) {$\dashv$};
 		\draw [linestyle,fuzzleft] (1.75,0.5) -- (2.5, 0.5) 
-			to [looseness=1.6,out=0, in=90] (2.25, 0.75)
+			to [looseness=2,out=0, in=90] (2.25, 0.75)
 			-- (2.25, -0.75)
-			to [looseness=1.6,out=-90, in=0] (2.5, -0.5)
+			to [looseness=2,out=-90, in=0] (2.5, -0.5)
 			-- (1.75,-0.5);
 		\node at (2, -1.1) {$ev^{LL}$};
 		\node at (3, 0) {$\dashv$};
@@ -666,9 +799,9 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 %		\node at (9,0) {$\cong$};
 		\node at (8,-1.1) {$ev^R$};
 			\draw[linestyle,fuzzright] (8.5, 0.5) -- (7.75,0.5)
-				to [looseness=1.6,out = 180, in = 90] (8, 0.75)
+				to [looseness=2,out = 180, in = 90] (8, 0.75)
 				-- (8, -0.75)
-				to [looseness=1.6,out = 270, in = 180] (7.75,-0.5)
+				to [looseness=2,out = 270, in = 180] (7.75,-0.5)
 				-- (8.5, -0.5);
 			\begin{pgfonlayer}{background}
 				\draw[->,outstyle] (8.5,0.5) -- +(0:\arrowlength);
@@ -733,7 +866,7 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 \end{tikzpicture}
 }
 \]
-\CD{Painful tikz problems in this,  still unfinished.}
+\CD{Painful tikz problems in this,  still unfinished. --CSP: I adjusted the "looseness" to 2, which seems to take care of it.}
 \nid These adjunctions illustrate the fact that the 2-framed bordism 2-category $\FrBord_2$ is 2-dualizable.
 
 \subsection{The Serre and the Radford bordisms} \label{sec:SerreRadford}
@@ -824,39 +957,304 @@ As the notation suggests, there are isomorphisms $\cS \circ \cS^{-1} \cong id_{p
 
 
 
-When $n\geq 3$ we have $\pi_1(SO(n)) \cong \mathbb{Z}/2$, and therefore the loop bordism $\cS: pt_+ \ra pt_+$ in $\FrBord_n$ is an involution; thus the loop bordism and the inverse loop bordism are isomorphic.  In fact, this isomorphism is implemented by the unique (up to $3$-framed diffeomorphism rel boundary) $3$-framed $2$-dimensional bordism of genus zero from $\cS^{-1}$ to $\cS$. This bordism is depicted, as an immersed $2$-manifold in $\RR^3$, in Figure~\ref{fig:loopinvloopbord}.
-\CD{Draw figure 2, any explanation needed in caption.}
+When $n\geq 3$ we have $\pi_1(SO(n)) \cong \mathbb{Z}/2$, and therefore the loop bordism $\cS: pt_+ \ra pt_+$ in $\FrBord_n$ is an involution; thus the loop bordism and its inverse are isomorphic.  In fact, this isomorphism is implemented by the unique (up to $3$-framed diffeomorphism rel boundary) $3$-framed $2$-dimensional bordism of genus zero from $\cS^{-1}$ to $\cS$. By the above formulas for $\cS^{-1}$ and $\cS$, we see that giving a bordism from $\cS^{-1}$ to $\cS$ provides the same information as does giving a bordism from $\ev^L$ to $\ev^R$.  Again there is a unique such $3$-framed $2$-dimensional bordism of genus zero, which is depicted as an immersed $2$-manifold in $\RR^3$ in Figure~\ref{fig:Radford_bordism}. We call this bordism from $\ev^L$ to $\ev^R$ the {\bfseries Radford bordism} or belt bordism---if you wrap your belt into the configuration of the outgoing boundary and pull, it will happily (and very rapidly) trace out this bordism for you.
+Figure~\ref{fig:Radford_bordism} also shows how this bordism is given explicitly as a composite
+\begin{equation*}
+	\cR = (v_1 \circledcirc id_{\ev^R})\circ (id_{\ev^L} \circledcirc v_2^R).
+\end{equation*}
+Here $v_1$ is the bordism from Example~\ref{ex:saddle_bordism_immerssed} and $v_2^R$ denotes the right adjoint of the bordism depicted we previous called $v_2$.  
+ 
+
+%This bordism is depicted, , in Figure~\ref{fig:loopinvloopbord}.
+%\CD{Draw figure 2, any explanation needed in caption.}
 %here the top boundary is incoming, the bottom boundary is outgoing, and the coorientation points into the page away from the reader near the bottom boundary.
-\begin{center}
-\includegraphics[width=60mm]{cobordism.png}
-\end{center}
-%\noindent We denote this bordism $\cB$ and call it the belt bordism---if you wrap your belt into the configuration of the incoming boundary and pull, it will happily (and very rapidly) trace out this bordism for you. As usual, stabilizing this bordism gives a canonical trivialization of the square of the loop bordism for any $n \geq 3$. 
-\CD{Once the figures are drawn, add back in the content of the paragraph NS removed here.}
+%\begin{center}
+%\includegraphics[width=60mm]{cobordism.png}
+%\end{center}
+%\noindent We denote this bordism $\cB$ and call it the belt bordism As usual, stabilizing this bordism gives a canonical trivialization of the square of the loop bordism for any $n \geq 3$. 
+%\CD{Once the figures are drawn, add back in the content of the paragraph NS removed here.}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{tikzpicture}[
+			% This decoration will be used to make portions of curves into "bouckground curves". It allows us to dash a portion of the curve.
+			%xscale = 0.75,
+			decoration={border, 
+				segment length = 4pt, 	% determines the distance between consecutive ticks.
+				amplitude = 2pt, 		% determines the length of the ticks.
+				angle = 0  				% determines the angle between the ticks and the line of the path. 
+				}, 
+			% Styles
+			contour line/.style={thin, blue}
+				]
+				
+			% Colors
+			\colorlet{surfacecolor1}{black!12}
+			\colorlet{surfacecolor2}{black!5}	
+			
+			% The graphic
+			%\draw [step = 1cm, help lines] (-0.9,-0.9) grid (11.9, 10.9);
+			
+			\begin{scope}[scale=0.75]			
+				% adding fuzz
+				\draw [fuzzright] (0,2.5) arc (180:270: 1cm and 0.5cm) to [out = 0, in = 210] (2,2.5)
+					-- (4.5, 1.25);
+				\draw [fuzzleft] (0,2.5) arc (180:90: 1cm and 0.5cm);
+				\draw [fuzzright] (4, 0.5) arc (180:360: 1cm and 0.5cm);
+				\draw [fuzzleft] (4, 0.5) arc (180:90: 1cm and 0.5cm);
+				
+				\draw [fuzzright] (6, 1.5) -- (8, 2.5) to [out = 30, in = 240] (11, 6);
+				\draw [fuzzright]	 (8.25, 5.8) to [out = 45, in = 260] (9, 7);
+				% and small arrows
+				\begin{pgfonlayer}{background}
+					\draw[->,outstyle] (11,6) -- +(30:\arrowlength);
+					\draw[->,outstyle] (9,7) -- +(45:\arrowlength);
+				\end{pgfonlayer}
+				
+			% First we fill the surfaces with the background colors.
+			% region 1
+			\fill [color = surfacecolor1] (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% region 2
+			\fill [color = surfacecolor1] (7, 6.5) parabola bend (8.5, 5.8) (8.25, 5.8) 
+				to [out = 45, in = 260] (9, 7)
+				parabola bend (7.75, 6.4) (7, 6.5);
+			
+			% region 3
+			\fill [color = surfacecolor2] (4, 6) arc (90:180:2cm and 3.5cm)
+				-- (4, 1.5) -- (4,6);
+			
+			% region 4
+			\fill [color = surfacecolor2] (6, 5.5) parabola (7, 6.5) parabola bend (8.5, 5.8) (11, 6)
+				to [out = 240, in = 30] (8, 2.5) -- (6, 1.5) -- (6, 5.5);
+			
+			
+			% Now we draw the lines of the surface
+			%first around region 1
+			\draw (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
+				arc (180:0:2cm and 3cm)
+				%.. controls (3, 9) and (3,10) .. (4,10)
+				%.. controls (4.5,10) and (6,9.5) .. (6,8)
+				to [out = 270, in = 90] (6, 5.5)
+				-- (6,0.5)
+				arc (360: 180: 1cm and 0.5cm)
+				-- (4, 6)
+				arc (90:180:2cm and 3.5cm)
+				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
+				to [out = 210, in = 0] (1,2)
+				arc (270: 180: 1cm and 0.5cm);
+			
+			% then the rest 
+			\draw (2,2.5) -- (4,1.5) 
+				decorate {-- (5,1) to [out = -30, in = 135] (6,0.5)
+					  (4,0.5) to [out = 45, in = 210] (5,1) -- (6,1.5)} 
+				-- (8, 2.5) to [out = 30, in = 240] (11, 6);
+				% then off to cusp points
+			\draw decorate { (5, 1) arc (0:90:1cm and 5cm)};
+			\draw decorate {(2,2.5) -- (7,5) to [out = 30, in = 225] (8.25, 5.8)} to [out = 45, in = 260] (9, 7) ;
+			\draw decorate {(2,2.5) to [out = 150, in = 0] (1,3) arc (90:180:1cm and 0.5cm)};
+			% cusp
+			\draw (4, 6) to [out = 90, in = 270] (4.5, 8.5);
+			\draw (6, 5.5) decorate { parabola (4.5, 8.5)} (6, 5.5) parabola (7, 6.5)
+				parabola bend (7.75, 6.4) (9, 7);
+			\draw (7, 6.5) parabola bend (8.5, 5.8) (11, 6);
+			
+			% now the contour lines
+			% the first contour line
+			\draw [contour line] (2.3, 10) arc (180:360:1.45cm and 0.5cm)
+				decorate {(2.3, 10) arc (180:0:1.45cm and 0.5cm)};
+			
+			
+			% the second contour line
+			\draw [contour line] (1.75,8) arc (180:320:1.45cm and 0.5cm)
+				decorate {to [out = 30,in = 135](4.65, 7.6) to [out = -45, in = 45] (4.2, 7.1) }
+				arc (180:270:0.5cm and 0.2cm) to [out = 0, in = -90] (5.75,8)
+			;
+			\draw [contour line] decorate {(1.75,8) arc (180:0:2cm and 0.6cm)};
+			
+			% the third contour line
+			\draw [contour line] 
+				decorate {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
+				 -- (4, 5.5) 
+				decorate {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
+				arc (360: 180: 1cm and 0.5cm)
+				decorate { to [out = 45, in = 210] (4.5,5.25)};
+			
+			\draw [contour line] 
+			 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
+			 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
+			
+			
+%			\begin{scope}[xshift = -4cm, yshift =2.5cm, scale = 0.75]
+%				% now the contour lines
+%				% the first contour line
+%				\draw [contour line] (2.3, 10) arc (180:360:1.45cm and 0.5cm)
+%					 {(2.3, 10) arc (180:0:1.45cm and 0.5cm)};
+%			
+%			
+%				% the second contour line
+%				\draw [contour line] (1.75,8) arc (180:320:1.45cm and 0.5cm)
+%					 {to [out = 30,in = 135](4.65, 7.6) to [out = -45, in = 45] (4.2, 7.1) }
+%					arc (180:270:0.5cm and 0.2cm) to [out = 0, in = -90] (5.75,8)
+%				;
+%				\draw [contour line]  {(1.75,8) arc (180:0:2cm and 0.6cm)};
+%			
+%				% the third contour line
+%				\draw [contour line] 
+%					 {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
+%					 -- (4, 5.5) 
+%					 {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
+%					arc (360: 180: 1cm and 0.5cm)
+%					 { to [out = 45, in = 210] (4.5,5.25)};
+%			
+%				\draw [contour line] 
+%				 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
+%				 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
+%			\end{scope}
+		\end{scope}
+			
+			% now for some braces
+		%	\draw [thick, decoration={brace, amplitude=3pt}]  decorate {(6.5, 10.5) -- (6.5,6.5)};
+		%	\node at (7.5,8.5) {\small some math};
+		%	\draw [thick, decoration={brace, amplitude=3pt}]  decorate {(11.5, 6.5) -- (11.5,1.5)};	
+		%	\node at (12, 4) {\small more};			
+			
+		
+		% Now the 2D diagrams
+		\begin{scope}[xshift = 7cm, yshift = 2cm]
+			
+						% ev^L
+						\draw[linestyle,fuzzright] (4,7) to [looseness=1.6,out = 180, in = 180] (4,6);
+						\begin{pgfonlayer}{background}
+							\draw[->,outstyle] (4,7) -- +(0:\arrowlength);
+							\draw[->,outstyle] (4,6) -- +(0:\arrowlength);
+						\end{pgfonlayer}
+						
+						% the first morphism	
+						\draw [thick, ->] (3, 5.75) -- (3, 4.75);
+							\draw[linestyle, fill=\fillcolor, yshift = 0.5*\smcirclerad] (3.5,5.25) 
+								to [looseness=1.6, out=180, in=190] +(90:0.75*\smcirclerad)
+								to [looseness=1.6, out=10, in=-10] +(90:-2.5*\smcirclerad)
+								to [looseness=1.6, out=170, in=180] +(90:.75*\smcirclerad)
+								to [looseness=1.55, out=0, in=0] +(90:\smcirclerad);
+						\node at (4,5.5) {\small $R$};
+
+						% ev^R ev + ev^L
+						\draw[linestyle,fuzzright] (4,4.5) to [looseness=1.6,out = 180, in = 180] (4,3.5);
+							\begin{pgfonlayer}{background}
+								\draw[->,outstyle] (4,4.5) -- +(0:\arrowlength);
+								\draw[->,outstyle] (4,3.5) -- +(0:\arrowlength);
+							\end{pgfonlayer}
+						\draw[yshift = \smcirclerad, linestyle, fuzzright] (2,4) 
+							to [looseness=1.6, out=180, in=190] +(90:1.5*\smcirclerad)
+							to [looseness=1.6, out=10, in=-10] +(90:-5*\smcirclerad)
+							to [looseness=1.6, out=170, in=180] +(90:1.5*\smcirclerad)
+							to [looseness=1.55, out=0, in=0] +(90:2*\smcirclerad);
+
+						% the second morphism	
+						\draw [thick, ->] (3, 3.25) -- (3, 2.25);
+						\node at (3.5,2.75) {\small Isom};
+							
+						% ev^R ev + ev^L (deformed)
+						\draw[linestyle,fuzzright] (4,2) to [looseness=1.6,out = 180, in = 180] (4,1);
+								\begin{pgfonlayer}{background}
+									\draw[->,outstyle] (4,2) -- +(0:\arrowlength);
+									\draw[->,outstyle] (4,1) -- +(0:\arrowlength);
+								\end{pgfonlayer}
+						\draw[linestyle,fuzzright] (2.5, 2) -- (1.75,2)
+								to [looseness=2,out = 180, in = 90] (2, 2.25)
+									-- (2, 0.75)
+									to [looseness=2,out = 270, in = 180] (1.75,1)
+									-- (2.5, 1) arc (-90:90:0.5cm);
+						
+						% the third morphism			
+						\draw [thick, ->] (3, 0.75) -- (3, -0.25);
+						\begin{scope}[xshift = 3.5cm, yshift = 0.0cm, scale = 0.65]
+							\filldraw[linestyle,fill=\fillcolor] 
+							(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0)
+								.. controls (.75,.25) and (.75,.75) .. (1,1)
+								.. controls (.75,.75) and (.25,.75) .. (0,1)
+								.. controls (.25,.75) and (.25,.25) .. (0,0);
+						\draw[linestyle,fuzzright]
+							(0,0) .. controls (.25,.25) and (.75,.25) .. (1,0);
+						\draw[linestyle,fuzzleft]
+							(0,1) .. controls (.25,.75) and (.75,.75) .. (1,1);
+						\begin{pgfonlayer}{background}
+							\draw[->,outstyle] (1,1) -- +(45:\arrowlength);
+							\draw[->,outstyle] (1,0) -- +(-45:\arrowlength);
+						\end{pgfonlayer}
+						\end{scope}
+						
+
+						% ev^R
+							\draw[linestyle,fuzzright] (4, -0.5) -- (1.75, -0.5)
+								to [looseness=2,out = 180, in = 90] (2, -0.25)
+								-- (2, -1.75)
+								to [looseness=2,out = 270, in = 180] (1.75,-1.5)
+								-- (4, -1.5);
+							\begin{pgfonlayer}{background}
+								\draw[->,outstyle] (4,-0.5) -- +(0:\arrowlength);
+								\draw[->,outstyle] (4,-1.5) -- +(0:\arrowlength);
+							\end{pgfonlayer}
+
+		\end{scope}	
+			
+		% names of 2D slices
+		\node (A) at (6.5, 8.5) {$\ev^L$};
+		\node (B) at (6.5, 6) {$\ev^L \circ \ev \circ \ev^R$};		
+		\node (C) at (6.5, 1) {$\ev^R$};
+		\draw [->, gray, thin] (A) -- +(3.5,0);
+		\draw [->, gray, thin] (B) -- +(2,0);
+		\draw [->, gray, thin] (C) -- +(2,0);
+		% names of arrows
+		\node at (9, 7.25) {$ id_{\ev^L} \circledcirc v_2^R$};
+		\node at (9, 2.25) {$ v_1 \circledcirc id_{\ev^R}$};
+		
+		\node at (6, -1) {$\cR = (v_1 \circledcirc id_{\ev^R})\circ (id_{\ev^L} \circledcirc v_2^R)$};				
+							
+		\end{tikzpicture}
+		\end{center}	
+	\caption{The Radford Bordism.  }
+	\label{fig:Radford_bordism}
+\end{figure}
+
+
 
 %If we take the left, that is incoming, cusp of the belt bordism and drag it to the right, so that it becomes an outgoing cusp, the result is a bordism from $ev^R$ to $ev^L$, which we call the {\bfseries Radford bordism}.
 
-By the above formulas for $\cS^{-1}$ and $\cS$, we see that giving a bordism from $\cS^{-1}$ to $\cS$ provides the same information as does giving a bordism from $\ev^L$ to $\ev^R$.  Again there is a unique such $3$-framed $2$-dimensional bordism of genus zero; we call this bordism from $\ev^L$ to $\ev^R$ the belt bordism or the {\bfseries Radford bordism}.  This bordism is given explicitly by the following composition.
 
-\begin{center} \NS{This diagram goes the wrong way, but it should be replaced by a more thorough diagram anyway giving the the Radford as a composition} \CD{The correct diagram is in email from NS, though add an extra step to that.}
-	\begin{tikzpicture}
-		\node (R) at (0,0) {$\cR:$};
-			\draw[linestyle,fuzzright] (1.5, 0.5) -- (0.75,0.5)
-				to [looseness=1.6,out = 180, in = 90] (1, 0.75)
-				-- (1, -0.75)
-				to [looseness=1.6,out = 270, in = 180] (0.75,-0.5)
-				-- (1.5, -0.5);
-			\begin{pgfonlayer}{background}
-				\draw[->,outstyle] (1.5,0.5) -- +(0:\arrowlength);
-				\draw[->,outstyle] (1.5,-0.5) -- +(0:\arrowlength);
-			\end{pgfonlayer}
-		\draw [thick, ->] (2, 0) -- (3, 0);	
-		\draw[linestyle,fuzzright] (4,0.5) to [looseness=1.6,out = 180, in = 180] (4,-0.5);
-		\begin{pgfonlayer}{background}
-			\draw[->,outstyle] (4,0.5) -- +(0:\arrowlength);
-			\draw[->,outstyle] (4,-0.5) -- +(0:\arrowlength);
-		\end{pgfonlayer}
-	\end{tikzpicture}
-\end{center}
+
+%\begin{center} \NS{This diagram goes the wrong way, but it should be replaced by a more thorough diagram anyway giving the the Radford as a composition} \CD{The correct diagram is in email from NS, though add an extra step to that.}
+%	\begin{tikzpicture}
+%		\node (R) at (0,0) {$\cR:$};
+%			\draw[linestyle,fuzzright] (1.5, 0.5) -- (0.75,0.5)
+%				to [looseness=1.6,out = 180, in = 90] (1, 0.75)
+%				-- (1, -0.75)
+%				to [looseness=1.6,out = 270, in = 180] (0.75,-0.5)
+%				-- (1.5, -0.5);
+%			\begin{pgfonlayer}{background}
+%				\draw[->,outstyle] (1.5,0.5) -- +(0:\arrowlength);
+%				\draw[->,outstyle] (1.5,-0.5) -- +(0:\arrowlength);
+%			\end{pgfonlayer}
+%		\draw [thick, ->] (2, 0) -- (3, 0);	
+%		\draw[linestyle,fuzzright] (4,0.5) to [looseness=1.6,out = 180, in = 180] (4,-0.5);
+%		\begin{pgfonlayer}{background}
+%			\draw[->,outstyle] (4,0.5) -- +(0:\arrowlength);
+%			\draw[->,outstyle] (4,-0.5) -- +(0:\arrowlength);
+%		\end{pgfonlayer}
+%	\end{tikzpicture}
+%\end{center}
 
 Given a local topological field theory $\cF$ of dimension at least 2, we can study the images of these various bordisms. The value of the positively framed point is a fully dualizable object $x := \cF(pt^+)$.  The images of the negatively framed point, of $\ev$, and of $\coev$ give data witnessing the 1-dualizability of $x$.  The images of the two infinite chains of bordisms at the end of section~\ref{sec:framed-duality} give the values of the various adjoints of $\cF(\ev)$ and $\cF(\coev)$.  The loop bordism induces an automorphism of $x$ which we call the {\em Serre automorphism $\cS_x$}; this terminology is motivated by the following example.
 
@@ -867,7 +1265,7 @@ Let $\cC$ be the $(\infty,2)$-category of cocomplete differential graded categor
 %for every pair of compact objects C and D. In the special case where D is the differential graded category of quasi-coherent complexes on a smooth projective variety X, the Serre functor S : D → D is given by tensoring with the canonical line bundle ωX on X and shifting by the dimension of X, and the quasi-isomorphism is provided by Serre duality.
 \end{example}
 
-If the dimension of the field theory $\cF$ is at least 3, then the image of the bordism in Figure~\ref{fig:loopinvloopbord} gives an isomorphism $\cS^{-1}_x \cong \cS_x$.  Similarly, the image of the Radford bordism in Figure~\ref{fig:radfordbord} is an isomorphism $\cR_x: \cF(\ev^L) \cong \cF(\ev^R)$.  We call this the Radford isomorphism because, as we will see in section~\ref{sec:radiso}, it is a key ingredient in a topological proof of Radford's quadruple dual theorem.
+If the dimension of the field theory $\cF$ is at least 3, then the image of the bordism in Figure~\ref{fig:Radford_bordism} is an isomorphism $\cR_x: \cF(\ev^L) \cong \cF(\ev^R)$, which we call the Radford isomorphism because, as we will see in section~\ref{sec:radiso}, it is a key ingredient in a topological proof of Radford's quadruple dual theorem. It also induces an isomorphism $\cS^{-1}_x \cong \cS_x$.  
 % Again, given any fully dualizable object $a$ in a symmetric $n$-category we can look at the image of this map under the corresponding TFT which will give a trivialization of the square of the Serre automorphism $\cS_a$.  
 We summarize the above observations as follows:
 
