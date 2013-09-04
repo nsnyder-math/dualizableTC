@@ -1035,7 +1035,7 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 			\colorlet{surfacecolor2}{black!5}	
 			
 			% The graphic
-			\draw [step = 1cm, help lines] (-0.9,-0.9) grid (11.9, 10.9);
+			%\draw [step = 1cm, help lines] (-0.9,-0.9) grid (11.9, 10.9);
 			
 			\begin{scope}[scale=0.75]			
 				% adding fuzz
@@ -1047,7 +1047,12 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 				
 				\draw [fuzzright] (6, 1.5) -- (8, 2.5) to [out = 30, in = 240] (11, 6);
 				\draw [fuzzright]	 (8.25, 5.8) to [out = 45, in = 260] (9, 7);
-			
+				% and small arrows
+				\begin{pgfonlayer}{background}
+					\draw[->,outstyle] (11,6) -- +(30:\arrowlength);
+					\draw[->,outstyle] (9,7) -- +(45:\arrowlength);
+				\end{pgfonlayer}
+				
 			% First we fill the surfaces with the background colors.
 			% region 1
 			\fill [color = surfacecolor1] (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
@@ -1247,12 +1252,22 @@ The 1-morphism $ev^L$ of $\FrBord_2$ itself has a left adjoint $ev^{LL}$, and si
 
 		\end{scope}	
 			
-				
-						
+		% names of 2D slices
+		\node (A) at (6.5, 8.5) {$\ev^L$};
+		\node (B) at (6.5, 6) {$\ev^L \circ \ev \circ \ev^R$};		
+		\node (C) at (6.5, 1) {$\ev^R$};
+		\draw [->, gray, thin] (A) -- +(3.5,0);
+		\draw [->, gray, thin] (B) -- +(2,0);
+		\draw [->, gray, thin] (C) -- +(2,0);
+		% names of arrows
+		\node at (9, 7.25) {$ id_{\ev^L} \circledcirc v_2^R$};
+		\node at (9, 2.25) {$ v_1 \circledcirc id_{\ev^R}$};
+		
+		\node at (6, -1) {$\cR = (v_1 \circledcirc id_{\ev^R})\circ (id_{\ev^L} \circledcirc v_2^R)$};				
 							
 		\end{tikzpicture}
 		\end{center}	
-	\caption{.... }
+	\caption{The Radford Bordism.  }
 	%\label{fig:label}
 \end{figure}
 
