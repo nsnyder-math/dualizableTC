@@ -486,7 +486,7 @@ If we additionally assume that $\cC$ is rigid, then some of the conditions of th
 
 \begin{lemma}{\cite[\S 2.11]{EGNO}} \label{lma:Enough_C-projs}
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
-\end{lemma} \CD{This is point 1 after remark 2.11.3 in EGNO.}
+\end{lemma} \CD{This is point 1 after remark 2.11.3 in EGNO.} \NS{I added a reference}
 
 \begin{proof}
 	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator, and these are guaranteed to exist since $\cM$ is finite. Thus assume that $p \in \cM$ is projective.  We aim to show that $\IHom(p, -)$ is right exact. 
@@ -696,7 +696,8 @@ If this were possible, then it would immediately follow that the extension $\ove
 $\overline{F}: \Mod{A}{B}(\cC) \to \cD$.
 
 However it is not possible to define $\overline{F}$ in this way, at least not immediately. The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
-Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the commutative diagram\footnote{The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.} shown in Figure %\ref{fig:RelDelingePdtDiagram}.
+Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagram\footnote{The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.} 
+%shown in Figure %\ref{fig:RelDelingePdtDiagram}.
 %\begin{figure}[htbp]
 	\begin{center}
 		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1.5cm,between origins}] {
@@ -735,8 +736,12 @@ The rows of this diagram are exact (since $F$ was assumed to be right exact in e
 and implements the desired equivalence between such right exact functors and $\cC$-balanced exact-in-each-variable functors. Verifying that this construction is well defined makes use of the pentagon identity satisfied by $\cC$-balanced functors. This establishes (1), (2), and (3). The final property, part (4), now follows from a routine diagram chase, which we also leave to the reader. 
 \end{proof}
 
+\begin{example}
+$\Vec \otimes_{\Vec(G)} \Vec$ is the category of $k[G]$-mod-$k[G]$ bimodules in $\Vec(G)$. Any left $k[G]$ bimodule is free, so we can identify $k[G]$-mod with $\Vec$, and thus $k[G]$-mod-$k[G]$ can be identified with $\text{mod-}k[G] \cong \Rep(G)$.
+\end{example}
+
 \begin{remark}
-	If ${}_{\cD}\cM_{\cC}$ and ${}_{\cC}\cN_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-bimodule category structure on $\cM \boxtimes_{\cC} \cN$. This bimodule category satisfies the analogous universal property for $\cC$-balanced bilinear bimodule functors. 
+	If ${}_{\cD}\cM_{\cC}$ and ${}_{\cC}\cN_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$-$\cE$-bimodule category structure on $\cM \boxtimes_{\cC} \cN$. This bimodule category satisfies the analogous universal property for $\cC$-balanced bilinear bimodule functors.   \NS{Why is the second sentence here true?  I find it surprising, but maybe I just need to think about it more.}
 \end{remark}
 
 \begin{remark}
@@ -745,9 +750,6 @@ The above theorem assumes that $\cC$ is a finite tensor category, that is a fini
 \CD{Add comment on importance/essentialness of right exactness in the theorem?}
 
 
-\begin{example}
-$\Vec \otimes_{\Vec(G)} \Vec$ is the category of $k[G]$-mod-$k[G]$ bimodules in $\Vec(G)$. Any left $k[G]$ bimodule is free, so we can identify $k[G]$-mod with $\Vec$, and thus $k[G]$-mod-$k[G]$ can be identified with $\text{mod-}k[G] \cong \Rep(G)$.
-\end{example}
 
 
 
