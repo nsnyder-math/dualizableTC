@@ -1563,7 +1563,7 @@ A {\em $\cC$-module functor} $\cF:\cM \to \cN$ is a linear functor $F:\cM \to \c
 The following lemma is crucial in constructing adjoints of $2$-morphisms in $\TC$.
 
 \begin{lemma} \label{lma:module-adjoint}
-Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (respectively left) adjoint $\cC$-$\cD$-bimodule functor. 
+Let $\cC$ and $\cD$ be finite tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (respectively left) adjoint $\cC$-$\cD$-bimodule functor. 
 \end{lemma} \CD{Why is this lemma here? Move to where it is needed?}
 \CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
 
@@ -1783,14 +1783,14 @@ Similarly, let ${}^*\cM$ denote the $\cD$--$\cC$ bimodule category whose underly
 Recall that a $\cC$-module category $\cM$ is called {\em exact} if $p \otimes m \in \cM$ is projective whenever $p \in \cC$ is projective.  See Section~\ref{sec:tc-exact} for a summary of the theory of exact module categories.
 
 \begin{lemma}
-Suppose that $\cM$ is an exact $\cC$-module category, that $\cF: \cC \rightarrow \cC^\mop$ is an equivalence of tensor categories, and that $\cM^{\op}$ is the mod-$\cC$ given by $m \cdot c = \cF(c) \otimes m$.  Then $\cM^\op$ is an exact mod-$\cC$.
+Suppose that $\cC$ and $\cD$ are finite tensor categories, and that $\cM$ is an exact $\cC$-module category, that $\cF: \cC \rightarrow \cC^\mop$ is an equivalence of tensor categories, and that $\cM^{\op}$ is the mod-$\cC$ given by $m \cdot c = \cF(c) \otimes m$.  Then $\cM^\op$ is an exact mod-$\cC$.
 \end{lemma}
 \begin{proof}
 By \cite[Prop. 2.3]{EO-ftc} and \cite[Corollary 3.6]{EO-ftc} the injective objects and projective objects agree in $\cC$ and in $\cM$.  Now consider $x$ a projective object in $\cC$ and $m$ an arbitrary object in $\cM^\op$, and look at $m \cdot c = \cF(c) \otimes m$.  Since $\cF(c)$ is projective in $\cC^\mop$ it is also injective in $\cC^\mop$, and hence projective in $\cC$.  Hence $\cF(c) \otimes m$ is projective in $\cM$, hence injective in $\cM^\op$, and thus projective in $\cM^\op$.
 \end{proof}
 
 \begin{corollary} \label{cor:adjoint-exactness}
-Suppose that $\cM$ is an exact $\cC$--$\cD$ bimodule category, then $\cM^*$ and ${}^*\cM$ are exact $\cD$--$\cC$ bimodule categories.
+Suppose that $\cC$ and $\cD$ are finite tensor categories and that $\cM$ is an exact $\cC$--$\cD$ bimodule category, then $\cM^*$ and ${}^*\cM$ are exact $\cD$--$\cC$ bimodule categories.
 \end{corollary}
 
 
@@ -1801,7 +1801,7 @@ Suppose that $\cM$ is an exact $\cC$--$\cD$ bimodule category, then $\cM^*$ and 
 We will need the following lemma which follows immediately from exactness of the tensor product for finite tensor categories \cite[2.1.8]{MR1797619} \cite[Prop. 1.13.1]{EGNO} \cite[Lemma 2.12.]{BTP}
 
 \begin{lemma} \label{lem:sequence-adjunctions}  \NS{Lemma moved from BTP}
-\noindent We have the following sequences of adjunctions:
+If $\cC$ is a finite tensor category, we have the following sequences of adjunctions of tensor product functors:
 \begin{alignat*}{5}
 	& x^* \otimes (-)  \quad & &  \dashv \quad &&  \quad x \otimes (-)  \quad &&  \dashv &&  \quad {}^*x \otimes (-), \\
 	& (-) \otimes {}^* y  \quad & &  \dashv \quad &&  \quad (-) \otimes y  \quad &&  \dashv &&  \quad (-) \otimes y^*. 
@@ -1809,7 +1809,7 @@ We will need the following lemma which follows immediately from exactness of the
 \end{lemma}
 
 \begin{lemma}
-If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodule categories 
+Suppose that $\cC$ and $\cD$ are finite tensor categories.  If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodule categories 
 from $\Fun_{\cC}(\cM, \cN)$ to ${}^*\Fun^L_{\cC}(\cN, \cM)$.
 % where $\Fun^L_\cC$ denotes {\em left exact} $\Vect$-enriched module functors.  
 Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD$ bimodule category, then taking right adjoints gives an equivalence of $\cC$-$\cE$ bimodule categories from ${}^*\Fun_{\cD}(\cM, \cN)$ to $\Fun^L_{\cD}(\cN, \cM)$. 
@@ -1820,6 +1820,7 @@ We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a mod
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
+Suppose that $\cC$ and $\cD$ are finite tensor categories. 
 For a bimodule category ${}_\cC \cM_\cD$, we have equivalences $\cM^* \simeq \Fun_{\cD}(\cM, \cD)$ and ${}^*\cM \simeq \Fun_{\cC}(\cM, \cC)$.
 \end{lemma}
 \begin{proof}
@@ -1988,7 +1989,7 @@ Finally if $Y \in \cM \simeq \Mod{A}{}(\cC)$ is a left $A$-module, then $s \otim
 A linear category $\cC$ is separable (as a $\Vect$-module) if and only if it can be realized as a category of algebras over a separable algebra.  Thus $\Vect$-separability is well-understood.   $\Vect$-separability implies semisimplicity, and over a perfect field it is equivalent to semisimplicity.  More generally, each simple object $X$ in a semisimple category $\cC$ has a division ring of endomorphisms $D_X$ with center $K_X$, and $\cC$ is $\Vect$-separable if and only if $K_X/k$ is a finite separable field extension for all $X$.  Equivalently, a linear category is $\Vect$-separable if and only if it is absolutely semisimple in the sense that the category remains semisimple under arbitrary base changes.  Since the word ``separable" is somewhat overloaded in this section we will say ``absolutely semisimple" instead of ``$\Vect$-separable".  \NS{Needs classical separability references}
 
 \begin{theorem} \label{thm:compositeOfSep}
-	If ${}_\cB\cM_\cC$ and ${}_\cC\cN_\cD$ are separable bimodule categories over semisimple tensor categories, then $\cM \boxtimes_{\cC} \cN$ is a separable $\cB$-$\cD$-bimodule category.
+	If ${}_\cB\cM_\cC$ and ${}_\cC\cN_\cD$ are separable bimodule categories over semisimple finite tensor categories, then $\cM \boxtimes_{\cC} \cN$ is a separable $\cB$-$\cD$-bimodule category.
 \end{theorem}
 
 \begin{proof}
@@ -2094,7 +2095,7 @@ where $a: {}^{**}x \mapsto x$ is any choice of isomorphism.  This is easily seen
 It will be useful for us to have an alternate description of $\dim(\cC)$.  We first fix some notation for identifying several $1$-dimensional hom spaces.
 
 \begin{definition}
-Suppose that $x$ and $y$ are simple objects satisfying $\dim \Hom(x \otimes y, 1) = 1$.  We define the following isomorphisms:
+Suppose that $x$ and $y$ are simple objects satisfying $\dim \Hom(x \otimes y, 1) = 1$ in a fusion category $\cC$.  We define the following isomorphisms:
 \begin{itemize}
 \item $\alpha_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, y \otimes x)$ characterized by $(f \otimes \id_x) \circ (\id_x \otimes \alpha_{x,y}(f)) = \id_x$.
 \item $\beta_{x,y}: \Hom(x \otimes y, 1) \rightarrow \Hom(1, x \otimes y)$ characterized by $f \circ \beta(f)  = 1$.
@@ -2582,7 +2583,9 @@ Without loss of generality, assume that $\cM$ is indecomposable.  By \cite[Prop.
 
 \section{Dualizability} \label{sec:dualizability}
 
-In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  We prove this by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.  First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite-dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^\vee \cong \End(V)$.  Finally, $2$-morphisms have adjoints because functors between semisimple categories are always exact and because adjoints of module functors always have a module functor structure.  This step requires Theorem \ref{thm:closure-of-separability}, that $\TCsep$ really is a subcategory of $\TC$, which is a generalization of M\"uger's result on the semisimplicity of Drinfel'd centers.
+In this section we prove the main theorem, that separable finite tensor categories are fully dualizable.  Throughout this section $\cC$ and $\cD$ will always denote finite tensor categories (i.e. objects of $\TC$), while $\cM$ and $\cN$ will always denote finite module categories (i.e. $1$-morphisms of $\TC$), and $\cF$ and $\cG$ will always denote right exact module functors (i.e. $2$-morphisms of $\TC$)
+
+We prove this main result by constructing duals for all objects, and adjoints for all relevant $1$-morphisms and $2$-morphisms.   First we note that the dual of $\cC$ is $\cC^\mp$, which is straightforward.  Second, we show that the adjoints of ${}_\cC \cM_\cD$ are given by the functor categories $\Fun_{{\cC\text{-mod}}}(\cM, \cC)$ and $\Fun_{\text{mod-}\cD}(\cM, \cD)$.  The proof that these are adjoints requires a nontrivial result, Lemma \ref{Lma:FunctorsAsATensorPdt}, that rewrites certain relative Deligne tensor products as functor categories.  This step is analogous to the fact that the proof of dualizability for finite-dimensional vector spaces requires the isomorphism between tensor product and maps: $V \otimes V^\vee \cong \End(V)$.  Finally, $2$-morphisms have adjoints because functors between semisimple categories are always exact and because adjoints of module functors always have a module functor structure.  This step requires Theorem \ref{thm:closure-of-separability}, that $\TCsep$ really is a subcategory of $\TC$, which is a generalization of M\"uger's result on the semisimplicity of Drinfel'd centers.
 
 Since we have explicit formulas for the dualizing data, we can get explicit formulas for certain bordisms in the (unique up to equivalence) associated TFT.  We give many such examples.
 
