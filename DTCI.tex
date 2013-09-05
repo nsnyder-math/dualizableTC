@@ -1798,6 +1798,16 @@ Suppose that $\cM$ is an exact $\cC$--$\cD$ bimodule category, then $\cM^*$ and 
 	Let ${}_{\cC}\cM_\cD$ be a $\cC$-$\cD$ bimodule category and let ${}_{\cC}\cN_\cE$ be a $\cC$-$\cE$ bimodule category. Temporarily breaking from our convention of only considering right exact functors, let	 $\Fun^L_{\cC}(\cN, \cM)$ denote the category of left exact $\Vect$-enriched $\cC$-module functors (which are not necessarily right exact). This is naturally a $\cD$-$\cE$ bimodule category. We may similarly define bimodule categories of left exact right module functors. 
 \end{definition}
 
+We will need the following lemma which follows immediately from exactness of the tensor product for finite tensor categories \cite[2.1.8]{MR1797619} \cite[Prop. 1.13.1]{EGNO} \cite[Lemma 2.12.]{BTP}
+
+\begin{lemma} \label{lem:sequence-adjunctions}  \NS{Lemma moved from BTP}
+\noindent We have the following sequences of adjunctions:
+\begin{alignat*}{5}
+	& x^* \otimes (-)  \quad & &  \dashv \quad &&  \quad x \otimes (-)  \quad &&  \dashv &&  \quad {}^*x \otimes (-), \\
+	& (-) \otimes {}^* y  \quad & &  \dashv \quad &&  \quad (-) \otimes y  \quad &&  \dashv &&  \quad (-) \otimes y^*. 
+\end{alignat*}  
+\end{lemma}
+
 \begin{lemma}
 If ${}_{\cC}\cM_\cD$ is a $\cC$-$\cD$ bimodule category and ${}_{\cC}\cN_\cE$ is a $\cC$-$\cE$ bimodule category, then taking right adjoints gives an equivalence of $\cD$-$\cE$ bimodule categories 
 from $\Fun_{\cC}(\cM, \cN)$ to ${}^*\Fun^L_{\cC}(\cN, \cM)$.
@@ -1806,7 +1816,7 @@ Similarly, if $\cM$ is a $\cC$-$\cD$ bimodule category and $\cN$ is a $\cE$-$\cD
 \end{lemma}
 \begin{proof}
 	We will prove the first statement as the second follows from a similar argument. 
-We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. Second, note that, as mentioned after Lemma~\ref{lma:RigidIsExact}, the right adjoint of right multiplication by $e$ is right multiplication by $e^*$.  \NS{This reference is broken due to BTP.  We should probably move something from BTP back into this paper.}
+We have already seen in Lemma \ref{lma:module-adjoint} that the adjoint of a module functor has a canonical module functor structure.  Furthermore, taking left adjoints is clearly an equivalence of the relevant functor categories; the inverse equivalence is given by taking right adjoints. Thus we need only check that the $\cD$-$\cE$ bimodule structures agree under this equivalence.  First note that taking adjoints reverses the order of composition. By Lemma \ref{lem:sequence-adjunctions} the right adjoint of right multiplication by $e$ is right multiplication by $e^*$. 
 \end{proof}
 
 \begin{lemma} \label{lem:dual-formula-for-adjoints}
@@ -1882,23 +1892,6 @@ Because the left dual on $\cC$ becomes a right dual on $\cC^\mp$ and vice-versa,
 
 Theorem \ref{thm:EGNO2.11.6} implies that in a precise sense all module categories are categories of modules. Specifically if $A$ is an algebra object in the finite tensor category $\cC$, then $\Mod{}{A}(\cC)$ and $\Mod{A}{}(\cC)$ are left and right $\cC$-module categories, respective (see example \ref{ex:ModulesAreModules}). We will end this section with a few lemmas concerning module categories of this type based on \cite{MR2097289}[\S 3].
 
-\NS{I moved this example from earlier in the section}
-\begin{example}[The category of Hopf bimodules] \label{Ex:Hopf_bimod} \NS{I rewrote the references since the theorems have been moved out of this paper}
-	Let $\cC$ be a finite tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$; $A$ is an algebra object in $\cC \boxtimes \cC^\mp$.  
-%The object $1 \in \cC$ is a $\cC$-projective $\cC$-generator (cf. example \ref{ex:rigid_all_C-proj}) and hence by Lemma \ref{lma:module-adjoint} and Theorem \ref{thm:C-module-Embedding} 
-The functor $\IHom(1, -)$ induces an 
- equivalence of left $\cC \boxtimes \cC^\mp$-module categories:
-	\begin{equation*}
-		{}_{\cC \boxtimes \cC^\mp} \cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp).
-	\end{equation*} 
-In particular it follows that every object $x \in \Mod{}{A}(\cC \boxtimes \cC^\mp)$ may be written as 
-\begin{equation*}
-	x \cong (c \boxtimes 1) \otimes A
-\end{equation*}
-for some object $c \in \cC$, unique up to isomorphism.  See \cite{MR1976459, EO-ftc, EGNO} and \cite[\S ~\ref{sec:conventions}--3.2]{BTP} for more detail on internal endomorphisms and this equivalence, and see \cite[\S 2]{MR2097289} for a detailed discussion of the category of Hopf bimodules.  This example will be used in comparing our Radford isomrophism to the one constructed in \cite{MR2097289} in \S \ref{sec:radiso}
-\CSP{do we want to define the distinguished invertible object?}
-\NS{I think that's better left for the Radford section}
-\end{example}
 
 
 \begin{lemma} \label{lem:dualing-amod}
@@ -1926,7 +1919,12 @@ for some object $c \in \cC$, unique up to isomorphism.  See \cite{MR1976459, EO-
 		(\Mod{}{A}(\cC))^* & \simeq \Mod{A^{**}}{}(\cC) \\
 		(L)^* & \mapsto L^*.
 	\end{align*}
-	Here the star of $(L)^*$ on the left side is an abstract symbol which is used to denote objects of $(\Mod{}{A}(\cC))^*$ (cf. Def. \ref{def:Dual_bimodule_notation}), while $L^*$ on the right side denotes the right dual of $L$ as an object of $\cC$. Similarly we have a $\cC$-module equivalence $(\Mod{A}{}(\cC))^* \simeq \Mod{}{A}$.	
+	Here the star of $(L)^*$ on the left side is an abstract symbol which is used to denote objects of $(\Mod{}{A}(\cC))^*$ (cf. Def. \ref{def:Dual_bimodule_notation}), while $L^*$ on the right side denotes the right dual of $L$ as an object of $\cC$. Similarly we have a $\cC$-module equivalence $(\Mod{A}{}(\cC))^* \simeq \Mod{}{A}$.
+	Similarly, we have an equivalences of $\cC$-module categories: 
+	\begin{align*}
+		{}^*(\Mod{}{A}(\cC)) & \simeq \Mod{A}{}(\cC) \\
+		{}^*(L) & \mapsto {}^*L.
+	\end{align*}
 \end{lemma}
 
 \begin{proof}
@@ -2199,7 +2197,10 @@ $$ \lVert x \rVert (\beta^{-1}(\alpha(f)) \circ \alpha(f)) = \lVert x \rVert = (
 
 \CSP{These should cite either ENO or BTP or both.}
 \NS{I think the citations are now dealt with}
-In order to apply the definition of separability, we need to find an explicit algebra $A$ in $\cC \boxtimes \cC^\mp$ with the property that $\cC \cong \text{mod-}A$ as a left $\cC \boxtimes \cC^\mp$-module category.  This can be constructed using Ostrik's internal hom construction, namely we can take $A = \IHom(1,1)$ where $\IHom(1,1)$ is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
+In order to apply the definition of separability, we need to find an explicit algebra $A$ in $\cC \boxtimes \cC^\mp$ with the property that $\cC \cong \text{mod-}A$ as a left $\cC \boxtimes \cC^\mp$-module category.  We use the following natural choice, which will also be used in comparing our Radford isomrophism to the one constructed in \cite{MR2097289} in \S \ref{sec:radiso}.
+
+\begin{example}[The category of Hopf bimodules] \label{Ex:Hopf_bimod}  \NS{Moved and merged with the material already here}
+	Let $\cC$ be a finite tensor category, and consider it as a left $\cC \boxtimes \cC^\mp$-module category. Let $A = \IHom(1,1)$ be the enriched endomorphism object of $1 \in \cC$; $A$ is an algebra object in $\cC \boxtimes \cC^\mp$.  Ostrik's internal hom $\IHom(1,1)$ is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
 \NS{I'm not sure when I'm supposed to say ``internal hom" versus ``enriched hom."  Someone else should fix anywhere I've used the wrong one.}
 \begin{equation*}
 	\Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , \IHom(a,b)) \cong \Hom_{\cC}(x \otimes a \otimes y, b).
@@ -2208,7 +2209,17 @@ In order to apply the definition of separability, we need to find an explicit al
 \begin{equation*}
 	\IHom(1, -): \cC \to \Mod{}{A}(\cC \boxtimes \cC^\mp).
 \end{equation*}
-See \cite{MR1976459, EO-ftc, EGNO} and \cite[\S ~\ref{sec:conventions}--3.2]{BTP} for more details on the internal hom construction and this identification.
+The functor $\IHom(1, -)$ induces an 
+ equivalence of left $\cC \boxtimes \cC^\mp$-module categories:
+	\begin{equation*}
+		{}_{\cC \boxtimes \cC^\mp} \cC \simeq \Mod{}{A}(\cC \boxtimes \cC^\mp).
+	\end{equation*} 
+In particular it follows that every object $x \in \Mod{}{A}(\cC \boxtimes \cC^\mp)$ may be written as 
+\begin{equation*}
+	x \cong (c \boxtimes 1) \otimes A
+\end{equation*}
+for some object $c \in \cC$, unique up to isomorphism.  See \cite{MR1976459, EO-ftc, EGNO} and \cite[\S ~\ref{sec:conventions}--3.2]{BTP} for more detail on internal endomorphisms and this equivalence, and see \cite[\S 2]{MR2097289} for a detailed discussion of the category of Hopf bimodules.
+\end{example}
 
 %Let $\cC$ be a finite tensor category, which we may consider as a left $\cC \boxtimes \cC^\mp$-module category. First, $\cC$ admits an enrichment in $\cC \boxtimes \cC^\mp$. Thus for every pair of objects $a, b \in \cC$, there exists an object $\IHom(a,b) \in \cC \boxtimes \cC^\mp$. This object is characterized by its functor of points; for every $x \in \cC$ and $y \in \cC^\mp$, we have a natural isomorphism:
 %\begin{equation*}
