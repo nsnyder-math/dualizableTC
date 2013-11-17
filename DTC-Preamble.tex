@@ -10,6 +10,7 @@
 \usepackage{comment}
 \usepackage{pgfplots}
 \usepgflibrary{fpu}
+\usepackage{mathtools}
 
 \usepackage{ifthen}		% For if-then-else statements in making commands. 
 
@@ -61,6 +62,10 @@
 \setlength{\circlerad}{16pt}
 \newlength{\smcirclerad}
 \setlength{\smcirclerad}{8pt}
+\newlength{\smcircleradt}
+\setlength{\smcircleradt}{7pt}
+\newlength{\minirad}
+\setlength{\minirad}{.2cm}
 \newcommand{\fillcolor}{black!60}
 \newcommand{\fuzzcolor}{black!25}
 \newcommand{\arrowcolor}{black!25}
@@ -212,6 +217,22 @@ coverlinelefttail/.style={
 	}
 }
 
+\renewcommand{\mod}[2]  
+{
+  \ifthenelse{\equal{#1}{}}{  			% If A is empty ...
+		\ifthenelse{\equal{#2}{}}		% And B is empty ...
+			{\mathrm{mod}}{ 			% just print "Mod"
+				{\mathrm{mod}\textrm{-}#2}		% Else, print "Mod-B"
+			}
+	}{									% but if A is not empty,
+		\ifthenelse{\equal{#2}{}}		% and B is empty,
+			{{#1\textrm{-}\mathrm{mod}}}{		% print "A-mod",
+				{{#1\textrm{-}\mathrm{mod}\textrm{-}#2}}	% otherwise print "A-Mod-B".
+			}
+	}
+}
+
+
 %% Bimodule command.  Syntax \bimod{C}{M}{D}
 
 \newcommand{\bimod}[3]
@@ -263,6 +284,7 @@ coverlinelefttail/.style={
 \renewcommand{\mp}{\mathrm{mp}}
 \newcommand{\op}{\mathrm{op}}
 \newcommand{\mop}{\mathrm{mop}}
+\newcommand{\rev}{\mathrm{rev}}
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\inc}{\mathrm{inc}}
 
@@ -277,11 +299,13 @@ coverlinelefttail/.style={
 \newcommand{\Set}{\mathrm{Set}}
 
 \newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\tr}{\mathrm{tr}}
 
 
 \newcommand{\Cob}{\mathrm{Cob}}
 \newcommand{\Bord}{\mathrm{Bord}}
 \newcommand{\FrBord}{\mathrm{Bord}^\mathrm{fr}}
+\newcommand{\OrBord}{\mathrm{Bord}^\mathrm{or}}
 \newcommand{\StrBord}{\mathrm{StrBord}}
 \newcommand{\OrpoBord}{\mathrm{OrpoBord}}
 \newcommand{\QuadBord}{\mathrm{QuadBord}}
@@ -306,7 +330,8 @@ coverlinelefttail/.style={
 \newcommand{\TC}{\mathrm{TC}}
 \newcommand{\ev}{\mathrm{ev}}
 \newcommand{\coev}{\mathrm{coev}}
-\newcommand{\TCsep}{{\TC^{\text{sep}}}}
+\newcommand{\TCsep}{{\TC^{\mathrm{sep}}}}
+\newcommand{\TCss}{{\TC^{\mathrm{ss}}}}
 \newcommand{\Rep}{\mathrm{Rep}}
 \newcommand{\fr}{\mathrm{fr}}
 
@@ -315,6 +340,10 @@ coverlinelefttail/.style={
 \newcommand{\Seg}{\mathrm{Seg}}
 
 \newcommand{\RP}{\RR \mathrm{P}}
+
+\newcommand{\pt}{\mathrm{pt}}
+
+\newcommand{\coZ}{\reflectbox{$\cZ$}}
 
 
 
@@ -348,6 +377,7 @@ coverlinelefttail/.style={
 \newcommand{\CSP}[1]{\marginpar{\vspace*{-20pt}\tiny\color{CSPcolor}{ #1}\vspace*{20pt}}}
 \newcommand{\CD}[1]{\marginpar{\vspace*{-20pt}\tiny\color{CDcolor}{ #1}\vspace*{20pt}}}
 \newcommand{\NS}[1]{\marginpar{\vspace*{-20pt}\tiny\color{NScolor}{ #1}\vspace*{20pt}}}
+\newcommand{\CDh}[1]{\marginpar{\vspace*{-0pt}\tiny\color{CDcolor}{ #1}\vspace*{0pt}}}
 
 \newcommand{\CSPcomm}[1]{{\color{CSPcolor}{#1}}}
 \newcommand{\CDcomm}[1]{{\color{CDcolor}{#1}}}
@@ -359,5 +389,34 @@ coverlinelefttail/.style={
 	% pagebackref,
  	%bookmarksnumbered=true
 	]{hyperref}
+
+%%%%%%%%
+
+\DeclareFontFamily{U}  {MnSymbolA}{}
+\DeclareFontShape{U}{MnSymbolA}{m}{n}{
+    <-6>  MnSymbolA5
+   <6-7>  MnSymbolA6
+   <7-8>  MnSymbolA7
+   <8-9>  MnSymbolA8
+   <9-10> MnSymbolA9
+  <10-12> MnSymbolA10
+  <12->   MnSymbolA12}{}
+
+\DeclareFontShape{U}{MnSymbolA}{b}{n}{
+    <-6>  MnSymbolA-Bold5
+   <6-7>  MnSymbolA-Bold6
+   <7-8>  MnSymbolA-Bold7
+   <8-9>  MnSymbolA-Bold8
+   <9-10> MnSymbolA-Bold9
+  <10-12> MnSymbolA-Bold10
+  <12->   MnSymbolA-Bold12}{}
+
+\DeclareSymbolFont{MnSyA}         {U}  {MnSymbolA}{m}{n}
+\SetSymbolFont{MnSyA}       {bold}{U}  {MnSymbolA}{b}{n}
+
+\DeclareMathSymbol{\leftmapsto}{\mathrel}{MnSyA}{42}
+\DeclareMathSymbol{\rightmapsto}{\mathrel}{MnSyA}{40}
+
+
 
 
