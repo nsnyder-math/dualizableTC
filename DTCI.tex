@@ -1041,7 +1041,6 @@ Let $x \in \cC$ be a 2-dualizable object of an $(\infty,2)$-category $\cC$.  Let
 \end{proposition}
 \nid Because symmetric monoidal functors take duals to duals and adjoints to adjoints, the previous decomposition of the Serre and inverse Serre bordisms immediately implies that the Serre and inverse Serre automorphisms are equivalent to the listed expressions.  (Recall also that duals and adjoints are uniquely determined---more specifically, the category of triples $(x_-,\ev_x,\coev_x)$ witnessing a dual to $x$ is contractible, and similarly for triples witnessing a right or left adjoint to $\ev$---and so it does not matter what choices we make for $x_-$, $\ev_x$, $\coev_x$, $\ev_x^R$, and $\ev_x^L$.)  In fact, given a 2-dualizable object $x \in \cC$, a local field theory may be chosen such that the Serre and inverse Serre automorphisms of $x$ in that choice of field theory are exactly equal to the formulas listed in the proposition; ensuring that equality is somewhat more subtle and is discussed later in Remark~\ref{rem:hep}.
 
-%\CD{This section was missing information needed later.}
 
 \subsection{The Radford bordism and the Radford equivalence}
 \CDh{\S 2.4 $\checkmark$}
@@ -1416,7 +1415,6 @@ Let $x \in \cC$ be a Radford object of a symmetric monoidal $(\infty,n)$-categor
 Though we may think of the equivalences appearing in Proposition~\ref{prop-Cat_Radford} and Corollary~\ref{cor:serreinvserre} as images of certain bordisms under a local field theory, in fact neither result depends on the cobordism hypothesis.  There are two related lessons here, namely that applications of the cobordism hypothesis often depend not on full dualizability but only on partial dualizability conditions concerning the specific geometry of relevant bordisms, and that those applications can often be proven directly, perhaps with inspiration from but without appeal to the cobordism hypothesis itself.
 
 
-%\CD{This logic of this section was a complete mess. (and there were small mathematical issues)}
 
 \section{Tensor categories} \label{sec:tc}
 \CDh{\S 3.0 $\checkmark$}
@@ -1641,7 +1639,6 @@ The relative Deligne tensor product provides a means of composing bimodule categ
 Provided the base field $k$ is perfect, there exists a symmetric monoidal $(3,3)$-category $\TC$ whose objects are the finite tensor categories, whose 1-morphisms are finite bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule transformations.  Composition of 1-morphisms is given by the relative Deligne tensor product, and the symmetric monoidal structure is given by the Deligne tensor product.
 \end{theorem}
 
-%\CD{This section had both a number of serious and also various minor mistakes and substantive ambiguities.}
 
 \subsection{Exact module categories} \label{sec:tc-exact}
 \CDh{\S 3.3 $\checkmark$}
@@ -1780,7 +1777,6 @@ The columns are exact because the objects $z_i$ are injective.  The middle row i
 An argument of the same flavor, involving applications of parts (3) and (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}, a resolution by a primitive tensor, and a diagram chase, shows that the action functor $(\cC \boxtimes \cD) \times (\cM \boxtimes \cN) \ra (\cM \boxtimes \cN)$ is exact.
 \end{proof}
 
-%\CD{This section, including the main proof, had substantive issues and misdirections.}
 
 \subsection{Dual and functor bimodule categories} \label{sec:tc-bimodules}
 \CDh{\S 3.4 $\checkmark$}
@@ -1849,7 +1845,6 @@ where $\mathfrak{r}$ denotes the right dual functor.  Similarly
 
 \end{lemma}
 \noindent The proof is simply chasing carefully through the definitions.  Analogous formulas hold for left dual categories.
-%\CD{The formula before was wrong.}
 \CD{Double check these formulas.}
 
 We will need to know that the duals of exact module categories are exact.  (Recall that a $\cC$-module category $\cM$ is called exact if $p \otimes m \in M$ is projective whenever $p \in \cC$ is projective.)  Toward that end, we first prove an auxiliary result concerning exactness of contravariantly, monoidally-oppositely twisted modules.  For a left $\cC$-module $\cM$ and $\cF: \cC \rightarrow \cC^\mop$ a tensor equivalence, let $\cM^{\op(\cF)}$ denote the right $\cC$-module with underlying linear category $\cM^\op$ and action $m \cdot c := F(c) \otimes m$.
@@ -1859,7 +1854,6 @@ Let $\cC$ be a finite tensor category, and $\cM$ an exact left $\cC$-module cate
 \begin{proof}
 Recall from Theorem~\ref{Thm:ExactModCatOmnibus}, using Example~\ref{ex:exactness}, that projective objects in $\cC$ are injective and vice versa, and similarly for objects in $\cM$.  Consider an object $m \in \cM^{\op(\cF)}$ and a projective object $p \in \cC$.  Because $p \in \cC$ is projective, it follows that $\cF(p)$ is projective as an object of $\cC^\mop$, therefore injective as an object of $\cC^\mop$, therefore, by reversing the arrows, projective as an object of $\cC^\mp$.  By the exactness of $\cM$, it follows that $\cF(p) \otimes m$ is projective as an object of $\cM$, therefore injective as an object of $\cM$, and then, by reversing arrows, projective as an object of $\cM^{\op(\cF)}$, as required.
 \end{proof}
-%\CD{The previous version of this proof had mistakes}
 
 \noindent Applying this lemma with the functor $\cF$ being an appropriate combination of duals (taking account of Lemma~\ref{lemma:DualTwist}) provides the desired result:
 
@@ -1887,7 +1881,6 @@ Note that the right adjoint of a $\cC$-module functor from $\cM$ to $\cN$ is a l
 The same adjunctions hold when the tensor represents the action on a module category.  For $\cF \in \Fun_{\cC}(\cM,\cN)$, the left $\cD$ action is by definition $(d \cdot \cF)(m) = \cF(m \otimes d)$.  The right adjoint of the composite functor $\cF(- \otimes d)$ is therefore $\cF^R(-) \otimes d^*$, as required.  The right $\cE$ action is similar, as is the case of right module functors.
 \end{proof}
 
-%\CD{The previous version of this proof had mistakes}
 
 We can now prove the desired equivalence between the dual and functor categories.
 \begin{proposition} \label{prop:dual-formula-for-adjoints}
@@ -1897,7 +1890,6 @@ Given a finite bimodule category ${}_\cC \cM_\cD$ between finite tensor categori
 By the previous lemma, there is an equivalence between $\Fun_\cC(\cM,\cC)$ and ${}^* \Fun^L_\cC(\cC,\cM)$.  The category of all (not necessarily right or left exact) $\cC$-module functors from $\cC$ to $\cM$ is certainly equivalent to $\cM$.  However, because $\cC$ is finite tensor, it is exact over itself (as in Example~\ref{ex:exactness}), and therefore all $\cC$-module functors from it are exact, in particular left exact.  The other equivalence is obtained in the same fashion.
 \end{proof}
 
-%\CD{The previous version of this proof was flat out wrong}
 
 \subsubsection{The relative Deligne tensor product as a functor category}
 
@@ -1920,7 +1912,6 @@ We focus on the first equivalence, as the second is analogous.  The functor indu
 
 Using Theorem~\ref{thm:EGNO2.11.6}, choose algebra objects $A \in \cC$ and $B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$.  The functor $\tau: \Mod{A}{B}(\cC) \rightarrow \Fun_\cC(\cM,\cN)$, given by $\tau(M) = - \otimes_A M$, is an equivalence, as we will see presently and as observed in \cite[Prop 2.12.2]{EGNO}.  A functor $\cF \in \Fun_\cC(\cM,\cN)$ is naturally equivalent to the functor $\tau(\cF(A)) = - \otimes_A \cF(A)$, so $\tau$ is essentially surjective.  (To see this note that $\cF$ and $\tau(\cF(A))$ agree on free $A$-modules, and any object $M \in \cM \simeq \Mod{}{A}(\cC)$ is the canonical coequalizer $\textrm{coeq}_\cC(M \otimes A \leftleftarrows M \otimes A \otimes A)$ of free $A$-modules.)  The functor $\tau$ is evidently fully faithful.  A special case of the equivalence $\tau$ gives an equivalence $\Mod{A}{}(\cC) \simeq \Fun_\cC(\cM,\cC)$.  The equivalence between $\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN$ and $\Mod{A}{B}(\cC)$ now follows from Theorem~\ref{thm:DelignePrdtOverATCExists}.
 \end{proof}
-%\CD{The previous version of this proof had mistakes.}
 
 \begin{corollary} \label{cor:tensasfunct}
 For ${}_\cD \cM_\cC$ and ${}_\cC \cN_\cE$ finite bimodule categories over finite tensor categories, there are equivalences of $\cD$--$\cE$-bimodule categories
@@ -2035,7 +2026,6 @@ If we assume $\Mod{A}{A}(\cC)$ is semisimple, then all its objects are projectiv
 \end{proof}
 
 %\CD{Removed identity functor projective --- general triviality, not used?}
-%\CD{Previous proof mixed obvious classical proofs and less obvious relevant material in an unnecessary way.}
 
 
 \subsubsection{Separable bimodules compose}
@@ -2070,7 +2060,6 @@ T(A) \xra{\id_A \otimes \sigma} T(T(A)) \cong T(T(A) \otimes_A A) \xra{T(\id_{T(
 \]
 
 \end{proof} %\CD That proof didn't use the separability of B, right?
-%\CD{Previous proof very nice, has just been expanded to explain and highlight some of the subtleties.}
 
 
 \begin{corollary} \label{cor:funsemi}
@@ -2283,9 +2272,6 @@ Without loss of generality, we assume $\cM$ is indecomposable.  By Theorem~\ref{
 \CD{is this where this theorem belongs?}
 
 
-%No:{Define fusion to be finite tensor cat that is absolutely semisimple with unit absolutely simple.  (Then restrict to alg closed so obtain the usual notion.)}
-
-%\CD{Various false statements fixed in this section.}
 
 \section{Dualizability} \label{sec:dualizability}
 \CDh{\S 4.0 $\checkmark$}
@@ -2335,7 +2321,6 @@ A functor $\cD \boxtimes_{\cD^\mp \boxtimes \cD} (\cD^\mp \boxtimes \cM) \ra \cM
 \end{align*}
 together with the obvious natural isomorphism, defines the desired equivalence.
 \end{proof}
-%\CD{The proof here before was wrong.}
 %\nid Also observe the following more elementary interaction between flipping actions and the Deligne tensor: for any bimodule categories ${}_{\cC \boxtimes \cD} \cM_\cE$ and ${}_\cE \cN_{\cE'}$, the partial flip of the tensor can be written as a tensor with a flip:
 %\[
 %{}_\cC (\cM \boxtimes_{\cE} \cN)_{\cD^\mp \boxtimes \cE'} \simeq ({}_\cC \cM_{\cD^\mp \boxtimes \cE}) \boxtimes_{\cD^\mp \boxtimes \cE} (\cD^\mp \boxtimes \cN).
@@ -2363,7 +2348,6 @@ The term $({}_\cC \cC_\cC) \boxtimes ({}_{\cC \boxtimes \cC^\mp} \cC_\Vect)$ has
 \end{align*}
 This last equivalence is the identity on the first two copies of $\cC$ and the symmetric switch on the last two copies of $\cC$, and in the second line both the left and right actions of $\cC \boxtimes \cC^\mp \boxtimes \cC$ are without any switches.  The result is therefore one of the usual duality zigzags for the given evaluation and coevaluation.  The other zigzag is similar.
 \end{proof}
-%\CD{The proof here before was somewhere between unnecessarily complicated and wrong.  (Because it invoked two uses of the switch lemma.)}
 
 
 \subsubsection{The twice categorified 1-dimensional field theory associated to a tensor category}
@@ -2468,7 +2452,6 @@ The first equivalence is by Corollary~\ref{cor:tensasfunct}, the second equivale
 \begin{remark}
 Though the bordisms listed in Table~\ref{table:egdimone} generate all isomorphism classes of 1-framed 0- and 1-manifolds, it is not the case that specifying the invariants of those bordisms is sufficient to determine the 1-dimensional field theory $\cF_\cC : \FrBord_1 \ra \TC_{(3,1)}$ associated to a finite tensor category $\cC$.  The trouble is that there are moduli spaces of bordisms, and because the target $\TC_{(3,1)}$ is a 3-category, it can detect the topology of those moduli spaces as higher automorphisms of the invariants.  In fact, the field theory is specified by the invariants in the table, together with one additional piece of data (coming from the 2-dimensional homotopy class in $B\mathrm{Diff}(S^1)$), namely a natural automorphism of the identity endofunctor of the trace $\cT(\cC)$.
 \end{remark}
-%\CD{The previous remark was problematic because semisimplicity hasn't been discussed}
 %!% CD I removed reference to the Drinfeld element here, and the reference to future work.
 
 \begin{remark} \label{rem:hep}
@@ -2505,7 +2488,6 @@ where the first map sends $d \in \cD$ to the functor $- \mapsto - \otimes d$; th
 \eta_2 : \cC \ra \Fun_\cD(\cM,\cM) \simeq \cM \boxtimes_\cD \Fun_\cD(\cM,\cD),
 \]
 where the first map sends $c \in \cC$ to the functor $- \mapsto c \otimes -$; this map, and thus the composite, has the structure of a $\cC$--$\cC$-bimodule functor.
-% \CD{The statements here before had mistakes}
 \begin{proposition} \label{prop:evcoev}
 The pair of functors $(\eta_1,\varepsilon_1)$ form the unit and counit of an adjunction
 \[
@@ -2688,7 +2670,6 @@ $\coev^R$ & $=$ & \CDcomm{missing pic Fig 2}
 \caption{Invariants associated to 2-framed points and intervals.} \label{table:intervals}
 \end{table}
 \CD{Replace the $ev^R$ picture in Table 2.  Draw $coev^R$.  Fix the spacing (eg of point figures).}
-%\CD{Half the values in this table were wrong.}
 \CD{Double check table 2.}
 
 We are now, finally, in a position to calculate the Serre automorphism of a finite tensor category; the result of this calculation is the central connection between the topology of framed bordisms and the algebra of duality in tensor categories.
@@ -2729,7 +2710,6 @@ The Serre automorphism $\cS_\cC$ of the finite tensor category $\cC$ is the doub
 {}_{\langle \mathfrak{l l} \rangle \cC} \cC_\cC
 \end{align*}
 \end{theorem}
-%\CD{The statement of this result was wrong in the previous version.}
 \begin{proof}
 By Proposition~\ref{prop:serrecalc}, we know the Serre and inverse Serre automorphisms of $\cC$ are given by the following composites:
 \begin{align*}
@@ -2759,7 +2739,6 @@ By Proposition~\ref{prop:dual-formula-for-adjoints}, Lemma~\ref{lemma:DualTwist}
 \end{alignat*}
 as required.  
 \end{proof}
-%\CD{The paper was missing a proof of this main theorem.}
 
  \begin{table}[ht]
 \begin{tabular}{c|rcl}
@@ -2795,7 +2774,6 @@ as required.
 \vspace{6pt}
 \caption{Invariants associated to 2-framed circles.} \label{table:circles}
 \end{table}
-%\CD{The formulas here were also wrong.}
 
 
 By composing the invariants of the intervals in Table~\ref{table:intervals}, we can compute the invariants for various 2-framed circles; the three most important such circles and their resulting invariants are listed in Table~\ref{table:circles}.  In that table, the first equivalence is by Proposition~\ref{prop:FunctorsAsATensorPdt}; the second and third equivalences are by Corollary~\ref{cor:tensasfunct} and Lemma~\ref{lemma:DualTwist}.  Finally, in Table~\ref{table:discs}, we record the values of the 2-framed discs arising as the units and counits of the adjunctions $\ev^L_\cC \dashv \ev_\cC$ and $\coev^L_\cC \dashv \coev_\cC$.
@@ -3050,7 +3028,6 @@ M \mapsto A^* \boxtimes M \mapsto A^* \otimes_A N,
 \]
 as desired.
 \end{proof}
-%\CD{The previous proof of this had numerous mistakes}
 
 Provided we are willing to make strong semisimplicity assumptions about our tensor category, the statement of Theorem~\ref{thm:quaddual} simplifies.  
 %Recall that a finite linear category is called absolutely semisimple if it is semisimple and remains so after arbitrary base changes.  Similarly, a
@@ -3107,7 +3084,6 @@ A functor out of a semisimple category is both left and right exact.  It follows
 In fact, the left and right adjoints of a bimodule functor $\cF: \cM \ra \cN$ between finite semisimple bimodule categories are isomorphic, and can be described explicitly as a transpose-dual functor.  That is, let $\{m_i\}$ be a set of representatives of the isomorphism classes of simple objects of $\cM$, and similarly $\{n_i\}$ for $\cN$.  The functor $\cF$ is isomorphic to a functor $m_i \mapsto \bigoplus_j F_{ij} n_j$, where $F_{ij} \in \Vect$.  The transpose-dual functor $n_j \mapsto \bigoplus_i F_{ij}^* m_i$ is both a left and a right adjoint for $\cF$, where $F_{ij}^* \in \Vect$ is the ordinary dual vector space to $F_{ij}$.
 \end{remark}
 \CD{Recheck this remark.}
-%\CD{What was here before was flat out wrong.}
 
 With adjoints for bimodule functors at hand, we can now assemble the pieces to prove full dualizability.
 \begin{theorem} \label{thm:TC-dualizable}
@@ -3116,7 +3092,6 @@ The 3-category $\TCsep$ (of separable tensor categories, finite separable bimodu
 \begin{proof}
 By Proposition~\ref{prop:onedual}, a separable tensor category $\cC$ has $\cC^\mp$ as a dual tensor category; the tensor category $\cC^\mp$ is evidently also separable.  Combining Proposition~\ref{prop:evcoev} and Proposition~\ref{prop:dual-formula-for-adjoints}, a finite separable bimodule category ${}_\cC \cM_\cD$, between separable tensor categories, has the finite bimodule categories ${}^* \cM$ and $\cM^*$ as left and right adjoints.  By applying Corollary~\ref{cor:dualamod}, we see that the dual categories ${}^* \cM$ and $\cM^*$ are also separable.  Finally, Proposition~\ref{prop:bimodfunctadjoints} ensures that all bimodule functors between finite separable bimodule categories have adjoints.
 \end{proof}
-%\CD{The previous proof left out the only things that actually require checking.}
 
 \begin{corollary} \label{cor:septcisdualizable}
 Separable tensor categories are 3-, that is fully, dualizable objects of the 3-category of finite tensor categories.
@@ -3168,9 +3143,7 @@ By the cobordism hypothesis, the group $SO(3)$ acts on the space of fully dualiz
 
 In this section, we recall the classical notions of a pivotal structure on a tensor category, and of a spherical structure on a semisimple tensor category.  We introduce a new definition of sphericality that provides the correct generalization of the classical notion to the non-semisimple case.  We explain, largely in the form of a preview, the relationship between pivotal and spherical structures and the existence of certain homotopy fixed point structures, and finally conclude with a number of further conjectures and questions regarding the descent properties of 3-dimensional field theories.
 
-%!% Check that char zero fusion => nonzero global dim.
 
-% \CD{The stuff in this section seemed amiss previously, and also had mistakes.}
 
 
 \subsubsection{Pivotal structures and trivializations of the Serre automorphism}
@@ -3209,7 +3182,7 @@ A pivotal tensor category $(\cC, P: (-) \simeq (-)^{**})$ is \emph{trace spheric
 \nid In the semisimple case, the two notions correspond precisely:
 \begin{proposition}
 A semisimple pivotal finite tensor category with absolutely simple unit is spherical if and only if it is trace spherical.
-\end{proposition} %!% Rephrase in terms of fusion. 
+\end{proposition} %!% Rephrase in terms of fusion. (no, haven't changed def of fusion that way.)
 \begin{proof}
 Both the property of sphericality and the property of trace sphericality are invariant under base change, so it suffices to compare them over an algebraically closed field.  When the base field is algebraically closed, Etingof-Nikshych-Ostrik prove in \cite[Thm 7.3 and Cor 7.4]{MR2097289} that the Radford equivalence $\cR_\cC : (-) \xra{\simeq} (-)^{****}$ is characterized by a property that is equivalent to the following property: for any object $V \in \cC$ and any morphism $f_V: V \ra V^{**}$, there is an equality of traces $\Tr(f_V) = \Tr((f_V)^* \circ \cR_{({}^* V)})$.  Here we have abbrevicated $\cR_\cC({}^* V)$ as $\cR_{({}^* V)}$.  When $(\cC,P)$ is a pivotal tensor category, we have $(P_V)^* = (P_{V^*})^{-1}$ \cite[Lemma 4.11]{0908.3347}. %, and therefore $(P_V)^{**} = P_{V^{**}}$.  
 If $(\cC,P)$ is spherical, it follows that
@@ -3237,7 +3210,6 @@ Note that by the Barrett--Westbury condition mentioned in the previous example, 
 %!% Does the ENO characterization depend on working over an algebraically closed field?
 %!% Confirm that ENO characterization.
 
-% \CD{There were various mistakes in the above.}
 
 \begin{remark}
 Because the representation category $\Rep(H) \in \TC$ of Sweedler's Hopf algebra is not $\Omega \Sigma \RP^2$-fixed, it cannot be $SO(3)$ fixed for any action of $SO(3)$ on $\TC$ restricting to the $\Omega \Sigma \RP^2$ action provided by the combination of the Serre automorphism and the Radford equivalence.  Thus the associated field theory invariants cannot possibly be oriented invariants.  At best, $\Rep(H)$ could be an $SO(2)$-fixed point and thus provide a combed field theory.  (A combed field theory is by definition one taking values on $SO(2)$-structured manifolds; an $SO(2)$-structured 3-manifold is precisely a 3-manifold equipped with a nonvanishing vector field, that is a combing.)  This explains the necessity of the combing on the manifolds appearing in Kuperberg's description of an invariant associated to Sweedler's Hopf algebra~\cite{MR1394749}.  In particular, we see that, unlike for ordinary Turaev-Viro invariants in the semisimple case, trace sphericality is insufficient to produce an oriented invariant.
