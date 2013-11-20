@@ -1481,9 +1481,9 @@ For $x \in \cC$ an object of a monoidal category, the object $x^*$ is the right 
 A bimodule ${}_A M_B$ is a $1$-morphism from $A$ to $B$ in the $2$-category $\Alg$ of algebras, bimodules, and intertwiners.
 \end{definition}
 
-With the preceding conventions in place, observe the following:
+As simple examples of how these various conventions interact, observe the following:
 \begin{itemize}
-\item[1.] Let $\cC$ be a monoidal category, considered as a 2-category with one object.  There is a 2-functor from $\cC$ to $\Cat$ that takes the unique object $\ast \in \cC$ to $\cC \in \Cat$ and takes the morphism $\ast \xra{x} \ast$ of $\cC$ to the functor $\cC \xra{- \otimes x} \cC$.  That is, tensoring on the right provides a 2-functor.  Similarly, tensoring on the left ($x \otimes -$) provides a 2-functor from $\cC$ to $\Cat^{\op_1}$; here ``$\op_1$" indicates that the 1-morphisms of $\Cat$ have been reversed. \CD{Is this referrenced/used?} %!% Either way, rewrite introducing sentence to signal the point of 1 and/or 2.
+\item[1.] Let $\cC$ be a monoidal category, considered as a 2-category with one object.  There is a 2-functor from $\cC$ to $\Cat$ that takes the unique object $\ast \in \cC$ to $\cC \in \Cat$ and takes the morphism $\ast \xra{x} \ast$ of $\cC$ to the functor $\cC \xra{- \otimes x} \cC$.  That is, tensoring on the right provides a 2-functor.  Similarly, tensoring on the left ($x \otimes -$) provides a 2-functor from $\cC$ to $\Cat^{\op_1}$; here ``$\op_1$" indicates that the 1-morphisms of $\Cat$ have been reversed.
 \item[2.] There is a 2-functor from $\Alg$ to $\Cat$ sending an algebra $A$ to the category $\Mod{}{A}$ of right modules.  Similarly there is a 2-functor from $\Alg$ to $\Cat^{\op_1}$ taking $A$ to the category $\Mod{A}{}$ of left modules.
 \end{itemize}
 
@@ -1592,7 +1592,6 @@ Let $\cC$ be a finite tensor category, and let $\cM$ be a finite left $\cC$-modu
 \begin{lemma} \label{lma:module-adjoint}
 Let $\cC$ and $\cD$ be finite tensor categories, and let $\cM$ and $\cN$ be finite $\cC$--$\cD$-bimodule categories.  Let $\cF: \cM \to \cN$ be a not-necessarily-right-exact $\cC$--$\cD$-bimodule functor.  If the linear functor underlying $\cF$ has a right, respectively left, adjoint linear functor (not-necessarily-right-exact), then $\cF$ itself has a right, respectively left, adjoint $\cC$--$\cD$-bimodule functor (not-necessarily-right-exact).
 \end{lemma}
-\CD{Note not-necessarily-right-exact modifiers}
 
 %!% Maybe don't need to bother saying the lift is canonical.
 
@@ -1686,8 +1685,6 @@ The following omnibus theorem summarizes the properties of exact module categori
 		\item The category $\cM$ is exact when considered as a $\Fun_{\cC}(\cM,\cM)^\mp$-module category \cite[Lemma 3.25]{EO-ftc}.
 	\end{enumerate}
 \end{theorem}
-%!% Add reference to item 7 wherever it is used.
-%!% Arbitrary field?
 \nid The sixth item is seen as follows.  Any functor $\cF \in \Fun_\cC(\cM,\cM)$ is exact, therefore has left and right adjoints as a linear functor.  By Lemma~\ref{lma:module-adjoint}, the functor $\cF$ also has adjoints as a module functor---these adjoints provide the required rigidity.  \CD{Check item 7 (... and the rest ...) really okay over arbitrary field}
 
 
@@ -1981,18 +1978,12 @@ A finite left module category ${}_\cC \cM$ over a semisimple finite tensor categ
 \end{definition}
 \noindent We will see later, in Section~\ref{sec:separableisfd}, that this separability condition is, as hoped, exactly what is needed to ensure a bimodule category is maximally dualizable.  
 
-In this section, we prove two crucial properties of separable module categories, namely (1) that a module category is separable if and only if its category of endofunctors is semisimple and (2) that the relative Deligne tensor product of two separable bimodule categories is a separable bimodule category.  The second is a generalization to arbitrary fields of Etingof--Nikshych--Ostrik's theorem, over an algebraically closed field of characteristic zero, that a functor category between finite semisimple module categories is semisimple~\cite[Theorem 2.16]{MR2183279}.  Using a simple case of the second result, the first result provides a generalization to arbitrary fields of M\"uger's theorem, over algebraically closed fields, that the Drinfeld center of a finite semisimple tensor category of nonzero global dimension is semisimple~\cite[Theorem 3.16]{MR1966525}.    These results are inspired by a suggestion of Ostrik and by results in \cite[\S 2.4]{MR3039775} in characteristic zero.  The reader unconcerned with finite characteristic can safely skip this and the next section, consulting Corollary~\ref{cor:charzerosep} and Proposition~\ref{prop:SSModuleCatsAreSep} for characterizations of separability in the characteristic zero case, and keeping in mind ENO's aforementioned theorem, or more directly Theorem~\ref{thm:compositeOfSep} and Corollary~\ref{cor:septc}, at appropriate moments in Section~\ref{sec:separableisfd}.
-
-
-\CD{Did Muger use sphericality?}
+In this section, we prove two crucial properties of separable module categories, namely (1) that a module category is separable if and only if its category of endofunctors is semisimple and (2) that the relative Deligne tensor product of two separable bimodule categories is a separable bimodule category.  The second is a generalization to arbitrary fields of Etingof--Nikshych--Ostrik's theorem, over an algebraically closed field of characteristic zero, that a functor category between finite semisimple module categories is semisimple~\cite[Theorem 2.16]{MR2183279}.  Using a simple case of the second result, the first result provides a generalization to arbitrary perfect fields (and non-spherical categories) of M\"uger's theorem, over algebraically closed fields, that the Drinfeld center of a spherical finite semisimple tensor category, with simple unit and nonzero global dimension, is semisimple~\cite[Theorem 3.16]{MR1966525}.    These results are inspired by a suggestion of Ostrik and by results in \cite[\S 2.4]{MR3039775} in characteristic zero.  The reader unconcerned with finite characteristic can safely skip this and the next section, consulting Corollary~\ref{cor:charzerosep} and Proposition~\ref{prop:SSModuleCatsAreSep} for characterizations of separability in the characteristic zero case, and keeping in mind ENO's aforementioned theorem, or more directly Theorem~\ref{thm:compositeOfSep} and Corollary~\ref{cor:septc}, at appropriate moments in Section~\ref{sec:separableisfd}.  \CD{repetition between this paragraph and beginning of section 3.6 an issue?}
 
 \begin{remark}
 It is well known that naive generalizations, to arbitrary fields, of M\"uger's and ENO's results are false.  The importance of nonzero global dimension is clear from the statement of M\"uger's theorem, and Kuperberg observed that, over a non-perfect field, inseparable field extensions could yield non-semisimple composites \cite[Section 5]{MR1995781}.
 \end{remark} \CD{Reconsider this remark}
 
-
-%!%CDcheckmugerstatement; also muger was arbitrary char, right?
-%\CD{Previous discussion made it seem like muger was char zero}
 
 \subsubsection{Separability and semisimplicity} \label{sec:sepandsemi}
 
@@ -2100,7 +2091,7 @@ Let $\cC$ be a finite semisimple tensor category over a perfect field.  The foll
 
 In this section we give a computable criterion for checking the separability of a finite semisimple tensor category, at least when the base field is algebraically closed and the unit is simple.  Specifically, we show that such a tensor category is separable if and only if its global dimension (a sum of certain products of quantum traces on its simple objects) is nonzero.  Over algebraically closed fields of characteristic zero, the global dimension is always nonzero, and so the characterization of separability simplifies substantially; in fact, all finite semisimple tensor categories over a field of characteristic zero are separable.
 
-As we are investigating the separability condition on tensor categories, we need to assume the base field is perfect, but in fact in this section only we will assume the base field is algebraically closed.  The global dimension is constructed from endomorphisms of the unit and will be a numerical invariant when the unit is simple.  Recall that a finite semisimple tensor category (over an algebraically closed field) with simple unit is called a \emph{fusion category}.  Combining Corollary~\ref{cor:Sep=semisimplecenter} with the nonzero global dimension criterion for separability (Theorem~\ref{thm:NonzeroDimension} below) shows that a fusion category has semisimple Drinfeld center if and only if it has nonzero global dimension.  This result, which assumes nothing about the pivotality or spherical of the category nor about the characteristic of the base field, sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  M\"uger proved that a spherical fusion category of nonzero global dimension has semisimple center~\cite[Prop. 3.10]{MR1966525}; ENO proved that, in characteristic zero, fusion categories of nonzero global dimension have semisimple center~\cite[Thm. 2.15]{MR2183279}---see also section 9 of that paper for a discussion of the positive characteristic situation; BV proved that pivotal fusion categories with semsimple center have nonzero global dimension~\cite{MR3079759}.  V. Ostrik suggested many of the ideas contained in this section.
+As we are investigating the separability condition on tensor categories, we need to assume the base field is perfect, but in fact in this section only we will assume the base field is algebraically closed.  The global dimension is constructed from endomorphisms of the unit and will be a numerical invariant when the unit is simple.  Recall that a finite semisimple tensor category (over an algebraically closed field) with simple unit is called a \emph{fusion category}.  Combining Corollary~\ref{cor:Sep=semisimplecenter} with the nonzero global dimension criterion for separability (Theorem~\ref{thm:NonzeroDimension} below) shows that a fusion category has semisimple Drinfeld center if and only if it has nonzero global dimension.  This result, which assumes nothing about the pivotality or spherical of the category nor about the characteristic of the base field, sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  M\"uger proved that a spherical fusion category of nonzero global dimension has semisimple center~\cite[Thm. 3.16]{MR1966525}; ENO proved that, in characteristic zero, fusion categories of nonzero global dimension have semisimple center~\cite[Thm. 2.15]{MR2183279}---see also section 9 of that paper for a discussion of the positive characteristic situation; BV proved that pivotal fusion categories with semsimple center have nonzero global dimension~\cite{MR3079759}.  V. Ostrik suggested many of the ideas contained in this section.
 
 \subsubsection{Global dimension via quantum trace} \label{sec:gdim}
 
@@ -2154,7 +2145,6 @@ Let $\cC$ be a finite tensor category and let $\cM$ be a finite left $\cC$-modul
 \end{definition}
 \nid See \cite{MR1976459, EO-ftc, EGNO, BTP} for further discussion about enriched endomorphisms for module categories, and in particular for a proof that the enrichment indeed exists.
 
-\CDh{The next paragraph doesn't depend on fusion, right?}
 We specialize to the situation of interest, where the tensor category is the product $\cC \boxtimes \cC^\mp$ and the left module category is the finite tensor category $\cC$ itself.  We will denote by $A := \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC) \in \cC \boxtimes \cC^\mp$ the algebra of enriched endomorphism of the unit $1_\cC$ of $\cC$.  Note that by the definition of the enriched Hom object, we have, for any $x \in \cC$ and $y \in \cC^\mp$, natural isomorphisms
 \[
 \Hom_{\cC \boxtimes \cC^\mp}(x \boxtimes y, \IHom_{\cC \boxtimes \cC^\mp}(a,b)) \cong \Hom_\cC(x \otimes a \otimes y,b).
@@ -2163,12 +2153,7 @@ The object $A \in \cC \boxtimes \cC^\mp$ has a canonical algebra structure and t
 \[
 \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,-) : \cC \ra \Mod{}{A}(\cC \boxtimes \cC^\mp);
 \]
-see~\cite[\S 2]{MR2097289} for a more detailed treatment of the algebra $A$ and its properties.  \CD{Do we use the $x = (c \boxtimes 1) \otimes A$ fact? If so, uncomment in here.} 
-% The object $A \in \cC \boxtimes \cC^\mp$ has a canonical algebra structure and there is an equivalence of left $\cC \boxtimes \cC^\mp$-module categories
-%\[
-%\IHom_{\cC \boxtimes \cC^\mp}(1_\cC,-) : \cC \ra \Mod{}{A}(\cC \boxtimes \cC^\mp);
-%\]
-% moreover, for any object $x \in \Mod{}{A}(\cC \boxtimes \cC^\mp)$, there is an object (unique up to isomorphism) $c \in \cC$ such that $x \cong (c \boxtimes 1_{\cC^\mp}) \otimes A$.  See~\cite[\S 2]{MR2097289} for a detailed treatment of the algebra $A$ and its properties.
+see~\cite[\S 2]{MR2097289} for a more detailed treatment of the algebra $A$ and its properties.
 
 \CD{There was a reference to \cite{MR1966524} and ENO04 --- what exactly was it for? Decomposition of A in terms of simples?}
 
@@ -2192,7 +2177,7 @@ A \cong \oplus_i L_i \boxtimes {}^* L_i;
 \]
 this isomorphism is canonically determined by the previous choice of witnesses for the dual objects $\{{}^* L_i\}$.
 
-We can describe the algebra structure explicitly in terms of this decomposition.  The unit map $u: 1 \boxtimes 1 \ra A$ is simply the inclusion of the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$.  \CD{Did we use the functor of points description of the multiplication? If so, can add back here.}  Fix a basis $\{e^r_{ij,k}\}_{r \in I(i,j,k)}$ for each of the vector spaces $\Hom_\cC(L_i \otimes L_j,L_k)$; here $I(i,j,k)$ is a finite index set.  Let $\{\hat{e}^r_{ij,k}\}$ denote the basis for $\Hom_\cC(L_k,L_i \otimes L_j)$ defined by $e^r_{ij,k} \circ \hat{e}^s_{ij,k} = \delta_{rs} \id_{L_k}$.  There is an associated collection of left dual maps $\{{}^*\hat{e}^r_{ij,k}\}$ forming a basis for $\Hom_\cC({}^* L_j \otimes {}^* L_i, {}^* L_k)$.  The multiplication map
+We can describe the algebra structure explicitly in terms of this decomposition.  The unit map $u: 1 \boxtimes 1 \ra A$ is simply the inclusion of the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$.  Fix a basis $\{e^r_{ij,k}\}_{r \in I(i,j,k)}$ for each of the vector spaces $\Hom_\cC(L_i \otimes L_j,L_k)$; here $I(i,j,k)$ is a finite index set.  Let $\{\hat{e}^r_{ij,k}\}$ denote the basis for $\Hom_\cC(L_k,L_i \otimes L_j)$ defined by $e^r_{ij,k} \circ \hat{e}^s_{ij,k} = \delta_{rs} \id_{L_k}$.  There is an associated collection of left dual maps $\{{}^*\hat{e}^r_{ij,k}\}$ forming a basis for $\Hom_\cC({}^* L_j \otimes {}^* L_i, {}^* L_k)$.  The multiplication map
 \[
 m: A \otimes A \cong \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \ra \oplus_k L_k \boxtimes {}^* L_k \cong A
 \]
@@ -2274,7 +2259,6 @@ Proposition~\ref{prop:sepmodissemi} shows separability implies semisimplicity.
 Without loss of generality, we assume $\cM$ is indecomposable.  By Theorem~\ref{thm:SepModCats}, the module category $\cM$ is separable provided the linear category $\Fun_\cC(\cM,\cM)$ is semisimple.  The semisimplicity of this commutant is invariant under base change, by~\cite[Lemma 5.2]{1002.0168}, and it therefore suffices to assume the base field is algebraically closed.  By \cite[Thm. 2.5]{EO-ftc}, if $\cA \ra \cB$ is a surjective tensor functor of finite tensor categories, and $\cA$ is semisimple, then $\cB$ is semisimple.  (Recall that surjective means all objects in the target are subquotients of objects in the image.)  By \cite[Prop. 3.39]{EO-ftc}, the forgetful tensor functor $\cZ(\Fun_\cC(\cM,\cM)) \ra \Fun_\cC(\cM,\cM)$ is surjective, and by \cite[Cor. 3.35]{EO-ftc}, there is an equivalence $\cZ(\cC) \simeq \cZ(\Fun_\cC(\cM,\cM))$.  The center $\cZ(\cC)$ is semisimple by Corollary~\ref{cor:Sep=semisimplecenter}.
 \end{proof}
 \CD{carefully check this proof, both the overall logic and with special attention to lack of assumption about the unit and algebraic closure}
-\CD{Even though it could move, I realize it's better to keep the proposition here}
 
 
 
