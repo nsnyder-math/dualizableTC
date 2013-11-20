@@ -941,7 +941,7 @@ The 1-morphism $\ev^L$ itself has a left adjoint $\ev^{LL}$, which itself has a 
 \CDh{\S 2.3 $\checkmark$}
 
 
-Because the 2-framed bordism 2-category is 2-dualizable, in principle it is possible to write any 2-framed 1-manifold bordism as a composite of the elementary pieces arising in Figure~\ref{fig:adjointchains}.  We illustrate this in practice with a crucial bordism, namely the one represented by the following normally-oriented immersed 1-manifold:
+It is possible to write any 2-framed 1-manifold bordism as a composite of the elementary pieces arising in Figure~\ref{fig:adjointchains}.  We illustrate this in practice with a crucial bordism, namely the one represented by the following normally-oriented immersed 1-manifold:
 \begin{center}
 %	\begin{tikzpicture}
 %	\draw[linestyle,fuzzright] 
@@ -1447,11 +1447,15 @@ There is an adjunction, denoted $F \dashv G$ between the functors $F: \cB \to \c
 We apply the same convention for adjoints to 1-morphisms in 2-categories other than $\Cat$; cf. Definition~\ref{def:adjoints_in_bicat} in the appendix.
 
 \begin{definition}[Convention for rigidity] \label{def:rigid}
-	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of zigzag equations:
+	A monoidal category $(\cC, \otimes, 1)$ is {\em rigid} if, for each object $x \in \cC$, (1) there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the pair of zigzag equations
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
-		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
+		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*};
 	\end{align*}
+and (2) there exists an object ${}^* x$ and morphisms,
+the coevaluation $\eta: 1 \to {}^* x \otimes x$ and the evaluation $\varepsilon: x \otimes {}^* x \to 1$, satisfying the equations
+$		(id_{({}^* x)} \otimes \varepsilon  ) \circ (  \eta \otimes id_{({}^* x)}) = id_{({}^* x)}$
+and $		(\varepsilon \otimes id_{x}) \circ (id_{x} \otimes \eta) = id_{x}.$
 \end{definition}
 
 Although this convention on the meaning of rigidity is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following Etingof-Gelaki-Nikshych-Ostrik \cite{EGNO} and Bakalov-Kirillov \cite{MR1797619})  or the left dual of $x$ (following Kassel \cite{MR1321145} and Chari-Pressley \cite{MR1358358}).  We believe that this choice should be determined by the following compatibility desideratum: 
