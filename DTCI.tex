@@ -1632,7 +1632,7 @@ Provide the monoidal category $\cC$ is finite and rigid, and provided the module
 	\end{enumerate} 	
 \end{theorem} %!% Confirm happy with change.
 
-The relative Deligne tensor product provides a means of composing bimodule categories; this is the most important ingredient in constructing the 3-category of finite tensor categories.  We need not just a 3-category, though, but a symmetric monoidal 3-category.  The monoidal structure is given by the relative Deligne tensor product over the tensor category $\Vect_k$; such a product is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.  For the Deligne tensor to provide a monoidal structure on the objects of the 3-category of finite tensor categories, we need to know that the product $\cC \boxtimes \cD$ is indeed rigid.  To ensure that we make our first and only assumption about the base field $k$, namely that it is perfect.\footnote{For example: if $k$ is not perfect, and $l$ is an inseparable field extension of $k$, then the Deligne tensor $(\Mod{l}{l}) \boxtimes (\Mod{l}{l})$ is not rigid.} %!% CDNC
+The relative Deligne tensor product provides a means of composing bimodule categories; this is the most important ingredient in constructing the 3-category of finite tensor categories.  We need not just a 3-category, though, but a symmetric monoidal 3-category.  The monoidal structure is given by the relative Deligne tensor product over the tensor category $\Vect_k$; such a product is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.  For the Deligne tensor to provide a monoidal structure on the objects of the 3-category of finite tensor categories, we need to know that the product $\cC \boxtimes \cD$ is indeed rigid.  To ensure that we make our first and only assumption about the base field $k$, namely that it is perfect; cf. Deligne~\cite[Prop 5.17]{deligne}.\footnote{For example: if $k$ is not perfect, and $l$ is an inseparable field extension of $k$, then the Deligne tensor $(\Mod{l}{l}) \boxtimes (\Mod{l}{l})$ is not rigid.} %!% CDNC
 
 \begin{theorem}[\cite{3TC}]
 Provided the base field $k$ is perfect, there exists a symmetric monoidal $(3,3)$-category $\TC$ whose objects are the finite tensor categories, whose 1-morphisms are finite bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule transformations.  Composition of 1-morphisms is given by the relative Deligne tensor product, and the symmetric monoidal structure is given by the Deligne tensor product.
@@ -2062,19 +2062,18 @@ For absolutely semisimple, separable $\cC$-modules ${}_\cC \cM$ and ${}_\cC \cN$
 \begin{corollary} \label{cor:septc}
 Assume the base field is perfect.  Finite semisimple tensor categories, finite separable bimodule categories, bimodule functors, and bimodule transformations, form a symmetric monoidal sub-3-category $\TCss$ of $\TC$.
 \end{corollary}
-\nid Because of the perfection assumption, every finite semisimple linear category is absolutely semisimple---this ensures, for instance, that the ordinary Deligne tensor product of semisimple tensor categories is again semisimple.
+\begin{proof}
+Theorem~\ref{thm:compositeOfSep} ensures that the specified collection of 1-morphisms is closed under composition, and so we have a sub-3-category.  Because of the perfection assumption, every finite semisimple linear category is absolutely semisimple.  By the same theorem, the ordinary Deligne tensor of two such categories is absolutely semisimple, so in particular semisimple; the collection of objects is therefore closed under the monoidal structure.  \CD{**Gap: add proof that ordinary tensor of separable bimodules is separable.  Would be nice to not use enriched endomorphisms of projective generators, as enriched hom hasn't even been introduced yet ... .}
+\end{proof}
 
-%\noindent Here, the absolute semisimplicity assumptions are necessary for ensuring, for instance, that the symmetric monoidal product of two separable bimodules is again separable.  
-\CD{**Should we include a proof of this corollary?}
-%!% Check ordinary product of separable is separable.
 
 As mentioned, we will see that separable bimodule categories ${}_\cC \cM_\cD$ are maximally dualizable.  What we really care about, though, is the dualizability of tensor categories.  Thus, what concerns us most is the separability of the bimodules ${}_{\cC \boxtimes \cC^\mp} \cC$ and $\cC_{\cC^\mp \boxtimes \cC}$ arising in the 1-dualizability of $\cC$.  This suggests the following definition.
 \begin{definition}
 A finite semisimple tensor category $\cC$ over a perfect field is \emph{separable} if it is separable as a $\cC \boxtimes \cC^\mp$--$\Vect$-bimodule.
 \end{definition}
-\nid The full sub-3-category of $\TCss$ on the separable tensor categories will be of special significance: in Section~\ref{sec:separableisfd} we will prove it is a fully dualizable 3-category.
+\nid The full sub-3-category of $\TCss$ on the separable tensor categories will be of special significance: in Section~\ref{sec:separableisfd} we will prove it is a fully dualizable 3-category. \CD{Check/mention product of separable is separable} %!%!% Check ordinary product of separable is separable. --- for Def 3.5.10 below. full sub3cat ... "is symmetric monoidal (...) and will be of special significance:"
 \begin{definition}
-The \emph{3-category of separable tensor categories} $\TCsep$ (over a perfect field) has objects the separable tensor categories, morphisms the finite separable bimodule categories, 2-morphisms the bimodule functors, and 3-morphisms the bimodule transformations.
+The \emph{symmetric monoidal 3-category of separable tensor categories} $\TCsep$ (over a perfect field) has objects the separable tensor categories, morphisms the finite separable bimodule categories, 2-morphisms the bimodule functors, and 3-morphisms the bimodule transformations.
 \end{definition}
 
 Recall that the (Drinfeld) center of a finite tensor category $\cC$ is by definition the linear category $\cZ(\cC) := \Fun_{\cC \boxtimes \cC^\mp}(\cC,\cC)$.  By Theorem~\ref{thm:compositeOfSep}, if $\cC$ is absolutely semisimple, then $\cC \boxtimes \cC^\mp$ is absolutely semisimple.  As a corollary of Theorem~\ref{thm:SepModCats}, we now have the generalization of M\"uger's theorem on the semisimplicity of Drinfeld centers.
