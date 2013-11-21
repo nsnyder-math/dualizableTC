@@ -2125,18 +2125,17 @@ The \emph{global dimension} of a fusion category $\cC$ is
 where the sum ranges over a choice of representatives of the isomorphism classes of simple objects of $\cC$.
 \end{definition}
 
-\CD{CD to fix the mistakes around here}
-We can characterize the squared norm of a simple object $x$ more abstractly in terms of the properties of evaluation and coevaluation maps for dualities among simple objects, as follows.  Let $x$ and $y$ be simple objects of $\cC$ such that $\dim \Hom(x \otimes y,1)$.  For any isomorphism $v: x \otimes y \xra{\cong} 1$, there is a unique isomorphism $\gamma(v): 1 \xra{\cong} y \otimes x$ such that $(v,\gamma(v))$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  Similarly, for any isomorphism $u: 1 \xra{\cong} y \otimes x$, there is a unique isomorphism $\gamma(u): x \otimes y \xra{\cong} 1$ such that $(\gamma(u),u)$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  In other words, we denote by $\gamma$ both the association to a coevaluation of the corresponding evaluation, and the association to an evaluation of the corresponding coevaluation.  Note that this association $\gamma$ is homogeneous of degree $-1$, that is $\gamma(\lambda f) = \lambda^{-1} \gamma(f)$ for $\lambda \in k$.  
+We can characterize the squared norm of a simple object $x$ more abstractly in terms of the properties of evaluation and coevaluation maps for dualities among simple objects, as follows.  Let $x$ and $y$ be simple objects of $\cC$ such that $\dim \Hom(x \otimes y,1)$.  For any nonzero map $v: x \otimes y \ra 1$, there is a unique map $\gamma(v): 1 \ra y \otimes x$ such that $(v,\gamma(v))$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  Similarly, for any nonzero map $u: 1 \ra y \otimes x$, there is a unique map $\gamma(u): x \otimes y \ra 1$ such that $(\gamma(u),u)$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  In other words, we denote by $\gamma$ both the association to a coevaluation of the corresponding evaluation, and the association to an evaluation of the corresponding coevaluation.  Note that this association $\gamma$ is homogeneous of degree $-1$, that is $\gamma(\lambda f) = \lambda^{-1} \gamma(f)$ for $\lambda \in k^\times$.  
 
-This pairing $\gamma$ between evaluations and coevaluations commutes with taking the dual of a map: for any isomorphism $f: x \otimes y \xra{\cong} 1$, we have
+This pairing $\gamma$ between evaluations and coevaluations commutes with taking the dual of a map: for any nonzero map $f: x \otimes y \ra 1$, we have
 \[
 {}^*(\gamma(f)) = \gamma({}^* f).
 \]
-However the pairing $\gamma$ does not commute with taking the inverse of a map; indeed, the failure of commutation between the evaluation--coevaluation pairing and the inverse is exactly the square norm:
+However the pairing $\gamma$ does not intertwine the left and right inverse operations.  Given a map $f$ with a right inverse, we will denote the right inverse by $f^{-}$, and given a map $g$ with a left inverse, we will denote the left inverse by ${}^- \!g$.  Indeed, the failure of commutation between the evaluation--coevaluation pairing and the left/right inverse is exactly the square norm:
 \[
-\gamma(f^{-1}) = \lVert x \rVert (\gamma(f))^{-1}.
+\gamma(f^{-}) = \lVert x \rVert \;{}^-\!(\gamma(f)).
 \]
-To see this is suffices to check that $\gamma(f^{-1}) \circ \gamma(f) = \lVert x \rVert$; indeed $\gamma(f^{-1}) \circ \gamma(f) = (f \circ f^{-1}) \cdot (\gamma(f^{-1}) \circ \gamma(f))$ and any expression at all of the form $(f \circ g) \cdot (\gamma(g) \circ \gamma(f))$, for $f: x \otimes y \ra 1$ and $g: 1 \ra x \otimes y$ isomorphisms, gives the squared norm.
+To see this is suffices to check that $\gamma(f^{-}) \circ \gamma(f) = \lVert x \rVert$.  For this, note that $\gamma(f^{-}) \circ \gamma(f) = (f \circ f^{-}) \cdot (\gamma(f^{-}) \circ \gamma(f))$ and any expression at all of the form $(f \circ g) \cdot (\gamma(g) \circ \gamma(f))$, for $f: x \otimes y \ra 1$ and $g: 1 \ra x \otimes y$ nonzero, gives the squared norm.
 
 
 \subsubsection{The algebra of enriched endomorphisms of the unit} \label{sec:enrichedendo}
@@ -2210,13 +2209,13 @@ For the algebra object $A \cong \oplus_i L_i \boxtimes {}^* L_i \in \cC \boxtime
 Let $\cC$ be a fusion category and let $A = \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC) \in \cC \boxtimes \cC^\mp$ be the algebra object of enriched endomorphisms of the unit.  The normalized counit map $\lambda: A \ra 1 \boxtimes 1$, with $\lambda \circ u = \id_{1 \boxtimes 1}$, determines the structure of a Frobenius algebra on $A$.
 \end{proposition}
 \begin{proof}
-It suffices to define a copairing $c : 1 \boxtimes 1 \ra A \otimes A$ satisfying the zig-zag relations with the pairing map $b = \lambda \circ m : A \otimes A \ra 1 \boxtimes 1$; there is at most one such copairing.  Recall that $\{e^r_{ij,k}\}$ is a chosen basis for $\Hom_\cC(L_i \otimes L_j,L_k)$ and $\{\hat{e}^r_{ij,k}\}$ is the `dual basis' for $\Hom_\cC(L_k,L_i \otimes L_j)$.  For each index $i$, we denote by $\overline{i}$ the unique index such that the morphism space $\Hom_\cC(L_i \otimes L_{\overline{i}},1)$ is nonzero.  We will use the abbreviation $e_i := e^1_{i\overline{i},1} : L_i \otimes L_{\overline{i}} \ra 1$.  Note that $e_i^{-1} = \hat{e}^1_{i\overline{i},1}$.
+It suffices to define a copairing $c : 1 \boxtimes 1 \ra A \otimes A$ satisfying the zig-zag relations with the pairing map $b = \lambda \circ m : A \otimes A \ra 1 \boxtimes 1$; there is at most one such copairing.  Recall that $\{e^r_{ij,k}\}$ is a chosen basis for $\Hom_\cC(L_i \otimes L_j,L_k)$ and $\{\hat{e}^r_{ij,k}\}$ is the `dual basis' for $\Hom_\cC(L_k,L_i \otimes L_j)$.  For each index $i$, we denote by $\overline{i}$ the unique index such that the morphism space $\Hom_\cC(L_i \otimes L_{\overline{i}},1)$ is nonzero.  We will use the abbreviation $e_i := e^1_{i\overline{i},1} : L_i \otimes L_{\overline{i}} \ra 1$.  Note that the right inverse of $e_i$ is $e_i^{-} = \hat{e}^1_{i\overline{i},1}$.
 
-As mentioned, the normalized counit map $\lambda: A \ra 1 \boxtimes 1$ is the projection $\oplus_i L_i \boxtimes {}^* L_i \ra 1 \boxtimes 1$.  Thus the pairing $\lambda \circ m: A \otimes A \ra 1 \boxtimes 1$ is the map $\oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \ra 1 \boxtimes 1$ that first projects onto the summands with $\{i,j\}$ of the form $\{i,\overline{i}\}$ and then applies the map $e_i \boxtimes {}^* (e_i^{-1})$ on the $\{i,\overline{i}\}$ factor.  Define the copairing $c : 1 \boxtimes 1 \ra A \otimes A$ to be the composite
+As mentioned, the normalized counit map $\lambda: A \ra 1 \boxtimes 1$ is the projection $\oplus_i L_i \boxtimes {}^* L_i \ra 1 \boxtimes 1$.  Thus the pairing $\lambda \circ m: A \otimes A \ra 1 \boxtimes 1$ is the map $\oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \ra 1 \boxtimes 1$ that first projects onto the summands with $\{i,j\}$ of the form $\{i,\overline{i}\}$ and then applies the map $e_i \boxtimes {}^* (e_i^{-})$ on the $\{i,\overline{i}\}$ factor.  Define the copairing $c : 1 \boxtimes 1 \ra A \otimes A$ to be the composite
 \[
 1 \boxtimes 1 \ra \oplus_i (L_{\overline{i}} \otimes L_i) \boxtimes ({}^* L_i \otimes {}^* L_{\overline{i}}) \hookrightarrow \oplus_{i,j}  (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \cong A \otimes A
 \]
-where the first map is given by $\gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-1}))$ on the $i$-th component.  By the definition of the association $\gamma$, this copairing satisfies the necessarily zig-zag relations with the pairing.
+where the first map is given by $\gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-}))$ on the $i$-th component.  By the definition of the association $\gamma$, this copairing satisfies the necessarily zig-zag relations with the pairing.
 \end{proof}
 \nid When referring to a Frobenius algebra structure on the enriched endomorphism object $A$, we will always mean the normalized Frobenius structure given by this proposition.
 
@@ -2227,13 +2226,13 @@ In any Frobenius algebra object $R$, there is a distinguished map $w: 1 \ra R$, 
 Let $A \in \cC \boxtimes \cC^\mp$ be the normalized Frobenius algebra object of enriched endomorphisms of the unit of a fusion category $\cC$.  The window element of $A$ is the global dimension of $\cC$.
 \end{proposition}
 \begin{proof}
-In the proof of the previous proposition, we saw that the copairing was given by the inclusion of $\oplus_i \gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-1}))$ into $\oplus_{i,j}  (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i)$, and the pairing was giving by projection onto the $\{i,\overline{i}\}$ factors followed by the map $\oplus_i e_i \boxtimes {}^*(e_i^{-1})$.  The window element is therefore
+In the proof of the previous proposition, we saw that the copairing was given by the inclusion of $\oplus_i \gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-}))$ into $\oplus_{i,j}  (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i)$, and the pairing was giving by projection onto the $\{i,\overline{i}\}$ factors followed by the map $\oplus_i e_i \boxtimes {}^*(e_i^{-})$.  The window element is therefore
 \begin{align*}
-w &= \sum_i (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-1}) \circ \gamma({}^*(e_{\overline{i}}^{-1}))) \\
-&= \sum_i \lVert L_i \rVert (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-1}) \circ {}^* ((\gamma(e_{\overline{i}}))^{-1})) \\
+w &= \sum_i (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ \gamma({}^*(e_{\overline{i}}^{-}))) \\
+&= \sum_i \lVert L_i \rVert (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ {}^* ({}^-\!(\gamma(e_{\overline{i}})))) \\
 &= \sum_i \lVert L_i \rVert = \dim \cC.
 \end{align*}
-Here the second equality follows from the commutation relations mentioned at the end of section~\ref{sec:gdim}.  For the third equality, note that $(e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-1}) \circ {}^* ((\gamma(e_{\overline{i}}))^{-1}))$ is homogeneous of degree zero in the term $\gamma(e_{\overline{i}}): 1 \ra L_i \otimes L_{\overline{i}}$, which term may therefore be replaced by the term $e_i^{-1}: 1 \ra L_i \otimes L_{\overline{i}}$.
+Here the second equality follows from the commutation relations mentioned at the end of section~\ref{sec:gdim}.  For the third equality, note that $(e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ {}^* ({}^-\!(\gamma(e_{\overline{i}}))))$ is homogeneous of degree zero in the term $\gamma(e_{\overline{i}}): 1 \ra L_i \otimes L_{\overline{i}}$, which term may therefore be replaced by the term $e_i^{-}: 1 \ra L_i \otimes L_{\overline{i}}$.
 \end{proof}
 
 We are now in a position to characterize the separability of a fusion category in terms of its global dimension.
