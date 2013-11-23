@@ -186,7 +186,7 @@ More explicitly, in terms of the associated TFT, the generator of $\pi_1(SO(3)) 
 
 We prove that finite tensor categories are Radford objects in $\TC$, and the Serre automorphism of $\cC$ is $\cC$ as a $\cC$--$\cC$-bimodule category where the left action has been twisted by the right double dual functor.  The inverse of the Serre automorphism is the bimodule where the left action has been twisted by the left double dual.  Thus, the Radford equivalence relates the left double dual and the right double dual and recovers the generalization of Radford's theorem for finite tensor categories \cite{MR0407069, MR2097289} stating that the quadruple dual is canonically naturally isomorphic to conjugation by the distinguished invertible object $D$.  In addition, for fusion categories the distinguished object is trivial, and thus the quadruple dual for fusion categories is trivial.  
 
-Altogether, an elegant, transparent topological fact, concerning the fundamental group of the space of $3$-framings, implies the a priori rather more opaque theorem that the quadruple dual on a fusion category is canonically trivializable. This makes rigorous the intuition (implicit in cite{MR2559711}, and stated explicitly in \cite{0901.3975}) that Radford's theorem is related to the belt trick.    Furthermore, this gives a generalization of Radford's theorem to any Radford object in any symmetric monoidal $3$-category (Prop.~\ref{prop-Cat_Radford}).
+Altogether, an elegant, transparent topological fact, concerning the fundamental group of the space of $3$-framings, implies the a priori rather more opaque theorem that the quadruple dual on a fusion category is canonically trivializable. This makes rigorous the intuition (implicit in cite{MR2559711}, and stated explicitly in \cite{0901.3975}) that Radford's theorem is related to the belt trick.    Furthermore, this gives a generalization of Radford's theorem to any Radford object in any symmetric monoidal $3$-category (Prop.~\ref{thm:Cat_Radford}).
 
 \NS{Should we say something about the O(3) action and the last subsection here?  I've collected some relevant commented out sections.}
 
@@ -1340,9 +1340,9 @@ For a Radford object $x \in \cC$, choose a dual $\overline{x}$ with evaluation a
 
 Note that certainly any 3-dualizable object is Radford, and in that case the Radford equivalence is the image of the Radford bordism under the corresponding local field theory.  For any Radford object $x$, the equivalence class of the Radford equivalence depends only on the object $x$ and not on any of the other choices mentioned.  Definition~\ref{def:radfordequiv} begs the question of whether the given morphism is an equivalence---we address that issue presently.  Note that the apparent asymmetry in the definition could be resolved by considering the Radford equivalence and its inverse simultaneously.
 
-\begin{proposition} \label{prop-Cat_Radford}
+\begin{theorem} \label{thm:Cat_Radford}
 For any Radford object $x \in \cC$ in a symmetric monoidal $(\infty,n)$-category, with $n \geq 3$, the Radford map $\cR_x := (\tilde{v}_x \circledcirc \id_{\ev_x^R})\circ (\id_{\ev_x^L} \circledcirc v_x^R) : \ev_x^L \ra \ev_x^R$ is an equivalence.
-\end{proposition} \CD{promote this to a thm, and change proof title}
+\end{theorem}
 
 For the proof, we will need a general lemma about adjunctions of 1-morphisms in 3-categories.  By assumption $x$ is 2-dualizable, and so the evaluation 1-morphism $\ev_x$ is guaranteed to have both a left and a right adjoint.  When $x$ is Radford, the Radford equivalence witnesses that the evaluation morphism in fact has an \emph{ambidextrous} adjoint: the left and right adjoints are canonically equivalent.  The following lemma, stated as Remark 3.4.22 in \cite{lurie-ch}, is the essential categorical fact responsible for this ambidexterity.
 
@@ -1397,7 +1397,7 @@ The inverses to these composites are the composites $\alpha^{-1} \circ \eta_u \c
 
 Note that by working in the category $\cC^{\op_1}$, where 1-morphisms are reversed, the role of the right adjoint $f^R$ in this lemma is replaced by the left adjoint $f^L$ and the conclusion of the Lemma is that $f^L$ is in fact a right adjoint to $f$.  Similarly, by working in the category $\cC^{\op_2}$, where 2-morphisms are reversed, the role of the left adjoints $u^L$ and $v^L$ may be replaced by the right adjoints $u^R$ and $v^R$.  We may of course reverse both the 1- and 2-morphisms of $\cC$ to obtain a version of the lemma with all instances of left and right exchanged.  In practice, we will use the form of the lemma assuming that the unit and counit maps have right adjoints and concluding that the right adjoint $f^R$ is in fact a left adjoint.
 
-\begin{proof}[Proof of Proposition \ref{prop-Cat_Radford}]
+\begin{proof}[Proof of Theorem \ref{thm:Cat_Radford}]
 By assumption, we have adjunctions $(\ev_x^L \dashv \ev_x, \tilde{u}_x, \tilde{v}_x)$ and $(\ev_x \dashv \ev_x^R, u_x, v_x)$.  By the 2-morphism opposite version of Lemma~\ref{lem-ambiadjoints}, there is another adjunction $(\ev_x^R \dashv\ev_x,v_x^R,u_x^R)$.  The standard expressions for the canonical equivalence between any two left adjoints provides the inverse equivalences
 $(\tilde{v}_x \circledcirc \id_{\ev_x^R})\circ (\id_{\ev_x^L} \circledcirc v_x^R)$
 and
@@ -1408,7 +1408,7 @@ $(u_x^R \circledcirc \id_{\ev_x^L}) \circ (\id_{\ev_x^R} \circledcirc \tilde{u}_
 Let $x \in \cC$ be a Radford object of a symmetric monoidal $(\infty,n)$-category, for $n \geq 3$.  There is a canonical equivalence (namely $\widetilde{\cR}_x := (\id_{x} \otimes \ev_{x}) \circ (\tau_{x, x} \otimes \id_{\overline{x}}) \circ (\id_{x} \otimes \cR_x)$) from the inverse Serre automorphism $\cS_x^{-1}$ to the Serre automorphism $\cS_x$.  Simlarly there is a canonical equivalence (namely $\cS_x \circ \widetilde{\cR}_x$) from the identity $\id_x$ to the square of the Serre automorphism $\cS_x^2$.
 \end{corollary}
 
-Though we may think of the equivalences appearing in Proposition~\ref{prop-Cat_Radford} and Corollary~\ref{cor:serreinvserre} as images of certain bordisms under a local field theory, in fact neither result depends on the cobordism hypothesis.  There are two related lessons here, namely that applications of the cobordism hypothesis often depend not on full dualizability but only on partial dualizability conditions concerning the specific geometry of relevant bordisms, and that those applications can often be proven directly, perhaps with inspiration from but without appeal to the cobordism hypothesis itself.
+Though we may think of the equivalences appearing in Theorem~\ref{thm:Cat_Radford} and Corollary~\ref{cor:serreinvserre} as images of certain bordisms under a local field theory, in fact neither result depends on the cobordism hypothesis.  There are two related lessons here, namely that applications of the cobordism hypothesis often depend not on full dualizability but only on partial dualizability conditions concerning the specific geometry of relevant bordisms, and that those applications can often be proven directly, perhaps with inspiration from but without appeal to the cobordism hypothesis itself.
 
 
 
@@ -2830,7 +2830,7 @@ For any finite tensor category $\cC$, the center $\cZ(\cC)$, as a category of en
 
 The trace $\cT(\cC)$ is not monoidal, in general, as there is no 2-framed pair-of-pants bordism from two circles to one circle such that all three circles inherit the 2-framing corresponding to $\cT(\cC)$.  The cocenter $\coZ(\cC)$ is naturally a comonoidal category.  The counit is the last 2-framed disc in Table~\ref{table:discs}, and the coproduct is that disc with two smaller discs removed.  Though a priori $\cZ(\cC)$ has no pairing operation, there is a pairing between the center and the cocenter: the field theory assigns a functor $\cZ(\cC) \boxtimes \coZ(\cC) \ra \Vect$ to the planar annulus with both boundaries incoming.
 
-In the next section we will prove that a finite tensor category $\cC$ is not only 2-dualizable, but is actually a Radford object.  By Proposition~\ref{prop-Cat_Radford}, there is therefore a canonical isomorphism between the adjoints $\ev^L_\cC$ and $\ev^R_\cC$.  It follows that there is a canonical isomorphism between the center $\cZ(\cC)$ and the cocenter $\coZ(\cC)$, and therefore that the center does indeed have a pairing operation.  Implicitly, the field theory $\cF_\cC$ is taking values on certain 3-framed manifolds: there are only two distinct 3-framed circles (with representatives corresponding to $\cZ(\cC)$ and $\cT(\cC)$) and there is a 3-framed annulus with both outgoing boundary components giving $\cZ(\cC)$, namely the annulus immersed in $\RR^3$ as a macaroni.
+In the next section we will prove that a finite tensor category $\cC$ is not only 2-dualizable, but is actually a Radford object.  By Theorem~\ref{thm:Cat_Radford}, there is therefore a canonical isomorphism between the adjoints $\ev^L_\cC$ and $\ev^R_\cC$.  It follows that there is a canonical isomorphism between the center $\cZ(\cC)$ and the cocenter $\coZ(\cC)$, and therefore that the center does indeed have a pairing operation.  Implicitly, the field theory $\cF_\cC$ is taking values on certain 3-framed manifolds: there are only two distinct 3-framed circles (with representatives corresponding to $\cZ(\cC)$ and $\cT(\cC)$) and there is a 3-framed annulus with both outgoing boundary components giving $\cZ(\cC)$, namely the annulus immersed in $\RR^3$ as a macaroni.
 \end{remark}
 %\CD{There was/is a rigidity versus weak rigidity issue here}
 
