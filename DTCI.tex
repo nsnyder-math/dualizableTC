@@ -2058,7 +2058,7 @@ For absolutely semisimple, separable $\cC$-modules ${}_\cC \cM$ and ${}_\cC \cN$
 %!% \CD{Does $\cC$-separable imply $\Vect$-separable? If so, drop absolute semisimple assumption.  But seems not.}
 
 \begin{corollary} \label{cor:septc}
-Assume the base field is perfect.  Finite semisimple tensor categories, finite separable bimodule categories, bimodule functors, and bimodule transformations, form a symmetric monoidal sub-3-category $\TCss$ of $\TC$.
+Assume the base field is perfect.  Finite semisimple tensor categories, separable bimodule categories, bimodule functors, and bimodule transformations, form a symmetric monoidal sub-3-category $\TCss$ of $\TC$.
 \end{corollary}
 \begin{proof}
 Theorem~\ref{thm:compositeOfSep} ensures that the specified collection of 1-morphisms is closed under composition, and so we have a sub-3-category.  Because of the perfection assumption, every finite semisimple linear category is absolutely semisimple.  By the same theorem, the ordinary Deligne tensor of two such categories is absolutely semisimple, so in particular semisimple; the collection of objects is therefore closed under the monoidal structure.  \CD{**Gap: add proof that ordinary tensor of separable bimodules is separable.  Would be nice to not use enriched endomorphisms of projective generators, as enriched hom hasn't even been introduced yet ... .}
@@ -2071,7 +2071,7 @@ A finite semisimple tensor category $\cC$ over a perfect field is \emph{separabl
 \end{definition}
 \nid The full sub-3-category of $\TCss$ on the separable tensor categories will be of special significance: in Section~\ref{sec:separableisfd} we will prove it is a fully dualizable 3-category. \CD{Check/mention product of separable is separable --- actually, change 3.5.10 to a corollary, verified by a special case of the fact that prod of sep bimods is sep} %!%!% Check ordinary product of separable is separable. --- for Def 3.5.10 below. full sub3cat ... "is symmetric monoidal (...) and will be of special significance:"
 \begin{definition}
-The \emph{symmetric monoidal 3-category of separable tensor categories} $\TCsep$ (over a perfect field) has objects the separable tensor categories, morphisms the finite separable bimodule categories, 2-morphisms the bimodule functors, and 3-morphisms the bimodule transformations.
+The \emph{symmetric monoidal 3-category of separable tensor categories} $\TCsep$ (over a perfect field) has objects the separable tensor categories, morphisms the separable bimodule categories, 2-morphisms the bimodule functors, and 3-morphisms the bimodule transformations.
 \end{definition}
 
 Recall that the (Drinfeld) center of a finite tensor category $\cC$ is by definition the linear category $\cZ(\cC) := \Fun_{\cC \boxtimes \cC^\mp}(\cC,\cC)$.  By Theorem~\ref{thm:compositeOfSep}, if $\cC$ is absolutely semisimple, then $\cC \boxtimes \cC^\mp$ is absolutely semisimple.  As a corollary of Theorem~\ref{thm:SepModCats}, we now have the generalization of M\"uger's theorem on the semisimplicity of Drinfeld centers.
@@ -3075,10 +3075,10 @@ In fact, the left and right adjoints of a bimodule functor $\cF: \cM \ra \cN$ be
 
 With adjoints for bimodule functors at hand, we can now assemble the pieces to prove full dualizability.
 \begin{theorem} \label{thm:TC-dualizable}
-The 3-category $\TCsep$ (of separable tensor categories, finite separable bimodule categories, bimodule functors, and bimodule transformations) is fully dualizable.
+The 3-category $\TCsep$ (of separable tensor categories, separable bimodule categories, bimodule functors, and bimodule transformations) is fully dualizable.
 \end{theorem}
 \begin{proof}
-By Proposition~\ref{prop:onedual}, a separable tensor category $\cC$ has $\cC^\mp$ as a dual tensor category; the tensor category $\cC^\mp$ is evidently also separable, and the unit and counit of the duality are separable bimodule categories by the separability assumption on $\cC$.  Combining Proposition~\ref{prop:evcoev} and Proposition~\ref{prop:dual-formula-for-adjoints}, a finite separable bimodule category ${}_\cC \cM_\cD$, between separable tensor categories, has the finite bimodule categories ${}^* \cM$ and $\cM^*$ as left and right adjoints.  By applying Corollary~\ref{cor:dualamod}, we see that the dual categories ${}^* \cM$ and $\cM^*$ are also separable.  Finally, in light of Proposition~\ref{prop:sepmodissemi}, we see that Proposition~\ref{prop:bimodfunctadjoints} ensures that all bimodule functors between finite separable bimodule categories have adjoints.
+By Proposition~\ref{prop:onedual}, a separable tensor category $\cC$ has $\cC^\mp$ as a dual tensor category; the tensor category $\cC^\mp$ is evidently also separable, and the unit and counit of the duality are separable bimodule categories by the separability assumption on $\cC$.  Combining Proposition~\ref{prop:evcoev} and Proposition~\ref{prop:dual-formula-for-adjoints}, a separable bimodule category ${}_\cC \cM_\cD$, between separable tensor categories, has the finite bimodule categories ${}^* \cM$ and $\cM^*$ as left and right adjoints.  By applying Corollary~\ref{cor:dualamod}, we see that the dual categories ${}^* \cM$ and $\cM^*$ are also separable.  Finally, in light of Proposition~\ref{prop:sepmodissemi}, we see that Proposition~\ref{prop:bimodfunctadjoints} ensures that all bimodule functors between separable bimodule categories have adjoints.
 \end{proof}
 
 \begin{corollary} \label{cor:septcisdualizable}
@@ -3086,7 +3086,7 @@ Separable tensor categories are 3-, that is fully, dualizable objects of the 3-c
 \end{corollary}
 
 \begin{remark}
-Though this corollary is a trivial consequence of the theorem, and the theorem is a straightforward application of the earlier constructions of duals and adjoints, this presentation conceals a substantial aspect of the work involved in proving that separable tensor categories are fully dualizable.  It is essential that the collection of tensor categories, bimodules, and functors that we can prove have duals and adjoints actually form a sub-3-category of the larger category $\TC$; that fact depends on Theorem~\ref{thm:compositeOfSep}, that separable bimodule categories compose.  In particular, considering Theorem~\ref{thm:TC-dualizable} over a field of finite characteristic, we cannot replace ``separable tensor categories" and ``finite separable bimodule categories" by respectively ``finite semisimple tensor categories" and ``finite semisimple bimodule categories": the composite of two semisimple bimodules need not be semisimple.
+Though this corollary is a trivial consequence of the theorem, and the theorem is a straightforward application of the earlier constructions of duals and adjoints, this presentation conceals a substantial aspect of the work involved in proving that separable tensor categories are fully dualizable.  It is essential that the collection of tensor categories, bimodules, and functors that we can prove have duals and adjoints actually form a sub-3-category of the larger category $\TC$; that fact depends on Theorem~\ref{thm:compositeOfSep}, that separable bimodule categories compose.  In particular, considering Theorem~\ref{thm:TC-dualizable} over a field of finite characteristic, we cannot replace ``separable tensor categories" and ``separable bimodule categories" by respectively ``finite semisimple tensor categories" and ``finite semisimple bimodule categories": the composite of two semisimple bimodules need not be semisimple.
 \end{remark}
 
 \begin{corollary} \label{cor:3dtft}
