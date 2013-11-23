@@ -965,8 +965,9 @@ By stabilizing the framing, this manifold represents, for any $n \geq 2$, an $n$
 The interval $[0,1]$ can be viewed as a bordism with 0 as an incoming boundary point and 1 as an outgoing boundary point.  Consider, up to homotopy, the set of $n$-framings of this interval that restrict to the standard positive $n$-framing at both boundary points.  This set is a group under concatenation of intervals, and that group is canonically identified with $\pi_1(SO(n))$.  When $n=2$, this group of framings is therefore identified with $\ZZ$---here we take the counterclockwise rotation as the positive generator of $\pi_1(SO(2))$.  The loop bordism $\cS$ is the framing corresponding to $-1 \in \ZZ$ under this identification.  We will refer to the bordism corresponding to the $+1$ framing as the inverse loop bordism and denote it $\cS^{-1}$.  Evidently, there are isomorphisms $\cS \circ \cS^{-1} \cong \id_{\pt_+} \cong \cS^{-1} \circ \cS$.
 \end{remark}
 
-The loop bordism admits a decomposition into more elementary pieces, as follows:
-\begin{center}
+The loop bordism and the inverse loop bordism admit decompositions into more elementary pieces, as shown in Figure~\ref{fig:serrebordism}.
+\begin{figure}[htbp]
+%\begin{center}
 \vspace{\topskip}	
 	\begin{tikzpicture}
 		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
@@ -988,10 +989,10 @@ The loop bordism admits a decomposition into more elementary pieces, as follows:
 		\draw [dashed] (A) -- (0, 1.5);
 	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
 	\end{tikzpicture}
-\end{center}
-The inverse loop bordism has a similar decomposition:
-\begin{center}
-\vspace{\topskip}	
+%\end{center}
+\hspace{1cm}
+%\begin{center}
+%\vspace{\topskip}	
 	\begin{tikzpicture}
 		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
 			to [looseness=1, out = 0, in = 180] (2.5,2)
@@ -1010,7 +1011,9 @@ The inverse loop bordism has a similar decomposition:
 		\draw [dashed] (A) -- (0.5, 1.5);
 	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
 	\end{tikzpicture}
-\end{center}
+%\end{center}
+\caption{Decompositions of the Serre and inverse Serre bordisms.} \label{fig:serrebordism}
+\end{figure} \CD{top justify those pictures}
 Written out algebraically, these two decompositions have the following form:
 \begin{align*}
 	\cS &\cong (\id_{\pt_+} \sqcup \ev) \circ (\tau_{\pt_+, \pt_+} \sqcup \id_{\pt_-}) \circ (\id_{\pt_+} \sqcup \ev^R) \\
@@ -2513,7 +2516,7 @@ Combining Propositions~\ref{prop:onedual} and~\ref{prop:evcoev}, we obtain the f
 \begin{theorem} \label{thm:TC_is_2Dualizable}
 The 3-category $\TC$ of finite tensor categories, finite bimodule categories, their functors, and transformations, is 2-dualizable.
 \end{theorem}
-\begin{corollary}
+\begin{corollary} \label{cor:2dualtft}
 For each finite tensor category $\cC$, there is a unique (up to equivalence) symmetric monoidal functor
 \[
 \cF_\cC : \FrBord_2 \ra \TC_{(3,2)},
