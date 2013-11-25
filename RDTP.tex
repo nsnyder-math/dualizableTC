@@ -221,8 +221,9 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 	A monoidal category $\cC$\NS{I removed the extra data entirely, it was $(C, \otimes,1)$} is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zigzag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
-		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*}.
+		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*};
 	\end{align*}
+	and dually there exist an object 
 \end{definition}
 
 
@@ -276,7 +277,7 @@ If $G$ is a finite group, then the category of finite dimensional $G$-graded vec
 
 \section{Module categories} \label{sec:tc-bimod}
 
-\subsection{Module categories have an internal hom} \NS{I think this subsection should be called ``Module categories" and the subsection break should be moved up half a page, putting the internal hom into the next subsection (whose name doesn't need to change).}
+\subsection{Module categories} %\NS{I think this subsection should be called ``Module categories" and the subsection break should be moved up half a page, putting the internal hom into the next subsection (whose name doesn't need to change).}
 
 We will follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
 \begin{itemize}
@@ -433,6 +434,7 @@ We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightfor
 \end{proof}
 
 
+\subsection{Module categories are categories of modules}
 
 
 Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite tensor category is a category of module objects over an algebra object, as in Example \ref{ex:ModulesAreModules}.  This is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying their proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
@@ -468,7 +470,6 @@ Consider $\Vec$ as a module category over $\Vec(G)$.  Then $\IHom(1,1)$ is $k[G]
 \end{example}
 
 
-\subsection{Module categories are categories of modules}
 
 The goal of this subsection is to prove the following result.
 
