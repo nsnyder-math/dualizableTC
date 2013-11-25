@@ -227,6 +227,8 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 \end{definition}
 \CSP{I corrected this so that rigid includes both right and left duals.}
 
+
+
 \begin{definition}
 	A {\em linear monoidal category} will mean a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.  \NS{I'm not sure if we want to say ``right exact" somewhere here.  Rigidity implies exactness of tensor product so it may not be necessary.}
 \end{definition}
@@ -433,6 +435,16 @@ We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightfor
 \end{center}
 \end{proof}
 
+\begin{lemma}\label{lem:partially_exact_action}
+	Let $\cC$ be a tensor category and $\cM$ a $\cC$-module category. Then for each object $c \in \cC$, the action map $c \otimes (-): \cM \to \cM$ is exact. This holds without assuming right-exactness in either variable of the action functor. 
+\end{lemma}
+\CSP{I added this trivial lemma, it is probably in EGNO somewhere...}
+
+\begin{proof}
+	For each $c \in \cC$, the functor $c \otimes (-)$ admits both left and right adjoints, given by $c^* \otimes (-)$ and ${}^*c \otimes (-)$ respectively. 
+\end{proof}
+
+
 
 \subsection{Module categories are categories of modules}
 
@@ -458,7 +470,7 @@ Such structure exists precisely if the functors
 	\Hom_\cM((-)\otimes m', m): \; & \cC^\op \to \Vect \\
 	\Hom_\cM(c \otimes (-), m): \; & \cM^\op \to \Vect
 \end{align*}
-are representable. In this case they represent the objects $\IHom(m', m)$ and $(m^c)$, respectively. Both of these functors are left exact, and hence by Corollary \ref{cor:representable} (which uses the finiteness of $\cC$ and $\cM$) both of these functors are indeed representable.  \NS{I fixed a broken reference here, hopefully I got the right one.}
+are representable. In this case they represent the objects $\IHom(m', m)$ and $(m^c)$, respectively. Both of these functors are left exact, and hence by Corollary \ref{cor:representable} (which uses the finiteness of $\cC$ and $\cM$) both of these functors are indeed representable.  %\NS{I fixed a broken reference here, hopefully I got the right one.}
 \end{proof}
 
 \begin{remark}
@@ -471,7 +483,7 @@ Consider $\Vec$ as a module category over $\Vec(G)$.  Then $\IHom(1,1)$ is $k[G]
 
 
 
-The goal of this subsection is to prove the following result.
+The goal of this subsection is to prove a generalization of the following result.
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over a finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
@@ -481,7 +493,7 @@ The goal of this subsection is to prove the following result.
 $\Vec$ as a $\Vec(G)$-module category can be realized as the category of modules over the group algebra $k[G] $ thought of as an object of $\Vec(G)$ by putting $g$ in grade $g$.  
 \end{example}
 
-Without assuming that the category is rigid, this statement is false as the following example shows: 
+Without assuming that the category $\cC$ is rigid this statement is false as the following example shows: 
 
 \begin{example} \label{ex:lax-module}
 	Let $\cR \cong \Vect \oplus \Vect \cdot X$ be the non-rigid linear monoidal category consisting of pairs of vector spaces, which we write as $V_1 + V_2 X$, with tensor product given by 
@@ -491,7 +503,7 @@ Without assuming that the category is rigid, this statement is false as the foll
 	Up to equivalence there are unique choices of associator and unitors making this a linear monoidal category. 
 It is both finite and semisimple, and is a categorification of the ring $k[x]/(x^2)$, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
 	
-	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both left and right adjoints, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor. Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. 
+	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both left and right adjoints, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (c.f. Lemma~\ref{lem:laxisstrong}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. 
 \end{example}
 
 In order to show exactly how rigidity appears we first prove a more general result which does not assume rigidity.  Stating this more general theorem requires the following definition.
