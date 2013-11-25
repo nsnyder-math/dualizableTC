@@ -50,7 +50,8 @@ If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module categ
 
 The key result underlying our construction shows that any module category can be realized as a category of modules.  It is due to Ostrik in the fusion case, Etingof-Ostrik for exact module categories, and in the general case appears in Etingof-Gelaki-Nikshych-Ostrik's lecture notes.
 
-\begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
+\begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} %\label{thm:EGNO2.11.6}
+	\CSP{I commented out the label to this theorem as it was multiply defined.}
 	If $\cM$ is a finite left module category over a finite tensor category $\cC$, then there exists an algebra object $A \in \cC$ together with an equivalence of left $\cC$-module categories between $\cM$ and the category of right $A$-module objects in $\cC$.  Similarly, any finite right module category over a finite tensor category is equivalent to a category of left $A$-modules for some algebra object $A \in \cC$.
 \end{theorem}
 
@@ -435,8 +436,42 @@ We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightfor
 \end{center}
 \end{proof}
 
+The following Lemma was left as an exercise to the reader in \cite[\S 3.3]{EO-ftc}.
+
+\begin{lemma} \label{lma:module-adjoint}
+Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
+\end{lemma} \CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
+\begin{proof}
+Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ naturally has the structure of a $\cC$-$\cD$-bimodule functor.  The result for left adjoints is similar.
+
+The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate:
+$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
+where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  
+\CSP{This looks wrong to me. It doesn't seem to match the formula. Maybe it rotates the same way as the previous one?}
+\NS{I think it's fixed now.  In some sense it rotates in the opposite direction as the previous argument, but we ended up doing the lax case for one and the oplax case for the other so they're the same.  Maybe that's misleading and we should change one of them.}
+\begin{center}
+\begin{tikzpicture}[yscale=0.6]
+	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f^{-1}_{x,\cG(-)}$};
+	\draw (0,0) -- (0,3) arc (180:0:0.75cm) |- (A.135);
+	\draw (A.225) -- (1.5,0);
+	\draw (A.45) -- (2.5,4);
+	\draw (A.315) -- (2.5,1) arc (180:360:0.75cm) -- (4,4);
+	\node at (2.5,4.5) {$x \otimes (-)$};
+	\node at (4,4.5) {$\cG$};
+	\node at (0,-0.5) {$\cG$};
+	\node at (1.5, -0.5) {$x \otimes (-)$};
+\end{tikzpicture}
+\end{center}
+
+Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is left as an exercise.
+\end{proof}
+
+\begin{remark}
+If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an (oplax) module functor has a lax module functor structure, while the left adjoint of a (lax) module functor only has an oplax module functor structure.  %This is a serious issue as the following example shows. 
+\end{remark}
+
 \begin{lemma}\label{lem:partially_exact_action}
-	Let $\cC$ be a tensor category and $\cM$ a $\cC$-module category. Then for each object $c \in \cC$, the action map $c \otimes (-): \cM \to \cM$ is exact. This holds without assuming right-exactness in either variable of the action functor. 
+	Let $\cC$ be a tensor category and $\cM$ a $\cC$-module category. Then for each object $c \in \cC$, the action map $c \otimes (-): \cM \to \cM$ is exact. 
 \end{lemma}
 \CSP{I added this trivial lemma, it is probably in EGNO somewhere...}
 
@@ -453,7 +488,8 @@ Just as any finite linear category is a category of modules over an algebra, any
 
 The following is an elaboration of results of \cite{MR1976459} and \cite{EO-ftc}. % Really: enriched is due to EOFTC sec 3.2 (Ost03 did the semisimple case), the rest is new.
 \begin{proposition} \label{thm:enrichment-of-mod-cats}
-	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming from its structure as a $\cC$-module category.
+	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. Assume that the action map $\cC \times \cM \to \cM$ is right exact in each variable. 
+		Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming from its structure as a $\cC$-module category. \CSP{added the right exactness condition.}
 \end{proposition}
 
 \begin{proof}
@@ -474,7 +510,7 @@ are representable. In this case they represent the objects $\IHom(m', m)$ and $(
 \end{proof}
 
 \begin{remark}
-	The existence of $\IHom(m', m)$ only requires $\cC$ to be finite, and similarly the existence of $(m^c)$ only requires $\cM$ to be finite.
+	The existence of $\IHom(m', m)$ only requires $\cC$ to be finite and the action to be right exact in $\cC$, and similarly the existence of $(m^c)$ only requires $\cM$ to be finite and the action to be right exact in $\cM$.
 \end{remark}
 
 \begin{example}
@@ -486,7 +522,7 @@ Consider $\Vec$ as a module category over $\Vec(G)$.  Then $\IHom(1,1)$ is $k[G]
 The goal of this subsection is to prove a generalization of the following result.
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
-	Let $\cM$ be a left module category over a finite tensor category $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories.
+	Let $\cM$ be a left module category over a finite tensor category $\cC$, and assume the action is right exact in $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. \CSP{added right exactness of the action in the C-variable}
 \end{theorem}
 
 \begin{example}
@@ -509,7 +545,9 @@ It is both finite and semisimple, and is a categorification of the ring $k[x]/(x
 In order to show exactly how rigidity appears we first prove a more general result which does not assume rigidity.  Stating this more general theorem requires the following definition.
 
 \begin{definition}
-	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful. 
+	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. Assume that the action is right exact in $\cC$ so that $\cM$ is enriched over $\cC$. 
+	An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful.
+	\CSP{added right exactness in C variable} 
 \end{definition}
 
 \begin{remark}
@@ -524,7 +562,9 @@ Now we state the more general version of Theorem \ref{thm:EGNO2.11.6}.
 %The following is an extension of \cite[Thm 2.11.2]{EGNO} and \cite[Thm 1]{MR1976459}.
 
 \begin{theorem} \label{thm:C-module-Embedding} %!% [Thm 2.11.6(i)] 
-	Let $\cM$ be a finite left module category over a finite, but not necessarily rigid, linear monoidal category $\cC$. Fix an object $p \in \cM$, and set $A = \IHom(p,p) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to $\cC$-module functor:
+	Let $\cM$ be a finite left module category over a finite, but not necessarily rigid, linear monoidal category $\cC$. Assume that the action is right exact in $\cC$. 
+\CSP{added right exactness of action in C}
+	Fix an object $p \in \cM$, and set $A = \IHom(p,p) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and gives rise to $\cC$-module functor:
 	\begin{align*}
 		F:   \Mod{}{A}(\cC) \to \cM \\
 		F(x_A) := \coeq \left( x \otimes \IHom(p,p) \otimes p \rightrightarrows x \otimes p \right).
@@ -593,42 +633,16 @@ The claim now follows from the well-known fact that the Yoneda embedding reflect
 
 
 
-The following Lemma was left as an exercise to the reader in \cite[\S 3.3]{EO-ftc}.
-
-\begin{lemma} \label{lma:module-adjoint}
-Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
-\end{lemma} \CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
-\begin{proof}
-Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ naturally has the structure of a $\cC$-$\cD$-bimodule functor.  The result for left adjoints is similar.
-
-The binatural transformation $\psi_{x,n}: x \otimes \cG(n) \rightarrow \cG(x \otimes n)$ is given by the mate:
-$$x \otimes \cG(n) \rightarrow \cG \cF(x \otimes \cG(n)) \rightarrow \cG(x \otimes \cF\cG(n)) \rightarrow \cG(x \otimes n)$$
-where the first map is the unit of the adjunction, the second map is the binatural transformation coming from the module functor structure on $\cF$ and the third map is the counit.  
-\CSP{This looks wrong to me. It doesn't seem to match the formula. Maybe it rotates the same way as the previous one?}
-\NS{I think it's fixed now.  In some sense it rotates in the opposite direction as the previous argument, but we ended up doing the lax case for one and the oplax case for the other so they're the same.  Maybe that's misleading and we should change one of them.}
-\begin{center}
-\begin{tikzpicture}[yscale=0.6]
-	\node (A) at (2,2) [minimum height=1cm,minimum width=2cm, draw] {$f^{-1}_{x,\cG(-)}$};
-	\draw (0,0) -- (0,3) arc (180:0:0.75cm) |- (A.135);
-	\draw (A.225) -- (1.5,0);
-	\draw (A.45) -- (2.5,4);
-	\draw (A.315) -- (2.5,1) arc (180:360:0.75cm) -- (4,4);
-	\node at (2.5,4.5) {$x \otimes (-)$};
-	\node at (4,4.5) {$\cG$};
-	\node at (0,-0.5) {$\cG$};
-	\node at (1.5, -0.5) {$x \otimes (-)$};
-\end{tikzpicture}
-\end{center}
-
-Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this binatural transformation is an isomorphism.  The compatibility condition is left as an exercise.
-\end{proof}
-
-\begin{remark}
-If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an (oplax) module functor has a lax module functor structure, while the left adjoint of a (lax) module functor only has an oplax module functor structure.  %This is a serious issue as the following example shows. 
-\end{remark}
-
 \begin{proof}[Proof of Thm.~\ref{thm:EGNO2.11.6}]
 By Lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint}, the assumptions of Theorem~\ref{thm:C-module-Embedding} are satisfied.
+\end{proof}
+
+\begin{corollary} \label{cor:biexact_action}
+	Let $\cC$ be a finite tensor category and let $\cM$ be a finite $\cC$-module category. If the action map $\cC \times \cM \to \cM$ is right exact in $\cC$, meaning that for each $m \in \cM$, $(-) \otimes m: \cC \to \cM$ is right exact, then the action is in fact exact in each variable separately (i.e. for each $c \in \cC$ and $m \in \cM$ the functors $c \otimes (-)$ and $(-) \otimes m$ are exact).  
+\end{corollary}
+
+\begin{proof}
+	By Lemma~\ref{lem:partially_exact_action} the functor $c \otimes (-)$ is exact for each $c \in \cC$. We must show that $(-) \otimes m$ is exact for each $m \in \cM$. By Thm.~\ref{thm:EGNO2.11.6} there exists an algebra object $A \in \cC$, and an equivalence of $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. Hence there exists a forgetful functor $U:\cM \to \cC$ which is a $\cC$-module functor, is exact, and reflects short exact sequences. It follows that $(-) \otimes m: \cC \to \cM$ is exact if and only if $(-) \otimes U(m): \cC \to \cC$ is exact, but this follows from Lemma~\ref{lma:RigidIsExact}. 
 \end{proof}
 
 
