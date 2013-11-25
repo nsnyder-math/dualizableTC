@@ -217,15 +217,15 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 
 %A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
 
-\begin{definition}[Convention for rigidity] \label{def:rigid}
-	A monoidal category $\cC$\NS{I removed the extra data entirely, it was $(C, \otimes,1)$} is {\em rigid} if for each object $x \in \cC$, there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zigzag' equations:
+\begin{definition} \label{def:rigid}
+	An object $x \in \cC$ admits a {\em right dual} if there exists an object $x^*$ and morphisms, the {\em coevaluation} $\eta: 1 \to x \otimes x^*$ and the {\em evaluation} $\varepsilon: x^* \otimes x \to 1$, satisfying the following pair of `zigzag' equations:
 	\begin{align*}
 		(id_{x} \otimes \varepsilon  ) \circ (  \eta \otimes id_{x}) &= id_{x} \\
 		(\varepsilon \otimes id_{x^*}) \circ (id_{x^*} \otimes \eta) &= id_{x^*};
 	\end{align*}
-	and dually there exist an object 
+	A monoidal category $\cC$ is {\em rigid} if each object of $\cC$ and each object of $\cC^\mp$ admit right duals. 
 \end{definition}
-
+\CSP{I corrected this so that rigid includes both right and left duals.}
 
 \begin{definition}
 	A {\em linear monoidal category} will mean a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.  \NS{I'm not sure if we want to say ``right exact" somewhere here.  Rigidity implies exactness of tensor product so it may not be necessary.}
