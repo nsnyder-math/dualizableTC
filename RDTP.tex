@@ -599,13 +599,13 @@ We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module catego
 \begin{align*}
 	B & \cong \coeq \left( B \otimes \IHom(p,p) \otimes \IHom(p,p) \rightrightarrows B \otimes \IHom(p,p) \right)\\
 	& \cong \coeq \left(\IHom(p,B  \otimes \IHom(p,p) \otimes p) \rightrightarrows \IHom(p,B \otimes p) \right)\\
-	& \cong \IHom(p, F(B)).
+	& \cong \IHom(p, F(B)). \qedhere
 \end{align*}	
 \end{proof}
 
 %The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
 
-If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular Lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator.
+If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular Lemma \ref{lma:module-adjoint} and Lemma \ref{lma:Enough_C-projs} below imply that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover there always exists a $\cC$-projective $\cC$-generator.
 
 \begin{lemma}{\cite[\S 2.11]{EGNO}} \label{lma:Enough_C-projs}
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
@@ -676,7 +676,9 @@ In this section we prove our main result, the existence of the Deligne tensor pr
 
 
 \begin{definition}
-	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$} is the universal linear category admitting a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced right exact multilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
+	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$} 
+\CSP{Change this to `balanced tensor product'?}	
+	is the universal linear category admitting a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced right exact multilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
 \end{definition}
 
 If it exists, the Deligne tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the Deligne tensor product is either contractible or empty. 
@@ -693,11 +695,15 @@ In \cite{0909.3140} the existence of the relative Deligne tensor product was est
 		\begin{equation*}
 			\Hom_{\cM}(x,x') \otimes \Hom_{\cN}(y, y') \cong \Hom_{\cM \boxtimes_{\cC} \cN} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y'),
 		\end{equation*}
-		\item If $F: \cM \times \cN \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cM \boxtimes_{\cC} \cN \to \cD$. 
+		\item Let $F_0: M \to M'$ be a right $\cC$-module functor and let $F_1: N \to N'$ be a left $\cC$-module functor. These induce a $\cC$-balanced functor $F: M \times N \to M' \times N' \to M' \boxtimes_{\cC} N'$. If $F_0$ and $F_1$ are exact, then so is the induced functor $\overline{F}: M \boxtimes_{\cC} N \to M' \boxtimes_{\cC} N'$.
+		%If $F: \cM \times \cN \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cM \boxtimes_{\cC} \cN \to \cD$. 
 	\end{enumerate} 
-\nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.	
-\end{theorem}
+\nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.
 \CD{Add biexactness condition to Part (4) --- see email thread ``Deligne tensor product of rigids is rigid" and DTC.}
+\CSP{I corrected part (4) and gave a proof.}	
+\end{theorem}
+
+
 \CD{Other new material (somewhere) as a result of the new issues? --- eg $Z(C)$ semisimple implies $C$ simple, etc.}
 
 \begin{proof}
@@ -767,7 +773,34 @@ The rows of this diagram are exact (since $F$ was assumed to be right exact in e
 \begin{equation*}
 	\overline{F}: \Mod{A}{B}(\cC) \to \cD,
 \end{equation*} 
-and implements the desired equivalence between such right exact functors and $\cC$-balanced exact-in-each-variable functors. Verifying that this construction is well defined makes use of the pentagon identity satisfied by $\cC$-balanced functors. This establishes (1), (2), and (3). The final property, part (4), now follows from a routine diagram chase, which we also leave to the reader. 
+and implements the desired equivalence between such right exact functors and $\cC$-balanced exact-in-each-variable functors. Verifying that this construction is well defined makes use of the pentagon identity satisfied by $\cC$-balanced functors. This establishes (1), (2), and (3). 
+
+We now prove the final property. By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B, A'$, and $C' \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$, $\cN \simeq \Mod{}{B}(\cC)$, $\cM' \simeq \Mod{A'}{}(\cC)$, $\cN \simeq \Mod{}{B'}(\cC)$. Since $F_0$ and $F_1$ are right exact, they are equivalent to tensoring with bimodules:
+\begin{align*}
+	F_0(-) &\cong {}_{A'}x \otimes_A (-); \\
+	F_1(-) & \cong (-) \times_B x_{B'}.
+\end{align*}
+Since $F_0$ and $F_1$ are exact, we may call these modules {\em flat} over $A$, respectively $B$. We wish to show that the induced functor:
+\begin{equation*}
+	\overline{F}(-) = {}_{A'}x \otimes_A (-) \times_B y_{B'}: \Mod{A}{B}(\cC) \to \Mod{A'}{B'}(\cC)
+\end{equation*}
+is exact. Since the forgetful functor $U: \Mod{A'}{B'}(\cC) \to \cC$ is exact and reflects short exact sequences, it is enough to show that 
+\begin{equation*}
+	x \otimes_A (-) \times_B y: \Mod{A}{B}(\cC) \to \cC
+\end{equation*}
+is exact. Let $0 \to m \to m' \to m'' \to 0$ be a short exact sequence of $A$-$B$-bimodules. We will compute the above functor in two steps, by first tensoring with $x$, and then with $y$. After tensoring with $x$ on the left we obtain a sequence of right $B$-modules:
+\begin{equation*}
+	0 \to x \otimes_A m \to x \otimes_A m' \to x \otimes_A {m''} \to 0
+\end{equation*}
+Since $x$ is flat, this sequence is exact after forgetting the $B$-module structure. Hence it is also an exact sequence of $B$-modules. Thus, since $y$ is flat, we obtain an exact sequence
+\begin{equation*}
+		0 \to x \otimes_A m \otimes_B y \to x \otimes_A m'\otimes_B y \to x \otimes_A {m''}  \otimes_B y \to 0
+\end{equation*}
+	as desired. 
+
+
+
+The final property, part (4), now follows from a routine diagram chase, which we also leave to the reader. 
 \end{proof}
 
 \begin{example}
@@ -785,10 +818,17 @@ The above theorem assumes that $\cC$ is a finite tensor category, that is a fini
 
 
 
+\begin{lemma}%\label{lem:}
+	\CSPcomm{Stronger version of (4) when field is perfect and $\cC = \Vec$}
+\end{lemma}
 
+\begin{corollary}%\label{cor:}
+	\CSPcomm{Deligne tensor product over perfect fields preserves rigidity.}
+\end{corollary}
 
-
-
+\begin{lemma}%\label{lem:}
+	\CSPcomm{Deligne tensor product of $\cC$ and $\cD$-modules.}
+\end{lemma}
 
 
 
