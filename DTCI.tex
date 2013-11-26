@@ -1629,11 +1629,14 @@ Provide the monoidal category $\cC$ is finite and rigid, and provided the module
 		\begin{equation*}
 			\Hom_{\cM \boxtimes_{\cC} \cN} (m \boxtimes_\cC n, m' \boxtimes_\cC n') \cong \Hom_{\cM}(m,m') \otimes \Hom_{\cN}(n, n').
 		\end{equation*}
-		\item If the action maps $\cM \times \cC \ra \cM$ and $\cC \times \cN \ra \cN$ are both exact in each variable, and if $\cF: \cM \times \cN \to \cL$ is a $\cC$-balanced bilinear functor that is also exact in each variable, then the corresponding functor $\overline{\cF}: \cM \boxtimes_{\cC} \cN \to \cL$ is exact. 
-	\end{enumerate} 	
+		\item Let $F_0: M \to M'$ be a right $\cC$-module functor and let $F_1: N \to N'$ be a left $\cC$-module functor. These induce a $\cC$-balanced functor $F: M \times N \to M' \times N' \to M' \boxtimes_{\cC} N'$. If $F_0$ and $F_1$ are exact, then so is the induced functor $\overline{F}: M \boxtimes_{\cC} N \to M' \boxtimes_{\cC} N'$. 
+		%If the action maps $\cM \times \cC \ra \cM$ and $\cC \times \cN \ra \cN$ are both exact in each variable, and if $\cF: \cM \times \cN \to \cL$ is a $\cC$-balanced bilinear functor that is also exact in each variable, then the corresponding functor $\overline{\cF}: \cM \boxtimes_{\cC} \cN \to \cL$ is exact. 
+	\end{enumerate} 
+	\CD{Confirm part (3), any conditions?}
+	\CD{Fix part (5)}
+	\CSP{I corrected part (5). There is now a proof of this in BTP.}	
 \end{theorem} %!% Confirm happy with change.
-\CD{Confirm part (3), any conditions?}
-\CD{Fix part (5)}
+
 
 The relative Deligne tensor product provides a means of composing bimodule categories; this is the most important ingredient in constructing the 3-category of finite tensor categories.  We need not just a 3-category, though, but a symmetric monoidal 3-category.  The monoidal structure is given by the relative Deligne tensor product over the tensor category $\Vect_k$; such a product is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.  For the Deligne tensor to provide a monoidal structure on the objects of the 3-category of finite tensor categories, we need to know that the product $\cC \boxtimes \cD$ is indeed rigid.  To ensure that we make our first and only assumption about the base field $k$, namely that it is perfect; cf. Deligne~\cite[Prop 5.17]{deligne}.\footnote{For example: if $k$ is not perfect, and $l$ is an inseparable field extension of $k$, then the Deligne tensor $(\Mod{l}{l}) \boxtimes (\Mod{l}{l})$ is not rigid.} %!% CDNC
 
