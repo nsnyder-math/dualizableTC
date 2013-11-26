@@ -1728,7 +1728,9 @@ The second condition certainly implies the first; we prove the converse.  By the
 
 \begin{theorem}\label{thm:tensor-exactness}
 Let $\cC$ and $\cD$ be finite tensor categories.  If $\cM$ is an exact finite left $\cC$-module category, and $\cN$ is an exact finite left $\cD$-module category, then $\cM \boxtimes \cN$ is an exact left $\cC \boxtimes \cD$-module category.
+\CSP{This needs the ground field to be perfect: a counter example is given by tensoring the semisimple cat $L$-modules with itself, where L is an inseparable field extension. These are exact over $\Vec(k)$, since semisimple, but the tensor product is not.}
 \end{theorem}
+
 
 \begin{proof} 
 First observe that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective.  This closure property follows from parts (4) and (5) of Theorem \ref{thm:DelignePrdtOverATCExists}.
@@ -1788,6 +1790,7 @@ where $x'$ is a primitive tensor, that is an object of the form $a \boxtimes b$,
 The columns are exact because the objects $z_i$ are injective.  The middle row is exact because $x'$ is a primitive tensor.  A diagram chase shows that the map $\Hom(x,z_2) \ra \Hom(x,z_3)$ is surjective, and hence $\Hom((p \boxtimes q) \otimes x,-)$ is right exact, as required.
 
 An argument of the same flavor, involving applications of parts (4) and (5) of Theorem~\ref{thm:DelignePrdtOverATCExists}, a resolution by a primitive tensor, and a diagram chase, shows that the action functor $(\cC \boxtimes \cD) \times (\cM \boxtimes \cN) \ra (\cM \boxtimes \cN)$ is exact.
+\CSP{This last part is redundant, now. }
 \end{proof}
 
 
