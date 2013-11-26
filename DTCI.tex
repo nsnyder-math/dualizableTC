@@ -1669,6 +1669,7 @@ Let $\cC$ be a finite tensor category.  A left $\cC$-module category $\cM$ is \e
 \end{definition}
 
 \nid (The action functor of any module category over a finite tensor category is exact in the $\cM$ variable, but exactness in the $\cC$ variable is an additional requirement.) %!%
+\CSP{Actually this parenthetical now seems to be wrong. See cor \ref{cor:biexact_action}}
 
 \begin{definition}
 A $\cC$--$\cD$-bimodule category is \emph{exact} if it is exact when considered as a left $\cC \boxtimes \cD^\mp$-module category.
@@ -1697,10 +1698,13 @@ The following omnibus theorem summarizes the properties of exact module categori
 		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.
 		\item If the category $\cM$ is moreover finite, then the monoidal category of endofunctors $\Fun_{\cC}(\cM,\cM)$ is rigid, therefore is a finite tensor category.
 		\item The category $\cM$ is exact when considered as a $\Fun_{\cC}(\cM,\cM)^\mp$-module category \cite[Lemma 3.25]{EO-ftc}.
+		\CSP{(5) and (6) seem like they might depend on finiteness of M. Rearrange the order to make the clearer...}
 	\end{enumerate}
 \end{theorem}
 \nid The sixth item is seen as follows.  Any functor $\cF \in \Fun_\cC(\cM,\cM)$ is exact, therefore has left and right adjoints as a linear functor.  By Lemma~\ref{lma:module-adjoint}, the functor $\cF$ also has adjoints as a module functor---these adjoints provide the required rigidity.  \CD{Check item 7 (... and the rest ...) really okay over arbitrary field}
 
+
+\CSP{The proof of EO for item (5) is only valid if the unit is simple. (There are counter examples with multifusion categories). I need to add the general proof.}
 
 \subsubsection{The tensor product of exact module categories is exact} \label{sec:tensorexact}
 
