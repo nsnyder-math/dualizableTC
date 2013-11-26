@@ -827,10 +827,27 @@ The above theorem assumes that $\cC$ is a finite tensor category, that is a fini
 \end{corollary}
 
 \begin{lemma}%\label{lem:}
-	\CSPcomm{Deligne tensor product of $\cC$ and $\cD$-modules.}
+	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$ as a left $\cC \boxtimes \cD$-module category.
 \end{lemma}
 
-
+\begin{proof}
+	The forgetful functors from $\cN$ to $\cC$ and $\cP$ to $\cD$ are part of monadic adjunctions:
+	\begin{align*}
+		(-) \otimes B_{B}:\cC \rightleftarrows \cN = \Mod{}{B}(\cC): U \\
+		(-) \otimes C_{C}:\cD \rightleftarrows \cP = \Mod{}{C}(\cD): U
+	\end{align*}
+	Since both functors in the adjunction are right exact (the forgetful functor is exact, not just left exact) these adjunctions descend to and adunction between the Deligne tensor products. 
+	\begin{equation*}
+		(-) \otimes (B \boxtimes C)_{B \boxtimes C}: \cC \boxtimes \cD \rightleftarrows \cN \boxtimes \cP: \overline{U}.
+	\end{equation*}
+	Since all these functors are compatible with the $\cC$- and $\cD$-module structures, the result follows if we can show that this adjunction is monadic.
+	
+	This last follows from the crude monadicity theorem \CSP{get reference for crude monadicity thm} and the observations:
+	\begin{itemize}
+		\item $\overline{U}$ reflects isomorphisms. This follows from the five lemma and the fact that everything is a coequalizer of objects in the image of $\cM \times \cN$; and
+		\item $\overline{U}$ preserves coequalizers of reflexive pairs. Since our categories are additive, reflexive pairs become are (essentially) split empimorphisms; any additive functor preserves these. \qedhere
+	\end{itemize}
+\end{proof}
 
 
 
