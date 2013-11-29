@@ -1664,7 +1664,7 @@ Provided the base field $k$ is perfect, there exists a symmetric monoidal $(3,3)
 
 \nid Over a perfect field a stronger form of Theorem~\ref{thm:DelignePrdtOverATCExists}~(5) is valid in the case $\cC = \Vect_k$:
 
-\begin{lemma}[{\cite[Prop 5.13(vi)]{deligne} }]\label{lem:Exact_in_each_is_exact}
+\begin{lemma}[{\cite[Prop 5.13(vi)]{deligne}}]\label{lem:Exact_in_each_is_exact}
 	Let $\cM$, $\cN$, and $\cL$ be finite linear categories over a perfect field. Then a linear functor $\cM \boxtimes \cN \to \cL$ is exact if and only if the bilinear functor $\cM \times \cN \to \cL$ is exact in both variables separately. 
 \end{lemma} 
 
@@ -1672,20 +1672,23 @@ Provided the base field $k$ is perfect, there exists a symmetric monoidal $(3,3)
 
 When investigating the dualizability properties of a finite tensor category $\cC \in \TC$, we will first construct a dual object, and then build chains of left and right adjoints to the evaluation and coevaluation maps of that duality.  We will then find ourselves wanting to build adjoints to the unit and counit maps in those adjunctions.  By assumption, those unit and counit maps are right exact functors, and so will admit right adjoint functors which however are not obviously right exact, therefore are not obviously adjoints within our 3-category $\TC$.  What we need is a condition on a bimodule category that ensures that all not necessarily right or left exact bimodule functors out of it are in fact exact.  If we can verify that certain bimodules arising in the duality data for $\cC \in \TC$ satisfy this condition, then we will be able to construct the corresponding adjoints of bimodule functors.
 
-Such a condition, ensuring the exactness of module functors out of a module category, is provided by a variation of Etingof and Ostrik's (aptly named) notion of an exact module category.  In this section we summarize the properties of exact module categories, following~\cite{EO-ftc}, and then prove a new result concerning the exactness of Deligne tensor products.
+Such a condition, ensuring the exactness of module functors out of a module category, is provided by Etingof and Ostrik's (aptly named) notion of an exact module category.  In this section we summarize the properties of exact module categories, following~\cite{EO-ftc}, and then prove a new result concerning the exactness of Deligne tensor products.
 
 %!% Indicate in intro what the assumptions on the fields are: section 3, k is arbitrary except for TC theorem (k perfect)(Looks like: 3.4: k arbitrary; 3.5: k arbitrary except Cor 3.5.8, Def 3.5.9, Def 3.5.10, Cor 3.5.11 where k is perfect); sec 3.6 ... ; section 4, k perfect.  
 
 \subsubsection{Properties of exact module categories over finite tensor categories}
 
-Etingof and Ostrik introduced exact module categories over an algebraically closed field, and showed that all module functors out of an exact module category are exact.  As we work over not-necessarily algebraically closed fields, we need to strength their condition slightly in order to obtain the same conclusion.
+Etingof and Ostrik introduced exact module categories over an algebraically closed field, and showed that all module functors out of an exact module category are exact.  We will work over an arbitrary field. 
+%As we work over not-necessarily algebraically closed fields, we need to strength their condition slightly in order to obtain the same conclusion.
 
 \begin{definition}
-Let $\cC$ be a finite tensor category.  A left $\cC$-module category $\cM$ is \emph{exact} if the action functor $\cC \times \cM \ra \cM$ is exact in each variable, and if the object $p \otimes m \in \cM$ is projective for any projective $p \in \cC$ and any $m \in \cM$.
+Let $\cC$ be a finite tensor category.  A left $\cC$-module category $\cM$ is \emph{exact} 
+%if the action functor $\cC \times \cM \ra \cM$ is exact in each variable, and 
+if the object $p \otimes m \in \cM$ is projective for any projective $p \in \cC$ and any $m \in \cM$.
 \end{definition}
 
-\nid (The action functor of any module category over a finite tensor category is exact in the $\cM$ variable, but exactness in the $\cC$ variable is an additional requirement.) %!%
-\CSP{Actually this parenthetical now seems to be wrong. See cor \ref{cor:biexact_action}}
+%\nid (The action functor of any module category over a finite tensor category is exact in the $\cM$ variable, but exactness in the $\cC$ variable is an additional requirement.) %!%
+%\CSP{Actually this parenthetical now seems to be wrong. See cor \ref{cor:biexact_action}}
 
 \begin{definition}
 A $\cC$--$\cD$-bimodule category is \emph{exact} if it is exact when considered as a left $\cC \boxtimes \cD^\mp$-module category.
@@ -1705,22 +1708,103 @@ Let $\cC$ be a semisimple finite tensor category.  A $\cC$-module category is ex
 
 The following omnibus theorem summarizes the properties of exact module categories: 
 \begin{theorem}[\cite{EO-ftc, EGNO}] \label{Thm:ExactModCatOmnibus}
-	Let $\cC$ be a finite tensor category over an arbitrary field, let $\cM$, $\cM'$, and $\cM''$ be exact $\cC$-module categories, and let $\cN$ be any $\cC$-module category.  Under these assumptions we can conclude the following:
+	Let $\cC$ be a finite tensor category over an arbitrary field, let $\cM$, $\cM'$, and $\cM''$ be finite exact $\cC$-module categories, and let $\cN$ be any finite $\cC$-module category.  Under these assumptions we can conclude the following:
 	\begin{enumerate}
 		\item The category $\cM$ has enough projectives \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}.
 		\item Every projective object of $\cM$ is injective, and every injective object of $\cM$ is projective \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
-		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}; in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ itself is finite. %!%CDNC
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO} (see Prop.~\ref{pro:Functors_automatically_exact} below).		
+		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}. %; %in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ itself is finite. %!%CDNC
 		\item The composition functor $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}.	
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.
-		\item If the category $\cM$ is moreover finite, then the monoidal category of endofunctors $\Fun_{\cC}(\cM,\cM)$ is rigid, therefore is a finite tensor category.
+		\item The monoidal category of endofunctors $\Fun_{\cC}(\cM,\cM)$ is rigid, therefore is a finite tensor category.
 		\item The category $\cM$ is exact when considered as a $\Fun_{\cC}(\cM,\cM)^\mp$-module category \cite[Lemma 3.25]{EO-ftc}.
-		\CSP{(5) and (6) seem like they might depend on finiteness of M. Rearrange the order to make the clearer...}
+\CSP{}
 	\end{enumerate}
 \end{theorem}
-\nid The sixth item is seen as follows.  Any functor $\cF \in \Fun_\cC(\cM,\cM)$ is exact, therefore has left and right adjoints as a linear functor.  By Lemma~\ref{lma:module-adjoint}, the functor $\cF$ also has adjoints as a module functor---these adjoints provide the required rigidity.  \CD{Check item 7 (... and the rest ...) really okay over arbitrary field}
-\NS{Does this (eg 4, 5, 6) need perfect?}
+\nid \CSPcomm{\small I added the assumption of finite to the statement of this theorem. Certainly some results are valid without this, but it is easier to keep it. I changes the order (moving what was (5) to (3)). This now reflects the true logical dependance. I went through EGNO and have verified all that all of these arguments are correct and work over an arbitrary field (no perfect requirement). }
 
-\CSP{The proof of EO for item (5) is only valid if the unit is simple. (There are counter examples with multifusion categories). I need to add the general proof.}
+\nid The sixth item is seen as follows.  Any functor $\cF \in \Fun_\cC(\cM,\cM)$ is exact, therefore has left and right adjoints as a linear functor.  By Lemma~\ref{lma:module-adjoint}, the functor $\cF$ also has adjoints as a module functor---these adjoints provide the required rigidity.  
+
+\CD{Check item 7 (... and the rest ...) really okay over arbitrary field}
+\NS{Does this (eg 4, 5, 6) need perfect?}
+\CSP{I think the above two comments have been addressed.}
+
+The third item is proven in \cite[Prop. 3.11]{EO-ftc} and \cite[Prop 2.7.8]{EGNO}, but the proofs given there make crucial use of the fact that for $c \in \cC$ and $m \in \cM$, $c \otimes m = 0$ implies $m=0$. This is valid if the unit object of $\cC$ is simple, but is false even in the semisimple setting of multifusion categories. The next proposition shows that, nevertheless, item (3) is valid in complete generality.  
+
+\begin{proposition}\label{pro:Functors_automatically_exact}
+	Let $\cM$ and $\cN$ be a finite $\cC$-module categories and assume $\cM$ is exact. Then every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact.   
+\end{proposition}
+
+\begin{proof}
+	This proof may be substantially shortened if one assumes that $F$ is either right exact or left exact, but here we will only assume that it is additive. 
+	Since $\cC$ is finite there exists a short exact sequence in $\cC$:
+	\begin{equation*}
+		0 \to k \to p \to 1 \to 0
+	\end{equation*}
+	with $p \in \cC$ projective. Let
+	\begin{equation*}
+		0 \to x \to y \to z \to 0
+	\end{equation*}
+	be a short exact sequence in $\cM$. Tensoring these together we obtain the following $3 \times 3$ diagram. 
+	\begin{center}
+	\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes, row sep = 0.5cm, column sep = 0.75cm, text height=1.5ex, text depth=0.25ex]
+			{
+				  & 0 & 0 & 0 & \\
+				0 & k \otimes x & k \otimes y & k \otimes z & 0 \\
+				0 & p \otimes x & p \otimes y & p \otimes z & 0 \\
+				0 &  x &  y &  z & 0 \\ 
+				  & 0 & 0 & 0 & \\
+			};
+			\foreach \x in {2,3,4}{ % coloumns
+				\foreach \y/\z in {1/2,2/3,3/4,4/5}{
+					\draw [->] (m-\y-\x) -- (m-\z-\x);
+				};		
+			};
+			\foreach \y in {2,3,4}{ % rows
+				\foreach \x/\z in {1/2,2/3,3/4,4/5}{
+					\draw [->] (m-\y-\x) -- (m-\y-\z);
+				};		
+			};
+	\end{tikzpicture}
+	\end{center}
+	By Cor.~\ref{cor:biexact_action}, all of the columns and rows are exact. Moreover, since $\cM$ is exact, $p \otimes z$ is projective, and hence the middle row is a split exact sequence. 
+		\begin{equation*}
+		0 \to p \otimes x \to p \otimes y \to p \otimes z \to 0 
+	\end{equation*}
+	Applying $F$, we obtain the following commutative diagram. The solid sequences are exact: the columns are exact by Cor.~\ref{cor:biexact_action}, and the middle row is exact because any additive functor preserves split short exact sequences. 
+	\begin{center}
+	\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes, row sep = 0.5cm, column sep = 0.75cm, text height=1.5ex, text depth=0.25ex]
+			{
+				  & 0 & 0 & 0 & \\
+				0 & k \otimes F(x) & k \otimes F(y) & k \otimes F(z) & 0 \\
+				0 & p \otimes F(x) & p \otimes F(y) & p \otimes F(z) & 0 \\
+				0 &  F(x) &  F(y) &  F(z) & 0 \\ 
+				  & 0 & 0 & 0 & \\
+			};
+			\foreach \x in {2,3,4}{ % coloumns
+				\foreach \y/\z in {1/2,2/3,3/4,4/5}{
+					\draw [->] (m-\y-\x) -- (m-\z-\x);
+				};		
+			};
+			\foreach \y in {2,4}{ % rows
+				\foreach \x/\z in {1/2,2/3,3/4,4/5}{
+					\draw [->, dashed] (m-\y-\x) -- node [above] {\text} (m-\y-\z);
+				};		
+			};
+			\foreach \x/\z/\text in {1/2,2/3,3/4,4/5}{
+				\draw [->] (m-3-\x) -- (m-3-\z);
+			};
+	\end{tikzpicture}
+	\end{center}
+	A diagram chase in the lower-right-hand corner shows that $F(y) \to F(z) \to 0$ is exact. Hence, since $\cC$ is rigid,
+		$k \otimes F(y) \to k \otimes F(z) \to 0$
+	is exact as well. Now we may apply the sharp $3 \times 3$-lemma \cite[Lem. 2]{MR1004230} to conclude that $F(x) \to F(y) \to F(z)$ is also exact. In other words we have shown that $F$ is right exact. In particular
+	\begin{equation*}
+		k \otimes F(x) \to k \otimes F(y) \to k \otimes F(z) \to 0
+	\end{equation*} 
+	is exact. Finally, the snake lemma applied to the above diagram gives us that $F$ is in fact exact. 
+\end{proof}
 
 \subsubsection{The tensor product of exact module categories is exact} \label{sec:tensorexact}
 
