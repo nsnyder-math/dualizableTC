@@ -1814,15 +1814,14 @@ The second condition certainly implies the first; we prove the converse.  By the
 \end{proof}
 
 \begin{theorem}\label{thm:tensor-exactness}
-Let $\cC$ and $\cD$ be finite tensor categories.  If $\cM$ is an exact finite left $\cC$-module category, and $\cN$ is an exact finite left $\cD$-module category, then $\cM \boxtimes \cN$ is an exact left $\cC \boxtimes \cD$-module category.
-\CSP{This needs the ground field to be perfect: a counter example is given by tensoring the semisimple cat $L$-modules with itself, where L is an inseparable field extension. These are exact over $\Vec(k)$, since semisimple, but the tensor product is not.}
+Let $\cC$ and $\cD$ be finite tensor categories over a perfect field.  If $\cM$ is an exact finite left $\cC$-module category, and $\cN$ is an exact finite left $\cD$-module category, then $\cM \boxtimes \cN$ is an exact left $\cC \boxtimes \cD$-module category.
 \end{theorem}
 
 
 \begin{proof} 
 First observe that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective.  This closure property follows from parts (4) and (5) of Theorem \ref{thm:DelignePrdtOverATCExists}.
 
-Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for all projective objects $p \in \cC$ and $q \in \cD$.  This collection is a jointly generating family of projectives, as follows from expressing $\cC \boxtimes \cD$ as $(A \otimes B)\textrm{-}\mathrm{Mod}$ (using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}).
+Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for all projective objects $p \in \cC$ and $q \in \cD$.  This collection is a jointly generating family of projectives, as follows, for example, from expressing $\cC \boxtimes \cD$ as $(A \otimes B)\textrm{-}\mathrm{Mod}$ (using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}).
 
 By Lemma \ref{lma:Exact_checked_on_proj_gens}, it suffices to check that for every object $x \in \cM \boxtimes \cN$, and every pair of projective objects $p \in \cC$ and $q \in \cD$, the product $(p \boxtimes q) \otimes x \in \cM \boxtimes \cN$ is projective.  That is, we need to show that the following functor is exact:
 \begin{equation*}
@@ -1830,7 +1829,7 @@ By Lemma \ref{lma:Exact_checked_on_proj_gens}, it suffices to check that for eve
 \end{equation*}
 We first observe that this is true when $x$ is a primitive tensor $a \boxtimes b$: because $\cM$ and $\cN$ are exact, the products $p \otimes a$ and $q \otimes b$ are projective, and the product $(p \boxtimes q) \otimes (a \boxtimes b) \cong (p \otimes a) \boxtimes (q \otimes b)$ is projective by the aforementioned closure property.
 
-Now for a general object $x \in \cM \boxtimes \cN$, by part (5) of Theorem~\ref{thm:DelignePrdtOverATCExists} it is enough to show that the functor
+Since we are working over a perfect field Lemma~\ref{lem:Exact_in_each_is_exact} applies, with the consequence that, for a general object $x \in \cM \boxtimes \cN$, it is enough to show that the functor
 \begin{align*}
 \cF: \cM \times \cN &\rightarrow \Vect \\
 m \times n &\mapsto \Hom_{\cM \boxtimes \cN}((p \boxtimes q) \otimes x, m \boxtimes n) \cong \Hom_{\cM \boxtimes \cN}(x, ({}^* p \otimes m) \boxtimes ({}^* q \otimes n))
@@ -1875,10 +1874,13 @@ where $x'$ is a primitive tensor, that is an object of the form $a \boxtimes b$,
 		\end{tikzpicture}
 \]
 The columns are exact because the objects $z_i$ are injective.  The middle row is exact because $x'$ is a primitive tensor.  A diagram chase shows that the map $\Hom(x,z_2) \ra \Hom(x,z_3)$ is surjective, and hence $\Hom((p \boxtimes q) \otimes x,-)$ is right exact, as required.
-
-An argument of the same flavor, involving applications of parts (4) and (5) of Theorem~\ref{thm:DelignePrdtOverATCExists}, a resolution by a primitive tensor, and a diagram chase, shows that the action functor $(\cC \boxtimes \cD) \times (\cM \boxtimes \cN) \ra (\cM \boxtimes \cN)$ is exact.
-\CSP{This last part is redundant, now. }
+%An argument of the same flavor, involving applications of parts (4) and (5) of Theorem~\ref{thm:DelignePrdtOverATCExists}, a resolution by a primitive tensor, and a diagram chase, shows that the action functor $(\cC \boxtimes \cD) \times (\cM \boxtimes \cN) \ra (\cM \boxtimes \cN)$ is exact.
+%\CSP{This last part is redundant, now. }
 \end{proof}
+
+\begin{remark}
+	The assumption that the ground field is perfect is necessary for the conclusion of Thm.~\ref{thm:tensor-exactness}. If $k$ is not a perfect field, then there exists a finite dimensional inseparable field extension $\ell$ over $k$. The category $\Vect(\ell)$ is semisimple, hence exact as a $\Vect(k)$-module category, however $\Vect(\ell) \boxtimes \Vect(\ell) = \mod{(\ell \otimes_k \ell)}{}$ is not. 
+\end{remark}
 
 
 \subsection{Dual and functor bimodule categories} \label{sec:tc-bimodules}
