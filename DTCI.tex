@@ -51,7 +51,6 @@ We investigate the relationship between the algebra of tensor categories and the
 %\pgfkeys{/pgf/fpu=false}
 
 
-
 \section{Introduction}
 
 \subsection{Local topological field theory}
@@ -61,6 +60,8 @@ Both classical and quantum field theories associate to a manifold, thought of as
 A topological field theory provides a numerical invariant of closed $n$-manifolds: by the multiplicative, that is symmetric monoidal, assumption, the theory assigns the standard 1-dimensional vector space to the empty manifold, and so to a closed $n$-manifold assigns an endomorphism of that vector space, which is a scalar.  Indeed, topological field theories can be viewed as numerical invariants of closed $n$-manifolds that have a particularly computable structure: the invariant can be determined by cutting the closed manifold into manifolds with boundary, and then composing the operators associated to those smaller manifolds.  Unfortunately, the operators associated to these manifolds with boundary, and even the vector spaces associated to the boundary $(n-1)$-manifolds, may themselves be difficult to compute.  This situation motivates the notion of extended topological field theories; a once-extended topological field theory also assigns algebraic invariants to $(n-2)$-manifolds, to $(n-1)$-manifolds with boundary, and to $n$-manifolds with codimension-2 corners, in such a way that the values of the original field theory can be reconstructed by composing these invariants when the manifolds are glued together.  Of course difficulties may again arise in computing the invariants of these $(n-2)$-, $(n-1)$-, and $n$-manifolds, and so we are forced to further extend the theory.  Altogether a \emph{local topological field theory} is fully extended in that it assigns invariants to $i$-manifolds with corners of any codimension, for all $i$ between $0$ and $n$, again in a way respecting all possible gluing operations.  More specifically, a local topological field theory is a symmetric monoidal functor from the $n$-category of $0$-, $1$-, $2$-, ..., $n$-manifold bordisms with corners to a (typically algebraic) target $n$-category.
 
 The invariants of local field theories are computable, by construction, but the locality property also provides a means of classifying these theories.  A physical field theory is determined by its local behavior, that is its operation on arbitrarily small regions of space-time.  Similarly (provided we restrict attention to local topological field theories on framed manifolds) a local topological field theory is determined by its values on discs and in fact these values are encoded in the algebraic invariant the field theory assigns to a single point.  However, not every object of the target $n$-category is an allowable value for this algebraic invariant of a point; rather, there is a restrictive algebraic condition called \emph{full dualizability} (or \emph{$n$-dualizability}) that ensures an object of an $n$-category extends to a consistent system of invariants providing a local field theory.  Altogether this is the content of the \emph{cobordism hypothesis}, a classification result conjectured by Baez--Dolan~\cite{MR1355899} and proven by Hopkins--Lurie~\cite{lurie-ch}: an $n$-dimensional local framed topological field theory is determined by its value on a point, and any fully dualizable object of a symmetric monoidal $n$-category provides a local framed topological field theory whose point-value is that object.
+
+\CD{Comb ENO for more refs}
 
 
 \subsection{Three-dimensional topology and three-dimensional algebra}
@@ -225,7 +226,7 @@ The field theory $\cF_\cC$ of a finite tensor category $\cC$ takes the loop bord
 
 The belt bordism trivializing the square of the loop bordism, also depicted above, can itself be decomposed into two pieces, each of which can be identified as a certain witness or adjoint in the bordism category.  (This decomposition is depicted in Figure~\ref{fig:Radford_bordism}.)  The Radford property of a finite tensor category ensures that the associated field theory takes values on these pieces (and, quite importantly, on the 3-manifolds witnessing that the belt bordism is invertible), and therefore provides an algebraic trivialization of the bimodule associated to the quadruple dual.  That trivialization in turn controls the quadruple dual functor itself:
 \begin{maincor} \label{cor7}
-In any finite tensor category, there is an invertible object $D$ and a monoidal natural isomorphism between the quadruple dual functor $(-)^{****}: \cC \ra \cC$ and the conjugation functor $D \otimes (-) \otimes D^{-1}: \cC \ra \cC$.  In any semisimple finite tensor category with absolutely simple unit, the quadruple dual functor is monoidally naturally isomorphic to the identity.
+In any finite tensor category, there is an invertible object $\Delta$ and a monoidal natural isomorphism between the quadruple dual functor $(-)^{****}: \cC \ra \cC$ and the conjugation functor $\Delta \otimes (-) \otimes \Delta^{-1}: \cC \ra \cC$.  In any semisimple finite tensor category with absolutely simple unit, the quadruple dual functor is monoidally naturally isomorphic to the identity.
 \end{maincor}
 \nid This is recorded as Theorem~\ref{thm:quaddual} and Corollary~\ref{cor:ssquaddual}.  Here `absolutely simple' means that the unit remains simple after arbitrary base change of the base field.  This result, generalizing Radford's theorem for finite-dimensional Hopf algebras~\cite{MR0407069}, is originally due to Etingof--Nikshych--Ostrik~\cite{MR2097289, MR2183279}; our approach realizes this algebraic result as a direct corollary of the topological fact that the fundamental group of the 3-dimensional orthogonal group is order 2.  The earliest connection between Radford's theorem and the topology of 3-framings occurs in Kuperberg's construction of framed manifold invariants from finite-dimensional Hopf algebras~\cite{MR1394749}.  The intuition that there ought to be a connection between the belt trick and the quadruple dual theorem is implicit in Hagge--Hong~\cite{MR2559711} and explicit in Bartlett~\cite{0901.3975}.  (Note that, despite our exposition in terms of field theories, our proof does not depend on the cobordism hypothesis---we can and indeed do directly construct the algebraic images of the geometric components of the loop bordism and the belt bordism.)
 
@@ -1638,10 +1639,8 @@ Provide the monoidal category $\cC$ is finite and rigid, and provided the module
 		%If $\cF: \cM \times \cN \to \cL$ is a $\cC$-balanced bilinear functor that is also exact in each variable, then the corresponding functor $\overline{\cF}: \cM \boxtimes_{\cC} \cN \to \cL$ is exact. 
 	\end{enumerate} 
 	\CD{Confirm part (3), any conditions?}
-	\CSP{I corrected part (5). There is now a proof of this in BTP.}	
-	\CD{Discuss (5)} % Does it imply the non-relative old version?  If not, recheck 3.3.7.
 \end{theorem} %!% Confirm happy with change.
-\nid Tambara constructed an additive (rather than abelian) version of a relative Deligne tensor product for semisimple module categories over semisimple monoidal categories~\cite{tambara}.  Etingof--Nikshych--Ostrik constructed the relative Deligne tensor product for semisimple modular categories over a semisimple tensor category with simple unit over an algebraically closed field of characteristic zero~\cite{0909.3140}. \CD{Check that description of Tambara.}  \CD{Comb ENO for more refs}
+\nid Tambara constructed an additive (rather than abelian) version of a relative Deligne tensor product for semisimple module categories over semisimple monoidal categories~\cite{tambara}.  Etingof--Nikshych--Ostrik constructed the relative Deligne tensor product for semisimple modular categories over a semisimple tensor category with simple unit over an algebraically closed field of characteristic zero~\cite{0909.3140}. \CD{Check that description of Tambara.}  
 
 The relative Deligne tensor product provides a means of composing bimodule categories; this is the most important ingredient in constructing the 3-category of finite tensor categories.  We need not just a 3-category, though, but a symmetric monoidal 3-category.  The monoidal structure is given by the relative Deligne tensor product over the tensor category $\Vect_k$; such a product is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.  For the Deligne tensor to provide a monoidal structure on the objects of the 3-category of finite tensor categories, we need to know that the product $\cC \boxtimes \cD$ is indeed rigid.  To ensure that we make our first and only assumption about the base field $k$, namely that it is perfect; cf. Deligne~\cite[Prop 5.17]{deligne}.\footnote{For example: if $k$ is not perfect, and $l$ is an inseparable field extension of $k$, then the Deligne tensor $(\Mod{l}{l}) \boxtimes (\Mod{l}{l})$ is not rigid.} %!% CDNC
 
@@ -2974,7 +2973,7 @@ For each finite tensor category $\cC$, there is a unique (up to equivalence) sym
 \widetilde{\cF_\cC} : \mathrm{Bord}^{3\text{-}\mathrm{fr}}_2 \ra \TC_{(3,2)},
 \]
 extending the 2-framed 2-dimensional field theory $\cF_\cC: \FrBord_2 \ra \TC_{(3,2)}$ to the $(\infty,2)$-category $\mathrm{Bord}^{3\text{-}\mathrm{fr}}_2$ of 3-framed 0-, 1-, and 2-dimensional bordisms.
-\end{corollary} \CD{*Check the precise statement, restrict to 2-framed compatibility}
+\end{corollary}
 
 \nid The proof assumes more familiarity with the cobordism hypothesis than we have heretofore presumed, and the reader can skip it without consequence for the remainder of the paper.
 
@@ -2994,8 +2993,13 @@ Let $\cC$ be a finite tensor category.  There is a canonical tensor-invertible o
 \[
 {}^{**}(-) \simeq D^{-1} \otimes (-)^{**} \otimes D.
 \]
+Equvialently, there is a canonical monoidal natural isomorphism
+\[
+\Delta \otimes (-) \otimes \Delta^{-1} \simeq (-)^{****},
+\] 
+where $\Delta = D^{**}$.
 \end{theorem}
-\nid (As described in the proof of Lemma~\ref{lem:BimoduleToFunctor}, the object $D$ is the image of $1 \in \cC$ under the Radford equivalence $\cR_\cC : {}_{\langle \mathfrak{l l} \rangle \cC} \cC_\cC \ra {}_{\langle \mathfrak{r r} \rangle \cC} \cC_\cC$, and the monoidal natural isomorphism in the theorem is simply given by the left $\cC$-module structure of the Radford equivalence.  The object $D$ is usually referred to simply as the ``distinguished invertible object".)  \CD{Add comment reexpressing as quad right dual is $D . D^{-1}$.}
+\nid (As described in the proof of Lemma~\ref{lem:BimoduleToFunctor}, the object $D$ is the image of $1 \in \cC$ under the Radford equivalence $\cR_\cC : {}_{\langle \mathfrak{l l} \rangle \cC} \cC_\cC \ra {}_{\langle \mathfrak{r r} \rangle \cC} \cC_\cC$, and the monoidal natural isomorphism in the theorem is simply given by the left $\cC$-module structure of the Radford equivalence.  The object $D$ is usually referred to simply as the ``distinguished invertible object".)
 
 This result was proved for categories of modules over a Hopf algebra by Radford~\cite{MR0407069}, and then proved for finite tensor categories over an algebraically closed field by Etingof-Nikshych-Ostrik~\cite{MR2097289}.  Though in principle our result generalizes ENO's theorem (to perfect fields), the real purpose of discussing the result here is to provide a topological explanation of this a-priori highly algebraic result, by seeing it as an immediate corollary of the Dirac belt trick.
 
