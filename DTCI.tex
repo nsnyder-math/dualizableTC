@@ -1622,7 +1622,7 @@ The relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is the initial linea
 
 \nid If it exists, the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is unique up to equivalence, and that equivalence is in turn unique up to unique natural isomorphism; in other words, the 2-category of linear categories representing the relative Deligne tensor product is either contractible or empty.  Observe that because it is defined by a universal property, when it exists the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is functorial in the module categories $\cM$ and $\cN$ and in the monoidal category $\cC$. %!% Confirm.
 
-Provide the monoidal category $\cC$ is finite and rigid, and provided the module categories are finite, the relative Deligne tensor product does indeed exist.
+Provided the monoidal category $\cC$ is finite and rigid, and provided the module categories are finite, the relative Deligne tensor product does indeed exist.
 
 \begin{theorem}[\cite{BTP}] \label{thm:DelignePrdtOverATCExists}
 	Let $\cC$ and $\cD$ be finite tensor categories.  Let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively, and let ${}_{\cD}\cP$ be a finite left $\cD$-module category. 
@@ -1635,24 +1635,17 @@ Provide the monoidal category $\cC$ is finite and rigid, and provided the module
 			\Hom_{\cM \boxtimes_{\cC} \cN} (m \boxtimes_\cC n, m' \boxtimes_\cC n') \cong \Hom_{\cM}(m,m') \otimes \Hom_{\cN}(n, n').
 		\end{equation*}
 		\item If $\cM_\cC \ra \cM'_\cC$ and ${}_\cC \cN \ra {}_\cC \cN'$ are exact $\cC$-module functors, then the corresponding functor $\cM \boxtimes_\cC \cN \ra \cM' \boxtimes_\cC \cN'$ is exact.
-		%Let $F_0: M \to M'$ be a right $\cC$-module functor and let $F_1: N \to N'$ be a left $\cC$-module functor. These induce a $\cC$-balanced functor $F: M \times N \to M' \times N' \to M' \boxtimes_{\cC} N'$. If $F_0$ and $F_1$ are exact, then so is the induced functor $\overline{F}: M \boxtimes_{\cC} N \to M' \boxtimes_{\cC} N'$. 
-		%If $\cF: \cM \times \cN \to \cL$ is a $\cC$-balanced bilinear functor that is also exact in each variable, then the corresponding functor $\overline{\cF}: \cM \boxtimes_{\cC} \cN \to \cL$ is exact. 
+		\item Let $\cM$, $\cN$, and $\cL$ now be linear categories and assume the base field is perfect.  If a bilinear functor $\cM \times \cN \ra \cL$ is exact in each variable, then the corresponding functor $\cM \boxtimes \cN \ra \cL$ is exact \cite[Prop 5.13(vi)]{deligne}.
 	\end{enumerate} 
 	\CD{Confirm part (3), any conditions?}
-\end{theorem} %!% Confirm happy with change.
-\nid Tambara constructed an additive (rather than abelian) version of a relative Deligne tensor product for semisimple module categories over semisimple monoidal categories~\cite{tambara}.  Etingof--Nikshych--Ostrik constructed the relative Deligne tensor product for semisimple modular categories over a semisimple tensor category with simple unit over an algebraically closed field of characteristic zero~\cite{0909.3140}. \CD{Check that description of Tambara.}  
+\end{theorem}
+\nid Tambara constructed an additive (rather than abelian) version of a relative Deligne tensor product for semisimple module categories over semisimple monoidal categories~\cite{tambara}.  Etingof--Nikshych--Ostrik constructed the relative Deligne tensor product for semisimple module categories over a semisimple tensor category with simple unit over an algebraically closed field of characteristic zero~\cite{0909.3140}. \CD{Check that description of Tambara.}  
 
 The relative Deligne tensor product provides a means of composing bimodule categories; this is the most important ingredient in constructing the 3-category of finite tensor categories.  We need not just a 3-category, though, but a symmetric monoidal 3-category.  The monoidal structure is given by the relative Deligne tensor product over the tensor category $\Vect_k$; such a product is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.  For the Deligne tensor to provide a monoidal structure on the objects of the 3-category of finite tensor categories, we need to know that the product $\cC \boxtimes \cD$ is indeed rigid.  To ensure that we make our first and only assumption about the base field $k$, namely that it is perfect; cf. Deligne~\cite[Prop 5.17]{deligne}.\footnote{For example: if $k$ is not perfect, and $l$ is an inseparable field extension of $k$, then the Deligne tensor $(\Mod{l}{l}) \boxtimes (\Mod{l}{l})$ is not rigid.} %!% CDNC
 
 \begin{theorem}[\cite{3TC}] \label{thm:tcexists}
 Provided the base field $k$ is perfect, there exists a symmetric monoidal $(3,3)$-category $\TC$ whose objects are the finite tensor categories, whose 1-morphisms are finite bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule transformations.  Composition of 1-morphisms is given by the relative Deligne tensor product, and the symmetric monoidal structure is given by the Deligne tensor product.
 \end{theorem}
-
-\nid Over a perfect field a stronger form of Theorem~\ref{thm:DelignePrdtOverATCExists}~(5) is valid in the case $\cC = \Vect_k$:
-
-\begin{lemma}[{\cite[Prop 5.13(vi)]{deligne}}]\label{lem:Exact_in_each_is_exact}
-	Let $\cM$, $\cN$, and $\cL$ be finite linear categories over a perfect field. Then a linear functor $\cM \boxtimes \cN \to \cL$ is exact if and only if the bilinear functor $\cM \times \cN \to \cL$ is exact in both variables separately. 
-\end{lemma} 
 
 \subsection{Exact module categories} \label{sec:tc-exact}
 
@@ -1663,18 +1656,12 @@ Such a condition, ensuring the exactness of module functors out of a module cate
 %!% Indicate in intro what the assumptions on the fields are: section 3, k is arbitrary except for TC theorem (k perfect)(Looks like: 3.4: k arbitrary; 3.5: k arbitrary except Cor 3.5.8, Def 3.5.9, Def 3.5.10, Cor 3.5.11 where k is perfect); sec 3.6 ... ; section 4, k perfect.  
 
 \subsubsection{Properties of exact module categories over finite tensor categories}
-
-Etingof and Ostrik introduced exact module categories over an algebraically closed field, and showed that all module functors out of an exact module category are exact.  We will work over an arbitrary field. 
-%As we work over not-necessarily algebraically closed fields, we need to strength their condition slightly in order to obtain the same conclusion.
+%!% Words of intro here?
 
 \begin{definition}
 Let $\cC$ be a finite tensor category.  A left $\cC$-module category $\cM$ is \emph{exact} 
-%if the action functor $\cC \times \cM \ra \cM$ is exact in each variable, and 
 if the object $p \otimes m \in \cM$ is projective for any projective $p \in \cC$ and any $m \in \cM$.
 \end{definition}
-
-%\nid (The action functor of any module category over a finite tensor category is exact in the $\cM$ variable, but exactness in the $\cC$ variable is an additional requirement.) %!%
-%\CSP{Actually this parenthetical now seems to be wrong. See cor \ref{cor:biexact_action}}
 
 \begin{definition}
 A $\cC$--$\cD$-bimodule category is \emph{exact} if it is exact when considered as a left $\cC \boxtimes \cD^\mp$-module category.
@@ -1699,11 +1686,10 @@ The following omnibus theorem summarizes the properties of exact module categori
 %		\item The category $\cM$ has enough projectives \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}.
 		\item Every projective object of $\cM$ is injective, and every injective object of $\cM$ is projective \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
 		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.		
-		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}. %; %in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ itself is finite. %!%CDNC
+		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}. %!%CDNC
 		\item The composition functor $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}.	
 		\item The monoidal category of endofunctors $\Fun_{\cC}(\cM,\cM)$ is rigid, therefore is a finite tensor category.
 		\item The category $\cM$ is exact when considered as a $\Fun_{\cC}(\cM,\cM)^\mp$-module category \cite[Lemma 3.25]{EO-ftc}.
-\CSP{}
 	\end{enumerate}
 \end{theorem}
 
@@ -1774,7 +1760,7 @@ By Lemma \ref{lma:Exact_checked_on_proj_gens}, it suffices to check that for eve
 \end{equation*}
 We first observe that this is true when $x$ is a primitive tensor $a \boxtimes b$: because $\cM$ and $\cN$ are exact, the products $p \otimes a$ and $q \otimes b$ are projective, and the product $(p \boxtimes q) \otimes (a \boxtimes b) \cong (p \otimes a) \boxtimes (q \otimes b)$ is projective by the aforementioned closure property.
 
-Since we are working over a perfect field Lemma~\ref{lem:Exact_in_each_is_exact} applies, with the consequence that, for a general object $x \in \cM \boxtimes \cN$, it is enough to show that the functor
+Since we are working over a perfect field part (6) of Theorem~\ref{thm:DelignePrdtOverATCExists} applies, with the consequence that, for a general object $x \in \cM \boxtimes \cN$, it is enough to show that the functor
 \begin{align*}
 \cF: \cM \times \cN &\rightarrow \Vect \\
 m \times n &\mapsto \Hom_{\cM \boxtimes \cN}((p \boxtimes q) \otimes x, m \boxtimes n) \cong \Hom_{\cM \boxtimes \cN}(x, ({}^* p \otimes m) \boxtimes ({}^* q \otimes n))
