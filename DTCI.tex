@@ -1698,7 +1698,7 @@ The following omnibus theorem summarizes the properties of exact module categori
 	\begin{enumerate}
 %		\item The category $\cM$ has enough projectives \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}.
 		\item Every projective object of $\cM$ is injective, and every injective object of $\cM$ is projective \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO} \emph{[Prop.~\ref{pro:Functors_automatically_exact} below]}.		
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.		
 		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}. %; %in particular $\cM \simeq \Fun_{\cC}(\cC, \cM)$ itself is finite. %!%CDNC
 		\item The composition functor $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}.	
 		\item The monoidal category of endofunctors $\Fun_{\cC}(\cM,\cM)$ is rigid, therefore is a finite tensor category.
@@ -1745,7 +1745,7 @@ At a crucial moment in our analysis of the dualizability of a finite tensor cate
 We will need the following lemma, ensuring that it suffices to check the exactness condition for a collection of projective generators.
 
 \begin{lemma} \label{lma:Exact_checked_on_proj_gens}
-	Let $\cC$ be a finite tensor category and let $\cM$ be a finite left $\cC$-module category with a biexact action functor $\cC \times \cM \ra \cM$. Let $\cP = \{ p_\alpha \}$ be a collection of jointly generating projective objects of  $\cC$. The following conditions are equivalent:
+	Let $\cC$ be a finite tensor category and let $\cM$ be a finite left $\cC$-module category. Let $\cP = \{ p_\alpha \}$ be a collection of jointly generating projective objects of  $\cC$. The following conditions are equivalent:
 	\begin{enumerate}
 		\item for all $m \in \cM$ and all $p_\alpha \in \cP$, the object $p_\alpha \otimes m \in \cM$ is projective;
 		\item the $\cC$-module category $\cM$ is exact.
@@ -1819,8 +1819,6 @@ where $x'$ is a primitive tensor, that is an object of the form $a \boxtimes b$,
 		\end{tikzpicture}
 \]
 The columns are exact because the objects $z_i$ are injective.  The middle row is exact because $x'$ is a primitive tensor.  A diagram chase shows that the map $\Hom(x,z_2) \ra \Hom(x,z_3)$ is surjective, and hence $\Hom((p \boxtimes q) \otimes x,-)$ is right exact, as required.
-%An argument of the same flavor, involving applications of parts (4) and (5) of Theorem~\ref{thm:DelignePrdtOverATCExists}, a resolution by a primitive tensor, and a diagram chase, shows that the action functor $(\cC \boxtimes \cD) \times (\cM \boxtimes \cN) \ra (\cM \boxtimes \cN)$ is exact.
-%\CSP{This last part is redundant, now. }
 \end{proof}
 
 \begin{remark}
@@ -2325,7 +2323,7 @@ In Section~\ref{sec:separableisfd} we finally investigate the existence of adjoi
 
 We conclude in Section~\ref{sec:spherical} by describing the connection between pivotal and spherical structures and homotopy fixed point structures on finite tensor categories.  We observe that a pivotal structure on a finite tensor category (that is a monoidal trivialization of the double dual functor) provides a trivialization of the Serre automorphism of the tensor category---such a trivialization is exactly the data of an $\Omega S^2$ homotopy fixed point structure on the tensor category.  A pivotal structure trivializes the double dual, so the square of a pivotal structure trivializes the quadruple dual; but we already have a trivialization of the quadruple dual, namely the one provided by the Radford equivalence.  We say that a pivotal finite tensor category is spherical if the square of the pivotal structure is the Radford equivalence.  (This notion agrees with the classical notion of sphericality when the tensor category is semisimple, but provides the correct generalization to the non-semisimple case.)  A spherical tensor category has canonically the structure of an $\Omega \Sigma \RP^2$ homotopy fixed point.  We close with various questions and conjectures concerning fixed points and descent properties of the associated field theories.  For instance, we conjecture that every pivotal fusion category admits not only the structure of an $\Omega S^2$ fixed point, but the structure of an $SO(2)$ fixed point, and therefore provides a combed local field theory.  We also conjecture that every spherical fusion category admits not only the structure of an $\Omega \Sigma \RP^2$ fixed point but in fact the structure of an $SO(3)$ fixed point, and therefore provides an oriented local field theory.
 
-Throughout this section, we assume the base field is perfect, and we work entirely within the symmetric monoidal 3-category $\TC$ of finite tensor categories, finite bimodule categories, right-exact bimodule functors, and bimodule transformations.
+Throughout this section, we assume the base field is perfect, and we work entirely within the symmetric monoidal 3-category $\TC$ of finite tensor categories, finite bimodule categories, right exact bimodule functors, and bimodule transformations.
 
 
 
