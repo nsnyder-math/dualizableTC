@@ -10,7 +10,7 @@
 \title{Dualizable tensor categories}
 
 \begin{abstract}
-We investigate the relationship between the algebra of tensor categories and the topology of framed 3-manifolds.  On the one hand, tensor categories with certain algebraic properties determined topological invariants.  We prove that fusion categories of nonzero global dimension are 3-dualizable, and therefore yield 3-dimensional 3-framed local field theories.  We also show that all finite tensor categories are 2-dualizable, and give categorified 2-dimensional 3-framed local field theories.  On the other hand, topological properties of 3-framed manifolds determine algebraic equations among functors of tensor categories.  We show that the 1-dimensional loop bordism, which exhibits a single full rotation, acts as the double dual autofunctor of a tensor category.  We prove that the 2-dimensional belt-trick bordism, which unravels a double rotation, operates on any finite tensor category, and therefore supplies a trivialization of the quadruple dual.  This approach produces a quadruple-dual theorem for suitably dualizable objects in any symmetric monoidal 3-category.  There is furthermore a correspondence between algebraic structures on tensor categories and homotopy fixed point structures, which in turn provide structured field theories; we describe the expected connection between pivotal tensor categories and combed fixed point structures, and between spherical tensor categories and oriented fixed point structures.
+We investigate the relationship between the algebra of tensor categories and the topology of framed 3-manifolds.  On the one hand, tensor categories with certain algebraic properties determine topological invariants.  We prove that fusion categories of nonzero global dimension are 3-dualizable, and therefore yield 3-dimensional 3-framed local field theories.  We also show that all finite tensor categories are 2-dualizable, and give categorified 2-dimensional 3-framed local field theories.  On the other hand, topological properties of 3-framed manifolds determine algebraic equations among functors of tensor categories.  We show that the 1-dimensional loop bordism, which exhibits a single full rotation, acts as the double dual autofunctor of a tensor category.  We prove that the 2-dimensional belt-trick bordism, which unravels a double rotation, operates on any finite tensor category, and therefore supplies a trivialization of the quadruple dual.  This approach produces a quadruple-dual theorem for suitably dualizable objects in any symmetric monoidal 3-category.  There is furthermore a correspondence between algebraic structures on tensor categories and homotopy fixed point structures, which in turn provide structured field theories; we describe the expected connection between pivotal tensor categories and combed fixed point structures, and between spherical tensor categories and oriented fixed point structures.
 \end{abstract}
 
 \author{Christopher L. Douglas}
@@ -55,9 +55,21 @@ We investigate the relationship between the algebra of tensor categories and the
 
 \subsection{Local topological field theory}
 
-Both classical and quantum field theories associate to a manifold, thought of as the underlying physical space of a system, a vector space of field states on that manifold.  A given field will evolve in time, and the evolution of all fields together can be encoded as a collection of operators, one for each time interval, on the vector space of field states; these operators compose associatively under concatenation of time intervals.  A distinctive property of field theories is that the vector space of states is multiplicative: the space of states on a disjoint union of two manifolds is the tensor product of the spaces of states on the individual manifolds.  Atiyah and Segal abstracted this situation into the formal notion of a topological field theory: an $n$-dimensional topological field theory is a symmetric monoidal functor from the category of $(n-1)$-dimensional manifolds and their bordisms to the category of vector spaces~\cite{MR1001453,Segal}; such a topological field theory assigns a vector space to each $(n-1)$-manifold, and a linear operator to each bordism between such manifolds, such that gluing of bordisms corresponds to composition of operators.
+Quantum field theories associate to a manifold, thought of as the underlying physical space of a system, a vector space of quantum field states on that manifold.  A given field will evolve in time, and the evolution of all fields together can be encoded as a collection of operators, one for each time interval, on the vector space of field states; these operators compose associatively under concatenation of time intervals.  A distinctive property of field theories is that the vector space of states is multiplicative: the space of states on a disjoint union of two manifolds is the tensor product of the spaces of states on the individual manifolds.  Atiyah and Segal abstracted this situation into the formal notion of a topological (quantum) field theory: an $n$-dimensional topological field theory is a symmetric monoidal functor from the category of $(n-1)$-dimensional manifolds and their bordisms to the category of vector spaces~\cite{MR1001453,Segal}.  Such a topological field theory assigns a vector space to each $(n-1)$-manifold, and a linear operator to each bordism between such manifolds, such that gluing of bordisms corresponds to composition of operators.  Examples of topological field theories include, in dimension 3, Turaev--Viro theories associated to spherical fusion categories~\cite{MR1191386, MR1292673} and Reshetikhin--Turaev theories associated to modular (braided) tensor categories~\cite{MR990772,MR1091619}; and in dimension 4, more or less conjecturally, Donaldson Floer theories associated to quantum groups~\cite{floer,donaldson,atiyah88,witten88}, Crane--Frenkel theories associated to Hopf categories~\cite{cranefrenkel}, monopole Floer homology~\cite{kronmrowka}, Heegaard Floer homology~\cite{os04,os06}, and Khovanov homology~\cite{}.
 
-A topological field theory provides a numerical invariant of closed $n$-manifolds: by the multiplicative, that is symmetric monoidal, assumption, the theory assigns the standard 1-dimensional vector space to the empty manifold, and so to a closed $n$-manifold assigns an endomorphism of that vector space, which is a scalar.  Indeed, topological field theories can be viewed as numerical invariants of closed $n$-manifolds that have a particularly computable structure: the invariant can be determined by cutting the closed manifold into manifolds with boundary, and then composing the operators associated to those smaller manifolds.  Unfortunately, the operators associated to these manifolds with boundary, and even the vector spaces associated to the boundary $(n-1)$-manifolds, may themselves be difficult to compute.  This situation motivates the notion of extended topological field theories; a once-extended topological field theory also assigns algebraic invariants to $(n-2)$-manifolds, to $(n-1)$-manifolds with boundary, and to $n$-manifolds with codimension-2 corners, in such a way that the values of the original field theory can be reconstructed by composing these invariants when the manifolds are glued together.  Of course difficulties may again arise in computing the invariants of these $(n-2)$-, $(n-1)$-, and $n$-manifolds, and so we are forced to further extend the theory.  Altogether a \emph{local topological field theory} is fully extended in that it assigns invariants to $i$-manifolds with corners of any codimension, for all $i$ between $0$ and $n$, again in a way respecting all possible gluing operations.  More specifically, a local topological field theory is a symmetric monoidal functor from the $n$-category of $0$-, $1$-, $2$-, ..., $n$-manifold bordisms with corners to a (typically algebraic) target $n$-category.
+% cranefrenkel = 4d tqft, hopf categories, and canonical bases.
+% kronmrowka
+% witten88 = tqft in cmp
+% aityah88 = new invariants for 3 and 4 manifolds
+% donaldson = an application of gauge theory to 4d top
+% floer = an instanton invariant for 3-manifolds?
+% os04 = holomorphic disks and topological invariants for closed
+% os06 = holomorphic triangles and invariants for smooth
+% principle: no mention of invertible theories.
+%!% Donaldson Floer story?
+%!% Other theories? Other refs?
+
+A topological field theory provides a numerical invariant of closed $n$-manifolds: by the multiplicative, that is symmetric monoidal, assumption, the theory assigns the standard 1-dimensional vector space to the empty manifold, and so to a closed $n$-manifold assigns an endomorphism of that vector space, which is a scalar.  Indeed, topological field theories can be viewed as numerical invariants of closed $n$-manifolds that have a particularly computable structure---the invariant can be determined by cutting the closed manifold into manifolds with boundary, and then composing the operators associated to those smaller manifolds.  Unfortunately, the operators associated to these manifolds with boundary, and even the vector spaces associated to the boundary $(n-1)$-manifolds, may themselves be difficult to compute.  This situation motivates the notion of extended topological field theories.  A once-extended topological field theory also assigns algebraic invariants to $(n-2)$-manifolds, to $(n-1)$-manifolds with boundary, and to $n$-manifolds with codimension-2 corners, in such a way that the values of the original field theory can be reconstructed by composing these invariants when the manifolds are glued together.  Of course difficulties may again arise in computing the invariants of these $(n-2)$-, $(n-1)$-, and $n$-manifolds, and so we are forced to further extend the theory.  Altogether a \emph{local topological field theory} is fully extended in that it assigns invariants to $i$-manifolds with corners of any codimension, for all $i$ between $0$ and $n$, again in a way respecting all possible gluing operations.  More specifically, a local topological field theory is a symmetric monoidal functor from the $n$-category of $0$-, $1$-, $2$-, ..., $n$-manifold bordisms with corners to a (typically algebraic) target $n$-category.
 
 The invariants of local field theories are computable, by construction, but the locality property also provides a means of classifying these theories.  A physical field theory is determined by its local behavior, that is its operation on arbitrarily small regions of space-time.  Similarly (provided we restrict attention to local topological field theories on framed manifolds) a local topological field theory is determined by its values on discs and in fact these values are encoded in the algebraic invariant the field theory assigns to a single point.  However, not every object of the target $n$-category is an allowable value for this algebraic invariant of a point; rather, there is a restrictive algebraic condition called \emph{full dualizability} (or \emph{$n$-dualizability}) that ensures an object of an $n$-category extends to a consistent system of invariants providing a local field theory.  Altogether this is the content of the \emph{cobordism hypothesis}, a classification result conjectured by Baez--Dolan~\cite{MR1355899} and proven by Hopkins--Lurie~\cite{lurie-ch}: an $n$-dimensional local framed topological field theory is determined by its value on a point, and any fully dualizable object of a symmetric monoidal $n$-category provides a local framed topological field theory whose point-value is that object.
 
@@ -66,15 +78,15 @@ The invariants of local field theories are computable, by construction, but the 
 
 \subsection{Three-dimensional topology and three-dimensional algebra}
 
-We will concentrate on 3-dimensional local topological field theories, and therefore we need a 3-dimensional algebraic structure that can serve as a target for such field theories.  The simplest nontrivial candidate for such a structure is \emph{monoidal linear categories}; the 3-dimensional nature of monoidal linear categories can be seen by contemplating a hypothetical 3-category whose objects, morphisms, 2-morphisms, and 3-morphisms are respectively monoidal linear categories, bimodule categories, bimodule functors, and bimodule natural transformations.  In order to ensure there really is a 3-category, we restrict attention to finite tensor categories (that is, finite rigid monoidal linear categories), finite bimodule categories, bimodule functors, and bimodule natural transformations---this symmetric monoidal 3-category $\TC$ is constructed in the papers~\cite{BTP,3TC}.  (Tensor categories are by no means the only possible 3-dimensional algebraic target for field theory, just the simplest.  For instance, Ben-Zvi--Nadler~\cite{0904.1247} consider 2-dimensional local field theories with target an $(\infty,3)$-category of monoids in differential graded linear categories; in work in progress, Freed--Teleman consider 3-dimensional field theories with a target 3-category of derived modules over braided tensor categories; in a rather different direction, Bartels--Douglas--Henriques study 3-dimensional field theories with target the 3-category of conformal nets.) \CD{Check that FT claim; also title?}
+We will concentrate on 3-dimensional local topological field theories, and therefore we need a 3-dimensional algebraic structure that can serve as a target for such field theories.  The simplest nontrivial candidate for such a structure is \emph{monoidal linear categories}; we might hope there is a 3-category whose objects, morphisms, 2-morphisms, and 3-morphisms are respectively monoidal linear categories, bimodule categories, bimodule functors, and bimodule natural transformations.  In order to ensure there really is a 3-category, we restrict attention to finite tensor categories (that is, finite rigid monoidal linear categories), finite bimodule categories, bimodule functors, and bimodule natural transformations---this symmetric monoidal 3-category $\TC$ is constructed in the papers~\cite{BTP,3TC}.  (Tensor categories are by no means the only possible 3-dimensional algebraic target for field theory, just the simplest.  For instance, Ben-Zvi--Nadler~\cite{0904.1247} consider 2-dimensional local field theories with target an $(\infty,3)$-category of monoids in differential graded linear categories; in work in progress, Freed--Teleman consider 3-dimensional field theories with a target 3-category of derived modules over braided tensor categories; in a rather different direction, Bartels--Douglas--Henriques study 3-dimensional field theories with target the 3-category of conformal nets.) \CD{Check that FT claim; also title?}
 
 
 \subsubsection{From algebra to topology}
 
-Traditionally, local field theory is seen as a means for taking algebraic gadgets and producing topological invariants.  From that perspective, the task is to find fully dualizable objects of the target, in our case the 3-category $\TC$ of tensor categories, and then apply the cobordism hypothesis to obtain corresponding local field theories.  If the base field is characteristic zero, we prove that every finite semisimple tensor category is fully dualizable; if the base field is algebraically closed of finite characteristic, we prove that every fusion category of nonzero global dimension is fully dualizable.  (A fusion category is a finite semisimple tensor category with simple unit.)  In either case, we therefore have an associated 3-dimensional framed local field theory.  This construction provides a plethora of new 3-dimensional field theories (for instance in finite characteristic, over non-algebraically closed fields, for non-spherical categories, for categories with non-simple unit, and for categories that are not split-semisimple); %!% split semisimple
+Traditionally, local field theory is seen as a means for taking algebraic gadgets and producing topological invariants.  From that perspective, the task is to find fully dualizable objects of the target, in our case the 3-category $\TC$ of tensor categories, and then apply the cobordism hypothesis to obtain corresponding local field theories.  If the base field is characteristic zero, we prove that every finite semisimple tensor category is fully dualizable; if the base field is algebraically closed of finite characteristic, we prove that every fusion category of nonzero global dimension is fully dualizable.  (A fusion category is a finite semisimple tensor category with simple unit.)  In either case, we therefore have an associated Turaev--Viro-style 3-dimensional framed local field theory.  This construction provides a plethora of new 3-dimensional field theories (for instance in finite characteristic, over non-algebraically closed fields, for non-spherical categories, for categories with non-simple unit, and for categories that are not split-semisimple); %!% split semisimple
 it also establishes a conceptual framework for the relationship between the algebraic structure of the tensor category (for instance its pivotality or sphericality) and the structure group of the manifolds in the associated field theory (for instance combed or oriented)---see the section on future directions below.  
 
-In addition to the full dualizability of semisimple finite tensor categories, we investigate the partial dualizability of non-semisimple finite tensor categories.  We prove that a non-semisimple finite tensor category is never fully, that is 3-, dualizable, but we establish that it is always 2-dualizable.  There is therefore an associated categorified 2-dimensional 2-framed local topological field theory for every finite tensor category.  (This theory is categorified in the sense that it assigns vector spaces, rather than numbers, to closed 2-manifolds.)  In fact, these categorified 2-dimensional theories extend to take values on certain non-closed 3-manifolds.  These non-closed 3-manifold invariants are themselves quite important and deserve further investigation.  Here, however, we take the rather different perspective that we can transport our knowledge of the topology of 3-framed 3-manifolds across these field theory invariants to establish features of the algebra of finite tensor categories.
+In addition to the full dualizability of semisimple finite tensor categories, we investigate the partial dualizability of non-semisimple finite tensor categories.  We prove that a non-semisimple finite tensor category is never fully, that is 3-, dualizable, but we establish that it is always 2-dualizable.  There is therefore an associated categorified 2-dimensional framed local topological field theory for every finite tensor category.  (This theory is categorified in the sense that it assigns vector spaces, rather than numbers, to closed 2-manifolds.)  In fact, these categorified 2-dimensional theories extend to take values on certain non-closed 3-manifolds.  These non-closed 3-manifold invariants are themselves quite important and deserve further investigation.  In the next subsection, we take the rather different perspective that we can transport our knowledge of the topology of framed 3-manifolds across these field theory invariants to establish features of the algebra of finite tensor categories.
 
 
 
@@ -168,7 +180,7 @@ We apply this approach with the aforementioned partial 3-dimensional 3-framed lo
 				
 	\end{tikzpicture}
 \end{center}	
-(The 3-framing is determined by the comparison of a normal framing of the surface with the blackboard framing of the ambient 3-dimensional Euclidean space.)  Applying the field theory to this belt bordism provides a trivialization of the bimodule associated to the right quadruple dual functor; this recovers the Etingof--Nikshych--Ostrik generalization to finite tensor categories of Radford's quadruple antipode formula for finite-dimensional Hopf algebras~\cite{MR2097289, MR2183279, MR0407069}.  When the tensor category is semisimple, the bimodule trivialization reduce to a monoidal trivialization of the quadruple dual functor itself.  Altogether then, the Dirac belt trick provides an elegant, transparent topological explanation and proof of the a priori rather opaque quadruple dual theorem for finite tensor categories.  In fact, our topological-field-theoretic approach provides a generalization of the quadruple dual theorem for finite tensor categories to any sufficiently dualizable object of any symmetric monoidal 3-category; we give a precise definition of the relevant dualizability condition and call the resulting objects ``Radford objects".
+(The 3-framing is determined by the comparison of a normal framing of the surface with the blackboard framing of the ambient 3-dimensional Euclidean space.)  Applying the field theory to this belt bordism provides a trivialization of the bimodule associated to the right quadruple dual functor; this recovers the Etingof--Nikshych--Ostrik generalization to finite tensor categories of Radford's quadruple antipode formula for finite-dimensional Hopf algebras~\cite{MR2097289, MR2183279, MR0407069}.  When the tensor category is semisimple, the bimodule trivialization reduces to a monoidal trivialization of the quadruple dual functor itself.  Altogether then, the Dirac belt trick provides an elegant, transparent topological explanation and proof of the a priori rather opaque quadruple dual theorem for finite tensor categories.  In fact, our topological-field-theoretic approach provides a generalization of the quadruple dual theorem for finite tensor categories to any sufficiently dualizable object of any symmetric monoidal 3-category; we give a precise definition of the relevant dualizability condition and call the resulting objects ``Radford objects".
 
 We anticipate that this general method of transporting topological equivalences into algebraic equivalences will be especially effective in dimension 4, where nontrivial relationships among 4-framed 2- and 3-manifolds will reveal novel properties of braided tensor categories and more generally of monoidal 2-categories.
 
@@ -180,7 +192,7 @@ We anticipate that this general method of transporting topological equivalences 
 
 \subsubsection{On 3-dualizability}
 
-Dualizability is a strong generalized finiteness condition.  A vector space $V \in \Vect$ is 1-dualizable if it is finite-dimensional.  All algebras $A \in \Alg$ are 1-dualizable; an algebra $A$ is 2-dualizable if it is finite-dimensional and $A$ is projective as an $A$--$A$-bimodule.  This projectivity condition is called separability.  In order to identify 3-dualizable objects in the 3-category $\TC$ of finite tensor categories, we need to impose separability-type conditions on bimodule categories and therefore also on tensor categories themselves.  We say that a finite semisimple tensor category $\cC$ over a perfect field is \emph{separable} if the identity $\cC$--$\cC$-bimodule category $\cC$ can be expressed as the category of modules for a separable algebra object within the tensor category $\cC \boxtimes \cC^\mp$.  (Here, $\cC^\mp$ is the category $\cC$ with the opposite monoidal structure, and $- \boxtimes -$ denotes the Deligne tensor product, that is the linear category corepresenting bilinear functors.)  This separability condition is satisfied by any finite semisimple tensor category over a field of characteristic zero, and also by any fusion category of nonzero global dimension over any algebraically closed field.
+Dualizability is a strong finiteness condition.  A vector space $V \in \Vect$ is 1-dualizable if it is finite-dimensional.  All algebras $A \in \Alg$ are 1-dualizable; an algebra $A$ is 2-dualizable if it is finite-dimensional and $A$ is projective as an $A$--$A$-bimodule.  This projectivity condition is called separability.  In order to identify 3-dualizable objects in the 3-category $\TC$ of finite tensor categories, we need to impose separability-type conditions on bimodule categories and therefore also on tensor categories themselves.  We say that a finite semisimple tensor category $\cC$ over a perfect field is \emph{separable} if the identity $\cC$--$\cC$-bimodule category $\cC$ can be expressed as the category of modules for a separable algebra object within the tensor category $\cC \boxtimes \cC^\mp$.  (Here, $\cC^\mp$ is the category $\cC$ with the opposite monoidal structure, and $- \boxtimes -$ denotes the Deligne tensor product, that is the linear category corepresenting bilinear functors.)  This separability condition is satisfied by any finite semisimple tensor category over a field of characteristic zero, and also by any fusion category of nonzero global dimension over any algebraically closed field.
 
 Equipped with this notion of separablity, we can state our primary result:
 \begin{maintheorem} \label{thm1}
@@ -190,7 +202,7 @@ Separable tensor categories are fully dualizable.
 \begin{maincor} \label{cor2}
 For any separable tensor category, there is a 3-dimensional 3-framed local topological field theory whose value on a point is that tensor category.  In particular there is such a field theory for any finite semisimple tensor category over a field of characteristic zero, and such a field theory for any fusion category of nonzero global dimension over an algebraically closed field of finite characteristic.
 \end{maincor}
-\nid This is recorded as Corollaries~\ref{cor:3dtft}, \ref{cor:charzerotft}, and \ref{cor:fusiontft}.  Though these field theories are certainly Turaev--Viro-type theories, they are not directly comparable to existing theories for two reciprocal reasons: our theories take values on 3-framed, not oriented, manifolds, and they do not depend on a choice or even the existence of a spherical structure.  Turaev--Viro invariants for spherical categories were originally constructed by Turaev--Viro~\cite{MR1191386, MR1292673}, Ocneanu~\cite{MR1317353}, and Barrett--Westbury~\cite{MR1686423}; a modern treatment of these invariants as a once-extended field theory is given by Balsam--Kirillov~\cite{1004.1533} and as a local field theory by Walker~\cite{kw:tqft} in the hybrid topological-categorical context of disc-like $n$-categories defined by Morrison--Walker~\cite{1009.5025}.  These constructions all provide oriented invariants, but there is also a literature on spin 3-manifold invariants and once-extended spin field theories associated to spherical semisimple spin modular tensor categories~\cite{MR1117149, MR1171303, MR1387228, MR1880321}.
+\nid This is recorded as Corollaries~\ref{cor:3dtft}, \ref{cor:charzerotft}, and \ref{cor:fusiontft}.  Though these field theories are certainly Turaev--Viro-type theories, they are not directly comparable to existing theories for two reciprocal reasons: our theories take values on 3-framed, not oriented, manifolds, and they do not depend on a choice or even the existence of a spherical structure.  Turaev--Viro invariants for spherical categories were originally constructed by Turaev--Viro~\cite{MR1191386, MR1292673}, Ocneanu~\cite{MR1317353}, and Barrett--Westbury~\cite{MR1686423}; a modern treatment of these invariants as a once-extended field theory is given by Balsam--Kirillov~\cite{1004.1533} and as a local field theory by Walker~\cite{kw:tqft} in the hybrid topological-categorical context of disc-like $n$-categories defined by Morrison--Walker~\cite{1009.5025}.  These constructions all provide oriented invariants, but there is also a literature on spin 3-manifold invariants and Reshetikhin--Turaev-style once-extended spin field theories associated to semisimple spin modular (spherical) tensor categories~\cite{MR1117149, MR1171303, MR1387228, MR1880321}.
 
 In fact, separability precisely captures the dualizability condition for finite tensor categories:
 \begin{maintheorem} \label{thm3}
@@ -211,7 +223,7 @@ Finite tensor categories are 2-dualizable.  In fact, they are Radford objects of
 \begin{maincor} \label{cor5}
 Associated to every finite tensor category is a categorified 2-dimensional 2-framed local topological field theory.  Moreover, this theory extends to a 2-dimensional 3-framed field theory.
 \end{maincor}
-\nid This is proven as Corollaries~\ref{cor:2dualtft} and~\ref{cor:3fr2d}.  Here a `3-framed' theory is one where the manifolds have their tangent bundles trivialized after stabilization to dimension 3.  Note that a categorified field theory is a much more refined invariant than an ordinary field theory.  For instance, it provides an action of the mapping class group on the vector space associated to any closed surface.  In particular, a categorified 2-dimensional field theory encodes the data of the classical notion of a modular functor~\cite{Segal, MR1002038, MR1159969,MR1797619}.  This corollary is not completely satisfactory: the fact that a finite tensor category is Radford shows that the corresponding field theory takes values not only on 3-framed 2-manifolds but also on many non-closed 3-framed 3-manifolds---we have not yet endeavored to specify the precise class of manifolds allowed.  The main antecedents regarding field theories associated to finite tensor categories are Kuperberg's 3-framed manifold invariant associated to a not-necessarily semisimple Hopf algebra~\cite{MR1394749}, Kerler--Lyubashenko's work on once-extended partial field theories associated to non-necessarily semisimple, spherical modular tensor categories~\cite{MR1862634}, and the work of Walker and Morrison on partial disc-like field theories for not-necessarily semisimple, spherical categories~\cite{kw:tqft,1009.5025}.
+\nid This is proven as Corollaries~\ref{cor:2dualtft} and~\ref{cor:3fr2d}.  Here a `3-framed' theory is one where the manifolds have their tangent bundles trivialized after stabilization to dimension 3.  Note that a categorified field theory is a much more refined invariant than an ordinary field theory.  For instance, it provides an action of the mapping class group on the vector space associated to any closed surface.  In particular, a categorified 2-dimensional field theory encodes the data of the classical notion of a modular functor~\cite{Segal, MR1002038, MR1159969,MR1797619}.  This corollary is not completely satisfactory: the fact that a finite tensor category is Radford shows that the corresponding field theory takes values not only on 3-framed 2-manifolds but also on many non-closed 3-framed 3-manifolds---we have not yet endeavored to specify the precise class of manifolds allowed.  The main antecedents regarding field theories associated to finite tensor categories are Kuperberg's 3-framed manifold invariant associated to a not-necessarily semisimple Hopf algebra~\cite{MR1394749}; Kerler--Lyubashenko's work on once-extended partial field theories associated to non-necessarily semisimple, modular tensor categories~\cite{MR1862634}; and the work of Walker and Morrison on partial disc-like field theories for not-necessarily semisimple, spherical categories~\cite{kw:tqft,1009.5025}.
 
 
 %!% both moore seiberg refs?
@@ -230,7 +242,7 @@ In any finite tensor category, there is an invertible object $D$ and a monoidal 
 \end{maincor}
 \nid This is recorded as Theorem~\ref{thm:quaddual} and Corollary~\ref{cor:ssquaddual}.  Here `absolutely simple' means that the unit remains simple after arbitrary base change of the base field.  This result, generalizing Radford's theorem for finite-dimensional Hopf algebras~\cite{MR0407069}, is originally due to Etingof--Nikshych--Ostrik~\cite{MR2097289, MR2183279}; our approach realizes this algebraic result as a direct corollary of the topological fact that the fundamental group of the 3-dimensional orthogonal group is order 2.  The earliest connection between Radford's theorem and the topology of 3-framings occurs in Kuperberg's construction of framed manifold invariants from finite-dimensional Hopf algebras~\cite{MR1394749}.  The intuition that there ought to be a connection between the belt trick and the quadruple dual theorem is implicit in Hagge--Hong~\cite{MR2559711} and explicit in Bartlett~\cite{0901.3975}.  (Note that, despite our exposition in terms of field theories, our proof does not depend on the cobordism hypothesis---we can and indeed do directly construct the algebraic images of the geometric components of the loop bordism and the belt bordism.)
 
-For any 2-dualizable object $x$ of a symmetric monoidal $n$-category $\cT$, algebraically composing, in $\cT$, the evaluation map of $x$ with its right adjoint according to the geometry of the loop bordism, as drawn in Figure~\ref{fig:serrebordism}, provides an automorphism of $x$, which is called the Serre automorphism.  Similarly, for any Radford object $x \in \cT$, composing appropriate witnesses and adjoints according to (but not reliant on) the geometry of the belt bordism, as drawn in Figure~\ref{fig:Radford_bordism}, provides a 2-morphism of $\cT$ which is called the Radford map.  Because our approach is topological in essence, it does not rely on constructions specific to any one algebraic context, and so provides a generalization of the quadruple dual theorem to any algebraic 3- (or indeed higher) category:
+For any 2-dualizable object $x$ of a symmetric monoidal $n$-category $\cT$, we can compose the evaluation map of $x$ with its right adjoint, according to the geometry of the loop bordism---this procedure is drawn in Figure~\ref{fig:serrebordism}; the resulting composite is an automorphism of $x$, which is called the Serre automorphism.  Similarly, for any Radford object $x \in \cT$, we can compose appropriate adjoints, units, and counits according to (but not reliant on) the geometry of the belt bordism---this procedure is drawn in Figure~\ref{fig:Radford_bordism}; the resulting composite is a 2-morphism of $\cT$, which is called the Radford map.  Because our approach is topological in essence, it does not rely on constructions specific to any one algebraic context, and so provides a generalization of the quadruple dual theorem to any algebraic 3- (or indeed higher) category:
 \begin{maintheorem} \label{thm8}
 For any Radford object $x$ in a symmetric monoidal $n$-category, with $n$ at least 3, the Radford map is an equivalence and so provides a trivialization of the square of the Serre automorphism of $x$.
 \end{maintheorem}
@@ -239,7 +251,7 @@ For any Radford object $x$ in a symmetric monoidal $n$-category, with $n$ at lea
 
 \subsubsection{On tensor and bimodule categories}
 
-Our work relies extensively on the theory of finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik~\cite{EGNO, EO-ftc, MR2183279, MR2097289}.  In order to have a robust 3-categorical setting for studying the algebra of finite and separable tensor categories, we prove a number of results extending the work of EGNO, some of which are of interest independent from our topological-field-theoretic purposes.
+Our work relies extensively on the theory of finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik~\cite{EGNO, EO-ftc, MR2183279, MR2097289,0909.3140}.  In order to have a robust 3-categorical setting for studying the algebra of finite and separable tensor categories, we prove a number of results extending the work of EGNO, some of which are of interest independent from our topological-field-theoretic purposes.
 
 The most important ingredient in defining a 3-category of tensor categories is the composition of bimodule categories:
 \begin{maintheorem} \label{thm9}
@@ -257,13 +269,13 @@ Recall that a finite semisimple tensor category $\cC$ over a perfect field is ca
 \begin{maintheorem} \label{thm11}
 A finite module category ${}_\cC \cM$ over a semsimple tensor category is separable if and only if the functor category $\Fun_\cC(\cM,\cM)$ is semisimple.  A finite tensor category over a perfect field is separable if and only if its Drinfeld center is semisimple.
 \end{maintheorem}
-\nid This is established as Theorem~\ref{thm:SepModCats} and Corollary~\ref{cor:Sep=semisimplecenter}.  This result provides a generalization to arbitrary perfect fields and non-spherical categories of M\"uger's theorem, over algebraically closed fields, that the Drinfeld center of a spherical finite semisimple tensor category, with simple unit and nonzero global dimension, is semisimple~\cite{MR1966525}.
+\nid This is established as Theorem~\ref{thm:SepModCats} and Corollary~\ref{cor:Sep=semisimplecenter}.  This result provides a generalization to arbitrary perfect fields and non-spherical categories of M\"uger's theorem that the Drinfeld center of a spherical finite semisimple tensor category, of nonzero global dimension, is semisimple~\cite{MR1966525}.
 
 Completely crucial to our proof of the full dualizability of separable tensor categories is the fact that separable bimodules compose:
 \begin{maintheorem} \label{thm12}
 For separable bimodule categories ${}_\cB \cM_\cC$ and ${}_\cC \cN_\cD$ over finite semisimple tensor categories, the relative Deligne tensor product ${}_\cB \cM \boxtimes_\cC \cN_\cD$ is separable.  Over a perfect field, there is a symmetric monoidal 3-category $\TCsep$ of separable tensor categories, separable bimodule categories, bimodule functors, and bimodule transformations.
 \end{maintheorem}
-\nid This is proven as Theorem~\ref{thm:compositeOfSep} and Corollary~\ref{cor:tcsepexists}.  Because relative Deligne tensor products can always be reexpressed as functor categories, and vice versa, the first part of this result is a generalization to arbitrary fields of Etingof--Nikshych--Ostrik's theorem, over algebraically closed fields of characteristic zero, that a functor category between finite semisimple module categories is semisimple~\cite{MR2183279}.
+\nid This is proven as Theorem~\ref{thm:compositeOfSep} and Corollary~\ref{cor:tcsepexists}.  Because relative Deligne tensor products can always be reexpressed as functor categories, and vice versa, the first part of this result is a generalization to arbitrary fields of Etingof--Nikshych--Ostrik's theorem that a functor category between finite semisimple module categories is semisimple~\cite{MR2183279}.
 
 In the case of a fusion category $\cC$ over an algebraically closed field, we can explicitly express the module category ${}_{\cC \boxtimes \cC^\mp} \cC$ as modules over a Frobenius algebra object, and use this description to characterize the separability condition in this case; in characteristic zero, the global dimension condition disappears:
 \begin{maintheorem} \label{thm13}
@@ -274,7 +286,7 @@ A fusion category over an algebraically closed field is separable if and only if
 
 \subsection{Outlook}
 
-Thus far, we have only considered the framed field theories associated to dualizable tensor categories.  The cobordism hypothesis also classifies field theories with structure groups weaker than a framing, in terms of dualizable objects equipped with the structure of homotopy fixed points.  The existence of these homotopy fixed point structures corresponds to the existence of certain algebraic structures on tensor categories, most notably pivotal and spherical structures.  Here and in our final Section~\ref{sec:spherical} we preview this correspondence, but we defer a detailed treatment.
+Thus far, we have only considered the framed field theories associated to dualizable tensor categories.  The cobordism hypothesis also classifies field theories with structure groups weaker than a framing, in terms of dualizable objects equipped with the structure of homotopy fixed points.  The existence of these homotopy fixed point structures corresponds to the existence of certain algebraic structures on tensor categories, most notably pivotal and spherical structures.  Here and in our final Section~\ref{sec:spherical} we preview this correspondence, but we defer a detailed treatment to future papers.
 
 The cobordism hypothesis provides an $SO(k)$ action on the space of $k$-dualizable objects of any symmetric monoidal $n$-category.  (Here, the `space of $k$-dualizable objects' means the maximal sub-$n$-groupoid on those objects.)  This action arises as follows: the space of such objects is homotopy equivalent to the space of $k$-dimensional $k$-framed local field theories, and there is an $SO(k)$ action on those field theories by rotating the framing.  In particular, we obtain an $SO(2)$ action on the space of finite tensor categories, and an $SO(3)$ action on the space of separable tensor categories.  We can therefore look for finite tensor categories with $SO(2)$ homotopy fixed point structures, which would provide oriented categorified 2-dimensional field theories, or for separable tensor categories with $SO(3)$ homotopy fixed point structures, which would provide oriented 3-dimensional field theories.
 
@@ -299,14 +311,22 @@ Does every 3-dimensional 3-framed local field theory with target tensor categori
 
 Experts in tensor categories could safely skim Sections~\ref{sec:tc-lincat} and \ref{sec:tc-exact}.  Experts in field theory could safely skim Sections~\ref{sec:notation}, \ref{sec:framed-duality}, and \ref{sec:df-objects}.  Those readers content to restrict to characteristic zero can skip Sections~\ref{sec:tc-separable} and \ref{sec:tc-fusion}.  Readers content to restrict to semisimple tensor categories could just glance at the statements of Section \ref{sec:radfordftc}.  Most readers will want to merely skim Sections~\ref{sec:tensorexact} and \ref{sec:computeradford}, which are more technical.  The expert geodesic path through the paper is therefore Sections~\ref{sec:Serre}, \ref{sec:Radford}, \ref{sec:conventions}, \ref{sec:tc-bimodules}, \ref{sec:df-morphisms}, and \ref{sec:separableisfd}.  The extreme minimalist, no doubt discontinuous, path is simply Sections~\ref{sec:Radford}, \ref{sec:tc-bimodules}, and \ref{sec:separableisfd}.
 
-Section~\ref{sec:lft} concerns the algebraic structure present in the geometry of composition in the 3-framed bordism category; it begins by recalling the notions of 1-, 2-, and 3-dualizability and the statement of the cobordism hypothesis.  Section~\ref{sec:notation} describes an immersion notation for $n$-framed manifolds with corners, and gives various examples in low dimensions.  Section~\ref{sec:framed-duality} completely describes the duals and adjoints arising in the 2-framed bordism 2-category.  Section~\ref{sec:Serre} discusses the loop bordism (also known as the Serre bordism) and provides a decomposition of this bordism into pieces describable in terms of elementary dualization data (that is adjoints of witnesses of dualities, and the like).  Section~\ref{sec:Radford} discusses the belt bordism (also known as the Radford bordism), giving a decomposition of this bordism in terms of elementary dualization data and determining the precise dualization structure needed, in an arbitrary symmetric monoidal 3-category, to produce an algebraic analog of the belt trick.
+Section~\ref{sec:lft} concerns the algebraic structure present in the geometry of composition in the 3-framed bordism category; it begins by recalling the notions of 1-, 2-, and 3-dualizability and the statement of the cobordism hypothesis.  Section~\ref{sec:notation} describes an immersion notation for $n$-framed manifolds with corners, and gives various examples in low dimensions.  Section~\ref{sec:framed-duality} completely describes the duals and adjoints arising in the 2-framed bordism 2-category.  Section~\ref{sec:Serre} discusses the loop bordism (also called the Serre bordism) and provides a decomposition of this bordism into pieces describable in terms of elementary dualization data (that is adjoints of witnesses of dualities, and the like).  Section~\ref{sec:Radford} discusses the belt bordism (also called the Radford bordism), giving a decomposition of this bordism in terms of elementary dualization data and determining the precise dualization structure needed, in an arbitrary symmetric monoidal 3-category, to produce an algebraic analog of the belt trick.
 
 Section~\ref{sec:tc} investigates tensor categories, bimodule categories, tensor products of bimodule categories, exact module categories, dual module categories, categories of module functors, separable module categories, and separable tensor categories, among other things.  Section~\ref{sec:conventions} fixes consistent conventions, notation, and terminology for duals, adjoints, tensors, composition, and bimodules.  Section~\ref{sec:tc-lincat} describes linear, finite, monoidal, rigid, and tensor categories, along with module categories, functors, and transformations; it then discusses balanced (also known as relative Deligne) tensor products of module categories over finite tensor categories and the 3-category of finite tensor categories.  Section~\ref{sec:tc-exact} reviews the theory of exact module categories over finite tensor categories and proves that exactness is preserved by Deligne tensor.  Section~\ref{sec:tc-bimodules} first discusses the flip, the twist, and the dual of a bimodule category; it then shows that the dual bimodule category is equivalent to a functor dual category; next it proves, crucially, that the relative Deligne tensor product is equivalent to a category of module functors; finally, it explains how to interpret a dual module category as a module category over a double dual algebra.  Section~\ref{sec:tc-separable} introduces the theory of separable bimodules and separable tensor categories---in finite characteristic this theory replaces that of semisimple bimodules and semisimple tensor categories; in particular this section proves that the composite of separable bimodule categories is separable, and therefore there is a 3-category of separable tensor categories.  Section~\ref{sec:tc-fusion} proves that fusion categories of nonzero global dimension (so in particular all fusion categories in characteristic zero) are separable.
 
 Section~\ref{sec:dualizability} analyzes the dualizability of finite and separable tensor categories.  Section~\ref{sec:df-objects} shows that tensor categories are 1-dualizable and discusses the associated twice categorified 1-dimensional field theory.  Section~\ref{sec:df-morphisms} establishes that the functor dual provides an adjoint bimodule category and therefore finite tensor categories are 2-dualizable; it then describes the associated categorified 2-dimensional field theory, showing in particular that the loop bordism is taken to the double dual bimodule.  Section~\ref{sec:radfordftc} proves that finite tensor categories, though not 3-dualizable, are `Radford objects', that is are dualizable enough to have an algebraic belt trick; the quadruple dual theorem follows immediately.  Section~\ref{sec:separableisfd} proves that separable tensor categories are 3-dualizable and therefore have associated 3-dimensional field theories; it also shows that 3-dualizable finite tensor categories must be separable.  Section~\ref{sec:spherical} previews the relationships between pivotal and spherical structures on tensor categories and the descent properties of the corresponding field theories.  The Appendix describes in more detail the notion of $k$-dualizability and recalls a precise form of both the framed and structured versions of the cobordism hypothesis.
 
 \begin{remarkohc*}
-For expositional convenience and clarity, we phrase some of our results in terms of symmetric monoidal 3-categories.  Though the theory of higher categories is by now on completely solid ground, it remains unduly technical.  To avoid those technicalities in this paper, we do not pick a particular model for higher categories---every statement we make is true in any model.  Readers curious about model-theoretic issues, such as the fibrancy of a particular construction of the bordism 3-category or of the 3-category of tensor categories, can consult our paper~\cite{3TC}.  Moreover, with the single exception of Corollary~\ref{cor2}, every one of our main results can be reexpressed purely in terms of 2-categories (the theory of which has been long settled), and so does not depend on any theory of higher categories.  (This reexpression transforms a statement about a 3-category into an interlinked collection of statements about 2-categories of morphisms and the homotopy 2-category whose 2-morphisms are isomorphism classes of invertible 2-morphisms of the 3-category.)
+For expositional convenience and clarity, we phrase some of our results in terms of symmetric monoidal 3-categories.  Though the theory of higher categories is by now on completely solid ground~\cite{unicity,luriehtt,lurieinf2,rezkcart,barkan,bergrezk,simpson}, it remains unduly technical.  To avoid those technicalities in this paper, we do not pick a particular model for higher categories---every statement we make is true in any model.  Readers curious about model-theoretic issues, such as the fibrancy of a particular construction of the bordism 3-category or of the 3-category of tensor categories, can consult our paper~\cite{3TC}.  Moreover, with the exception of Corollaries~\ref{cor2} and~\ref{cor5}, every one of our main results can be reexpressed purely in terms of 2-categories (the theory of which has been long settled), and so does not depend on any theory of higher categories.  (This reexpression transforms a statement about a 3-category into an interlinked collection of statements about 2-categories of morphisms and the homotopy 2-category whose 2-morphisms are isomorphism classes of invertible 2-morphisms of the 3-category.)
+% luriehtt = higher topos theory
+% lurieinf2 = 0905.0462
+% rezkcart = cartesian presentation of weak n-cats
+% barkan = BarwickKan, n-relative categories 1102.0186
+% bergrezk = comparison of models for inf n cat 1204.2013
+% simpson = homotopy theory of higher categories
+% other refs from unicity paper, eg for Rezk models, Barwick's n-fold css, verity?
+%!% date order those refs.
 
 In our presentation, we also freely employ the cobordism hypothesis, but we would like to emphasize that with the exception of the corollaries concerning local field theory, none of our results, about dualizability, about quadruple duals, or about tensor categories, depend on the cobordism hypothesis.  Specifically, Corollaries~\ref{cor2} and \ref{cor5} do depend on the cobordism hypothesis, but Theorems~\ref{thm1}, \ref{thm3}, \ref{thm4}, \ref{thm6}, \ref{thm8}, \ref{thm9}, \ref{thm10}, \ref{thm11}, \ref{thm12}, and \ref{thm13}, and Corollary~\ref{cor7} do not.
 \end{remarkohc*}
@@ -316,9 +336,9 @@ In our presentation, we also freely employ the cobordism hypothesis, but we woul
 \subsection*{Acknowledgments}
 \addtocontents{toc}{\SkipTocEntry}
 
-We thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Peter Teichner, Dylan Thurston, and Kevin Walker for helpful and clarifying conversations.  We made intensive use of Google Wave in our collaboration on this project, and we would like to thank the Wave development team for their efforts and commiserate with them on Wave's untimely and brutal demise.
+We thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Dylan Thurston, Alexis Virelizier, and Kevin Walker for helpful and clarifying conversations.  We made intensive use of Google Wave in our collaboration on this project, and we would like to thank the Wave development team for their efforts and commiserate with them on Wave's untimely and brutal demise.
 
-We are especially grateful to Victor Ostrik for a key suggestion concerning separability and fusion categories.  NS would like to particularly thank Pavel Etingof for several substantial and fruitful conversations.  CD would like to particularly thank And\'e Henriques for general enlightenment and specific ideas concerning the 3-category of tensor categories and descent calculations for local field theories.
+We are especially grateful to Victor Ostrik for a key suggestion concerning separability and fusion categories, and to Peter Teichner for discussions concerning the homotopy type of structure groups.  NS would like to particularly thank Pavel Etingof for several substantial and fruitful conversations.  CD would like to particularly thank Andr\'e Henriques for general enlightenment and specific ideas concerning the 3-category of tensor categories and descent calculations for local field theories.
 
 
 
@@ -2389,19 +2409,22 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 \begin{tabular}{c|c}
 \cb{
 \begin{tikzpicture}
+\draw[emptylinestyle,fuzzrightwide] (.02,-.01*\pointrad) -- (.02,.01*\pointrad);
 \filldraw (0,0) circle (\pointrad); 
-\begin{pgfonlayer}{background}
-\draw[->,outstyle] (0,0) -- +(\arrowlength,0);
-\end{pgfonlayer}
+%\begin{pgfonlayer}{background}
+%\draw[->,outstyle] (0,0) -- +(\arrowlength,0);
+%\end{pgfonlayer}
 \end{tikzpicture}
 }
 & $\cC$ \\
+
 \cb{
 \begin{tikzpicture}
+\draw[emptylinestyle,fuzzrightwide] (-.02,.01*\pointrad) -- (-.02,-.01*\pointrad);
 \filldraw (0,0) circle (\pointrad); 
-\begin{pgfonlayer}{background}
-\draw[->,outstyle] (0,0) -- +(-\arrowlength,0);
-\end{pgfonlayer}
+%\begin{pgfonlayer}{background}
+%\draw[->,outstyle] (0,0) -- +(-\arrowlength,0);
+%\end{pgfonlayer}
 \end{tikzpicture}
 }
 & $\cC^\mp$ \\
@@ -2413,6 +2436,7 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 & $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vect}$ \\
 \cb{
 \begin{tikzpicture}
+\draw[emptylinestyle, white] (0,-.1) -- (0,.1);
 \draw[linestyle] (0,0) -- (1,0);
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(-\arrowlength,0);
@@ -2423,6 +2447,10 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 & $\bimod{\Vect}{\cC}{\cC^\mp \btimes \cC}$ \\
 \cb{
 \begin{tikzpicture}
+\draw[emptylinestyle,white] (0,0) -- (0,\circlerad+3);
+\draw[emptylinestyle,white] (0,0) -- (0,-\circlerad-3);
+\draw[emptylinestyle,white] (0,0) -- (\circlerad+3,0);
+\draw[emptylinestyle,white] (0,0) -- (-\circlerad-3,0);
 \draw[linestyle] (0,0) circle (\circlerad);
 \begin{pgfonlayer}{background}
 \draw[-left to,line width=1.25*\arrowwidth,black!50] (\circlerad,0) -- +(-90:1.6*\arrowlength);
@@ -2437,7 +2465,6 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 \vspace{10pt}
 \caption{1-framed manifolds and their corresponding invariants.} \label{table:egdimone}
 \end{table}
-\CD{In table 1, change the arrows on the points to fuzz.  Fix the bounding box on the last two pictures.}
 
 The invariant of the 1-framed circle deserves special attention.
 \begin{definition}
@@ -2567,6 +2594,7 @@ $$\cb{
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(90:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 2};
+\draw[->,outstyle,white] (0,0) -- +(-90:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
 \end{tikzpicture}
 }
@@ -2577,6 +2605,7 @@ $$\cb{
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
+\draw[->,outstyle,white] (0,0) -- +(90:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
 \end{tikzpicture}
 }
@@ -2601,7 +2630,7 @@ $$\cb{
 
 The invariants of the field theory $\cF_\cC$ on these various 2-framed manifolds are listed in Table~\ref{table:intervals}.\footnote{We are considering a field theory $\cF_\cC$ whose value on the standard positive point $\pt_+$ is $\cC$.  As the functor $\cF_\cC$ preserves dualities, it send our chosen negative point $\pt_-$ to a dual of $\cC$.  Note, though, that the value $\cF_\cC(\pt_-)$ is canonically equivalent to $\cC^\mp$: the maps $\cF_\cC(\ev)$ and $\cF_\cC(\coev)$ witness a duality between $\cF_\cC(\pt_+) = \cC$ and $\cF_\cC(\pt_-)$, and we already have a chosen dual $\cC^\mp$ to $\cC$ witnessed by ${}_{\cC \boxtimes \cC^\mp} \cC_\Vect$ and ${}_\Vect \cC_{\cC^\mp \boxtimes \cC}$, and therefore we have a canonical equivalence between $\cF_\cC(\pt_-)$ and $\cC^\mp$.  The existence of this canonical equivalence is the meaning of listing $\cC^\mp$ as the value of the field theory in the table.  Similarly, for all the other manifolds $M$ in the table, there is a canonical equivalence between $\cF_\cC(M)$ and the listed value.  More directly, if brutally, we may simply homotope the field theory $\cF_\cC$ to a theory that takes exactly the listed values, as mentioned in Remark~\ref{rem:hep}.}  In that table, the equivalence in each of the last four rows is an application of Proposition~\ref{prop:dual-formula-for-adjoints}.  The values of the adjoints $\ev^L$, $\coev^L$, $\ev^R$, and $\coev^R$ are determined from the values of $\ev$ and $\coev$ by Proposition~\ref{prop:evcoev}.
 
-\begin{table}[ht] 
+\begin{table}[!hbt] 
 \begin{tabular}{ccc|rcl}
 $\pt_+$ & $=$ & 
 \cb{
@@ -2610,10 +2639,11 @@ $\pt_+$ & $=$ &
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(90:\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 2};
+\draw[->,outstyle,white] (0,0) -- +(-90:.8*\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& \multicolumn{1}{c}{$\cC$} &&\\
+& \multicolumn{1}{c}{$\cC$} &&\\[-10pt]
 $\pt_-$ & $=$ & 
 \cb{
 \begin{tikzpicture}
@@ -2621,17 +2651,18 @@ $\pt_-$ & $=$ &
 \begin{pgfonlayer}{background}
 \draw[->,outstyle] (0,0) -- +(0:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 1};
 \draw[->,outstyle] (0,0) -- +(-90:\arrowlength) node[anchor=north west,inner sep=1pt] {\tiny 2};
+\draw[->,outstyle,white] (0,0) -- +(90:.8*\arrowlength) node[anchor=south west,inner sep=1pt] {\tiny 2};
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& \multicolumn{1}{c}{$\cC^\mp$} &&\\
+& \multicolumn{1}{c}{$\cC^\mp$} &&\\[10pt]
 $\ev$ & $=$ & \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] (0,0) arc (-90:90:\smcirclerad);
 \end{tikzpicture}
 }
 & \multicolumn{1}{c}{$\bimod{\cC \btimes \cC^\mp}{\cC}{\Vect}$} 
-& &  \\
+& &  \\[8pt]
 $\coev$ & $=$ & \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
@@ -2643,7 +2674,7 @@ $\coev$ & $=$ & \cb{
 }
 & \multicolumn{1}{c}{$\bimod{\Vect}{\cC}{\cC^\mp \btimes \cC}$} 
 & 
-& \\
+& \\[8pt]
 %
 $\ev^L$ & $=$ & \cb{
 \begin{tikzpicture}
@@ -2656,7 +2687,7 @@ $\ev^L$ & $=$ & \cb{
 }
 & $\Fun_{\mod{\cC \boxtimes \cC^\mp}{}}(\cC,\cC \boxtimes \cC^\mp)$
 & $\simeq$ & ${}^*({}_{\cC \boxtimes \cC^\mp} \cC_\Vect)$
-\\
+\\[8pt]
 %
 $\coev^L$ & $=$ & \cb{
 \begin{tikzpicture}
@@ -2761,7 +2792,7 @@ By Proposition~\ref{prop:dual-formula-for-adjoints}, Lemma~\ref{lemma:DualTwist}
 as required.  
 \end{proof}
 
- \begin{table}[ht]
+ \begin{table}[!ht]
 \begin{tabular}{c|rcl}
 \cb{
 \begin{tikzpicture}
@@ -2795,12 +2826,11 @@ as required.
 \vspace{6pt}
 \caption{Invariants associated to 2-framed circles.} \label{table:circles}
 \end{table}
-\CD{Move this table to after first reference}
 
 By composing the invariants of the intervals in Table~\ref{table:intervals}, we can compute the invariants for various 2-framed circles; the three most important such circles and their resulting invariants are listed in Table~\ref{table:circles}.  In that table, the first equivalence is by Proposition~\ref{prop:FunctorsAsATensorPdt}; the second and third equivalences are by Corollary~\ref{cor:tensasfunct} and Lemma~\ref{lemma:DualTwist}.  Finally, in Table~\ref{table:discs}, we record the values of the 2-framed discs arising as the units and counits of the adjunctions $\ev^L_\cC \dashv \ev_\cC$ and $\coev^L_\cC \dashv \coev_\cC$.
 
 
-\begin{table}[ht] 
+\begin{table}[!hbt] 
 \begin{tabular}{c|l}
 \cb{
 \begin{tikzpicture}
@@ -2893,6 +2923,11 @@ The $\Vect$--$\Vect$-bimodule $\Vect$ is evidently exact.  By Example~\ref{ex:ex
 \end{proof}
 
 \CD{Review the logic of the above proof regarding nnre}
+
+\nid The reasoning in the above proof, together with further similar arguments, provides the following general condition for the existence of adjoints of bimodule functors:
+\begin{proposition}
+Let ${}_\cC \cM_\cD$ and ${}_\cC \cN_\cD$ be finite bimodule categories between finite tensor categories, and let $\cF : \cM \ra \cN$ be a (right exact) bimodule functor.  If the bimodule category $\cN$ is exact, then $\cF$ has a right adjoint (right exact) bimodule functor.  If the bimodule category $\cM$ is exact, then $\cF$ has a left adjoint (right exact) bimodule functor.
+\end{proposition}
 
 The Radford property of a finite tensor category allows us to promote the associated 2-framed 2-dimensional field theory to a 3-framed 2-dimensional field theory.
 

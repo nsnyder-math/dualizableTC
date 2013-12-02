@@ -74,6 +74,17 @@
 \newcommand{\graylightcolor}{black!40}
 \newcommand{\graytextcolor}{black!65}
 
+%\newlength{\evlength}
+%\setlength{\evlength}{10pt}
+%\newlength{\evlengthv}
+%\setlength{\evlengthv}{10pt}
+%\newlength{\loopsize}
+%\setlength{\loopsize}{2.5pt}
+
+\newcommand{\evlength}{10}
+\newcommand{\evlengthv}{10}
+\newcommand{\loopsize}{2.5}
+
 
 \newcommand{\coverwidthfuzz}{6pt}
 \newcommand{\coverwidth}{3.5pt}
@@ -115,7 +126,10 @@ coverlinelefttail/.style={
         fuzzleftpre/.style={ %%% Doesn't work
         preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,post=moveto,post length=32pt,amplitude=0,raise=1pt}}},        
         outstyle/.style={\arrowcolor, line width=\arrowwidth},
-        linestyle/.style={line width=\linewid}
+        linestyle/.style={line width=\linewid},
+        emptylinestyle/.style={line width=0},
+        fuzzrightwide/.style={
+        preaction={draw,line width=1.25*\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-.5*\fuzzwidth}}}
 }
 
 \newcommand{\lilarrow}{
