@@ -17,6 +17,139 @@
 	
 	\maketitle
 
+\section{NNN}
+
+\begin{figure}[t]
+\cb{
+\begin{tikzpicture}
+\draw[linestyle] (0,0) -- (\evlength+\loopsize,0)
+arc (-90:180:\loopsize)
+-- +(0,-\evlengthv-\loopsize-\loopsize)
+arc (-180:90:\loopsize)
+-- +(-\evlength-\loopsize,0);
+\end{tikzpicture}
+}
+\end{figure}
+
+\begin{figure}[t]
+\cb{
+\begin{tikzpicture}
+[scale=.1]
+\draw[linestyle] (0,0) -- (\evlength+\loopsize,0)
+arc (-90:180:\loopsize)
+-- +(0,-\evlengthv-\loopsize-\loopsize)
+arc (-180:90:\loopsize)
+-- +(-\evlength-\loopsize,0);
+\end{tikzpicture}
+}
+\end{figure}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+%/tikz/external/optimize=false
+\begin{figure}[ht]
+\cb{
+\begin{tikzpicture}
+%%% curved version
+%{ [xshift=-3cm,scale=.1]
+%\draw[linestyle,fuzzleft]
+%(0,5) to [out=180, in=70] (-4,2.5)
+%	to [looseness=1.6, out=-110, in=-90] (-6,2.5)
+%	to [looseness=1.6, out=90, in=110] (-4,2.5)
+%	to [out=-70, in=70] (-4,-2.5)
+%	to [looseness=1.6, out=-110, in=-90] (-6,-2.5)
+%	to [looseness=1.6, out=90, in=110] (-4,-2.5)
+%	to [out=-70, in=180] (0,-5);
+%\begin{pgfonlayer}{background}
+%	\draw[->,outstyle] (0,5) -- +(0:10*\arrowlength);
+%	\draw[->,outstyle] (0,-5) -- +(0:10*\arrowlength);
+%\end{pgfonlayer}
+%\node at (0,-10) {$coev^{LL}$};
+%}
+%%%
+		\node at (.5,0) {$\cdots$};
+		\node at (1,0) {$\dashv$};
+{ [xshift=1.85cm]
+		\node at (0,-1.1) {$\coev^{LL}$};
+			\draw[linestyle,fuzzleft] (0.5, 0.5) -- (-.25,0.5)
+				to [looseness=2,out = 180, in = 90] (0, 0.75)
+				-- (0, -0.75)
+				to [looseness=2,out = 270, in = 180] (-.25,-0.5)
+				-- (0.5, -0.5);
+			\begin{pgfonlayer}{background}
+				\draw[->,outstyle] (0.5,0.5) -- +(0:\arrowlength);
+				\draw[->,outstyle] (0.5,-0.5) -- +(0:\arrowlength);
+			\end{pgfonlayer}
+}
+{ [xshift=3cm]
+\node at (0,0) {$\dashv$};
+}
+{ [xshift=3.75cm]
+\draw[linestyle,fuzzright]
+(0,.5) .. controls (.66,.5) and (.66,-.5) .. (0,-.5);
+}
+{ [xshift=4cm]
+\node at (0,-1) {$\coev^L$};
+}
+{ [xshift=5cm]
+\node at (0,0) {$\dashv$};
+}
+{ [xshift=6.15cm]
+\draw[linestyle,fuzzleft]
+(0,.5) .. controls (-.66,.5) and (-.66,-.5) .. (0,-.5);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,.5) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-.5) -- +(0:\arrowlength);
+\end{pgfonlayer}
+}
+{ [xshift=6cm]
+\node at (0,-1) {$\coev$};
+}
+{ [xshift=7cm]
+\node at (0,0) {$\dashv$};
+}
+%%% curved version, won't compile
+{ [xshift=1.5cm,scale=.1]
+\draw[linestyle,fuzzleft]%, /pgf/fpu,/pgf/fpu/output format=fixed]
+(0,5) to [out=0, in=110] (4,2.5)
+	to [looseness=1.6, out=-70, in=-90] (6,2.5)
+	to [looseness=1.6, out=90, in=70] (4,2.5)
+	to [out=-110, in=110] (4,-2.5)
+	to [looseness=1.6, out=-70, in=-90] (6,-2.5);
+%	to [looseness=1.6, out=90, in=70] (4,-2.5)
+%	to [out=-110, in=0] (0,-5);
+\node at (0,-10) {$coev^{R}$};
+}
+%%%
+{ [xshift=7.85cm]
+		\draw [linestyle,fuzzright] (-.25,0.5) -- (0.5, 0.5) 
+			to [looseness=2,out=0, in=90] (0.25, 0.75)
+			-- (0.25, -0.75)
+			to [looseness=2,out=-90, in=0] (0.5, -0.5)
+			-- (-.25,-0.5);
+}
+{ [xshift=8cm]
+		\node at (0, -1.1) {$\coev^{R}$};
+}
+\node at (9,0) {$\dashv$};
+\node at (9.5,0) {$\cdots$};
+\end{tikzpicture}
+}
+\caption{Two infinite chains of adjunctions of 2-framed bordisms.} \label{fig:adjointchains}
+\end{figure}
+
+\end{document}
+
 %\section{Bordism pics}
 %
 %%\begin{figure}[htbp]
