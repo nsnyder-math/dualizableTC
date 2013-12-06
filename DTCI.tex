@@ -2151,9 +2151,13 @@ Let $\cC$ be a finite semisimple tensor category over a perfect field.  The foll
 
 In this section we give a computable criterion for checking the separability of a finite semisimple tensor category, at least when the base field is algebraically closed and the unit is simple.  Specifically, we show that such a tensor category is separable if and only if its global dimension (a sum of certain products of quantum traces on its simple objects) is nonzero.  Over algebraically closed fields of characteristic zero, the global dimension is always nonzero, and so the characterization of separability simplifies substantially; in fact, all finite semisimple tensor categories over a field of characteristic zero are separable.
 
-As we are investigating the separability condition on tensor categories, we need to assume the base field is perfect, but in fact in this section only we will assume the base field is algebraically closed.  The global dimension is constructed from endomorphisms of the unit and will be a numerical invariant when the unit is simple.  Recall that a finite semisimple tensor category (over an algebraically closed field) with simple unit is called a \emph{fusion category}.  Combining Corollary~\ref{cor:Sep=semisimplecenter} with the nonzero global dimension criterion for separability (Theorem~\ref{thm:NonzeroDimension} below) shows that a fusion category has semisimple Drinfeld center if and only if it has nonzero global dimension.  This result, which assumes nothing about the pivotality or spherical of the category nor about the characteristic of the base field, sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  M\"uger proved that a spherical fusion category of nonzero global dimension has semisimple center~\cite[Thm. 3.16]{MR1966525}; ENO proved that, in characteristic zero, fusion categories of nonzero global dimension have semisimple center~\cite[Thm. 2.15]{MR2183279}---see also Section 9 of that paper for a discussion of the positive characteristic situation; BV proved that pivotal fusion categories with semsimple center have nonzero global dimension~\cite{MR3079759}.  V. Ostrik suggested many of the ideas contained in this section.
+The global dimension of $\mathrm{Rep}(G)$ is the size of the group $G$, so the main result of this theorem is an analogue of Maschke's theorem.   In order to generalize the global dimension beyond $\mathrm{Rep}(G)$, we need a formula which depends only on the representation theory of $G$ and not $G$ itself.  Over an algebraically closed field such a formula is given by $\#G = \sum_{V} (\dim V)^2$, where the sum is over irreducible representations.  This formula does not work over an arbitrary field.  For example over $\mathbb{R}$, the group $\mathbb{Z}/3$ has a $1$-dimensional irrep and a $2$-dimensional irrep, but $3 \neq 1 + 2^2$.  Hence, for most of this section we make the technical assumption that the base field is algebraically closed.  Furthermore, $\mathrm{Rep}(G) \oplus \mathrm{Rep}(H)$ is separable when $\#G$ and $\#H$ are invertible, rather than when $\#G + \#H$ is invertible.  So again, for most of this section we make the technical assumption that the unit object is simple.
 
-\NS{Somewhere add remark on why alg closed is useful? (1. simple unit works (otherwise need abs simpl), 2. quadratic expressions.) eg $Rep(\mathbb{Z}/3)$ over $\RR$ global dimension issue.}
+\NS{I added a paragraph here and commented out part of the following paragraph.}
+
+
+%As we are investigating the separability condition on tensor categories, we need to assume the base field is perfect, but in fact in this section only we will assume the base field is algebraically closed.  The global dimension is constructed from endomorphisms of the unit and will be a numerical invariant when the unit is simple.  
+Recall that a finite semisimple tensor category (over an algebraically closed field) with simple unit is called a \emph{fusion category}.  Combining Corollary~\ref{cor:Sep=semisimplecenter} with the nonzero global dimension criterion for separability (Theorem~\ref{thm:NonzeroDimension} below) shows that a fusion category has semisimple Drinfeld center if and only if it has nonzero global dimension.  This result, which assumes nothing about the pivotality or spherical of the category nor about the characteristic of the base field, sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  M\"uger proved that a spherical fusion category of nonzero global dimension has semisimple center~\cite[Thm. 3.16]{MR1966525}; ENO proved that, in characteristic zero, fusion categories of nonzero global dimension have semisimple center~\cite[Thm. 2.15]{MR2183279}---see also Section 9 of that paper for a discussion of the positive characteristic situation; BV proved that pivotal fusion categories with semsimple center have nonzero global dimension~\cite{MR3079759}.  V. Ostrik suggested many of the ideas contained in this section.
 
 \subsubsection{Global dimension via quantum trace} \label{sec:gdim}
 
@@ -2319,7 +2323,11 @@ Without loss of generality, we assume $\cM$ is indecomposable.  By Theorem~\ref{
 \end{proof}
 \CD{carefully check this proof, both the overall logic and with special attention to lack of assumption about the unit and algebraic closure} \CD{NS says this needs absolutely simple 1, see 11/20 email}
 
+\NS{I added a remark here}
 
+\begin{remark} \label{ref:components}
+It is not difficult identify when an arbitrary semisimple tensor category is separable using the results from this section.  If $\cC$ is a fusion category over an arbitrary perfect field, by~\cite[Lemma 5.1]{1002.0168} $\cC$ is separable if and only if the base extension to the algebraic closure has non-zero global dimension.  Finally, we consider the case where $\cC$ has a non-simple unit.  By \cite{???}, the unit breaks up as a sum of distinct simple objects $\oplus \mathbf{1}_i$, and this in turn gives a decomposition of $\cC$ into component subcategories $\cC_{ij}$.  The components $\cC_{ii}$ are fusion categories, and $\cC$ is separable if and only each of the $\cC_{ii}$ have non-zero global dimension.
+\end{remark}
 
 
 \section{Dualizability} \label{sec:dualizability}
@@ -3106,7 +3114,9 @@ When $\cC$ is a semisimple finite tensor category, over an algebraically closed 
 When $\cC$ is semisimple, it is possible to directly calculate the image of $1 \in \cC$ under the Radford equivalence $\ev_\cC^L \ra \ev_\cC^R$, without reexpressing the module categories as categories of internal modules; such a calculation provides a proof of Corollary~\ref{cor:ssquaddual} that does not rely on Proposition~\ref{prop:computeradford}.
 
 
-
+\begin{remark}
+The assumption that $1 \in \cC$ is absolutely simple is unnecessary.  As in Remark \ref{ref:components}, $\cC$ breaks up into components $\cC_{ij}$ with $\cC_{ii}$ a fusion category.  It is not difficult to see that $D = \oplus D_i$ where $D_i$ is the distinguished invertible for $D_i$.  Thus, $D \cong \oplus D_i \cong \oplus \mathbf{1}_i \cong \mathbf{1}$.
+\end{remark}
 
 
 %%% This lemma removed as not necessary.
