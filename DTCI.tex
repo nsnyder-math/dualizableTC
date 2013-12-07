@@ -2071,6 +2071,8 @@ Stitching together Theorem~\ref{thm:DelignePrdtOverATCExists}, Corollary~\ref{co
 If we assume $\Mod{A}{A}(\cC)$ is semisimple, then all its objects are projective; in particular $A$ is projective as a bimodule object, and so ${}_\cC \cM$ is separable.  Conversely, assume that $A$ is projective as an $A$--$A$-bimodule, in other words that the unit $1 \in \Fun_{\cC}(\cM,\cM)$ is projective.  Because $\Fun_{\cC}(\cM,\cM)$ is rigid (by item (5) of Theorem~\ref{Thm:ExactModCatOmnibus}), for any object $F \in \Fun_{\cC}(\cM,\cM)$, the functor $\Hom(F,-) \simeq \Hom(1,{}^* F \otimes -)$ is right exact and so $F$ is projective; thus the functor category is semisimple, as required.
 \end{proof}
 
+In general, semisimplicity of $\cC$ and $\cM$ is not enough to guarantee separability of $\cM$.  Specifically, over a field of characteristic $p$ we have the following counterexample.  Let $\cC$ be the category of graded vector spaces $\Vec(\mathbb{Z}/p)$, and let $\cM$ be $\Vec$ where the action is via the forgetful functor.  Then $\Fun_{\cC}(\cM,\cM) \cong \Rep(\mathbb{Z}/p)$ is not semisimple, so $\cM$ is not separable.
+
 %\CD{Removed identity functor projective --- general triviality, not used?}
 
 
@@ -2109,9 +2111,6 @@ T(A) \xra{\id_A \otimes \sigma} T(T(A)) \cong T(T(A) \otimes_A A) \xra{T(\id_{T(
 
 \CD{Put in that Kuperberg observed that, over a non-perfect field, inseparable field extensions could yield non-semisimple composites \cite[Section 5]{MR1995781}?  Need to review what Kuperberg actually did/said.}
 
-\CD{Add char p $Vect[\mathbb{Z}/p]$ (non ss composite) example?}
-
-
 \begin{corollary} \label{cor:funsemi}
 For absolutely semisimple, separable $\cC$-modules ${}_\cC \cM$ and ${}_\cC \cN$ over a finite semisimple tensor category $\cC$, the functor category $\Fun_{\cC}(\cM,\cN)$ is absolutely semisimple.
 \end{corollary}
@@ -2144,6 +2143,8 @@ Let $\cC$ be a finite semisimple tensor category over a perfect field.  The foll
 \item the Drinfeld center $\cZ(\cC)$ is semisimple.
 \end{enumerate}
 \end{corollary}
+
+Again, in general semisimplicity is not enough to guarantee separability.  Specifically, over a field of characteristic $p$, we have that $\Vec(\mathbb{Z}/p)$ is a semisimple tensor category which is not separable.
 
 
 \subsection{Separability and global dimension} \label{sec:tc-fusion}
