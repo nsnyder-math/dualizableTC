@@ -1902,7 +1902,6 @@ where $\mathfrak{r}$ denotes the right dual functor.  Similarly
 
 \end{lemma}
 \noindent The proof is simply chasing carefully through the definitions.  Analogous formulas hold for left dual categories.
-\CD{Double check these formulas.}
 
 We will need to know that the duals of exact module categories are exact.  (Recall that a $\cC$-module category $\cM$ is called exact if $p \otimes m \in M$ is projective whenever $p \in \cC$ is projective.)  Toward that end, we first prove an auxiliary result concerning exactness of contravariantly, monoidally-oppositely twisted modules.  For a left $\cC$-module $\cM$ and $\cF: \cC \rightarrow \cC^\mop$ a tensor equivalence, let $\cM^{\op(\cF)}$ denote the right $\cC$-module with underlying linear category $\cM^\op$ and action $m \cdot c := F(c) \otimes m$.
 \begin{lemma}
@@ -2039,7 +2038,7 @@ A finite left module category ${}_\cC \cM$ over a semisimple finite tensor categ
 \end{definition}
 \noindent (Separability is a Morita-invariant notion, in the sense that if ${}_\cC \cM$ is equivalent to $\Mod{}{A}(\cC)$ and to $\Mod{}{B}(\cC)$, then $A$ is separable if and only if $B$ is serarable.)  We will see later, in Section~\ref{sec:separableisfd}, that this separability condition is, as hoped, exactly what is needed to ensure a bimodule category is maximally dualizable.  
 
-In this section, we prove two crucial properties of separable module categories, namely (1) that a module category is separable if and only if its category of endofunctors is semisimple and (2) that the relative Deligne tensor product of two separable bimodule categories is a separable bimodule category.  The second is a generalization to arbitrary fields of Etingof--Nikshych--Ostrik's theorem, over an algebraically closed field of characteristic zero, that a functor category between finite semisimple module categories is semisimple~\cite[Theorem 2.16]{MR2183279}.  Using a simple case of the second result, the first result provides a generalization to arbitrary perfect fields (and non-spherical categories) of M\"uger's theorem, over algebraically closed fields, that the Drinfeld center of a spherical finite semisimple tensor category, with simple unit and nonzero global dimension, is semisimple~\cite[Theorem 3.16]{MR1966525}.    These results are inspired by a suggestion of Ostrik and by results in \cite[\S 2.4]{MR3039775} in characteristic zero.  The reader unconcerned with finite characteristic can safely skip this and the next section, consulting Corollary~\ref{cor:charzerosep} and Proposition~\ref{prop:SSModuleCatsAreSep} for characterizations of separability in the characteristic zero case, and keeping in mind ENO's aforementioned theorem, or more directly Theorem~\ref{thm:compositeOfSep} and Corollary~\ref{cor:septc}, at appropriate moments in Section~\ref{sec:separableisfd}.  \CD{repetition between this paragraph and beginning of section 3.6 an issue?}
+In this section, we prove two crucial properties of separable module categories, namely (1) that a module category is separable if and only if its category of endofunctors is semisimple and (2) that the relative Deligne tensor product of two separable bimodule categories is a separable bimodule category.  The second is a generalization to arbitrary fields of Etingof--Nikshych--Ostrik's theorem, over an algebraically closed field of characteristic zero, that a functor category between finite semisimple module categories is semisimple~\cite[Theorem 2.16]{MR2183279}.  Using a simple case of the second result, the first result provides a generalization to arbitrary perfect fields (and non-spherical categories) of M\"uger's theorem, over algebraically closed fields, that the Drinfeld center of a spherical finite semisimple tensor category, with simple unit and nonzero global dimension, is semisimple~\cite[Theorem 3.16]{MR1966525}.    These results are inspired by a suggestion of Ostrik and by results in \cite[\S 2.4]{MR3039775} in characteristic zero.  The reader unconcerned with finite characteristic can safely skip this and the next section, consulting Corollary~\ref{cor:charzerosep} and Proposition~\ref{prop:SSModuleCatsAreSep} for characterizations of separability in the characteristic zero case, and keeping in mind ENO's aforementioned theorem, or more directly Theorem~\ref{thm:compositeOfSep} and Corollary~\ref{cor:septc}, at appropriate moments in Section~\ref{sec:separableisfd}.
 
 \subsubsection{Separability and semisimplicity} \label{sec:sepandsemi}
 
@@ -2078,8 +2077,7 @@ In general, semisimplicity of $\cC$ and $\cM$ is not enough to guarantee separab
 
 \subsubsection{Separable bimodules compose}
 
-Over an algebraically closed field of characteristic zero, finite semisimple bimodule categories over finite semisimple tensor categories have the excellent feature that they compose, that is the relative Deligne tensor of two such is again finite semisimple---this is a reformulation of~\cite[Theorem 2.16]{MR2183279}.  We generalize that result to an arbitrary field. \NS{perfect?}
-\begin{theorem} \label{thm:compositeOfSep}
+Over an algebraically closed field of characteristic zero, finite semisimple bimodule categories over finite semisimple tensor categories have the excellent feature that they compose, that is the relative Deligne tensor of two such is again finite semisimple---this is a reformulation of~\cite[Theorem 2.16]{MR2183279}.  We generalize that result to an arbitrary field. \begin{theorem} \label{thm:compositeOfSep}
 Let ${}_\cB \cM_\cC$ and ${}_\cC \cN_\cD$ be separable bimodule categories over finite semisimple tensor categories.  The relative Deligne tensor product ${}_{\cB} \cM \boxtimes_\cC \cN_\cD$ is a separable bimodule category.
 \end{theorem}
 
@@ -2322,7 +2320,7 @@ Let $\cC$ be a finite semisimple tensor category over an arbitrary field of char
 Proposition~\ref{prop:sepmodissemi} shows separability implies semisimplicity.
 Without loss of generality, we assume $\cM$ is indecomposable.  By Theorem~\ref{thm:SepModCats}, the module category $\cM$ is separable provided the linear category $\Fun_\cC(\cM,\cM)$ is semisimple.  The semisimplicity of this commutant is invariant under base change, by~\cite[Lemma 5.2]{1002.0168}, and it therefore suffices to assume the base field is algebraically closed.  By \cite[Thm. 2.5]{EO-ftc}, if $\cA \ra \cB$ is a surjective tensor functor of finite tensor categories, and $\cA$ is semisimple, then $\cB$ is semisimple.  (Recall that surjective means all objects in the target are subquotients of objects in the image.)  By \cite[Prop. 3.39]{EO-ftc}, the forgetful tensor functor $\cZ(\Fun_\cC(\cM,\cM)) \ra \Fun_\cC(\cM,\cM)$ is surjective, and by \cite{scha} and \cite[Cor. 3.35]{EO-ftc}, there is an equivalence $\cZ(\cC) \simeq \cZ(\Fun_\cC(\cM,\cM))$.  The center $\cZ(\cC)$ is semisimple by Corollary~\ref{cor:Sep=semisimplecenter}.
 \end{proof}
-\CD{carefully check this proof, both the overall logic and with special attention to lack of assumption about the unit and algebraic closure} \CD{NS says this needs absolutely simple 1, see 11/20 email}
+\CD{carefully check this proof, both the overall logic and with special attention to lack of assumption about the unit and algebraic closure}
 
 \NS{I added a remark here}
 
@@ -2488,7 +2486,7 @@ The \emph{trace} of a finite tensor category $\cC$ is the relative Deligne tenso
 \]
 In this product, the two actions are the most naive ones, namely the right action of $c \boxtimes d \in \cC \boxtimes \cC^\mp$ on $m \in \cC$ is $m \cdot (c \boxtimes d) := d \otimes m \otimes c$, and the left action of $c \boxtimes d \in \cC \boxtimes \cC^\mp$ on $m \in \cC$ is $(c \boxtimes d) \cdot m := c \otimes m \otimes d$.
 \end{definition}
-Contrary perhaps to expectation, the trace $\cT(\cC)$ need not be equivalent to the Drinfeld center $\cZ(\cC)$.  Indeed, if $\cC$ is not pivotal, there is no a priori reason for $\cT(\cC)$ to even be a monoidal category.  (From a field-theoretic perspective, the monoidal structure on $\cZ(\cC)$ comes from a 2-framed pair-of-pants bordism, all of whose boundary circles are the 2-framed circle shown as the target in Example~\ref{ex:disk_bordism_immersed}.  There is no 2-framed pair-of-pants bordism, all of whose boundary circles are the 2-framed stabilization of the 1-framed circle.)  We can see the precise difference between the trace and the center by expressing the trace as a functor category. \NS{Find Ostrik ref regarding this trace}
+Contrary perhaps to expectation, the trace $\cT(\cC)$ need not be equivalent to the Drinfeld center $\cZ(\cC)$.  Indeed, if $\cC$ is not pivotal, there is no a priori reason for $\cT(\cC)$ to even be a monoidal category.  (From a field-theoretic perspective, the monoidal structure on $\cZ(\cC)$ comes from a 2-framed pair-of-pants bordism, all of whose boundary circles are the 2-framed circle shown as the target in Example~\ref{ex:disk_bordism_immersed}.  There is no 2-framed pair-of-pants bordism, all of whose boundary circles are the 2-framed stabilization of the 1-framed circle.)  We can see the precise difference between the trace and the center by expressing the trace as a functor category.
 \begin{corollary}
 For $\cC$ a finite tensor category, there is an equivalence of linear categories
 \[
@@ -2735,8 +2733,7 @@ $\coev^R$ & $=$ & \CDcomm{missing pic Fig 2}
 \vspace{6pt}
 \caption{Invariants associated to 2-framed points and intervals.} \label{table:intervals}
 \end{table}
-\CD{Replace the $ev^R$ picture in Table 2.  Draw $coev^R$.  Fix the spacing (eg of point figures).}
-\CD{Double check table 2.}
+\CD{Replace the $ev^R$ picture in Table 2.  Draw $coev^R$.}
 
 We are now, finally, in a position to calculate the Serre automorphism of a finite tensor category; the result of this calculation is the central connection between the topology of framed bordisms and the algebra of duality in tensor categories.
 \begin{theorem} \label{thm:serreisdoubledual}
@@ -2935,8 +2932,6 @@ By assumption, the bimodule functors $u$ and $v$ in question are right exact lin
 
 The $\Vect$--$\Vect$-bimodule $\Vect$ is evidently exact.  By Example~\ref{ex:exactness}, the $\cC \boxtimes \cC^\mp$--$\Vect$-bimodule evaluation $\ev_\cC$ is exact.  Combining Proposition~\ref{prop:evcoev}, Proposition~\ref{prop:dual-formula-for-adjoints}, and Corollary~\ref{cor:adjoint-exactness}, it follows that the adjoint $\Vect$--$\cC \boxtimes \cC^\mp$-bimodule $\ev_\cC^R$ is exact.  Applying Theorem~\ref{thm:tensor-exactness}, we conclude that the composite bimodule $\ev_\cC \boxtimes \ev_\cC^R$ is exact, as required.
 \end{proof}
-
-\CD{Review the logic of the above proof regarding nnre}
 
 \nid The reasoning in the above proof, together with further similar arguments, provides the following general condition for the existence of adjoints of bimodule functors:
 \begin{proposition}
@@ -3147,7 +3142,6 @@ As we have already established the 2-dualizability of all finite tensor categori
 \begin{proposition} \label{prop:bimodfunctadjoints}
 Let ${}_\cC \cM_\cD$ and ${}_\cC \cN_\cD$ be finite semisimple bimodule categories between finite tensor categories.  Any bimodule functor $\cM \ra \cN$ admits both left and right adjoint bimodule functors.
 \end{proposition}
-\CD{Reconsider and recheck this statement}
 \begin{proof}
 A functor out of a semisimple category is both left and right exact.  It follows, because both $\cM$ and $\cN$ are finite, that any linear functor from $\cM$ to $\cN$ admits both a left and a right adjoint~\cite{BTP}; because $\cN$ is also semisimple, those adjoints are themselves exact, in particular right exact.  By Lemma~\ref{lma:module-adjoint}, those adjoints can be promoted to adjoints as bimodule functors.
 \end{proof}
@@ -3155,7 +3149,6 @@ A functor out of a semisimple category is both left and right exact.  It follows
 \begin{remark}
 In fact, the left and right adjoints of a bimodule functor $\cF: \cM \ra \cN$ between finite semisimple bimodule categories are isomorphic, and can be described explicitly as a transpose-dual functor.  That is, let $\{m_i\}$ be a set of representatives of the isomorphism classes of simple objects of $\cM$, and similarly $\{n_i\}$ for $\cN$.  The functor $\cF$ is isomorphic to a functor $m_i \mapsto \bigoplus_j F_{ij} n_j$, where $F_{ij} \in \Vect$.  The transpose-dual functor $n_j \mapsto \bigoplus_i F_{ij}^* m_i$ is both a left and a right adjoint for $\cF$, where $F_{ij}^* \in \Vect$ is the ordinary dual vector space to $F_{ij}$.
 \end{remark}
-\CD{Recheck this remark.}
 
 With adjoints for bimodule functors at hand, we can now assemble the pieces to prove full dualizability.
 \begin{theorem} \label{thm:TC-dualizable}
