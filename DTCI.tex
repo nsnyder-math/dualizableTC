@@ -2016,9 +2016,9 @@ In this section, we prove two crucial properties of separable module categories,
 \subsubsection{Separability and semisimplicity} \label{sec:sepandsemi}
 
 Over a perfect field (for instance, a finite field, an algebraically closed field, or a field of characteristic zero), an algebra $A$ is separable if and only if it is finite-dimensional semisimple; over an arbitrary field, separability is a stronger condition than finite-dimensional semisimplicity \cite[Ch.~2]{MR0280479}.  The corresponding statements hold for linear categories: over a perfect field, a finite $\Vect$-module category is separable if and only if it is finite semisimple, while over an arbitrary field separability merely implies finite semisimplicity. %!%CD
-In general, a finite linear category $\cL$ is separable (as a $\Vect$-module) if and only if for all simple objects $S \in \cL$, the extension from the base field to the center of the division ring of endomorphisms of $S$ is a finite separable field extension.  In other words, a finite linear category is separable if and only if it remains semisimple after arbitrary base changes---we refer to this condition as `absolute semisimplicity' and for clarity use that term instead of `separable as a $\Vect$-module'.\footnote{For a $k$-linear category $\cL$ and an extension $l$ of the field $k$, let $[\cL_l]$ denote the category with the same objects as $\cL$ and with morphism spaces $\Hom_{[\cL_l]}(a,b) := \Hom_{\cL}(a,b) \otimes_k l$.  The base change from $k$ to $l$ of the linear category $\cL$ is, by definition, the idempotent completion $\cL_l$ of the category $[\cL_l]$.  When the category $\cL$ is finite and the field extension is finite, the base change $\cL_l$ of $\cL$ is equivalent to the product $\cL \boxtimes_{\Vect_k} \Vect_l$.}
+In general, a finite linear category $\cL$ is separable (as a $\Vect$-module) if and only if for all simple objects $S \in \cL$, the extension from the base field to the center of the division ring of endomorphisms of $S$ is a finite separable field extension.  In other words, a finite linear category is separable if and only if it remains semisimple after arbitrary base changes---we refer to this condition as `absolute semisimplicity' and for clarity use that term instead of `separable as a $\Vect$-module'.\footnote{For a semisimple $k$-linear category $\cL$ and an extension $l$ of the field $k$, let $[\cL_l]$ denote the category with the same objects as $\cL$ and with morphism spaces $\Hom_{[\cL_l]}(a,b) := \Hom_{\cL}(a,b) \otimes_k l$.  The base change from $k$ to $l$ of the category $\cL$ is, by definition, the idempotent completion $\cL_l$ of the category $[\cL_l]$.  When the category $\cL$ is finite and the field extension is finite, the base change $\cL_l$ of $\cL$ is equivalent to the product $\cL \boxtimes_{\Vect_k} \Vect_l$.}
 %!%CD sentence on lin cat sep.
-%!%CD idem comp footnote, existence, etc
+
 
 For tensor categories $\cC$ other than $\Vect$, a separable $\cC$-module is still semisimple:
 \begin{proposition} \label{prop:sepmodissemi}
@@ -2111,14 +2111,12 @@ Let $\cC$ be a finite semisimple tensor category over a perfect field.  The foll
 \end{enumerate}
 \end{corollary}
 
-\CD{Add computation of $\cZ(\Vect[\ZZ/p])$?}
-%Again, in general semisimplicity is not enough to guarantee separability.  Specifically, over a field of characteristic $p$, we have that $\Vec(\mathbb{Z}/p)$ is a semisimple tensor category which is not separable.
-
+A semisimple finite tensor category need not be separable.  Note that the representation category $\Rep(G)$ of a finite group appears as a tensor subcategory of the center $\cZ(\Vect[G])$.  In characteristic $p$, the category $\Rep(\ZZ/p)$ is not semisimple, so the center $\cZ(\Vect[\ZZ/p])$ is not semisimple, and thus $\Vect[\ZZ/p]$ is semisimple but not separable.
 
 \subsection{Separability and global dimension} \label{sec:tc-fusion}
 
 
-In this section we give a computable criterion for checking the separability of a finite semisimple tensor category, at least when the base field is algebraically closed and the unit is simple.  Specifically, we show that such a tensor category is separable if and only if its global dimension (a sum of certain products of quantum traces on its simple objects) is nonzero.\footnote{When the tensor category is the representation category $\Rep(G)$ of a finite group, this result reduces to Maschke's classical theorem that $\Rep(G)$ is semisimple when the characteristic of the base field does not divide the order of the group $G$~\cite{maschke}.}  Over algebraically closed fields of characteristic zero, the global dimension is always nonzero, and so the characterization of separability simplifies substantially; in fact, all finite semisimple tensor categories over a field of characteristic zero are separable.
+In this section we give a computable criterion for checking the separability of a finite semisimple tensor category, at least when the base field is algebraically closed and the unit is simple.  Specifically, we show that such a tensor category is separable if and only if its global dimension (a sum of certain products of quantum traces on its simple objects) is nonzero.\footnote{When the tensor category is the representation category $\Rep(G)$ of a finite group, this result reduces to Maschke's classical observation that $\Rep(G)$ is semisimple precisely when the characteristic of the base field does not divide the order of the group $G$~\cite{maschke}.}  Over algebraically closed fields of characteristic zero, the global dimension is always nonzero, and so the characterization of separability simplifies substantially; in fact, all finite semisimple tensor categories over a field of characteristic zero are separable.
 
 As we are investigating the separability condition on tensor categories, we need to assume the base field is perfect, but in fact in this section only we will assume the base field is algebraically closed.  The global dimension is constructed from endomorphisms of the unit and will be a numerical invariant when the unit is simple.  Recall that a finite semisimple tensor category (over an algebraically closed field) with simple unit is called a \emph{fusion category}.  Combining Corollary~\ref{cor:Sep=semisimplecenter} with the nonzero global dimension criterion for separability (Theorem~\ref{thm:NonzeroDimension} below) shows that a fusion category has semisimple Drinfeld center if and only if it has nonzero global dimension.  This result, which assumes nothing about the pivotality or spherical of the category nor about the characteristic of the base field, sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  M\"uger proved that a spherical fusion category of nonzero global dimension has semisimple center~\cite[Thm. 3.16]{MR1966525}; ENO proved that, in characteristic zero, fusion categories of nonzero global dimension have semisimple center~\cite[Thm. 2.15]{MR2183279}---see also Section 9 of that paper for a discussion of the positive characteristic situation; BV proved that pivotal fusion categories with semsimple center have nonzero global dimension~\cite{MR3079759}.  V. Ostrik suggested many of the ideas contained in this section.
 
@@ -2275,21 +2273,20 @@ Etingof, Nikshych, and Ostrik proved that every fusion category over an algebrai
 Every finite semisimple tensor category over an arbitrary field of characteristic zero is separable.
 \end{corollary}
 
-We can also characterize separable module categories in characteristic zero.
+We can also characterize separable module categories over a perfect field, so in particular in characteristic zero.
 
 \begin{proposition} \label{prop:SSModuleCatsAreSep}
-Let $\cC$ be a finite semisimple tensor category over an arbitrary field of characteristic zero.  A finite module category ${}_\cC \cM$ is separable if and only if it is semisimple.
+Let $\cC$ be a finite semisimple tensor category over a perfect field.  A finite module category ${}_\cC \cM$ is separable if and only if it is semisimple.
 \end{proposition}
 \begin{proof}
 Proposition~\ref{prop:sepmodissemi} shows separability implies semisimplicity.
 Without loss of generality, we assume $\cM$ is indecomposable.  By Theorem~\ref{thm:SepModCats}, the module category $\cM$ is separable provided the linear category $\Fun_\cC(\cM,\cM)$ is semisimple.  The semisimplicity of this commutant is invariant under base change, by~\cite[Lemma 5.2]{1002.0168}, and it therefore suffices to assume the base field is algebraically closed.  By \cite[Thm. 2.5]{EO-ftc}, if $\cA \ra \cB$ is a surjective tensor functor of finite tensor categories, and $\cA$ is semisimple, then $\cB$ is semisimple.  (Recall that surjective means all objects in the target are subquotients of objects in the image.)  By \cite[Prop. 3.39]{EO-ftc}, the forgetful tensor functor $\cZ(\Fun_\cC(\cM,\cM)) \ra \Fun_\cC(\cM,\cM)$ is surjective, and by \cite{scha} and \cite[Cor. 3.35]{EO-ftc}, there is an equivalence $\cZ(\cC) \simeq \cZ(\Fun_\cC(\cM,\cM))$.  The center $\cZ(\cC)$ is semisimple by Corollary~\ref{cor:Sep=semisimplecenter}.
 \end{proof}
-\CD{carefully check this proof, both the overall logic and with special attention to lack of assumption about the unit and algebraic closure}
+\CD{carefully check this proof, both the overall logic and with special attention to lack of assumption about the unit}
 
 \begin{remark} \label{rem:nonsimp}
-One can generalize Theorem~\ref{thm:NonzeroDimension} to all perfect fields and all semisimple tensor categories, as follows.  Let $\cC$ be a semisimple tensor category over a perfect field, and let $\overline{\cC}$ denote its base extension to the algebraic closure.  The unit of $\overline{\cC}$ splits as a direct sum $\oplus \, 1_i$ of simple objects, and this provides a decomposition of the linear category $\overline{\cC}$ as a sum $\oplus \,\overline{\cC}_{ij}$, where $\overline{\cC}_{ij} := 1_i \otimes\overline{\cC}\otimes 1_j$, as in~\cite[\S 2.4]{MR2183279}.  Altogether, the semisimple tensor category $\cC$ is separable if and only if all the fusion categories $\overline{\cC}_{ii}$ have nonzero global dimension.
+One can generalize Theorem~\ref{thm:NonzeroDimension} to all perfect fields and all semisimple tensor categories, as follows.  Let $\cC$ be a semisimple tensor category over a perfect field, and let $\overline{\cC}$ denote its base extension to the algebraic closure.  As in the proof of Proposition~\ref{prop:SSModuleCatsAreSep}, semisimplicity of the center is invariant under base change, so $\cC$ is separable if and only if $\overline{\cC}$ is separable.  The unit of $\overline{\cC}$ splits as a direct sum $\oplus \, 1_i$ of simple objects, and this provides a decomposition of the linear category $\overline{\cC}$ as a sum $\oplus \,\overline{\cC}_{ij}$, where $\overline{\cC}_{ij} := 1_i \otimes\overline{\cC}\otimes 1_j$, as in~\cite[\S 2.4]{MR2183279}.  When $\overline{\cC}$ is indecomposable, the $\overline{\cC}$--$\overline{\cC}_{ii}$-bimodule $\oplus_j \,\overline{\cC}_{ij}$ provides a Morita equivalence between $\overline{\cC}$ and $\overline{\cC}_{ii}$; more generally, $\overline{\cC}$ is Morita equivalent to a sum $\oplus_I \,\overline{\cC}_{ii}$, where the set $I$ contains one index from each indecomposable component of $\overline{\cC}$.  Thus the center of $\overline{\cC}$ is the sum $\oplus_I \,\cZ(\overline{\cC}_{ii})$.  Altogether, a semisimple tensor category $\cC$ is separable if and only if all the fusion categories $\overline{\cC}_{ii}$ have nonzero global dimension.
 \end{remark}
-\CD{I vote mildly for removing this remark.  If we want to keep it, we probably should indicate a proof.}
 
 \section{Dualizability} \label{sec:dualizability}
 
@@ -3056,27 +3053,26 @@ M \mapsto A^* \boxtimes M \mapsto A^* \otimes_A N,
 as desired.
 \end{proof}
 
-Provided we are willing to make strong semisimplicity assumptions about our tensor category, the statement of Theorem~\ref{thm:quaddual} simplifies.  An object of a finite linear category is called absolutely simple if it is simple and remains so after arbitrary base changes. \begin{corollary} \label{cor:ssquaddual}
+Provided we are willing to make strong semisimplicity assumptions about our tensor category, the statement of Theorem~\ref{thm:quaddual} simplifies.  An object of a semisimple finite linear category is called absolutely simple if it is simple and remains so after arbitrary base changes. \begin{corollary} \label{cor:ssquaddual}
 Let $\cC$ be a semisimple finite tensor category whose unit $1 \in \cC$ is absolutely simple. There is a canonical monoidal natural equivalence between the identity functor and the quadruple dual functor:
 \[
 (-) \simeq (-)^{****}.
 \]
 \end{corollary} 
 \begin{proof}
-When $\cC$ is a semisimple finite tensor category, over an algebraically closed field, Etingof-Nikshych-Ostrik prove in~\cite[Cor 6.4]{MR2097289} that the distinguished invertible object $D$ is isomorphic to the unit $1$.  Note, however, that under the absolute simplicitly assumption, the property of being isomorphic to the unit is invariant under base change.  The result now follows from Theorem~\ref{thm:quaddual}, because the functor $D^{-1} \otimes (-)^{**} \otimes D$ is canonically isomorphic to $(-)^{**}$.
-\end{proof} %!%CDNC but NSchecked  % CD: Does it use the absolute simplicity assumption?  ENO don't use simplicity of the unit, right? (Or just assume algebraically closed if there isn't a clean argument)
+When $\cC$ is a semisimple finite tensor category with simple unit, over an algebraically closed field, Etingof-Nikshych-Ostrik prove in~\cite[Cor 6.4]{MR2097289} that the distinguished invertible object $D$ is isomorphic to the unit $1$.  Note, however, that 
+%under the absolute simplicitly assumption, 
+the property of being isomorphic to the unit is invariant under base change.  The result now follows from Theorem~\ref{thm:quaddual}, because the functor $D^{-1} \otimes (-)^{**} \otimes D$ is canonically isomorphic to $(-)^{**}$.
+\end{proof} %!%CDNC but NSchecked
+\CD{This proof relies on the not-yet-checked fact that being iso to the unit is invariant under base change}
 
 When $\cC$ is semisimple, it is possible to directly calculate the image of $1 \in \cC$ under the Radford equivalence $\ev_\cC^L \ra \ev_\cC^R$, without reexpressing the module categories as categories of internal modules; such a calculation provides a proof of Corollary~\ref{cor:ssquaddual} that does not rely on Proposition~\ref{prop:computeradford}.
 
-%\begin{remark}
-%One can remove the absolute simplicity assumption in Corollary~\ref{cor:ssquaddual} as follows.
-
-%\begin{remark}
-%The assumption that $1 \in \cC$ is absolutely simple is unnecessary.  As in Remark \ref{rem:components}, $\cC$ breaks up into components $\cC_{ij}$ with $\cC_{ii}$ a fusion category.  It is not difficult to see that $D = \oplus D_i$ where $D_i$ is the distinguished invertible for $D_i$.  Thus, $D \cong \oplus D_i \cong \oplus \mathbf{1}_i \cong \mathbf{1}$.
-%\end{remark}
-\CD{Discuss the remark on absolute simplicity; requires change in above proof too?}
-
-
+\begin{remark}
+We expect the absolute simplicity assumption in Corollary~\ref{cor:ssquaddual} can be removed, as follows.  It suffices to check that for any semisimple finite tensor category $\cC$ over an algebraically closed field, the distinguished invertible object $D$ is trivial.  As in Remark~\ref{rem:nonsimp}, the simple decomposition $\oplus \, 1_i$ of the unit of $\cC$ provides a decomposition of $\cC$ as $\oplus \, \cC_{ij}$.  The result of ENO mentioned in the above proof shows that the distinguished invertible object $D_i$ of each fusion category $\cC_{ii}$ is trivial.  One is left to check only that the distinguished invertible object of $\cC$ is the sum $\oplus_i \, D_i$ of the distinguished objects of the diagonal subtensor categories.
+\end{remark}
+%!% This feels like a loose end.
+\CD{Discuss this remark again.}
 
 
 \subsection{Adjoints of bimodule functors: separable tensor categories are fully dualizable} \label{sec:separableisfd}
@@ -3195,7 +3191,8 @@ A pivotal tensor category $(\cC, P: (-) \simeq (-)^{**})$ is \emph{trace spheric
 A semisimple pivotal finite tensor category with absolutely simple unit is spherical if and only if it is trace spherical.
 \end{proposition} 
 \begin{proof}
-Both the property of sphericality and the property of trace sphericality are invariant under base change, so it suffices to compare them over an algebraically closed field.  When the base field is algebraically closed, Etingof-Nikshych-Ostrik prove in \cite[Thm 7.3 and Cor 7.4]{MR2097289} that the Radford equivalence $\cR_\cC : (-) \xra{\simeq} (-)^{****}$ is characterized by a property that is equivalent to the following property: for any object $V \in \cC$ and any morphism $f_V: V \ra V^{**}$, there is an equality of traces $\Tr(f_V) = \Tr((f_V)^* \circ \cR_{({}^* V)})$.  Here we have abbreviated $\cR_\cC({}^* V)$ as $\cR_{({}^* V)}$.  When $(\cC,P)$ is a pivotal tensor category, we have $(P_V)^* = (P_{V^*})^{-1}$ \cite[Lemma 4.11]{0908.3347}. %, and therefore $(P_V)^{**} = P_{V^{**}}$.  
+Both the property of sphericality and the property of trace sphericality are invariant under base change, so it suffices to compare them over an algebraically closed field.  When the base field is algebraically closed, Etingof-Nikshych-Ostrik prove in \cite[Thm 7.3 and Cor 7.4]{MR2097289} that the Radford equivalence $\cR_\cC : (-) \xra{\simeq} (-)^{****}$ is characterized by a property that is equivalent to the following property: for any object $V \in \cC$ and any morphism $f_V: V \ra V^{**}$, there is an equality of traces $\Tr(f_V) = \Tr((f_V)^* \circ \cR_{({}^* V)})$.  Here we have abbreviated $\cR_\cC({}^* V)$ as $\cR_{({}^* V)}$.  When $(\cC,P)$ is a pivotal tensor category, we have $(P_V)^* = (P_{V^*})^{-1}$ 
+\cite[Lemma 4.11; SR72, Prop 5.2.3]{0908.3347}. \nocite{rivano}%, and therefore $(P_V)^{**} = P_{V^{**}}$.  
 If $(\cC,P)$ is spherical, it follows that
 \[
 \Tr(P_V) = \Tr((P_V)^* \circ \cR_{({}^* V)}) %= \Tr((P_V)^* \circ (P_{({}^* V)})^{**} \circ P_{({}^* V)}) 
@@ -3203,7 +3200,6 @@ If $(\cC,P)$ is spherical, it follows that
 \]
 that is, $(\cC,P)$ is trace spherical.  The converse follows by cyclically permuting this equation.
 \end{proof}
-\CD{Someone to recheck the parsing of ENO in this proof.}
 
 In the setting of non-semisimple finite tensor categories, it is neither the case that spherical implies trace spherical, nor the case that trace spherical implies spherical, as the following two examples illustrate.
 
@@ -3230,11 +3226,11 @@ Because the representation category $\Rep(H) \in \TC$ of Sweedler's Hopf algebra
 
 For definiteness, in this last section we presume the base field is algebraically closed of characteristic zero.  It is a well-known open problem to determine whether all fusion categories admit pivotal structures.  As we saw, the existence of a pivotal structure provides an $\Omega S^2$ fixed point structure, so one might ask directly whether all fusion categories admit an $\Omega S^2$ fixed point structure.  Somewhat stronger and more interesting is to ask about $SO(2)$ fixed point structures:
 \begin{question}
-Does every local 3-framed field theory with target tensor categories descend, noncanonically, to a combed field theory?
+Does every local 3-framed field theory with target tensor categories descend to a combed field theory?
 \end{question}
 \nid We might ask the yet stronger:
 \begin{question}
-Does every local 3-framed field theory with target tensor categories descend, noncanonically, to an oriented field theory?
+Does every local 3-framed field theory with target tensor categories descend to an oriented field theory?
 \end{question}
 
 Instead of asking about the descent properties of an arbitrary field theory, we may equip our tensor category itself with extra structure and expect that structure to provide descent information.  Thus less speculatively we have the following trio:
