@@ -2503,7 +2503,7 @@ The counits of the desired adjunctions are straightforward to define as evaluati
 \]
 is induced by the $\cD$-balanced bilinear functor $\cM \times \Fun_\cC(\cM,\cC)$ given by $(m,f) \mapsto f(m)$.  Observe that $\epsilon_1$ naturally has the structure of a $\cC$--$\cC$-bimodule functor.  The second counit
 \[
-\varepsilon_2 : \Fun_\cD(\cM,\cD) \boxtimes \cM \ra \cD
+\varepsilon_2 : \Fun_\cD(\cM,\cD) \boxtimes_\cC \cM \ra \cD
 \]
 is induced by the $\cC$-balanced functor $(f,m) \mapsto f(m)$, and naturally has the structure of a $\cD$--$\cD$-bimodule functor.
 
@@ -3146,6 +3146,13 @@ Fully dualizable finite tensor categories are separable.
 By Corollary~\ref{cor:Sep=semisimplecenter}, it suffices to show that $\cC$ is semisimple and that $\cZ(\cC)$ is semisimple.  In fact, the semisimplicity of $\cZ(\cC)$ will imply the semisimplicity of $\cC$, as follows.  By part (6) of Theorem~\ref{Thm:ExactModCatOmnibus}, that is~\cite[Lemma 3.25]{EO-ftc}, if ${}_\cC \cM$ is an exact module category over a finite tensor category $\cC$, then ${}_{\Fun_\cC(\cM,\cM)^\mp} \cM$ is an exact module category over the commutant $\Fun_\cC(\cM,\cM)^\mp$; in particular if ${}_{\cC \boxtimes \cC^\mp} \cC$ is exact, then ${}_{\cZ(\cC)} \cC$ is exact.  But indeed ${}_{\cC \boxtimes \cC^\mp} \cC$ is exact by Example~\ref{ex:exactness}.  Finally, by Example~\ref{eg:semiexact}, an exact module category over a semisimple category is semisimple.
 
 A finite tensor category $\cC \in \TC$ is always 2-dualizable, and the center $\cZ(\cC)$ is the composite of elementary dualization data, as in Table~\ref{table:circles}.  If $\cC \in \TC$ is fully dualizable, then $\cZ(\cC) \in \End_\TC(\Vect)$ is fully dualizable as an object of the 2-category $\End_\TC(\Vect)$ of endomorphisms of the unit $\Vect \in \TC$.  That 2-category has as objects the finite linear categories, as morphisms right exact functors, and as 2-morphisms natural transformations; it is therefore equivalent (by taking an algebra to its module category) to the 2-category $\Alg$ of finite-dimensional algebras, bimodules, and intertwiners.  Let $B$ be a finite-dimensional algebra with $\Mod{B}{} \simeq \cZ(\cC)$.  The full dualizability of $\cZ(\cC) \in \End_\TC(\Vect)$ is equivalent to the full dualizability of $B \in \Alg$.  As mentioned at the beginning of Section~\ref{sec:tc-separable}, a finite-dimensional algebra is fully dualizable precisely when it is separable.  Over a perfect field, as mentioned at the beginning of Section~\ref{sec:sepandsemi}, a finite-dimensional algebra is separable if and only if it is semisimple.  Thus the algebra $B$ is semisimple, and so $\Mod{B}{} \simeq \cZ(\cC)$ is semisimple, as required.
+\end{proof}
+
+\begin{corollary} \label{cor:maxfd}
+The 3-category $\TCsep$ is the maximal fully dualizable subcategory of $\TC$.
+\end{corollary}
+\begin{proof}
+As in the Appendix, let $d\TC$ denote the maximal fully dualizable subcategory of $\TC$.  By the theorem, any object of $d\TC$ is separable.  Let ${}_\cC \cM_\cD$ be a morphism of $d\TC$.  By Proposition~\ref{prop:evcoev}, the left adjoint of $\cM$ is $\Fun_\cC(\cM,\cC)$; the counit of this adjunction is the (right exact) evaluation $\cC$--$\cC$-bimodule functor $\epsilon: \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \ra \cC$.  Because the functor $\epsilon$ has a left adjoint, it is also left exact.  The functor $\cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC)$ is exact in each variable, by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}.  Thus for any functor $\cF \in \Fun_\cC(\cM,\cC)$, the composite $\cM \xra{\id \times \cF} \cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \xra{\epsilon} \cC$ is exact; that composite just is the functor $\cF$.  Because all $\cC$-module functors from $\cM$ to $\cC$ are exact, it follows, by~\cite[Prop. 3.16]{EO-ftc}, that $\cM$ is an exact module category, therefore semisimple by Example~\ref{eg:semiexact}.
 \end{proof}
 
 
