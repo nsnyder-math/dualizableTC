@@ -193,8 +193,8 @@ In fact, separability precisely captures the dualizability condition for finite 
 \begin{maintheorem} \label{thm3}
 Fully dualizable finite tensor categories are separable.
 \end{maintheorem}
-\nid This is proven as Theorem~\ref{thm:converse}.
-%!% more discussion here?
+\nid This is proven as Theorem~\ref{thm:converse}.  We also show, in Corollary~\ref{cor:maxfd}, that separable tensor categories, finite semisimple bimodule categories, bimodule functors, and bimodule transformations form the maximal 3-category of finite tensor categories in which all objects have duals and all morphisms and 2-morphisms have adjoints.  This provides a classification of Turaev--Viro-style local field theories with surface, line, and point defects, which is reminiscent of existing results on defects in 2-dimensional conformal field theory~\cite{ffrs-duality,frs-fusion} and 3-dimensional topological field theory~\cite{kapustinsaulina,kitaevkong,fsv}.
+
 
 \subsubsection{On categorified 2-dimensional field theories}
 
@@ -2119,7 +2119,7 @@ Proposition~\ref{prop:sepmodissemi} shows separability implies semisimplicity.  
 
 The full sub-3-category of $\TCss$ on the separable tensor categories is symmetric monoidal and will be of special significance: in Section~\ref{sec:separableisfd} we will prove it is a fully dualizable 3-category. 
 \begin{corollary} \label{cor:tcsepexists}
-Over a perfect field, separable tensor categories, semisimple bimodule categories, bimodule functors, and bimodule transformations form a symmetric monoidal sub-3-category $\TCsep$ of $\TCss$.
+Over a perfect field, separable tensor categories, finite semisimple bimodule categories, bimodule functors, and bimodule transformations form a symmetric monoidal sub-3-category $\TCsep$ of $\TCss$.
 \end{corollary}
 \nid That the ordinary Deligne tensor of separable tensor categories is separable follows from the fact, established in Corollary~\ref{cor:septc}, that the tensor of separable module categories is separable.
 
@@ -2303,7 +2303,7 @@ Every algebra is 1-dualizable, with dual the opposite algebra, and similarly eve
 
 It is certainly not the case that every finite tensor category is 3-dualizable, but nevertheless the 2-dimensional field theory associated to a finite tensor category does always extend to take values on certain 3-manifolds and therefore provides a kind of ``non-compact" 3-dimensional field theory.  We can indicate which 3-manifolds are allowed as follows.  Recall that the Radford bordism is a 3-framed 2-dimensional bordism from the inverse Serre bordism to the Serre bordism.  The Radford bordism is an equivalence: there is an `inverse Radford bordism' and 3-framed 3-manifolds---let's call them Radford witnesses---witnessing that the Radford bordism and the inverse Radford bordism are indeed inverse.  The field theory associated to a finite tensor category can take values on 3-manifolds built using the 3-framed 3-handles arising in the Radford witnesses.  We prove all this, formalized in the statement that finite tensor categories are Radford objects of the 3-category of tensor categories, in Section~\ref{sec:radfordftc}.  This provides an immediate, transparent topological proof of the quadruple dual theorem for finite tensor categories: the associated field theory takes the inverse Serre bordism to the left double dual bimodule and takes the Serre bordism to the right double dual bimodule, and the image of the Radford bordism therefore provides an equivalence between those bimodules.
 
-In Section~\ref{sec:separableisfd} we finally investigate the existence of adjoints for functors between bimodules categories.  We prove our main result, that separable tensor categories are fully dualizable.  This provides a 3-framed 3-dimensional topological field theory associated to any separable tensor category, thus in particular to any fusion category of nonzero global dimension over an algebraically closed field.  We also prove a converse result, showing that fully dualizable finite tensor categories must be separable.
+In Section~\ref{sec:separableisfd} we finally investigate the existence of adjoints for functors between bimodules categories.  We prove our main result, that separable tensor categories are fully dualizable.  This provides a 3-framed 3-dimensional topological field theory associated to any separable tensor category, thus in particular to any fusion category of nonzero global dimension over an algebraically closed field.  We also prove a converse result, showing that fully dualizable finite tensor categories must be separable, and in fact we identify the maximal fully dualizable 3-category of finite tensor categories---this supplies a classification of local framed field theories with defects.
 
 We conclude in Section~\ref{sec:spherical} by describing the connection between pivotal and spherical structures and homotopy fixed point structures on finite tensor categories.  We observe that a pivotal structure on a finite tensor category (that is a monoidal trivialization of the double dual functor) provides a trivialization of the Serre automorphism of the tensor category---such a trivialization is exactly the data of an $\Omega S^2$ homotopy fixed point structure on the tensor category.  A pivotal structure trivializes the double dual, so the square of a pivotal structure trivializes the quadruple dual; but we already have a trivialization of the quadruple dual, namely the one provided by the Radford equivalence.  We say that a pivotal finite tensor category is spherical if the square of the pivotal structure is the Radford equivalence.  (This notion agrees with the classical notion of sphericality when the tensor category is semisimple, but provides the correct generalization to the non-semisimple case.)  A spherical tensor category has canonically the structure of an $\Omega \Sigma \RP^2$ homotopy fixed point.  We close with various questions and conjectures concerning fixed points and descent properties of the associated field theories.  For instance, we conjecture that every pivotal fusion category admits not only the structure of an $\Omega S^2$ fixed point, but the structure of an $SO(2)$ fixed point, and therefore provides a combed local field theory.  We also conjecture that every spherical fusion category admits not only the structure of an $\Omega \Sigma \RP^2$ fixed point but in fact the structure of an $SO(3)$ fixed point, and therefore provides an oriented local field theory.
 
@@ -3081,7 +3081,7 @@ We expect the absolute simplicity assumption in Corollary~\ref{cor:ssquaddual} c
 \subsection{Adjoints of bimodule functors: separable tensor categories are fully dualizable} \label{sec:separableisfd}
 
 
-In this section we prove our last two main theorems, which together determine the fully dualizable finite tensor categories: separable tensor categories are fully dualizable, and any fully dualizable finite tensor category is separable.  (The reader who is content to restrict attention to characteristic zero can, by consulting Corollaries~\ref{cor:charzerosep} and~\ref{cor:charzeromodulesep}, simply replace the word `separable' by `finite semisimple' in the statements of this section.)
+In this section we prove our last two main theorems, which together determine the fully dualizable finite tensor categories: separable tensor categories are fully dualizable, and any fully dualizable finite tensor category is separable.  We also identify the maximal fully dualizable sub-3-category of the 3-category of tensor categories, and thereby obtain a classification of 3-dimensional local framed field theories with defects.  (The reader who is content to restrict attention to characteristic zero can, by consulting Corollaries~\ref{cor:charzerosep} and~\ref{cor:charzeromodulesep}, simply replace the word `separable' by `finite semisimple' in the statements of this section.)
 
 As we have already established the 2-dualizability of all finite tensor categories, it remains only to investigate when bimodule functors have adjoints.
 \begin{proposition} \label{prop:bimodfunctadjoints}
@@ -3097,10 +3097,10 @@ In fact, the left and right adjoints of a bimodule functor $\cF: \cM \ra \cN$ be
 
 With adjoints for bimodule functors at hand, we can now assemble the pieces to prove full dualizability.
 \begin{theorem} \label{thm:TC-dualizable}
-The 3-category $\TCsep$ (of separable tensor categories, semisimple bimodule categories, bimodule functors, and bimodule transformations) is fully dualizable.
+The 3-category $\TCsep$ (of separable tensor categories, finite semisimple bimodule categories, bimodule functors, and bimodule transformations) is fully dualizable.
 \end{theorem}
 \begin{proof}
-By Proposition~\ref{prop:onedual}, a separable tensor category $\cC$ has $\cC^\mp$ as a dual tensor category; the tensor category $\cC^\mp$ is evidently also separable, and the unit and counit of the duality are semisimple because $\cC$ itself is semisimple.  Combining Proposition~\ref{prop:evcoev} and Proposition~\ref{prop:dual-formula-for-adjoints}, a semisimple bimodule category ${}_\cC \cM_\cD$ has the finite semisimple bimodule categories ${}^* \cM$ and $\cM^*$ as left and right adjoints.  Finally, Proposition~\ref{prop:bimodfunctadjoints} ensures that all bimodule functors between semisimple bimodule categories have adjoints.
+By Proposition~\ref{prop:onedual}, a separable tensor category $\cC$ has $\cC^\mp$ as a dual tensor category; the tensor category $\cC^\mp$ is evidently also separable, and the unit and counit of the duality are semisimple because $\cC$ itself is semisimple.  Combining Proposition~\ref{prop:evcoev} and Proposition~\ref{prop:dual-formula-for-adjoints}, a finite semisimple bimodule category ${}_\cC \cM_\cD$ has the finite semisimple bimodule categories ${}^* \cM$ and $\cM^*$ as left and right adjoints.  Finally, Proposition~\ref{prop:bimodfunctadjoints} ensures that all bimodule functors between finite semisimple bimodule categories have adjoints.
 \end{proof}
 
 \begin{corollary} \label{cor:septcisdualizable}
@@ -3142,11 +3142,15 @@ A finite tensor category $\cC \in \TC$ is always 2-dualizable, and the center $\
 \end{proof}
 
 \begin{corollary} \label{cor:maxfd}
-The 3-category $\TCsep$ is the maximal fully dualizable subcategory of $\TC$.
+The 3-category $\TCsep$ is the maximal fully dualizable sub-3-category of $\TC$.
 \end{corollary}
 \begin{proof}
 As in the Appendix, let $d\TC$ denote the maximal fully dualizable subcategory of $\TC$.  By the theorem, any object of $d\TC$ is separable.  Let ${}_\cC \cM_\cD$ be a morphism of $d\TC$.  By Proposition~\ref{prop:evcoev}, the left adjoint of $\cM$ is $\Fun_\cC(\cM,\cC)$; the counit of this adjunction is the (right exact) evaluation $\cC$--$\cC$-bimodule functor $\epsilon: \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \ra \cC$.  Because the functor $\epsilon$ has a left adjoint, it is also left exact.  The functor $\cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC)$ is exact in each variable, by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}.  Thus for any (right exact) functor $\cF \in \Fun_\cC(\cM,\cC)$, the composite $\cM \xra{\id \times \cF} \cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \xra{\epsilon} \cC$ is exact; that composite just is the functor $\cF$.  For any object $m \in \cM$, the functor ${}^* \IHom(-,m) : \cM \ra \cC$ is a (right exact) $\cC$-module functor, therefore is exact; thus $\IHom(-,m) : \cM \ra \cC$ itself is an exact contravariant functor.  For any injective object $j \in \cC$, the contravariant functor $\Hom(-,j \otimes m) \cong \Hom(j^* \otimes -,m) \cong \Hom(j^*,\IHom(-,m))$ is therefore exact, so $j \otimes m$ is injective as well.  As $\cC$ is semisimple, its unit is injective, so all objects of $\cM$ are injective, thus $\cM$ is semisimple, as required.
 \end{proof}
+
+\begin{remark}
+This corollary provides a classification of surface, line, and point defects in 3-dimensional topological field theories of Turaev--Viro type.  It supplies a field theory taking values on 3-framed 3-manifolds with any arrangement of codimension-0, -1, -2, and -3 regions labelled, respectively, by separable tensor categories, semisimple bimodule categories, bimodule functors, and bimodule transformations.  Moreover, every local framed defect theory with target tensor categories is of this form.  These results dovetail with existing literature on defects in 3-dimensional topological field theory~\cite{kapustinsaulina,kitaevkong,fsv} and in 2-dimensional conformal field theory~\cite{ffrs-duality,frs-fusion}.
+\end{remark}
 
 
 \subsection{Spherical structures and structured field theories} \label{sec:spherical}
