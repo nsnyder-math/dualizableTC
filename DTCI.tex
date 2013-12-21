@@ -596,43 +596,32 @@ The picture of an immersed surface in the introduction can be equipped with a no
 \]
 and target of the bordism is the stabilization of the 2-framed 1-manifold
 \[
+\setlength{\linewid}{15pt}
+\setlength{\fuzzwidth}{25pt}
+\setlength{\arrowlength}{80pt}
+\setlength{\arrowwidth}{7.5pt}
 \cb{
+%\scalebox{.1}{
 \begin{tikzpicture}
-	\draw[linestyle,fuzzright] (4, -0.5) -- (1.75, -0.5)
-%	\draw[linestyle,fuzzright] (2,-.5) arc (270:0:\minirad);
-%	\draw[linestyle,fuzzright] (2+\minirad,-.5+\minirad) -- (2,-1.75);
-%		to [rounded corners=1cm] +(-.25,0)
-%		to [rounded corners=1cm] +(0,.25)
-%		to [rounded corners=1cm] +(.25,0)
-%		to [rounded corners=1cm] +(0,-.25)
-%
-%		to [looseness=1.4, out=180,in=225] +(-.25,.25)
-%		to [looseness=1.4, out=45,in=90] +(.25,-.25)
-%
-		to [looseness=2,out = 180, in = 90] (2, -0.25)
-%	\draw[linestyle,fuzzright]
-		-- (2, -1.75)
-		to [looseness=2,out = 270, in = 180] (1.75,-1.5)
-		-- (4, -1.5);
-	\begin{pgfonlayer}{background}
-		\draw[->,outstyle] (4,-0.5) -- +(0:\arrowlength);
-		\draw[->,outstyle] (4,-1.5) -- +(0:\arrowlength);
-	\end{pgfonlayer}
+\draw[linestyle,fuzzright]
+(15,5) to (0,5) to [out=180, in=70] (-4,2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,2.75)
+	to [looseness=1.6, out=90, in=110] (-4,2.75)
+	to [out=-70, in=70] (-4,-2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,-2.75)
+	to [looseness=1.6, out=90, in=110] (-4,-2.75)
+	to [out=-70, in=180] (0,-5) to (15,-5);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (15,5) -- +(0:\arrowlength);
+	\draw[->,outstyle] (15,-5) -- +(0:\arrowlength);
+\end{pgfonlayer}
 \end{tikzpicture}
-%\begin{tikzpicture}
-%\draw[linestyle,fuzzright] 
-%(.7,0) to [out=180, in=-20] (0,.1)
-%	to [looseness=1.6, out=160, in=180] (0,.4)
-%	to [looseness=1.6, out=0, in=20] (0,.1)
-%	to [looseness=1, out=-160, in=-20] (-.8,.1)
-%	to [looseness=1.6, out=160, in=180] (-.8,.4)
-%	to [looseness=1.6, out=0, in=20] (-.8,.1)
-%	to [out=-160, in=0] (-1.5,0);
-%\begin{pgfonlayer}{background}
-%	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
-%\end{pgfonlayer}
-%\end{tikzpicture}
+%}
 }
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
 \]
 \end{example}
 
@@ -766,19 +755,32 @@ As our notation for $n$-framed manifolds permits immersed rather than embedded m
 	\end{tikzpicture} 
 	}
 \simeq
+\setlength{\linewid}{15pt}
+\setlength{\fuzzwidth}{25pt}
+\setlength{\arrowlength}{80pt}
+\setlength{\arrowwidth}{7.5pt}
 \cb{
-\begin{tikzpicture}%[scale=.5]
-			\draw[linestyle,fuzzright] (10.5, 0.5) -- (9.75,0.5)
-				to [looseness=2,out = 180, in = 90] (10, 0.75)
-				-- (10, -0.75)
-				to [looseness=2,out = 270, in = 180] (9.75,-0.5)
-				-- (10.5, -0.5);
-			\begin{pgfonlayer}{background}
-				\draw[->,outstyle] (10.5,0.5) -- +(0:\arrowlength);
-				\draw[->,outstyle] (10.5,-0.5) -- +(0:\arrowlength);
-			\end{pgfonlayer}
+%\scalebox{.1}{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright]
+(0,5) to [out=180, in=70] (-4,2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,2.75)
+	to [looseness=1.6, out=90, in=110] (-4,2.75)
+	to [out=-70, in=70] (-4,-2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,-2.75)
+	to [looseness=1.6, out=90, in=110] (-4,-2.75)
+	to [out=-70, in=180] (0,-5);
+\begin{pgfonlayer}{background}
+	\draw[->,outstyle] (0,5) -- +(0:\arrowlength);
+	\draw[->,outstyle] (0,-5) -- +(0:\arrowlength);
+\end{pgfonlayer}
 \end{tikzpicture}
+%}
 }
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
 \]
 \end{example}
 
@@ -3348,8 +3350,6 @@ Given a map $\xi: X \ra BO(n)$, with $X$ connected, there is an equivalence of $
 \]
 from the $(\infty,n)$-category of $(X,\xi)$-structured field theories with target $\cC$ to the space of $\Omega X$-homotopy fixed points in the fully dualizable objects of $\cC$.
 \end{apptheorem}
-
-\CD{Some refs have MR and arXiv and DOI info, and some do not.  Make consistent.  Also reduce all entries to initials.  Also make sure e-print does not appear.  Also weird dates.}
 
 \bibliographystyle{initalpha}
 \bibliography{dtcbib}
