@@ -316,7 +316,7 @@ The standing assumptions in the text are as follows.  No fields appear in the mo
 
 We thank Ben Balsam, Dan Freed, Mike Hopkins, Alexander Kirillov Jr., Scott Morrison, Stephan Stolz, Constantin Teleman, Dylan Thurston, Alexis Virelizier, and Kevin Walker for helpful and clarifying conversations.  We made intensive use of Google Wave in our collaboration on this project, and we would like to thank the Wave development team for their efforts and commiserate with them on Wave's untimely demise.
 
-We are especially grateful to Victor Ostrik for a key suggestion concerning separability and fusion categories, and to Peter Teichner for discussions concerning the homotopy type of structure groups.  NS would like to particularly thank Pavel Etingof for several substantial and fruitful conversations.  CD would like to particularly thank Andr\'e Henriques for general enlightenment and specific ideas concerning the 3-category of tensor categories and descent calculations for local field theories.
+We are especially grateful to Pavel Etingof for several inspiring and fruitful conversations; to Andr\'e Henriques for general enlightenment and specific ideas concerning the 3-category of tensor categories and descent calculations for local field theories; to Victor Ostrik for a key suggestion concerning separability and fusion categories; and to Peter Teichner for discussions concerning the homotopy type of structure groups.
 
 
 
@@ -1503,8 +1503,7 @@ We review the theory of linear categories, tensor categories, finite tensor cate
 
 \subsubsection{Linear categories, finite categories, monoidal categories, rigid categories}
 
-Let $k$ be an arbitrary field.  Let $\overline{\Vect}_k$ denote the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ denote the category of finite-dimensional $k$-vector spaces.  A \emph{linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$---compatible in the sense that the enriched addition of morphisms agrees with the given abelian structure.  A \emph{linear functor} is a right exact $\overline{Vect}_k$-enriched functor. %!% Removed 'additive' here.
-%!% \CD{TD. Recall anything about nat transf of additive funcs between additive cats? cf 3.2.12}
+Let $k$ be an arbitrary field.  Let $\overline{\Vect}_k$ denote the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ denote the category of finite-dimensional $k$-vector spaces.  A \emph{linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$---compatible in the sense that the enriched addition of morphisms agrees with the given abelian structure.  A \emph{linear functor} is a right exact $\overline{Vect}_k$-enriched functor. 
 
 \begin{warning}
 Except where explicitly indicated otherwise, \emph{all linear functors in this paper are right exact}---a functor postulated as linear is assumed to be right exact, and the claim that a particular functor is linear includes the claim that it is right exact.  We realize this practice deviates from the convention in the literature.  However, the fundamental operation of composition of bimodule categories is only functorial with respect to right exact functors; right exactness is our proper context, and it streamlines the presentation to build it into the notion of linear functor.
@@ -1737,7 +1736,7 @@ We will need the following lemma, ensuring that it suffices to check the exactne
 	\end{enumerate}
 \end{lemma}
 
-\noindent (Recall that a family $\cP$ is called {\em jointly generating} if the functor $\prod_\alpha \Hom_\cC(p_\alpha, -): \cC \to \Set$ is faithful.) %!%\CD{Why defined this way? link to use in proof, eg finiteness of sum; finiteness of sum in proof}
+\noindent (Recall that a family $\cP$ is called {\em jointly generating} if the functor $\prod_\alpha \Hom_\cC(p_\alpha, -): \cC \to \Set$ is faithful.)
 
 \begin{proof}
 The second condition certainly implies the first; we prove the converse.  By the joint generation assumption, any object $q \in \cC$ is a quotient $\pi: p \twoheadrightarrow q$ of a sum $p := \oplus p_\alpha$ of objects $p_\alpha \in \cP$ in the generating set.  Suppose $q \in \cC$ is projective, and $m \in \cM$ is any object.  The map $\pi: p \ra q$ is split, and so the map $\pi \otimes \id_m: p \otimes m \ra q \otimes m$ is split.  Thus the product $q \otimes m$ is a summand of the projective object $p \otimes m$, and so is projective as required.
@@ -1830,15 +1829,12 @@ Let $\cC$, $\cC'$, $\cD$, and $\cD'$ be linear monoidal categories, let ${}_\cC 
 \end{definition}
 
 Because of the relations ${}_{\langle f \rangle} A \otimes_A M \cong {}_{\langle f \rangle} M$ and ${}_{\langle f \rangle \langle g \rangle} M \cong {}_{\langle g \circ f \rangle} M$, there is a functor from the category of algebras and algebra homomorphisms to the 2-category of algebras, bimodules, and intertwiners: the functor is the identity on objects and sends a homomorphism to the corresponding twisted bimodule.  The analogous facts for bimodule categories, that ${}_{\langle \cF \rangle} \cC \boxtimes_\cC \cM \simeq {}_{\langle \cF \rangle} \cM$ and that ${}_{\langle \cF \rangle \langle \cG \rangle} \cM \simeq {}_{\langle \cF \otimes \cG \rangle} \cM$, ensure there is a functor from the 2-category of finite tensor categories, tensor functors, and tensor natural transformations, to the 3-category $\TC$ of finite tensor categories, finite bimodule categories, their functors, and their transformations: again the functor is the identity on objects and takes a functor to the corresponding twisted bimodule category.  Similarly, the fact that $\cM \boxtimes_\cD \cD_{\langle \cF \rangle} \simeq \cM_{\langle \cF \rangle}$ and $\cM_{\langle \cF \rangle \langle \cG \rangle} \simeq \cM_{\langle \cG \otimes \cF \rangle}$ ensures there is a functor from the 2-category of finite tensor categories to $\TC^{\op_1}$, the 3-category of tensor categories with the 1-morphisms reversed.
-%\CD{I changed isomorphisms to equivalences in this paragraph, and in the next lemma.}
 
 In Section~\ref{sec:topquaddual}, the Radford bordism will provide an isomorphism between two twisted bimodules, and we will want to understand the significance of this isomorphism for the corresponding twisting functors.
 
 \begin{lemma} \label{lem:BimoduleToFunctor}
 Let $\cC$ and $\cD$ be linear monoidal categories and let $\cF: \cC \rightarrow \cD$ and $\cG: \cC \rightarrow \cD$ be monoidal functors.  The category of bimodule equivalences $\alpha: {}_\cC ({}_{\langle \cF \rangle} \cD)_\cD \rightarrow {}_\cC ({}_{\langle \cG \rangle} \cD)_\cD$ is equivalent to the category of pairs $(D, \varphi)$, where $D \in \cD$ is a tensor-invertible object and $\varphi$ is a monoidal natural isomorphism from $\cF$ to the monoidal functor $D^{-1} \otimes \cG(-) \otimes D$.
 \end{lemma}
-%!%\CD{changed tensor to monoidal here, and added the crucial monoidal conclusion. also change the statement}
-%!%CD I haven't checked the proof of monoidal.
 \begin{proof}
 Such a bimodule equivalence $\alpha$ is in particular a right $\cD$-module functor from $\cD$ to $\cD$ and is therefore equivalent to the left multiplication functor $d \mapsto \alpha(1) \otimes d$.  The left $\cC$-module structure of $\alpha$ is a natural isomorphism $\alpha(c \cdot -) \cong c \cdot \alpha(-)$, that is $\alpha(\cF(c) \otimes -) \cong \cG(c) \otimes \alpha(-)$, which therefore provides a natural isomomorphism $a_{(c,-)}: \alpha(1) \otimes \cF(c) \otimes - \cong \cG(c) \otimes \alpha(1) \otimes -$.
 
@@ -2079,7 +2075,7 @@ It remains only to check that $T(A) \in \cB$ is a separable algebra object.  Pic
 T(A) \xra{\id_A \otimes \sigma} T(T(A)) \cong T(T(A) \otimes_A A) \xra{T(\id_{T(A)} \otimes_A s)} T(T(A) \otimes A) \cong T(A) \otimes T(A). \qedhere
 \]
 
-\end{proof} %\CD That proof didn't use the separability of B, right?
+\end{proof}
 
 \begin{corollary} \label{cor:funsemi}
 For absolutely semisimple, separable $\cC$-modules ${}_\cC \cM$ and ${}_\cC \cN$ over a finite semisimple tensor category $\cC$, the functor category $\Fun_{\cC}(\cM,\cN)$ is absolutely semisimple.
@@ -2462,7 +2458,6 @@ For $\cC$ a finite tensor category, there is an equivalence of linear categories
 \]
 An object of $\cT(\cC)$ can therefore be described as an object $x \in \cC$ together with a ``twisted half-braiding", that is a natural isomorphism between the endofunctors $\cC \ra \cC$ given by $c \mapsto x \otimes c$ and $c \mapsto c^{**} \otimes x$.
 \end{corollary}
-%\CD{I changed the twistings, because I think they were on the wrong side}
 
 \begin{proof}
 We have equivalences
@@ -2546,8 +2541,6 @@ Observe, using the definition of $\eta_1$ and the construction of the equivalenc
 		\end{center}
 The composite along the right is certainly naturally equivalent to the identity, while the composite along the left is the required adjunction zigzag.  The other three zigzag relations are similar.
 \end{proof}
-%\CD{I did actually write out and check the other zigzag for the left adjunction.}
-
 
 \subsubsection{The categorified 2-dimensional field theory associated to a finite tensor category}
 
@@ -2909,7 +2902,6 @@ The trace $\cT(\cC)$ is not monoidal, in general, as there is no 2-framed pair-o
 
 In the next section we will prove that a finite tensor category $\cC$ is not only 2-dualizable, but is actually a Radford object.  By Theorem~\ref{thm:Cat_Radford}, there is therefore a canonical isomorphism between the adjoints $\ev^L_\cC$ and $\ev^R_\cC$.  It follows that there is a canonical isomorphism between the center $\cZ(\cC)$ and the cocenter $\coZ(\cC)$, and therefore that the center does indeed have a pairing operation.  Implicitly, the field theory $\cF_\cC$ is taking values on certain 3-framed manifolds: there are only two distinct 3-framed circles (with representatives corresponding to $\cZ(\cC)$ and $\cT(\cC)$) and there is a 3-framed annulus with both outgoing boundary components giving $\cZ(\cC)$, namely the annulus immersed in $\RR^3$ as a macaroni.
 \end{remark}
-%\CD{There was/is a rigidity versus weak rigidity issue here}
 
 \subsection{The Radford adjoints and the quadruple dual} \label{sec:radfordftc}
 
