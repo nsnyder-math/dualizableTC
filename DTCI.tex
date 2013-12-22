@@ -16,7 +16,7 @@ We investigate the relationship between the algebra of tensor categories and the
 \author{Christopher L. Douglas}
 \address{Mathematical Institute\\ University of Oxford\\ Oxford OX2 6GG\\ United Kingdom}
 \email{cdouglas@maths.ox.ac.uk}
-\urladdr{http://people.maths.ox.ac.uk/cdouglas}
+\urladdr{http://www.christopherleedouglas.com}
       	
 \author{Christopher Schommer-Pries}
 \address{Department of Mathematics\\ Max Planck Institute for Mathematics \\ 53111 Bonn \\ Germany}
@@ -1900,7 +1900,7 @@ We now show that the left and right dual bimodule categories ${}^* \cM$ and $\cM
 We will first show that the dual of a functor bimodule category is itself a functor bimodule category.  For that we will need to temporarily break from our convention and consider functors that are not-necessarily right exact.  Given bimodule categories ${}_\cC \cM_\cD$ and ${}_{\cC} \cN_{\cE}$, let ${}_{\cD} \Fun^L_{\cC}(\cN,\cM)_{\cE}$ denote the $\cD$--$\cE$-bimodule category of left exact (not-necessarily right exact) $\overline{Vect}_k$-enriched $\cC$-module functors.  Bimodule categories of left exact right-module functors will be denoted similarly.
 
 \begin{lemma}
-Let ${}_\cC \cM_\cD$ and ${}_\cC \cN_\cE$ be finite bimodule categories between finite tensor categories.  Taking the right adjoint of a functor is an equivalence of $\cD$--$\cE$-bimodule categories from $\Fun_\cC(\cM,\cN)$ to ${}^* \Fun^L_\cC(\cN,\cM)$.  Similarly, if ${}_\cM \cM_\cD$ and ${}_\cE \cN_\cD$ are finite bimodule categories, then taking the right adjoint is an equivalence from ${}^* \Fun_\cD(\cM,\cN)$ to $\Fun^L_\cD(\cN,\cM)$.
+Let ${}_\cC \cM_\cD$ and ${}_\cC \cN_\cE$ be finite bimodule categories between finite tensor categories.  Taking the right adjoint of a functor is an equivalence of $\cD$--$\cE$-bimodule categories from $\Fun_\cC(\cM,\cN)$ to ${}^* \Fun^L_\cC(\cN,\cM)$.  Similarly, if ${}_\cC \cM_\cD$ and ${}_\cE \cN_\cD$ are finite bimodule categories, then taking the right adjoint is an equivalence from $\Fun_\cD(\cM,\cN)$ to $\Fun^L_\cD(\cN,\cM)^*$.
 \end{lemma}
 \begin{proof}
 Note that the right adjoint of a $\cC$-module functor from $\cM$ to $\cN$ is a linear functor from $\cN$ to $\cM$, which by Lemma~\ref{lma:module-adjoint} has a canonical $\cC$-module structure.  Taking right adjoints is certainly an equivalence of linear categories, with inverse taking left adjoints.  It therefore suffices to check that this process preserves the $\cD$--$\cE$-bimodule structure.  Observe that in any finite tensor category, we have the following two sequences of adjunctions of tensor product functors:
@@ -1947,7 +1947,7 @@ Using Theorem~\ref{thm:EGNO2.11.6}, choose algebra objects $A \in \cC$ and $B \i
 For ${}_\cD \cM_\cC$ and ${}_\cC \cN_\cE$ finite bimodule categories over finite tensor categories, there are equivalences of $\cD$--$\cE$-bimodule categories
 \begin{align*}
 \cM \boxtimes_\cC \cN &\simeq \Fun_{\mod{\cC}{}}(\cM^*,\cN), \\
-\cM \boxtimes_\cC \cN &\simeq \Fun_{\mod{}{\cC}}(\cM,{}^* \cN).
+\cM \boxtimes_\cC \cN &\simeq \Fun_{\mod{}{\cC}}({}^* \cN,\cM).
 \end{align*}
 \end{corollary}
 \begin{proof}
@@ -1957,12 +1957,12 @@ By Propositions \ref{prop:dual-formula-for-adjoints} and \ref{prop:FunctorsAsATe
 \]
 Similarly
 \[
-\cM \boxtimes_\cC \cN \simeq \cM \boxtimes_\cC ({}^* \cN)^* \simeq \cM \boxtimes_\cC \Fun_{\mod{}{\cC}}(\cN,\cC) \simeq \Fun_{\mod{}{\cC}}(\cM,{}^* \cN).\qedhere
+\cM \boxtimes_\cC \cN \simeq \cM \boxtimes_\cC ({}^* \cN)^* \simeq \cM \boxtimes_\cC \Fun_{\mod{}{\cC}}({}^* \cN,\cC) \simeq \Fun_{\mod{}{\cC}}({}^* \cN,\cM).\qedhere
 \]
 \end{proof}
 
 \begin{remark} \label{rmk:Deligne_pdt_as_mod_functor}
-This corollary is a correction of \cite[Remark 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, both of which are off by a twist by a double dual functor.\footnote{Note also that, even appropriately corrected, the proof of \cite[Thm 3.20]{0911.4979} is incomplete.  For instance, it uses \cite[Lemma 3.21]{0911.4979}, which is false.  A counterexample to that Lemma is given by $\cC = \Vect[G]$, the category of $G$-graded vector spaces for a finite group $G$, and $\cM = \cN = \Vect$.  The Lemma would have $\Vect \boxtimes \Vect \simeq \Vect$ equivalent to $\Fun_{\Vect[G]}(\Vect,\Vect) \simeq \Rep(G)$; no such equivalence exists unless $G$ is the trivial group.} 
+This corollary is a correction of \cite[Remark 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, both of which are off by a twist by a double dual functor.\footnote{Note also that, even appropriately corrected, the proof of \cite[Thm 3.20]{0911.4979} is incomplete.  For instance, it uses \cite[Lemma 3.21]{0911.4979}, which is false.  A counterexample to that Lemma is given by $\cC = \Vect[G]$, the category of $G$-graded vector spaces for a finite group $G$, and $\cM = \cN = \Vect$.  The Lemma would have $\Vect \boxtimes \Vect \simeq \Vect$ equivalent to $\Fun_{\Vect[G]}(\Vect,\Vect) \simeq \Rep(G)$, but no such equivalence exists.} 
 \end{remark} %!%CDNC
 
 
@@ -2072,7 +2072,7 @@ We can reformulate the category of algebras for this monad as a category of modu
 \]
 The first isomorphism exists because the forgetful functor from $\Mod{}{A}(\cB)$ to $\cB$ is left $\cB$-linear.  The second isomorphism comes from the left $\cB$-linearity of the monad $T$.  For any object $M \in \cM$, the object $[M] \in \cB$ is a right $A$-module; the action map $[M] \otimes A \ra [M]$ (in $\cB$) is a right $A$-module map, so there is a corresponding morphism $[M] \otimes A \ra M$ in $\cM$.  In particular, there is the morphism $\alpha: [T(A)] \otimes A \ra T(A)$ used in the third map above.  The fourth map is the composition of the monad.  The unit of the algebra object $[T(A)]$ is simply the composite $1 \ra A \ra [T(A)]$, where the second map is obtained, from the unit $A \ra T(A)$ of the monad, by forgetting to $\cB$.
 
-We know that ${}_\cB \cM \boxtimes_\cC \cN$ is the category of $T$-algebras in ${}_\cB (\Mod{}{A}(\cB))$; we now check that that this category of $T$-algebras is precisely ${}_\cB (\Mod{}{[T(A)]}(\cB))$ the left $\cB$-module category of right $[T(A)]$-modules in $\cB$.  As we now work exclusively within $\cB$, we will dispense with the $[-]$ notation.  Observe that because the monad $T$ is right exact and left $\cB$-linear, there is, for any object $M \in \Mod{}{A}(\cB)$, an isomorphism $T(M) \cong M \otimes_A T(A)$.  Therefore, on the one hand, given a $T$-algebra in $\Mod{}{A}(\cB)$, we have a (right $A$-module) action map $M \otimes_A T(A) \ra M$, which determines a (right $A$-module) action map $M \otimes T(A) \ra M$ by precomposition along $M \otimes T(A) \ra M \otimes_A T(A)$.  On the other hand, the unit map $A \ra T(A)$ is a homomorphism of algebra objects in $\cB$, and it follows that every action map $M \otimes T(A) \ra M$ is $A$-balanced and so determines an action map $M \otimes_A T(A) \ra M$, that is, an $T$-algebra structure.
+We know that ${}_\cB \cM \boxtimes_\cC \cN$ is the category of $T$-algebras in ${}_\cB (\Mod{}{A}(\cB))$; we now check that that this category of $T$-algebras is precisely ${}_\cB (\Mod{}{[T(A)]}(\cB))$, the left $\cB$-module category of right $[T(A)]$-modules in $\cB$.  As we now work exclusively within $\cB$, we will dispense with the $[-]$ notation.  Observe that because the monad $T$ is right exact and left $\cB$-linear, there is, for any object $M \in \Mod{}{A}(\cB)$, an isomorphism $T(M) \cong M \otimes_A T(A)$.  Therefore, on the one hand, given a $T$-algebra in $\Mod{}{A}(\cB)$, we have a (right $A$-module) action map $M \otimes_A T(A) \ra M$, which determines a (right $A$-module) action map $M \otimes T(A) \ra M$ by precomposition along $M \otimes T(A) \ra M \otimes_A T(A)$.  On the other hand, the unit map $A \ra T(A)$ is a homomorphism of algebra objects in $\cB$, and it follows that every action map $M \otimes T(A) \ra M$ is $A$-balanced and so determines an action map $M \otimes_A T(A) \ra M$, that is, a $T$-algebra structure.
 
 It remains only to check that $T(A) \in \cB$ is a separable algebra object.  Pick bimodule splittings $s: A \ra A \otimes A$ and $\sigma: C \ra C \otimes C$ of the multiplication maps of $A$ and $C$.  These combine to provide a bimodule splitting of the multiplication map on $T(A)$, as required:
 \[
@@ -2132,7 +2132,7 @@ Over a perfect field, separable tensor categories, finite semisimple bimodule ca
 
 In this section we give a computable criterion for checking the separability of a finite semisimple tensor category, at least when the base field is algebraically closed and the unit is simple.  Specifically, we show that such a tensor category is separable if and only if its global dimension (a sum of certain products of quantum traces on its simple objects) is nonzero.\footnote{When the tensor category is the representation category $\Rep(G)$ of a finite group, this result reduces to Maschke's classical observation that $\Rep(G)$ is semisimple precisely when the characteristic of the base field does not divide the order of the group $G$~\cite{maschke}.}  Over algebraically closed fields of characteristic zero, the global dimension is always nonzero, and so the characterization of separability simplifies substantially; in fact, all finite semisimple tensor categories over a field of characteristic zero are separable.
 
-As we are investigating the separability condition on tensor categories, we need to assume the base field is perfect, but in fact in this section only we will assume the base field is algebraically closed.  The global dimension is constructed from endomorphisms of the unit and will be a numerical invariant when the unit is simple.  Recall that a finite semisimple tensor category (over an algebraically closed field) with simple unit is called a \emph{fusion category}.  Combining Corollary~\ref{cor:Sep=semisimplecenter} with the nonzero global dimension criterion for separability (Theorem~\ref{thm:NonzeroDimension} below) shows that a fusion category has semisimple Drinfeld center if and only if it has nonzero global dimension.  This result, which assumes nothing about the pivotality or spherical of the category nor about the characteristic of the base field, sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  M\"uger proved that a spherical fusion category of nonzero global dimension has semisimple center~\cite[Thm. 3.16]{MR1966525}; ENO proved that, in characteristic zero, fusion categories of nonzero global dimension have semisimple center~\cite[Thm. 2.15]{MR2183279}---see also Section 9 of that paper for a discussion of the positive characteristic situation; BV proved that pivotal fusion categories with semsimple center have nonzero global dimension~\cite{MR3079759}.  V. Ostrik suggested many of the ideas contained in this section.
+As we are investigating the separability condition on tensor categories, we need to assume the base field is perfect, but in fact in this section only we will assume the base field is algebraically closed.  The global dimension is constructed from endomorphisms of the unit and will be a numerical invariant when the unit is simple.  Recall that a finite semisimple tensor category (over an algebraically closed field) with simple unit is called a \emph{fusion category}.  Combining Corollary~\ref{cor:Sep=semisimplecenter} with the nonzero global dimension criterion for separability (Theorem~\ref{thm:NonzeroDimension} below) shows that a fusion category has semisimple Drinfeld center if and only if it has nonzero global dimension.  This result, which assumes nothing about the pivotality or sphericality of the category nor about the characteristic of the base field, sharpens results of M\"uger, Etingof--Nikshych--Ostrik, and Brugui\`eres--Virelizier.  M\"uger proved that a spherical fusion category of nonzero global dimension has semisimple center~\cite[Thm. 3.16]{MR1966525}; ENO proved that, in characteristic zero, fusion categories of nonzero global dimension have semisimple center~\cite[Thm. 2.15]{MR2183279}---see also Section 9 of that paper for a discussion of the positive characteristic situation; BV proved that pivotal fusion categories with semsimple center have nonzero global dimension~\cite{MR3079759}.  Victor Ostrik suggested many of the ideas contained in this section.
 
 \subsubsection{Global dimension via quantum trace} \label{sec:gdim}
 
@@ -2145,7 +2145,7 @@ Let $\cC$ be a fusion category over $k$, with unit $1 \in \cC$.  Let $x \in \cC$
 \Tr(a) := \ev_x \circ (a \otimes \id_{({}^* x)}) \circ \coev_{({}^* x)} \in \End_{\cC}(1) \cong k.
 \]
 \end{definition}
-\nid The quantum trace of the morphism $a$ depends not only on that morphism but also on the choices of the evaluation map $\ev_x$ and $\coev_{({}^* x)}$.  Indeed we can change either that evaluation or coevaluation independently by any nonzero scalar, and so altogether the quantum trace appears to do nothing more than detect whether the morphism $a$ is zero or not.  
+\nid The quantum trace of the morphism $a$ depends not only on that morphism but also on the choices of the evaluation map $\ev_x$ and coevaluation map $\coev_{({}^* x)}$.  Indeed we can change either that evaluation or coevaluation independently by any nonzero scalar, and so altogether the quantum trace appears to do nothing more than detect whether the morphism $a$ is zero or not.  
 
 However, when the object $x$ is simple, we can eliminate the dependency on the evaluation and coevaluation, and even on the morphism $a$, by judiciously combining two distinct quantum traces.  Note that the simple object $x$ is non-canonically isomorphic to its double dual ${}^{**} x$.  (The isomorphism class of a simple object $y \in \cC$ is determined by the condition $\dim \Hom(x \otimes y,1) = 1$, and both ${}^* x$ and $x^*$ satisfy that condition; this uses the fact that $\dim \Hom(x \otimes x^*,1) = \dim \Hom(1, x \otimes x^*)$.)  We can therefore take the quantum trace of an isomorphism $a: {}^{**} x \ra x$ and combine it with the quantum trace of a dual of the inverse isomorphism:
 \begin{definition}
@@ -2155,7 +2155,7 @@ Pick evaluation and coevaluation maps witnessing ${}^* x$ as a left dual of $x$,
 \]
 where $a: {}^{**} x \ra x$ is any choice of isomorphism, and the dual ${}^*(a^{-1})$ of $a^{-1}$ and both the quantum traces are computed using the chosen evaluation and coevaluation maps.
 \end{definition}
-\nid The terminology is somewhat unfortunate, as in general the squared norm is not canonically the square of anything.  Note that the squared norm is independent of the choices of evaluation and coevaluation maps and of the choice of isomorphism $a$: each such choice is fixed up to a scalar, and each such scalar appears twice in the quantum trace expression with opposite multiplicative signs.  The squared norm is invariant under isomorphism and the squared norm of an object is isomorphic to the squared norm of its dual: $\lVert x \rVert = \lVert {}^* x \rVert$.
+\nid The terminology is somewhat unfortunate, as in general the squared norm is not canonically the square of anything.  Note that the squared norm is independent of the choices of evaluation and coevaluation maps and of the choice of isomorphism $a$: each such choice is fixed up to a scalar, and each such scalar appears twice in the squared norm expression with opposite multiplicative signs.  The squared norm is invariant under isomorphism and the squared norm of an object is isomorphic to the squared norm of its dual: $\lVert x \rVert = \lVert {}^* x \rVert$.
 \begin{definition}
 The \emph{global dimension} of a fusion category $\cC$ is
 \[
@@ -2164,7 +2164,7 @@ The \emph{global dimension} of a fusion category $\cC$ is
 where the sum ranges over a choice of representatives of the isomorphism classes of simple objects of $\cC$.
 \end{definition}
 
-We can characterize the squared norm of a simple object $x$ more abstractly in terms of the properties of evaluation and coevaluation maps for dualities among simple objects, as follows.  Let $x$ and $y$ be simple objects of $\cC$ such that $\dim \Hom(x \otimes y,1)$.  For any nonzero map $v: x \otimes y \ra 1$, there is a unique map $\gamma(v): 1 \ra y \otimes x$ such that $(v,\gamma(v))$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  Similarly, for any nonzero map $u: 1 \ra y \otimes x$, there is a unique map $\gamma(u): x \otimes y \ra 1$ such that $(\gamma(u),u)$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  In other words, we denote by $\gamma$ both the association to a coevaluation of the corresponding evaluation, and the association to an evaluation of the corresponding coevaluation.  Note that this association $\gamma$ is homogeneous of degree $-1$, that is $\gamma(\lambda f) = \lambda^{-1} \gamma(f)$ for $\lambda \in k^\times$.  
+We can characterize the squared norm of a simple object $x$ more abstractly in terms of the properties of evaluation and coevaluation maps for dualities among simple objects, as follows.  Let $x$ and $y$ be simple objects of $\cC$ such that $\dim \Hom(x \otimes y,1)=1$.  For any nonzero map $v: x \otimes y \ra 1$, there is a unique map $\gamma(v): 1 \ra y \otimes x$ such that $(v,\gamma(v))$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  Similarly, for any nonzero map $u: 1 \ra y \otimes x$, there is a unique map $\gamma(u): x \otimes y \ra 1$ such that $(\gamma(u),u)$ is a coevaluation and evaluation pair witnessing $y$ as a left dual of $x$.  In other words, we denote by $\gamma$ both the association to a coevaluation of the corresponding evaluation, and the association to an evaluation of the corresponding coevaluation.  Note that this association $\gamma$ is homogeneous of degree $-1$, that is $\gamma(\lambda f) = \lambda^{-1} \gamma(f)$ for $\lambda \in k^\times$.  
 
 This pairing $\gamma$ between evaluations and coevaluations commutes with taking the dual of a map: for any nonzero map $f: x \otimes y \ra 1$, we have
 \[
@@ -2195,7 +2195,7 @@ The object $A \in \cC \boxtimes \cC^\mp$ has a canonical algebra structure and t
 \]
 see~\cite[\S 2]{MR2097289} for a more detailed treatment of the algebra $A$ and its properties.
 
-When the category $\cC$ is fusion, we can describe the algebra object $A \in \cC \boxtimes \cC^\mp$ more explicitly in terms of simple objects of $\cC$.  Let $\{L_i\}$ denoted a fixed collection of representatives of the isomorphism classes of simple objects of $\cC$, with the representative $L_1$ of the isomorphism class of the unit chosen to actually be the unit object $1_\cC$.  Also fix choices of dual objects $\{{}^* L_i\}$ together with evaluation and coevaluation maps witnessing each ${}^* L_i$ as a left dual of $L_i$.  Observe that, for any objects $x \in \cC$ and $y \in \cC^\mp$, we have isomorphism
+When the category $\cC$ is fusion, we can describe the algebra object $A \in \cC \boxtimes \cC^\mp$ more explicitly in terms of simple objects of $\cC$.  Let $\{L_i\}$ denoted a fixed collection of representatives of the isomorphism classes of simple objects of $\cC$, with the representative $L_1$ of the isomorphism class of the unit chosen to actually be the unit object $1_\cC$.  Also fix choices of dual objects $\{{}^* L_i\}$ together with evaluation and coevaluation maps witnessing each ${}^* L_i$ as a left dual of $L_i$.  Observe that, for any objects $x \in \cC$ and $y \in \cC^\mp$, we have isomorphisms
 \[
 \begin{split}
 \Hom_{\cC \boxtimes \cC^\mp}( x \boxtimes y , \oplus_i L_i \boxtimes {}^* L_i)
@@ -2209,15 +2209,15 @@ When the category $\cC$ is fusion, we can describe the algebra object $A \in \cC
 \Hom_{\cC}(x \otimes y, 1).
 \end{split}
 \]
-In other words, the sum $\oplus_i L_i \boxtimes {}^* L_i$ satisfies the defining representing property of $A := \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC)$ and so
+In other words, the sum $\oplus_i \, L_i \boxtimes {}^* L_i$ satisfies the defining representing property of $A := \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC)$ and so
 \[
-A \cong \oplus_i L_i \boxtimes {}^* L_i;
+A \cong \oplus_i \, L_i \boxtimes {}^* L_i;
 \]
 this isomorphism is canonically determined by the previous choice of witnesses for the dual objects $\{{}^* L_i\}$.
 
-We can describe the algebra structure explicitly in terms of this decomposition.  The unit map $u: 1 \boxtimes 1 \ra A$ is simply the inclusion of the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$.  Fix a basis $\{e^r_{ij,k}\}_{r \in I(i,j,k)}$ for each of the vector spaces $\Hom_\cC(L_i \otimes L_j,L_k)$; here $I(i,j,k)$ is a finite index set.  Let $\{\hat{e}^r_{ij,k}\}$ denote the basis for $\Hom_\cC(L_k,L_i \otimes L_j)$ defined by $e^r_{ij,k} \circ \hat{e}^s_{ij,k} = \delta_{rs} \id_{L_k}$.  There is an associated collection of left dual maps $\{{}^*\hat{e}^r_{ij,k}\}$ forming a basis for $\Hom_\cC({}^* L_j \otimes {}^* L_i, {}^* L_k)$.  The multiplication map
+We can describe the algebra structure explicitly in terms of this decomposition.  The unit map $u: 1 \boxtimes 1 \ra A$ is simply the inclusion of the factor $1 \boxtimes 1 = 1 \boxtimes {}^*1$.  Fix a basis $\{e^r_{ij,k}\}_{r \in I(i,j,k)}$ for each of the vector spaces $\Hom_\cC(L_i \otimes L_j,L_k)$; here $I(i,j,k)$ is a finite index set.  Let $\{\hat{e}^r_{ij,k}\}$ denote the basis for $\Hom_\cC(L_k,L_i \otimes L_j)$ defined by $e^r_{ij,k} \circ \hat{e}^s_{ij,k} = \delta_{rs} \, \id_{L_k}$.  There is an associated collection of left dual maps $\{{}^*\hat{e}^r_{ij,k}\}$ forming a basis for $\Hom_\cC({}^* L_j \otimes {}^* L_i, {}^* L_k)$.  The multiplication map
 \[
-m: A \otimes A \cong \oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \ra \oplus_k L_k \boxtimes {}^* L_k \cong A
+m: A \otimes A \cong \oplus_{i,j} \, (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \ra \oplus_k \, L_k \boxtimes {}^* L_k \cong A
 \]
 is given by the sum $\sum_r (e^r_{ij,k}) \boxtimes ({}^*\hat{e}^r_{ij,k})$; note that here the tensor product ${}^* L_j \otimes {}^* L_i$ has been taken in $\cC$, not in $\cC^\mp$.
 
@@ -2232,7 +2232,7 @@ In the last subsection, we saw that for any finite tensor category $\cC$, the mo
 		\textrm{(comultiplication)} && \Delta: & R &\to& R \otimes R,
 	\end{array}
 \end{equation*}
-such that the pair $(u,m)$ gives $R$ the structure of an algebra objects, the pair $(\lambda, \Delta)$ gives $R$ the structure of a coalgebra object, and the comultiplication $\Delta$ is an $R$--$R$-bimodule map.  From these structure maps we can form the composites
+such that the pair $(u,m)$ gives $R$ the structure of an algebra object, the pair $(\lambda, \Delta)$ gives $R$ the structure of a coalgebra object, and the comultiplication $\Delta$ is an $R$--$R$-bimodule map.  From these structure maps we can form the composites
 \begin{equation*}
 	\begin{array}{l c  r c c c}
 		\textrm{(pairing)} && b := \lambda \circ m: & R \otimes R& \to& 1 \\
@@ -2241,16 +2241,16 @@ such that the pair $(u,m)$ gives $R$ the structure of an algebra objects, the pa
 \end{equation*}
 which satisfy the usual zig-zag equations.  Note that the comultiplication $\Delta$ is uniquely determined by the algebra structure $(u,m)$ and the counit $\lambda$.
 
-For the algebra object $A \cong \oplus_i L_i \boxtimes {}^* L_i \in \cC \boxtimes \cC^\mp$, there is an obvious candidate for a counit map $\lambda$, namely the projection onto the factor $1 \boxtimes 1$.  Indeed, up to a scalar, this is the only possibility for the counit, and we can characterize this choice of counit as the one satisfying the condition $\lambda \circ u = \id_{1 \boxtimes 1}$; we refer to such a counit as \emph{normalized}.  This counit does indeed provide a Frobenius algebra structure on $A$:
+For the algebra object $A \cong \oplus_i \, L_i \boxtimes {}^* L_i \in \cC \boxtimes \cC^\mp$, there is an obvious candidate for a counit map $\lambda$, namely the projection onto the factor $1 \boxtimes 1$.  Indeed, up to a scalar, this is the only possibility for the counit, and we can characterize this choice of counit as the one satisfying the condition $\lambda \circ u = \id_{1 \boxtimes 1}$; we refer to such a counit as \emph{normalized}.  This counit does indeed provide a Frobenius algebra structure on $A$:
 \begin{proposition}
 Let $\cC$ be a fusion category and let $A = \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC) \in \cC \boxtimes \cC^\mp$ be the algebra object of enriched endomorphisms of the unit.  The normalized counit map $\lambda: A \ra 1 \boxtimes 1$, with $\lambda \circ u = \id_{1 \boxtimes 1}$, determines the structure of a Frobenius algebra on $A$.
 \end{proposition}
 \begin{proof}
 It suffices to define a copairing $c : 1 \boxtimes 1 \ra A \otimes A$ satisfying the zig-zag relations with the pairing map $b = \lambda \circ m : A \otimes A \ra 1 \boxtimes 1$; there is at most one such copairing.  Recall that $\{e^r_{ij,k}\}$ is a chosen basis for $\Hom_\cC(L_i \otimes L_j,L_k)$ and $\{\hat{e}^r_{ij,k}\}$ is the `dual basis' for $\Hom_\cC(L_k,L_i \otimes L_j)$.  For each index $i$, we denote by $\overline{i}$ the unique index such that the morphism space $\Hom_\cC(L_i \otimes L_{\overline{i}},1)$ is nonzero.  We will use the abbreviation $e_i := e^1_{i\overline{i},1} : L_i \otimes L_{\overline{i}} \ra 1$.  Note that the right inverse of $e_i$ is $e_i^{-} = \hat{e}^1_{i\overline{i},1}$.
 
-As mentioned, the normalized counit map $\lambda: A \ra 1 \boxtimes 1$ is the projection $\oplus_i L_i \boxtimes {}^* L_i \ra 1 \boxtimes 1$.  Thus the pairing $\lambda \circ m: A \otimes A \ra 1 \boxtimes 1$ is the map $\oplus_{i,j} (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \ra 1 \boxtimes 1$ that first projects onto the summands with $\{i,j\}$ of the form $\{i,\overline{i}\}$ and then applies the map $e_i \boxtimes {}^* (e_i^{-})$ on the $\{i,\overline{i}\}$ factor.  Define the copairing $c : 1 \boxtimes 1 \ra A \otimes A$ to be the composite
+As mentioned, the normalized counit map $\lambda: A \ra 1 \boxtimes 1$ is the projection $\oplus_i \, L_i \boxtimes {}^* L_i \ra 1 \boxtimes 1$.  Thus the pairing $\lambda \circ m: A \otimes A \ra 1 \boxtimes 1$ is the map $\oplus_{i,j} \, (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \ra 1 \boxtimes 1$ that first projects onto the summands with $\{i,j\}$ of the form $\{i,\overline{i}\}$ and then applies the map $e_i \boxtimes {}^* (e_i^{-})$ on the $\{i,\overline{i}\}$ factor.  Define the copairing $c : 1 \boxtimes 1 \ra A \otimes A$ to be the composite
 \[
-1 \boxtimes 1 \ra \oplus_i (L_{\overline{i}} \otimes L_i) \boxtimes ({}^* L_i \otimes {}^* L_{\overline{i}}) \hookrightarrow \oplus_{i,j}  (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \cong A \otimes A
+1 \boxtimes 1 \ra \oplus_i \, (L_{\overline{i}} \otimes L_i) \boxtimes ({}^* L_i \otimes {}^* L_{\overline{i}}) \hookrightarrow \oplus_{i,j}  \, (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i) \cong A \otimes A
 \]
 where the first map is given by $\gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-}))$ on the $i$-th component.  By the definition of the association $\gamma$, this copairing satisfies the necessarily zig-zag relations with the pairing.
 \end{proof}
@@ -2263,7 +2263,7 @@ In any Frobenius algebra object $R$, there is a distinguished map $w: 1 \ra R$, 
 Let $A \in \cC \boxtimes \cC^\mp$ be the normalized Frobenius algebra object of enriched endomorphisms of the unit of a fusion category $\cC$.  The window element of $A$ is the global dimension of $\cC$.
 \end{proposition}
 \begin{proof}
-In the proof of the previous proposition, we saw that the copairing was given by the inclusion of $\oplus_i \gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-}))$ into $\oplus_{i,j}  (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i)$, and the pairing was giving by projection onto the $\{i,\overline{i}\}$ factors followed by the map $\oplus_i e_i \boxtimes {}^*(e_i^{-})$.  The window element is therefore
+In the proof of the previous proposition, we saw that the copairing was given by the inclusion of $\oplus_i \, \gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-}))$ into $\oplus_{i,j} \, (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i)$, and the pairing was giving by projection onto the $\{i,\overline{i}\}$ factors followed by the map $\oplus_i \, e_i \boxtimes {}^*(e_i^{-})$.  The window element is therefore
 \begin{align*}
 w &= \sum_i (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ \gamma({}^*(e_{\overline{i}}^{-}))) \\
 &= \sum_i \lVert L_i \rVert (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ {}^* ({}^-\!(\gamma(e_{\overline{i}})))) \\
@@ -2294,17 +2294,17 @@ Let $\cC$ be a finite semisimple tensor category over an arbitrary field of char
 
 
 \begin{remark} \label{rem:nonsimp}
-We expect one can generalize Theorem~\ref{thm:NonzeroDimension} to all perfect fields and all semisimple tensor categories, as follows.  Let $\cC$ be a semisimple tensor category over a perfect field, and let $\overline{\cC}$ denote its base extension to the algebraic closure.  Semisimplicity of the center is invariant under base change, so $\cC$ is separable if and only if $\overline{\cC}$ is separable.  The unit of $\overline{\cC}$ splits as a direct sum $\oplus \, 1_i$ of simple objects, and this provides a decomposition of the linear category $\overline{\cC}$ as a sum $\oplus \,\overline{\cC}_{ij}$, where $\overline{\cC}_{ij} := 1_i \otimes\overline{\cC}\otimes 1_j$, as in~\cite[\S 2.4]{MR2183279}.  When $\overline{\cC}$ is indecomposable, the $\overline{\cC}$--$\overline{\cC}_{ii}$-bimodule $\oplus_j \,\overline{\cC}_{ij}$ provides a Morita equivalence between $\overline{\cC}$ and $\overline{\cC}_{ii}$; more generally, $\overline{\cC}$ is Morita equivalent to a sum $\oplus_I \,\overline{\cC}_{ii}$, where the set $I$ contains one index from each indecomposable component of $\overline{\cC}$.  Thus the center of $\overline{\cC}$ is the sum $\oplus_I \,\cZ(\overline{\cC}_{ii})$.  Altogether, a semisimple tensor category $\cC$ is separable if and only if all the fusion categories $\overline{\cC}_{ii}$ have nonzero global dimension.
+We expect one can generalize Theorem~\ref{thm:NonzeroDimension} to all perfect fields and all semisimple tensor categories, as follows.  Let $\cC$ be a semisimple tensor category over a perfect field, and let $\overline{\cC}$ denote its base extension to the algebraic closure.  Semisimplicity of the center is invariant under base change, so $\cC$ is separable if and only if $\overline{\cC}$ is separable.  The unit of $\overline{\cC}$ splits as a direct sum $\oplus \, 1_i$ of simple objects, and this provides a decomposition of the linear category $\overline{\cC}$ as a sum $\oplus \,\overline{\cC}_{ij}$, where $\overline{\cC}_{ij} := 1_i \otimes\overline{\cC}\otimes 1_j$, as in~\cite[\S 2.4]{MR2183279}.  When $\overline{\cC}$ is indecomposable, the $\overline{\cC}$--$\overline{\cC}_{ii}$-bimodule $\oplus_j \,\overline{\cC}_{ji}$ provides a Morita equivalence between $\overline{\cC}$ and $\overline{\cC}_{ii}$; more generally, $\overline{\cC}$ is Morita equivalent to a sum $\oplus_I \,\overline{\cC}_{ii}$, where the set $I$ contains one index from each indecomposable component of $\overline{\cC}$.  Thus the center of $\overline{\cC}$ is the sum $\oplus_I \,\cZ(\overline{\cC}_{ii})$.  Altogether, a semisimple tensor category $\cC$ is separable if and only if all the fusion categories $\overline{\cC}_{ii}$ have nonzero global dimension.
 \end{remark}
 
 \section{Dualizability} \label{sec:dualizability}
 
 
-Every algebra is 1-dualizable, with dual the opposite algebra, and similarly every tensor category is 1-dualizable, with dual the monoidally opposite tensor category---we show this in Section~\ref{sec:df-objects} and then describe the resulting twice categorified 1-dimensional field theory associated to a tensor category.  By contrast, 2-dualizability is a substantive condition on a tensor category.  In Section~\ref{sec:df-morphisms} we prove that the functor dual of a finite bimodule category between finite tensor categories provides an adjoint bimodule category, and thereby we see that every finite tensor category is 2-dualizable.  There is therefore a categorified 2-dimensional field theory associated to any finite tensor category.  We show that the value of the Serre bordism under this field theory is the bimodule associated to the double dual automorphism of the tensor category---this calculation provides the fundamental connection between the topology of low-dimensional framed manifolds and the algebra of duality in tensor categories.  
+Every algebra is 1-dualizable, with dual the opposite algebra, and similarly every tensor category is 1-dualizable, with dual the monoidally-opposite tensor category---we show this in Section~\ref{sec:df-objects} and then describe the resulting twice categorified 1-dimensional field theory associated to a tensor category.  By contrast, 2-dualizability is a substantive condition on a tensor category.  In Section~\ref{sec:df-morphisms} we prove that the functor dual of a finite bimodule category between finite tensor categories provides an adjoint bimodule category, and thereby we see that every finite tensor category is 2-dualizable.  There is therefore a categorified 2-dimensional field theory associated to any finite tensor category.  We show that the value of the Serre bordism under this field theory is the bimodule associated to the double dual automorphism of the tensor category---this calculation provides the fundamental connection between the topology of low-dimensional framed manifolds and the algebra of duality in tensor categories.  
 
-It is certainly not the case that every finite tensor category is 3-dualizable, but nevertheless the 2-dimensional field theory associated to a finite tensor category does always extend to take values on certain 3-manifolds and therefore provides a kind of ``non-compact" 3-dimensional field theory.  We can indicate which 3-manifolds are allowed as follows.  Recall that the Radford bordism is a 3-framed 2-dimensional bordism from the inverse Serre bordism to the Serre bordism.  The Radford bordism is an equivalence: there is an `inverse Radford bordism' and 3-framed 3-manifolds---let's call them Radford witnesses---witnessing that the Radford bordism and the inverse Radford bordism are indeed inverse.  The field theory associated to a finite tensor category can take values on 3-manifolds built using the 3-framed 3-handles arising in the Radford witnesses.  We prove all this, formalized in the statement that finite tensor categories are Radford objects of the 3-category of tensor categories, in Section~\ref{sec:radfordftc}.  This provides an immediate, transparent topological proof of the quadruple dual theorem for finite tensor categories: the associated field theory takes the inverse Serre bordism to the left double dual bimodule and takes the Serre bordism to the right double dual bimodule, and the image of the Radford bordism therefore provides an equivalence between those bimodules.
+It is certainly not the case that every finite tensor category is 3-dualizable, but nevertheless the 2-dimensional field theory associated to a finite tensor category does always extend to take values on certain 3-manifolds and therefore provides a kind of `non-compact' 3-dimensional field theory.  We can indicate which 3-manifolds are allowed as follows.  Recall that the Radford bordism is a 3-framed 2-dimensional bordism from the inverse Serre bordism to the Serre bordism.  The Radford bordism is an equivalence: there is an `inverse Radford bordism' and 3-framed 3-manifolds---let's call them Radford witnesses---witnessing that the Radford bordism and the inverse Radford bordism are indeed inverse.  The field theory associated to a finite tensor category can take values on 3-manifolds built using the 3-framed 3-handles arising in the Radford witnesses.  We prove all this, formalized in the statement that finite tensor categories are Radford objects of the 3-category of tensor categories, in Section~\ref{sec:radfordftc}.  This provides an immediate, transparent topological proof of the quadruple dual theorem for finite tensor categories: the associated field theory takes the inverse Serre bordism to the left double dual bimodule and takes the Serre bordism to the right double dual bimodule, and the image of the Radford bordism therefore provides an equivalence between those bimodules.
 
-In Section~\ref{sec:separableisfd} we finally investigate the existence of adjoints for functors between bimodules categories.  We prove our main result, that separable tensor categories are fully dualizable.  This provides a 3-framed 3-dimensional topological field theory associated to any separable tensor category, thus in particular to any fusion category of nonzero global dimension over an algebraically closed field.  We also prove a converse result, showing that fully dualizable finite tensor categories must be separable, and in fact we identify the maximal fully dualizable 3-category of finite tensor categories---this supplies a classification of local framed field theories with defects.
+In Section~\ref{sec:separableisfd} we finally investigate the existence of adjoints for functors between bimodule categories.  We prove our main result, that separable tensor categories are fully dualizable.  This provides a 3-framed 3-dimensional topological field theory associated to any separable tensor category, thus in particular to any fusion category of nonzero global dimension over an algebraically closed field.  We also prove a converse result, showing that fully dualizable finite tensor categories must be separable, and in fact we identify the maximal fully dualizable 3-category of finite tensor categories---this supplies a classification of local framed field theories with defects.
 
 We conclude in Section~\ref{sec:spherical} by describing the connection between pivotal and spherical structures and homotopy fixed point structures on finite tensor categories.  We observe that a pivotal structure on a finite tensor category (that is a monoidal trivialization of the double dual functor) provides a trivialization of the Serre automorphism of the tensor category---such a trivialization is exactly the data of an $\Omega S^2$ homotopy fixed point structure on the tensor category.  A pivotal structure trivializes the double dual, so the square of a pivotal structure trivializes the quadruple dual; but we already have a trivialization of the quadruple dual, namely the one provided by the Radford equivalence.  We say that a pivotal finite tensor category is spherical if the square of the pivotal structure is the Radford equivalence.  (This notion agrees with the classical notion of sphericality when the tensor category is semisimple, but provides the correct generalization to the non-semisimple case.)  A spherical tensor category has canonically the structure of an $\Omega \Sigma \RP^2$ homotopy fixed point.  We close with various questions and conjectures concerning fixed points and descent properties of the associated field theories.  For instance, we conjecture that every pivotal fusion category admits not only the structure of an $\Omega S^2$ fixed point, but the structure of an $SO(2)$ fixed point, and therefore provides a combed local field theory.  We also conjecture that every spherical fusion category admits not only the structure of an $\Omega \Sigma \RP^2$ fixed point but in fact the structure of an $SO(3)$ fixed point, and therefore provides an oriented local field theory.
 
@@ -2383,7 +2383,7 @@ For each finite tensor category $\cC$, there is a unique (up to equivalence) sym
 whose value $\cF_\cC(\pt_+)$ on the standard positively framed point is the tensor category $\cC$.\footnote{A priori, the cobordism hypothesis only guarantees that there is a field theory whose value on the standard positive point is equivalent to the tensor category $\cC$.  However, as explained further in Remark~\ref{rem:hep}, by working with a cofibrant model of the bordism category and a fibrant model of $\TC$, we can choose a field theory whose value on the standard positive point is exactly $\cC$.  We suppress this distinction in the remainder of this paper.\label{ftn:exactly}}  Here $\FrBord_1$ is the $(\infty,1)$-category of 1-framed 0- and 1-manifolds, and $\TC_{(3,1)}$ is the maximal sub-$(3,1)$-category of the 3-category $\TC$ of tensor categories.
 \end{corollary}
 
-The values of the field theory $\cF_\cC$ on certain elementary bordisms are listed in Table~\ref{table:egdimone}.  There, following the notation established in Section~\ref{sec:notation}, the gray fuzz on the points indicates the normal framing of the immersion in $\RR^1$.  The arrows (or lack thereof) on the intervals indicate which boundary components are outgoing (or, respectively, incoming).  The picture of the circle does not follow our usual notation using normally framed immersions: there, instead, the framing is specified directly by arrows indicating a trivialization of the tangent bundle.  Note that that is the unique 1-framed circle.
+The values of the field theory $\cF_\cC$ on certain elementary bordisms are listed in Table~\ref{table:egdimone}.  There, following the notation established in Section~\ref{sec:notation}, the gray fuzz on the points indicates the normal framing of the immersion in $\RR^1$.  The arrows (or lack thereof) on the intervals indicate which boundary components are outgoing (or, respectively, incoming).  The picture of the circle does not follow our usual notation using normally framed immersions: there, instead, the framing is specified directly by arrows indicating a trivialization of the tangent bundle.  Note that this is the unique 1-framed circle.
 
 \begin{table}[!h]
 \begin{tabular}{c|c}
@@ -2483,7 +2483,7 @@ Though the bordisms listed in Table~\ref{table:egdimone} generate all isomorphis
 \end{remark}
 
 \begin{remark} \label{rem:hep}
-In the above discussion (for instance in Table~\ref{table:egdimone}), and for the remainder of the paper, when we say, ``the values of the field theory $\cF$ on the bordisms $M$, $N$, $P$, etc. are $C$, $D$, $E$, etc.", what we mean is that there are obvious canonical equivalences $\cF(M) \simeq C$, $\cF(N) \simeq D$, $\cF(P) \simeq E$, etc. and moreover that these equivalences commute with taking source and target of the bordisms, respectively invariants.  In fact one can do better: in any such situation, the functor $\cF$ is equivalent to another functor $\cF'$ such that $\cF'(M) = C$, $\cF'(N) = D$, $\cF'(P) = E$, etc.---in other words, the latter functor takes exactly the desired values.  The existence of such a functor follows from a homotopy extension property for field theories proven in~\cite{3TC}; that property is not formal, but depends essentially on constructing and using a cofibrant model for the framed bordism category and a fibrant model for the target category $\TC$.  We can safely ignore this issue, as none of our calculations will depends on specifying invariants exactly rather than merely up to equivalence.
+In the above discussion (for instance in Table~\ref{table:egdimone}), and for the remainder of the paper, when we say, ``the values of the field theory $\cF$ on the bordisms $M$, $N$, $P$, etc. are $C$, $D$, $E$, etc.", what we mean is that there are obvious canonical equivalences $\cF(M) \simeq C$, $\cF(N) \simeq D$, $\cF(P) \simeq E$, etc. and moreover that these equivalences commute with taking the source and target of the bordisms, respectively invariants.  In fact one can do better: in any such situation, the functor $\cF$ is equivalent to another functor $\cF'$ such that $\cF'(M) = C$, $\cF'(N) = D$, $\cF'(P) = E$, etc.---in other words, the latter functor takes exactly the desired values.  The existence of such a functor follows from a homotopy extension property for field theories proven in~\cite{3TC}; that property is not formal, but depends essentially on constructing and using a cofibrant model for the framed bordism category and a fibrant model for the target category $\TC$.  We can safely ignore this issue, as none of our calculations will depends on specifying invariants exactly rather than merely up to equivalence.
 \end{remark}
 
 
@@ -2500,13 +2500,13 @@ The counits of the desired adjunctions are straightforward to define as evaluati
 \[
 \varepsilon_1 : \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \ra \cC
 \]
-is induced by the $\cD$-balanced bilinear functor $\cM \times \Fun_\cC(\cM,\cC)$ given by $(m,f) \mapsto f(m)$.  Observe that $\epsilon_1$ naturally has the structure of a $\cC$--$\cC$-bimodule functor.  The second counit
+is induced by the $\cD$-balanced bilinear functor $\cM \times \Fun_\cC(\cM,\cC)$ given by $(m,f) \mapsto f(m)$.  Observe that $\varepsilon_1$ naturally has the structure of a $\cC$--$\cC$-bimodule functor.  The second counit
 \[
 \varepsilon_2 : \Fun_\cD(\cM,\cD) \boxtimes_\cC \cM \ra \cD
 \]
 is induced by the $\cC$-balanced functor $(f,m) \mapsto f(m)$, and naturally has the structure of a $\cD$--$\cD$-bimodule functor.
 
-The units of the adjunctions are more subtle.  They are maps into a relative Deligne tensor product, and so cannot simply by induced by a multilinear functor.  Instead, we rely crucially on Proposition~\ref{prop:FunctorsAsATensorPdt} to reexpress the tensor product as a functor category.  The first unit is the composite
+The units of the adjunctions are more subtle.  They are maps into a relative Deligne tensor product, and so cannot simply be induced by a multilinear functor.  Instead, we rely crucially on Proposition~\ref{prop:FunctorsAsATensorPdt} to reexpress the tensor product as a functor category.  The first unit is the composite
 \[
 \eta_1 : \cD \ra \Fun_\cC(\cM,\cM) \simeq \Fun_\cC(\cM,\cC) \boxtimes_\cC \cM,
 \]
@@ -2516,11 +2516,11 @@ where the first map sends $d \in \cD$ to the functor $- \mapsto - \otimes d$; th
 \]
 where the first map sends $c \in \cC$ to the functor $- \mapsto c \otimes -$; this map, and thus the composite, has the structure of a $\cC$--$\cC$-bimodule functor.
 \begin{proposition} \label{prop:evcoev}
-Let ${}_\cC \cM_\cD$ be a finite bimodule category between finite tensor categories.  The pair of functors $(\eta_1,\varepsilon_1)$ described above form the unit and counit of an adjunction
+Let ${}_\cC \cM_\cD$ be a finite bimodule category between finite tensor categories.  The pair of functors $(\eta_1,\varepsilon_1)$ described above forms the unit and counit of an adjunction
 \[
 \Fun_\cC(\cM,\cC) \dashv \cM.
 \]
-Similarly, the pair of functors $(\eta_2,\varepsilon_2)$ form the unit and counit of an adjunction
+Similarly, the pair of functors $(\eta_2,\varepsilon_2)$ forms the unit and counit of an adjunction
 \[
 \cM \dashv \Fun_\cD(\cM,\cD).
 \]
@@ -2532,7 +2532,7 @@ Observe, using the definition of $\eta_1$ and the construction of the equivalenc
 				\node (A) at (0in,2in) {${}_\cC \cM_\cD$};
 				\node (B) at (0in,1.5in) {${}_\cC \cM \boxtimes_\cD \cD_\cD$};
 				\node (C) at (0in,1in) {${}_\cC \cM \boxtimes_\cD \Fun_{\cC\text{-mod}}(\cM,\cC) \boxtimes_\cC \cM_\cD$};
-				\node (D) at (2.5in,1in) {${}_\cC \cM \boxtimes_D \Fun_{\cC\text{-mod}}(\cM,\cM)_\cD$};
+				\node (D) at (2.5in,1in) {${}_\cC \cM \boxtimes_\cD \Fun_{\cC\text{-mod}}(\cM,\cM)_\cD$};
 				\node (E) at (0in, .5in) {${}_\cC \cC \boxtimes_\cC \cM_\cD$};
 				\node (F) at (0in,0in) {${}_\cC \cM_\cD$};
 				\draw [<-] (A) to node [left] {$\simeq$} (B);
@@ -2563,7 +2563,7 @@ For each finite tensor category $\cC$, there is a unique (up to equivalence) sym
 whose value $\cF_\cC(\pt_+)$ on the standard positively 2-framed point is the tensor category $\cC$.\footnote{As in Footnote~\ref{ftn:exactly}, to ensure that the field theory takes exactly the value $\cC$ on the standard positive point (rather than merely a value equivalent to $\cC$), requires a particular choice of model of the 3-category of tensor categories.}  Here $\FrBord_2$ is the 2-framed bordism $(\infty,2)$-category and $\TC_{(3,2)}$ is the maximal sub-$(3,2)$-category of the 3-category $\TC$ of tensor categories.
 \end{corollary}
 
-\nid Note that this field theory is ``categorified" in the sense that the invariants of closed 2-manifolds are not numbers, but vector spaces, and in the sense that it assigns an isomorphism of vector spaces to each isotopy class of diffeomorphisms of a surface.
+\nid Note that this field theory is `categorified' in the sense that the invariants of closed 2-manifolds are not numbers, but vector spaces, and in the sense that it assigns an isomorphism of vector spaces to each isotopy class of diffeomorphisms of a surface.
 
 As in Section~\ref{sec:framed-duality}, we focus on the following standard positively 2-framed point $\pt_+$, together with the following chosen negatively 2-framed point, denoted $\pt_-$, and evaluation and coevaluation bordisms $\ev$ and $\coev$ witnessing a duality between $\pt_+$ and $\pt_-$:
 
@@ -2704,16 +2704,16 @@ $\coev^R$ & $=$ & \CDcomm{missing pic Fig 2}
 
 We are now, finally, in a position to calculate the Serre automorphism of a finite tensor category; the result of this calculation is the central connection between the topology of framed bordisms and the algebra of duality in tensor categories.
 \begin{theorem} \label{thm:serreisdoubledual}
-The Serre automorphism $\cS_\cC$ of the finite tensor category $\cC$ is the double-left-dual twist of the identity bimodule of $\cC$; the inverse Serre automorphism $\cS^{-1}_\cC$ is the double-right-dual twist of the identity bimodule of $\cC$.  In other words, the 2-dimensional 2-framed field theory $\cF_\cC$ associated to $\cC$ has the following values on the Serre $\cS$ and inverse Serre $\cS^{-1}$ bordisms, respectively:
+The Serre automorphism $\cS_\cC$ of the finite tensor category $\cC$ is the double-right-dual twist of the identity bimodule of $\cC$; the inverse Serre automorphism $\cS^{-1}_\cC$ is the double-left-dual twist of the identity bimodule of $\cC$.  In other words, the 2-dimensional 2-framed field theory $\cF_\cC$ associated to $\cC$ has the following values on the Serre $\cS$ and inverse Serre $\cS^{-1}$ bordisms, respectively:
 \begin{align*}
 \cF_\cC\left(
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] 
-(.7,0) to [out=180, in=20] (0,-.1)
-	to [looseness=1.6, out=-160, in=180] (0,-.4)
-	to [looseness=1.6, out=0, in=-20] (0,-.1)
-	to [out=160, in=0] (-.7,0);
+(.7,0) to [out=180, in=-20] (0,.1)
+	to [looseness=1.6, out=160, in=180] (0,.4)
+	to [looseness=1.6, out=0, in=20] (0,.1)
+	to [out=-160, in=0] (-.7,0);
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
 \end{pgfonlayer}
@@ -2726,10 +2726,10 @@ The Serre automorphism $\cS_\cC$ of the finite tensor category $\cC$ is the doub
 \cb{
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] 
-(.7,0) to [out=180, in=-20] (0,.1)
-	to [looseness=1.6, out=160, in=180] (0,.4)
-	to [looseness=1.6, out=0, in=20] (0,.1)
-	to [out=-160, in=0] (-.7,0);
+(.7,0) to [out=180, in=20] (0,-.1)
+	to [looseness=1.6, out=-160, in=180] (0,-.4)
+	to [looseness=1.6, out=0, in=-20] (0,-.1)
+	to [out=160, in=0] (-.7,0);
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
 \end{pgfonlayer}
@@ -2867,7 +2867,7 @@ By composing the invariants of the intervals in Table~\ref{table:intervals}, we 
 
 
 \begin{remark}
-For any finite tensor category $\cC$, the center $\cZ(\cC)$, as a category of endofunctors, is a monoidal category.  The unit, namely the identity functor, is the value of the field theory $\cF_\cC$ on the first 2-framed disc in Table~\ref{table:discs} below; the tensor product, namely composition, is the value of the field theory on the 2-framed pair-of-pants obtained by removing two discs from the interior of that unit disc.  However, the monoidal category $\cZ(\cC)$ is not, a priori, even weakly rigid: there is no 2-framing of the annular bordism from the empty set to two circles (or from two circles to the empty set), such that both circles inherit the 2-framing corresponding to $\cZ(\cC)$.  
+For any finite tensor category $\cC$, the center $\cZ(\cC)$, as a category of endofunctors, is a monoidal category.  The unit, namely the identity functor, is the value of the field theory $\cF_\cC$ on the first 2-framed disc in Table~\ref{table:discs}; the tensor product, namely composition, is the value of the field theory on the 2-framed pair-of-pants obtained by removing two discs from the interior of that unit disc.  However, the monoidal category $\cZ(\cC)$ is not, a priori, even weakly rigid: there is no 2-framing of the annular bordism from the empty set to two circles (or from two circles to the empty set), such that both circles inherit the 2-framing corresponding to $\cZ(\cC)$.  
 
 The trace $\cT(\cC)$ is not monoidal, in general, as there is no 2-framed pair-of-pants bordism from two circles to one circle such that all three circles inherit the 2-framing corresponding to $\cT(\cC)$.  The cocenter $\coZ(\cC)$ is naturally a comonoidal category.  The counit is the last 2-framed disc in Table~\ref{table:discs}, and the coproduct is that disc with two smaller discs removed.  Though a priori $\cZ(\cC)$ has no pairing operation, there is a pairing between the center and the cocenter: the field theory assigns a functor $\cZ(\cC) \boxtimes \coZ(\cC) \ra \Vect$ to the planar annulus with both boundaries incoming.
 
@@ -3089,11 +3089,11 @@ As we have already established the 2-dualizability of all finite tensor categori
 Let ${}_\cC \cM_\cD$ and ${}_\cC \cN_\cD$ be finite semisimple bimodule categories between finite tensor categories.  Any bimodule functor $\cM \ra \cN$ admits both left and right adjoint bimodule functors.
 \end{proposition}
 \begin{proof}
-A functor out of a semisimple category is both left and right exact.  It follows, because both $\cM$ and $\cN$ are finite, that any linear functor from $\cM$ to $\cN$ admits both a left and a right adjoint~\cite{BTP}; because $\cN$ is also semisimple, those adjoints are themselves exact, in particular right exact.  By Lemma~\ref{lma:module-adjoint}, those adjoints can be promoted to adjoints as bimodule functors.
+A functor out of a semisimple category is both left and right exact.  Any exact linear functor between finite linear categories admits both a left and a right adjoint~\cite{BTP}; because $\cN$ is also semisimple, those adjoints are themselves exact, in particular right exact.  By Lemma~\ref{lma:module-adjoint}, those adjoints can be promoted to adjoints as bimodule functors.
 \end{proof}
 
 \begin{remark}
-In fact, the left and right adjoints of a bimodule functor $\cF: \cM \ra \cN$ between finite semisimple bimodule categories are isomorphic, and can be described explicitly as a transpose-dual functor.  That is, let $\{m_i\}$ be a set of representatives of the isomorphism classes of simple objects of $\cM$, and similarly $\{n_i\}$ for $\cN$.  The functor $\cF$ is isomorphic to a functor $m_i \mapsto \bigoplus_j F_{ij} n_j$, where $F_{ij} \in \Vect$.  The transpose-dual functor $n_j \mapsto \bigoplus_i F_{ij}^* m_i$ is both a left and a right adjoint for $\cF$, where $F_{ij}^* \in \Vect$ is the ordinary dual vector space to $F_{ij}$.
+In fact, the left and right adjoints of a bimodule functor $\cF: \cM \ra \cN$, between finite semisimple bimodule categories, are isomorphic, and can be described explicitly as a transpose-dual functor.  That is, let $\{m_i\}$ be a set of representatives of the isomorphism classes of simple objects of $\cM$, and similarly $\{n_i\}$ for $\cN$.  The functor $\cF$ is isomorphic to a functor $m_i \mapsto \bigoplus_j F_{ij} n_j$, where $F_{ij} \in \Vect$.  The transpose-dual functor $n_j \mapsto \bigoplus_i F_{ij}^* m_i$ is both a left and a right adjoint for $\cF$, where $F_{ij}^* \in \Vect$ is the ordinary dual vector space to $F_{ij}$.
 \end{remark}
 
 With adjoints for bimodule functors at hand, we can now assemble the pieces to prove full dualizability.
@@ -3146,7 +3146,7 @@ A finite tensor category $\cC \in \TC$ is always 2-dualizable, and the center $\
 The 3-category $\TCsep$ is the maximal fully dualizable sub-3-category of $\TC$.
 \end{corollary}
 \begin{proof}
-As in the Appendix, let $d\TC$ denote the maximal fully dualizable subcategory of $\TC$.  By the theorem, any object of $d\TC$ is separable.  Let ${}_\cC \cM_\cD$ be a morphism of $d\TC$.  By Proposition~\ref{prop:evcoev}, the left adjoint of $\cM$ is $\Fun_\cC(\cM,\cC)$; the counit of this adjunction is the (right exact) evaluation $\cC$--$\cC$-bimodule functor $\epsilon: \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \ra \cC$.  Because the functor $\epsilon$ has a left adjoint, it is also left exact.  The functor $\cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC)$ is exact in each variable, by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}.  Thus for any (right exact) functor $\cF \in \Fun_\cC(\cM,\cC)$, the composite $\cM \xra{\id \times \cF} \cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \xra{\epsilon} \cC$ is exact; that composite just is the functor $\cF$.  For any object $m \in \cM$, the functor ${}^* \IHom(-,m) : \cM \ra \cC$ is a (right exact) $\cC$-module functor, therefore is exact; thus $\IHom(-,m) : \cM \ra \cC$ itself is an exact contravariant functor.  For any injective object $j \in \cC$, the contravariant functor $\Hom(-,j \otimes m) \cong \Hom(j^* \otimes -,m) \cong \Hom(j^*,\IHom(-,m))$ is therefore exact, so $j \otimes m$ is injective as well.  As $\cC$ is semisimple, its unit is injective, so all objects of $\cM$ are injective, thus $\cM$ is semisimple, as required.
+As in the Appendix, let $d\TC$ denote the maximal fully dualizable subcategory of $\TC$.  By the theorem, any object of $d\TC$ is separable.  Let ${}_\cC \cM_\cD$ be a morphism of $d\TC$.  By Proposition~\ref{prop:evcoev}, the left adjoint of $\cM$ is $\Fun_\cC(\cM,\cC)$; the counit of this adjunction is the (right exact) evaluation $\cC$--$\cC$-bimodule functor $\varepsilon: \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \ra \cC$.  Because the functor $\varepsilon$ has a left adjoint, it is also left exact.  The functor $\cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC)$ is exact in each variable, by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}.  Thus for any (right exact) functor $\cF \in \Fun_\cC(\cM,\cC)$, the composite $\cM \xra{\id \times \cF} \cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \xra{\varepsilon} \cC$ is exact; that composite just is the functor $\cF$.  For any object $m \in \cM$, the functor ${}^* \IHom(-,m) : \cM \ra \cC$ is a (right exact) $\cC$-module functor, therefore is exact; thus $\IHom(-,m) : \cM \ra \cC$ itself is an exact contravariant functor.  For any injective object $j \in \cC$, the contravariant functor $\Hom(-,j \otimes m) \cong \Hom(j^* \otimes -,m) \cong \Hom(j^*,\IHom(-,m))$ is therefore exact, so $j \otimes m$ is injective as well.  As $\cC$ is semisimple, its unit is injective, so all objects of $\cM$ are injective, thus $\cM$ is semisimple, as required.
 \end{proof}
 
 \begin{remark}
@@ -3157,9 +3157,9 @@ This corollary provides a classification of surface, line, and point defects in 
 \subsection{Spherical structures and structured field theories} \label{sec:spherical}
 
 
-By Corollary~\ref{cor:fusiontft}, there is in particular a 3-dimensional 3-framed field theory $\cF_\cC$ associated to any fusion category $\cC\in \TC$ over an algebraically closed field of characteristic zero.  This theory differs from a Turaev-Viro field theory, which is an oriented field theory associated to a spherical fusion category, in two reciprocal ways: it does not depend on a choice of any additional structure on the fusion category (namely a spherical structure), but it does depend on a choice of an additional structure on the manifolds (namely a 3-framing).  
+By Corollary~\ref{cor:fusiontft}, there is in particular a 3-dimensional 3-framed field theory $\cF_\cC$ associated to any fusion category $\cC\in \TC$ over an algebraically closed field of characteristic zero.  This theory differs from a Turaev--Viro field theory, which is an oriented field theory associated to a spherical fusion category, in two reciprocal ways: it does not depend on a choice of any additional structure on the fusion category (namely a spherical structure), but it does depend on a choice of an additional structure on the manifolds (namely a 3-framing).  
 
-By the cobordism hypothesis, the group $SO(3)$ acts on the space of fully dualizable tensor categories, and the field theory $\cF_\cC : \FrBord_3 \ra \TC$ descends from a 3-framed to an oriented field theory $\widetilde{\cF_\cC} : \OrBord_3 \ra \TC$ when $\cC$ is equipped with the structure of a homotopy $SO(3)$-fixed point.  This situation suggests that the choice of a spherical structure should be related to the existence of homotopy fixed point structures.  
+By the cobordism hypothesis, the group $SO(3)$ acts on the space of fully dualizable tensor categories, and the field theory $\cF_\cC : \FrBord_3 \ra \TC$ descends from a 3-framed to an oriented field theory $\widetilde{\cF_\cC} : \OrBord_3 \ra \TC$ when $\cC$ is equipped with the structure of an $SO(3)$ homotopy fixed point.  This situation suggests that the choice of a spherical structure should be related to the existence of homotopy fixed point structures.  
 
 In this section, we recall the classical notions of a pivotal structure on a tensor category, and of a spherical structure on a semisimple tensor category.  We introduce a new definition of sphericality that provides the correct generalization of the classical notion to the non-semisimple case.  We explain, largely in the form of a preview, the relationship between pivotal and spherical structures and the existence of certain homotopy fixed point structures, and finally conclude with a number of further conjectures and questions regarding the descent properties of 3-dimensional field theories.
 
@@ -3234,7 +3234,7 @@ Note that by the Barrett--Westbury condition mentioned in the previous example, 
 
 
 \begin{remark}
-Because the representation category $\Rep(H) \in \TC$ of Sweedler's Hopf algebra is not $\Omega \Sigma \RP^2$-fixed, it cannot be $SO(3)$ fixed for any action of $SO(3)$ on $\TC$ restricting to the $\Omega \Sigma \RP^2$ action provided by the combination of the Serre automorphism and the Radford equivalence.  Thus the associated field theory invariants cannot possibly be oriented invariants.  At best, $\Rep(H)$ could be an $SO(2)$-fixed point and thus provide a combed field theory.  (A combed field theory is by definition one taking values on $SO(2)$-structured manifolds; an $SO(2)$-structured 3-manifold is precisely a 3-manifold equipped with a nonvanishing vector field, that is a combing.)  This explains the necessity of the combing on the manifolds in Kuperberg's invariant~\cite{MR1394749}.  In particular, we see that, unlike for ordinary Turaev-Viro invariants in the semisimple case, trace sphericality is insufficient to produce an oriented invariant.
+Because the representation category $\Rep(H) \in \TC$ of Sweedler's Hopf algebra is not $\Omega \Sigma \RP^2$-fixed, it cannot be $SO(3)$ fixed for any action of $SO(3)$ on $\TC$ restricting to the $\Omega \Sigma \RP^2$ action provided by the combination of the Serre automorphism and the Radford equivalence.  Thus the associated field theory invariants cannot possibly be oriented invariants.  At best, $\Rep(H)$ could be an $SO(2)$-fixed point and thus provide a combed field theory.  (A combed field theory is by definition one taking values on $SO(2)$-structured manifolds; an $SO(2)$-structured 3-manifold is precisely a 3-manifold equipped with a nonvanishing vector field, that is a combing.)  This explains the necessity of the combing on the manifolds in Kuperberg's invariant~\cite{MR1394749}.  In particular, we see that, unlike for ordinary Turaev--Viro invariants in the semisimple case, trace sphericality is in general insufficient to produce an oriented invariant.
 \end{remark}
 
 \subsubsection{Oriented, combed, and spin field theory descent conjectures} \label{sec:descconj}
@@ -3260,7 +3260,7 @@ Every fusion category admits the structure of a $Spin(3)$ homotopy fixed point, 
 \end{conjecture}
 \nid The first and third of these are in effect anomaly-vanishing conjectures.
 
-One can formulate similar questions and conjectures for tensor categories that are merely finite rather than fusion.  For instance, we saw that any finite tensor category provides a partial (``non-compact") 3-dimensional 3-framed field theory.  If the finite tensor category is pivotal, we also observed that it is an $\Omega S^2$ fixed point.  We might expect it to be in fact an $SO(2)$ fixed point, and might anticipate that it moreover provides a non-compact 3-dimensional combed 3-framed field theory.  Even if the finite tensor category is not pivotal (there are such examples, see \cite[Rem. 2.11]{1204.5807}), we might still ask if it is necessarily $SO(2)$ fixed---all examples we are aware of are.
+One can formulate similar questions and conjectures for tensor categories that are merely finite rather than fusion.  For instance, we saw that any finite tensor category provides a partial (``non-compact") 3-dimensional 3-framed field theory.  If the finite tensor category is pivotal, we also observed that it is an $\Omega S^2$ fixed point.  We might expect it to be in fact an $SO(2)$ fixed point, and might anticipate that it moreover provides a non-compact 3-dimensional combed 3-framed field theory.  Even if the finite tensor category is not pivotal (there are such examples, see \cite[Rem. 2.11]{1204.5807}), we might still ask if it is necessarily $SO(2)$ fixed.
 
 
 %!% Do you really think all finite tensor categories are SO(2) fixed?
@@ -3319,13 +3319,13 @@ We can now recall the notion of full dualizability.  The notion of adjoint funct
 	Let $\cC$ be a symmetric monoidal $(\infty,n)$-category. We say that $\cC$ {\em has adjoints for $k$-morphisms} if $h^{(k-1)}_2 \cC$ has both left and right adjoints for all 1-morphisms. 
 \end{appdefinition}
 
-\noindent Note that when $k=0$, this property is also referred to as ``having duals for objects", because the notion of having adjoints for 1-morphisms in the bicateogry category $h^{(-1)}_2 \cC$ corresponds to the notion of having duals in the monoidal homotopy category of $\cC$.
+\noindent Note that when $k=0$, this property is also referred to as ``having duals for objects", because the notion of having adjoints for 1-morphisms in the bicategory category $h^{(-1)}_2 \cC$ corresponds to the notion of having duals in the monoidal homotopy category of $\cC$.
 
 \begin{appdefinition}
 A symmetric monoidal $(\infty,n)$-category $\cC$ is \emph{$m$-dualizable} if it has adjoints for $k$-morphisms, for all $0 \leq k \leq m-1$.  An $n$-dualizable symmetric monoidal $(\infty,n)$-category is called \emph{fully dualizable}.
 \end{appdefinition}
 
-\noindent The maximal fully dualizable subcategory of the symmetric monoidal $(\infty,n)$-category $\cC$ is denoted $d\cC$. The objects of $d\cC$ are called ``fully dualizable objects".\footnote{This definition differs in a slight technical respect from the definition given in Lurie~\cite{lurie-ch}.  Provided the category $\cC$ is fibrant (as is the case for the example we care about, $\TC$), the two definitions coincide.}  The ``space" of fully dualizable objects, denoted $\widetilde{d\cC}$, is the maximal $(\infty,0)$-subcategory of $d\cC$---it is obtained from $d\cC$ simply by discarding all non-invertible $k$-morphisms, for all $k$. 
+\noindent The maximal fully dualizable subcategory of the symmetric monoidal $(\infty,n)$-category $\cC$ is denoted $d\cC$. The objects of $d\cC$ are called ``fully dualizable objects".\footnote{This definition differs in a slight technical respect from the definition given in Lurie~\cite{lurie-ch}.  Provided the category $\cC$ is fibrant (as is the case for the example we care about, $\TC$), the two definitions coincide.}  The `space' of fully dualizable objects, denoted $\widetilde{d\cC}$, is the maximal $(\infty,0)$-subcategory of $d\cC$---it is obtained from $d\cC$ simply by discarding all non-invertible $k$-morphisms, for all $k$. 
 
 Because a symmetric monoidal functor takes adjoints to adjoints, and the bordism category $\FrBord_n$ is fully dualizable, a topological field theory with values in $\cC$ must take values in the fully dualizable subcategory $d\cC$.  In fact, field theories are precisely controlled by that subcategory:
 
@@ -3347,7 +3347,7 @@ Given a map $\xi: X \ra BO(n)$, with $X$ connected, there is an equivalence of $
 \[
 \Fun^\otimes(\Bord^{(X,\xi)}_n,\cC) \simeq \widetilde{d\cC}^{h\Omega X}
 \]
-from the $(\infty,n)$-category of $(X,\xi)$-structured field theories with target $\cC$ to the space of $\Omega X$-homotopy fixed points in the fully dualizable objects of $\cC$.
+from the $(\infty,n)$-category of $(X,\xi)$-structured field theories with target $\cC$ to the space of $\Omega X$ homotopy fixed points in the fully dualizable objects of $\cC$.
 \end{apptheorem}
 
 \bibliographystyle{initalpha}
