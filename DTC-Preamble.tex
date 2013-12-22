@@ -136,6 +136,29 @@ coverlinelefttail/.style={
 \draw[->] (0,0) -- (1,0);
 }
 
+\pgfarrowsdeclare{scalehead}{scalehead}
+{
+  \pgfarrowsleftextend{-2\pgflinewidth}
+  \pgfarrowsrightextend{\pgflinewidth}
+}
+{
+  \pgfsetlinewidth{0.8\pgflinewidth}
+  \pgfsetdash{}{0pt}
+  \pgfsetroundcap
+  \pgfsetroundjoin
+  \pgfpathmoveto{\pgfpoint{-2.25\pgflinewidth}{3\pgflinewidth}}
+  \pgfpathcurveto
+  {\pgfpoint{-2.0625\pgflinewidth}{1.875\pgflinewidth}}
+  {\pgfpoint{0pt}{0.1875\pgflinewidth}}
+  {\pgfpoint{0.5625\pgflinewidth}{0pt}}
+  \pgfpathcurveto
+  {\pgfpoint{0pt}{-0.1875\pgflinewidth}}
+  {\pgfpoint{-2.0625\pgflinewidth}{-1.875\pgflinewidth}}
+  {\pgfpoint{-2.25\pgflinewidth}{-3\pgflinewidth}}
+  \pgfusepathqstroke
+}
+
+
 
 \newcommand{\cb}{\raisebox{.6ex-.5\height}}
 
