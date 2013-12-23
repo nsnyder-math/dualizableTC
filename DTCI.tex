@@ -1,6 +1,3 @@
-%%% The DTCI.tex file
-%%% Authors: Christopher Douglas, Christopher Schommer-Pries, and Noah Snyder
-
 \documentclass{amsart}
 
 \include{DTC-Preamble}
@@ -38,18 +35,9 @@ We investigate the relationship between the algebra of tensor categories and the
 
 \setcounter{tocdepth}{2}
 \tableofcontents
-%%%%%%%%
 
-%\ignore{
-
-% \tikzset{external/force remake}
-%\tikzset{external/export next=false} % Use this before a tikz picture to remake just one
-
-%\pgfkeys{/pgf/fpu}
-%\pgfmathparse{16383+1}
-%\edef\tmp{\pgfmathresult}
-%\pgfkeys{/pgf/fpu=false}
-
+%\tikzset{external/force remake}
+%\tikzset{external/export next=false}
 
 \section{Introduction}
 
@@ -93,9 +81,9 @@ We apply this approach with the aforementioned partial 3-dimensional 3-framed lo
 	\begin{tikzpicture}[
 			yscale=0.28, xscale=0.56,
 			decoration={border, 
-				segment length = 4pt, 	% distance between consecutive ticks.
-				amplitude = 2pt, 		% length of the ticks.
-				angle = 0  				% angle between the ticks and the line of the path. 
+				segment length = 4pt, 	
+				amplitude = 2pt, 		
+				angle = 0  				 
 				}, 
 			% Styles
 			contour line/.style={thin, blue}
@@ -786,18 +774,6 @@ As our notation for $n$-framed manifolds permits immersed rather than embedded m
 The 1-morphism $\ev^L$ itself has a left adjoint $\ev^{LL}$, which itself has a left adjoint, and so on, and similarly $\ev^R$ itself has a right adjoint $\ev^{RR}$, which has a right adjoint, and so on.  The 1-morphism $\coev$ also has an infinite chain of left and right adjoints.  These various adjunctions are illustrated in Figure~\ref{fig:adjointchains}.  The existence of these two chains of adjunctions shows that the 2-framed bordism 2-category is 2-dualizable.
 
 
-
-%%% If we use this remark explicitly, it should be moved elsewhere
-%\begin{remark}
-%Recall that duals in a symmetric monoidal category $(\cC, \otimes, 1)$ are uniquely determined in the following sense:
-%\begin{itemize}
-%	\item Let $y_+$ and $ y_-$ be objects of $\cC$, and $ev: y_+ \otimes y_- \to 1$ a morphism.  There exists at most one morphism $coev: 1 \to y_- \otimes y_+$ such that $ev$ and  $coev$ satisfy the zigzag identities, and hence $ev$ and $coev$ witness the duality between $y_+$ and $y_-$.
-%	\item Fix $y_+ \in \cC$. The category of triples $(y_-, ev, coev)$ that witness a duality between $y_+$ and some object $y_-$ is either contractible or empty.  In this category of triples, a morphism is a map $y_- \to y_-'$ intertwining the two evaluations and the two coevaluations.  
-%	\item If $(y_-, ev, coev)$ is a triple witnessing a duality between $y_+$ and $y_-$, and if $f:y_-' \cong y_-$ is any isomorphism, then $ev' = ev \circ (\id_{y_+} \otimes f)$ and $coev' = (f^{-1} \otimes \id_{y_+}) \circ coev$ witness a duality between $y_+$ and $y'_-$.  
-%\end{itemize}
-%We summarize this situations by saying that two duals for $y_+$ are canonically isomorphic.  Note though that the third item above requires us to {\em specify} the isomorphism between $y'_-$ and $y_-$; different choices of that isomorphism result in different evaluation and coevaluation maps.
-%\end{remark}
-
 \begin{figure}[ht]
 \cb{
 	\begin{tikzpicture}
@@ -945,16 +921,6 @@ The 1-morphism $\ev^L$ itself has a left adjoint $\ev^{LL}$, which itself has a 
 
 It is possible to write any 2-framed 1-manifold bordism as a composite of the elementary pieces arising in Figure~\ref{fig:adjointchains}.  We illustrate this in practice with a crucial bordism, namely the one represented by the following normally-oriented immersed 1-manifold:
 \begin{center}
-%	\begin{tikzpicture}
-%	\draw[linestyle,fuzzright] 
-%	(.7,0) to [out=180, in=20] (0,-.1)
-%		to [looseness=1.6, out=-160, in=180] (0,-.4)
-%		to [looseness=1.6, out=0, in=-20] (0,-.1)
-%		to [out=160, in=0] (-.7,0);
-%	\begin{pgfonlayer}{background}
-%		\draw[->,outstyle] (.7,0) -- +(0:\arrowlength);
-%	\end{pgfonlayer}
-%	\end{tikzpicture}	
 \begin{tikzpicture}
 \draw[linestyle,fuzzright] 
 (.7,0) to [out=180, in=-20] (0,.1)
@@ -974,7 +940,6 @@ The interval $[0,1]$ can be viewed as a bordism with 0 as an incoming boundary p
 
 The loop bordism and the inverse loop bordism admit decompositions into more elementary pieces, as shown in Figure~\ref{fig:serrebordism}.
 \begin{figure}[htbp]
-%\begin{center}
 \vspace{\topskip}	
 	\begin{tikzpicture}
 		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
@@ -994,12 +959,8 @@ The loop bordism and the inverse loop bordism admit decompositions into more ele
 		\draw [dashed] (0,2.75) rectangle (1.5, 0);
 		\node (A) at (-1, 1.5) {$\ev^R$};
 		\draw [dashed] (A) -- (0, 1.5);
-	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
 	\end{tikzpicture}
-%\end{center}
 \hspace{1cm}
-%\begin{center}
-%\vspace{\topskip}	
 \raisebox{14pt}{
 	\begin{tikzpicture}
 		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
@@ -1017,12 +978,10 @@ The loop bordism and the inverse loop bordism admit decompositions into more ele
 		\draw [dashed] (0.5,2.5) rectangle (1.5, 0.5);
 		\node (A) at (-.5, 1.5) {$\ev^L$};
 		\draw [dashed] (A) -- (0.5, 1.5);
-	%	\node (S) at (8,2) {$\cS = (\id_{pt_+} \sqcup ev) \circ (\tau_{pt_+, pt_+} \sqcup \id_{pt_-}) \circ (\id_{pt_+} \sqcup ev^R)$};
 	\end{tikzpicture}
 	}
-%\end{center}
 \caption{Decompositions of the Serre and inverse Serre bordisms.} \label{fig:serrebordism}
-\end{figure} %!% spacing issue if pagebreak
+\end{figure}
 
 \nid Written out algebraically, these two decompositions have the following form:
 \begin{align*}
@@ -1035,7 +994,7 @@ Suppose we have a 2-framed 2-dimensional local field theory $\cF: \FrBord_2 \ra 
 
 \begin{example}[{\cite[Rem. 4.2.4]{lurie-ch}}] \label{eg:serrefunctor}
 Let $\cC$ be the $(\infty,2)$-category of cocomplete differential graded categories over a field.  Let $D$ be the category of quasi-coherent complexes on a smooth variety $X$.  The object $D \in \cC$ is 2-dualizable and so there is an associated field theory $\cF_D$ with $\cF_D(\pt_+) \simeq D$.  The resulting automorphism $\cS_D$ is the Serre functor that appears in Serre duality; it is given by tensoring with the canonical line bundle on $X$ and shifting by the dimension of $X$.
-\end{example} %CDNC
+\end{example}
 
 We can use the above decompositions of the loop bordism and inverse loop bordism to calculate the value of the Serre automorphism of any object in any target category.
 \begin{proposition} \label{prop:serrecalc}
@@ -1066,12 +1025,10 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 \begin{figure}[htbp]
 	\begin{center}
 		\begin{tikzpicture}[
-			% This decoration will be used to make portions of curves into "bouckground curves". It allows us to dash a portion of the curve.
-			%xscale = 0.75,
 			decoration={border, 
-				segment length = 4pt, 	% determines the distance between consecutive ticks.
-				amplitude = 2pt, 		% determines the length of the ticks.
-				angle = 0  				% determines the angle between the ticks and the line of the path. 
+				segment length = 4pt, 	
+				amplitude = 2pt, 		
+				angle = 0  				 
 				}, 
 			% Styles
 			contour line/.style={thin, blue}
@@ -1082,7 +1039,6 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 			\colorlet{surfacecolor2}{black!5}	
 			
 			% The graphic
-			%\draw [step = 1cm, help lines] (-0.9,-0.9) grid (11.9, 10.9);
 			
 			\begin{scope}[scale=0.75]			
 				% adding fuzz
@@ -1100,18 +1056,14 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 					\draw[->,outstyle] (9,7) -- +(45:\arrowlength);
 				\end{pgfonlayer}
 				
-			% First we fill the surfaces with the background colors.
 			% region 1
 			\fill [color = surfacecolor1] (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
 				arc (180:0:2cm and 3cm)
-				%.. controls (3, 9) and (3,10) .. (4,10)
-				%.. controls (4.5,10) and (6,9.5) .. (6,8)
 				to [out = 270, in = 90] (6, 5.5)
 				-- (6,0.5)
 				arc (360: 180: 1cm and 0.5cm)
 				-- (4, 6)
 				arc (90:180:2cm and 3.5cm)
-				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
 				to [out = 210, in = 0] (1,2)
 				arc (270: 180: 1cm and 0.5cm);
 			
@@ -1129,18 +1081,14 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 				to [out = 240, in = 30] (8, 2.5) -- (6, 1.5) -- (6, 5.5);
 			
 			
-			% Now we draw the lines of the surface
 			%first around region 1
 			\draw (0, 2.5) .. controls (0, 4) and (2,6.5) .. (1.75,8)
 				arc (180:0:2cm and 3cm)
-				%.. controls (3, 9) and (3,10) .. (4,10)
-				%.. controls (4.5,10) and (6,9.5) .. (6,8)
 				to [out = 270, in = 90] (6, 5.5)
 				-- (6,0.5)
 				arc (360: 180: 1cm and 0.5cm)
 				-- (4, 6)
 				arc (90:180:2cm and 3.5cm)
-				%.. controls (1, 2) and (1.5, 2) .. (1, 2)
 				to [out = 210, in = 0] (1,2)
 				arc (270: 180: 1cm and 0.5cm);
 			
@@ -1159,7 +1107,6 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 				parabola bend (7.75, 6.4) (9, 7);
 			\draw (7, 6.5) parabola bend (8.5, 5.8) (11, 6);
 			
-			% now the contour lines
 			% the first contour line
 			\draw [contour line] (2.3, 10) arc (180:360:1.45cm and 0.5cm)
 				decorate {(2.3, 10) arc (180:0:1.45cm and 0.5cm)};
@@ -1184,42 +1131,8 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 			 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
 			 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
 			
-			
-%			\begin{scope}[xshift = -4cm, yshift =2.5cm, scale = 0.75]
-%				% now the contour lines
-%				% the first contour line
-%				\draw [contour line] (2.3, 10) arc (180:360:1.45cm and 0.5cm)
-%					 {(2.3, 10) arc (180:0:1.45cm and 0.5cm)};
-%			
-%			
-%				% the second contour line
-%				\draw [contour line] (1.75,8) arc (180:320:1.45cm and 0.5cm)
-%					 {to [out = 30,in = 135](4.65, 7.6) to [out = -45, in = 45] (4.2, 7.1) }
-%					arc (180:270:0.5cm and 0.2cm) to [out = 0, in = -90] (5.75,8)
-%				;
-%				\draw [contour line]  {(1.75,8) arc (180:0:2cm and 0.6cm)};
-%			
-%				% the third contour line
-%				\draw [contour line] 
-%					 {(1.25, 5.75) arc (180:90: 1cm and 0.5cm) to [out = 0, in = 150] (3.5,5.75)}
-%					 -- (4, 5.5) 
-%					 {-- (4.5,5.25) to [out = -30, in = 135] (6,5)}
-%					arc (360: 180: 1cm and 0.5cm)
-%					 { to [out = 45, in = 210] (4.5,5.25)};
-%			
-%				\draw [contour line] 
-%				 (1.25, 5.75) arc (180: 270: 1cm and 0.5cm) to [out = 0, in = 210] (3.25,5.75)
-%				 	 to [out = 30, in = 150] (5.25, 6.15) to [out = -30,in = 30] (4.5, 5.25);
-%			\end{scope}
-		\end{scope}
-			
-			% now for some braces
-		%	\draw [thick, decoration={brace, amplitude=3pt}]  decorate {(6.5, 10.5) -- (6.5,6.5)};
-		%	\node at (7.5,8.5) {\small some math};
-		%	\draw [thick, decoration={brace, amplitude=3pt}]  decorate {(11.5, 6.5) -- (11.5,1.5)};	
-		%	\node at (12, 4) {\small more};			
-			
-		
+			\end{scope}
+					
 		% Now the 2D diagrams
 		\begin{scope}[xshift = 7cm, yshift = 2cm]
 			
@@ -1255,7 +1168,6 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 
 						% the second morphism	
 						\draw [double equal sign distance] (3, 3.00) -- (3, 2.5);
-%						\node at (3.5,2.75) {$\cong$};
 							
 						% ev^R ev + ev^L (deformed)
 						\begin{scope}[yshift=.1cm]
@@ -1307,11 +1219,7 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 		% names of 2D slices
 		\node[anchor=mid west, \graytextcolor] (A) at (11.5, 8.5) {$= \ev^L$};
 		\node[anchor=mid west, \graytextcolor] (B) at (11.5, 6) {$= \ev^L \circ \ev \circ \ev^R$};		
-%		\node[anchor=mid west, gray] (B) at (11.5, 3.5) {$= \ev^L \circ \ev \circ \ev^R$};		
 		\node[anchor=mid west, \graytextcolor] (C) at (11.5, 1) {$= \ev^R$};
-%		\draw [double, gray, thin] (A) -- +(-1,0);
-%		\draw [double, gray, thin] (B) -- +(-1,0);
-%		\draw [double, gray, thin] (C) -- +(-1,0);
 		% names of arrows
 		\node[anchor=mid west, \graytextcolor] at (11.5, 7.25) {$= \id_{\ev^L} \circledcirc v_2^R$};
 		\node[anchor=mid west, \graytextcolor] at (11.5, 2.25) {$= v_1 \circledcirc \id_{\ev^R}$};
@@ -1342,7 +1250,6 @@ be unit and counit maps witnessing that adjunction.  We say that $x$ is a \emph{
 \begin{definition} \label{def:radfordequiv}
 For a Radford object $x \in \cC$, choose a dual $\overline{x}$ with evaluation and coevaluation maps $\ev_x$ and $\coev_x$; choose a right adjoint $\ev_x^R$ witnessed by unit $u_x$ and counit $v_x$, and a left adjoint $\ev_x^L$ witnessed by unit $\tilde{u}_x : \id_1 \ra \ev_x \circ \ev_x^L$ and counit $\tilde{v}_x: \ev_x^L \circ \ev_x \ra \id_{x \otimes \overline{x}}$; and choose a right adjoint $v_x^R$.  The \emph{Radford equivalence} $\cR_x$ is the composite
 \[
-%\cR_x :=  (\tilde{v}_x \circledcirc \id_{\ev_x^R})\circ (\id_{\ev_x^L} \circledcirc v_x^R).
 \cR_x: \ev_x^L \xra{\id_{\ev_x^L} \circledcirc v_x^R} \ev_x^L \circ \ev_x \circ \ev_x^R \xra{\tilde{v}_x \circledcirc \id_{\ev_x^R}} \ev_x^R.
 \]
 \end{definition} \vspace{8pt}
@@ -1463,12 +1370,9 @@ and $		(\varepsilon \otimes id_{x}) \circ (id_{x} \otimes \eta) = id_{x}.$
 \end{definition}
 
 Although this convention on the meaning of rigidity is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following Etingof-Gelaki-Nikshych-Ostrik \cite{EGNO} and Bakalov-Kirillov \cite{MR1797619})  or the left dual of $x$ (following Kassel \cite{MR1321145} and Chari-Pressley \cite{MR1358358}).  We believe that this choice should be determined by the following compatibility desideratum: 
-%\vspace{1.5ex}
 \begin{itemize}
 \item[]
-%\begin{convention} \label{conv:Compatible}
 	\emph{In reasonable settings where something could be called either a dual or an adjoint, the left dual should be the left adjoint.}
-%\end{convention}
 \end{itemize}
 
 \nid For example, the category of endofunctors $\Fun(\cA, \cA)$ is a monoidal category in which the dual of a functor is the adjoint functor.  More generally, any monoidal category can be viewed as a $2$-category with one object, and in this setting, the duals of objects in the monoidal category are adjoints of $1$-morphisms in the corresponding $2$-category.  
@@ -2331,11 +2235,6 @@ A functor $\cD \boxtimes_{\cD^\mp \boxtimes \cD} (\cD^\mp \boxtimes \cM) \ra \cM
 \end{align*}
 together with the obvious natural isomorphism, defines the desired equivalence.
 \end{proof}
-%\nid Also observe the following more elementary interaction between flipping actions and the Deligne tensor: for any bimodule categories ${}_{\cC \boxtimes \cD} \cM_\cE$ and ${}_\cE \cN_{\cE'}$, the partial flip of the tensor can be written as a tensor with a flip:
-%\[
-%{}_\cC (\cM \boxtimes_{\cE} \cN)_{\cD^\mp \boxtimes \cE'} \simeq ({}_\cC \cM_{\cD^\mp \boxtimes \cE}) \boxtimes_{\cD^\mp \boxtimes \cE} (\cD^\mp \boxtimes \cN).
-%\]
-%An analogous relation holds for a partial flip of the tensor of bimodule categories ${}_\cC \cM_\cD$ and ${}_\cD \cN_{\cE \boxtimes \cE'}$.  [Shoot, maybe this is not more elementary at all --- looks like it involves mapping into a deligne tensor.  Or maybe it's clear it's the same universal property.]
 
 We can now verify the zigzag equations of the duality between $\cC$ and $\cC^\mp$.
 \begin{proposition} \label{prop:onedual}
@@ -2379,9 +2278,6 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 \begin{tikzpicture}
 \draw[emptylinestyle,fuzzrightwide] (.02,-.01*\pointrad) -- (.02,.01*\pointrad);
 \filldraw (0,0) circle (\pointrad); 
-%\begin{pgfonlayer}{background}
-%\draw[->,outstyle] (0,0) -- +(\arrowlength,0);
-%\end{pgfonlayer}
 \end{tikzpicture}
 }
 & $\cC$ \\
@@ -2390,9 +2286,6 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 \begin{tikzpicture}
 \draw[emptylinestyle,fuzzrightwide] (-.02,.01*\pointrad) -- (-.02,-.01*\pointrad);
 \filldraw (0,0) circle (\pointrad); 
-%\begin{pgfonlayer}{background}
-%\draw[->,outstyle] (0,0) -- +(-\arrowlength,0);
-%\end{pgfonlayer}
 \end{tikzpicture}
 }
 & $\cC^\mp$ \\
@@ -3163,8 +3056,7 @@ whose value on the standard positively 3-framed point is $\cC$.
 \end{corollary}
 
 \begin{remark}
-Note well that this result requires no assumption about the algebraic closure or characteristic of the base field.  In particular, observe the following: given a separable tensor category $\cC$ over a field $l$, if there exists a separable form of $\cC$ over a subfield $k \subset l$ (that is, there is a separable tensor category %$\underline{\cC}$ 
-over $k$ whose base change to $l$ is equivalent to $\cC$), then the 3-manifold invariants of $\cF_\cC$ are all contained in the smaller field $k$.
+Note well that this result requires no assumption about the algebraic closure or characteristic of the base field.  In particular, observe the following: given a separable tensor category $\cC$ over a field $l$, if there exists a separable form of $\cC$ over a subfield $k \subset l$ (that is, there is a separable tensor category over $k$ whose base change to $l$ is equivalent to $\cC$), then the 3-manifold invariants of $\cF_\cC$ are all contained in the smaller field $k$.
 \end{remark}
 
 \begin{corollary} \label{cor:charzerotft}
@@ -3257,7 +3149,7 @@ that is, $(\cC,P)$ is trace spherical.  The converse follows by cyclically permu
 In the setting of non-semisimple finite tensor categories, it is neither the case that spherical implies trace spherical, nor the case that trace spherical implies spherical, as the following two examples illustrate.
 
 \begin{example}
-Let $q$ be a primitive $p$-th root of unity.  Consider the Hopf algebra described in~\cite[Rem. 7.5]{MR2097289}: $H := \CC\langle E, F, K \rangle / (KE = q^2 EK, KF = q^{-2} FK, EF=FE)$, $\Delta(K) = K \otimes K$, $\Delta(E) = E \otimes K + 1 \otimes E$, $\Delta(F) = F \otimes 1 + K^{-1} \otimes F$, $S(K) = K^{-1}$, $S(E) = -EK^{-1}$, $S(F) = -KF$---this differs from the quantum group $U_q(sl_2)$ only in that $E$ and $F$ commute.  Observe that the natural transformation $V \ra V^{**}$, $v \mapsto K \cdot v$ is a pivotal structure on $\Rep(H)$.  One can check that the Radford equivalence $V \ra V^{****}$ is given by $v \mapsto K^2 \cdot v$, and therefore this pivotal structure is spherical.  
+Let $q$ be a primitive $p$-th root of unity.  Consider the Hopf algebra described in~\cite[Rem. 7.5]{MR2097289}: $H := \CC\langle E, F, K \rangle / (KE = q^2 EK, KF = q^{-2} FK, EF=FE, E^p = 0, F^p = 0, K^p =1)$, $\Delta(K) = K \otimes K$, $\Delta(E) = E \otimes K + 1 \otimes E$, $\Delta(F) = F \otimes 1 + K^{-1} \otimes F$, $S(K) = K^{-1}$, $S(E) = -EK^{-1}$, $S(F) = -KF$---this differs from the quantum group $U_q(sl_2)$ only in that $E$ and $F$ commute.  Observe that the natural transformation $V \ra V^{**}$, $v \mapsto K \cdot v$ is a pivotal structure on $\Rep(H)$.  One can check that the Radford equivalence $V \ra V^{****}$ is given by $v \mapsto K^2 \cdot v$, and therefore this pivotal structure is spherical.  
 
 Given any Hopf algebra $G$ with an object $g$ such that $\Delta(g) = g \otimes g$, $S(g) = g^{-1}$, and $S^2$ equal to conjugation by $g$, we have that left multiplication $l_g$ by $g$ is a pivotal structure on $\Rep(G)$.  Barrett--Westbury show that this pivotal structure is trace spherical if and only if $\tr_V(l_g \theta) = \tr_V(l_{g^{-1}} \theta)$ for all representations $V$ and all endomorphisms $\theta \in \Hom_{\Rep(G)}(V,V)$ \cite{MR1686423}; note that here $\tr_V$ is the trace of a vector space endomorphism of $V$, not the quantum trace.  The Hopf algebra $H$ above has 1-dimensional representations where this trace equation certainly fails, and therefore the aforementioned pivotal structure on $\Rep(H)$ is not trace spherical.
 \end{example}
@@ -3283,7 +3175,7 @@ Does every local 3-framed field theory with target tensor categories descend to 
 Does every local 3-framed field theory with target tensor categories descend to an oriented field theory?
 \end{question}
 
-Instead of asking about the descent properties of an arbitrary field theory, we may equip our tensor category itself with extra structure and expect that structure to provide descent information.  Thus less speculatively we have the following trio:
+Instead of asking about the descent properties of an arbitrary field theory, we may equip our tensor category itself with extra structure and expect that structure to provide descent information.  Thus less speculatively we have the following trio of anomaly-vanishing conjectures:
 \begin{conjecture}
 Every spherical fusion category admits the structure of an $SO(3)$ homotopy fixed point, and therefore provides an oriented local field theory.
 \end{conjecture}
@@ -3293,28 +3185,10 @@ Every pivotal fusion category admits the structure of an $SO(2)$ homotopy fixed 
 \begin{conjecture}
 Every fusion category admits the structure of a $Spin(3)$ homotopy fixed point, and therefore provides a spin local field theory.
 \end{conjecture}
-\nid The first and third of these are in effect anomaly-vanishing conjectures.
 
 One can formulate similar questions and conjectures for tensor categories that are merely finite rather than fusion.  For instance, we saw that any finite tensor category provides a partial (``non-compact") 3-dimensional 3-framed field theory.  If the finite tensor category is pivotal, we also observed that it is an $\Omega S^2$ fixed point.  We might expect it to be in fact an $SO(2)$ fixed point, and might anticipate that it moreover provides a non-compact 3-dimensional combed 3-framed field theory.  Even if the finite tensor category is not pivotal (there are such examples, see \cite[Rem. 2.11]{1204.5807}), we might still ask if it is necessarily $SO(2)$ fixed.
 
 
-%%%%%%%%%%
-
-%%\appendix 
-%%\renewcommand{\thesubsection}{\Alph{section}.{\arabic{subsection}}}
-
-%\renewcommand{\theapptheorem}{A.\arabic{apptheorem}}
-%\setcounter{apptheorem}{0}
-
-%%\addtocontents{toc}{\SkipTocEntry}
-%%\section*{Appendix.}
-%%\nopagebreak
-
-%\nopagebreak
-%\addtocontents{toc}{\SkipTocEntry}
-%\section*{Appendix A. The cobordism hypothesis} \label{app:ch}
-%\addtocontents{toc}{\protect\contentsline{section}{\protect\tocsection{}{}{App. A. The cobordism hypothesis\hspace{\fill}}}{\thepage}{section*.7}}%\hspace{-3.4pt}}{}}
-%%\addtocontents{toc}{\SkipTocEntry}
 
 
 \appendix
