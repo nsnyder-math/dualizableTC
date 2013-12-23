@@ -2443,7 +2443,7 @@ The \emph{trace} of a finite tensor category $\cC$ is the relative Deligne tenso
 In this product, the two actions are the most naive ones, namely the right action of $c \boxtimes d \in \cC \boxtimes \cC^\mp$ on $m \in \cC$ is $m \cdot (c \boxtimes d) := d \otimes m \otimes c$, and the left action of $c \boxtimes d \in \cC \boxtimes \cC^\mp$ on $m \in \cC$ is $(c \boxtimes d) \cdot m := c \otimes m \otimes d$.
 \end{definition}
 Contrary perhaps to expectation, the trace $\cT(\cC)$ need not be equivalent to the Drinfeld center $\cZ(\cC)$.\footnote{See~\cite{bzfn} for a comparison of derived centers and traces of categories of quasicoherent sheaves.}  Indeed, if $\cC$ is not pivotal, there is no a priori reason for $\cT(\cC)$ to even be a monoidal category.  (From a field-theoretic perspective, the monoidal structure on $\cZ(\cC)$ comes from a 2-framed pair-of-pants bordism, all of whose boundary circles are the 2-framed circle shown as the target in Example~\ref{ex:disk_bordism_immersed}.  There is no 2-framed pair-of-pants bordism, all of whose boundary circles are the 2-framed stabilization of the 1-framed circle.)  We can see the precise difference between the trace and the center by expressing the trace as a functor category.
-\begin{corollary}
+\begin{corollary} \label{cor:trace}
 For $\cC$ a finite tensor category, there is an equivalence of linear categories
 \[
 \cT(\cC) \simeq \Fun_{\mod{\cC}{\cC}}(({}_\cC \cC_\cC)_{\langle \mathfrak{r r} \rangle},{}_\cC \cC_\cC).
@@ -2779,7 +2779,7 @@ By judicious application of Lemma~\ref{lemma:flip}, we recognize the above expre
 {}_\cC ({}_\Vect \Fun_\Vect(\cC,\Vect)_{\cC \boxtimes \cC^\mp})_\cC, \\
 {}_\cC ({}_\Vect \Fun_{\mod{\cC \boxtimes \cC^\mp}{}}(\cC,\cC \boxtimes \cC^\mp)_{\cC \boxtimes \cC^\mp})_\cC.
 \end{gather*}
-By Proposition~\ref{prop:dual-formula-for-adjoints}, Lemma~\ref{lemma:DualTwist}, and the existence of bimodule equivalences between $({}_\cC \cC_\cC)^*$ and ${}^*({}_\cC \cC_\cC)$ and ${}_\cC \cC_\cC$, we now have equivalences
+By Proposition~\ref{prop:dual-formula-for-adjoints}, Lemma~\ref{lemma:DualTwist}, and the existence of bimodule equivalences between $({}_\cC \cC_\cC)^*$ and ${}^*({}_\cC \cC_\cC)$ and ${}_\cC \cC_\cC$ (see the proof of Corollary~\ref{cor:trace}), we now have equivalences
 \begin{alignat*}{3}
 {}_\cC ({}_\Vect \Fun_\Vect(\cC,\Vect)_{\cC \boxtimes \cC^\mp})_\cC 
 & \simeq  {}_\cC(({}_{\cC \boxtimes \cC^\mp} \cC_{\Vect})^*)_\cC
@@ -3267,9 +3267,6 @@ Consider Sweedler's 4-dimensional Hopf algebra: $H := \CC \langle x, g \rangle /
 
 Note that by the Barrett--Westbury condition mentioned in the previous example, we immediately see that the category of representations $\Rep(H)$ of Sweedler's Hopf algebra, with the pivotal structure given by left multiplication by $g$, is trace spherical.  Recall from~\cite{MR2097289} that in a finite tensor category over an algebraically closed field, the projective cover of the unit is dual to the projective cover of the dual of the distinguished invertible object.  The unit of $\Rep(H)$ is $V_+$; the projective cover of $V_+$ is $W_+$; the dual of $W_+$ is $W_-$; the projective cover of $V_-$ is $W_-$; and the dual of $V_-$ is $V_-$ itself.  The distinguished invertible object is therefore $V_-$, but note that $V_+$ and $V_-$ both square to the unit, so there is certainly no tensor square root of the distinguished invertible.  Thus, this representation category cannot have an $\Omega \Sigma \RP^2$ fixed point structure, and so in particular cannot have a spherical structure.
 \end{example}
-%!% Does the ENO characterization depend on working over an algebraically closed field?
-%!% Confirm that ENO characterization.
-
 
 \begin{remark}
 Because the representation category $\Rep(H) \in \TC$ of Sweedler's Hopf algebra is not $\Omega \Sigma \RP^2$-fixed, it cannot be $SO(3)$ fixed for any action of $SO(3)$ on $\TC$ restricting to the $\Omega \Sigma \RP^2$ action provided by the combination of the Serre automorphism and the Radford equivalence.  Thus the associated field theory invariants cannot possibly be oriented invariants.  At best, $\Rep(H)$ could be an $SO(2)$-fixed point and thus provide a combed field theory.  (A combed field theory is by definition one taking values on $SO(2)$-structured manifolds; an $SO(2)$-structured 3-manifold is precisely a 3-manifold equipped with a nonvanishing vector field, that is a combing.)  This explains the necessity of the combing on the manifolds in Kuperberg's invariant~\cite{MR1394749}.  In particular, we see that, unlike for ordinary Turaev--Viro invariants in the semisimple case, trace sphericality is in general insufficient to produce an oriented invariant.
@@ -3299,10 +3296,6 @@ Every fusion category admits the structure of a $Spin(3)$ homotopy fixed point, 
 \nid The first and third of these are in effect anomaly-vanishing conjectures.
 
 One can formulate similar questions and conjectures for tensor categories that are merely finite rather than fusion.  For instance, we saw that any finite tensor category provides a partial (``non-compact") 3-dimensional 3-framed field theory.  If the finite tensor category is pivotal, we also observed that it is an $\Omega S^2$ fixed point.  We might expect it to be in fact an $SO(2)$ fixed point, and might anticipate that it moreover provides a non-compact 3-dimensional combed 3-framed field theory.  Even if the finite tensor category is not pivotal (there are such examples, see \cite[Rem. 2.11]{1204.5807}), we might still ask if it is necessarily $SO(2)$ fixed.
-
-
-%!% Do you really think all finite tensor categories are SO(2) fixed?
-
 
 
 %%%%%%%%%%
