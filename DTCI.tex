@@ -433,7 +433,7 @@ As described above, each such immersion specifies a $2$-framed circle, and in fa
 
 \begin{remark}
 Not every $n$-framed $n$-manifold can be specified using the immersion notation.  For example, the circle has a (unique up to diffeomorphism) $1$-framing, but it cannot be immersed in $\RR^1$.  The Hirsch-Smale immersion theorem \cite{MR0119214, MR0105117} ensures, though, that every $n$-framing of an $(n-k)$-manifold can be realized by a normally framed immersion, provided either $k>0$ or each component of the manifold is not closed.
-\end{remark} %!% CD not checked
+\end{remark}
 
 An $m$-framed $k$-manifold $(M,\tau)$ can be stabilized to an $n$-framed manifold $(M,\tau \oplus \id_{\RR^{n-m}})$.  A normally framed immersion $(\iota: M \looparrowright \RR^m, \phi : \nu(\iota) \simeq \RR^{m-k})$ can similarly be stabilized to the normally framed immersion $(\inc_{\RR^m \ra \RR^n} \circ \iota, \phi \oplus \id_{\RR^{n-m}})$.  The association of an $m$-framed manifold to a normally framed immersion is evidently compatible with these stabilization procedures.
 
@@ -939,7 +939,6 @@ The 1-morphism $\ev^L$ itself has a left adjoint $\ev^{LL}$, which itself has a 
 }
 \caption{Two infinite chains of adjunctions of 2-framed bordisms.} \label{fig:adjointchains}
 \end{figure}
-%!% Fix all the immersion pictures to have smooth loops.
 
 \subsection{The Serre bordism and the Serre automorphism} \label{sec:Serre}
 
@@ -1323,7 +1322,6 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 		\end{center}	
 	\caption{A Morse decomposition of the Radford bordism.} \label{fig:Radford_bordism}
 \end{figure}
-%!% Make sure these pictures have the new loops too.
 
 \subsubsection{A categorical formula for the Radford equivalence}
 
@@ -1513,18 +1511,17 @@ Recall the following standard terminology concerning linear categories:
 \begin{itemize}
 	\item[-] An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects $X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots$ has finite length. 
 	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a projective object $P$ with a surjection $P \twoheadrightarrow X$. 
-	\item[-] An object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of a simple object is a division algebra over $k$. %!%CD
-	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects.  A finite length object of a semisimple category splits as a finite direct sum of simple objects.  %!%CD was "if every object splits as a direct sum of simple objects, or equivalently if every short exact sequence splits." %!% Is that the def of ss we want? (excludes Hilb, but perhaps that's okay)  [I think it's fine now.]
+	\item[-] An object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of a simple object is a division algebra over $k$.
+	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects.  A finite length object of a semisimple category splits as a finite direct sum of simple objects.
 \end{itemize}
 
 We can now describe a strong finiteness condition on linear categories:
-\begin{definition} % This is from EGNO Definition 1.18.2.
+\begin{definition}
 	A linear category $\cC$ is {\em finite} if 
 	\begin{enumerate}
 		\item[1.] $\cC$ has finite-dimensional spaces of morphisms;
 		\item[2.] every object of $\cC$ has finite length;
-		\item[3.] $\cC$ has enough projectives%, i.e. every simple object of $\cC$ has a projective cover
-		; and
+		\item[3.] $\cC$ has enough projectives; and
 		\item[4.] $\cC$ has finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
@@ -1543,7 +1540,7 @@ A \emph{linear monoidal category} is a monoidal category $(\cC, \otimes, 1)$ wit
 
 \begin{example}
 When $\cM$ is a finite linear category, the category of (right exact) linear endofunctors $\Fun(\cM,\cM)$ is a finite linear monoidal category.  (Recall our convention that the monoidal structure on $\Fun(\cM,\cM)$ is defined by $\cF \otimes \cG := \cG \circ \cF$.)  If $\cM$ is semsimple, then $\Fun(\cM,\cM)$ is rigid---duals are obtained by taking adjoint functors---and hence a tensor category.
-\end{example} %!%CD
+\end{example}
 
 For a monoidal category $\cC$, there are three distinct notions of the opposite monoidal category: we can reverse the order of composition, reverse the order of tensor product, or reverse both.  We will denote these respectively by $\cC^\op$ (the opposite category), $\cC^\mp$ (the monoidally-opposite category), and $\cC^\mop$ (the monoidally-opposite, opposite category).  (Note that in the literature `$\op$' sometimes refers to the opposite category and sometimes to the monoidally-opposite category, and some authors have used `$\rev$' to refer to the monoidally-opposite category.)  Observe that when the monoidal category $\cC$ is rigid, taking the left or right dual provides a monoidal equivalence from $\cC^\op$ to $\cC^\mp$ (or vice versa) and similarly provides a monoidal equivalence from $\cC$ to $\cC^\mop$ (or vice versa).
 
@@ -1575,11 +1572,11 @@ We include some examples of module and bimodule categories.
 
 \begin{example}
 Every linear category can be given the structure of a $\Vect_k$--$\Vect_k$-bimodule category in an essentially unique way: such a structure always exists, and any two such structures are naturally isomorphic by a unique isomorphism.
-\end{example} %!%CD
+\end{example}
 
 \begin{example}
 Let $A$ be an algebra object in a linear monoidal category $\cC$.  The category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a \emph{left} $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a \emph{right} $\cC$-module category.
-\end{example} %!%!%CD
+\end{example}
 
 \begin{example}
 Let $\cC$ be a finite linear monoidal category, and let $\cM$ and $\cN$ be finite left $\cC$-module categories.  The categories $\Fun_{\cC}(\cM, \cM)$ and $\Fun_{\cC}(\cN, \cN)$ of (right exact) $\cC$-module endofunctors are finite linear monoidal categories; the linear category $\Fun_{\cC}(\cM, \cN)$ is a $\Fun_{\cC}(\cM, \cM)$--$\Fun_{\cC}(\cN, \cN)$-bimodule category, with the action $\phi \otimes \cF \otimes \psi := \psi \circ \cF \circ \phi$, for $\phi \in \Fun_\cC(\cM,\cM)$, $\psi \in \Fun_\cC(\cN,\cN)$, and $\cF \in \Fun_\cC(\cM,\cN)$.
@@ -1619,7 +1616,7 @@ The relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is the initial linea
 	For $\cC$ a linear monoidal category, let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category.  The {\em relative Deligne tensor product} is a linear category $\cM \boxtimes_{\cC} \cN$ together with a $\cC$-balanced bilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ that induces, for all linear categories $\cL$, an equivalence between the category of $\cC$-balanced bilinear functors $\cM \times \cN \to \cL$ and the category of linear functors $\cM \boxtimes_{\cC} \cN \to \cL$. 
 \end{definition}
 
-\nid If it exists, the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is unique up to equivalence, and that equivalence is in turn unique up to unique natural isomorphism; in other words, the 2-category of linear categories representing the relative Deligne tensor product is either contractible or empty.  Observe that because it is defined by a universal property, when it exists the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is functorial in the module categories $\cM$ and $\cN$ and in the monoidal category $\cC$. %!% Confirm.
+\nid If it exists, the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is unique up to equivalence, and that equivalence is in turn unique up to unique natural isomorphism; in other words, the 2-category of linear categories representing the relative Deligne tensor product is either contractible or empty.  Observe that because it is defined by a universal property, when it exists the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is functorial in the module categories $\cM$ and $\cN$ and in the monoidal category $\cC$.
 
 Provided the monoidal category $\cC$ is finite and rigid, and provided the module categories are finite, the relative Deligne tensor product does indeed exist.
 
@@ -1639,7 +1636,7 @@ Provided the monoidal category $\cC$ is finite and rigid, and provided the modul
 \end{theorem}
 \nid Tambara constructed an additive (rather than abelian) version of a relative Deligne tensor product for semisimple module categories over semisimple monoidal categories~\cite{tambara}.  Etingof--Nikshych--Ostrik constructed the relative Deligne tensor product for semisimple module categories over a semisimple tensor category with simple unit over an algebraically closed field of characteristic zero~\cite{0909.3140}.  
 
-The relative Deligne tensor product provides a means of composing bimodule categories; this is the most important ingredient in constructing the 3-category of finite tensor categories.  We need not just a 3-category, though, but a symmetric monoidal 3-category.  The monoidal structure is given by the relative Deligne tensor product over the tensor category $\Vect_k$; such a product is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.  For the Deligne tensor to provide a monoidal structure on the objects of the 3-category of finite tensor categories, we need to know that the product $\cC \boxtimes \cD$ is indeed rigid.  To ensure that we make our first and only assumption about the base field $k$, namely that it is perfect; cf. Deligne~\cite[Prop 5.17]{deligne}.\footnote{For example: if $k$ is not perfect, and $l$ is an inseparable field extension of $k$, then the Deligne tensor $(\Mod{l}{l}) \boxtimes (\Mod{l}{l})$ is not rigid.} %!% CDNC
+The relative Deligne tensor product provides a means of composing bimodule categories; this is the most important ingredient in constructing the 3-category of finite tensor categories.  We need not just a 3-category, though, but a symmetric monoidal 3-category.  The monoidal structure is given by the relative Deligne tensor product over the tensor category $\Vect_k$; such a product is denoted $\cM \boxtimes \cN$ and referred to simply as the Deligne tensor product.  For the Deligne tensor to provide a monoidal structure on the objects of the 3-category of finite tensor categories, we need to know that the product $\cC \boxtimes \cD$ is indeed rigid.  To ensure that we make our first and only assumption about the base field $k$, namely that it is perfect; cf. Deligne~\cite[Prop 5.17]{deligne}.\footnote{For example: if $k$ is not perfect, and $l$ is an inseparable field extension of $k$, then the Deligne tensor $(\Mod{l}{l}) \boxtimes (\Mod{l}{l})$ is not rigid.}
 
 \begin{theorem}[\cite{3TC}] \label{thm:tcexists}
 Provided the base field $k$ is perfect, there exists a symmetric monoidal $(3,3)$-category $\TC$ whose objects are the finite tensor categories, whose 1-morphisms are finite bimodule categories, whose 2-morphisms are bimodule functors, and whose 3-morphisms are bimodule transformations.  Composition of 1-morphisms is given by the relative Deligne tensor product, and the symmetric monoidal structure is given by the Deligne tensor product.
@@ -1654,7 +1651,6 @@ When investigating the dualizability properties of a finite tensor category $\cC
 Such a condition, ensuring the exactness of module functors out of a module category, is provided by Etingof and Ostrik's (aptly named) notion of an exact module category.  In this section we summarize the properties of exact module categories, following~\cite{EO-ftc}, and then prove a new result concerning the exactness of Deligne tensor products.
 
 \subsubsection{Properties of exact module categories over finite tensor categories}
-%!% Words of intro here?
 
 \begin{definition}
 Let $\cC$ be a finite tensor category.  A left $\cC$-module category $\cM$ is \emph{exact} 
@@ -1681,10 +1677,9 @@ The following omnibus theorem summarizes the properties of exact module categori
 \begin{theorem}[\cite{EO-ftc, EGNO}] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a finite tensor category over an arbitrary field, let $\cM$, $\cM'$, and $\cM''$ be finite exact $\cC$-module categories, and let $\cN$ be any finite $\cC$-module category.
 	\begin{enumerate}
-%		\item The category $\cM$ has enough projectives \cite[Lemma 3.4]{EO-ftc} \cite[Lemma 2.7.1]{EGNO}.
 		\item Every projective object of $\cM$ is injective, and every injective object of $\cM$ is projective \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
 		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.		
-		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}. %!%CDNC
+		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}.
 		\item The composition functor $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}.	
 		\item The monoidal category of endofunctors $\Fun_{\cC}(\cM,\cM)$ is rigid, therefore is a finite tensor category.
 		\item The category $\cM$ is exact when considered as a $\Fun_{\cC}(\cM,\cM)^\mp$-module category \cite[Lemma 3.25]{EO-ftc}.
@@ -1807,7 +1802,7 @@ The columns are exact because the objects $z_i$ are injective.  The middle row i
 
 \begin{remark}
 Over an imperfect field, the conclusion of this theorem is false even when $\cC \boxtimes \cD$ happens to be rigid.  For example, when $\ell$ is an inseparable field extension of the base field $k$, the linear category $\Vect_\ell$ is semisimple, therefore exact as a $\Vect_k$-module category, but the product $\Vect_\ell \boxtimes \Vect_\ell \simeq \Mod{(\ell \otimes_k \ell)}{}$ is not semisimple, therefore not exact as a $\Vect_k$-module category.
-\end{remark} %!%CD
+\end{remark}
 
 \subsection{Dual and functor bimodule categories} \label{sec:tc-bimodules}
 
@@ -1959,7 +1954,7 @@ Similarly
 
 \begin{remark} \label{rmk:Deligne_pdt_as_mod_functor}
 This corollary is a correction of \cite[Remark 3.6]{0909.3140} and \cite[Thm. 3.20]{0911.4979}, both of which are off by a twist by a double dual functor.\footnote{Note also that, even appropriately corrected, the proof of \cite[Thm 3.20]{0911.4979} is incomplete.  For instance, it uses \cite[Lemma 3.21]{0911.4979}, which is false.  A counterexample to that Lemma is given by $\cC = \Vect[G]$, the category of $G$-graded vector spaces for a finite group $G$, and $\cM = \cN = \Vect$.  The Lemma would have $\Vect \boxtimes \Vect \simeq \Vect$ equivalent to $\Fun_{\Vect[G]}(\Vect,\Vect) \simeq \Rep(G)$, but no such equivalence exists.} 
-\end{remark} %!%CDNC
+\end{remark}
 
 
 \subsubsection{Dual bimodule categories as modules over a double dual}
@@ -2012,8 +2007,7 @@ In this section, we prove two crucial properties of separable module categories,
 
 \subsubsection{Separability and semisimplicity} \label{sec:sepandsemi}
 
-Over a perfect field (for instance, a finite field, an algebraically closed field, or a field of characteristic zero), an algebra $A$ is separable if and only if it is finite-dimensional semisimple; over an arbitrary field, separability is a stronger condition than finite-dimensional semisimplicity \cite[Ch.~2]{MR0280479}.  The corresponding statements hold for linear categories: over a perfect field, a finite $\Vect$-module category is separable if and only if it is finite semisimple, while over an arbitrary field separability merely implies finite semisimplicity. %!%CD
-In general, a finite linear category $\cL$ is separable (as a $\Vect$-module) if and only if for all simple objects $S \in \cL$, the extension from the base field to the center of the division ring of endomorphisms of $S$ is a finite separable field extension.  In other words, a finite linear category is separable if and only if it remains semisimple after arbitrary base changes---we refer to this condition as `absolute semisimplicity' and for clarity use that term instead of `separable as a $\Vect$-module'.\footnote{For a semisimple $k$-linear category $\cL$ and an extension $l$ of the field $k$, let $[\cL_l]$ denote the category with the same objects as $\cL$ and with morphism spaces $\Hom_{[\cL_l]}(a,b) := \Hom_{\cL}(a,b) \otimes_k l$.  The base change from $k$ to $l$ of the category $\cL$ is, by definition, the idempotent completion $\cL_l$ of the category $[\cL_l]$.  When the category $\cL$ is finite and the field extension is finite, the base change $\cL_l$ of $\cL$ is equivalent to the product $\cL \boxtimes_{\Vect_k} \Vect_l$.}
+Over a perfect field (for instance, a finite field, an algebraically closed field, or a field of characteristic zero), an algebra $A$ is separable if and only if it is finite-dimensional semisimple; over an arbitrary field, separability is a stronger condition than finite-dimensional semisimplicity \cite[Ch.~2]{MR0280479}.  The corresponding statements hold for linear categories: over a perfect field, a finite $\Vect$-module category is separable if and only if it is finite semisimple, while over an arbitrary field separability merely implies finite semisimplicity.  In general, a finite linear category $\cL$ is separable (as a $\Vect$-module) if and only if for all simple objects $S \in \cL$, the extension from the base field to the center of the division ring of endomorphisms of $S$ is a finite separable field extension.  In other words, a finite linear category is separable if and only if it remains semisimple after arbitrary base changes---we refer to this condition as `absolute semisimplicity' and for clarity use that term instead of `separable as a $\Vect$-module'.\footnote{For a semisimple $k$-linear category $\cL$ and an extension $l$ of the field $k$, let $[\cL_l]$ denote the category with the same objects as $\cL$ and with morphism spaces $\Hom_{[\cL_l]}(a,b) := \Hom_{\cL}(a,b) \otimes_k l$.  The base change from $k$ to $l$ of the category $\cL$ is, by definition, the idempotent completion $\cL_l$ of the category $[\cL_l]$.  When the category $\cL$ is finite and the field extension is finite, the base change $\cL_l$ of $\cL$ is equivalent to the product $\cL \boxtimes_{\Vect_k} \Vect_l$.}
 %!%CD sentence on lin cat sep.
 
 
@@ -2022,7 +2016,7 @@ For tensor categories $\cC$ other than $\Vect$, a separable $\cC$-module is stil
 A separable module category ${}_\cC \cM$, over any finite semisimple tensor category $\cC$, is semisimple.
 \end{proposition}
 \begin{proof}
-It suffices to show that all objects of $\cM$ are projective.  Express ${}_\cC \cM$ as $\Mod{}{A}(\cC)$ for a separable algebra object $A$.  Because $\cC$ is semisimple, the unit $1 \in \cC$ is projective, which implies that $A \in \Mod{}{A}(\cC)$ is projective, which in turn implies any free right $A$-module is projective in $\Mod{}{A}(\cC)$.  Any object $M \in \Mod{}{A}(\cC)$ is a summand of a free $A$-module, via $M \otimes_A A \xra{\id \otimes s} M \otimes_A (A \otimes A)$ where $s$ is the bimodule splitting, and therefore is projective as required.
+It suffices to show that all objects of $\cM$ are projective.  Express ${}_\cC \cM$ as $\Mod{}{A}(\cC)$ for a separable algebra object $A$.  Because $\cC$ is semisimple, the unit $1 \in \cC$ is projective, which implies any free right $A$-module is projective in $\Mod{}{A}(\cC)$.  Any object $M \in \Mod{}{A}(\cC)$ is a summand of a free $A$-module, via $M \otimes_A A \xra{\id \otimes s} M \otimes_A (A \otimes A)$ where $s$ is the bimodule splitting, and therefore is projective as required.
 \end{proof}
 \noindent Thus, by Example~\ref{eg:semiexact}, separable module categories are exact.
 
@@ -3241,9 +3235,7 @@ A pivotal finite tensor category $(\cC, P: (-) \simeq (-)^{**})$, with absolutel
 
 To reiterate, a spherical tensor category has canonically the structure of an $\Omega \Sigma \RP^2$ fixed point.  Not all $\Omega \Sigma \RP^2$ fixed point structures come from spherical structures: evidently, any fixed point structure for a tensor category with a nontrivial distinguished invertible object cannot arise from a spherical structure.  An example of a category with nontrivial distinguished object but with an $\Omega \Sigma \RP^2$ fixed point structure is provided by the representation category of the Taft Hopf algebra $H_3 := \CC\langle x,g \rangle / (x^3=0,g^3=1,gx=\zeta xg), \Delta(g) = g \otimes g, \Delta(x) = x \otimes 1 + g \otimes x, S(g)=g^{-1}, S(x)=-g^{-1}x,$ where $\zeta$ is a third root of unity. 
 
-Recall that a trivialization $T: {}_\cC \cC_\cC \xra{\simeq} {}_{\langle \mathfrak{r r} \rangle \cC} \cC_\cC$ of the Serre automorphism is precisely determined by an invertible object $E \in \cC$ together with a monoidal trivialization of the functor $E^{-1} \otimes (-)^{**} \otimes E$.  An isomorphism $T \boxtimes_\cC T \cong \cR_\cC$ is precisely determined by an isomorphism $E^2 \cong D$, from the square of $E$ to the distinguished invertible object $D$, such that the composite isomorphism ${}^{**} (-) \xra{\cong} E^{-1} \otimes (-) \otimes E \xra{\cong} E^{-2} \otimes (-)^{**} \otimes E^2 \xra{\cong} D^{-1} \otimes (-)^{**} \otimes D$ is the Radford equivalence.  It follows, for instance, that a tensor category for which the distinguished invertible object is not a tensor square cannot admit any $\Omega \Sigma \RP^2$ fixed point structures (and so also cannot admit a spherical structure). %!% Check the statement about the data of an iso from TT to R.  How do you know that every such iso comes from X^2 \cong D??
-%!% CD hasn't checked the Taft example.
-
+Recall that a trivialization $T: {}_\cC \cC_\cC \xra{\simeq} {}_{\langle \mathfrak{r r} \rangle \cC} \cC_\cC$ of the Serre automorphism is precisely determined by an invertible object $E \in \cC$ together with a monoidal trivialization of the functor $E^{-1} \otimes (-)^{**} \otimes E$.  An isomorphism $T \boxtimes_\cC T \cong \cR_\cC$ is precisely determined by an isomorphism $E^2 \cong D$, from the square of $E$ to the distinguished invertible object $D$, such that the composite isomorphism ${}^{**} (-) \xra{\cong} E^{-1} \otimes (-) \otimes E \xra{\cong} E^{-2} \otimes (-)^{**} \otimes E^2 \xra{\cong} D^{-1} \otimes (-)^{**} \otimes D$ is the Radford equivalence.  It follows, for instance, that a tensor category for which the distinguished invertible object is not a tensor square cannot admit any $\Omega \Sigma \RP^2$ fixed point structures (and so also cannot admit a spherical structure).
 
 \subsubsection{Semisimple sphericality as a trace condition}
 
@@ -3257,10 +3249,10 @@ A semisimple pivotal finite tensor category with absolutely simple unit is spher
 \end{proposition} 
 \begin{proof}
 Both the property of sphericality and the property of trace sphericality are invariant under base change, so it suffices to compare them over an algebraically closed field.  When the base field is algebraically closed, Etingof-Nikshych-Ostrik prove in \cite[Thm 7.3 and Cor 7.4]{MR2097289} that the Radford equivalence $\cR_\cC : (-) \xra{\simeq} (-)^{****}$ is characterized by a property that is equivalent to the following property: for any object $V \in \cC$ and any morphism $f_V: V \ra V^{**}$, there is an equality of traces $\Tr(f_V) = \Tr((f_V)^* \circ \cR_{({}^* V)})$.  Here we have abbreviated $\cR_\cC({}^* V)$ as $\cR_{({}^* V)}$.  When $(\cC,P)$ is a pivotal tensor category, we have $(P_V)^* = (P_{V^*})^{-1}$ 
-\cite[Lemma 4.11; SR72, Prop 5.2.3]{0908.3347}. \nocite{rivano}%, and therefore $(P_V)^{**} = P_{V^{**}}$.  
+\cite[Lemma 4.11; SR72, Prop 5.2.3]{0908.3347}. \nocite{rivano}  
 If $(\cC,P)$ is spherical, it follows that
 \[
-\Tr(P_V) = \Tr((P_V)^* \circ \cR_{({}^* V)}) %= \Tr((P_V)^* \circ (P_{({}^* V)})^{**} \circ P_{({}^* V)}) 
+\Tr(P_V) = \Tr((P_V)^* \circ \cR_{({}^* V)}) 
 = \Tr(P_{V^*}^{-1} \circ P_{V^*} \circ P_{({}^* V)}) = \Tr(P_{({}^* V)});
 \]
 that is, $(\cC,P)$ is trace spherical.  The converse follows by cyclically permuting this equation.
