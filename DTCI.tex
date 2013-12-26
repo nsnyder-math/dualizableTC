@@ -1306,7 +1306,7 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 
 \subsubsection{A categorical formula for the Radford equivalence}
 
-Suppose we have a 3-framed 3-dimensional local field theory $\cF: \FrBord_3 \ra \cC$; let $x:=\cF(\pt_+) \in \cC$ denote the 3-dualizable object that is the image of the standard positive point.  We can certainly evaluate the theory $\cF$ on the Radford bordism, obtaining a 2-morphism $\cR_x := \cF(\cR) : \cF(\ev^L) \ra \cF(\ev^R)$ between the images of the left and right adjoints of the evaluation bordism; we will see shortly that this morphism is an equivalence, and therefore provides an equivalence between the Serre automorphism $\cS_x$ and its inverse $\cS_x^{-1}$.  However, the Radford bordism and its inverse only use certain elementary bordisms and their adjoints, and so we do not need the full strength of 3-dualizability to construct an equivalence between the Serre automorphism and its inverse.  We capture exactly the necessary amount of dualizability in the following definition.
+Suppose we have a 3-framed 3-dimen\-sional local field theory $\cF: \FrBord_3 \ra \cC$; let $x:=\cF(\pt_+) \in \cC$ denote the 3-dualizable object that is the image of the standard positive point.  We can certainly evaluate the theory $\cF$ on the Radford bordism, obtaining a 2-morphism $\cR_x := \cF(\cR) : \cF(\ev^L) \ra \cF(\ev^R)$ between the images of the left and right adjoints of the evaluation bordism; we will see shortly that this morphism is an equivalence, and therefore provides an equivalence between the Serre automorphism $\cS_x$ and its inverse $\cS_x^{-1}$.  However, the Radford bordism and its inverse only use certain elementary bordisms and their adjoints, and so we do not need the full strength of 3-dualizability to construct an equivalence between the Serre automorphism and its inverse.  We capture exactly the necessary amount of dualizability in the following definition.
 \begin{definition} \label{def:Radford-Object}
 Let $\cC$ be a symmetric monoidal $(\infty,n)$-category, for $n \geq 3$, and let $x \in \cC$ be a 2-dualizable object.  Let
 	\begin{align*}
@@ -2174,7 +2174,7 @@ When the category $\cC$ is fusion, we can describe the algebra object $A \in \cC
 \Hom_{\cC}(x \otimes y, 1).
 \end{split}
 \]
-In other words, the sum $\oplus_i \, L_i \boxtimes {}^* L_i$ satisfies the defining representing property of $A := \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC)$ and so
+That is, the sum $\oplus_i \, L_i \boxtimes {}^* L_i$ satisfies the defining representing property of $A := \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC)$ and so
 \[
 A \cong \oplus_i \, L_i \boxtimes {}^* L_i;
 \]
@@ -2231,8 +2231,8 @@ Let $A \in \cC \boxtimes \cC^\mp$ be the normalized Frobenius algebra object of 
 In the proof of the previous proposition, we saw that the copairing was given by the inclusion of $\oplus_i \, \gamma(e_{\overline{i}}) \boxtimes \gamma({}^*(e_{\overline{i}}^{-}))$ into $\oplus_{i,j} \, (L_i \otimes L_j) \boxtimes ({}^* L_j \otimes {}^* L_i)$, and the pairing was giving by projection onto the $\{i,\overline{i}\}$ factors followed by the map $\oplus_i \, e_i \boxtimes {}^*(e_i^{-})$.  The window element is therefore
 \begin{align*}
 w &= \sum_i (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ \gamma({}^*(e_{\overline{i}}^{-}))) \\
-&= \sum_i \lVert L_i \rVert (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ {}^* ({}^-\!(\gamma(e_{\overline{i}})))) \\
-&= \sum_i \lVert L_i \rVert = \dim \cC.
+&= \sum_i \lVert L_i \rVert (e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ {}^* ({}^-\!(\gamma(e_{\overline{i}}))))
+= \sum_i \lVert L_i \rVert = \dim \cC.
 \end{align*}
 Here the second equality follows from the commutation relations mentioned at the end of Section~\ref{sec:gdim}.  For the third equality, note that $(e_i \circ \gamma(e_{\overline{i}})) \cdot ({}^*(e_i^{-}) \circ {}^* ({}^-\!(\gamma(e_{\overline{i}}))))$ is homogeneous of degree zero in the term $\gamma(e_{\overline{i}}): 1 \ra L_i \otimes L_{\overline{i}}$, which term may therefore be replaced by the term $e_i^{-}: 1 \ra L_i \otimes L_{\overline{i}}$.
 \end{proof}
@@ -2353,21 +2353,20 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 \filldraw (0,0) circle (\pointrad); 
 \end{tikzpicture}
 }
-& $\cC$ \\
-
+& $\cC$ \\[3pt]
 \cb{
 \begin{tikzpicture}
 \draw[emptylinestyle,fuzzrightwide] (-.02,.01*\pointrad) -- (-.02,-.01*\pointrad);
 \filldraw (0,0) circle (\pointrad); 
 \end{tikzpicture}
 }
-& $\cC^\mp$ \\
+& $\cC^\mp$ \\[3pt]
 \cb{
 \begin{tikzpicture}
 \draw[linestyle] (0,0) -- (1,0);
 \end{tikzpicture}
 }
-& $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vect}$ \\
+& $\bimod{\cC \btimes \cC^\mp}{\cC}{\Vect}$ \\[3pt]
 \cb{
 \begin{tikzpicture}
 \draw[emptylinestyle, white] (0,-.1) -- (0,.1);
@@ -2378,7 +2377,7 @@ The values of the field theory $\cF_\cC$ on certain elementary bordisms are list
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& $\bimod{\Vect}{\cC}{\cC^\mp \btimes \cC}$ \\
+& $\bimod{\Vect}{\cC}{\cC^\mp \btimes \cC}$ \\[3pt]
 \cb{
 \begin{tikzpicture}
 \draw[emptylinestyle,white] (0,0) -- (0,\circlerad+3);
@@ -2757,7 +2756,9 @@ By Proposition~\ref{prop:dual-formula-for-adjoints}, Lemma~\ref{lemma:DualTwist}
 as required.  
 \end{proof}
 
- \begin{table}[!ht]
+
+By composing the invariants of the intervals in Table~\ref{table:intervals}, we can compute the invariants for various 2-framed circles; the three most important such circles and their resulting invariants are listed in Table~\ref{table:circles}.  In that table, the first equivalence is by Proposition~\ref{prop:FunctorsAsATensorPdt}; the second and third equivalences are by Corollary~\ref{cor:tensasfunct} and Lemma~\ref{lemma:DualTwist}.  Finally, in Table~\ref{table:discs}, we record the values of the 2-framed discs arising as the units and counits of the adjunctions $\ev^L_\cC \dashv \ev_\cC$ and $\coev^L_\cC \dashv \coev_\cC$.
+\begin{table}[!ht]
 \begin{tabular}{c|rcl}
 \cb{
 \begin{tikzpicture}
@@ -2765,7 +2766,7 @@ as required.
 \end{tikzpicture}
 }
 & $\Fun_{\cC \boxtimes \cC^\mp}(\cC,\cC \boxtimes \cC^\mp)\boxtimes_{\cC \btimes \cC^\mp} \cC$ 
-& $\simeq$ & $\Fun_{\cC\text{-mod-}\cC}(\cC, \cC) =: \cZ(\cC)$ \\
+& $\simeq$ & $\Fun_{\cC\text{-mod-}\cC}(\cC, \cC) =: \cZ(\cC)$ \\[6pt]
 %
 \cb{
 \begin{tikzpicture}
@@ -2777,7 +2778,7 @@ as required.
 \end{tikzpicture}
 }
 & $\cT(\cC) := \cC \boxtimes_{\cC \boxtimes \cC^\mp} \cC$
-& $\simeq$ & $\Fun_{\cC\text{-mod-}\cC}(\cC_{\langle \mathfrak{r r} \rangle}, \cC)$\\
+& $\simeq$ & $\Fun_{\cC\text{-mod-}\cC}(\cC_{\langle \mathfrak{r r} \rangle}, \cC)$\\[8pt]
 % 
 \cb{
 \begin{tikzpicture}
@@ -2785,14 +2786,12 @@ as required.
 \end{tikzpicture}
 }
 & $\cC \boxtimes_{\cC^\mp \boxtimes \cC} \Fun(\cC, \Vect)$ 
-& $\simeq$ & $\Fun_{\cC\text{-mod-}\cC}(\cC_{\langle \mathfrak{r r} \rangle}, \cC_{\langle \mathfrak{l l} \rangle}) =: \coZ(\cC)$ \\
+& $\simeq$ & $\Fun_{\cC\text{-mod-}\cC}(\cC_{\langle \mathfrak{r r} \rangle}, \cC_{\langle \mathfrak{l l} \rangle}) =: \coZ(\cC)$
 %
 \end{tabular}
 \vspace{6pt}
 \caption{Invariants associated to 2-framed circles.} \label{table:circles}
 \end{table}
-
-By composing the invariants of the intervals in Table~\ref{table:intervals}, we can compute the invariants for various 2-framed circles; the three most important such circles and their resulting invariants are listed in Table~\ref{table:circles}.  In that table, the first equivalence is by Proposition~\ref{prop:FunctorsAsATensorPdt}; the second and third equivalences are by Corollary~\ref{cor:tensasfunct} and Lemma~\ref{lemma:DualTwist}.  Finally, in Table~\ref{table:discs}, we record the values of the 2-framed discs arising as the units and counits of the adjunctions $\ev^L_\cC \dashv \ev_\cC$ and $\coev^L_\cC \dashv \coev_\cC$.
 
 
 \begin{table}[!hbt] 
@@ -2802,7 +2801,7 @@ By composing the invariants of the intervals in Table~\ref{table:intervals}, we 
 \filldraw[linestyle,fuzzright,fill=\fillcolor] (0,0) circle (\circlerad);
 \end{tikzpicture}
 }
-& $\Vect \xra{k \mapsto \id} {\Fun_{\cC\text{-mod-}\cC}(\cC,\cC)}$ \\
+& $\Vect \xra{k \mapsto \id} {\Fun_{\cC\text{-mod-}\cC}(\cC,\cC)}$ \\[6pt]
 %
 \cb{
 \begin{tikzpicture}
@@ -2821,7 +2820,7 @@ By composing the invariants of the intervals in Table~\ref{table:intervals}, we 
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& $\cC \boxtimes \Fun_{\cC \btimes \cC^\mp\text{-mod}}(\cC,\cC \btimes \cC^\mp) \xra{\mathrm{eval}} \cC \btimes \cC^\mp$ \\
+& $\cC \boxtimes \Fun_{\cC \btimes \cC^\mp\text{-mod}}(\cC,\cC \btimes \cC^\mp) \xra{\mathrm{eval}} \cC \btimes \cC^\mp$ \\[6pt]
 %
 \cb{
 \begin{tikzpicture}
@@ -2840,7 +2839,7 @@ By composing the invariants of the intervals in Table~\ref{table:intervals}, we 
 \end{pgfonlayer}
 \end{tikzpicture}
 }
-& $\cC^\mp \btimes \cC \xra{1 \btimes 1 \mapsto \id} \Fun_{\Vect}(\cC,\cC)$ \\
+& $\cC^\mp \btimes \cC \xra{1 \btimes 1 \mapsto \id} \Fun_{\Vect}(\cC,\cC)$ \\[6pt]
 %
 \cb{
 \begin{tikzpicture}
@@ -2852,7 +2851,7 @@ By composing the invariants of the intervals in Table~\ref{table:intervals}, we 
 \caption{Invariants associated to 2-framed discs.} \label{table:discs}
 \end{table}
 
-
+\vspace{-10pt}
 \begin{remark}
 For any finite tensor category $\cC$, the center $\cZ(\cC)$, as a category of endofunctors, is a monoidal category.  The unit, namely the identity functor, is the value of the field theory $\cF_\cC$ on the first 2-framed disc in Table~\ref{table:discs}; the tensor product, namely composition, is the value of the field theory on the 2-framed pair-of-pants obtained by removing two discs from the interior of that unit disc.  However, the monoidal category $\cZ(\cC)$ is not, a priori, even weakly rigid: there is no 2-framing of the annular bordism from the empty set to two circles (or from two circles to the empty set), such that both circles inherit the 2-framing corresponding to $\cZ(\cC)$.  
 
@@ -2931,7 +2930,6 @@ This result was proved for categories of modules over a Hopf algebra by Radford~
 \subsubsection{A computation of the Radford equivalence} \label{sec:computeradford}
 
 We know more than merely that the Radford bordism exists, though.  As in Figure~\ref{fig:Radford_bordism}, we have an explicit handle decomposition of the Radford bordism as the following composite:
-
 \[
 \cb{
 \begin{tikzpicture}
@@ -3043,7 +3041,7 @@ We next check that the counit map $v_2$ is given by
 \Mod{A^{**}}{} \boxtimes_{\cC \boxtimes \cC^\mp} \Mod{}{A} \simeq \Mod{A^{**}}{A} &\ra \Vect \\
 M &\mapsto \Hom_{\Mod{A^{**}}{A}}(M,A^*)^\vee.
 \end{align*}
-By the same reasoning as in the previous paragraph, we know that the counit $v_2$ is the following composite:
+By the same reasoning as in the previous paragraph, we know that the counit $v_2$ is the following composite:\pagebreak
 \[
 \begin{array}{ccccc}
 \Mod{A^{**}}{} \boxtimes \Mod{}{A} 
@@ -3227,12 +3225,14 @@ that is, $(\cC,P)$ is trace spherical.  The converse follows by cyclically permu
 
 In the setting of non-semisimple finite tensor categories, it is neither the case that spherical implies trace spherical, nor the case that trace spherical implies spherical, as the following two examples illustrate.
 
+\vspace{5pt}
 \begin{example}
 Let $q$ be a primitive $p$-th root of unity.  Consider the Hopf algebra described in~\cite[Rem. 7.5]{MR2097289}: $H := \CC\langle E, F, K \rangle / (KE = q^2 EK, KF = q^{-2} FK, EF=FE, E^p = 0, F^p = 0, K^p =1)$, $\Delta(K) = K \otimes K$, $\Delta(E) = E \otimes K + 1 \otimes E$, $\Delta(F) = F \otimes 1 + K^{-1} \otimes F$, $S(K) = K^{-1}$, $S(E) = -EK^{-1}$, $S(F) = -KF$---this differs from the quantum group $U_q(sl_2)$ only in that $E$ and $F$ commute.  Observe that the natural transformation $V \ra V^{**}$, $v \mapsto K \cdot v$ is a pivotal structure on $\Rep(H)$.  One can check that the Radford equivalence $V \ra V^{****}$ is given by $v \mapsto K^2 \cdot v$, and therefore this pivotal structure is spherical.  
 
 Given any Hopf algebra $G$ with an object $g$ such that $\Delta(g) = g \otimes g$, $S(g) = g^{-1}$, and $S^2$ equal to conjugation by $g$, we have that left multiplication $l_g$ by $g$ is a pivotal structure on $\Rep(G)$.  Barrett--Westbury show that this pivotal structure is trace spherical if and only if $\tr_V(l_g \theta) = \tr_V(l_{g^{-1}} \theta)$ for all representations $V$ and all endomorphisms $\theta \in \Hom_{\Rep(G)}(V,V)$ \cite{MR1686423}; note that here $\tr_V$ is the trace of a vector space endomorphism of $V$, not the quantum trace.  The Hopf algebra $H$ above has 1-dimensional representations where this trace equation certainly fails, and therefore the aforementioned pivotal structure on $\Rep(H)$ is not trace spherical.
 \end{example}
 
+\vspace{5pt}
 \begin{example}
 Consider Sweedler's 4-dimensional Hopf algebra: $H := \CC \langle x, g \rangle / (x^2 = 0, g^2 = 1, gx = - xg)$, $\Delta(g) = g \otimes g$, $\Delta(x) = 1 \otimes x + x \otimes g$, $S(g) = g^{-1}$, and $S(x) = - xg^{-1}$.  This Hopf algebra has four indecomposable representations: there are two irreducible 1-dimensional representations $V_\pm$ (with actions $v \xmapsto{x} 0$ and $v \xmapsto{g} \pm v$), and there are two 2-dimensional projective representations $W_\pm = \CC\{w_0, w_1\}$ (with actions $w_1 \xmapsto{x} w_0 \xmapsto{x} 0$, $w_1 \xmapsto{g} \pm w_1$, and $w_0 \xmapsto{g} \minusplus w_0$).
 
@@ -3268,7 +3268,7 @@ Every fusion category is a $Spin(3)$ homotopy fixed point, and therefore provide
 One can formulate similar questions and conjectures for tensor categories that are merely finite rather than fusion.  For instance, we saw that any finite tensor category provides a partial (``non-compact") 3-dimensional 3-framed field theory.  If the finite tensor category is pivotal, we also observed that it is an $\Omega S^2$ fixed point.  We might expect it to be in fact an $SO(2)$ fixed point, and might anticipate that it moreover provides a non-compact 3-dimensional combed 3-framed field theory.  Even if the finite tensor category is not pivotal (there are such examples, see \cite[Rem. 2.11]{1204.5807}), we might still ask if it is necessarily $SO(2)$ fixed.
 
 
-
+\pagebreak
 
 \appendix
 \section{The cobordism hypothesis}
