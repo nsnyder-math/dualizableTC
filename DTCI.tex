@@ -779,144 +779,206 @@ The 1-morphism $\ev^L$ itself has a left adjoint $\ev^{LL}$, which itself has a 
 
 
 \begin{figure}[ht]
+\[
+\cdots
+\hspace{.15cm}
+\dashv
+\hspace{.3cm}
+%
+\setlength{\linewid}{15pt}
+\setlength{\fuzzwidth}{25pt}
+\setlength{\arrowlength}{80pt}
+\setlength{\arrowwidth}{7.5pt}
 \cb{
-	\begin{tikzpicture}
-		\node at (.5,0) {$\cdots$};
-		\node at (1,0) {$\dashv$};
-{ [xshift=-.1cm]
-		\draw [linestyle,fuzzleft] (1.75,0.5) -- (2.5, 0.5) 
-			to [looseness=2,out=0, in=90] (2.25, 0.75)
-			-- (2.25, -0.75)
-			to [looseness=2,out=-90, in=0] (2.5, -0.5)
-			-- (1.75,-0.5);
+\scalebox{.1}{
+\begin{tikzpicture}
+\draw[linestyle,fuzzleft]
+(0,5) to [out=0, in=110] (4,2.75)
+	to [looseness=1.6, out=-70, in=-90] (7,2.75)
+	to [looseness=1.6, out=90, in=70] (4,2.75)
+	to [out=-110, in=110] (4,-2.75)
+	to [looseness=1.6, out=-70, in=-90] (7,-2.75)
+	to [looseness=1.6, out=90, in=70] (4,-2.75)
+	to [out=-110, in=0] (0,-5);
+\end{tikzpicture}
 }
-		\node at (2, -1.1) {$\ev^{LL}$};
-		\node at (3, 0) {$\dashv$};
-{ [xshift=-.1cm]
+}
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
+%
+\hspace{.25cm}
+\dashv
+\hspace{.2cm}
+ %
+\cb{
+\begin{tikzpicture}
 		\draw[linestyle,fuzzright] (4.25,0.5) to [looseness=1.6,out = 180, in = 180] (4.25,-0.5);
 		\begin{pgfonlayer}{background}
 			\draw[->,outstyle] (4.25,0.5) -- +(0:\arrowlength);
 			\draw[->,outstyle] (4.25,-0.5) -- +(0:\arrowlength);
 		\end{pgfonlayer}
-}
-		\node at (4, -1.1) {$\ev^L$};
-		\node at (5,0) {$\dashv$};
-{ [xshift=.1cm]
-		\draw[linestyle,fuzzleft] (5.75,0.5) to [looseness=1.6,out = 0, in = 0] (5.75,-0.5);
-}
-		\node at (6, -1.1) {$\ev$};
-		\node at (7,0) {$\dashv$};
-%		\draw[linestyle,fuzzright] (8,0.5) to [looseness=1.6,out = 180, in = 180] (8,0.75)
-%			to [looseness=1.6,out = 0, in = 0] (8, -0.75)
-%			to [looseness=1.6,out = 180, in = 180] (8,-0.5);
-%			\begin{pgfonlayer}{background}
-%				\draw[->,outstyle] (8,0.5) -- +(0:\arrowlength);
-%				\draw[->,outstyle] (8,-0.5) -- +(0:\arrowlength);
-%			\end{pgfonlayer}
-%		\node at (9,0) {$\cong$};
-		\node at (8,-1.1) {$\ev^R$};
-{ [xshift=-.1cm]
-			\draw[linestyle,fuzzright] (8.5, 0.5) -- (7.75,0.5)
-				to [looseness=2,out = 180, in = 90] (8, 0.75)
-				-- (8, -0.75)
-				to [looseness=2,out = 270, in = 180] (7.75,-0.5)
-				-- (8.5, -0.5);
-			\begin{pgfonlayer}{background}
-				\draw[->,outstyle] (8.5,0.5) -- +(0:\arrowlength);
-				\draw[->,outstyle] (8.5,-0.5) -- +(0:\arrowlength);
-			\end{pgfonlayer}
-}
-		\node at (9,0) {$\dashv$};
-		\node at (9.5,0) {$\cdots$};
-	\end{tikzpicture}
-}
-\cb{
-\begin{tikzpicture}
-%%% curved version
-%{ [xshift=-3cm,scale=.1]
-%\draw[linestyle,fuzzleft]
-%(0,5) to [out=180, in=70] (-4,2.5)
-%	to [looseness=1.6, out=-110, in=-90] (-6,2.5)
-%	to [looseness=1.6, out=90, in=110] (-4,2.5)
-%	to [out=-70, in=70] (-4,-2.5)
-%	to [looseness=1.6, out=-110, in=-90] (-6,-2.5)
-%	to [looseness=1.6, out=90, in=110] (-4,-2.5)
-%	to [out=-70, in=180] (0,-5);
-%\begin{pgfonlayer}{background}
-%	\draw[->,outstyle] (0,5) -- +(0:10*\arrowlength);
-%	\draw[->,outstyle] (0,-5) -- +(0:10*\arrowlength);
-%\end{pgfonlayer}
-%\node at (0,-10) {$\coev^{LL}$};
-%}
-%%%
-		\node at (.5,0) {$\cdots$};
-		\node at (1,0) {$\dashv$};
-{ [xshift=1.85cm]
-		\node at (0,-1.1) {$\coev^{LL}$};
-			\draw[linestyle,fuzzleft] (0.5, 0.5) -- (-.25,0.5)
-				to [looseness=2,out = 180, in = 90] (0, 0.75)
-				-- (0, -0.75)
-				to [looseness=2,out = 270, in = 180] (-.25,-0.5)
-				-- (0.5, -0.5);
-			\begin{pgfonlayer}{background}
-				\draw[->,outstyle] (0.5,0.5) -- +(0:\arrowlength);
-				\draw[->,outstyle] (0.5,-0.5) -- +(0:\arrowlength);
-			\end{pgfonlayer}
-}
-{ [xshift=3cm]
-\node at (0,0) {$\dashv$};
-}
-{ [xshift=3.75cm]
-\draw[linestyle,fuzzright]
-(0,.5) .. controls (.66,.5) and (.66,-.5) .. (0,-.5);
-}
-{ [xshift=4cm]
-\node at (0,-1) {$\coev^L$};
-}
-{ [xshift=5cm]
-\node at (0,0) {$\dashv$};
-}
-{ [xshift=6.15cm]
-\draw[linestyle,fuzzleft]
-(0,.5) .. controls (-.66,.5) and (-.66,-.5) .. (0,-.5);
-\begin{pgfonlayer}{background}
-	\draw[->,outstyle] (0,.5) -- +(0:\arrowlength);
-	\draw[->,outstyle] (0,-.5) -- +(0:\arrowlength);
-\end{pgfonlayer}
-}
-{ [xshift=6cm]
-\node at (0,-1) {$\coev$};
-}
-{ [xshift=7cm]
-\node at (0,0) {$\dashv$};
-}
-%%% curved version, won't compile
-%{ [xshift=1.5cm,scale=.1]
-%\draw[linestyle,fuzzleft, /pgf/fpu,/pgf/fpu/output format=fixed]
-%(0,5) to [out=0, in=110] (4,2.5)
-%	to [looseness=1.6, out=-70, in=-90] (6,2.5)
-%	to [looseness=1.6, out=90, in=70] (4,2.5)
-%	to [out=-110, in=110] (4,-2.5)
-%	to [looseness=1.6, out=-70, in=-90] (6,-2.5)
-%	to [looseness=1.6, out=90, in=70] (4,-2.5)
-%	to [out=-110, in=0] (0,-5);
-%\node at (0,-10) {$\coev^{R}$};
-%}
-%%%
-{ [xshift=7.85cm]
-		\draw [linestyle,fuzzright] (-.25,0.5) -- (0.5, 0.5) 
-			to [looseness=2,out=0, in=90] (0.25, 0.75)
-			-- (0.25, -0.75)
-			to [looseness=2,out=-90, in=0] (0.5, -0.5)
-			-- (-.25,-0.5);
-}
-{ [xshift=8cm]
-		\node at (0, -1.1) {$\coev^{R}$};
-}
-\node at (9,0) {$\dashv$};
-\node at (9.5,0) {$\cdots$};
 \end{tikzpicture}
 }
+%%%
+\hspace{.25cm}
+\dashv
+\hspace{.4cm}
+%%%
+\cb{
+\begin{tikzpicture}
+		\draw[linestyle,fuzzleft] (5.75,0.5) to [looseness=1.6,out = 0, in = 0] (5.75,-0.5);
+\end{tikzpicture}
+}
+%
+\hspace{.2cm}
+\dashv
+\hspace{.25cm}
+%
+\setlength{\linewid}{15pt}
+\setlength{\fuzzwidth}{25pt}
+\setlength{\arrowlength}{80pt}
+\setlength{\arrowwidth}{7.5pt}
+\cb{
+\scalebox{.1}{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright]
+(0,5) to [out=180, in=70] (-4,2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,2.75)
+	to [looseness=1.6, out=90, in=110] (-4,2.75)
+	to [out=-70, in=70] (-4,-2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,-2.75)
+	to [looseness=1.6, out=90, in=110] (-4,-2.75)
+	to [out=-70, in=180] (0,-5);
+\begin{pgfonlayer}{background}
+	\draw[-scalehead,outstyle] (0,5) -- +(0:\arrowlength);
+	\draw[-scalehead,outstyle] (0,-5) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+}
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
+%
+\hspace{.15cm}
+\dashv
+\hspace{.15cm}
+\cdots
+\]\vspace{1pt}
+
+\begin{tabularx}{.54\textwidth}{*4{>{\centering}X}}
+$\ev^{LL}$ 
+&
+$\ev^L$ 
+&
+$\ev$ 
+&
+$\ev^R$
+\end{tabularx}
+
+\[
+\cdots 
+\hspace{.15cm}
+\dashv
+\hspace{.2cm}
+%
+\setlength{\linewid}{15pt}
+\setlength{\fuzzwidth}{25pt}
+\setlength{\arrowlength}{80pt}
+\setlength{\arrowwidth}{7.5pt}
+\cb{
+\scalebox{.1}{
+\begin{tikzpicture}
+\draw[emptylinestyle, white] (0,5.8) -- (0,-5.8);
+\draw[linestyle,fuzzleft]
+(0,5) to [out=180, in=70] (-4,2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,2.75)
+	to [looseness=1.6, out=90, in=110] (-4,2.75)
+	to [out=-70, in=70] (-4,-2.75)
+	to [looseness=1.6, out=-110, in=-90] (-7,-2.75)
+	to [looseness=1.6, out=90, in=110] (-4,-2.75)
+	to [out=-70, in=180] (0,-5);
+\begin{pgfonlayer}{background}
+	\draw[-scalehead,outstyle] (0,5) -- +(0:\arrowlength);
+	\draw[-scalehead,outstyle] (0,-5) -- +(0:\arrowlength);
+\end{pgfonlayer}
+\end{tikzpicture}
+}
+}
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
+%
+\hspace{.1cm}
+\dashv
+\hspace{.35cm}
+%
+\cb{
+\begin{tikzpicture}
+		\draw[linestyle,fuzzright] (5.75,0.5) to [looseness=1.6,out = 0, in = 0] (5.75,-0.5);
+\end{tikzpicture}
+}
+%%%
+\hspace{.25cm}
+\dashv
+\hspace{.2cm}
+%%%
+\cb{
+\begin{tikzpicture}
+	\draw[emptylinestyle, white] (4.25,.6) -- (4.25,-.6);
+		\draw[linestyle,fuzzleft] (4.25,0.5) to [looseness=1.6,out = 180, in = 180] (4.25,-0.5);
+		\begin{pgfonlayer}{background}
+			\draw[->,outstyle] (4.25,0.5) -- +(0:\arrowlength);
+			\draw[->,outstyle] (4.25,-0.5) -- +(0:\arrowlength);
+		\end{pgfonlayer}
+\end{tikzpicture}
+}
+%
+\hspace{.2cm}
+\dashv
+\hspace{.25cm}
+%
+\setlength{\linewid}{15pt}
+\setlength{\fuzzwidth}{25pt}
+\setlength{\arrowlength}{80pt}
+\setlength{\arrowwidth}{7.5pt}
+\cb{
+\scalebox{.1}{
+\begin{tikzpicture}
+\draw[linestyle,fuzzright]
+(0,5) to [out=0, in=110] (4,2.75)
+	to [looseness=1.6, out=-70, in=-90] (7,2.75)
+	to [looseness=1.6, out=90, in=70] (4,2.75)
+	to [out=-110, in=110] (4,-2.75)
+	to [looseness=1.6, out=-70, in=-90] (7,-2.75)
+	to [looseness=1.6, out=90, in=70] (4,-2.75)
+	to [out=-110, in=0] (0,-5);
+\end{tikzpicture}
+}
+}
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
+%
+\hspace{.25cm}
+\dashv
+\hspace{.15cm}
+\cdots
+\]
+\begin{tabularx}{.54\textwidth}{*4{>{\centering}X}}
+$\coev^{LL}$ 
+&
+$\coev^L$ 
+&
+$\coev$ 
+&
+$\coev^R$
+\end{tabularx}
 \caption{Two infinite chains of adjunctions of 2-framed bordisms.} \label{fig:adjointchains}
 \end{figure}
 
@@ -946,13 +1008,13 @@ The loop bordism and the inverse loop bordism admit decompositions into more ele
 \begin{figure}[htbp]
 \vspace{\topskip}	
 	\begin{tikzpicture}
-		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
+		\draw [linestyle,fuzzleft] (-.75, 3) -- (1.5, 3)
 			to [looseness=1, out = 0, in = 180] (2.5,2) 
-			arc (90:-90:0.5cm) -- (0.5,1)
-			to [looseness=1.6,out = 180, in = 270] (1, 0.5)
-			-- (1, 2.5) 
-			to [looseness=1.6,out = 90, in = 180] (0.5,2) 
-			to [looseness=1.6, out = 0, in = 180] (1.5,2) 
+			arc (90:-90:0.5cm) -- (1.5,1) -- +(-\evlength-\loopsize,0)
+			arc (-270:0:\loopsize)
+			-- +(0,\evlengthv+\loopsize+\loopsize)
+			arc (0:270:\loopsize)
+			-- +(\evlength+\loopsize,0)
 			to [looseness=1, out = 0, in = 180] (2.5, 3) -- (4.5,3);
 		\begin{pgfonlayer}{background}
 				\draw[->,outstyle] (4.5,3) -- +(0:\arrowlength);
@@ -960,14 +1022,14 @@ The loop bordism and the inverse loop bordism admit decompositions into more ele
 		\draw [dashed] (2.5,2.5) rectangle (3.5,0.5);
 		\node (B) at (4.5,1.5) {$\ev$};
 		\draw [dashed] (3.5, 1.5) -- (B);	
-		\draw [dashed] (0,2.75) rectangle (1.5, 0);
-		\node (A) at (-1, 1.5) {$\ev^R$};
-		\draw [dashed] (A) -- (0, 1.5);
+		\draw [dashed] (0.25,2.75) rectangle (1.5,0.25);
+		\node (A) at (-.5, 1.5) {$\ev^R$};
+		\draw [dashed] (A) -- (0.25, 1.5);
 	\end{tikzpicture}
 \hspace{1cm}
-\raisebox{14pt}{
+\raisebox{7pt}{
 	\begin{tikzpicture}
-		\draw [linestyle,fuzzleft] (-1, 3) -- (1.5, 3)
+		\draw [linestyle,fuzzleft] (-.5, 3) -- (1.5, 3)
 			to [looseness=1, out = 0, in = 180] (2.5,2)
 			to [looseness=2,out=0,in=0] (2.5,1)
 			to (1.5,1)
@@ -1138,7 +1200,7 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 			\end{scope}
 					
 		% Now the 2D diagrams
-		\begin{scope}[xshift = 7cm, yshift = 2cm]
+		\begin{scope}[xshift = 7cm, yshift = 1.75cm]
 			
 						% \ev^L
 						\draw[linestyle,fuzzright] (4,7) to [looseness=1.6,out = 180, in = 180] (4,6);
@@ -1180,11 +1242,13 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 									\draw[->,outstyle] (4,2) -- +(0:\arrowlength);
 									\draw[->,outstyle] (4,1) -- +(0:\arrowlength);
 								\end{pgfonlayer}
-						\draw[linestyle,fuzzright] (2.5, 2) -- (1.75,2)
-								to [looseness=2,out = 180, in = 90] (2, 2.25)
-									-- (2, 0.75)
-									to [looseness=2,out = 270, in = 180] (1.75,1)
-									-- (2.5, 1) arc (-90:90:0.5cm);
+						\draw[linestyle,fuzzright] (2.5, 2) 
+							-- +(-\evlength+.1-\loopsize,0)
+			arc (-90:-360:\loopsize)
+			-- +(0,-\evlengthv-\loopsize-\loopsize)
+			arc (0:-270:\loopsize)
+			-- +(\evlength-.1+\loopsize,0)
+			arc (-90:90:0.5cm);
 						\end{scope}
 						
 						% the third morphism
@@ -1208,11 +1272,13 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 						\end{scope}
 
 						% \ev^R
-							\draw[linestyle,fuzzright] (4, -0.5) -- (1.75, -0.5)
-								to [looseness=2,out = 180, in = 90] (2, -0.25)
-								-- (2, -1.75)
-								to [looseness=2,out = 270, in = 180] (1.75,-1.5)
-								-- (4, -1.5);
+							\draw[linestyle,fuzzright] (4, -0.5) -- (2.5, -0.5)
+							-- +(-\evlength+.1-\loopsize,0)
+			arc (-90:-360:\loopsize)
+			-- +(0,-\evlengthv-\loopsize-\loopsize)
+			arc (0:-270:\loopsize)
+			-- +(\evlength-.1+\loopsize,0)
+			-- (4, -1.5);
 							\begin{pgfonlayer}{background}
 								\draw[->,outstyle] (4,-0.5) -- +(0:\arrowlength);
 								\draw[->,outstyle] (4,-1.5) -- +(0:\arrowlength);
@@ -1221,6 +1287,8 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 		\end{scope}	
 			
 		% names of 2D slices
+	\begin{scope}[xshift = 0cm, yshift = -.25cm]
+
 		\node[anchor=mid west, \graytextcolor] (A) at (11.5, 8.5) {$= \ev^L$};
 		\node[anchor=mid west, \graytextcolor] (B) at (11.5, 6) {$= \ev^L \circ \ev \circ \ev^R$};		
 		\node[anchor=mid west, \graytextcolor] (C) at (11.5, 1) {$= \ev^R$};
@@ -1229,6 +1297,7 @@ Here $\circ$ denotes composition of surfaces in a vertical (2-morphism) directio
 		\node[anchor=mid west, \graytextcolor] at (11.5, 2.25) {$= v_1 \circledcirc \id_{\ev^R}$};
 		
 		\node at (6, -1) {$\cR = (v_1 \circledcirc \id_{\ev^R})\circ (\id_{\ev^L} \circledcirc v_2^R)$};				
+	\end{scope}				
 							
 		\end{tikzpicture}
 		\end{center}	
