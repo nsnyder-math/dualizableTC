@@ -52,6 +52,7 @@ The key result underlying our construction shows that any module category can be
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} %\label{thm:EGNO2.11.6}
 	\CSP{I commented out the label to this theorem as it was multiply defined.}
+	\NS{Ok.}
 	If $\cM$ is a finite left module category over a finite tensor category $\cC$, then there exists an algebra object $A \in \cC$ together with an equivalence of left $\cC$-module categories between $\cM$ and the category of right $A$-module objects in $\cC$.  Similarly, any finite right module category over a finite tensor category is equivalent to a category of left $A$-modules for some algebra object $A \in \cC$.
 \end{theorem}
 
@@ -69,7 +70,7 @@ The balanced tensor product will play a key role in our study of the $3$-categor
 
 \subsection{Finite linear categories}
 
-	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?} \CSP{This means that the additive structure on homs from the abelian category agrees with the additive structure from the Vect-enrichement.}
+	Let $k$ be a fixed ground field, let $\overline{\Vect}_k$ be the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ be the category of finite-dimensional $k$-vector spaces.   A {\em linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$. \CD{What does compatible mean here that isn't in the definition of enrichment?} \CSP{This means that the additive structure on homs from the abelian category agrees with the additive structure from the Vect-enrichement.} \NS{Ok}
 A {\em linear functor} is an additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
@@ -83,6 +84,7 @@ Recall the following standard terminology:
 	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects, or equivalently, if every short exact sequence splits. If in addition every object has finite length, then every object splits as a {\em finite} direct sum of simple objects.
 	\CD{what?} %finite?
 	\CSP{Is this better?}
+	\NS{Ok}
 	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a project object $P$ with a surjection $P \twoheadrightarrow X$. 
 \end{itemize}
 
@@ -104,7 +106,7 @@ The following proposition is well-known, and justifies the definition of finiten
 A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
 \end{proposition}
 \begin{proof}
-	It is standard that, for $A$ a finite-dimensional $k$-algebra, the linear category $\Mod{A}{}$ satisfies the four conditions. \NS{Should we say more about this first sentence?  Isn't this whole proposition standard?  Should we add a citation?}
+	It is standard that, for $A$ a finite-dimensional $k$-algebra, the linear category $\Mod{A}{}$ satisfies the four conditions. \NS{I propose replacing this proof by a reference to Introduction to Representation Theory}
 	% The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite-dimensional algebra over a field is semiperfect.
 	Now assume that $\cC$ is finite. Let $\{X_i\}$ denote a set of representatives for the isomorphism classes of simples. Let $P_i \to X_i$ be a surjection, with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite-dimensional, $A$ is a finite-dimensional algebra.  (Note that here the algebra structure on $A$ is defined by $a \cdot b := b \circ a$, as required by the conventions of \cite{DTCI}.)
 	
@@ -367,11 +369,11 @@ Since any functor from $\Vec$ to $\Vec$ is determined by a choice of finite dime
 \end{example}
 
 
-The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature, it is needed in the proof of Lemma  \ref{lma:module-adjoint}.  We will use it to prove Lemma \ref{lma:module-adjoint}.
+The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature and it is needed in the proof of Lemma  \ref{lma:module-adjoint}.
 
-\begin{lemma} \label{lem:laxisstrong}  %\NS{I think Lemma 3.21 should be moved earlier}
+\begin{lemma} \label{lem:laxisstrong}
 	Let $\cC$ be a tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
-\end{lemma} \CD{This is a remark in Ost03}
+\end{lemma} 
 
 \begin{proof}
 We do the lax case, the oplax case is similar.  Suppose that $f_{c,m}:  c \otimes \cF(m) \rightarrow \cF(c \otimes m)$ is a binatural transformation making $\cF$ into an lax module functor.  The inverse to this natural transformation is given explicitly by the mate of $f_{c^*,m}$ 
@@ -392,6 +394,7 @@ where the first map is given by the coevaluation, the second map is $f_{c^*,m}$,
 \end{center} 
 \CD{shrink this picture and the next two}
 \CSP{did it!}
+\NS{Ok}
 We need to check that this map is inverse to $f_{c^*,m}$.  This is a straightforward calculation, first use the associativity condition for module functors, and second use naturality to pull an evaluation through the natural transformation.  The following string diagrams illustrate this calculation.
 \begin{center}
 \begin{tikzpicture}[yscale=0.8, xscale=0.8, smooth]
@@ -443,6 +446,7 @@ The following Lemma was left as an exercise to the reader in \cite[\S 3.3]{EO-ft
 \begin{lemma} \label{lma:module-adjoint}
 Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$-$\cD$-bimodule categories and let $\cF: \cM \to \cN$ be a $\cC$-$\cD$-bimodule functor.  If the underlying functor of $\cF$ has a right (respectively left) adjoint as a functor, then $\cF$ has a right (resp. left) adjoint $\cC$-$\cD$-bimodule functor. 
 \end{lemma} \CD{This is a comment in EO, left to the reader, search for "observe that an adjoint to a module functor has a natural structure of the module functor"}
+\NS{Reference added}
 \begin{proof}
 Suppose that $\cG$ is the right adjoint to the underlying functor of $\cF$, we will show that $\cG$ naturally has the structure of a $\cC$-$\cD$-bimodule functor.  The result for left adjoints is similar.
 
@@ -472,10 +476,11 @@ Applying the previous lemma, rigidity of $\cC$ and $\cD$ guarantees that this bi
 If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an (oplax) module functor has a lax module functor structure, while the left adjoint of a (lax) module functor only has an oplax module functor structure.  %This is a serious issue as the following example shows. 
 \end{remark}
 
-\begin{lemma}\label{lem:partially_exact_action}
+\begin{lemma}\label{lem:partially_exact_action} \cite[Prop. 1.13.1]{EGNO} \cite[Prop. 2.1.8]{MR1797619}
 	Let $\cC$ be a tensor category and $\cM$ a $\cC$-module category. Then for each object $c \in \cC$, the action map $c \otimes (-): \cM \to \cM$ is exact. 
 \end{lemma}
 \CSP{I added this trivial lemma, it is probably in EGNO somewhere...}
+\NS{I added references.}
 
 \begin{proof}
 	For each $c \in \cC$, the functor $c \otimes (-)$ admits both left and right adjoints, given by $c^* \otimes (-)$ and ${}^*c \otimes (-)$ respectively. 
@@ -492,6 +497,7 @@ The following is an elaboration of results of \cite{MR1976459} and \cite{EO-ftc}
 \begin{proposition} \label{thm:enrichment-of-mod-cats}
 	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category. Assume that the action map $\cC \times \cM \to \cM$ is right exact in each variable. 
 		Then $\cM$ is enriched, tensored, and cotensored over $\cC$ with the tensor structure coming from its structure as a $\cC$-module category. \CSP{added the right exactness condition.}
+\NS{Ok}
 \end{proposition}
 
 \begin{proof}

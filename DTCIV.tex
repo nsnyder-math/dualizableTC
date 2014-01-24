@@ -62,7 +62,7 @@ The following proposition explains how much of the homotopy type of the structur
 Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the structure map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map $\phi^*: \Hom(\mathrm{TBord}_0^n,\cC) \ra \Hom(\mathrm{SBord}_0^n,\cC)$ is a homotopy equivalence of spaces.
 \end{proposition}
 
-\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TCfin$ as our target, it suffices to understand the 4-types of our various structure spaces.
+\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
 
 We now precisely identify the 4-homotopy type of the four nontrivial structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
 
@@ -104,10 +104,10 @@ There is a map of structure spaces $S^2 \ra BQuad$ which is an isomorphism on $\
 
 \subsection{Homotopically invariant notions of pivotality and sphericality.}
 
-Fusion categories are objects of the $3$-category $\TCfin$ of tensor categories, but in this $3$-category, pivotal and spherical structures are not natural structures.  Specifically they are not homotopy invariant notions.  That is to say, if $\cC$ and $\cD$ are fusion categories which are equivalence in $\TCfin$ (that is, Morita equivalent), there's no natural equivalence between the space of spherical structures on $\cC$ and the space of spherical structures on $\cD$, as the following example shows.
+Fusion categories are objects of the $3$-category $\TC$ of tensor categories, but in this $3$-category, pivotal and spherical structures are not natural structures.  Specifically they are not homotopy invariant notions.  That is to say, if $\cC$ and $\cD$ are fusion categories which are equivalence in $\TC$ (that is, Morita equivalent), there's no natural equivalence between the space of spherical structures on $\cC$ and the space of spherical structures on $\cD$, as the following example shows.
 
 \begin{example}
-Let $S_3$ be the symmetric group on $3$-letters, let $\mathrm{Rep}(S_3)$ be the category of finite dimensional complex representations, and $\Vec(S_3)$ be the category of $S_3$-graded complex vector spaces.  These two fusion categories are equivalent in $\TCfin$ with $\Vec$ with the obvious bimodule structure giving the equivalence, and both have a standard spherical structure.  Spherical structures on a fusion category $\cC$ are a torsor for the group of assignments of $\pm 1$ to objects of $\cC$ which are multiplicative in the sense that if $X \subseteq Y \otimes Z$ then $\chi(X) = \chi(Y) \chi(Z)$.  Thus there is only one spherical structure on $\mathrm{Rep}(S_3)$, but there are two spherical structures on $\Vec(S_3)$.
+Let $S_3$ be the symmetric group on $3$-letters, let $\mathrm{Rep}(S_3)$ be the category of finite dimensional complex representations, and $\Vec(S_3)$ be the category of $S_3$-graded complex vector spaces.  These two fusion categories are equivalent in $\TC$ with $\Vec$ with the obvious bimodule structure giving the equivalence, and both have a standard spherical structure.  Spherical structures on a fusion category $\cC$ are a torsor for the group of assignments of $\pm 1$ to objects of $\cC$ which are multiplicative in the sense that if $X \subseteq Y \otimes Z$ then $\chi(X) = \chi(Y) \chi(Z)$.  Thus there is only one spherical structure on $\mathrm{Rep}(S_3)$, but there are two spherical structures on $\Vec(S_3)$.
 \end{example}
 
 We now introduce homotopy invariant notions generalizing the notions of spherical and pivotal.   Recall that a pivotal structure is a tensor trivialization of the double dual functor.  The reason this is not homotopy invariant is that it is a statement about natural transformations of tensor functors rather than about bimodule functors of bimodule categories.  To turn this into a homotopy invariant notion, we recall that any tensor functor $\cF: \cC \rightarrow \cC$ gives a $\cC$--$\cC$ bimodule category ${}_{\{\cF\}}\cC$ where the left action is twisted by $\cF$.  Thus, a pivotal structure gives a trivialization of the bimodule attached to the double dual.  As we saw in the last section, ${}_{\{(--)^{**}\}}\cC$ is the Serre automorphism.  This suggests the following definition.
@@ -141,14 +141,14 @@ Consider the fusion category $\Vec(\mathbb{Z}/2)$ of $\mathbb{Z}/2$-graded vecto
 Our main reason for investigating h-pivotal and h-spherical structures is that these are the notions that naturally correspond to descent properties of the corresponding field theories.  Another advantage is that because they are the homotopically natural notions, the groupoids of these structures admit particularly clean classifications, as follows.
 
 \begin{proposition}
-The groupoid of h-pivotal structures on an h-pivotal fusion category $\cC$ is a torsor for the braided monoidal category $\pi_{\leq 1} \Omega^2(\TCfin,\cC)$, that is the fundamental groupoid of the double loop category of $\TCfin$, based at $\cC$.
+The groupoid of h-pivotal structures on an h-pivotal fusion category $\cC$ is a torsor for the braided monoidal category $\pi_{\leq 1} \Omega^2(\TC,\cC)$, that is the fundamental groupoid of the double loop category of $\TC$, based at $\cC$.
 \end{proposition}
 
 \begin{proposition}
-The groupoid of h-spherical structures on an h-spherical fusion category $\cC$ is a torsor for the braided monoidal category $K := \ker(\pi_{\leq 1} \Omega^2(\TCfin,\cC) \xra{\cdot 2} \pi_{\leq 1} \Omega^2(\TCfin,\cC))$.
+The groupoid of h-spherical structures on an h-spherical fusion category $\cC$ is a torsor for the braided monoidal category $K := \ker(\pi_{\leq 1} \Omega^2(\TC,\cC) \xra{\cdot 2} \pi_{\leq 1} \Omega^2(\TC,\cC))$.
 \end{proposition}
 
-Needless to say, the kernel in this proposition must be interpreted in a homotopy invariant manner, that is as a homotopy fiber and not a literal fiber.  Specifically, an object in the kernel $K$ is an automorphism $\phi$ of the identity bimodule $\bimod{\cC}{\cC}{\cC}$ together with a natural equivalence of bimodule functors from $\phi \btimes \phi$ to the identity functor on $\cC \btimes_{\cC} \cC$.  We refer to this tensor squaring operation $\phi \mapsto \phi \btimes \phi$ as ``$\cdot 2$", rather than as squaring, because the fundamental groupoid of the double loop space of $\TCfin$ is homotopy abelian.
+Needless to say, the kernel in this proposition must be interpreted in a homotopy invariant manner, that is as a homotopy fiber and not a literal fiber.  Specifically, an object in the kernel $K$ is an automorphism $\phi$ of the identity bimodule $\bimod{\cC}{\cC}{\cC}$ together with a natural equivalence of bimodule functors from $\phi \btimes \phi$ to the identity functor on $\cC \btimes_{\cC} \cC$.  We refer to this tensor squaring operation $\phi \mapsto \phi \btimes \phi$ as ``$\cdot 2$", rather than as squaring, because the fundamental groupoid of the double loop space of $\TC$ is homotopy abelian.
 
 Once the somewhat intricate definitions involved in these two propositions are unpacked, they are transparent, and we omit the proofs. \CD{Check this.}
 
@@ -159,7 +159,7 @@ The above definitions of h-pivotal and h-spherical have natural generalizations 
 \subsection{h-Pivotal fusion categories correspond to quadratic field theories} \label{sec-pivot-orpo}
 
 \begin{theorem} \label{thm-hpivotal}
-A fusion category $\cC \in \TCfin$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
+A fusion category $\cC \in \TC$ is h-pivotal if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to a quadratic field theory $\overline{\cF_{\cC}} : \QuadBord_0^3 \ra \TC$.  In fact, the groupoid of h-pivotal structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to a quad field theory.
 \end{theorem}
 \begin{proof}
 \CDcomm{[To write.]}
@@ -170,7 +170,7 @@ Note that the same argument applies to finite tensor categories.  \NS{Should we 
 \subsection{h-Spherical fusion categories correspond to oriented $p_1$ field theories}
 
 \begin{theorem} \label{thm-hspherical}
-A fusion category $\cC \in \TCfin$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TCfin$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
+A fusion category $\cC \in \TC$ is h-spherical if and only if the framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to $\cC$ descends to an oriented $p_1$ field theory $\overline{\cF_{\cC}} : \OrpoBord_0^3 \ra \TC$.  In fact, the groupoid of h-spherical structures on $\cC$ is equivalent to the groupoid of lifts of $\cF_{\cC}$ to an oriented $p_1$ field theory.
 \end{theorem}
 \begin{proof}
 \CDcomm{[To write.]}
@@ -189,7 +189,7 @@ In this section we make several conjectures concerning field theories descending
 According to the previous subsection, a choice of h-spherical structure on $\cC$ corresponds to a choice of descent to an oriented $p_1$ field theory.  This can be understood (non-rigorously) as follows.  An h-spherical structure induces a natural ribbon structure on the center $Z(\cC)$, and the $123$ part of the oriented $p_1$ field theory should agree with the Reshetikhin--Turaev construction \cite{MR1091619, MR990772} applied to $Z(\cC)$.  (It's known that the Turaev--Viro construction for $\cC$ agrees with the Reshetikhin--Turaev construction for $Z(\cC)$ \cite{1006.3501}, and indeed that they agree as $123$ field theories \cite{1004.1533, 1010.1222, 1012.0560}, however, we have not yet proved that our construction for spherical categories agrees with Turaev--Viro.)  The dependence of the RT theory on the oriented $p_1$ field theory is called the anomaly, and can be computed using a Gauss sum.  M\"uger proved that this anomaly vanishes in the special case of $Z(\cC)$ \cite{MR1966525}, thus if the h-spherical structure comes from an ordinary spherical structure we expect that the field theory does not detect the oriented $p_1$ structure.  This suggests the following conjecture.
 
 \begin{conjecture}
-If a fusion category $\cC \in \TCfin$ is spherical, then the oriented $p_1$ theory $\cF_{\cC} : \OrpoBord_0^3 \ra \TCfin$ associated to $\cC$ has a canonical descent to an oriented, that is $SO(3)$, local field theory.
+If a fusion category $\cC \in \TC$ is spherical, then the oriented $p_1$ theory $\cF_{\cC} : \OrpoBord_0^3 \ra \TC$ associated to $\cC$ has a canonical descent to an oriented, that is $SO(3)$, local field theory.
 \end{conjecture}
 
 Note that we do not expect the field theory coming from an arbitrary h-spherical structure to descend to an oriented theory, as the following example shows.
@@ -203,11 +203,11 @@ Thus this conjecture suggests that there is a homotopy invariant concept which m
 We could hope for more general anomaly vanishing results, however, we have much less evidence of these conjectures than we do for the first one.
 
 \begin{conjecture}
-If a fusion category $\cC \in \TCfin$ is pivotal, then the quad local field theory $\cF_{\cC} : \QuadBord_0^3 \ra \TCfin$ associated to $\cC$ has a canonical descent to a combed, that is $SO(2)$, local field theory.
+If a fusion category $\cC \in \TC$ is pivotal, then the quad local field theory $\cF_{\cC} : \QuadBord_0^3 \ra \TC$ associated to $\cC$ has a canonical descent to a combed, that is $SO(2)$, local field theory.
 \end{conjecture}
 
 \begin{conjecture}
-The framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TCfin$ associated to an arbitrary fusion category $\cC$ has a canonical descent to a spin local field theory.
+The framed local field theory $\cF_{\cC} : \FrBord_0^3 \ra \TC$ associated to an arbitrary fusion category $\cC$ has a canonical descent to a spin local field theory.
 \end{conjecture}
 
 \begin{warning}
@@ -385,10 +385,10 @@ The map $SO(\infty)/SO(3) \ra BString(3)$ induces a map from $SO(\infty) = \hofi
 
 This proposition associates to each stable framing of a 3-manifold $M$ a string structure.  This association may be thought of as follows: because the fibration $BString(3) \ra BO(3)$ is the pullback of the fibration $BString \ra BO$ along the inclusion $BO(3) \ra BO$, the data of a lift of $M \ra BO(3)$ to $BString(3)$ is the same as the data of a lift of $M \ra BO(3) \ra BO$ to $BString$.  That is, string structures and stable string structures are identical notions.  Now note that there is a natural forgetful map from stable framings to stable string structures, since a trivialization of the composition $M \ra BO(3) \ra BO$ certainly provides a lift of that composite to, in particular, $BString$.
 
-In the main text, we have concentrated on the structure groups $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$.  As we have seen, $hString(3)$-structures are essentially just framings, but $String(3)$-structures appear to be rather different.  It turns out, though, that provided we focus on fusion categories over the complex numbers, all $\TCfin$-valued field theories are in fact string:
+In the main text, we have concentrated on the structure groups $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$.  As we have seen, $hString(3)$-structures are essentially just framings, but $String(3)$-structures appear to be rather different.  It turns out, though, that provided we focus on fusion categories over the complex numbers, all $\TC$-valued field theories are in fact string:
 
 \begin{proposition} \label{prop-string}
-Every framed local field theory $\cF : \FrBord_0^3 \ra \TCfin$ with target tensor categories over $\CC$ descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TCfin$.
+Every framed local field theory $\cF : \FrBord_0^3 \ra \TC$ with target tensor categories over $\CC$ descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TC$.
 \end{proposition}
 
 \nid This result is a direct analog of the corresponding result for conformal-net-valued local field theories, given in~\cite{0912.5307}, and the proof is the same.
