@@ -98,9 +98,13 @@ The following proposition is well-known, and justifies the definition of finiten
 A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
 \end{proposition}
 \begin{proof}
-	It is standard that, for $A$ a finite-dimensional $k$-algebra, the linear category $\Mod{A}{}$ satisfies the four conditions. \NS{I propose replacing this proof by a reference to Introduction to Representation Theory Chapter 9.}
-	% The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. However this is precisely the classical fact that every finite-dimensional algebra over a field is semiperfect.
-	Now assume that $\cC$ is finite. Let $\{X_i\}$ denote a set of representatives for the isomorphism classes of simples. Let $P_i \to X_i$ be a surjection, with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite-dimensional, $A$ is a finite-dimensional algebra.  (Note that here the algebra structure on $A$ is defined by $a \cdot b := b \circ a$, as required by the conventions of \cite{DTCI}.)
+	Let $A$ be a finite-dimensional $k$-algebra and consider the linear category $\Mod{A}{}$ of finite dimensional left $A$-modules. The first two properties of the definition of finite tensor category are clearly satisfied, inherited from the corresponding properties of the category of vector spaces. Since free $A$-modules are projective and every $A$-module, $M$, admits the surjection ${}_A A \otimes M \to M$, there are enough projectives. 
+	
+	Let $M$ be an $A$-module. Every non-zero element of $M$ gives rise to a non-zero map of $A$-modules $A \to M$. If $M$ is simple, the cokernel is necessarily zero, and so every simple $A$-module is a quotient of $A$. In particular every simple module occurs as a factor in a composition series for $A$. Since every (finite dimensional) $A$-module is finite length, there are only finitely many simple modules which occur in any decomposition series of $A$, and so by the Jordan-H\"older theorem there are at most finitely many simple modules up to isomorphism. Hence the linear category $\Mod{A}{}$ is finite.
+	
+%	It is standard that, for $A$ a finite-dimensional $k$-algebra, the linear category $\Mod{A}{}$ satisfies the four conditions. \NS{I propose replacing this proof by a reference to Introduction to Representation Theory Chapter 9.}
+	% The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. 
+	For the converse direction assume that $\cC$ is finite. Let $\{X_i\}$ denote a set of representatives for the isomorphism classes of simples. Let $P_i \to X_i$ be a surjection, with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite-dimensional, $A$ is a finite-dimensional algebra.  (Note that here the algebra structure on $A$ is defined by $a \cdot b := b \circ a$, as required by the conventions of \cite{DTCI}.)
 	
 We have an adjunction, which we will show is an equivalence:
 	\begin{equation*}
