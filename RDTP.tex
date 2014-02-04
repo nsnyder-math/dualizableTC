@@ -100,7 +100,7 @@ A linear category is finite if and only if it is equivalent to the category $\Mo
 \begin{proof}
 	Let $A$ be a finite-dimensional $k$-algebra and consider the linear category $\Mod{A}{}$ of finite dimensional left $A$-modules. The first two properties of the definition of finite tensor category are clearly satisfied, inherited from the corresponding properties of the category of vector spaces. Since free $A$-modules are projective and every $A$-module, $M$, admits the surjection ${}_A A \otimes M \to M$, there are enough projectives. 
 	
-	Let $M$ be an $A$-module. Every non-zero element of $M$ gives rise to a non-zero map of $A$-modules $A \to M$. If $M$ is simple, the cokernel is necessarily zero, and so every simple $A$-module is a quotient of $A$. In particular every simple module occurs as a factor in a composition series for $A$. Since every (finite dimensional) $A$-module is finite length, there are only finitely many simple modules which occur in any decomposition series of $A$, and so by the Jordan-H\"older theorem there are at most finitely many simple modules up to isomorphism. Hence the linear category $\Mod{A}{}$ is finite.
+	Let $M$ be an $A$-module. Every non-zero element of $M$ gives rise to a non-zero map of $A$-modules $A \to M$. If $M$ is simple, the cokernel is necessarily zero, and so every simple $A$-module is a quotient of $A$. In particular every simple module occurs as a factor in a composition series for $A$. Since every (finite dimensional) $A$-module is finite length, there are only finitely many simple modules which occur in any composition series of $A$, and so by the Jordan-H\"older theorem there are at most finitely many simple modules up to isomorphism. Hence the linear category $\Mod{A}{}$ is finite.
 	
 %	It is standard that, for $A$ a finite-dimensional $k$-algebra, the linear category $\Mod{A}{}$ satisfies the four conditions. \NS{I propose replacing this proof by a reference to Introduction to Representation Theory Chapter 9.}
 	% The only property which is not immediate is that every module admits a {\em projective cover}, that is an epimorphism onto that module whose source is projective and whose kernel is superfluous. 
@@ -619,7 +619,22 @@ By Theorem \ref{thm:enrichment-of-mod-cats} this functor factors through the Yon
 \begin{equation*}
 	\IHom(p, -): \cM \to \cC.
 \end{equation*}
-The claim now follows from the well-known fact that the Yoneda embedding reflects exact sequences.  \NS{I wasn't able to follow this argument, perhaps it could use some more detail?}
+Thus if $m \to m' \to m'' \to 0$ is an exact sequence in $\cM$ and $x \in \cC$ is any object we have an exact sequence
+\begin{equation*}
+	\Hom(x, \IHom(p,m)) \to \Hom(x, \IHom(p,m')) \to \Hom(x, \IHom(p,m'')) \to 0.
+\end{equation*}
+In particular this holds when $x$ is a projective generator (which is guaranteed to exist since $\cC$ is finite). It follows that 
+\begin{equation*}
+	\IHom(p,m) \to \IHom(p,m') \to \IHom(p,m'') \to 0
+\end{equation*}
+is an exact sequence, as was desired. This is because if $x \in \cC$ is a projective generator, then a sequence $y \to y' \to y'' \to 0$ in $\cC$ is exact if and only if 
+\begin{equation*}
+	\Hom(x, y) \to \Hom(x, y') \to \Hom(x, y'') \to 0
+\end{equation*} 
+is exact. 
+%The claim now follows from the well-known fact that the Yoneda embedding reflects exact sequences.  
+\NS{I wasn't able to follow this argument, perhaps it could use some more detail?}
+\CSP{I think what was there was wrong. I changed it, so I think it is more clear now what is going on.}
 \end{proof}
 
 
