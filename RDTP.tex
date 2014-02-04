@@ -695,8 +695,8 @@ If it exists, the balanced tensor product is unique up to equivalence, and this 
 
 In \cite{0909.3140} the existence of the balanced tensor product was established for semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the balanced tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite[Thm 3.1]{1102.3411}. The following theorem extends these results to arbitrary finite tensor categories and finite module categories. 
 
-\begin{theorem} \label{thm:DelignePrdtOverATCExists}  \NS{This theorem needs a right exactness of the action assumption.}
-	Let $\cC$ be a finite tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. Then,
+\begin{theorem} \label{thm:DelignePrdtOverATCExists}  \NS{This theorem needs a right exactness of the action assumption.} \CSP{You are right. I added it.}
+	Let $\cC$ be a finite tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. Assume that both actions are right exact in the $\cC$-variable. Then,
 	\begin{enumerate}
 		\item The balanced tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category;
 		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$;
@@ -789,15 +789,15 @@ and implements the desired equivalence between such right exact functors and $\c
 We now prove the final property. By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B, A'$, and $C' \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$, $\cN \simeq \Mod{}{B}(\cC)$, $\cM' \simeq \Mod{A'}{}(\cC)$, $\cN \simeq \Mod{}{B'}(\cC)$. Since $F_0$ and $F_1$ are right exact, they are equivalent to tensoring with bimodules:
 \begin{align*}
 	F_0(-) &\cong {}_{A'}x \otimes_A (-); \\
-	F_1(-) & \cong (-) \times_B x_{B'}.
+	F_1(-) & \cong (-) \otimes_B y_{B'}.
 \end{align*}
 Since $F_0$ and $F_1$ are exact, we may call these modules {\em flat} over $A$, respectively $B$. We wish to show that the induced functor:
 \begin{equation*}
-	\overline{F}(-) = {}_{A'}x \otimes_A (-) \times_B y_{B'}: \Mod{A}{B}(\cC) \to \Mod{A'}{B'}(\cC)
+	\overline{F}(-) = {}_{A'}x \otimes_A (-) \otimes_B y_{B'}: \Mod{A}{B}(\cC) \to \Mod{A'}{B'}(\cC)
 \end{equation*}
 is exact. Since the forgetful functor $U: \Mod{A'}{B'}(\cC) \to \cC$ is exact and reflects short exact sequences, it is enough to show that 
 \begin{equation*}
-	x \otimes_A (-) \times_B y: \Mod{A}{B}(\cC) \to \cC
+	x \otimes_A (-) \otimes_B y: \Mod{A}{B}(\cC) \to \cC
 \end{equation*}
 is exact. Let $0 \to m \to m' \to m'' \to 0$ be a short exact sequence of $A$-$B$-bimodules. We will compute the above functor in two steps, by first tensoring with $x$, and then with $y$. After tensoring with $x$ on the left we obtain a sequence of right $B$-modules:
 \begin{equation*}
@@ -808,10 +808,7 @@ Since $x$ is flat, this sequence is exact after forgetting the $B$-module struct
 		0 \to x \otimes_A m \otimes_B y \to x \otimes_A m'\otimes_B y \to x \otimes_A {m''}  \otimes_B y \to 0
 \end{equation*}
 	as desired. 
-
-
-
-The final property, part (4), now follows from a routine diagram chase, which we also leave to the reader. 
+%The final property, part (4), now follows from a routine diagram chase, which we also leave to the reader. 
 \end{proof}
 
 \begin{example}
