@@ -75,7 +75,7 @@ A {\em linear functor} is an additive functor, that is also a functor of $\overl
 
 Recall the following standard terminology:
 \begin{itemize}
-	\item[-] A object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
+	\item[-] An object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
 	\item[-] An object $X$ of a linear category has {\em finite length} if every strictly decreasing chain of subobjects $X = X_0 \supsetneq X_1 \supsetneq X_2 \supsetneq  \cdots$ has finite length. 
 	\item[-] A linear category is {\em semisimple} if every object splits as a direct sum of simple objects. If in addition every object has finite length, then every object splits as a finite direct sum of simple objects.
 	\item[-] A linear category {\em has enough projectives} if for every object $X$, there is a project object $P$ with a surjection $P \twoheadrightarrow X$. 
@@ -326,7 +326,7 @@ Unwrapping this definition we see that a left $\cC$-module category is a linear 
 
 \begin{example} \label{ex:ModulesAreModules}
 	For any algebra object $A$ in a tensor category $\cC$, the category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a \emph{left} $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a \emph{right} $\cC$-module category.
-\end{example} \NS{I moved these examples earlier and added one new example} \CD{Ok.}
+\end{example}
 
 \begin{example}
 $\cC$ is naturally a $\cC$-$\cC$ bimodule category with the actions given by the tensor product and the natural transformations by the associator.
@@ -367,7 +367,7 @@ Since any linear functor from $\Vec$ to $\Vec$ is determined by a choice of fini
 \end{example}
 
 
-The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature and it is needed in the proof of Lemma  \ref{lma:module-adjoint}.  \NS{Added reference}
+The following result is well-known \cite[Rmk 4]{MR1976459}, but we were unable to find a proof in the literature and it is needed in the proof of Lemma  \ref{lma:module-adjoint}.
 
 \begin{lemma} \label{lem:laxisstrong}
 	Let $\cC$ be a tensor category. Then every lax (respectively oplax) $\cC$-module functor is strong.  
@@ -686,8 +686,9 @@ In this section we prove our main result, the existence of the balanced tensor p
 	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em balanced tensor product} $\cM \boxtimes_{\cC} \cN$
 	is the universal linear category admitting a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced right exact multilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
 \end{definition}
-\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  \NS{The punctuation and quotes looks weird to me, but I'm assuming it was intentional, and I don't really care, so I didn't change it.}
+\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  \NS{The punctuation outside quotes looks weird to me, but I'm assuming it was intentional, and I don't really care, so I didn't change it.}
 \CD{I changed rDtp to btp throughout.  There were numerous instances where rDtp had been abbreviated to Dtp; I tried to change those to btp or tp as appropriate, but it may be that there is a use or two of btp now that should really be tp --- hopefully we'll catch if so in final reading}
+\NS{They all look fine to me.}
 
 If it exists, the balanced tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the balanced tensor product is either contractible or empty. 
 
@@ -707,8 +708,9 @@ In \cite{0909.3140} the existence of the balanced tensor product was established
 		%If $F: \cM \times \cN \to \cD$ is a $\cC$-balanced multilinear functor which is exact in each variable, then it defines an exact functor $\overline{F}: \cM \boxtimes_{\cC} \cN \to \cD$. 
 	\end{enumerate} 
 \nid Here $\Mod{A}{B}(\cC)$ denotes the category of $A$-$B$-bimodule objects in $\cC$.
-\CD{Add biexactness condition to Part (4) --- see email thread ``Deligne tensor product of rigids is rigid" and DTC.}
-\CSP{I corrected part (4) and gave a proof.}	
+\CD{Add biexactness condition to Part (4)} %--- see email thread ``Deligne tensor product of rigids is rigid" and DTC.}
+\CSP{I corrected part (4) and gave a proof.}
+\NS{Looks ok to me.}	
 \end{theorem}
 
 
@@ -717,7 +719,7 @@ In \cite{0909.3140} the existence of the balanced tensor product was established
 	\begin{equation*}
 		\cM \times \cN \simeq \Mod{A}{}(\cC) \times  \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC)
 	\end{equation*}
-	is exact in each variable separately. It is also $\cC$-balanced via the associator of $\cC$.\NS{Clarified this sentence.} Thus $(2)$ implies both  $(1)$ and $(3)$. We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
+	is exact in each variable separately. It is also $\cC$-balanced via the associator of $\cC$.\NS{I added what the balancing is.} Thus $(2)$ implies both  $(1)$ and $(3)$. We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
 \end{equation*}
