@@ -352,7 +352,7 @@ A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a strong functor of bica
 %
 \nid Bimodule categories, functors, and transformations form a strict 2-category.  %!%CD check
 %If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
- The above description in terms of bicategories permits us to effortlessly import several 2-categorical theorems into the world of bimodule categories. For example we have the following characterization of equivalences of bimodule categories (c.f. \cite{MR2664622}). 
+ The above description in terms of bicategories permits us to effortlessly import several 2-categorical theorems into the world of bimodule categories. For example we have the following characterization of equivalences of bimodule categories (cf. \cite{MR2664622}).  \NS{Here and elsewhere I corrected c.f. to cf.}
  
 \begin{lemma} \label{lem:Recog_equiv_of_bimod}
 	Given two $\cC$-$\cD$-bimodule categories $\cM$ and $\cN$, and a bimodule functor $F:\cM \to \cN$, then $F$ is an equivalence of $\cC$-$\cD$-bimodule categories if and only if it induces an equivalence of underlying categories: $F: \Hom_{\cM}(x,y) \stackrel{\simeq}{\to} \Hom_{\cN}(x,y)$. 
@@ -538,7 +538,7 @@ Without assuming that the category $\cC$ is rigid this statement is false as the
 	Up to equivalence there are unique choices of associator and unitors making this a linear monoidal category. 
 It is both finite and semisimple, and is a categorification of the ring $k[x]/(x^2)$, but it is not rigid. The object $X$ cannot have a dual as there is no object $Z \in \cR$ such that $Z \otimes X$ has a non-zero map to or from the unit object of $\cR$. 
 	
-	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both left and right adjoints, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (c.f. Lemma~\ref{lem:laxisstrong}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. 
+	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both left and right adjoints, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (cf. Lemma~\ref{lem:laxisstrong}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. 
 \end{example}
 
 In order to show exactly how rigidity appears we first prove a more general result which does not assume rigidity.  Stating this more general theorem requires the following definition.
@@ -572,7 +572,7 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
 \end{theorem}
 
-\noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}). 
+\noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}).  \NS{Should we cite Barr-Beck somewhere?}
 
 \begin{proof}[Proof of Thm.~\ref{thm:C-module-Embedding}]
 	First, we have a series of natural isomorphisms:
@@ -712,15 +712,12 @@ In \cite{0909.3140} the existence of the balanced tensor product was established
 \end{theorem}
 
 
-\CD{Other new material (somewhere) as a result of the new issues? --- eg $Z(C)$ semisimple implies $C$ simple, etc.}
-\NS{Looking at DTC1, we don't seem to refer to this paper for those issues.  I don't think anything new is needed, but let me know if you have particular things in mind.}
-
 \begin{proof}
 	 By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. By Lemma \ref{lma:RigidIsExact}, the natural tensor product functor
 	\begin{equation*}
 		\cM \times \cN \simeq \Mod{A}{}(\cC) \times  \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC)
 	\end{equation*}
-	is exact in each variable separately. It is also $\cC$-balanced. Thus $(2)$ implies both  $(1)$ and $(3)$. We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
+	is exact in each variable separately. It is also $\cC$-balanced via the associator of $\cC$.\NS{Clarified this sentence.} Thus $(2)$ implies both  $(1)$ and $(3)$. We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
 \end{equation*}
@@ -735,7 +732,7 @@ For any right exact functor $\overline{F}$, the value $\overline{F}({}_A X_B)$ i
 \begin{equation*}
 	\overline{F}({}_A X_B) = \coker \left( \overline{F}(\delta): \overline{F}({}_A A \otimes A \otimes X_B) \to \overline{F}({}_A A \otimes X_B) \right).
 \end{equation*} 
-Moverover the modules ${}_A A \otimes A \otimes X_B$ and ${}_A A \otimes X_B$ are in the image of $\cM \times \cN$. 
+Moreover the modules ${}_A A \otimes A \otimes X_B$ and ${}_A A \otimes X_B$ are in the image of $\cM \times \cN$. 
 	
 Suppose we are given a $\cC$-balanced functor $F:\cM \times \cN \to \cD$ which is right exact in each variable separately. It is tempting to try to define the extension $\overline{F}: \Mod{A}{B}(\cC) \to \cD$ via a formula of the type:
 \begin{equation*}
@@ -784,7 +781,10 @@ The rows of this diagram are exact (since $F$ was assumed to be right exact in e
 \end{equation*} 
 and implements the desired equivalence between such right exact functors and $\cC$-balanced exact-in-each-variable functors. Verifying that this construction is well defined makes use of the pentagon identity satisfied by $\cC$-balanced functors. This establishes (1), (2), and (3). 
 
-We now prove the final property. By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B, A'$, and $C' \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$, $\cN \simeq \Mod{}{B}(\cC)$, $\cM' \simeq \Mod{A'}{}(\cC)$, $\cN \simeq \Mod{}{B'}(\cC)$. Since $F_0$ and $F_1$ are right exact, they are equivalent to tensoring with bimodules:
+\CD{Other new material (somewhere) as a result of the new issues? --- eg $Z(C)$ semisimple implies $C$ simple, etc.}
+\NS{Looking at DTC1, we don't seem to refer to this paper for those issues.  I don't think anything new is needed, but let me know if you have particular things in mind.}
+
+We now prove the final property. By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B, A'$, and $B' \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$, $\cN \simeq \Mod{}{B}(\cC)$, $\cM' \simeq \Mod{A'}{}(\cC)$, $\cN \simeq \Mod{}{B'}(\cC)$. Since $F_0$ and $F_1$ are right exact, they are equivalent to tensoring with bimodules:
 \begin{align*}
 	F_0(-) &\cong {}_{A'}x \otimes_A (-); \\
 	F_1(-) & \cong (-) \otimes_B y_{B'}.
@@ -839,12 +839,12 @@ This has a crucial consequence. The Deligne tensor product of tensor categories 
 	\begin{equation*}
 		\Vec_L \boxtimes_{\Vec_k} \Vec_L \simeq \Mod{L\otimes L}{}
 	\end{equation*} 
-	is equivalent to the category of $L \otimes L$-modules. This category is no longer semi-simple (since $L$ is inseparable) and moreover the induced monoidal structure is the tensor product over $L \otimes L$, which is no longer exact in each variable. It follows (C.f. Lemma~\ref{lma:RigidIsExact}) that $\Vec_L \boxtimes_{\Vec_k} \Vec_L$ fails to be rigid. 
+	is equivalent to the category of $L \otimes L$-modules. This category is no longer semi-simple (since $L$ is inseparable) and moreover the induced monoidal structure is the tensor product over $L \otimes L$, which is no longer exact in each variable. It follows (cf. Lemma~\ref{lma:RigidIsExact}) that $\Vec_L \boxtimes_{\Vec_k} \Vec_L$ fails to be rigid. 
 \end{example}
 
 \begin{proposition}[`Products of module categories are modules over the product']
 	%\label{lem:}
-	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$ as a left $\cC \boxtimes \cD$-module category.
+	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $$\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$$ as a left $\cC \boxtimes \cD$-module category.
 \end{proposition}
 
 \begin{proof}
@@ -857,14 +857,11 @@ This has a crucial consequence. The Deligne tensor product of tensor categories 
 	\begin{equation*}
 		(-) \otimes (B \boxtimes C)_{B \boxtimes C}: \cC \boxtimes \cD \rightleftarrows \cN \boxtimes \cP: \overline{U}.
 	\end{equation*}
-	Since all these functors are compatible with the $\cC$- and $\cD$-module structures, the result follows if we can show that this adjunction is monadic.
+	Any $\cC \boxtimes \cD$-module functor from $\cC \boxtimes \cD$ to itself is given by tensoring by an object in $\cC \boxtimes \cD$, hence any monad on $\cC \boxtimes \cD$ which is compatible with the module actions comes from an algebra in $\cC \boxtimes \cD$.  Hence we need only show that this adjunction is monadic.  
 	
-	This last follows from the crude monadicity theorem \cite[\S~3.5]{MR771116} and the observations:
-	\begin{itemize}
-		\item $\overline{U}$ reflects isomorphisms. This follows from the five lemma and the fact that everything is a coequalizer of objects in the image of $\cM \times \cN$; and
-		\item $\overline{U}$ preserves coequalizers of reflexive pairs. In fact $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$. Thus it is sufficient for $\overline{U}$ to preserve cokernels, which it does since $\overline{U}$ is exact. This last property follows from  Thm~\ref{thm:DelignePrdtOverATCExists}(4) and the corresponding exactness property for the original forgetful functors $U$ above.
- \qedhere
-	\end{itemize}
+	\NS{I think we should say a few more words about why the theorem follows from monadicity of the adjunction.}
+	
+	By the the crude monadicity theorem \cite[\S~3.5]{MR771116} we only need to show that $\overline{U}$ reflects isomorphisms and $\overline{U}$ preserves coequalizers of reflexive pairs.  The former follows from the five lemma and the fact that everything in $\cC \boxtimes \cD $ is a coequalizer of objects in the image of $\cN \times \cP$.  For the latter we show that $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$.  Thus it is sufficient to show that $\overline{U}$ is exact and hence that $\overline{U}$ preserves cokernels.  The exactness of $\overline{U}$ follows from Thm~\ref{thm:DelignePrdtOverATCExists}(4) and exactness of the original forgetful functors $U$.  \NS{I edited the exposition in this proof.}
 \end{proof}
 
 
