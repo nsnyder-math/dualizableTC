@@ -44,7 +44,7 @@ The balanced tensor product was first constructed by Etingof-Nikshych-Ostrik und
 
 \begin{theorem}
 If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module category, and $\cN$ is a finite left $\cC$-module category, then there exists a finite tensor category $\cM \boxtimes_\cC \cN$ representing $\cC$ balanced right exact bilinear functors out of $\cM \times \cN$.
-\end{theorem}
+\end{theorem}  \NS{Is this numbering ok?  Or should this get changed to Theorem 1?}
 
 The key result underlying our construction shows that any module category can be realized as a category of modules.  It is due to Ostrik in the fusion case, Etingof-Ostrik for exact module categories, and in the general case appears in Etingof-Gelaki-Nikshych-Ostrik's lecture notes.
 
@@ -58,7 +58,8 @@ Using this theorem we have the following explicit construction of the balanced t
 If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the balanced tensor product $(A\text{-Mod}) \boxtimes_\cC (\text{Mod-}B)$.
 \end{theorem}
 
-The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.  There is also some overlap with the papers of Greenough \cite{MR2678824, 1102.3411} who restricts his attention to the case of exact module categories.  Throughout we have also been careful not to make unneeded assumptions on the base field.  \NS{Added the last sentence.  I'm not sure if it's at exactly the right spot but it's probably worth noting somewhere in justifying why we wanted to be careful about checking the proofs left as exercises.}
+The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.  There is also some overlap with the papers of Greenough \cite{MR2678824, 1102.3411} who restricts his attention to the case of exact module categories.  Another goal is to clarify exactly which assumptions are essential.  In particular in \cite{3TC, DTCI} we do not assume that the base field is algebraically closed.  Furthermore, in the long run we would like to consider the dualizability of non-rigid monoidal categories, so we identify exactly where rigidity appears.
+  \NS{Added the last three sentences.}
 
 
 \section{Linear categories and tensor categories} \label{sec:tc-lincat}
@@ -580,9 +581,9 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 		& \cong \eq \left( \Hom_{\Mod{}{A}(\cC)}(b \otimes A_A, \IHom(p,x) )  \rightrightarrows \Hom_{\Mod{}{A}(\cC)}(  b \otimes A \otimes A_A, \IHom(p,x))  \right) \\
 		& \cong \eq \left( \Hom_{\cC}(b, \IHom(p,x) )  \rightrightarrows \Hom_{\cC}(  b \otimes A, \IHom(p,x))  \right) \\
 		& \cong \eq \left( \Hom_{\cM}(b \cdot p, x )  \rightrightarrows \Hom_{\cM}(  b \otimes A \cdot p, x)  \right) \\
-		& \Hom_{\cM}( \coeq \left( b \otimes \IHom(p,p) \cdot p \rightrightarrows b \cdot p \right), x) \\
-		& \Hom_{\cM}( F(b), x)
-	\end{align*}
+		& \cong  \Hom_{\cM}( \coeq \left( b \otimes \IHom(p,p) \cdot p \rightrightarrows b \cdot p \right), x) \\
+		& \cong \Hom_{\cM}( F(b), x)
+	\end{align*}  \NS{The cong's were missing on the last two lines, so I added them}
 	where $b \in \Mod{}{A}(\cC)$ and $x \in \cM$. This establishes that $\IHom(p,-): \cM \to \Mod{}{A}(\cC)$ is indeed right adjoint to $F$.
 
 For the second part of the theorem, our assumptions ensure that:
@@ -604,7 +605,7 @@ We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module catego
 If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular Lemma \ref{lma:module-adjoint} implies that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover the following lemma shows there always exists a $\cC$-projective $\cC$-generator.  
 \begin{lemma}{\cite[\S 2.11]{EGNO}} \label{lma:Enough_C-projs}
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category, then there exists a $\cC$-projective $\cC$-generator. 
-\end{lemma} 
+\end{lemma}   \NS{I think this needs a right exactness of the module action assumption.}
 \begin{proof}
 	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator, and these are guaranteed to exist since $\cM$ is finite. Thus assume that $p \in \cM$ is projective.  We aim to show that $\IHom(p, -)$ is right exact. 
 	
@@ -612,7 +613,7 @@ If we additionally assume that $\cC$ is rigid, then some of the conditions of th
 \begin{equation*}
 	\Hom_{\cM}(c \otimes p, m) \cong \Hom_{\cM}(p, {}^*c \otimes m).
 \end{equation*}
-Taking an object to its dual is a (contravariant) equivalence of categories hence exact. Moreover since $p$ is projective and the $\cC$-module structure is right exact, we see that the above functor is left exact in the `$c$' variable and right exact in the `$m$' variable. Said differently, for each projective $p \in \cM$ we have a right exact functor
+Taking an object to its dual is a (contravariant) equivalence of categories hence it is exact. Moreover since $p$ is projective and the $\cC$-module structure is right exact, we see that the above functor is left exact in the `$c$' variable and right exact in the `$m$' variable. Said differently, for each projective $p \in \cM$ we have a right exact functor
 \begin{align*}
 	G_p: & \; \cM \to \Fun^L(\cC^\op, \Vect) \\
 	& m \mapsto (c \mapsto \Hom(c \otimes p, m)).
@@ -634,9 +635,6 @@ is an exact sequence, as was desired. This is because if $x \in \cC$ is a projec
 	\Hom(x, y) \to \Hom(x, y') \to \Hom(x, y'') \to 0
 \end{equation*} 
 is exact. 
-%The claim now follows from the well-known fact that the Yoneda embedding reflects exact sequences.  
-\NS{I wasn't able to follow this argument, perhaps it could use some more detail?}
-\CSP{I think what was there was wrong. I changed it, so I think it is more clear now what is going on.}
 \end{proof}
 
 
@@ -688,14 +686,14 @@ In this section we prove our main result, the existence of the balanced tensor p
 	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em balanced tensor product} $\cM \boxtimes_{\cC} \cN$
 	is the universal linear category admitting a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced right exact multilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
 \end{definition}
-\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".
+\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  \NS{The punctuation and quotes looks weird to me, but I'm assuming it was intentional, and I don't really care, so I didn't change it.}
 \CD{I changed rDtp to btp throughout.  There were numerous instances where rDtp had been abbreviated to Dtp; I tried to change those to btp or tp as appropriate, but it may be that there is a use or two of btp now that should really be tp --- hopefully we'll catch if so in final reading}
 
 If it exists, the balanced tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the balanced tensor product is either contractible or empty. 
 
 In \cite{0909.3140} the existence of the balanced tensor product was established for semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the balanced tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite[Thm 3.1]{1102.3411}. The following theorem extends these results to arbitrary finite tensor categories and finite module categories. 
 
-\begin{theorem} \label{thm:DelignePrdtOverATCExists}  \NS{This theorem needs a right exactness of the action assumption.} \CSP{You are right. I added it.}
+\begin{theorem} \label{thm:DelignePrdtOverATCExists}
 	Let $\cC$ be a finite tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. Assume that both actions are right exact in the $\cC$-variable. Then,
 	\begin{enumerate}
 		\item The balanced tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category;
