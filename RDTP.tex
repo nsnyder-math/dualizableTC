@@ -42,21 +42,21 @@ Tensor categories are a higher dimensional analogue of algebras.  Just as module
 
 The balanced tensor product was first constructed by Etingof-Nikshych-Ostrik under the assumption that $\cC$ is a fusion category and $\cM$ and $\cN$ are finite semisimple module categories \cite{0909.3140}.  A construction of the balanced tensor product for certain non-semisimple categories can also be extracted from \cite[Thm 3.1]{1102.3411}.   In this paper, we give a construction of the balanced tensor product under the assumption that $\cC$ is a finite tensor category in the sense of \cite{EO-ftc} and $\cM$ and $\cN$ are finite module categories.  
 
-\begin{theorem}
+\begin{maintheorem}
 If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module category, and $\cN$ is a finite left $\cC$-module category, then there exists a finite tensor category $\cM \boxtimes_\cC \cN$ representing $\cC$ balanced right exact bilinear functors out of $\cM \times \cN$.
-\end{theorem}  \NS{Is this numbering ok?  Or should this get changed to Theorem 1?}
+\end{maintheorem}
 
 The key result underlying our construction shows that any module category can be realized as a category of modules.  It is due to Ostrik in the fusion case, Etingof-Ostrik for exact module categories, and in the general case appears in Etingof-Gelaki-Nikshych-Ostrik's lecture notes.
 
-\begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} %\label{thm:EGNO2.11.6}
+\begin{maintheorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} %\label{thm:EGNO2.11.6}
 	If $\cM$ is a finite left module category over a finite tensor category $\cC$, then there exists an algebra object $A \in \cC$ together with an equivalence of left $\cC$-module categories between $\cM$ and the category of right $A$-module objects in $\cC$.  Similarly, any finite right module category over a finite tensor category is equivalent to a category of left $A$-modules for some algebra object $A \in \cC$.
-\end{theorem}
+\end{maintheorem}
 
 Using this theorem we have the following explicit construction of the balanced tensor product.
 
-\begin{theorem}
+\begin{maintheorem}
 If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the balanced tensor product $(A\text{-Mod}) \boxtimes_\cC (\text{Mod-}B)$.
-\end{theorem}
+\end{maintheorem}
 
 The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.  There is also some overlap with the papers of Greenough \cite{MR2678824, 1102.3411} who restricts his attention to the case of exact module categories.  Another goal is to clarify exactly which assumptions are essential.  In particular in \cite{3TC, DTCI} we do not assume that the base field is algebraically closed.  Furthermore, in the long run we would like to consider the dualizability of non-rigid monoidal categories, so we identify exactly where rigidity appears.
   \NS{Added the last three sentences.}
@@ -352,7 +352,7 @@ A {\em $\cC$-$\cD$ bimodule functor} $F:\cM \to \cN$ is a strong functor of bica
 %
 \nid Bimodule categories, functors, and transformations form a strict 2-category.  %!%CD check
 %If $\cM$ and $\cN$ are both $\cC$-$\cD$ bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$-$\cD$-bimodule functor}.
- The above description in terms of bicategories permits us to effortlessly import several 2-categorical theorems into the world of bimodule categories. For example we have the following characterization of equivalences of bimodule categories (cf. \cite{MR2664622}).  \NS{Here and elsewhere I corrected c.f. to cf.}
+ The above description in terms of bicategories permits us to effortlessly import several 2-categorical theorems into the world of bimodule categories. For example we have the following characterization of equivalences of bimodule categories (cf. \cite{MR2664622}).
  
 \begin{lemma} \label{lem:Recog_equiv_of_bimod}
 	Given two $\cC$-$\cD$-bimodule categories $\cM$ and $\cN$, and a bimodule functor $F:\cM \to \cN$, then $F$ is an equivalence of $\cC$-$\cD$-bimodule categories if and only if it induces an equivalence of underlying categories: $F: \Hom_{\cM}(x,y) \stackrel{\simeq}{\to} \Hom_{\cN}(x,y)$. 
@@ -686,9 +686,7 @@ In this section we prove our main result, the existence of the balanced tensor p
 	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em balanced tensor product} $\cM \boxtimes_{\cC} \cN$
 	is the universal linear category admitting a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced right exact multilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
 \end{definition}
-\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  \NS{The punctuation outside quotes looks weird to me, but I'm assuming it was intentional, and I don't really care, so I didn't change it.}
-\CD{I changed rDtp to btp throughout.  There were numerous instances where rDtp had been abbreviated to Dtp; I tried to change those to btp or tp as appropriate, but it may be that there is a use or two of btp now that should really be tp --- hopefully we'll catch if so in final reading}
-\NS{They all look fine to me.}
+\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  \NS{The punctuation outside quotes looks weird to me, but I'm assuming it was intentional, and I don't really care, so I didn't change it.} \CD{My rule is: unless the thing being quoted contained a punctuation mark, the mark goes outside.}
 
 If it exists, the balanced tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the balanced tensor product is either contractible or empty. 
 
