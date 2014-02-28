@@ -233,8 +233,7 @@ Let $\cC$ be monoidal category. $\cC^\mp$ will denote its {\em monoidal opposite
 
 
 \begin{definition}
-	A {\em linear monoidal category} will mean a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.  \NS{I'm not sure if we want to say ``right exact" somewhere here.  Rigidity implies exactness of tensor product so it may not be necessary.} \CD{I think in any case we should be completely explicit --- eg say (after the def perhaps) that linear monoidal categories aren't assumed right exact (or are if we like), but finite tensor categories are necessarily right exact.} \CSP{Actually I think this is fine as written. By default there is no exactness, and I don't see a reason to add it in? 
-	The very next lemma spells out the exactness properties when we are rigid.}
+	A {\em linear monoidal category} will mean a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is multilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.  
 \end{definition}
 
 	Here by multilinear we mean the following.  If $\{\cM_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cM_\alpha\}$ into a linear category $\cN$ consists of a functor
@@ -574,7 +573,6 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 \end{theorem}
 
 \noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care this is easily avoided (cf. \cite[Rmk. 2.11.3]{EGNO}).  
-\NS{Should we cite Barr-Beck somewhere?}\CSP{I don't think so.}
 
 \begin{proof}[Proof of Thm.~\ref{thm:C-module-Embedding}]
 	First, we have a series of natural isomorphisms:
@@ -607,7 +605,7 @@ We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module catego
 If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular Lemma \ref{lma:module-adjoint} implies that when $\cC$ is rigid the functor $\IHom(p,-)$ may always be enhanced to a $\cC$-module functor and moreover the following lemma shows there always exists a $\cC$-projective $\cC$-generator.  
 \begin{lemma}{\cite[\S 2.11]{EGNO}} \label{lma:Enough_C-projs}
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category in which the action is right exact in $\cC$, then there exists a $\cC$-projective $\cC$-generator. 
-\end{lemma}   \NS{I think this needs a right exactness of the module action assumption.} \CSP{I added this to the statement.}
+\end{lemma}   
 \begin{proof}
 	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator, and these are guaranteed to exist since $\cM$ is finite. Thus assume that $p \in \cM$ is projective.  We aim to show that $\IHom(p, -)$ is right exact. 
 	
@@ -688,7 +686,7 @@ In this section we prove our main result, the existence of the balanced tensor p
 	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em balanced tensor product} $\cM \boxtimes_{\cC} \cN$
 	is the universal linear category admitting a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$. That is, there exists a $\cC$-balanced right exact multilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ which induces, for all linear categories $\cD$, an equivalence between the category of $\cC$-balanced right exact multilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. 
 \end{definition}
-\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  \NS{The punctuation outside quotes looks weird to me, but I'm assuming it was intentional, and I don't really care, so I didn't change it.} \CD{My rule is: unless the thing being quoted contained a punctuation mark, the mark goes outside.} \NS{That's certainly the most logical way to handle it.  Anyway, as I said I don't care, just wanted to check that it was intentional.}
+\nid The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  
 
 If it exists, the balanced tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the balanced tensor product is either contractible or empty. 
 
