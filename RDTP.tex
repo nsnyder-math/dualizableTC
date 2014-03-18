@@ -7,8 +7,13 @@
 \title{The balanced tensor product of module categories}
 
 \begin{abstract}
-A key role in the theory of tensor categories is played by the balanced tensor product $\cM \boxtimes_\cC \cN$ which is a higher dimensional analogue of the tensor product of a right and a left module over a non-commutative ring.  The balanced tensor product is characterized by a universal property, but such a characterization does not guarantee existence.  In this paper, we give a construction of the balanced tensor product for finite tensor categories (in the sense of Etingof-Ostrik) and their finite module categories.  This generalizes results of Etingof-Nikshych-Ostrik in the semisimple case.  Explicitly, we realize the balanced tensor product over $\cC$ as a category of bimodule objects in $\cC$.
+The balanced tensor product $M \otimes_A N$ of two modules over an algebra $A$ is the vector space corepresenting $A$-balanced bilinear maps out of the product $M \times N$.  The balanced tensor product $\cM \boxtimes_{\cC} \cN$ of two module categories over a monoidal linear category $\cC$ is the linear category corepresenting $\cC$-balanced right-exact bilinear functors out of the product category $\cM \times \cN$.  We prove that the balanced tensor product exists, provided the monoidal linear category is finite and rigid, and the module categories are finite.
 \end{abstract}
+
+
+
+
+%A key role in the theory of tensor categories is played by the balanced tensor product $\cM \boxtimes_\cC \cN$ which is a higher dimensional analogue of the tensor product of a right and a left module over a non-commutative ring.  The balanced tensor product is characterized by a universal property, but such a characterization does not guarantee existence.  In this paper, we give a construction of the balanced tensor product for finite tensor categories (in the sense of Etingof-Ostrik) and their finite module categories.  This generalizes results of Etingof-Nikshych-Ostrik in the semisimple case.  Explicitly, we realize the balanced tensor product over $\cC$ as a category of bimodule objects in $\cC$.
 
 \author{Christopher L. Douglas}
 \address{Mathematical Institute\\ University of Oxford\\ Oxford OX1 3LB\\ United Kingdom}
@@ -36,30 +41,63 @@ A key role in the theory of tensor categories is played by the balanced tensor p
 %\setcounter{tocdepth}{2}
 %\tableofcontents
 
+Needless to say, the tensor product $V \otimes W$ of vector spaces is a fundamental algebraic operation, as is the balanced tensor product $M \otimes_A N$ of two modules over an algebra.  There are categorical analogs of the notions of vector space, algebra, and module, namely (abelian) linear category, monoidal linear category, and module category.  Deligne~\cite{MR1106898} constructed a categorical tensor product $\cK \boxtimes \cL$ of finite linear categories.  Etingof, Nikshych, and Ostrik~\cite{0909.3140} established the existence of a balanced tensor product $\cM \boxtimes_{\cC} \cN$ of finite semisimple module categories over a finite, rigid, semisimple monoidal linear category over a field of characteristic zero.  We prove that the balanced tensor product exists more generally for not-necessarily-semisimple monoidal linear categories and module categories, over any base field.
+
+The balanced tensor product $M \otimes_A N$ is, by definition, the vector space corepresenting $A$-balanced bilinear maps out of $M \times N$---a map $M \times N \ra L$ is $A$-balanced if precomposing with the action of $A$ on $M$ or on $N$ produces the same map $M \times A \times N \ra L$.  If the balanced tensor product exists, it is certainly unique (up to unique isomorphism); existence is typically established by explicit construction as a quotient of a free abelian group on the product $M \times N$.  Similarly, the balanced tensor product $\cM \boxtimes_{\cC} \cN$ of module categories over a monoidal linear category is the linear category corepresenting $\cC$-balanced right-exact bilinear functors out of $\cM \times \cN$.  Again if the balanced tensor product exists, it is unique (up to an equivalence that is unique up to unique natural isomorphism).  
+
+The only task is to provide an explicit construction of the balanced tensor product that satisfies the corepresentation property.  A crucial tool for the construction is the result, proved by Etingof--Gelaki--Nikshych--Ostrik \cite[Thm 2.11.6]{EGNO}, based on earlier work of Etingof--Ostrik \cite[\S 3.2]{EO-ftc} along the lines pioneered by Ostrik \cite[Thm 1]{MR1976459}, that any finite left module category ${}_{\cC} \cN$ over a finite tensor category $\cC$ is equivalent to the category of right module objects $\Mod{}{B}(\cC)$ in $\cC$, for some algebra object $B \in \cC$; similarly any right module category $\cM_{\cC}$ is equivalent to a category of left module objects $\Mod{A}{}(\cC)$.  It therefore suffices to construct a balanced tensor product of module categories that are presented as categories of module objects, $\Mod{A}{}(\cC)$ and $\Mod{}{B}(\cC)$, and in that case, the category $\Mod{A}{B}(\cC)$ of $A$--$B$-bimodule objects in $\cC$ provides an explicit realization of the product.
+
+\begin{theorem*}
+Let $\cC$ be a finite, rigid, monoidal linear category, and let $\cM$ be a finite right $\cC$-module category and $\cN$ a finite left $\cC$-module category.  There exists a finite linear category $\cM \boxtimes_\cC \cN$ corepresentating $\cC$-balanced right-exact bilinear functors out of $\cM \times \cN$.
+\end{theorem*}
+
+In Section~\ref{sec:tc-lincat}, we give an expositional overview of linear category and monoidal linear categories.  In particular, we give a proof of the well known fact that all finite linear categories are equivalent to categories of modules over a finite-dimensional algebra, and a proof of the fact that all right (respectively left) exact linear functors between finite linear categories admit right (respectively left) adjoints.  In Section~\ref{sec:tc-bimod}, we provide a review of aspects of Etingof--Gelaki--Nikshych--Ostrik's theory of module categories, including proofs that all module functors are strong and that adjunctions lift to module adjunctions, and we give a proof, of the fact that module categories are categories of module objects, that isolates and mitigates the rigidity assumption.  In Section~\ref{sec:tc-deligne}, we use the presentation of module categories as categories of modules to prove that the balanced tensor product of module categories exists, and we establish the basic exactness properties of the balanced tensor product.
 
 
-Tensor categories are a higher dimensional analogue of algebras.  Just as modules and bimodules play a key role in the theory of algebras, the analogous notions of module categories and bimodule categories play a key role in the study of tensor categories (as pioneered by Ostrik \cite{MR1976459}).  One of the key constructions in the theory of modules and bimodules is the relative tensor product $M \otimes_A N$ which is universal for $A$-balanced bilinear functions out of $M \times N$.   A similar role is played by the balanced tensor product of module categories $\cM \boxtimes_\cC \cN$ in the theory of tensor categories (for example, see \cite{MR1966524, 0909.3140, MR2511638, MR2909758, 1202.4396, MR3022755, MR3063919}).  This balanced tensor product is often called the relative Deligne tensor product, and it is universal for certain balanced functors.  Since it is defined by a universal property, if it exists this tensor product is unique up to unique isomorphism.  However, in order to prove existence one needs a direct construction.  Such a construction depends on $\cM$, $\cC$, and $\cN$ satisfying certain niceness properties.  
 
-The balanced tensor product was first constructed by Etingof-Nikshych-Ostrik under the assumption that $\cC$ is a fusion category and $\cM$ and $\cN$ are finite semisimple module categories \cite{0909.3140}.  A construction of the balanced tensor product for certain non-semisimple categories can also be extracted from \cite[Thm 3.1]{1102.3411}.   In this paper, we give a construction of the balanced tensor product under the assumption that $\cC$ is a finite tensor category in the sense of \cite{EO-ftc} and $\cM$ and $\cN$ are finite module categories.  
 
-\begin{maintheorem}
-If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module category, and $\cN$ is a finite left $\cC$-module category, then there exists a finite tensor category $\cM \boxtimes_\cC \cN$ representing $\cC$ balanced right exact bilinear functors out of $\cM \times \cN$.
-\end{maintheorem}
 
-The key result underlying our construction shows that any module category can be realized as a category of modules.  It is due to Ostrik in the fusion case, Etingof-Ostrik for exact module categories, and in the general case appears in Etingof-Gelaki-Nikshych-Ostrik's lecture notes.
 
-\begin{maintheorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} %\label{thm:EGNO2.11.6}
-	If $\cM$ is a finite left module category over a finite tensor category $\cC$, then there exists an algebra object $A \in \cC$ together with an equivalence of left $\cC$-module categories between $\cM$ and the category of right $A$-module objects in $\cC$.  Similarly, any finite right module category over a finite tensor category is equivalent to a category of left $A$-modules for some algebra object $A \in \cC$.
-\end{maintheorem}
 
-Using this theorem we have the following explicit construction of the balanced tensor product.
 
-\begin{maintheorem}
-If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the balanced tensor product $(A\text{-Mod}) \boxtimes_\cC (\text{Mod-}B)$.
-\end{maintheorem}
 
-The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.  There is also some overlap with the papers of Greenough \cite{MR2678824, 1102.3411} who restricts his attention to the case of exact module categories.  Another goal is to clarify exactly which assumptions are essential.  In particular in \cite{3TC, DTCI} we do not assume that the base field is algebraically closed.  Furthermore, in the long run we would like to consider the dualizability of non-rigid monoidal categories, so we identify exactly where rigidity appears.
-  \NS{Added the last three sentences.}
+
+\CD{Discuss how/where/for what to add back in the refs Mug03, ENO10, JL09, GS12a, GS12b, DNO13, FSV13 // DSPSa, DSPSb // Gre10, Gre11.  Also Tambara!}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%Tensor categories are a higher dimensional analogue of algebras.  Just as modules and bimodules play a key role in the theory of algebras, the analogous notions of module categories and bimodule categories play a key role in the study of tensor categories (as pioneered by Ostrik \cite{MR1976459}).  One of the key constructions in the theory of modules and bimodules is the relative tensor product $M \otimes_A N$ which is universal for $A$-balanced bilinear functions out of $M \times N$.   A similar role is played by the balanced tensor product of module categories $\cM \boxtimes_\cC \cN$ in the theory of tensor categories (for example, see \cite{MR1966524, 0909.3140, MR2511638, MR2909758, 1202.4396, MR3022755, MR3063919}).  This balanced tensor product is often called the relative Deligne tensor product, and it is universal for certain balanced functors.  Since it is defined by a universal property, if it exists this tensor product is unique up to unique isomorphism.  However, in order to prove existence one needs a direct construction.  Such a construction depends on $\cM$, $\cC$, and $\cN$ satisfying certain niceness properties.  
+
+%The balanced tensor product was first constructed by Etingof-Nikshych-Ostrik under the assumption that $\cC$ is a fusion category and $\cM$ and $\cN$ are finite semisimple module categories \cite{0909.3140}.  A construction of the balanced tensor product for certain non-semisimple categories can also be extracted from \cite[Thm 3.1]{1102.3411}.   In this paper, we give a construction of the balanced tensor product under the assumption that $\cC$ is a finite tensor category in the sense of \cite{EO-ftc} and $\cM$ and $\cN$ are finite module categories.  
+
+%\begin{maintheorem}
+%If $\cC$ is a finite tensor category, $\cM$ is a finite right $\cC$-module category, and $\cN$ is a finite left $\cC$-module category, then there exists a finite tensor category $\cM \boxtimes_\cC \cN$ representing $\cC$ balanced right exact bilinear functors out of $\cM \times \cN$.
+%\end{maintheorem}
+
+%The key result underlying our construction shows that any module category can be realized as a category of modules.  It is due to Ostrik in the fusion case, Etingof-Ostrik for exact module categories, and in the general case appears in Etingof-Gelaki-Nikshych-Ostrik's lecture notes.
+
+%\begin{maintheorem}{\cite[Thm 2.11.6]{EGNO}, \cite[\S 3.2]{EO-ftc}, \cite[Thm 1]{MR1976459}} %\label{thm:EGNO2.11.6}
+%	If $\cM$ is a finite left module category over a finite tensor category $\cC$, then there exists an algebra object $A \in \cC$ together with an equivalence of left $\cC$-module categories between $\cM$ and the category of right $A$-module objects in $\cC$.  Similarly, any finite right module category over a finite tensor category is equivalent to a category of left $A$-modules for some algebra object $A \in \cC$.
+%\end{maintheorem}
+
+%Using this theorem we have the following explicit construction of the balanced tensor product.
+
+%\begin{maintheorem}
+%If $\cC$ is a finite tensor category and $A, B \in \cC$ are algebra objects, then the category of $A\text{-Mod-}B$ objects in $\cC$ together with the obvious forgetful functors satisfies the universal property of the balanced tensor product $(A\text{-Mod}) \boxtimes_\cC (\text{Mod-}B)$.
+%\end{maintheorem}
+
+%The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  One of our goals in writing this paper is that it can serve as a self-contained introduction to the parts of EGNO's theory which are needed in those papers.  In order to keep this paper self-contained, and to clarify several details of where the assumptions of finiteness and rigidity come into the argument, we have reproved a few results from Etingof, Gelaki, Nikshych, and Ostrik's work and given the proofs of a few results that they left as exercises to the reader.  There is also some overlap with the papers of Greenough \cite{MR2678824, 1102.3411} who restricts his attention to the case of exact module categories.  Another goal is to clarify exactly which assumptions are essential.  In particular in \cite{3TC, DTCI} we do not assume that the base field is algebraically closed.  Furthermore, in the long run we would like to consider the dualizability of non-rigid monoidal categories, so we identify exactly where rigidity appears.
+%  \NS{Added the last three sentences.}
 
 
 \section{Linear categories and tensor categories} \label{sec:tc-lincat}
@@ -71,7 +109,7 @@ A {\em linear functor} is an additive functor, that is also a functor of $\overl
 
 \begin{warning}
 	In \cite{3TC, DTCI} we will use the phrase ``linear functor" to mean what we call ``right exact linear functor" in this paper.  In the $3$-category of finite tensor categories the $2$-morphisms are assumed to be right exact, because the balanced tensor product of linear categories is only functorial with respect to right exact functors.  Since this paper concerns the definition of the balanced tensor product itself, we will not use the abbreviated convention here.
-\end{warning} \CD{It had said ``3-morphisms'' here ...}
+\end{warning}
 
 Recall the following standard terminology:
 \begin{itemize}
@@ -239,8 +277,8 @@ Let $\cC$ be monoidal category. $\cC^\mp$ will denote its {\em monoidal opposite
 \end{example}
 
 \begin{example}
-When $K$ is a finite group, the category of finite-dimensional $K$-graded vector spaces $\Vect[K]$ is a finite tensor category.  Again when $K$ is finite, the category of finite-dimensional representations $\Rep(K)$ is a finite tensor category.  Similarly, if $H$ is a finite-dimensional Hopf algebra, then the category $\Rep(H)$ is a finite tensor category; in particular the category of representations of the small quantum group is a finite tensor category.
-\end{example} \CD{Something about this example feels out of place}
+When $K$ is a finite group, the category of finite-dimensional $K$-graded vector spaces $\Vect[K]$ is a finite tensor category.  Again when $K$ is finite, the category of finite-dimensional representations $\Rep(K)$ is a finite tensor category.  Similarly, if $H$ is a finite-dimensional Hopf algebra, then the category $\Rep(H)$ is a finite tensor category.%; in particular the category of representations of the small quantum group is a finite tensor category.
+\end{example}
 
 %\begin{example}
 %	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $F \otimes G = G \circ F$. If $\cM$ is semisimple, then $\Fun(\cM, \cM)$ is rigid and hence a tensor category; Duals are obtained by taking adjoint functors.  
@@ -271,11 +309,13 @@ When $K$ is a finite group, the category of finite-dimensional $K$-graded vector
 
 \section{Module categories} \label{sec:tc-bimod}
 
+\CD{Need to rethink section titles}
+
 \subsection{Module categories} %\NS{I think this subsection should be called ``Module categories" and the subsection break should be moved up half a page, putting the internal hom into the next subsection (whose name doesn't need to change).}
 
 We follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
 \begin{itemize}
-	\item[-] a {\em lax} functor of bicategories $F: \cN \to \cC$ is equipped with natural 2-morphisms
+	\item[-] a {\em lax} functor of bicategories $F: \cN \to \cC$ is equipped with natural 2-morphisms \CD{Why notation $\cN$ and $\cC$?}
 	\begin{equation*}
 		F(f) \circ F(g) \to F(f \circ g) \quad \textrm{ and } \quad \id_{F(X)} \to F(\id_X);
 	\end{equation*} 
@@ -284,10 +324,10 @@ We follow the standard conventions for bicategories and their functors, as in fo
 		F(f \circ g) \to F(f) \circ F(g)   \quad \textrm{ and } \quad F(\id_X) \to \id_{F(X)};
 	\end{equation*}
 	\item[-] a {\em strong} functor of bicategories is equipped with such comparison maps that are 2-isomorphisms. Hence a strong functor may be regarded as both lax and oplax. 
-\end{itemize} \CD{Notation $\cN$ and $\cC$?}
+\end{itemize} 
 
 \begin{definition}
-	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$--$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that \CD{``finite tensor cats"? or are we going to define tens to mean finite.  if not need to carefully go through whole paper and add ``finite" at appropriate spots.}
+	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$--$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that 
 	\begin{itemize}
 		\item[-] all hom categories are linear categories, 
 		\item[-] horizontal composition is bilinear, and
@@ -296,6 +336,8 @@ We follow the standard conventions for bicategories and their functors, as in fo
 	\end{itemize}
 	We will often abuse terminology and refer to the value $\cM := \Hom(x,y)$ as the bimodule category. When $\cD \simeq \Vect_k$, the bimodule category $\cM$ is called simply a {\em left $\cC$-module category}. When $\cC \simeq \Vect_k$, the bimodule category $\cM$ is called simply a {\em right $\cD$-module category}.
 \end{definition}
+
+\CD{I think we may have said ``tensor category" various places where we meant ``finite tensor category"}
 	
 Expanding this definition we find that a left $\cC$-module category is a linear category $\cM$ together with a bilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
 %	\CSP{This looks a little gross. I should change it.}
@@ -314,11 +356,11 @@ Expanding this definition we find that a left $\cC$-module category is a linear 
 \end{example}
 
 \begin{example} \label{ex:ModulesAreModules}
-	For any algebra object $A$ in a tensor category $\cC$, the category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a left $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a right $\cC$-module category. \CD{``finite tensor cat"}
+	For any algebra object $A$ in a tensor category $\cC$, the category $\Mod{}{A}(\cC)$ of right $A$-modules in $\cC$ is a left $\cC$-module category.  Similarly, the category $\Mod{A}{}(\cC)$ of left $A$-modules in $\cC$ is a right $\cC$-module category.
 \end{example}
 
 \begin{example}
-$\cC$ is naturally a $\cC$--$\cC$-bimodule category with the actions given by the tensor product and the natural transformations by the associator. \CD{Say what C is}
+For a tensor category $\cC$, the category $\cC$ itself is naturally a $\cC$--$\cC$-bimodule category with the actions given by the tensor product and the natural transformations by the associator.
 \end{example}
 
 \begin{example}
@@ -363,7 +405,7 @@ The following result is well known \cite[Rmk 4]{MR1976459}, but we were unable t
 
 \begin{lemma} \label{lem:laxisstrong}
 	Let $\cC$ be a tensor category. Then every lax (or oplax) $\cC$-module functor is strong.  
-\end{lemma} \CD{the term ``lax/oplax C-module functor" has not been used before}
+\end{lemma} \CD{(the specific term ``lax/oplax C-module functor" has not been used before)}
 
 \begin{proof}
 We show the lax case; the oplax case is similar.  Suppose that $F: \cM \ra \cN$ is a linear functor between $\cC$-module categories, and $f_{c,m}:  c \otimes F(m) \rightarrow F(c \otimes m)$ is a natural transformation making $F$ into a lax module functor.  \CD{This version/expansion of the notion of lax modular functor has not previously been given.  sim for bimod functors in next lemma.}
@@ -425,14 +467,14 @@ We need to check that this map is inverse to $f_{c^*,m}$.  That this map is inve
 		\node at (0,-.5) {$F$};
 		\node at (1,-.5) {$c \otimes (-)$};
 	\end{scope}
-\end{tikzpicture} \CD{why are some of the lines not vertical in the first picture?}
+\end{tikzpicture} \CD{straighten lines in the first picture?}
 \end{center}
 \end{proof}
 
 The following Lemma was left as an exercise to the reader in \cite[\S 3.3]{EO-ftc}.
 
 \begin{lemma} \label{lma:module-adjoint}
-Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be a $\cC$--$\cD$-bimodule functor.  If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then $F$ has a right (respectively left) adjoint $\cC$--$\cD$-bimodule functor. \CD{notion of finite bimodule category hasn't been introduced?}
+Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be a $\cC$--$\cD$-bimodule functor.  If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then $F$ has a right (respectively left) adjoint $\cC$--$\cD$-bimodule functor. \CD{notion of finite bimodule category hasn't specifically been introduced?}
 \end{lemma}
 \begin{proof}
 Suppose that $G$ is the right adjoint to the underlying functor of $F$; we will show that $G$ naturally has the structure of a $\cC$--$\cD$-bimodule functor.  The result for left adjoints is similar.
@@ -511,7 +553,7 @@ Consider $\Vect$ as a module category over $\Vect[K]$.  Then $\IHom(1,1)$ is $k[
 
 
 
-The goal of this subsection is to prove a generalization of the following result.
+The goal of this subsection is to prove a generalization of the following result. \CD{Need to explain specifically why we need a generalization of the result.}
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over a finite tensor category $\cC$, and assume the action is right exact in $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -530,7 +572,7 @@ The $\Vect[K]$-module category $\Vect$ is equivalent to the category of modules 
 This is a categorification of the ring $k[x]/(x^2)$.  It is both finite and semisimple, but it is not rigid: the object $X$ cannot have a dual as there is no object $Z$ such that $Z \otimes X$ has a non-zero map to or from the unit object. 
 	
 	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and a right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. \CD{say anything about reason for discussing adjoints of F?} \CD{why cf L2.10?}
-	It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (cf. Lemma~\ref{lem:laxisstrong}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. \CD{last two sentences: the logic here doesn't seem to be spelled out.}
+	It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (cf. Lemma~\ref{lem:laxisstrong}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. \CD{last two sentences: clarify/spell out the logic/order of ideas here.}
 \end{example}
 
 In order to see how rigidity appears in the proof of the above theorem, we will first show a more general result that does not assume rigidity.
@@ -655,7 +697,7 @@ In this section establish the existence of the balanced tensor product of finite
 
 \begin{definition}
 	Let $\cC$ be a linear monoidal category. 
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon identity. \CD{Did we say what right exact bilinear means? (is that a good term?)}
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon identity. \CD{Did we say what right exact bilinear means?}
 	A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $m \in \cM$, $c \in \cC$, and $n \in \cN$:
 \begin{center}
 \begin{tikzpicture}
@@ -825,7 +867,9 @@ This has a crucial consequence. The Deligne tensor product of finite tensor cate
 	is equivalent to the category of $L \otimes L$-modules. This category is no longer semisimple (since $L$ is inseparable) and moreover the induced monoidal structure is the tensor product over $L \otimes L$, which is no longer exact in each variable. It follows (cf. Lemma~\ref{lma:RigidIsExact}) that $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ fails to be rigid. 
 \end{example} \CD{Spell this example out more (also phrase in a way that makes it clear semisimplicity comments are unrelated to rigidity comments?)}
 
-\begin{proposition}[`Products of module categories are modules over the product']
+Finally we observe that the product of two internal module categories is an internal module category over the product algebra object:
+
+\begin{proposition}
 	%\label{lem:}
 	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $$\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$$ as a left $\cC \boxtimes \cD$-module category.
 \end{proposition}
