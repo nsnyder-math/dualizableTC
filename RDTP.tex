@@ -737,10 +737,10 @@ Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the bala
 	\begin{enumerate}
 		\item The balanced tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category.
 		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$, the category of $A$--$B$-bimodule objects in $\cC$.
-
 		\item The functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ is exact in each variable and satisfies 
+		\CSP{I corrected this formula}
 		\begin{equation*}
-			\Hom_{\cM}(x,x') \otimes \Hom_{\cN}(y, y') \cong \Hom_{\cM \boxtimes_{\cC} \cN} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y').
+			 \Hom_{\cM \boxtimes_{\cC} \cN} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y') \cong \Hom_{\cC}(1, \IHom_{\cM}(x,x') \otimes \IHom_{\cN}(y, y'))
 		\end{equation*}
 		\item Given exact $\cC$-module functors $F_0: M \to M'$ and $F_1: N \to N'$, the $\cC$-balanced functor $F: M \times N \to M' \times N' \to M' \boxtimes_{\cC} N'$ induces an exact functor $\overline{F}: M \boxtimes_{\cC} N \to M' \boxtimes_{\cC} N'$.
 	\end{enumerate} 
@@ -752,7 +752,7 @@ Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the bala
 	\begin{equation*}
 		\cM \times \cN \simeq \Mod{A}{}(\cC) \times  \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC)
 	\end{equation*}
-	is exact in each variable separately. It is also $\cC$-balanced by the associator of $\cC$.\NS{I added what the balancing is.} Thus $(2)$ implies both  $(1)$ and $(3)$. \CD{(1) discuss why A-Mod-B(C) is finite. (3) discuss displayed relation.}
+	is exact in each variable separately, and a simple calculation, which uses the fact that $\IHom(p,-)$ is a $\cC$-module functor (see Lemma~\ref{lma:module-adjoint}), establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$.\NS{I added what the balancing is.} Thus $(2)$ implies both  $(1)$ and $(3)$. \CD{(1) discuss why A-Mod-B(C) is finite. (3) discuss displayed relation.}
 	We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
