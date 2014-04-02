@@ -1605,8 +1605,10 @@ Provided the monoidal category $\cC$ is finite and rigid, and provided the modul
 		\item If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$ as a left $\cC \boxtimes \cD$-module category.
 		\item The functor $\boxtimes_{\cC}: \cM \times \cN \ra \cM \boxtimes_\cC \cN$ is exact in each variable and satisfies 
 		\begin{equation*}
-			\Hom_{\cM \boxtimes_{\cC} \cN} (m \boxtimes_\cC n, m' \boxtimes_\cC n') \cong \Hom_{\cM}(m,m') \otimes \Hom_{\cN}(n, n').
+			\Hom_{\cM \boxtimes_{\cC} \cN} (m \boxtimes_\cC n, m' \boxtimes_\cC n') \cong \Hom_{\cC}(1, 
+			 \IHom_{\cM}(m,m') \otimes \IHom_{\cN}(n, n')).
 		\end{equation*}
+		where $\IHom(-,-)$ denotes the $\cC$-valued enriched hom (see \cite{BTP} for details).
 		\item If $\cM_\cC \ra \cM'_\cC$ and ${}_\cC \cN \ra {}_\cC \cN'$ are exact $\cC$-module functors, then the corresponding functor $\cM \boxtimes_\cC \cN \ra \cM' \boxtimes_\cC \cN'$ is exact.
 		\item Let $\cM$, $\cN$, and $\cL$ now be linear categories and assume the base field is perfect.  If a bilinear functor $\cM \times \cN \ra \cL$ is exact in each variable, then the corresponding functor $\cM \boxtimes \cN \ra \cL$ is exact \cite[Prop 5.13(vi)]{deligne}.
 	\end{enumerate} 
