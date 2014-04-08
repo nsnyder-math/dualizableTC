@@ -626,7 +626,7 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 For the second part of the theorem, our assumptions ensure that:
 \begin{enumerate}
 	\item the functor $\IHom(p, -)$ commutes (coherently) with the $\cC$-action; \CD{omit item (1)}
-	\item the functor $\IHom(p, -)$ is fully-faithful; and \CD{say anything about full?}
+	\item the functor $\IHom(p, -)$ is fully-faithful; and \CD{say anything about full?}  \NS{Need to add CSP's new argument}
 	\item the functor $\IHom(p, -)$ is exact; 
 \end{enumerate}
 We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module categories. By Lemma \ref{lem:Recog_equiv_of_bimod} and (1), it is enough to show that it induces an equivalence of underlying categories. Moreover by (2) it is enough to show that the unit map $B \to \IHom(p, F(B))$ is an equivalence for all right $A$-modules $B$. This last statement holds by the following sequence of isomorphisms (which use (2) and (3) and the $\cC$-module structure on $\IHom$):
@@ -719,7 +719,6 @@ In this section establish the existence of the balanced tensor product of finite
 \end{tikzpicture}.
 \end{center}
 \end{definition}
-
 
 \begin{definition}
 	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em balanced tensor product} is a linear category $\cM \boxtimes_{\cC} \cN$
@@ -870,7 +869,7 @@ This has a crucial consequence. The Deligne tensor product of finite tensor cate
 \begin{example}
 	The assumption that the ground field is perfect is essential. If $k$ is imperfect, let $L$ be a finite inseparable field extension. The category $\Vect_L$ of $L$-vector spaces, with the usual tensor product over $L$, is a semisimple tensor category. However the Deligne tensor product $\Vect_L \boxtimes_{\Vect_k} \Vect_L$
 	is equivalent to the category of $L \otimes L$-modules. This category is no longer semisimple (since $L$ is inseparable) and moreover the induced monoidal structure is the tensor product over $L \otimes L$, which is no longer exact in each variable. It follows (cf. Lemma~\ref{lma:RigidIsExact}) that $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ fails to be rigid. 
-\end{example} \CD{Spell this example out more (also phrase in a way that makes it clear semisimplicity comments are unrelated to rigidity comments?)}
+\end{example} \CD{Spell this example out more (also phrase in a way that makes it clear semisimplicity comments are unrelated to rigidity comments?)} \NS{Is the description of the tensor product correct?  Isn't it tensor product as $L$ bimodules, that is over $L$ not over $L \otimes L$?}
 
 Finally we observe that the product of two internal module categories is an internal module category over the product algebra object:
 
@@ -889,7 +888,7 @@ Finally we observe that the product of two internal module categories is an inte
 	\begin{equation*}
 		(-) \otimes (B \boxtimes C)_{B \boxtimes C}: \cC \boxtimes \cD \rightleftarrows \cN \boxtimes \cP: \overline{U}.
 	\end{equation*}
-	Any $\cC \boxtimes \cD$-module functor from $\cC \boxtimes \cD$ to itself is given by tensoring by an object in $\cC \boxtimes \cD$, hence any monad on $\cC \boxtimes \cD$ that is compatible with the module actions comes from an algebra in $\cC \boxtimes \cD$.  \CD{Isn't this sentence irrelevant? omit.}
+	Any $\cC \boxtimes \cD$-module functor from $\cC \boxtimes \cD$ to itself is given by tensoring by an object in $\cC \boxtimes \cD$, hence any monad on $\cC \boxtimes \cD$ that is compatible with the module actions comes from an algebra in $\cC \boxtimes \cD$.  \CD{Isn't this sentence irrelevant? omit.}  \NS{It seems quite relevant to me...  In general not all monads give algebras.}
 	Hence we need only show that this adjunction is monadic.  
 	
 	\NS{I added stuff here about why the theorem follows from monadicity of the adjunction, since it was not obvious to me until I spent a while thinking about it.}
