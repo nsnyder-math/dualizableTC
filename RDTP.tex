@@ -293,8 +293,8 @@ When $K$ is a finite group, the category of finite-dimensional $K$-graded vector
  \begin{equation*} 
  	\Hom(x \otimes y, z) \cong \Hom( x, z \otimes y^*) \cong \Hom(y, {}^*x \otimes z).
  \end{equation*}
-	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. Moreover both the left and right adjoints are themselves of this form, hence are also  exact. 
-\end{proof} \CD{omit the last sentence?} \NS{I agree, as far as I can tell this is unnecessary.}
+	Hence for all $x$ and $y$ the functors $(-)\otimes x$ and $y \otimes (-)$ admit both left and right adjoints, and are consequently exact. %Moreover both the left and right adjoints are themselves of this form, hence are also  exact. 
+\end{proof} %\CD{omit the last sentence?} \NS{I agree, as far as I can tell this is unnecessary.}
 %\CD{(assuming right exact? only using left adj for left exact?)}
 
 
@@ -316,11 +316,11 @@ When $K$ is a finite group, the category of finite-dimensional $K$-graded vector
 
 We follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
 \begin{itemize}
-	\item[-] a {\em lax} functor of bicategories $F: \cN \to \cC$ is equipped with natural 2-morphisms \CD{Why notation $\cN$ and $\cC$?}  \NS{I agree, $\cC$ and $\cD$ would be better.}
+	\item[-] a {\em lax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms \CD{Why notation $\cN$ and $\cC$?}  \NS{I agree, $\cC$ and $\cD$ would be better.}
 	\begin{equation*}
 		F(f) \circ F(g) \to F(f \circ g) \quad \textrm{ and } \quad \id_{F(X)} \to F(\id_X);
 	\end{equation*} 
-	\item[-] an {\em oplax} functor of bicategories $F: \cN \to \cC$ is equipped with natural 2-morphisms
+	\item[-] an {\em oplax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms
 	\begin{equation*}
 		F(f \circ g) \to F(f) \circ F(g)   \quad \textrm{ and } \quad F(\id_X) \to \id_{F(X)};
 	\end{equation*}
@@ -440,7 +440,7 @@ We need to check that this map is inverse to $f_{c^*,m}$.  That this map is inve
 	\draw (A.53) -- (2.5,3.5);
 	\draw (A.308) -- (2.5,1) arc (180:360:0.5cm) -- (3.5,3.5);
 	\draw (B.308) -- (1.5, -1.5);
-	\draw (B.230) -- (.5, -1.5);
+	\draw (B.230) -| (.5, -1.5);
 	\node at (2.5,4) {$F$};
 	\node at (4,4) {$c \otimes (-)$};
 	\node at (.5, -2) {$F$};
@@ -472,7 +472,7 @@ We need to check that this map is inverse to $f_{c^*,m}$.  That this map is inve
 		\node at (0,-.5) {$F$};
 		\node at (1,-.5) {$c \otimes (-)$};
 	\end{scope}
-\end{tikzpicture} \CD{straighten lines in the first picture?}  \NS{Done}
+\end{tikzpicture} %\CD{straighten lines in the first picture?}  \NS{Done}
 \end{center}
 \end{proof}
 
@@ -576,8 +576,8 @@ The $\Vect[K]$-module category $\Vect$ is equivalent to the category of modules 
 	Up to equivalence there is a unique choice of associators and unitors making this a linear monoidal category. 
 This is a categorification of the ring $k[x]/(x^2)$.  It is both finite and semisimple, but it is not rigid: the object $X$ cannot have a dual as there is no object $Z$ such that $Z \otimes X$ has a non-zero map to or from the unit object. 
 	
-	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and a right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. \CD{say anything about reason for discussing adjoints of F?} \CD{why cf L2.10?} \NS{Should this say ``In contrast to L2.11"?}
-	It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (cf. Lemma~\ref{lem:laxisstrong}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. \CD{last two sentences: clarify/spell out the logic/order of ideas here.}  \NS{I think we're just making claims, not proving them.  So there's no logic/order.}
+	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and a right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. %\CD{say anything about reason for discussing adjoints of F?} %\CD{why cf L2.10?} \NS{Should this say ``In contrast to L2.11"?}
+	It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (in contrast to Lemma~\ref{lma:module-adjoint}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. %\CD{last two sentences: clarify/spell out the logic/order of ideas here.}  \NS{I think we're just making claims, not proving them.  So there's no logic/order.}
 \end{example}
 
 In order to see how rigidity appears in the proof of the above theorem, we will first show a more general result that does not assume rigidity.
@@ -644,7 +644,7 @@ If we additionally assume that $\cC$ is rigid, then some of the conditions of th
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category in which the action is right exact in $\cC$, then there exists a $\cC$-projective $\cC$-generator. \CD{Has `finite module category' been used before?}  \NS{Fixed above}
 \end{lemma}   
 \begin{proof}
-	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator (cf Remark \ref{rem:gen}), and projective generators are guaranteed to exist since $\cM$ is finite. \CD{say anything about existence of generator?}
+	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator (cf Remark \ref{rem:gen}), and projective generators are guaranteed to exist since $\cM$ is finite. \CD{say anything about existence of generator?} \CSP{I think this is dealt with.}
 	Thus assume that $p \in \cM$ is projective.  We need to show that $\IHom(p, -)$ is right exact. 
 	
 	Since $\cC$ is rigid, we have a natural isomorphism of functors:
