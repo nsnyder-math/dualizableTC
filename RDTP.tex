@@ -270,7 +270,7 @@ Conversely, if $G: \cC^\text{op} \to \Vect_k$ is left exact, then by the above p
 	In other words,  the object $F(k)$ represents the functor $G$. 
 \end{proof}
 
-\subsection{Rigid monoidal categories}  \NS{Tensor categories?  Finite tensor categories?}
+\subsection{Tensor categories}  \NS{Changed title}
 
 %A linear category will be said to {\em have enough projectives} if every simple object has a projective cover. \CD{explain `simple' and `projective cover'}
 
@@ -288,7 +288,7 @@ Let $\cC$ be monoidal category. $\cC^\mp$ will denote its {\em monoidal opposite
 
 
 \begin{definition}
-	A {\em linear monoidal category} is a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is bilinear. A {\em finite tensor category} is a finite rigid linear monoidal category.   \NS{Add here a definition of tensor category?}
+	A {\em linear monoidal category} is a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is bilinear.  A {\em tensor category} is an abelian rigid linear monoidal category.  A {\em finite tensor category} is a finite rigid linear monoidal category.   \NS{Added a definition of tensor category}
 \end{definition}
 
 \nid Here by bilinear, or more generally multilinear, we mean the following.  If $\{\cM_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cM_\alpha\}$ into a linear category $\cN$ is a functor $F: \prod \cM_\alpha \to \cN$ such that $F$ is linear in each variable separately. 
@@ -340,7 +340,7 @@ When $K$ is a finite group, the category of finite-dimensional $K$-graded vector
 
 We follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
 \begin{itemize}
-	\item[-] a {\em lax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms \CD{Why notation $\cN$ and $\cC$?}  \NS{I agree, $\cC$ and $\cD$ would be better.}
+	\item[-] a {\em lax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms \CD{Why notation $\cN$ and $\cC$?}  \NS{Fixed}
 	\begin{equation*}
 		F(f) \circ F(g) \to F(f \circ g) \quad \textrm{ and } \quad \id_{F(X)} \to F(\id_X);
 	\end{equation*} 
@@ -366,7 +366,7 @@ We follow the standard conventions for bicategories and their functors, as in fo
 \end{definition}
 
 \CD{I think we may have said ``tensor category" various places where we meant ``finite tensor category"}
-\NS{I'm pretty sure all the places we drop finite it's totally fine (i.e. we haven't used the adjoint functor theorem).  However, we never defined ``tensor category."  I added a note about this above}
+\NS{I'm pretty sure all the places we drop finite it's totally fine (i.e. we haven't used the adjoint functor theorem).  I added a definition of ``tensor category" above.}
 	
 Expanding this definition we find that a left $\cC$-module category is a linear category $\cM$ together with a bilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
 %	\CSP{This looks a little gross. I should change it.}
@@ -582,7 +582,7 @@ Consider $\Vect$ as a module category over $\Vect[K]$.  Then $\IHom(1,1)$ is $k[
 
 
 
-The goal of this subsection is to prove a generalization of the following result. \CD{Need to explain specifically why we need a generalization of the result.}  \NS{We don't really need it, right?}
+The goal of this subsection is to prove a generalization of the following result. \CD{Need to explain specifically why we need a generalization of the result.}  \NS{We don't really need it, right?  At any rate there's a paragraph below about this.}
 
 \begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6}
 	Let $\cM$ be a left module category over a finite tensor category $\cC$, and assume the action is right exact in $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
@@ -726,7 +726,7 @@ In this section establish the existence of the balanced tensor product of finite
 
 \begin{definition}
 	Let $\cC$ be a linear monoidal category. 
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category. A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon identity. \CD{Did we say what right exact bilinear means?}
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category.  A bilinear functor $F: \cM \times \cN \to \cL$ is called right exact if it is right exact in earch variable.   A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon identity. \CD{Did we say what right exact bilinear means?}  \NS{Added}
 	A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $m \in \cM$, $c \in \cC$, and $n \in \cN$:
 \begin{center}
 \begin{tikzpicture}
@@ -784,17 +784,22 @@ Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the bala
 	
 The key observation is that every object of $\Mod{A}{B}(\cC)$ may be functorially written as a coequalizer of objects in the image of $\cM \times \cN$. Specifically, for any $X \in \Mod{A}{B}(\cC)$, we have the coequalizer:
 \begin{equation*}
-	{}_A A \otimes A \otimes X_B \rightrightarrows {}_A A \otimes X_B \to {}_A X_B.
+%	{}_A A \otimes A \otimes X_B \rightrightarrows {}_A A \otimes X_B \to {}_A X_B.
+	{}_A X \otimes B \otimes B_B \rightrightarrows {}_A X \otimes B_B \to {}_A X_B.
 \end{equation*}
-Let $\delta: {}_A A \otimes A \otimes X_B \to {}_A A \otimes X_B$ be the difference of the two maps in the coequalizer. 
+Let %$\delta: {}_A A \otimes A \otimes X_B \to {}_A A \otimes X_B$ 
+$\delta: {}_A X \otimes B \otimes B_B \to {}_A X_B$ 
+be the difference of the two maps in the coequalizer. 
 For any right exact functor $\overline{F}: \Mod{A}{B}(\cC) \to \cD$, the value $\overline{F}({}_A X_B)$ is canonically determined as a cokernel:
 \begin{equation*}
-	\overline{F}({}_A X_B) = \coker \left( \overline{F}(\delta): \overline{F}({}_A A \otimes A \otimes X_B) \to \overline{F}({}_A A \otimes X_B) \right).
+%	\overline{F}({}_A X_B) = \coker \left( \overline{F}(\delta): \overline{F}({}_A A \otimes A \otimes X_B) \to \overline{F}({}_A A \otimes X_B) \right).
+	\overline{F}({}_A X_B) = \coker \left( \overline{F}(\delta): \overline{F}( {}_A X \otimes B \otimes B_B) \to \overline{F}({}_A X_B) \right).
 \end{equation*} 
 	
 Suppose we are given a $\cC$-balanced functor $F:\cM \times \cN \to \cD$ that is right exact in each variable separately. It is tempting to try to define the extension $\overline{F}: \Mod{A}{B}(\cC) \to \cD$ via a formula of the type:
 \begin{equation*}
-	``\overline{F}({}_A X_B) := \coker \left( F(\delta): F({}_A A \otimes A,  X_B) \to {F}({}_A A , X_B) \right)."
+%	``\overline{F}({}_A X_B) := \coker \left( F(\delta): F({}_A A \otimes A,  X_B) \to {F}({}_A A , X_B) \right)."
+	``\overline{F}({}_A X_B) := \coker \left( F(\delta): F( {}_A X \otimes B \otimes B_B) \to F({}_A X_B) \right)."
 \end{equation*} 
 The difficulty is that while the relevant objects are in the image of $\cM \times \cN$, the map $\delta$ is not. 
 Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagram. 
@@ -828,7 +833,7 @@ Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagr
 %	\caption{A digram useful for demonstrating the existence of the balanced tensor product.}
 %	\label{fig:RelDelingePdtDiagram}
 %\end{figure}
-\CD{Why was the tempting map on the other side from the construction?}
+\CD{Why was the tempting map on the other side from the construction?}  \NS{Fixed!}
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps of maps in $\cM$ or $\cN$, as above.  (The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.)
 
 The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow. We may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
@@ -875,8 +880,9 @@ The above theorem assumes that $\cC$ is a finite tensor category, that is a fini
 \end{remark}
 \CD{Add comment on importance/essentialness of right exactness in the theorem?}
 
-\subsection{Properties of the unbalanced tensor product}
-\CD{The rest seems weirdly tacked on.  Feels like the paper ends here properly.  Not sure what to do about that.}  \NS{We need these results, and I think this paper is a more appropriate place for it than DTC.  They have to go after the main results.  I wouldn't object to it being made an appendix.  But as usual I don't care whether a paper ends on a high note, people rarely read to the end of papers anyway.}
+\appendix
+\section{Properties of the unbalanced tensor product}
+\CD{The rest seems weirdly tacked on.  Feels like the paper ends here properly.  Not sure what to do about that.}  \NS{We need these results, and I think this paper is a more appropriate place for it than DTC.  They have to go after the main results.  I made it an appendix.}
 
 In the case where $\cC = \Vect$, and we are working over a perfect field, the exactness descent property given in Part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists} can be strengthened as follows.
 
@@ -891,9 +897,8 @@ This has a crucial consequence. The Deligne tensor product of finite tensor cate
 \end{corollary}
 
 \begin{example}
-	The assumption that the ground field is perfect is essential. If $k$ is imperfect, let $L$ be a finite inseparable field extension. The category $\Vect_L$ of $L$-vector spaces, with the usual tensor product over $L$, is a semisimple tensor category. However the Deligne tensor product $\Vect_L \boxtimes_{\Vect_k} \Vect_L$
-	is equivalent to the category of $L \otimes L$-modules. This category is no longer semisimple (since $L$ is inseparable) and moreover the induced monoidal structure is the tensor product over $L \otimes L$, which is no longer exact in each variable. It follows (cf. Lemma~\ref{lma:RigidIsExact}) that $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ fails to be rigid. 
-\end{example} \CD{Spell this example out more (also phrase in a way that makes it clear semisimplicity comments are unrelated to rigidity comments?)} \NS{Is the description of the tensor product correct?  Isn't it tensor product as $L$ bimodules, that is over $L$ not over $L \otimes L$?}
+	The assumption that the ground field is perfect is essential. If $k$ is imperfect, let $L$ be a finite inseparable field extension.  The category $\Vect_L$ of $L$-vector spaces, with the usual tensor product over $L$, is rigid.  However, we will see that the Deligne tensor product $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ is not rigid.  This Deligne tensor product $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ is equivalent to the category of $L \otimes L$-modules. This category is no longer semisimple (since $L$ is inseparable) and moreover the induced monoidal structure is the tensor product over $L \otimes L$, which is no longer exact in each variable. It follows from Lemma~\ref{lma:RigidIsExact} that $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ fails to be rigid. 
+\end{example} \CD{Spell this example out more (also phrase in a way that makes it clear semisimplicity comments are unrelated to rigidity comments?)} \NS{I rewrote this a little.}
 
 Finally we observe that the product of two internal module categories is an internal module category over the product algebra object:
 
