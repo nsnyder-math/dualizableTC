@@ -180,7 +180,10 @@ Now suppose that $X \in \cD$ is a non-zero object. Since $U$ reflects isomorphis
 \end{proof}
 
 
-\begin{proof}[Proof of Prop. \ref{prop:finitelinearcatsasmodules}]  \NS{Should this be more parallel with the proof of Prop 2.23?}
+\begin{proposition} \label{prop:finitelinearcatsasmodules}
+A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
+\end{proposition}
+\begin{proof}  \NS{Should this be more parallel with the proof of Prop 2.23?} \CSP{Now it does parallel that proposition more closely.}
 	Let $A$ be a finite-dimensional $k$-algebra and consider the linear category $\Mod{A}{}$ of finite-dimensional left $A$-modules. The linear category $\Vect_k$ is finite and the  free-forgetful adjunction $A\otimes(-): \Vect_k \leftrightarrows \Mod{A}{}: U$ satisfies the conditions of Lemma~\ref{lem:recognizefinitecats}. Hence the linear category $\Mod{A}{}$ is finite.
 	
 	
@@ -687,35 +690,42 @@ Moreover, assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$
 	\end{align*}  \CD{explain use of dot notation? just use otimes?} \NS{The cong's were missing on the last two lines, so I added them} \CSP{changed dots to otimes.}
 	where $b \in \Mod{}{A}(\cC)$ and $x \in \cM$. This establishes that $\IHom(p,-): \cM \to \Mod{}{A}(\cC)$ is indeed right adjoint to $F$.
 
-%lem:fiaghtfulrightadjoint
+%
 
 For the second part of the theorem first observe that if $F \dashv \IHom(p,-)$ induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$, then the functor also denoted $\IHom(p, -): \cM \to \cC$ is faithful and exact. Hence $p$ is by definition a $\cC$-projective $\cC$-generator.
 
-Now suppose that $p$ is a $\cC$-projective $\cC$-generator.  We will proceed similarly to Prop.~\ref{prop:finitelinearcatsasmodules}. We wish to show that the unit and counit of the adjunction $F \dashv \IHom(p,-)$ are isomorphisms. By assumption, $\IHom(p, -)$ is a $\cC$-module functor and 
-
-
-Thus for each $c \in \cC$ we have a natural isomorphism
+Now suppose that $p$ is a $\cC$-projective $\cC$-generator.  We will proceed similarly to Prop.~\ref{prop:finitelinearcatsasmodules}.
+We wish to show that the unit and counit of the adjunction $F \dashv \IHom(p,-)$ are isomorphisms. By assumption, $\IHom(p, -)$ is a $\cC$-module functor and hence for each $c \in \cC$ we have a natural isomorphism
 \begin{equation*}
-	\IHom(p, c \otimes p) \cong c \otimes
+	\IHom(p, c \otimes p) \cong c \otimes \IHom(p, p).
 \end{equation*}
+ Since $\IHom(p, -)$ is exact it commutes with finite colimits, such as coequalizers. Hence for each $A$-module $x_A \in \Mod{}{A}(\cC)$ we have
+ \begin{equation*}
+ 	\IHom(p, F(x_A)) \cong x \otimes_A \IHom(p,p) \cong x.
+ \end{equation*}
+Composing with the unit gives the identity map of $x$, hence the unit is an isomorphism. 
 
-
-
-
-
-our assumptions ensure that:
-\begin{enumerate}
-	\item the functor $\IHom(p, -)$ commutes (coherently) with the $\cC$-action; \CD{omit item (1)}
-	\item the functor $\IHom(p, -)$ is fully-faithful; and \CD{say anything about full?}  \NS{Need to add CSP's new argument}
-	\item the functor $\IHom(p, -)$ is exact; 
-\end{enumerate}
-We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module categories. By Lemma \ref{lem:Recog_equiv_of_bimod} and (1), it is enough to show that it induces an equivalence of underlying categories. Moreover by (2) it is enough to show that the unit map $B \to \IHom(p, F(B))$ is an equivalence for all right $A$-modules $B$. This last statement holds by the following sequence of isomorphisms (which use (2) and (3) and the $\cC$-module structure on $\IHom$):
-\begin{align*}
-	B & \cong \coeq \left( B \otimes \IHom(p,p) \otimes \IHom(p,p) \rightrightarrows B \otimes \IHom(p,p) \right)\\
-	& \cong \coeq \left(\IHom(p,B  \otimes \IHom(p,p) \otimes p) \rightrightarrows \IHom(p,B \otimes p) \right)\\
-	& \cong \IHom(p, F(B)). \qedhere
-\end{align*}	
+Similarly, again using the fact that $\IHom(p,-)$ is a $\cC$-module functor which commutes with coequalizers, we have that for each $m \in \cM$ 
+the counit map
+\begin{equation*}
+		F( \IHom(p,m)) \to m
+\end{equation*} 
+becomes an isomorphism after applying $\IHom(p,-)$. It would follow that the counit map is an isomorphism if we knew that $\IHom(p,-)$ reflects isomorphisms. But this follows directly from Lemma~\ref{lem:fiaghtfulrightadjoint} and the fact that $\IHom(p,-)$ is exact and faithful. 
+%our assumptions ensure that:
+%\begin{enumerate}
+%	\item the functor $\IHom(p, -)$ commutes (coherently) with the $\cC$-action; \CD{omit item (1)}
+%	\item the functor $\IHom(p, -)$ is fully-faithful; and \CD{say anything about full?}  \NS{Need to add CSP's new argument}
+%	\item the functor $\IHom(p, -)$ is exact; 
+%\end{enumerate}
+%We wish to show that $\IHom(p, -)$ induces an equivalence of $\cC$-module categories. By Lemma \ref{lem:Recog_equiv_of_bimod} and (1), it is enough to show that it induces an equivalence of underlying categories. Moreover by (2) it is enough to show that the unit map $B \to \IHom(p, F(B))$ is an equivalence for all right $A$-modules $B$. This last statement holds by the following sequence of isomorphisms (which use (2) and (3) and the $\cC$-module structure on $\IHom$):
+%\begin{align*}
+%	B & \cong \coeq \left( B \otimes \IHom(p,p) \otimes \IHom(p,p) \rightrightarrows B \otimes \IHom(p,p) \right)\\
+%	& \cong \coeq \left(\IHom(p,B  \otimes \IHom(p,p) \otimes p) \rightrightarrows \IHom(p,B \otimes p) \right)\\
+%	& \cong \IHom(p, F(B)). \qedhere
+%\end{align*}	
 \end{proof}
+
+\CSP{The proof of Thm.~\ref{thm:C-module-Embedding} was corrected incorporating comments via email. It mimics more closely the proof of Prop.~\ref{prop:finitelinearcatsasmodules}.}
 
 %The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
 
