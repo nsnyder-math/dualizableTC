@@ -857,7 +857,7 @@ where the second and fifth isomorphisms use the fact that the enriched hom is a 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
 \end{equation*}
-	is naturally equivalent to the category of $\cC$-balanced functors $F:\cM \times \cN \to \cD$ that are right exact in each variable separately. Every functor of the former type certainly restricts to one of the later type; we must show that a functor of the latter type extends uniquely (up to canonical isomorphism) to one of the former type. \CD{`uniquely (up to canon iso)' is not an entirely accurate description of what's required, right? (we just need any inverse, which will happen to be unique because inverses are unique ...)}
+	is naturally equivalent to the category of $\cC$-balanced functors $F:\cM \times \cN \to \cD$ that are right exact in each variable separately. Every functor of the former type certainly restricts to one of the later type; we must show that a functor of the latter type extends uniquely (up to canonical isomorphism) to one of the former type. \CD{`uniquely (up to canon iso)' is not an entirely accurate description of what's required, right? (we just need any inverse, which will happen to be unique because inverses are unique ...)} \CSP{actually I think this is exactly correct. Leaving it as written.}
 	
 The key observation is that every object of $\Mod{A}{B}(\cC)$ may be functorially written as a coequalizer of objects in the image of $\cM \times \cN$. Specifically, for any $X \in \Mod{A}{B}(\cC)$, we have the coequalizer:
 \begin{equation*}
@@ -999,11 +999,12 @@ Finally we observe that the product of two internal module categories is an inte
 	
 	\NS{I added stuff here about why the theorem follows from monadicity of the adjunction, since it was not obvious to me until I spent a while thinking about it.}
 	
-	By the the crude monadicity theorem \cite[\S~3.5]{MR771116} we only need to show that $\overline{U}$ reflects isomorphisms and $\overline{U}$ preserves coequalizers of reflexive pairs.  The former follows from the five lemma and the fact that everything in $\cC \boxtimes \cD $ is a coequalizer of objects in the image of $\cN \times \cP$.  \CD{Explain fact more.} \CD{Explain follows more?}
-	For the latter we show that $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$.  Thus it is sufficient to show that $\overline{U}$ is exact and hence that $\overline{U}$ preserves cokernels.  The exactness of $\overline{U}$ follows from Part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists} and exactness of the original forgetful functors $U$.  
+	By the the crude monadicity theorem \cite[\S~3.5]{MR771116} we only need to show that $\overline{U}$ reflects isomorphisms and $\overline{U}$ preserves coequalizers of reflexive pairs.  Observe that the individual functors (both called $U$) have these properties. Moreover everything in $\cN$ is a coequalizer of objects in the image of $\cC$, everything in $\cP$ is a coequalizer of objects in the image of $\cD$, and everything in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cN \times \cP$. Thus it follows that every object in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cC \times \cD$. For such objects $\overline{U}$ reflects isomorphisms, since the original $U$ do so. Hence, by the five lemma, it follows that $\overline{U}$ reflects isomorphisms. 
+ \CD{Explain fact more.} \CD{Explain follows more?} \CSP{Did both of these}
+For the latter property we will in fact show that $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$.  Thus it is sufficient to show that $\overline{U}$ is exact and hence that $\overline{U}$ preserves cokernels.  The exactness of $\overline{U}$ follows from Part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists} and exactness of the original forgetful functors $U$.  
 \end{proof}
 
-\CD{Switch order of DSPS13a and DSPS13b in the biblio, cf lurie entries for how}
+\CD{Switch order of DSPS13a and DSPS13b in the biblio, cf lurie entries for how}\CSP{can't because now one is 2013 and one is 2014.}
 
 \bibliographystyle{alpha}
 \bibliography{dtcbib}
