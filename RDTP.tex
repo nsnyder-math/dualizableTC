@@ -120,13 +120,15 @@ A {\em linear functor} is an additive functor, that is also a functor of $\overl
 
 The following categorical lemma, though elementary, will be useful in what follows. 
 \begin{lemma}\label{lem:fiaghtfulrightadjoint}
-	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between abelian categories. Then the right adjoint $U$ is faithful if and only if the counit $FU(X) \to X$ is a surjection for every object $X \in \cD$. 
+	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between abelian categories. Then the right adjoint $U$ is faithful if and only if the counit $FU(X) \to X$ is a surjection for every object $X \in \cD$. If in addition $U$ is exact, then $U$ reflects isomorphisms. 
 \end{lemma}
 
 \begin{proof}
 	The functor $U$ is faithful precisely when $U(f) = 0$ implies $f=0$ for all morphisms $f: X \to Y$ in $\cD$. Suppose that the counit $\varepsilon_X: FU(X) \to X$ is a surjection for every object $X \in \cD$ and let $f: X \to Y$ be a morphism such that $U(f): U(X) \to U(Y)$ is the zero morphism. Then the composite $FU(X) \to FU(Y) \to Y$ is the zero morphism. Since the counit is natural, this is the same as the composite $FU(X) \to X \to Y$, hence this composite is also the zero morphism. Now since $FU(X) \to X$ is surjective, the original map $f: X \to Y$ must be the zero morphism. 
 	
-	In the other direction, suppose that $U$ is faithful, and fix an object $X \in \cD$. Let $f: X \to C$ be the cokernel of the counit map $\varepsilon_X: FU(X) \to X$. We wish to show that the cokernel is zero.  Since the composite $f \circ \varepsilon_X =0 $, we have $U(f) \circ U(\varepsilon_X) = 0$. However $U(\varepsilon_X): UFU(X) \to U(X)$ is split (by the unit $\eta_{UX}$ of the adjunction) and hence is surjective, which implies that $U(f) = 0$. Since $U$ is faithful, we have that $f=0$ and so the cokernel was, in fact, zero as desired.       
+	In the other direction, suppose that $U$ is faithful, and fix an object $X \in \cD$. Let $f: X \to C$ be the cokernel of the counit map $\varepsilon_X: FU(X) \to X$. We wish to show that the cokernel is zero.  Since the composite $f \circ \varepsilon_X =0 $, we have $U(f) \circ U(\varepsilon_X) = 0$. However $U(\varepsilon_X): UFU(X) \to U(X)$ is split (by the unit $\eta_{UX}$ of the adjunction) and hence is surjective, which implies that $U(f) = 0$. Since $U$ is faithful, we have that $f=0$ and so the cokernel was, in fact, zero as desired.   
+	
+For the last statement, let $f: X \to Y$ be a map, with kernel and cokernel sequence $K \to X \to Y \to C$, and assume that $U(f): U(X) \to U(Y)$ is an isomorphism. Then, since $U$ is exact, the maps $U(K) \to U(X)$	    and $U(Y) \to U(C)$ are zero maps. Hence, since $U$ is faithful, the kernel and cokernel of $f$ were zero maps. 
 \end{proof}
 
 
@@ -170,7 +172,7 @@ Now suppose that $X \in \cD$ is a non-zero object. Since $U$ reflects isomorphis
 
 The following proposition is well-known (see for instance \cite[\S9.6]{MR2808160}), and justifies the above definition of finite.
 
-\begin{proposition}
+\begin{proposition} \label{prop:finitelinearcatsasmodules}
 A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
 \end{proposition}
 \begin{proof}  \NS{Should this be more parallel with the proof of Prop 2.23?}
@@ -650,17 +652,20 @@ In order to see how rigidity appears in the proof of the above theorem, we will 
 \end{example}
 
 
+
+
 \begin{theorem} \label{thm:C-module-Embedding} %!% [Thm 2.11.6(i)] 
-	Let $\cM$ be a finite left module category over a finite (not necessarily rigid) linear monoidal category $\cC$. Assume that the action is right exact in $\cC$. 
-	Fix an object $p \in \cM$, and set $A = \IHom(p,p) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and there is a $\cC$-module functor:
+
+
+	Let $\cM$ be a left module category over a finite (not necessarily rigid) linear monoidal category $\cC$. Assume that the action is right exact in $\cC$. Fix an object $p \in \cM$, and set $A = \IHom(p,p) \in \cC$. The object $A$ is naturally an algebra object in $\cC$, and there is a $\cC$-module functor:
 	\begin{align*}
 		F:   \Mod{}{A}(\cC) \to \cM \\
 		F(x_A) := \coeq \left( x \otimes \IHom(p,p) \otimes p \rightrightarrows x \otimes p \right).
 	\end{align*}
 The functor $\IHom(p,-): \cM \to \Mod{}{A}(\cC)$ is right adjoint to $F$. 
 
-Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module functor and that the unit and counit of the adjunction $F \dashv \IHom(p,-)$ are morphisms of $\cC$-module functors. Assume further that $p$ is a $\cC$-projective $\cC$-generator.  Then the $\cC$-module adjunction  $F \dashv \IHom(p,-)$
-	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
+Moreover, assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module functor and that the unit and counit of the adjunction $F \dashv \IHom(p,-)$ are morphisms of $\cC$-module functors. Then the $\cC$-module adjunction  $F \dashv \IHom(p,-)$ induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$ if and only if  $p$ is a $\cC$-projective $\cC$-generator.
+%Assume further that $p$ is a $\cC$-projective $\cC$-generator.  Then the $\cC$-module adjunction  $F \dashv \IHom(p,-)$	induces an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$. 
 \end{theorem}
 
 \noindent The proofs given in \cite{EGNO} and \cite{MR1976459} at first appear to depend on  the rigidity of $\cC$. Indeed the first step of the proof of \cite[Thm 2.11.2]{EGNO} invokes \cite[lemma 2.10.4.(4)]{EGNO} whose proof makes explicit use of rigidity. The same lemma is used in step (3) of the proof of \cite[Thm 1]{MR1976459}. However with a little care the rigidity assumption can be avoided (cf. \cite[Rmk. 2.11.3]{EGNO}).  
@@ -671,13 +676,18 @@ Assume that $\IHom(p,-)$ may be equipped with the structure of a $\cC$-module fu
 		\Hom_{\Mod{}{A}(\cC)}&(b, \IHom(p,x))  \cong \Hom_{\Mod{}{A}(\cC)}( \coeq \left( b \otimes A \otimes A_A \rightrightarrows b \otimes A_A  \right), \IHom(p,x)) \\
 		& \cong \eq \left( \Hom_{\Mod{}{A}(\cC)}(b \otimes A_A, \IHom(p,x) )  \rightrightarrows \Hom_{\Mod{}{A}(\cC)}(  b \otimes A \otimes A_A, \IHom(p,x))  \right) \\
 		& \cong \eq \left( \Hom_{\cC}(b, \IHom(p,x) )  \rightrightarrows \Hom_{\cC}(  b \otimes A, \IHom(p,x))  \right) \\
-		& \cong \eq \left( \Hom_{\cM}(b \cdot p, x )  \rightrightarrows \Hom_{\cM}(  (b \otimes A) \cdot p, x)  \right) \\
-		& \cong  \Hom_{\cM}( \coeq \left( (b \otimes \IHom(p,p)) \cdot p \rightrightarrows b \cdot p \right), x) \\
+		& \cong \eq \left( \Hom_{\cM}(b \otimes p, x )  \rightrightarrows \Hom_{\cM}(  (b \otimes A) \otimes p, x)  \right) \\
+		& \cong  \Hom_{\cM}( \coeq \left( (b \otimes \IHom(p,p)) \otimes p \rightrightarrows b \otimes p \right), x) \\
 		& \cong \Hom_{\cM}( F(b), x)
-	\end{align*}  \CD{explain use of dot notation? just use otimes?} \NS{The cong's were missing on the last two lines, so I added them}
+	\end{align*}  \CD{explain use of dot notation? just use otimes?} \NS{The cong's were missing on the last two lines, so I added them} \CSP{changed dots to otimes.}
 	where $b \in \Mod{}{A}(\cC)$ and $x \in \cM$. This establishes that $\IHom(p,-): \cM \to \Mod{}{A}(\cC)$ is indeed right adjoint to $F$.
 
-For the second part of the theorem, our assumptions ensure that:
+%lem:fiaghtfulrightadjoint
+
+For the second part of the theorem, we proceed similarly to Prop.~\ref{prop:finitelinearcatsasmodules}. First 
+
+
+our assumptions ensure that:
 \begin{enumerate}
 	\item the functor $\IHom(p, -)$ commutes (coherently) with the $\cC$-action; \CD{omit item (1)}
 	\item the functor $\IHom(p, -)$ is fully-faithful; and \CD{say anything about full?}  \NS{Need to add CSP's new argument}
