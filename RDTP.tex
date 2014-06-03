@@ -148,11 +148,17 @@ Recall the following standard terminology:
 \end{example}
 
 \begin{lemma}\label{lem:recognizefinitecats}
-	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between linear categories in which $U$ and $F$ are linear functors, and where $U$ is faithful and reflects isomorphisms. Suppose that $\cC$ is finite, then $\cD$ is also finite. 
+	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between linear categories in which $U$ and $F$ are linear functors, and where $U$ is exact and faithful. Suppose that $\cC$ is finite, then $\cD$ is also finite. 
 \end{lemma}
 
 \begin{proof}
-	..
+	Since $U$ is faithful, the morphism spaces in $\cD$ are subspaces of the morphism spaces of $\cC$, hence finite dimensional. Since $U$ is a right adjoint, it preserves sub-objects. Thus $U$ sends a decreasing chain of  subobjects to a decreasing chain of subobjects. Since $U$ is exact and faithful, it reflects isomorphisms, and hence $U$ also preserves {\em strictly} decreasing chains of subobjects. Since every such chain in $\cC$ has finite length, the same is true in $\cD$. Let $X \in \cD$ be an object, and let $P \twoheadrightarrow U(X)$ be a surjection in $\cC$ from a projective object. Since $F$ is a left adjoint, it preserves surjections, and since $U$ is faithful (and by Lemma~\ref{lem:fiaghtfulrightadjoint}), the composite
+	\begin{equation*}
+		F(P) \to FU(X) \to X
+	\end{equation*}
+	is surjective. Moreover $\cD(F(P), -) \cong \cC(P, U(-))$ is exact, and hence $F(P)$ is projective. Thus $\cD$ also has enough projectives. 
+	
+Now suppose that $X \in \cD$ is a non-zero object. Since $U$ reflects isomorphisms, $U(X)$ is also non-zero, and hence there exists a non-zero morphism $f: S \to U(X)$ where $S$ is some simple object of $\cC$. The adjoint of this map is the unique map $\overline{f}: F(S) \to X$ such that $f$ factors as $S \to UF(S) \to U(X)$, where the second map is $U(\overline{f})$. Hence, since $f$ is non-zero, $\overline{f}$ must also be non-zero.  Now let $W = \oplus S_i$ be the direct sum of a representative from each of the finitely many isomorphism classes of simple objects of $\cC$. We have show that for every object $X \in \cD$, there exists a non-zero morphism $F(W) \to X$. If $X$ is simple, then a non-zero morphism is necessarily a surjection. In particular it follows that every simple object of $\cD$ occurs as a simple factor in some composition series for $F(W)$. Since $F(W)$ is finite length and by the Jordan-H\"older theorem, any two composition series have the same simple factors up to permutation and isomorphism, and hence there are finitely many isomorphism classes of simple objects in $\cD$.  
 \end{proof}
 
 The following proposition is well-known (see for instance \cite[\S9.6]{MR2808160}), and justifies the above definition of finite.
@@ -161,9 +167,12 @@ The following proposition is well-known (see for instance \cite[\S9.6]{MR2808160
 A linear category is finite if and only if it is equivalent to the category $\Mod{A}{}$ of finite-dimensional modules over a finite-dimensional $k$-algebra $A$.
 \end{proposition}
 \begin{proof}  \NS{Should this be more parallel with the proof of Prop 2.23?}
-	Let $A$ be a finite-dimensional $k$-algebra and consider the linear category $\Mod{A}{}$ of finite-dimensional left $A$-modules. The first two conditions for the finiteness of $\Mod{A}{}$ are clearly satisfied, as they are inherited from the corresponding properties of the category of finite-dimensional vector spaces. Because free $A$-modules are projective and every $A$-module $M$ admits the surjection ${}_A A \otimes M \to M$, there are enough projectives. 
+	Let $A$ be a finite-dimensional $k$-algebra and consider the linear category $\Mod{A}{}$ of finite-dimensional left $A$-modules. The linear category $\Vect_k$ is finite and the  free-forgetful adjunction $A\otimes(-): \Vect_k \leftrightarrows \Mod{A}{}: U$ satisfies the conditions of Lemma~\ref{lem:recognizefinitecats}. Hence the linear category $\Mod{A}{}$ is finite.
 	
-	Let $M$ be an $A$-module. Every non-zero element of $M$ gives rise to a non-zero map of $A$-modules $A \to M$. If $M$ is simple, the cokernel is necessarily zero.  Thus every simple $A$-module is a quotient of $A$. In particular every simple module occurs as a factor in a composition series for $A$. Since every (finite-dimensional) $A$-module is finite length, there are only finitely many simple modules that occur in any composition series for $A$.  By the Jordan-H\"older theorem there are finitely many simple modules up to isomorphism. Hence the linear category $\Mod{A}{}$ is finite.
+	
+%	The first two conditions for the finiteness of $\Mod{A}{}$ are clearly satisfied, as they are inherited from the corresponding properties of the category of finite-dimensional vector spaces. Because free $A$-modules are projective and every $A$-module $M$ admits the surjection ${}_A A \otimes M \to M$, there are enough projectives. 
+	
+%	Let $M$ be an $A$-module. Every non-zero element of $M$ gives rise to a non-zero map of $A$-modules $A \to M$. If $M$ is simple, the cokernel is necessarily zero.  Thus every simple $A$-module is a quotient of $A$. In particular every simple module occurs as a factor in a composition series for $A$. Since every (finite-dimensional) $A$-module is finite length, there are only finitely many simple modules that occur in any composition series for $A$.  By the Jordan-H\"older theorem there are finitely many simple modules up to isomorphism. 
 	
 	Now assume that $\cC$ is a finite linear category. Let $\{X_i\}$ be a set of representatives for the isomorphism classes of simples. Let $P_i \to X_i$ be a surjection, with $P_i$ projective, let $P = \oplus P_i$, and let $A = \Hom_{\cC}(P,P)$. As the morphism spaces of $\cC$ are finite-dimensional, $A$ is a finite-dimensional algebra.  (Note that here the algebra structure on $A$ is defined by $a \cdot b := b \circ a$.)
 	
