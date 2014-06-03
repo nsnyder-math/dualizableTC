@@ -258,7 +258,7 @@ is a monomorphism in $\cC$. This monomorphism exhibits $(c,f)$ as a subobject of
 \end{proof}
 
 \begin{remark}
-	The statement of the above proposition assumes that $\cC$ and $\cD$ are finite linear categories as this is the only case we will use. However the aboe proof reveals that the proposition holds under weaker assumptions. It is not necessary for either $\cC$ or $\cD$ to have enough projectives, and moreover we do not need $\cD$ to have finitely many isomorphisms classes of simple objects, nor to have only objects of finite length. As written we do need $\cD$ to be enriched in finite-dimensional vector spaces. Of course other variations of the proposition are possible. 
+	The statement of the above proposition assumes that $\cC$ and $\cD$ are finite linear categories as this is the only case we will use. However the above proof reveals that the proposition holds under weaker assumptions. It is not necessary for either $\cC$ or $\cD$ to have enough projectives, and moreover we do not need $\cD$ to have finitely many isomorphisms classes of simple objects, nor to have only objects of finite length. As written we do need $\cD$ to be enriched in finite-dimensional vector spaces. Of course other variations of the proposition are possible. 
 \end{remark}
 
 \begin{corollary}
@@ -313,7 +313,7 @@ Let $\cC$ be monoidal category. $\cC^\mp$ will denote its {\em monoidal opposite
 %\noindent Note that we are assuming that all our tensor categories are rigid (see Def. \ref{def:rigid}). This assumption is necessary for theorem \ref{thm:EGNO2.11.6}, which is one of the main results of \cite{EGNO}, and which is discussed in detail in section \ref{sec:tc-bimod}. We in turn use this later result as the basis for proving the existence of the balanced tensor product. We will explain how this assumption is used in sections \ref{sec:tc-bimod}, \ref{sec:tc-deligne}, \ref{sec:tc-exact}, and \ref{sec:tc-separable}.
 
 \begin{example}
-	The category $\Vect_k$ is a finite tensor category. When $A$ is an algebra in $\Vect_k$, the categories of finite-dimensional left and right modules, denoted $\Mod{A}{}$ and $\Mod{}{A}$, are finite linear categories. More generally, when $\cC$ is a tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also finite linear categories.
+	The category $\Vect_k$ is a finite tensor category. When $A$ is an algebra in $\Vect_k$, the categories of finite-dimensional left and right modules, denoted $\Mod{A}{}$ and $\Mod{}{A}$, are finite linear categories. More generally, when $\cC$ is a finite tensor category and $A$ is an algebra object in $\cC$ (also known as a monoid object), the categories $\Mod{A}{}(\cC)$ and $\Mod{}{A}(\cC)$ of left and right $A$-module objects in $\cC$ are also finite linear categories.
 \end{example}
 
 \begin{example}
@@ -519,7 +519,7 @@ We need to check that this map is inverse to $f_{c^*,m}$.  That this map is inve
 The following Lemma was left as an exercise to the reader in \cite[\S 3.3]{EO-ftc}.
 
 \begin{lemma} \label{lma:module-adjoint}
-Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be a $\cC$--$\cD$-bimodule functor.  If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then $F$ has a right (respectively left) adjoint $\cC$--$\cD$-bimodule functor. \CD{notion of finite bimodule category hasn't specifically been introduced?}  \NS{Fixed, see note above}
+Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be finite $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be a $\cC$--$\cD$-bimodule functor.  If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then $F$ has a right (respectively left) adjoint $\cC$--$\cD$-bimodule functor such that the unit and counit maps are bimodule natural transformations. \CD{notion of finite bimodule category hasn't specifically been introduced?}  \NS{Fixed, see note above}
 \end{lemma}
 \begin{proof}
 Suppose that $G$ is the right adjoint to the underlying functor of $F$; we will show that $G$ naturally has the structure of a $\cC$--$\cD$-bimodule functor.  The result for left adjoints is similar.
@@ -751,12 +751,12 @@ By Lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint}, the assumptions
 
 \section{Construction of the balanced tensor product} \label{sec:tc-deligne}
 
-In this section establish the existence of the balanced tensor product of finite module categories over a finite tensor category.  We begin by recalling the definition of the balanced tensor product from \cite{0909.3140}.
+In this section we establish the existence of the balanced tensor product of finite module categories over a finite tensor category.  We begin by recalling the definition of the balanced tensor product from \cite{0909.3140}.
 
 
 \begin{definition}
 	Let $\cC$ be a linear monoidal category. 
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category.  A bilinear functor $F: \cM \times \cN \to \cL$ is called right exact if it is right exact in earch variable.   A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon identity. \CD{Did we say what right exact bilinear means?}  \NS{Added}
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category.  A bilinear functor $F: \cM \times \cN \to \cL$ is called right exact if it is right exact in earch variable.   A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon and triangle identities. \CD{Did we say what right exact bilinear means?}  \NS{Added}
 	A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $m \in \cM$, $c \in \cC$, and $n \in \cN$:
 \begin{center}
 \begin{tikzpicture}
