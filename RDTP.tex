@@ -111,6 +111,18 @@ A {\em linear functor} is an additive functor, that is also a functor of $\overl
 	In \cite{3TC, DTCI} we will use the phrase ``linear functor" to mean what we call ``right exact linear functor" in this paper.  In the $3$-category of finite tensor categories the $2$-morphisms are assumed to be right exact, because the balanced tensor product of linear categories is only functorial with respect to right exact functors.  Since this paper concerns the definition of the balanced tensor product itself, we will not use the abbreviated convention here.
 \end{warning}
 
+The following categorical lemma, though elementary, will be useful in what follows. 
+\begin{lemma}\label{lem:fiaghtfulrightadjoint}
+	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between abelian categories. Then the right adjoint $U$ is faithful if and only if the counit $FU(X) \to X$ is a surjection for every object $X \in \cD$. 
+\end{lemma}
+
+\begin{proof}
+	The functor $U$ is faithful precisely when $U(f) = 0$ implies $f=0$ for all morphisms $f: X \to Y$ in $\cD$. Suppose that the counit $\varepsilon_X: FU(X) \to X$ is a surjection for every object $X \in \cD$ and let $f: X \to Y$ be a morphism such that $U(f): U(X) \to U(Y)$ is the zero morphism. Then the composite $FU(X) \to FU(Y) \to Y$ is the zero morphism. Since the counit is natural, this is the same as the composite $FU(X) \to X \to Y$, hence this composite is also the zero morphism. Now since $FU(X) \to X$ is surjective, the original map $f: X \to Y$ must be the zero morphism. 
+	
+	In the other direction, suppose that $U$ is faithful, and fix an object $X \in \cD$. Let $f: X \to C$ be the cokernel of the counit map $\varepsilon_X: FU(X) \to X$. We wish to show that the cokernel is zero.  Since the composite $f \circ \varepsion_X =0 $, we have $U(f) \circ U(\varepsilon_X) = 0$. However $U(\varepsilon_X): UFU(X) \to U(X)$ is split (by the unit $\eta_(UX)$ of the adjunction) and hence is surjective, which implies that $U(f) = 0$. Since $U$ is faithful, we have that $f=0$ and so the cokernel was, in fact, zero.       
+\end{proof}
+
+
 Recall the following standard terminology:
 \begin{itemize}
 	\item[-] An object of a linear category is {\em simple} if it admits no non-trivial subobjects. The endormorphism ring of any simple object is a division algebra over $k$. 
@@ -130,6 +142,18 @@ Recall the following standard terminology:
 		\item[4.] there are finitely many isomorphism classes of simple objects.  
 	\end{enumerate}
 \end{definition}
+
+\begin{example}
+	The category of finite dimensional vector spaces is a finite linear category. 
+\end{example}
+
+\begin{lemma}\label{lem:recognizefinitecats}
+	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between linear categories in which $U$ and $F$ are linear functors, and where $U$ is faithful and reflects isomorphisms. Suppose that $\cC$ is finite, then $\cD$ is also finite. 
+\end{lemma}
+
+\begin{proof}
+	..
+\end{proof}
 
 The following proposition is well-known (see for instance \cite[\S9.6]{MR2808160}), and justifies the above definition of finite.
 
