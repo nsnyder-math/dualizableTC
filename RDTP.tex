@@ -126,7 +126,7 @@ The following categorical lemma, though elementary, will be useful in what follo
 \begin{proof}
 	The functor $U$ is faithful precisely when $U(f) = 0$ implies $f=0$ for all morphisms $f: X \to Y$ in $\cD$. Suppose that the counit $\varepsilon_X: FU(X) \to X$ is a surjection for every object $X \in \cD$ and let $f: X \to Y$ be a morphism such that $U(f): U(X) \to U(Y)$ is the zero morphism. Then the composite $FU(X) \to FU(Y) \to Y$ is the zero morphism. Since the counit is natural, this is the same as the composite $FU(X) \to X \to Y$, hence this composite is also the zero morphism. Now since $FU(X) \to X$ is surjective, the original map $f: X \to Y$ must be the zero morphism. 
 	
-	In the other direction, suppose that $U$ is faithful, and fix an object $X \in \cD$. Let $f: X \to C$ be the cokernel of the counit map $\varepsilon_X: FU(X) \to X$. We wish to show that the cokernel is zero.  Since the composite $f \circ \varepsilon_X =0 $, we have $U(f) \circ U(\varepsilon_X) = 0$. However $U(\varepsilon_X): UFU(X) \to U(X)$ is split (by the unit $\eta_(UX)$ of the adjunction) and hence is surjective, which implies that $U(f) = 0$. Since $U$ is faithful, we have that $f=0$ and so the cokernel was, in fact, zero.       
+	In the other direction, suppose that $U$ is faithful, and fix an object $X \in \cD$. Let $f: X \to C$ be the cokernel of the counit map $\varepsilon_X: FU(X) \to X$. We wish to show that the cokernel is zero.  Since the composite $f \circ \varepsilon_X =0 $, we have $U(f) \circ U(\varepsilon_X) = 0$. However $U(\varepsilon_X): UFU(X) \to U(X)$ is split (by the unit $\eta_{UX}$ of the adjunction) and hence is surjective, which implies that $U(f) = 0$. Since $U$ is faithful, we have that $f=0$ and so the cokernel was, in fact, zero as desired.       
 \end{proof}
 
 
@@ -627,9 +627,23 @@ In order to see how rigidity appears in the proof of the above theorem, we will 
 	An object $p \in \cM$ will be called {\em $\cC$-projective} if $\IHom(p, -)$ is right exact (it is automatically left exact). An object $p$ will be called a {\em $\cC$-generator} if $\IHom(p,-)$ is faithful.
 \end{definition}
 
-\begin{remark} \label{rem:gen}
-	An object $p \in \cM$ is a $\cC$-generator if and only if for each object $x \in \cM$ there exists an object $c \in \cC$ and a surjection $c \otimes p \twoheadrightarrow x$, which in turn is true if and only if for each object $x \in \cM$ the canonical map $\IHom(p,x) \otimes p \twoheadrightarrow x$ is a surjection. In particular an ordinary generator (i.e. an object such that $\Hom_\cM(p,-)$ is faithful) is also a $\cC$-generator.  \NS{Should this be a lemma instead of a remark?  I'm confused about the order in the first sentence and about why the last sentence follows.}
-\end{remark}
+
+\begin{lemma}\label{lem:gen}
+	Let $\cC$ be a finite linear monoidal category and let $\cM$ be a finite $\cC$-module category in which the action is right exact in $\cC$. Then for an object $p \in \cM$ the following are equivalent:
+	\begin{enumerate}
+		\item for each object $x \in \cM$ the canonical map $\IHom(p,x) \otimes p \twoheadrightarrow x$ is a surjection;
+		\item for each object $x \in \cM$ there exists an object $c \in \cC$ and a surjection $c \otimes p \twoheadrightarrow x$;
+		\item $p \in \cM$ is a $\cC$-generator;
+	\end{enumerate}
+	In particular an ordinary generator (i.e. an object such that $\Hom_\cM(p,-)$ is faithful) is also a $\cC$-generator.
+\end{lemma}
+\begin{proof}
+	Clearly $(1) \Rightarrow (2)$. Suppose that $(2)$ holds and let $f: x \to y$ be a map such that $\IHom(p, x) \to \IHom(p,y)$ is zero. It follows that for all $c$ and all $c \to \IHom(p,x)$, the induced composite $c \otimes p \to x \to y$ is zero. By choosing $c$ such that $c \otimes p \to x$ is surjective, it follows that $f=0$. Hence $(2) \Rightarrow (3)$. Finally $(3) \Rightarrow (1)$ by Lemma~\ref{lem:fiaghtfulrightadjoint}.
+\end{proof}
+
+%\begin{remark} \label{rem:gen}
+%	An object $p \in \cM$ is a $\cC$-generator if and only if for each object $x \in \cM$ there exists an object $c \in \cC$ and a surjection $c \otimes p \twoheadrightarrow x$, which in turn is true if and only if for each object $x \in \cM$ the canonical map $\IHom(p,x) \otimes p \twoheadrightarrow x$ is a surjection. In particular an ordinary generator (i.e. an object such that $\Hom_\cM(p,-)$ is faithful) is also a $\cC$-generator.  \NS{Should this be a lemma instead of a remark?  I'm confused about the order in the first sentence and about why the last sentence follows.}
+%\end{remark}
 
 \begin{example} \label{ex:rigid_all_C-proj}
 	Let $\cC$ be a finite tensor category. We may view $\cC$ as a left $\cC$-module category over itself. Since $\cC$ is rigid, we have isomorphisms $\IHom(x,y) \cong y \otimes x^*$ and $(y^x) \cong {}^*x \otimes y$ (cf the proof of Lemma \ref{lma:RigidIsExact}). Moreover by Lemma \ref{lma:RigidIsExact}, in this case the tensor product is exact in each variable, hence every object of $\cC$ is $\cC$-projective, even those objects that are not projective in the usual sense. %\NS{To use that lemma you need to assume rigidity.}
@@ -684,7 +698,7 @@ If we additionally assume that $\cC$ is rigid, then some of the conditions of th
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category in which the action is right exact in $\cC$, then there exists a $\cC$-projective $\cC$-generator. \CD{Has `finite module category' been used before?}  \NS{Fixed above}
 \end{lemma}   
 \begin{proof}
-	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator (cf Remark \ref{rem:gen}), and projective generators are guaranteed to exist since $\cM$ is finite. \CD{say anything about existence of generator?} \CSP{I think this is dealt with.}
+	We claim that if $p \in \cM$ is a projective object (in the ordinary sense) then it is also $\cC$-projective. If this claim holds, then any (ordinary) projective generator of $\cM$ will be a $\cC$-projective $\cC$-generator (see Lemma \ref{lem:gen}), and projective generators are guaranteed to exist since $\cM$ is finite. \CD{say anything about existence of generator?} \CSP{I think this is dealt with.}
 	Thus assume that $p \in \cM$ is projective.  We need to show that $\IHom(p, -)$ is right exact. 
 	
 	Since $\cC$ is rigid, we have a natural isomorphism of functors:
