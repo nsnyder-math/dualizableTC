@@ -365,47 +365,17 @@ When $K$ is a finite group, the category of finite-dimensional $K$-graded vector
 
 \subsection{Module categories} %\NS{I think this subsection should be called ``Module categories" and the subsection break should be moved up half a page, putting the internal hom into the next subsection (whose name doesn't need to change).}
 
-We follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
-\begin{itemize}
-	\item[-] a {\em lax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms \CD{Why notation $\cN$ and $\cC$?}  \NS{Fixed}
-	\begin{equation*}
-		F(f) \circ F(g) \to F(f \circ g) \quad \textrm{ and } \quad \id_{F(X)} \to F(\id_X);
-	\end{equation*} 
-	\item[-] an {\em oplax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms
-	\begin{equation*}
-		F(f \circ g) \to F(f) \circ F(g)   \quad \textrm{ and } \quad F(\id_X) \to \id_{F(X)};
-	\end{equation*}
-	\item[-] a {\em strong} functor of bicategories is equipped with such comparison maps that are 2-isomorphisms. Hence a strong functor may be regarded as both lax and oplax. 
-\end{itemize} 
-
+A module category is a linear category with an action by a linear monoidal category, and a bimodule category is a linear category with two commuting actions by linear monoidal categories:
 \begin{definition}
-	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$--$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that 
-	\begin{itemize}
-		\item[-] all hom categories are linear categories, 
-		\item[-] horizontal composition is bilinear, and
-		\item[-] the hom categories $\Hom(x,x)$, $\Hom(y,y)$, and $\Hom(y,x)$ are respectively $\cD$, $\cC$, and empty. \CD{That should be $\cC$, $\cD$, empty, right?}  \NS{This is some confusing left/right composition convention?  I wasn't able to sort out which it should be.}
-%		there are identifications of monoidal categories $\Hom(x,x) = \cD$ and $\Hom(y,y) = \cC$, and the set $\Hom(y,x)$ is empty.
-	\end{itemize}
-	A bimodule category is called {\em finite} if the underlying category is finite.  \NS{Added definition of finite}
-	
-	We will often abuse terminology and refer to the value $\cM := \Hom(x,y)$ as the bimodule category. When $\cD \simeq \Vect_k$, the bimodule category $\cM$ is called simply a {\em left $\cC$-module category}. When $\cC \simeq \Vect_k$, the bimodule category $\cM$ is called simply a {\em right $\cD$-module category}.
-	
+Let $\cC$ and $\cD$ be linear monoidal categories.
+A \emph{left $\cC$-module category} is a linear category $\cM$ together with a bilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+\begin{align*}
+		\alpha: & \;    \otimes^{\cM} \circ \; (\otimes^{\cC} \times id_{\cM}) \cong  \otimes^{\cM} \circ (id_{\cC} \times \otimes^{\cM}), \\
+		\lambda: & \; \otimes^{\cM} (1_{\cC} \times -) \cong id_{\cM},
+\end{align*}
+satisfying the evident pentagon identity and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.  A \emph{right $\cD$-module category} is defined similarly.  A \emph{$\cC$--$\cD$-bimodule category} is a linear category $\cM$ with the structure of a left $\cC$-module category and the structure of a right $\cD$-module category, together with a natural associator isomorphism $(c \otimes m) \otimes d \cong c \otimes (m \otimes d)$ satisfying two additional pentagon axioms and two additional triangle axioms.  
 \end{definition}
-
-\CD{I think we may have said ``tensor category" various places where we meant ``finite tensor category"}
-\NS{I'm pretty sure all the places we drop finite it's totally fine (i.e. we haven't used the adjoint functor theorem).  I added a definition of ``tensor category" above.}
-	
-Expanding this definition we find that a left $\cC$-module category is a linear category $\cM$ together with a bilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
-%	\CSP{This looks a little gross. I should change it.}
-	\begin{align*}
-		\alpha: & \;    \otimes^{\cM} \circ \: (\otimes^{\cC} \times \id_{\cM}) \cong  \otimes^{\cM} \circ (\id_{\cC} \times \otimes^{\cM}) \\
-		\lambda: & \; \otimes^{\cM}(1_{\cC} \times -) \cong \id_{\cM},
-	\end{align*}
-%	\begin{align*}
-%		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
-%		\lambda: & \; 1 \otimes^{\cM}(-) \cong \id_{\cM},
-%	\end{align*}	
-	satisfying the evident pentagon and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.
+\nid By a finite module or bimodule category we will mean simply a module or bimodule category whose underlying linear category is finite. 
 
 \begin{example}
 	Every linear category is a $\Vect_k$--$\Vect_k$-bimodule category in an essentially unique way: any two such structures are naturally isomorphic via a unique natural isomorphism.
@@ -420,24 +390,97 @@ For a tensor category $\cC$, the category $\cC$ itself is naturally a $\cC$--$\c
 \end{example}
 
 \begin{example}
-Let $K$ be a finite group.  We have that $\Vect$ is a right $\Rep(K)$-module category with the action given by forgetting and then tensoring.  Similarly $\Vect$ is a left $\Vect[K]$-module category.  Note that $\Vect$ can be given the structure of a $\Rep(K)$--$\Vect[K]$-bimodule category in several ways.  For instance, one could choose the associator $V = (V \otimes k) \otimes k_g \rightarrow V \otimes (k \otimes k_g) = V$ to be the identity, or to be given by the action of $g$.
+Let $K$ be a finite group. 
+$\Vect$ is a right $\Rep(K)$-module category with the action given by forgetting and then tensoring.  Similarly $\Vect$ is a left $\Vect[K]$-module category.  Note that $\Vect$ can be given the structure of a $\Rep(K)$--$\Vect[K]$-bimodule category in several ways.  For instance, one could choose the associator $V = (V \otimes k) \otimes k_g \rightarrow V \otimes (k \otimes k_g) = V$ to be the identity, or to be given by the action of $g$.
 \end{example}
 
-\begin{definition}		
-Given two $\cC$--$\cD$-bimodule categories $\cM$ and $\cN$, a {\em $\cC$--$\cD$-bimodule functor} $F:\cM \to \cN$ is a strong functor of bicategories such that 
-%\CD{explain strong}
+The notions of functor between module categories and transformation of such functors are as expected:
+\begin{definition}
+A linear functor $\cF: \cM \ra \cN$ from the $\cC$-module category $\cM$ to the $\cC$-module category $\cN$ is a:
+\begin{enumerate}
+	\item \emph{lax left $\cC$-module functor} if it is equipped with a natural transformation 
+	\begin{equation*}
+		f_{c,m}:c \otimes \cF(m) \rightarrow \cF(c \otimes m)
+	\end{equation*}
+	 satisfying the evident pentagon relation and triangle relation.
+	\item \emph{oplax left $\cC$-module functor} if it is equipped with a natural transformation 
+	\begin{equation*}
+		f_{c,m}:\cF(c \otimes m) \rightarrow c \otimes \cF(m)
+	\end{equation*}
+	satisfying the evident pentagon relation and triangle relation.
+	\item \emph{strong left $\cC$-module functor} if it is equipped with a natural isomorphism 
+	\begin{equation*}
+		f_{c,m}:\cF(c \otimes m) \rightarrow c \otimes \cF(m)
+	\end{equation*}
+	satisfying the evident pentagon relation and triangle relation.
+\end{enumerate} 
+Lax, oplax, and strong right module functors and a bimodule functors are defined similarly. By convention all module functors will be assumed to be strong unless stated otherwise. 
+\end{definition}
+
+
+\begin{definition}
+A \emph{left $\cC$-module transformation} from the $\cC$-module functor $\cF$ to the $\cC$-module functor $\cG$ is a natural transformation $\eta: \cF \ra \cG$ satisfying the condition $(\id_c \otimes \eta_m) \circ f_{c,m} = g_{c,m} \circ \eta_{c \otimes m}$.  Right module transformations and bimodule transformations are defined similarly.
+\end{definition}
+
+
+%We follow the standard conventions for bicategories and their functors, as in for example \cite{MR2664622}. In particular for every pair of composable 1-morphism in a bicategory, 
+%\begin{itemize}
+%	\item[-] a {\em lax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms \CD{Why notation $\cN$ and $\cC$?}  \NS{Fixed}
+%	\begin{equation*}
+%		F(f) \circ F(g) \to F(f \circ g) \quad \textrm{ and } \quad \id_{F(X)} \to F(\id_X);
+%	\end{equation*} 
+%	\item[-] an {\em oplax} functor of bicategories $F: \cM \to \cN$ is equipped with natural 2-morphisms
+%	\begin{equation*}
+%		F(f \circ g) \to F(f) \circ F(g)   \quad \textrm{ and } \quad F(\id_X) \to \id_{F(X)};
+%	\end{equation*}
+%	\item[-] a {\em strong} functor of bicategories is equipped with such comparison maps that are 2-isomorphisms. Hence a strong functor may be regarded as both lax and oplax. 
+%\end{itemize} 
+%
+%\begin{definition}
+%	Let $\cC$ and $\cD$ be tensor categories. A {\em $\cC$--$\cD$-bimodule category} is a bicategory with two objects $x$ and $y$ such that 
 %	\begin{itemize}
-		 $F$ is the identity on objects,
-		  the restriction of $F$ to each hom category is linear,
-		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
+%		\item[-] all hom categories are linear categories, 
+%		\item[-] horizontal composition is bilinear, and
+%		\item[-] the hom categories $\Hom(x,x)$, $\Hom(y,y)$, and $\Hom(y,x)$ are respectively $\cD$, $\cC$, and empty. \CD{That should be $\cC$, $\cD$, empty, right?}  \NS{This is some confusing left/right composition convention?  I wasn't able to sort out which it should be.}
+%%		there are identifications of monoidal categories $\Hom(x,x) = \cD$ and $\Hom(y,y) = \cC$, and the set $\Hom(y,x)$ is empty.
 %	\end{itemize}
-%A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
-	A {\em bimodule transformation} is a transformation of functors of bicategories, that restricts to the identity transformation on the monoidal categories $\cD = \Hom(x,x)$ and $\cC = \Hom(y,y)$.
-	\CSP{double check $\cD$ vs $\cC$ conventions}
-	%, and such that the component 1-cells are trivial.  
-	\CD{Explain `component 1-cells'} \CSP{changed the wording to remove this. }
-\end{definition} %\CD{Explain lax} 
-%\CD{check this def}
+%	A bimodule category is called {\em finite} if the underlying category is finite.  \NS{Added definition of finite}
+%	
+%	We will often abuse terminology and refer to the value $\cM := \Hom(x,y)$ as the bimodule category. When $\cD \simeq \Vect_k$, the bimodule category $\cM$ is called simply a {\em left $\cC$-module category}. When $\cC \simeq \Vect_k$, the bimodule category $\cM$ is called simply a {\em right $\cD$-module category}.
+%	
+%\end{definition}
+
+\CD{I think we may have said ``tensor category" various places where we meant ``finite tensor category"}
+\NS{I'm pretty sure all the places we drop finite it's totally fine (i.e. we haven't used the adjoint functor theorem).  I added a definition of ``tensor category" above.}
+	
+%Expanding this definition we find that a left $\cC$-module category is a linear category $\cM$ together with a bilinear functor $\otimes^{\cM}: \cC \times \cM \to \cM$ and natural isomorphisms
+%%	\CSP{This looks a little gross. I should change it.}
+%	\begin{align*}
+%		\alpha: & \;    \otimes^{\cM} \circ \: (\otimes^{\cC} \times \id_{\cM}) \cong  \otimes^{\cM} \circ (\id_{\cC} \times \otimes^{\cM}) \\
+%		\lambda: & \; \otimes^{\cM}(1_{\cC} \times -) \cong \id_{\cM},
+%	\end{align*}
+%%	\begin{align*}
+%%		\alpha: & \;    [(-) \otimes (-)] \otimes^{\cM} (-)  \cong  (- ) \otimes^{\cM} [ (-) \otimes^{\cM} (-)] \\
+%%		\lambda: & \; 1 \otimes^{\cM}(-) \cong \id_{\cM},
+%%	\end{align*}	
+%	satisfying the evident pentagon and triangle identities.  We will use the notation $c \otimes m := \otimes^\cM(c \times m)$.
+%
+%
+%\begin{definition}		
+%Given two $\cC$--$\cD$-bimodule categories $\cM$ and $\cN$, a {\em $\cC$--$\cD$-bimodule functor} $F:\cM \to \cN$ is a strong functor of bicategories such that 
+%%\CD{explain strong}
+%%	\begin{itemize}
+%		 $F$ is the identity on objects,
+%		  the restriction of $F$ to each hom category is linear,
+%		 and $F$ is the identity on $\Hom(x,x)$ and $\Hom(y,y)$.
+%%	\end{itemize}
+%%A {\em lax} (resp. {\em oplax}) bimodule functor is a lax (resp. oplax) functor of bicategories satisfying the above conditions. All bimodule functors will be assumed strong unless otherwise stated. 
+%	A {\em bimodule transformation} is a transformation of functors of bicategories, that restricts to the identity transformation on the monoidal categories $\cD = \Hom(x,x)$ and $\cC = \Hom(y,y)$.
+%	\CSP{double check $\cD$ vs $\cC$ conventions}
+%	%, and such that the component 1-cells are trivial.  
+%	\CD{Explain `component 1-cells'} \CSP{changed the wording to remove this. }
+%\end{definition} %\CD{Explain lax} 
+%%\CD{check this def}
 	
 %
 \nid Note that bimodule categories, functors, and transformations form a strict 2-category.  %!%CD check
