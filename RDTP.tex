@@ -487,11 +487,23 @@ A \emph{left $\cC$-module transformation} from the $\cC$-module functor $\cF$ to
 %If $\cM$ and $\cN$ are both $\cC$--$\cD$-bimodule categories, then a bimodule functor which restricts to the identity functor on $\cC$ and $\cD$ will be called a {\em $\cC$--$\cD$-bimodule functor}.
  
  
- We have the following characterization of equivalences of bimodule categories (cf. \cite{MR2664622}). \CD{more specific Lac10 ref}
+ We have the following characterization of equivalences of bimodule categories.
+ % (cf. \cite{MR2664622}). \CD{more specific Lac10 ref}
  
 \begin{lemma} \label{lem:Recog_equiv_of_bimod}
 	Given two $\cC$--$\cD$-bimodule categories $\cM$ and $\cN$, and a bimodule functor $F:\cM \to \cN$, then $F$ is an equivalence of $\cC$--$\cD$-bimodule categories if and only if it induces an equivalence of underlying categories.
 \end{lemma}
+
+\begin{proof}
+	An equivalence of $\cC$--$\cD$-bimodule categories is, in particular, an equivalence of underlying linear categories. Conversely, suppose that $F: \cM \to \cN$ is a bimodule functor such that the underlying functor is an equivalence. Let $G: \cN \to \cM$, $\varepsilon: FG \cong id_{\cN}$, and $\eta: id_{\cM} \cong GF$ be an adjoint equivalence inverse to $F$. We claim that $G$ may be given the structure of a $\cC$--$\cD$-bimodule functor such that $\varepsilon$ and $\eta$ are $\cC$--$\cD$-bimodule transformations. In this case  $G$ is the inverse $\cC$--$\cD$-bimodule equivalence to $F$.  
+	
+The $\cC$--$\cD$-bimodule structure on $G$ is given by transporting that from $F$ via the transformations $\varepsilon$ and $\eta$. Specifically we have:
+\begin{align*}
+	G(c \otimes n) \cong G( c \otimes FG(n)) \cong G( F(c \otimes G(n))) \cong c \otimes G(n) \\
+	G(n \otimes d) \cong G(FG(n) \otimes d ) \cong G( F( G(n) \otimes d )) \cong G(n) \otimes d.
+\end{align*}
+The first sequence of isomorphisms is given by $\varepsilon^{-1}$, $f_{c, G(n)}^{-1}$, and $\eta^{-1}$, the second by $\varepsilon^{-1}$, $f_{G(n), d}^{-1}$, and $\eta^{-1}$.	A routine calculation shows these structures have the claimed properties. 
+\end{proof}
 
 \begin{example}
 Any linear functor from $\Vect$ to $\Vect$ is determined by a choice of finite-dimensional vector space $F(k)$.  For $K$ a finite group, a $\Vect[K]$-module functor from $\Vect$ to $\Vect$ consists of a vector space $V$ together with for each $g$ a map $\rho(g): V \rightarrow V$ satisfying $\rho(gh) = \rho(g)\rho(h)$.  Giving a natural transformation between two such module functors $(V, \rho)$ is the same as giving a map of representations.  Thus $\Fun_{\Vect[K]}(\Vect, \Vect) \cong \Rep(K)$.
