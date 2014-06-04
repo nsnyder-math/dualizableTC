@@ -36,7 +36,7 @@ We investigate the relationship between the algebra of tensor categories and the
 \setcounter{tocdepth}{2}
 \tableofcontents
 
-\tikzset{external/force remake}
+%\tikzset{external/force remake}
 %\tikzset{external/export next=false}
 
 \section{Introduction}
@@ -1601,7 +1601,7 @@ Provided the monoidal category $\cC$ is finite and rigid, and provided the modul
 	Let $\cC$ and $\cD$ be finite tensor categories.  Let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively, and let ${}_{\cD}\cP$ be a finite left $\cD$-module category. 
 	\begin{enumerate}
 		\item The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category.
-		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, for algebra objects $A \in \cC$ and $B \in \cC$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$. Here $\Mod{A}{B}(\cC)$ denotes the category of $A$--$B$-bimodule objects in $\cC$.
+\NS{remove this item}		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, for algebra objects $A \in \cC$ and $B \in \cC$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$. Here $\Mod{A}{B}(\cC)$ denotes the category of $A$--$B$-bimodule objects in $\cC$.
 		\item If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$ as a left $\cC \boxtimes \cD$-module category.
 		\item The functor $\boxtimes_{\cC}: \cM \times \cN \ra \cM \boxtimes_\cC \cN$ is exact in each variable and satisfies 
 		\begin{equation*}
@@ -2056,8 +2056,32 @@ For absolutely semisimple, separable $\cC$-modules ${}_\cC \cM$ and ${}_\cC \cN$
 Assume the base field is perfect.  Finite semisimple tensor categories, separable bimodule categories, bimodule functors, and bimodule transformations, form a symmetric monoidal sub-3-category $\TCss$ of $\TC$.
 \end{corollary}
 \begin{proof}
-Theorem~\ref{thm:compositeOfSep} ensures that the specified collection of 1-morphisms is closed under composition, and so we have a sub-3-category.  Because of the perfection assumption, every finite semisimple linear category is absolutely semisimple.  By the same theorem, the ordinary Deligne tensor of two such categories is absolutely semisimple, so in particular semisimple; the collection of objects is therefore closed under the monoidal structure.  To see that the morphisms are closed under the monoidal structure, observe that for $B \in \cC$ and $C \in \cD$ separable algebra objects, the product $B \boxtimes C \in \cC \boxtimes \cD$ is separable; the result therefore follows from part (3) of Theorem~\ref{thm:DelignePrdtOverATCExists}.
+Theorem~\ref{thm:compositeOfSep} ensures that the specified collection of 1-morphisms is closed under composition, and so we have a sub-3-category.  Because of the perfection assumption, every finite semisimple linear category is absolutely semisimple.  By the same theorem, the ordinary Deligne tensor of two such categories is absolutely semisimple, so in particular semisimple; the collection of objects is therefore closed under the monoidal structure.  To see that the morphisms are closed under the monoidal structure, observe that for $B \in \cC$ and $C \in \cD$ separable algebra objects, the product $B \boxtimes C \in \cC \boxtimes \cD$ is separable; the result therefore follows from the following lemma.
 \end{proof}
+
+\NS{Transplanted appendix from RDTP}
+\begin{lemma}
+	%\label{lem:}
+	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $$\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$$ as a left $\cC \boxtimes \cD$-module category.
+\end{lemma}
+\begin{proof}
+	The forgetful functors from $\cN$ to $\cC$ and $\cP$ to $\cD$ are part of monadic adjunctions:
+	\begin{align*}
+		(-) \otimes B_{B}:\cC \rightleftarrows \cN = \Mod{}{B}(\cC): U \\
+		(-) \otimes C_{C}:\cD \rightleftarrows \cP = \Mod{}{C}(\cD): U
+	\end{align*}
+	Since both functors in the adjunction are right exact (the forgetful functor is exact, not just left exact) these adjunctions descend to an adunction between the tensor products. 
+	\begin{equation*}
+		(-) \otimes (B \boxtimes C)_{B \boxtimes C}: \cC \boxtimes \cD \rightleftarrows \cN \boxtimes \cP: \overline{U}.
+	\end{equation*}
+	Any $\cC \boxtimes \cD$-module functor from $\cC \boxtimes \cD$ to itself is given by tensoring by an object in $\cC \boxtimes \cD$, hence any monad on $\cC \boxtimes \cD$ that is compatible with the module actions comes from an algebra in $\cC \boxtimes \cD$.  \CD{Isn't this sentence irrelevant? omit.}  \NS{It seems quite relevant to me...  In general not all monads give algebras.}
+	Hence we need only show that this adjunction is monadic.  
+	
+	By the the crude monadicity theorem \cite[\S~3.5]{MR771116} we only need to show that $\overline{U}$ reflects isomorphisms and $\overline{U}$ preserves coequalizers of reflexive pairs.  Observe that the individual functors (both called $U$) have these properties. Moreover everything in $\cN$ is a coequalizer of objects in the image of $\cC$, everything in $\cP$ is a coequalizer of objects in the image of $\cD$, and everything in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cN \times \cP$. Thus it follows that every object in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cC \times \cD$. For such objects $\overline{U}$ reflects isomorphisms, since the original $U$ do so. Hence, by the five lemma, it follows that $\overline{U}$ reflects isomorphisms. 
+ \CD{Explain fact more.} \CD{Explain follows more?} \CSP{Did both of these}
+For the latter property we will in fact show that $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$.  Thus it is sufficient to show that $\overline{U}$ is exact and hence that $\overline{U}$ preserves cokernels.  The exactness of $\overline{U}$ follows from Part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists} and exactness of the original forgetful functors $U$.  
+\end{proof}
+
 
 
 As mentioned, we will see that separable bimodule categories ${}_\cC \cM_\cD$ are maximally dualizable.  What we really care about, though, is the dualizability of tensor categories.  Thus, what concerns us most is the separability of the bimodules ${}_{\cC \boxtimes \cC^\mp} \cC$ and $\cC_{\cC^\mp \boxtimes \cC}$ arising in the 1-dualizability of $\cC$.  This suggests the following definition.
