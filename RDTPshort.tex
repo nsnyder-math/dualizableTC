@@ -119,16 +119,16 @@ Just as any finite linear category is a category of modules over an algebra, any
 We will also use the following two lemmas.
 
 \begin{lemma}\label{lem:fiaghtfulrightadjoint}
-	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between abelian categories. Then the right adjoint $U$ is faithful if and only if the counit $FU(X) \to X$ is a surjection for every object $X \in \cD$. If in addition $U$ is exact, then $U$ reflects isomorphisms. 
+	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between abelian categories. Then the right adjoint $U$ is faithful if and only if the counit $FU(X) \to X$ is a surjection for every object $X \in \cD$. If in addition $U$ is exact, then $U$ reflects isomorphisms. \qed
 \end{lemma}
 
-\begin{proof}
-	The functor $U$ is faithful precisely when $U(f) = 0$ implies $f=0$ for all morphisms $f: X \to Y$ in $\cD$. Suppose that the counit $\varepsilon_X: FU(X) \to X$ is a surjection for every object $X \in \cD$ and let $f: X \to Y$ be a morphism such that $U(f): U(X) \to U(Y)$ is the zero morphism. Then the composite $FU(X) \to FU(Y) \to Y$ is the zero morphism. Since the counit is natural, this is the same as the composite $FU(X) \to X \to Y$, hence this composite is also the zero morphism. Now since $FU(X) \to X$ is surjective, the original map $f: X \to Y$ must be the zero morphism. 
-	
-	In the other direction, suppose that $U$ is faithful, and fix an object $X \in \cD$. Let $f: X \to C$ be the cokernel of the counit map $\varepsilon_X: FU(X) \to X$. We wish to show that the cokernel is zero.  Since the composite $f \circ \varepsilon_X =0 $, we have $U(f) \circ U(\varepsilon_X) = 0$. However $U(\varepsilon_X): UFU(X) \to U(X)$ is split (by the unit $\eta_{UX}$ of the adjunction) and hence is surjective, which implies that $U(f) = 0$. Since $U$ is faithful, we have that $f=0$ and so the cokernel was, in fact, zero as desired.   
-	
-For the last statement, let $f: X \to Y$ be a map, with kernel and cokernel sequence $K \to X \to Y \to C$, and assume that $U(f): U(X) \to U(Y)$ is an isomorphism. Then, since $U$ is exact, the maps $U(K) \to U(X)$	    and $U(Y) \to U(C)$ are zero maps. Hence, since $U$ is faithful, the kernel and cokernel of $f$ were zero maps. 
-\end{proof}
+%\begin{proof}
+%	The functor $U$ is faithful precisely when $U(f) = 0$ implies $f=0$ for all morphisms $f: X \to Y$ in $\cD$. Suppose that the counit $\varepsilon_X: FU(X) \to X$ is a surjection for every object $X \in \cD$ and let $f: X \to Y$ be a morphism such that $U(f): U(X) \to U(Y)$ is the zero morphism. Then the composite $FU(X) \to FU(Y) \to Y$ is the zero morphism. Since the counit is natural, this is the same as the composite $FU(X) \to X \to Y$, hence this composite is also the zero morphism. Now since $FU(X) \to X$ is surjective, the original map $f: X \to Y$ must be the zero morphism. 
+%	
+%	In the other direction, suppose that $U$ is faithful, and fix an object $X \in \cD$. Let $f: X \to C$ be the cokernel of the counit map $\varepsilon_X: FU(X) \to X$. We wish to show that the cokernel is zero.  Since the composite $f \circ \varepsilon_X =0 $, we have $U(f) \circ U(\varepsilon_X) = 0$. However $U(\varepsilon_X): UFU(X) \to U(X)$ is split (by the unit $\eta_{UX}$ of the adjunction) and hence is surjective, which implies that $U(f) = 0$. Since $U$ is faithful, we have that $f=0$ and so the cokernel was, in fact, zero as desired.   
+%	
+%For the last statement, let $f: X \to Y$ be a map, with kernel and cokernel sequence $K \to X \to Y \to C$, and assume that $U(f): U(X) \to U(Y)$ is an isomorphism. Then, since $U$ is exact, the maps $U(K) \to U(X)$	    and $U(Y) \to U(C)$ are zero maps. Hence, since $U$ is faithful, the kernel and cokernel of $f$ were zero maps. 
+%\end{proof}
 
 \begin{lemma}\label{lem:recognizefinitecats}
 	Let $F: \cC \leftrightarrows \cD: U$ be an adjunction between linear categories in which $U$ and $F$ are linear functors, and where $U$ is exact and faithful. Suppose that $\cC$ is finite, then $\cD$ is also finite. 
