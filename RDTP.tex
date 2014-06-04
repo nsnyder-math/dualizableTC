@@ -759,7 +759,7 @@ The $\Vect[K]$-module category $\Vect$ is equivalent to the category of modules 
 This is a categorification of the ring $k[x]/(x^2)$.  It is both finite and semisimple, but it is not rigid: the object $X$ cannot have a dual as there is no object $Z$ such that $Z \otimes X$ has a non-zero map to or from the unit object. 
 	
 	There is a tensor functor $F:\cR \to \Vect$ given by $(V_1 + V_2 X) \mapsto V_1$. This gives the category $\Vect$ the structure of a (left) $\cR$-module category, and moreover $F$ is naturally an $\cR$-module map. $F$ has both a left and a right adjoint, which agree and are given by the functor $G: \Vect \to \cR$ sending $W \in \Vect$ to $(W + 0 X) \in \cR$. %\CD{say anything about reason for discussing adjoints of F?} %\CD{why cf L2.10?} \NS{Should this say ``In contrast to L2.11"?}
-	It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (in contrast to Lemma~\ref{lma:module-adjoint}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. %\CD{last two sentences: clarify/spell out the logic/order of ideas here.}  \NS{I think we're just making claims, not proving them.  So there's no logic/order.}
+	It is not possible to give $G$ the structure of a (strong) $\cR$-module functor (in contrast to Cor.~\ref{cor:module-adjoint}). Moreover there is no algebra object $A \in \cR$ such that $\Vect$ is equivalent to $\Mod{}{A}(\cR)$ as linear categories, let alone as $\cR$-module categories. %\CD{last two sentences: clarify/spell out the logic/order of ideas here.}  \NS{I think we're just making claims, not proving them.  So there's no logic/order.}
 \end{example}
 
 In order to see how rigidity appears in the proof of the above theorem, we will first show a more general result that does not assume rigidity.
@@ -861,7 +861,7 @@ becomes an isomorphism after applying $\IHom(p,-)$. It would follow that the cou
 
 %The Barr-Beck monadicity theorem\NS{Citation for Barr-Beck} implies that $\cM$ is equivalent to the category of algebras in $\cC$ for the monad $\IHom(p, (-) \otimes p)$. If the adjunction is $\cC$-linear, so in particular $\IHom(p,-)$ is a $\cC$-module functor, then this monad will be a ``$\cC$-module monad''. In this case the category of algebras for this monad is a $\cC$-module category and is easily identified with $\Mod{}{A}(\cC)$. \NS{Should this be written as an actual proof?}
 
-If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular Lemma \ref{lma:module-adjoint} implies that when $\cC$ is rigid the functor $\IHom(p,-)$ can always be enhanced to a $\cC$-module functor.  The following lemma shows that in this case there always exists a $\cC$-projective $\cC$-generator.  
+If we additionally assume that $\cC$ is rigid, then some of the conditions of the previous theorem are automatically satisfied and become redundant. In particular Cor.~\ref{cor:module-adjoint} implies that when $\cC$ is rigid the functor $\IHom(p,-)$ can always be enhanced to a $\cC$-module functor.  The following lemma shows that in this case there always exists a $\cC$-projective $\cC$-generator.  
 \begin{lemma}{\cite[\S 2.11]{EGNO}} \label{lma:Enough_C-projs}
 	If $\cC$ is a finite tensor category and $\cM$ is a finite module category in which the action is right exact in $\cC$, then there exists a $\cC$-projective $\cC$-generator. \CD{Has `finite module category' been used before?}  \NS{Fixed above}
 \end{lemma}   
@@ -901,7 +901,7 @@ is exact.
 
 
 \begin{proof}[Proof of Thm.~\ref{thm:EGNO2.11.6}]
-By Lemmas \ref{lma:Enough_C-projs} and \ref{lma:module-adjoint}, the assumptions of Theorem~\ref{thm:C-module-Embedding} are satisfied.
+By Lemma~\ref{lma:Enough_C-projs} and Cor.~\ref{cor:module-adjoint}, the assumptions of Theorem~\ref{thm:C-module-Embedding} are satisfied.
 \end{proof}
 
 \begin{corollary} \label{cor:biexact_action}
@@ -984,7 +984,7 @@ Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the bala
 		& \cong \Hom_{\Mod{A}{}}(x,  \IHom_{\Mod{}{B}}(y, x' \otimes y') )\\
 		& \cong \Hom_{\Mod{A}{B}}(x \otimes y, x' \otimes y')
 	\end{align*} 
-where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Lemma~\ref{lma:module-adjoint}). This establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$.\NS{I added what the balancing is.} Thus $(2)$ implies both  $(1)$ and $(3)$. \CD{(1) discuss why A-Mod-B(C) is finite \CSPcomm{done}. (3) discuss displayed relation. \CSPcomm{done.}}
+where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Cor.~\ref{cor:module-adjoint}). This establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$.\NS{I added what the balancing is.} Thus $(2)$ implies both  $(1)$ and $(3)$. \CD{(1) discuss why A-Mod-B(C) is finite \CSPcomm{done}. (3) discuss displayed relation. \CSPcomm{done.}}
 	We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
