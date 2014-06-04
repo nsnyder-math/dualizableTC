@@ -570,7 +570,61 @@ We need to check that this map is inverse to $f_{c^*,m}$.  That this map is inve
 \end{proof}
 
 \begin{lemma}\label{lem:module-adjoint-main}
-	Let $\cC$ and $\cD$ be linear monoidal categories. Let  $\cM$ and  $\cN$  be  $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be an oplax (respectively lax) $\cC$--$\cD$-bimodule functor. If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then this adjoint admits the structure of a lax (respectively oplax) $\cC$--$\cD$-bimodule functor. Moreover if $F$ is a strong $\cC$--$\cD$-bimodule functor and the unit and counit of the adjunction are isomorphisms, then the adjoint is also a strong $\cC$--$\cD$-bimodule functor. 	
+	Let $\cC$ and $\cD$ be linear monoidal categories. Let  $\cM$ and  $\cN$  be  $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be an oplax (respectively lax) $\cC$--$\cD$-bimodule functor. If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then this adjoint admits the structure of a lax (respectively oplax) $\cC$--$\cD$-bimodule functor such that the following four squares commute
+	\begin{center}
+	\begin{tikzpicture}
+			\node (LT) at (0, 1.5) {$F(c \otimes G(x))$};
+			\node (LB) at (0, 0) {$FG(c \otimes x)$};
+			\node (RT) at (3, 1.5) {$c \otimes FG(x)$};
+			\node (RB) at (3, 0) {$c \otimes x$};
+			\draw [->] (LT) -- node [left] {$\overline{g}_{c,x}$} (LB);
+			\draw [->] (LT) -- node [above] {$f_{c, G(x)}$} (RT);
+			\draw [->] (RT) -- node [right] {$\varepsilon$} (RB);
+			\draw [->] (LB) -- node [below] {$\varepsilon$} (RB);
+			%\node at (0.5, 1) {$\ulcorner$};
+			%\node at (1.5, 0.5) {$\lrcorner$};
+	\end{tikzpicture}
+	\begin{tikzpicture}
+			\node (LT) at (0, 1.5) {$F(G(x) \otimes d)$};
+			\node (LB) at (0, 0) {$FG(x \otimes d)$};
+			\node (RT) at (3, 1.5) {$FG(x) \otimes d$};
+			\node (RB) at (3, 0) {$x \otimes d$};
+			\draw [->] (LT) -- node [left] {$\overline{g}_{x,d}$} (LB);
+			\draw [->] (LT) -- node [above] {$f_{G(x), d}$} (RT);
+			\draw [->] (RT) -- node [right] {$\varepsilon$} (RB);
+			\draw [->] (LB) -- node [below] {$\varepsilon$} (RB);
+			%\node at (0.5, 1) {$\ulcorner$};
+			%\node at (1.5, 0.5) {$\lrcorner$};
+	\end{tikzpicture}
+
+	\begin{tikzpicture}
+			\node (LT) at (0, 1.5) {$c \otimes y$};
+			\node (LB) at (0, 0) {$c \otimes GF(y)$};
+			\node (RT) at (3, 1.5) {$GF(c \otimes y)$};
+			\node (RB) at (3, 0) {$G( c \otimes F(y))$};
+			\draw [->] (LT) -- node [left] {$\eta$} (LB);
+			\draw [->] (LT) -- node [above] {$\eta$} (RT);
+			\draw [->] (RT) -- node [right] {$f_{c,y}$} (RB);
+			\draw [->] (LB) -- node [below] {$\overline{g}_{c, F(y)}$} (RB);
+			%\node at (0.5, 1) {$\ulcorner$};
+			%\node at (1.5, 0.5) {$\lrcorner$};
+	\end{tikzpicture}
+	\begin{tikzpicture}
+			\node (LT) at (0, 1.5) {$y \otimes d$};
+			\node (LB) at (0, 0) {$GF(y) \otimes d$};
+			\node (RT) at (3, 1.5) {$GF(y \otimes d)$};
+			\node (RB) at (3, 0) {$G( F(y) \otimes d)$};
+			\draw [->] (LT) -- node [left] {$\eta$} (LB);
+			\draw [->] (LT) -- node [above] {$\eta$} (RT);
+			\draw [->] (RT) -- node [right] {$f_{y, d}$} (RB);
+			\draw [->] (LB) -- node [below] {$\overline{g}_{ F(y),d}$} (RB);
+			%\node at (0.5, 1) {$\ulcorner$};
+			%\node at (1.5, 0.5) {$\lrcorner$};
+	\end{tikzpicture}
+	\end{center}
+	(similar squares commute in the left adjoint case). 
+	
+	Moreover if $F$ is a strong $\cC$--$\cD$-bimodule functor and the unit and counit of the adjunction are isomorphisms, then the adjoint is also a strong $\cC$--$\cD$-bimodule functor, and the unit and counit are bimodule transformations.   	
 \end{lemma}
 
 \begin{proof}
@@ -596,10 +650,13 @@ here the first map is the unit of the adjunction, the second map is the natural 
 \end{center}
 
 \noindent % By the previous lemma, this natural transformation is an isomorphism.  
-Providing the structure of a $\cD$-module functor is similar, and these left and right module functor structures are compatible---that is they form a bimodule functor structure.
+Providing the structure of a $\cD$-module functor is similar, and these left and right module functor structures are compatible---that is they form a bimodule functor structure. The four commuting squares are easily verified. 
 
-If the unit, counit, and transformations $f$ are invertible, then the above transformation will also be invertible, and hence $G$ will be strong. 
+If the unit, counit, and transformations $f$ are invertible, then the above transformation will also be invertible, and hence $G$ will be strong, and the four commuting squares are equivalent to the statement that the unit and counit are bimodule transformations.  
 \end{proof}
+
+This yields the following characterization of equivalences of bimodule categories.
+% (cf. \cite{MR2664622}). \CD{more specific Lac10 ref}
 
 \begin{corollary}\label{cor:Recog_equiv_of_bimod}
 	Given two $\cC$--$\cD$-bimodule categories $\cM$ and $\cN$, and a bimodule functor $F:\cM \to \cN$, then $F$ is an equivalence of $\cC$--$\cD$-bimodule categories if and only if it induces an equivalence of underlying categories.
@@ -622,20 +679,18 @@ Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$--$\cD
 \end{corollary}
 
 \begin{proof}
-	By Lemma~\ref{lem:laxisstrong}
+	By Lemma~\ref{lem:module-adjoint-main} the right adjoint $G$ has the structure of a lax $\cC$--$\cD$-bimodule functor. By Lemma~\ref{lem:laxisstrong} it is actually strong. In this case the four commuting squares of Lemma~\ref{lem:module-adjoint-main} imply that the unit and counit are bimodule natural transformations. The case of left adjoints is similar. 
 \end{proof}
 
- We have the following characterization of equivalences of bimodule categories.
- % (cf. \cite{MR2664622}). \CD{more specific Lac10 ref}
 
 
  
 
 
 
-\begin{remark}
-If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an oplax module functor has a lax module functor structure, while the left adjoint of a lax module functor has an oplax module functor structure.  %This is a serious issue as the following example shows. 
-\end{remark}
+%\begin{remark}
+%If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an oplax module functor has a lax module functor structure, while the left adjoint of a lax module functor has an oplax module functor structure.  %This is a serious issue as the following example shows. 
+%\end{remark}
 
 \begin{lemma}\label{lem:partially_exact_action} \cite[Prop. 1.13.1]{EGNO} \cite[Prop. 2.1.8]{MR1797619}
 	Let $\cC$ be a tensor category and let $\cM$ be a $\cC$-module category. Then for each object $c \in \cC$, the action map $c \otimes (-): \cM \to \cM$ is exact. 
