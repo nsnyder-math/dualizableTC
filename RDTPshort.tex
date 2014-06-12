@@ -79,7 +79,7 @@ A {\em linear functor} is an additive functor, that is also a functor of $\overl
 \end{definition}
 
 \begin{definition}
-	A {\em linear monoidal category} is a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is bilinear.  A {\em tensor category} is a rigid linear monoidal category.  A {\em finite tensor category} is a finite rigid linear monoidal category.   \NS{Added a definition of tensor category}
+	A {\em linear monoidal category} is a monoidal category $\cC$ such that $\cC$ is a linear category and the functor $\otimes$ is bilinear.  A {\em tensor category} is a rigid linear monoidal category.  A {\em finite tensor category} is a finite rigid linear monoidal category.
 \end{definition}
 
 \nid Here by bilinear, or more generally multilinear, we mean the following.  If $\{\cM_\alpha\}$ denotes a collection of linear categories then a {\em multilinear functor} from $\{\cM_\alpha\}$ into a linear category $\cN$ is a functor $F: \prod \cM_\alpha \to \cN$ such that $F$ is linear in each variable separately. 
@@ -109,7 +109,7 @@ A linear functor $\cF: \cM \ra \cN$ from the $\cC$-module category $\cM$ to the 
 \end{definition}
 
 \begin{lemma} \label{lma:module-adjoint} \cite[\S 3.3]{EO-ftc}
-Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be a $\cC$--$\cD$-bimodule functor.  If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then $F$ has a right (respectively left) adjoint $\cC$--$\cD$-bimodule functor such that the unit and counit maps are bimodule natural transformations. \CD{notion of finite bimodule category hasn't specifically been introduced?}  \NS{Fixed, see note above}
+Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$--$\cD$-bimodule categories, and let $F: \cM \to \cN$ be a $\cC$--$\cD$-bimodule functor.  If the underlying functor of $F$ has a right (respectively left) adjoint as a functor, then $F$ has a right (respectively left) adjoint $\cC$--$\cD$-bimodule functor such that the unit and counit maps are bimodule natural transformations.
 \end{lemma}
 
 Just as any finite linear category is a category of modules over an algebra, any finite module category over a finite tensor category is a category of module objects over an algebra object.  This result is one of the main theorems of \cite{EGNO}, and is essential to the structure theory of finite tensor categories.  The key construction underlying the proof is Ostrik's notion of the enriched hom for module categories \cite{MR1976459}.  
@@ -153,7 +153,7 @@ In this section we establish the existence of the balanced tensor product of fin
 
 \begin{definition} 
 	Let $\cC$ be a linear monoidal category. 
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category.  A bilinear functor $F: \cM \times \cN \to \cL$ is called right exact if it is right exact in earch variable.   A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon and triangle identities. \CD{Did we say what right exact bilinear means?}  \NS{Added}
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category.  A bilinear functor $F: \cM \times \cN \to \cL$ is called right exact if it is right exact in earch variable.   A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon and triangle identities.
 	A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $m \in \cM$, $c \in \cC$, and $n \in \cN$:
 \begin{center}
 \begin{tikzpicture}
@@ -173,13 +173,14 @@ In this section we establish the existence of the balanced tensor product of fin
 
 \begin{definition}
 	Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. The {\em balanced tensor product} is a linear category $\cM \boxtimes_{\cC} \cN$
-	 together with a $\cC$-balanced right exact bilinear functor $\boxtimes_{\cC} : \cM \times \cN \to \cM \boxtimes_{\cC} \cN$, such that for all linear categories $\cD$, the functor $\boxtimes_{\cC}$ induces an equivalence between the category of $\cC$-balanced right exact bilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$. \CD{changed this def}
+	 together with a $\cC$-balanced right exact bilinear functor $\boxtimes_{\cC} : \cM \times \cN \to \cM \boxtimes_{\cC} \cN$, such that for all linear categories $\cD$, the functor $\boxtimes_{\cC}$ induces an equivalence between the category of $\cC$-balanced right exact bilinear functors $\cM \times \cN \to \cD$ and the category of right exact linear functors $\cM \boxtimes_{\cC} \cN \to \cD$.
 \end{definition}
 \nid More succinctly, we might say, the balanced tensor product $\cM \boxtimes_{\cC} \cN$ corepresents $\cC$-balanced right exact bilinear functors out of $\cM \times \cN$.  The balanced tensor product is also known as the ``relative Deligne tensor product", because the (unbalanced) tensor product $\cM \boxtimes \cN$ of linear categories is often called the ``Deligne tensor product".  
 
 If it exists, the balanced tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the balanced tensor product is either contractible or empty. 
 
-Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the balanced tensor product of semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the balanced tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite[Thm 3.1]{1102.3411}. \CD{rephrase and deal with the fact that exact hasn't been mentioned}  \NS{I think it's fine as is.  People don't need to know what exactness means for this paper, and if they want to know they can read the referenced paper.}
+Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the balanced tensor product of semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the balanced tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite[Thm 3.1]{1102.3411}.
+
  The following theorem extends these results to arbitrary finite tensor categories and finite module categories. 
 
 \begin{theorem} \label{thm:DelignePrdtOverATCExists}
@@ -188,7 +189,6 @@ Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the bala
 		\item The balanced tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category.
 		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$, the category of $A$--$B$-bimodule objects in $\cC$.
 		\item The functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ is exact in each variable and satisfies 
-		\CSP{I corrected this formula}
 		\begin{equation*}
 			 \Hom_{\cM \boxtimes_{\cC} \cN} (x \boxtimes_{\cC} y, x' \boxtimes_{\cC} y') \cong \Hom_{\cC}(1, \IHom_{\cM}(x,x') \otimes \IHom_{\cN}(y, y'))
 		\end{equation*}
@@ -213,12 +213,12 @@ Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the bala
 		& \cong \Hom_{\Mod{A}{}}(x,  \IHom_{\Mod{}{B}}(y, x' \otimes y') )\\
 		& \cong \Hom_{\Mod{A}{B}}(x \otimes y, x' \otimes y')
 	\end{align*} 
-where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Lemma~\ref{lma:module-adjoint}). This establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$.\NS{I added what the balancing is.} Thus $(2)$ implies both  $(1)$ and $(3)$. \CD{(1) discuss why A-Mod-B(C) is finite \CSPcomm{done}. (3) discuss displayed relation. \CSPcomm{done.}}
+where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Lemma~\ref{lma:module-adjoint}). This establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$. Thus $(2)$ implies both  $(1)$ and $(3)$.
 	We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
 \end{equation*}
-	is naturally equivalent to the category of $\cC$-balanced functors $F:\cM \times \cN \to \cD$ that are right exact in each variable separately. Every functor of the former type certainly restricts to one of the later type; we must show that a functor of the latter type extends uniquely (up to canonical isomorphism) to one of the former type. \CD{`uniquely (up to canon iso)' is not an entirely accurate description of what's required, right? (we just need any inverse, which will happen to be unique because inverses are unique ...)} \CSP{actually I think this is exactly correct. Leaving it as written.}
+	is naturally equivalent to the category of $\cC$-balanced functors $F:\cM \times \cN \to \cD$ that are right exact in each variable separately. Every functor of the former type certainly restricts to one of the later type; we must show that a functor of the latter type extends uniquely (up to canonical isomorphism) to one of the former type. 
 	
 The key observation is that every object of $\Mod{A}{B}(\cC)$ may be functorially written as a coequalizer of objects in the image of $\cM \times \cN$. Specifically, for any $X \in \Mod{A}{B}(\cC)$, we have the coequalizer:
 \begin{equation*}
@@ -271,7 +271,6 @@ Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagr
 %	\caption{A digram useful for demonstrating the existence of the balanced tensor product.}
 %	\label{fig:RelDelingePdtDiagram}
 %\end{figure}
-\CD{Why was the tempting map on the other side from the construction?}  \NS{Fixed!}
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps of maps in $\cM$ or $\cN$, as above.  (The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.)
 
 The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow. We may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
@@ -316,10 +315,6 @@ The balanced product $\Vect \boxtimes_{\Vect[K]} \Vect$ is the category of $k[K]
 \begin{remark}
 The above theorem assumes that $\cC$ is a finite tensor category, that is a finite rigid linear monoidal category.  The non-balanced tensor product can be defined substantially more generally \cite{1212.1545}, and we hope that the balanced tensor product can also be defined more generally.
 \end{remark}
-\CD{Add comment on importance/essentialness of right exactness in the theorem?}
-
-
-\CD{Switch order of DSPS13a and DSPS13b in the biblio, cf lurie entries for how}\CSP{can't because now one is 2013 and one is 2014.}
 
 \bibliographystyle{alpha}
 \bibliography{dtcbib}
@@ -328,61 +323,3 @@ The above theorem assumes that $\cC$ is a finite tensor category, that is a fini
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-%OBSOLETE APPENDIX
-\appendix
-\section{Properties of the unbalanced tensor product}
-\CD{The rest seems weirdly tacked on.  Feels like the paper ends here properly.  Not sure what to do about that.}  \NS{We need these results, and I think this paper is a more appropriate place for it than DTC.  They have to go after the main results.  I made it an appendix.}
-
-In the case where $\cC = \Vect$, and we are working over a perfect field, the exactness descent property given in Part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists} can be strengthened as follows.
-
-\begin{lemma}[{\cite[Pr.~5.13(vi)]{MR1106898}}]%\label{lem:}
-	Suppose that $\cM$, $\cN$, and $\cP$ are finite linear categories and the functor $F: \cM \times \cN \to \cP$ is exact in each variable separately. If the ground field is perfect, then the induced functor $\overline{F}: \cM \boxtimes \cN \to \cP$ is exact. 
-\end{lemma} \CD{rephrased this}
-
-This has a crucial consequence. The Deligne tensor product of finite tensor categories will always be a finite monoidal linear category, but over a perfect field we have:
-
-\begin{corollary}[{\cite[Pr.~5.17]{MR1106898}}]%\label{cor:}
-	If the ground field is perfect, then tensor product of finite tensor categories is rigid, and hence again a tensor category. 
-\end{corollary}
-
-\begin{example}
-	The assumption that the ground field is perfect is essential. If $k$ is imperfect, let $L$ be a finite inseparable field extension.  The category $\Vect_L$ of $L$-vector spaces, with the usual tensor product over $L$, is rigid.  However, we will see that the Deligne tensor product $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ is not rigid.  This Deligne tensor product $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ is equivalent to the category of $L \otimes L$-modules. This category is no longer semisimple (since $L$ is inseparable) and moreover the induced monoidal structure is the tensor product over $L \otimes L$, which is no longer exact in each variable. It follows from Lemma~\ref{lma:RigidIsExact} that $\Vect_L \boxtimes_{\Vect_k} \Vect_L$ fails to be rigid. 
-\end{example} \CD{Spell this example out more (also phrase in a way that makes it clear semisimplicity comments are unrelated to rigidity comments?)} \NS{I rewrote this a little.}
-
-Finally we observe that the product of two internal module categories is an internal module category over the product algebra object:
-
-\begin{proposition}
-	%\label{lem:}
-	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $$\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$$ as a left $\cC \boxtimes \cD$-module category.
-\end{proposition}
-
-\begin{proof}
-	The forgetful functors from $\cN$ to $\cC$ and $\cP$ to $\cD$ are part of monadic adjunctions:
-	\begin{align*}
-		(-) \otimes B_{B}:\cC \rightleftarrows \cN = \Mod{}{B}(\cC): U \\
-		(-) \otimes C_{C}:\cD \rightleftarrows \cP = \Mod{}{C}(\cD): U
-	\end{align*}
-	Since both functors in the adjunction are right exact (the forgetful functor is exact, not just left exact) these adjunctions descend to an adunction between the tensor products. 
-	\begin{equation*}
-		(-) \otimes (B \boxtimes C)_{B \boxtimes C}: \cC \boxtimes \cD \rightleftarrows \cN \boxtimes \cP: \overline{U}.
-	\end{equation*}
-	Any $\cC \boxtimes \cD$-module functor from $\cC \boxtimes \cD$ to itself is given by tensoring by an object in $\cC \boxtimes \cD$, hence any monad on $\cC \boxtimes \cD$ that is compatible with the module actions comes from an algebra in $\cC \boxtimes \cD$.  \CD{Isn't this sentence irrelevant? omit.}  \NS{It seems quite relevant to me...  In general not all monads give algebras.}
-	Hence we need only show that this adjunction is monadic.  
-	
-	\NS{I added stuff here about why the theorem follows from monadicity of the adjunction, since it was not obvious to me until I spent a while thinking about it.}
-	
-	By the the crude monadicity theorem \cite[\S~3.5]{MR771116} we only need to show that $\overline{U}$ reflects isomorphisms and $\overline{U}$ preserves coequalizers of reflexive pairs.  Observe that the individual functors (both called $U$) have these properties. Moreover everything in $\cN$ is a coequalizer of objects in the image of $\cC$, everything in $\cP$ is a coequalizer of objects in the image of $\cD$, and everything in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cN \times \cP$. Thus it follows that every object in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cC \times \cD$. For such objects $\overline{U}$ reflects isomorphisms, since the original $U$ do so. Hence, by the five lemma, it follows that $\overline{U}$ reflects isomorphisms. 
- \CD{Explain fact more.} \CD{Explain follows more?} \CSP{Did both of these}
-For the latter property we will in fact show that $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$.  Thus it is sufficient to show that $\overline{U}$ is exact and hence that $\overline{U}$ preserves cokernels.  The exactness of $\overline{U}$ follows from Part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists} and exactness of the original forgetful functors $U$.  
-\end{proof}
