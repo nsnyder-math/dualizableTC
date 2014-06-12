@@ -316,6 +316,34 @@ The balanced product $\Vect \boxtimes_{\Vect[K]} \Vect$ is the category of $k[K]
 The above theorem assumes that $\cC$ is a finite tensor category, that is a finite rigid linear monoidal category.  The non-balanced tensor product can be defined substantially more generally \cite{1212.1545}, and we hope that the balanced tensor product can also be defined more generally.
 \end{remark}
 
+Finally we observe that the product of two internal module categories is an internal module category over the product algebra object:
+
+\begin{proposition}
+	%\label{lem:}
+	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $$\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$$ as a left $\cC \boxtimes \cD$-module category.
+\end{proposition}
+
+\begin{proof}
+	The forgetful functors from $\cN$ to $\cC$ and $\cP$ to $\cD$ are part of monadic adjunctions:
+	\begin{align*}
+		(-) \otimes B_{B}:\cC \rightleftarrows \cN = \Mod{}{B}(\cC): U \\
+		(-) \otimes C_{C}:\cD \rightleftarrows \cP = \Mod{}{C}(\cD): U
+	\end{align*}
+	Since both functors in the adjunction are right exact (the forgetful functor is exact, not just left exact) these adjunctions descend to an adunction between the tensor products. 
+	\begin{equation*}
+		(-) \otimes (B \boxtimes C)_{B \boxtimes C}: \cC \boxtimes \cD \rightleftarrows \cN \boxtimes \cP: \overline{U}.
+	\end{equation*}
+	Any $\cC \boxtimes \cD$-module functor from $\cC \boxtimes \cD$ to itself is given by tensoring by an object in $\cC \boxtimes \cD$, hence any monad on $\cC \boxtimes \cD$ that is compatible with the module actions comes from an algebra in $\cC \boxtimes \cD$.  \CD{Isn't this sentence irrelevant? omit.}  \NS{It seems quite relevant to me...  In general not all monads give algebras.}
+	Hence we need only show that this adjunction is monadic.  
+	
+	\NS{I added stuff here about why the theorem follows from monadicity of the adjunction, since it was not obvious to me until I spent a while thinking about it.}
+	
+	By the the crude monadicity theorem \cite[\S~3.5]{MR771116} we only need to show that $\overline{U}$ reflects isomorphisms and $\overline{U}$ preserves coequalizers of reflexive pairs.  Observe that the individual functors (both called $U$) have these properties. Moreover everything in $\cN$ is a coequalizer of objects in the image of $\cC$, everything in $\cP$ is a coequalizer of objects in the image of $\cD$, and everything in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cN \times \cP$. Thus it follows that every object in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cC \times \cD$. For such objects $\overline{U}$ reflects isomorphisms, since the original $U$ do so. Hence, by the five lemma, it follows that $\overline{U}$ reflects isomorphisms. 
+
+For the latter property we will in fact show that $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$.  Thus it is sufficient to show that $\overline{U}$ is exact and hence that $\overline{U}$ preserves cokernels.  The exactness of $\overline{U}$ follows from Part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists} and exactness of the original forgetful functors $U$.  
+\end{proof}
+
+
 \bibliographystyle{alpha}
 \bibliography{dtcbib}
 \end{document}
