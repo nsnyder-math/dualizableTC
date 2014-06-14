@@ -300,7 +300,7 @@ In our presentation, we also freely employ the cobordism hypothesis, but we woul
 \begin{assumpfield*}
 We have endeavored to limit the restrictions on the base field, in particular to avoid the assumption of characteristic zero or algebraic closure.  The existence of the symmetric monoidal structure on the 3-category of tensor categories depends on the base field being perfect, and so perfection is assumed for all the results about dualizability of tensor categories.  (Recall that all fields of characteristic zero, all algebraically closed fields, and all finite fields are perfect, so we view it as a comparatively mild restriction.)  More specifically, Theorems~\ref{thm1} and \ref{thm3}, and the second halves of Theorems~\ref{thm4}, \ref{thm9}, \ref{thm11}, and \ref{thm12}, along with Corollaries~\ref{cor2}, \ref{cor5}, and \ref{cor7} all assume the field is perfect; as stated Theorem~\ref{thm6} and the first half of Theorem~\ref{thm4} also assume perfection, but for those results it is not essential.  The first half of Theorem~\ref{thm13} assumes algebraic closure, and the second half of Theorem~\ref{thm13} assumes characteristic zero.  That leaves Theorems~\ref{thm8} and \ref{thm10}, and the first halves of Theorems~\ref{thm9}, \ref{thm11}, and \ref{thm12}, which apply over an arbitrary field.  
 
-The standing assumptions in the text are as follows.  No fields appear in the more geometric Section~\ref{sec:lft}.  In Sections~\ref{sec:conventions} through \ref{sec:tc-separable}, concerning tensor categories, the base field is arbitrary unless otherwise noted.  (A perfection assumption is made for part (5) of Theorem~\ref{thm:DelignePrdtOverATCExists}, and for Theorem~\ref{thm:tcexists}, Corollary~\ref{cor:septc}, Definition~\ref{def:sepcat}, Corollary~\ref{cor:Sep=semisimplecenter}, Proposition~\ref{prop:SSModuleCatsAreSep}, and Corollary~\ref{cor:tcsepexists}.)  In Section~\ref{sec:tc-fusion} on fusion categories, the base field is algebraically closed except where noted.  (Corollaries~\ref{cor:charzerosep} and~\ref{cor:charzeromodulesep} apply over an arbitrary field of characteristic zero.)  In Section~\ref{sec:dualizability} on dualizability, the base field is always perfect. (We furthermore require characteristic zero in Corollary~\ref{cor:charzerotft} and algebraically closed characteristic zero in Corollary~\ref{cor:fusiontft}.)  In the final Section~\ref{sec:descconj} on descent conjectures, we restrict to algebraically closed fields of characteristic zero.
+The standing assumptions in the text are as follows.  No fields appear in the more geometric Section~\ref{sec:lft}.  In Sections~\ref{sec:conventions} through \ref{sec:tc-separable}, concerning tensor categories, the base field is arbitrary unless otherwise noted.  (A perfection assumption is made for part (6) of Theorem~\ref{thm:DelignePrdtOverATCExists}, and for Theorem~\ref{thm:tcexists}, Corollary~\ref{cor:septc}, Definition~\ref{def:sepcat}, Corollary~\ref{cor:Sep=semisimplecenter}, Proposition~\ref{prop:SSModuleCatsAreSep}, and Corollary~\ref{cor:tcsepexists}.)  In Section~\ref{sec:tc-fusion} on fusion categories, the base field is algebraically closed except where noted.  (Corollaries~\ref{cor:charzerosep} and~\ref{cor:charzeromodulesep} apply over an arbitrary field of characteristic zero.)  In Section~\ref{sec:dualizability} on dualizability, the base field is always perfect. (We furthermore require characteristic zero in Corollary~\ref{cor:charzerotft} and algebraically closed characteristic zero in Corollary~\ref{cor:fusiontft}.)  In the final Section~\ref{sec:descconj} on descent conjectures, we restrict to algebraically closed fields of characteristic zero.
 \end{assumpfield*}
 
 \subsection*{Acknowledgments}
@@ -1601,12 +1601,11 @@ Provided the monoidal category $\cC$ is finite and rigid, and provided the modul
 	Let $\cC$ and $\cD$ be finite tensor categories.  Let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively, and let ${}_{\cD}\cP$ be a finite left $\cD$-module category. 
 	\begin{enumerate}
 		\item The relative Deligne tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category.
-	\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, for algebra objects $A \in \cC$ and $B \in \cC$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$. Here $\Mod{A}{B}(\cC)$ denotes the category of $A$--$B$-bimodule objects in $\cC$.
-%	\NS{remove this item}		\item If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$ as a left $\cC \boxtimes \cD$-module category.
-		\item The functor $\boxtimes_{\cC}: \cM \times \cN \ra \cM \boxtimes_\cC \cN$ is exact in each variable; for the ordinary Deligne tensor product (over $\cC = \Vect$) it satisfies
+		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, for algebra objects $A \in \cC$ and $B \in \cC$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$. Here $\Mod{A}{B}(\cC)$ denotes the category of $A$--$B$-bimodule objects in $\cC$.
+		\item If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$ as a left $\cC \boxtimes \cD$-module category.
+		\item The functor $\boxtimes_{\cC}: \cM \times \cN \ra \cM \boxtimes_\cC \cN$ is exact in each variable; when $\cC = \Vect$ this functor satisfies 
 		\begin{equation*}
-			\Hom_{\cM \boxtimes \cN} (m \boxtimes n, m' \boxtimes n') \cong 
-			 \Hom_{\cM}(m,m') \otimes \Hom_{\cN}(n, n').
+			\Hom_{\cM \boxtimes \cN} (m \boxtimes n, m' \boxtimes n') \cong \Hom_{\cM}(m,m') \otimes \Hom_{\cN}(n, n').
 		\end{equation*}
 		\item If $\cM_\cC \ra \cM'_\cC$ and ${}_\cC \cN \ra {}_\cC \cN'$ are exact $\cC$-module functors, then the corresponding functor $\cM \boxtimes_\cC \cN \ra \cM' \boxtimes_\cC \cN'$ is exact.
 		\item Let $\cM$, $\cN$, and $\cL$ now be linear categories and assume the base field is perfect.  If a bilinear functor $\cM \times \cN \ra \cL$ is exact in each variable, then the corresponding functor $\cM \boxtimes \cN \ra \cL$ is exact \cite[Prop 5.13(vi)]{deligne}.
@@ -1721,7 +1720,7 @@ Let $\cC$ and $\cD$ be finite tensor categories over a perfect field.  If $\cM$ 
 
 
 \begin{proof} 
-First observe that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective.  This closure property follows from parts (3) and (4) of Theorem \ref{thm:DelignePrdtOverATCExists}.
+First observe that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective.  This closure property follows from parts (4) and (5) of Theorem \ref{thm:DelignePrdtOverATCExists}.
 
 Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for all projective objects $p \in \cC$ and $q \in \cD$.  This collection is a jointly generating family of projectives, as follows from expressing $\cC \boxtimes \cD$ as $(A \otimes B)\textrm{-}\mathrm{Mod}$ (using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}).
 
@@ -1731,7 +1730,7 @@ By Lemma \ref{lma:Exact_checked_on_proj_gens}, it suffices to check that for eve
 \end{equation*}
 We first observe that this is true when $x$ is a primitive tensor $a \boxtimes b$: because $\cM$ and $\cN$ are exact, the products $p \otimes a$ and $q \otimes b$ are projective, and the product $(p \boxtimes q) \otimes (a \boxtimes b) \cong (p \otimes a) \boxtimes (q \otimes b)$ is projective by the aforementioned closure property.
 
-Now for a general object $x \in \cM \boxtimes \cN$, by part (5) of Theorem~\ref{thm:DelignePrdtOverATCExists} it is enough to show that the functor
+Now for a general object $x \in \cM \boxtimes \cN$, by part (6) of Theorem~\ref{thm:DelignePrdtOverATCExists} it is enough to show that the functor
 \begin{align*}
 \cF: \cM \times \cN &\rightarrow \Vect \\
 m \times n &\mapsto \Hom_{\cM \boxtimes \cN}((p \boxtimes q) \otimes x, m \boxtimes n) \cong \Hom_{\cM \boxtimes \cN}(x, ({}^* p \otimes m) \boxtimes ({}^* q \otimes n))
@@ -1746,7 +1745,7 @@ Set $z_i := ({}^* p \otimes m_i) \boxtimes ({}^* q \otimes n)$ and consider the 
 \begin{equation*}
 	z_1 \to z_2 \to z_3 \to 0.
 \end{equation*}
-This sequence is exact because $(c \otimes -): \cM \ra \cM$ is exact for any object $c \in \cC$ (as tensoring with appropriate duals gives the adjoint functors) and $(- \boxtimes \tilde{n}) : \cM \ra \cM \boxtimes \cN$ is exact for any $\tilde{n} \in \cN$ (by part (3) of Theorem~\ref{thm:DelignePrdtOverATCExists}).  Moreover, the objects $z_i$ are all injective: the dual of a projective object of a finite tensor category is projective \cite[Prop. 2.3]{EO-ftc}, hence the objects ${}^* p \otimes m_i$ and ${}^* q \otimes n$ are projective, hence injective by part (1) of Theorem~\ref{Thm:ExactModCatOmnibus}, and so the product $({}^* p \otimes m_i) \boxtimes ({}^* q \otimes n)$ is injective by the closure property.
+This sequence is exact because $(c \otimes -): \cM \ra \cM$ is exact for any object $c \in \cC$ (as tensoring with appropriate duals gives the adjoint functors) and $(- \boxtimes \tilde{n}) : \cM \ra \cM \boxtimes \cN$ is exact for any $\tilde{n} \in \cN$ (by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}).  Moreover, the objects $z_i$ are all injective: the dual of a projective object of a finite tensor category is projective \cite[Prop. 2.3]{EO-ftc}, hence the objects ${}^* p \otimes m_i$ and ${}^* q \otimes n$ are projective, hence injective by part (1) of Theorem~\ref{Thm:ExactModCatOmnibus}, and so the product $({}^* p \otimes m_i) \boxtimes ({}^* q \otimes n)$ is injective by the closure property.
 
 We are left to show that for any object $x \in \cM \boxtimes \cN$, the sequence $\Hom(x,z_1) \to \Hom(x,z_2) \to \Hom(x,z_3) \to 0$ is exact.  Using Theorem~\ref{thm:EGNO2.11.6} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}, note that there is a short exact sequence
 \begin{equation*}
@@ -2055,32 +2054,8 @@ For absolutely semisimple, separable $\cC$-modules ${}_\cC \cM$ and ${}_\cC \cN$
 Assume the base field is perfect.  Finite semisimple tensor categories, separable bimodule categories, bimodule functors, and bimodule transformations, form a symmetric monoidal sub-3-category $\TCss$ of $\TC$.
 \end{corollary}
 \begin{proof}
-Theorem~\ref{thm:compositeOfSep} ensures that the specified collection of 1-morphisms is closed under composition, and so we have a sub-3-category.  Because of the perfection assumption, every finite semisimple linear category is absolutely semisimple.  By the same theorem, the ordinary Deligne tensor of two such categories is absolutely semisimple, so in particular semisimple; the collection of objects is therefore closed under the monoidal structure.  To see that the morphisms are closed under the monoidal structure, observe that for $B \in \cC$ and $C \in \cD$ separable algebra objects, the product $B \boxtimes C \in \cC \boxtimes \cD$ is separable; the result therefore follows from the following lemma.
+Theorem~\ref{thm:compositeOfSep} ensures that the specified collection of 1-morphisms is closed under composition, and so we have a sub-3-category.  Because of the perfection assumption, every finite semisimple linear category is absolutely semisimple.  By the same theorem, the ordinary Deligne tensor of two such categories is absolutely semisimple, so in particular semisimple; the collection of objects is therefore closed under the monoidal structure.  To see that the morphisms are closed under the monoidal structure, observe that for $B \in \cC$ and $C \in \cD$ separable algebra objects, the product $B \boxtimes C \in \cC \boxtimes \cD$ is separable; the result therefore follows from part (3) of Theorem~\ref{thm:DelignePrdtOverATCExists}.
 \end{proof}
-
-\NS{Transplanted appendix from RDTP}
-\begin{lemma}
-	%\label{lem:}
-	If $\cN = \Mod{}{B}(\cC)$ and $\cP = \Mod{}{C}(\cD)$, for algebra objects $B \in \cC$ and $C \in \cD$, then $$\cN \boxtimes \cP \simeq \Mod{}{(B \boxtimes C)}(\cC \boxtimes \cD)$$ as a left $\cC \boxtimes \cD$-module category.
-\end{lemma}
-\begin{proof}
-	The forgetful functors from $\cN$ to $\cC$ and $\cP$ to $\cD$ are part of monadic adjunctions:
-	\begin{align*}
-		(-) \otimes B_{B}:\cC \rightleftarrows \cN = \Mod{}{B}(\cC): U \\
-		(-) \otimes C_{C}:\cD \rightleftarrows \cP = \Mod{}{C}(\cD): U
-	\end{align*}
-	Since both functors in the adjunction are right exact (the forgetful functor is exact, not just left exact) these adjunctions descend to an adunction between the tensor products. 
-	\begin{equation*}
-		(-) \otimes (B \boxtimes C)_{B \boxtimes C}: \cC \boxtimes \cD \rightleftarrows \cN \boxtimes \cP: \overline{U}.
-	\end{equation*}
-%	Any $\cC \boxtimes \cD$-module functor from $\cC \boxtimes \cD$ to itself is given by tensoring by an object in $\cC \boxtimes \cD$, hence any monad on $\cC \boxtimes \cD$ that is compatible with the module actions comes from an algebra in $\cC \boxtimes \cD$.  \CD{Isn't this sentence irrelevant? omit.}  \NS{It seems quite relevant to me...  In general not all monads give algebras.}
-	Hence we need only show that this adjunction is monadic.  
-	
-	By the the crude monadicity theorem \cite[\S~3.5]{MR771116} we only need to show that $\overline{U}$ reflects isomorphisms and $\overline{U}$ preserves coequalizers of reflexive pairs.  Observe that the individual functors (both called $U$) have these properties. Moreover everything in $\cN$ is a coequalizer of objects in the image of $\cC$, everything in $\cP$ is a coequalizer of objects in the image of $\cD$, and everything in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cN \times \cP$. Thus it follows that every object in $\cN \boxtimes \cP$ is a coequalizer of objects in the image of $\cC \times \cD$. For such objects $\overline{U}$ reflects isomorphisms, since the original $U$ do so. Hence, by an application of the five lemma, it follows that $\overline{U}$ reflects isomorphisms. 
- %\CD{Explain fact more.} \CD{Explain follows more?} \CSP{Did both of these}
-For the latter property we will in fact show that $\overline{U}$ preserves all coequalizers. Since our categories are additive the coequalizer of $f$ and $g$ is the cokernel of $(f-g)$.  Thus it is sufficient to show that $\overline{U}$ is exact and hence that $\overline{U}$ preserves cokernels.  The exactness of $\overline{U}$ follows from Part (3) of Theorem~\ref{thm:DelignePrdtOverATCExists} and exactness of the original forgetful functors $U$.  
-\end{proof}
-
 
 
 As mentioned, we will see that separable bimodule categories ${}_\cC \cM_\cD$ are maximally dualizable.  What we really care about, though, is the dualizability of tensor categories.  Thus, what concerns us most is the separability of the bimodules ${}_{\cC \boxtimes \cC^\mp} \cC$ and $\cC_{\cC^\mp \boxtimes \cC}$ arising in the 1-dualizability of $\cC$.  This suggests the following definition.
@@ -3180,7 +3155,7 @@ The 3-category $\TCsep$ is the maximal fully dualizable sub-3-category of $\TC$.
 \begin{proof}
 As in the Appendix, let $d\TC$ denote the maximal fully dualizable subcategory of $\TC$.  By the theorem, any object of $d\TC$ is separable.  Let ${}_\cC \cM_\cD$ be a morphism of $d\TC$.  We will show that such a morphism $\cM$ must be a semisimple bimodule category as follows: we first check that any (right exact) $\cC$-module functor from $\cM$ to $\cC$ is in fact exact; we then apply this property to an appropriate internal Hom functor and conclude that all objects of $\cM$ are injective.
 
-By Proposition~\ref{prop:evcoev}, the left adjoint of $\cM$ is $\Fun_\cC(\cM,\cC)$; the counit of this adjunction is the (right exact) evaluation $\cC$--$\cC$-bimodule functor $\varepsilon: \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \ra \cC$.  Because the functor $\varepsilon$ has a left adjoint, it is also left exact.  The functor $\cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC)$ is exact in each variable, by part (3) of Theorem~\ref{thm:DelignePrdtOverATCExists}.  Thus for any (right exact) functor $\cF \in \Fun_\cC(\cM,\cC)$, the composite $\cM \xra{\id \times \cF} \cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \xra{\varepsilon} \cC$ is exact; that composite just is the functor $\cF$.  
+By Proposition~\ref{prop:evcoev}, the left adjoint of $\cM$ is $\Fun_\cC(\cM,\cC)$; the counit of this adjunction is the (right exact) evaluation $\cC$--$\cC$-bimodule functor $\varepsilon: \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \ra \cC$.  Because the functor $\varepsilon$ has a left adjoint, it is also left exact.  The functor $\cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC)$ is exact in each variable, by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}.  Thus for any (right exact) functor $\cF \in \Fun_\cC(\cM,\cC)$, the composite $\cM \xra{\id \times \cF} \cM \times \Fun_\cC(\cM,\cC) \ra \cM \boxtimes_\cD \Fun_\cC(\cM,\cC) \xra{\varepsilon} \cC$ is exact; that composite just is the functor $\cF$.  
 
 For any object $m \in \cM$, the functor ${}^* \IHom(-,m) : \cM \ra \cC$ is a (right exact) $\cC$-module functor, therefore is exact; thus $\IHom(-,m) : \cM \ra \cC$ itself is an exact contravariant functor.  For any injective object $j \in \cC$, the contravariant functor $\Hom(-,j \otimes m) \cong \Hom(j^* \otimes -,m) \cong \Hom(j^*,\IHom(-,m))$ is therefore exact, so $j \otimes m$ is injective as well; cf.~\cite[Prop. 3.16]{EO-ftc}.  As $\cC$ is semisimple, its unit is injective, so all objects of $\cM$ are injective, thus $\cM$ is semisimple, as required.
 \end{proof}
