@@ -259,8 +259,8 @@ The nerve functor $\nu: \Cat \to \sSet$ is fully-faithful. Let $[m + n]$ denote 
 		\node (RB) at (2, 0) {$[m+n]$};
 		\draw [->] (LT) -- node [left] {$m$} (LB);
 		\draw [->] (LT) -- node [above] {$0$} (RT);
-		\draw [->] (RT) -- node [right] {$$} (RB);
-		\draw [->] (LB) -- node [below] {$$} (RB);
+		\draw [->] (RT) -- node [right] {$ $} (RB);
+		\draw [->] (LB) -- node [below] {$ $} (RB);
 		%\node at (0.5, 1) {$\ulcorner$};
 		%\node at (1.5, 0.5) {$\lrcorner$};
 	\end{tikzpicture}
@@ -279,10 +279,10 @@ A category is {\em extensive} (or {\em infinitary extensive}) if it admits small
 		\node (LB) at (0, 0) {$X_m$};
 		\node (RT) at (2, 1.5) {$X_n$};
 		\node (RB) at (2, 0) {$X_0$};
-		\draw [->] (LT) -- node [left] {$$} (LB);
-		\draw [->] (LT) -- node [above] {$$} (RT);
-		\draw [->] (RT) -- node [right] {$$} (RB);
-		\draw [->] (LB) -- node [below] {$$} (RB);
+		\draw [->] (LT) -- node [left] {$ $} (LB);
+		\draw [->] (LT) -- node [above] {$ $} (RT);
+		\draw [->] (RT) -- node [right] {$ $} (RB);
+		\draw [->] (LB) -- node [below] {$ $} (RB);
 		\node at (0.5, 1) {$\ulcorner$};
 		%\node at (1.5, 0.5) {$\lrcorner$};
 	\end{tikzpicture}
@@ -297,8 +297,8 @@ The above definition is equivalent to the usual notion of enriched category. The
 	\node (LB) at (0, 0) {$pt$};
 	\node (RT) at (2, 1.5) {$X_1$};
 	\node (RB) at (2, 0) {$X_0 \times X_0$};
-	\draw [->] (LT) -- node [left] {$$} (LB);
-	\draw [->] (LT) -- node [above] {$$} (RT);
+	\draw [->] (LT) -- node [left] {$ $} (LB);
+	\draw [->] (LT) -- node [above] {$ $} (RT);
 	\draw [->] (RT) -- node [right] {$(d_1, d_0)$} (RB);
 	\draw [->] (LB) -- node [below] {$(x,y)$} (RB);
 	\node at (0.5, 1) {$\ulcorner$};
@@ -342,10 +342,10 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 			\node (LB) at (0, 0) {$X_i$};
 			\node (RT) at (2, 1.5) {$X_j$};
 			\node (RB) at (2, 0) {$X_0$};
-			\draw [->] (LT) -- node [left] {$$} (LB);
-			\draw [->] (LT) -- node [above] {$$} (RT);
-			\draw [->] (RT) -- node [right] {$$} (RB);
-			\draw [->] (LB) -- node [below] {$$} (RB);
+			\draw [->] (LT) -- node [left] {$ $} (LB);
+			\draw [->] (LT) -- node [above] {$ $} (RT);
+			\draw [->] (RT) -- node [right] {$ $} (RB);
+			\draw [->] (LB) -- node [below] {$ $} (RB);
 			%\node at (0.5, 1) {$\ulcorner$};
 			%\node at (1.5, 0.5) {$\lrcorner$};
 		\end{tikzpicture}
@@ -424,10 +424,228 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 %
 %
 
+\section{The Segal construction}
+
+\subsection{Relative Categories}
+
+\begin{definition}
+	A {\em relative category} consists of a pair $(\cC, \cW)$ of a category $\cC$ and a subcategory $\cW$ containing all the identities (hence $\cW$ has the same objects as $\cC$). The morphisms of $\cW$ we call {\em weak equivalences}.  We will often abuse notation a write $\cC$ for the pair $(\cC, \cW)$. A {\em relative functor} is a functor of categories which sends weak equivalences to weak equivalences. 
+	
+	A relative category $(\cC, \cW)$ is called {\em homotopical} if $\cW$ satisfies the {\em 2-out-of-6 property}: If $h:w \to x$, $g:x\to y$, and $f:y \to z$ are three morphisms of $\cC$ and the composites $fg$ and $gh$ belong to $\cW$, then so do the remaining four $f$, $g$, $h$, and $fgh$. 
+\end{definition}
+
+\begin{example}
+	Let $\cC$ be an ordinary category. We have relative categories: 
+	\begin{enumerate}
+		\item $\check \cC = (\cC, ob\cC)$ is the minimal relative category structure; the only weak equivalences are identities.
+		\item $\hat \cC = (\cC, \cC)$ is the maximal relative category structure; all morphisms are weak equivalences. 
+		\item $\underline{\cC} = (\cC, Isom(\cC))$ is the homotopical relative category in which the weak equivalences are the isomorphisms. 
+	\end{enumerate}
+\end{example}
+
+\begin{example}
+	The category of topological spaces or the category of simplicial sets, each with the weak homotopy equivalences form important relative categories.  
+\end{example}
+
+\begin{example}
+	If $(\cC, \cW)$ is a relative category and $f:\cD \to \cC$ is a functor let $f^{-1}\cW$ denote the subcategory of $\cD$ consisting of all morphisms which map to weak equivalences in $\cC$. Then $(\cD, f^{-1}\cW)$ is a relative category, which is homotopical if $\cC$ is.   
+\end{example}
+
+
+
+
+\begin{definition}
+	If $(\cC, \cW)$ is a relative category, then the {\em homotopy category of $\cC$} is defined to be $h \cC = \cW^{-1} \cC$, the category obtained by formally inverting the morphisms of $\cW$. It is equipped with the canonical localization $\ell: \cC \to h\cC$.  A relative category $(\cC, \cW)$ is {\em saturated} if $\cW = \ell^{-1}(Isom(h\cC))$. In otherwords $\cC$ is saturated if every morphism which becomes invertible in the homotopy category was already a weak equivalence. 
+\end{definition}
+
+Saturated relative categories are homotopical. Every model category gives a saturated relative category. For example the category of sets and bijections, the category of simplicial sets and the weak homotopy equivalences, and the category of categories and equivalences of categories form saturated relative categories. 
+
+\begin{lemma} \label{lma:homotopycatcommutesproduct}
+	The homotopy category of a product of relative categories is the product of the homotopy categories, $h(\cM_1 \times \cM_2) \simeq h\cM_1 \times h \cM_2$.
+\end{lemma}
+
+\begin{proof}
+	Let $(\cM_1, \cW_1)$ and $(\cM_2, \cW_2)$ be relative categories. 
+	The category $h\cM_1 \times h \cM_2$ can be obtained as a sequence of two localizations. First consider the relative category $\cM_1 \times \check{\cM_2}$ whose weak equivalences consist of those which are weak equivalences in $\cM_1$ and identities in $\cM_2$. A direct calculation shows $h(\cM_1 \times \check{\cM_2}) = h(\cM_1) \times \check{\cM_2}$. Next we view $h(\cM_1) \times \cM_2$ as the relative category $\check{h(\cM_1)} \times {\cM_2}$, whose weak equivalences are identities in $h(\cM_1)$ and weak equivalences in $\cM_2$. An identical calculation gives $h(\check{h(\cM_1)} \times {\cM_2}) = h(\cM_1) \times h(\cM_2)$. This shows that the product of homotopy categories $h(\cM_1) \times h(\cM_2)$ is universal for functors from $\cM_1 \times \cM_2$ which localize the classes $\cW_1 \times ident(\cM_2)$ and $ident(\cM_1) \times \cW_2$ (these classes commute so the order of localization is irrelevant). But this is precisely the same universal property shared by $h(\cM_1 \times \cM_2)$.
+\end{proof}
+
+%\begin{definition}
+%	Let $1$ denote the category/poset $0 \to 1$.
+%A {\em strict homotopy} from $f_0:\cC \to \cD$ to $f_1: \cC \to \cD$ is a relative functor $H:\cC \times \hat{1} \to \cD$ which restricts to $f_0$ and $f_1$ respectively. In otherwords a natural weak equivalence from $f_0$ to $f_1$. Two relative functors are said to be {\em (weakly) homotopic} if there is a finite zig-zag of strict homotopies connecting them. 
+%
+%A {\em homotopy equivalence of relative categories} consists of a pair of relative functors $F: \cC \to \cD$, $G: \cD \to \cC$ such that $FG$ is weakly homotopic to $id_{\cD}$ and $GF$ is weakly homotopic to $id_\cC$. 
+%\end{definition}
+%
+%\begin{lemma}
+%	A homotopy equivalence of relative categories induces an equivalence of their homotopy categories. 
+%\end{lemma}
+%
+%\begin{proof}
+%	This is an easy application of Lemma \ref{lma:homotopycatcommutesproduct}, and the fact that $h\hat{1} \cong E$, the contractible category with two objects. 
+%\end{proof}
+
+
+\subsection{The Segal Category Construction.}
+
+\begin{definition}
+	A {\em Segalic relative category} is a triple $\cM = (\cM, \cW, \pi_0)$ consisting of a relative category $(\cM, \cW)$ and a relative functor $\pi_0: (\cM, \cW) \to \underline{\Set} = (\Set, Isom)$ such that
+	\begin{enumerate}
+		\item the category $\cM$ admits all finite products;
+		\item the class $\cW$ is closed under finite products, i.e., for every $(f:x \to y) \in \cW$ and every object $z \in \cM$, the map $(f \times id: x \times z \to y \times z) \in \cW$; and
+		\item $\pi_0$ preserves finite products.   
+	\end{enumerate}
+A {\em Segalic functor} from $(\cM, \cW, \pi^{\cM})$ to $(\cM', \cW', \pi^{\cM'})$ consists a functor $F: \cM \to \cM'$ and a natural isomorphism $\pi_0^{\cM'} \circ F \cong \pi_0^{\cM}$ such that
+\begin{enumerate}
+	\item $F: (\cM, \cW) \to (\cM', \cW')$ is a relative functor; 
+	\item $F$ preserves terminal objects; and  
+	\item $F$ is {\em weakly product preserving} in the sense that for all object $x, y \in \cM$ the canonical map (induced by the projections) $F(x \times y) \to F(x) \times F(y)$ is a weak equivalence in $\cW'$.
+\end{enumerate}
+%A {\em Segalic homotopy equivalence} $F: \cM \leftrightarrows \cM': G$ is a homotopy equivalence between Segalic relative categories in which both functors $F$ and $G$ are Segalic, and in which every functor occurring in the zig-zags of natural weak equivalences $FG \sim id_{\cM'}$ and $GF \sim id_{\cM}$ are also Segalic. 
+\end{definition}
+
+Segalic relative categories and Segalic functors form a category. The Segal construction will take as input a Segalic relative category $\cM$ and produce a new Segalic relative category $\Seg(\cM)$, and take Segalic functors to Segalic functors.
+%, and Segalic homotopy equivalences to Segalic homotopy equivalences. 
+
+The objects of $\Seg(\cM)$ consist of the {\em $\cM$-enriched Segal categories}:
+
+\begin{definition}
+	Given a set $S$ let $\Delta_S$ denote the category $(\Delta \downarrow S)$ whose objects consist of pairs $([n], \phi:[n] \to S)$ of an object of $\Delta$ and a set-theoretic map to $S$. The morphisms of $\Delta_S$ are morphisms $[m] \to [n]$ in $\Delta$ which lie over the maps to $S$. We may denote objects of $\Delta_S$ by their ordered image in $S$, e.g. $(s_0, s_1, \dots s_n)$. 
+	
+	An {\em $\cM$-enriched precategory} is a pair $(S, X)$ consisting of a set $S$ (the set of {\em objects}) and a functor $X: (\Delta_S)^\op \to \cM$ such that $X( s_0 ) = 1 \in \cM$, the terminal object. An $\cM$-enriched precategory satisfies the {\em Segal condition} if for all $(s_0, s_1, \dots, s_n) \in \Delta_S$ the Segal maps
+	\begin{equation*}
+		X(s_0, s_1, \dots, s_n) \to X(s_0, s_1) \times X(s_1, s_2) \times \dots \times X(s_{n-1}, s_n)
+	\end{equation*}
+	are weak equivalences. These $\cM$-enriched precategories will be call  {\em $\cM$-enriched Segal categories}.
+	
+	A morphism of $\cM$-enriched precategories $f:(S, X) \to (T,Y)$ consist of a set map $f: S \to T$ (which induces a functor $f: \Delta_S \to \Delta_T$) and a natural transformation $X \to f^*Y$ of functors $\Delta_S^{\op} \to \cM$. Denote the category of all $\cM$-enriched Segal categories by $\Seg(\cM)$.
+\end{definition}
+
+\begin{example}
+	If $(\cM, \cW) = (\Set, Isom)$, then an $\cM$-enriched precategory $(S,X)$ is the same as a simplicial set with vertex set $S$.
+\end{example}
+
+\begin{example}
+	If $\cM = \underline{\cC}$ is an ordinary category with finite products, viewed as a relative category whose weak equivalences are the isomorphisms, then $\Seg(\underline{\cC})$ is equivalent the usual category of $\cC$-enriched categories and enriched functors. 
+\end{example}
+
+\noindent The definition of $\cM$-enriched Segal category only uses the structure of the relative category $(\cM, \cW)$ and the existence of finite products in $\cM$. However, while it is clear that under these weaker assumptions the category of $\cM$-enriched precategories admits finite products, it is not clear that the Segal condition is preserved under these products. Property (2), namely that $\cW$ is closed under products, ensures that $\Seg(\cM)$ again has finite products. 
+
+Moreover, a weakly product preserving relative functor induces a functor between categories of enriched Segal objects. To define the weak equivalences of $\Seg(\cM)$ we make use of the product preserving relative functor $\pi_0^\cM: \cM \to \underline{\Set}$. 
+\begin{definition}
+	Applying $\pi_0: \cM \to \underline{\Set}$ levelwise induces the {\em homotopy category functor}: \begin{equation*}
+		h:\Seg(\cM) \to \Seg(\underline{\Set}) \cong \Cat.
+	\end{equation*}
+	In otherwords $hX$ is the category whose objects are the same as those of $X$ and for which the morphisms from $a$ to $b$ consist of the set $\pi_0X(a,b)$. 
+\end{definition}
+
+\begin{definition}
+	Let $(\cM, \cW, \pi_0^{\cM})$ be a Segalic relative category. 
+	A morphism $f: X \to Y$ in $\Seg(\cM)$ is a {\em weak equivalence} if 
+	\begin{enumerate}
+		\item it induces an equivalence of homotopy categories $hf: hX \to hY$, and
+			\item for each pair of objects $a, b$ in $X$, we have an induced weak equivalence:
+			\begin{equation*}
+				X(a,b) \to Y(fa, fb).
+			\end{equation*}
+		%\item for each ordered tuple $(x_0, \dots, x_n)$ of objects in $X$, $f$ induces a weak equivalence:
+		%\begin{equation*}
+		%	X(x_0, \dots, x_n) \to Y(fx_0, \dots, fx_n).
+		%\end{equation*}
+	\end{enumerate}
+\end{definition}
+
+\noindent With these weak equivalences $\Seg(\cM)$ becomes relative category which is homotopical or saturated if $\cM$ is. Moreover it is immediate that the class of weak equivalences $\cW_{\Seg(\cM)}$ is closed under products. We may define the product preserving relative functor $\pi_0: \Seg(\cM) \to \underline{\Set}$ as the functor which sends $X$ to the set of isomorphism classes of objects in $hX$. The triple $(\Seg(\cM), \cW_{\Seg(\cM)}, \pi_0)$ is again Segalic, hence we have arrived at:
+
+\begin{theorem}
+	The Segal construction $(\cM, \cW, \pi_0^{\cM}) \mapsto (\Seg(\cM), \cW_{\Seg(\cM)}, \pi_0^{\Seg(\cM)})$ defines an endofunctor on the category of Segalic relative categories and Segalic functors. 
+\end{theorem}
+
+
+\begin{example}
+	{\em Weak $n$-categories} (in the sense of Tamsamani) are obtained by iterating the above Segal category construction $n$-times with the base case $\cM = \Set$. {\em Segal $n$-categories} $\Seg_n$ are obtained by iterating this construction $n$-times with the base case $\cM = \sSet$. The $n=1$ case of the later is the category of Segal categories, also denoted $\Seg$. These examples are saturated. 
+\end{example}
+
+%\begin{lemma}
+%	Suppose that $(\cM, \cW)$ satisfies the following additional closure property: for all $(x \to y) \in \cW$ and for all $z \in \cM$, the map $x \times z \to y \times z$ is in $\cW$. Then weak equivalences between $\cM$-enriched Segal categories $f:X \to Y$ are precisely those maps which 
+%	\begin{enumerate}
+%		\item induces an equivalence of homotopy categories $hf: hX \to hY$, and
+%		\item for each pair of objects $a, b$ in $X$, induce a weak equivalence:
+%		\begin{equation*}
+%			X(a,b) \to Y(fa, fb).
+%		\end{equation*}
+%	\end{enumerate}
+%\end{lemma}
+%
+%\noindent A relative functor $f:(\cM, \cW) \to (\cM', \cW')$ between categories with finite products will be said to be {\em weakly product preserving} if the canonical map $f(A \times B) \to f(A) \times f(B)$ is a weak equivalence in $\cM'$. In this case $f$ induces a functor (not necessarily a relative functor) $\Seg(\cM) \to \Seg(\cM')$.
+%If $f$ also preserves the functors $\pi_0^{\cM}$ and $\pi_0^{\cM'}$, then it induces a weakly product preserving {\em relative} functor $\Seg(\cM) \to \Seg(\cM')$, which is again compatible with the functors $\pi_0^{\Seg(\cM)}$ and  $\pi_0^{\Seg(\cM')}$.
+
+\begin{example}
+	The inclusion $\underline{\Set} \to \sSet$ induces an inclusion of weak $n$-categories among all Segal $n$-categories. Likewise, $\pi_0: \sSet \to \underline{\Set}$ induces relative functors $\tau_{\leq n}: \Seg_n \to n\Cat$. These functors are both compatible with the projection $\pi_0$ to $\Set$. 
+\end{example}
+
+%\begin{example}
+%	Given a Segalic relative category $(\cM, \cW, \pi_0^{\cM})$, we may form the homotopy category $h \cM = \cW^{-1}\cM$. The functor $\pi_0^\cM$ factors through the localization functor $\ell: \cM \to h \cM$, and hence $(h\cM, Isom, \pi^{\cM})$ forms a new Segalic relative category. If the localization functor   $\ell: \cM \to h \cM$ weakly preserves products, then it is Segalic and hence induces a Segalic functor
+%	\begin{equation*}
+%		\Seg(\ell): \Seg(\cM) \to \Seg(h\cM) \simeq (h\cM)-\cat
+%	\end{equation*} 
+%	sending an $\cM$-enriched Segal category to a category enriched in $h\cM$, the homotopy category of $\cM$. 
+%\end{example}
+
+\subsection{Segal $n$-categories}
+
+Spelling out the definition of Segal $n$-category we arrive at:
+
+\begin{definition}
+A {\it Segal} $n${\it -category} is a simplicial Segal $(n-1)$-category $X_\bullet$, such that
+\begin{itemize}
+\item {\bf Discreteness.} $X_0$ is discrete;
+\item {\bf Segal Condition.} For each $k \geq 0$ we have an equivalence of Segal $(n-1)$-categories
+\[
+\underbrace{ X_1 \times_{X_0} X_1 \times \dotsb \times X_1 \times_{X_0} X_1 }_{k \text{ factors}} \xleftarrow{\simeq} X_k .
+\]
+\end{itemize}
+\end{definition}
+
+It is a result of Hirschowitz, Simpson, and Pellissier, building on Bergner's work, that Segal $n$-categories can be characterized as the fibrant objects in a certain model category, see \cite{math.AG/9807049, Pellissier_WEC, MR2341955, MR2883823}. This is a model category whose objects are $n$-fold simplical spaces with appropriate discreteness conditions imposed. Simpson's book \cite{MR2883823}, among other things, proves the existence of this model structure. There it is also shown that Segal n-categories satisfy the homotopy hypothesis and also a version of the stabilization hypothesis. 
+
+Many examples of higher categories can be expressed in the language of Segal $n$-categories with less difficulty than other models. For example Lack and Paoli \cite{MR2366560} construct an explicit {\em 2-nerve} which takes a bicategory and produces a weak 2-category in the sense of Tamsamani (which is a special kind of Segal 2-category). They also construct a {\em realization} functor the other way and prove that these functors form a weak equivalence. Segal $n$-categories are a model with a rich supply of examples. 
+
+We may also speak about $k$-morphisms in a Segal $n$-category, which we may define inductive. A $0$-morphism in a Segal $n$-category $X$ is defined to be an object of $X$. A $k$-morphism of $X$ is inductively defined to be a $(k-1)$-morphism of $X(a,b)$ for some pair of objects $a, b \in X$.
+
+
 
 \section{Model categories of higher categories}
 
+\subsection{Quillen Model Categories}
+
+We will say that a morphism $u:a \to b $ has the \emph{left lifting property} with respect to a morphism $f: x \to y$, or that $f$ has the \emph{right lifting property} with respect to $u$, if every commutative square
+\begin{center}
+\begin{tikzpicture}
+		\node (LT) at (0, 1.5) {$ a  $};
+		\node (LB) at (0, 0) {$ b $};
+		\node (RT) at (2, 1.5) {$ x $};
+		\node (RB) at (2, 0) {$ y $};
+		\draw [->] (LT) -- node [left] {$ u $} (LB);
+		\draw [->] (LT) -- node [above] {$  $} (RT);
+		\draw [->] (RT) -- node [right] {$ f $} (RB);
+		\draw [->] (LB) -- node [below] {$  $} (RB);
+		\draw [->, dashed] (LB) -- (RT);
+		%\node at (0.5, 1) {$\ulcorner$};
+		%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+has a diagonal filler. If $M$ is a class of maps, then we will let $M^\boxslash$ denote the class of all maps which have the right lifting property with respect to all maps in $M$. Similarly ${}^\boxslash M$ denotes the class of all maps which have the left lifting property with respect to all maps in $M$.
+
+\begin{definition}%\label{def:}
+	A \emph{weak factorization system} on a category is a pair $(L,R)$ of classes of maps such that every morphism $f$ factors as a composite $f = r \circ \ell$ with $r \in R$, $\ell \in L$, and such that $L^\boxslash = R$ and $L = {}^\boxslash R$. 
+\end{definition}
+
+\begin{definition}%\label{def:}
+	A \emph{Quillen Model Category} is a complete and cocomplete category $\cM$ equipped with 
+\end{definition}
+
 \subsection{The canonical model structure on Cat}
+
 
 
 \begin{theorem}
@@ -438,6 +656,10 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 \begin{proof}
 	\CSPcomm{to be filled in.}
 \end{proof}
+
+\subsection{The Lack Model structure on 2-categories}
+
+
 
 
 \subsection{The Segal construction} \label{sec-SegalConstruction}
@@ -463,10 +685,10 @@ Alternative, mimicking our previous considerations in the context of $\Gamma$,  
 				\node (LB) at (0, 0) {$X_m$};
 				\node (RT) at (2, 1.5) {$X_n$};
 				\node (RB) at (2, 0) {$X_0$};
-				\draw [->] (LT) -- node [left] {$$} (LB);
-				\draw [->] (LT) -- node [above] {$$} (RT);
-				\draw [->] (RT) -- node [right] {$$} (RB);
-				\draw [->] (LB) -- node [below] {$$} (RB);
+				\draw [->] (LT) -- node [left] {$ $} (LB);
+				\draw [->] (LT) -- node [above] {$ $} (RT);
+				\draw [->] (RT) -- node [right] {$ $} (RB);
+				\draw [->] (LB) -- node [below] {$ $} (RB);
 				%\node at (0.5, 1) {$\ulcorner$};
 				%\node at (1.5, 0.5) {$\lrcorner$};
 			\end{tikzpicture}
@@ -491,8 +713,8 @@ Let us first describe the induction step. Let $X$ be a Segal $n$-category. Given
 	\node (LB) at (0, 0) {$pt$};
 	\node (RT) at (5, 1.5) {$X_{n}$};
 	\node (RB) at (5, 0) {$X_0\times \dots \times X_0$}; %}_{n \textrm{ times}}
-	\draw [->] (LT) -- node [left] {$$} (LB);
-	\draw [->] (LT) -- node [above] {$$} (RT);
+	\draw [->] (LT) -- node [left] {$ $} (LB);
+	\draw [->] (LT) -- node [above] {$ $} (RT);
 	\draw [->] (RT) -- node [right] {$(d_0, d_1, \dots, d_n)$} (RB);
 	\draw [->] (LB) -- node [above] {$(a_0, \dots, a_n)$} (RB);
 	\node at (0.5, 1) {$\ulcorner$};
