@@ -940,14 +940,19 @@ In this section we establish the existence of the balanced tensor product of fin
 
 If it exists, the balanced tensor product is unique up to equivalence, and this equivalence is in turn unique up to unique natural isomorphism. Said another way, the 2-category of linear categories representing the balanced tensor product is either contractible or empty. 
 
+However even the ordinary Deligne tensor product may fail to exist without some finiteness assumptions on the relevant categories, see Lopez Franco \cite{1212.1545} where a counterexmple is provided. There the (non-relative) Deligne tensor product is compared to the closely related ``Kelly tensor product'' which is defined on a larger, less structured class of categories. Recall that a \emph{finitely cocomplete $k$-additive category $\cM$} is a category which is $\overline{\Vect}_k$-enriched and which admits all finite colimits. Such a category is automatically additive (admits a zero object and finite products agree with finite coproducts) and the additive structure is compatible with the $\overline{\Vect}_k$-enrichment. Right exact functors between these are enriched functors which preserve finite colimits. The (relative or non-relative) Kelly tensor product is defined via a universal property exactly as with the Deligne tensor product but where $\cD$ ranges over all finitely cocomplete $k$-additive categories. The Kelly tensor product always exists, see \cite{MR651714, MR648793} for the original construction and \cite[Rmk~3.21]{1501.04652} for the balanced Kelly tensor product. In \cite{1212.1545} it is shown that the ordinary Deligne tensor product agrees with the Kelly tensor product when the former exists. 
+
+
 Etignof--Nikshych--Ostrik \cite{0909.3140} established the existence of the balanced tensor product of semisimple module categories over semisimple tensor categories over a field of characteristic zero.  A construction of the balanced tensor product for finite tensor categories satisfying the additional assumption that $\cM \boxtimes \cN$ is exact as a $\cC$-bimodule category can be extracted from \cite[Thm 3.1]{1102.3411}.  Note that the proof of the existence of the balanced tensor product outlined in \cite{MR3107567} uses the rigidity and finiteness assumptions in essential ways, but (despite \cite[Note 2.7]{MR3107567}) does not use exactness.  
+
 
 We give an alternative construction of the balanced tensor product for finite tensor categories.
 
 \begin{theorem} \label{thm:DelignePrdtOverATCExists}
 	Let $\cC$ be a finite tensor category and let $\cM_{\cC}$ and ${}_{\cC}\cN$ be finite right and left $\cC$-module categories, respectively. Assume that the action of $\cC$ on $\cM$ and the action of $\cC$ on $\cN$ are right exact in the $\cC$-variable.
 	\begin{enumerate}
-		\item The balanced tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category.
+		\item The balanced tensor product $\cM \boxtimes_{\cC} \cN$ exists and is a finite linear category; 
+		It agrees with the balanced Kelly tesnor product. 
 		\item If $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, then $\cM \boxtimes_{\cC} \cN \simeq \Mod{A }{B}(\cC)$, the category of $A$--$B$-bimodule objects in $\cC$.
 		\item The functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ is exact in each variable and satisfies 
 		\begin{equation*}
@@ -974,9 +979,9 @@ We give an alternative construction of the balanced tensor product for finite te
 		& \cong \Hom_{\Mod{A}{}}(x,  \IHom_{\Mod{}{B}}(y, x' \otimes y') )\\
 		& \cong \Hom_{\Mod{A}{B}}(x \otimes y, x' \otimes y')
 	\end{align*} 
-where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Cor.~\ref{cor:module-adjoint}). This establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$.  Thus $(2)$ implies both  $(1)$ and $(3)$. 
+where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Cor.~\ref{cor:module-adjoint}). This establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$.  Thus $(1)$, $(2)$, and $(3)$ are proven once we verify that $\Mod{A }{B}(\cC)$ has the correct universal property. We will first prove this, and then establish (4).  
 
-	We will first prove (2), and then establish (4).  We wish to show that for any $\cD$ the category of right exact functors 
+We wish to show that for any $\cD$ (where $\cD$ is allowed to be any finitely cocomplete $k$-additive category) the category of right exact functors 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
 \end{equation*}
@@ -1036,7 +1041,7 @@ Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagr
 
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps of maps in $\cM$ or $\cN$, as above.  (The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.)
 
-The rows of this diagram are exact (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow. We may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
+The rows of this diagram are exact\footnote{When $\cD$ is only additive, not Abelian, we take this to mean they a cokernel sequences.} (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow. We may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
 \begin{equation*}
 	\overline{F}: \Mod{A}{B}(\cC) \to \cD,
 \end{equation*} 
@@ -1075,9 +1080,9 @@ The balanced product $\Vect \boxtimes_{\Vect[K]} \Vect$ is the category of $k[K]
 	If ${}_{\cD}\cM_{\cC}$ and ${}_{\cC}\cN_{\cE}$ are bimodule categories, then the actions of $\cD$ and $\cE$ induce a $\cD$--$\cE$-bimodule category structure on $\cM \boxtimes_{\cC} \cN$. This bimodule category satisfies the analogous universal property for $\cC$-balanced bilinear bimodule functors.
 \end{remark}
 
-\begin{remark}
-The above theorem assumes that $\cC$ is a finite tensor category, that is a finite rigid linear monoidal category.  The non-balanced tensor product can be defined substantially more generally \cite{1212.1545}, and we hope that the balanced tensor product can also be defined more generally.
-\end{remark}
+%\begin{remark}
+%The above theorem assumes that $\cC$ is a finite tensor category, that is a finite rigid linear monoidal category.  The non-balanced tensor product can be defined substantially more generally \cite{1212.1545}, and we hope that the balanced tensor product can also be defined more generally.
+%\end{remark}
 
 Part (2) of the above theorem expresses the balanced tensor product of two module categories $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$ as a category of bimodules $\cM \boxtimes_\cC \cN \simeq \Mod{A}{B}(\cC)$.  When the tensor category $\cC$ is merely $\Vect$, this expresses the ordinary tensor product $\Mod{}{A}(\Vect) \boxtimes \Mod{}{B}(\Vect)$ of two categories of modules again as a category of modules, $\Mod{}{(A \otimes B)}(\Vect)$.  More generally, the ordinary tensor product of two categories of modules in any tensor categories is again a category of modules, as follows.
 
