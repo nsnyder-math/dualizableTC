@@ -54,7 +54,9 @@ The only task is to provide an explicit construction of the balanced tensor prod
 Let $\cC$ be a finite, rigid, monoidal linear category, and let $\cM$ be a finite right $\cC$-module category and $\cN$ a finite left $\cC$-module category.  Let $A$ and $B$ be algebra objects in $\cC$ such that $\cM \cong \Mod{A}{}(\cC)$ and $\cN \cong \Mod{}{B}(\cC)$ as module categories.  The category $\Mod{A}{B}(\cC)$ of $A$--$B$-bimodule objects in $\cC$ corepresents $\cC$-balanced right-exact bilinear functors out of $\cM \times \cN$, and therefore realizes the balanced tensor product $\cM \boxtimes_\cC \cN$.
 \end{theorem*}
 
-The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in our papers \cite{3TC, DTCI}.  Indeed, we use at some crucial steps not only that the balanced tensor product exists, but that it can be explicitly realized as $\Mod{A}{B}(\cC)$.  
+The balanced tensor product will play a key role in our study of the $3$-category of finite tensor categories and the associated local toplogical field theories in \cite{DTCI}.  Indeed, we use at some crucial steps not only that the balanced tensor product exists, but that it can be explicitly realized as $\Mod{A}{B}(\cC)$.
+
+Our construction also addresses one technical issue.  The tensor product of categories comes in two slightly different flavors, due to Deligne~\cite{MR1106898} and Kelly~\cite{MR651714, MR648793}, depending on whether one considers abelian categories or finitely cocomplete categories.  In the non-balanced setting these tensor products agree when they both exists, but the Kelly tensor product is easier to work with and exists more often \cite{1212.1545}.  We show that under the assumptions of the main theorem, $\Mod{A}{B}(\cC)$ realizes both the balanced Deligne tensor product and the balanced Kelly tensor product, and so this technical issue does not cause any confusion in our setting.  This technical point is important because in the algebraic literature focuses on the Deligne tensor product, but from a higher categorical perspective the Kelly tensor product is easier to work with (see \cite[Rmk~3.21]{1501.04652}).  Specifically, in order to match up Johnson--Freyd and Scheimbauer's \cite{1502.06526} construction of a monoidal $3$-category of tensor categories in the finitely cocomplete setting with the abelian setting used in \cite{DTC1}, it is essential that the two balanced tensor products agree.
 
 \section{Background}
 
@@ -64,7 +66,7 @@ We will assume some familiarity with the theory of tensor categories and module 
 A {\em linear functor} is an additive functor, that is also a functor of $\overline{\Vect}_k$-enriched categories. 
 
 \begin{warning}
-	In \cite{3TC, DTCI} we will use the phrase ``linear functor" to mean what we call ``right exact linear functor" in this paper.  In the $3$-category of finite tensor categories the $2$-morphisms are assumed to be right exact, because the balanced tensor product of linear categories is only functorial with respect to right exact functors.  Since this paper concerns the definition of the balanced tensor product itself, we will not use the abbreviated convention here.
+	In \cite{DTCI} we will use the phrase ``linear functor" to mean what we call ``right exact linear functor" in this paper.  In the $3$-category of finite tensor categories the $2$-morphisms are assumed to be right exact, because the balanced tensor product of linear categories is only functorial with respect to right exact functors.  Since this paper concerns the definition of the balanced tensor product itself, we will not use the abbreviated convention here.
 \end{warning}
 
 \begin{definition} % This is from EGNO Definition 1.18.2.
@@ -278,7 +280,7 @@ Yet for each $X \in \Mod{A}{B}(\cC)$ we may form the following commutative diagr
 %\end{figure}
 Here the arrows labeled with isomorphisms come from the $\cC$-balanced structure of the functor $F$, while the remaining solid arrows are maps in the image of $\cM \times \cN$. The maps labeled with either $\delta_1$ or $\delta_2$ represent difference maps of maps in $\cM$ or $\cN$, as above.  (The fact that this diagram commutes uses the coherence and naturality of the $\cC$-balanced structure. To verify the commutativity it is easiest to break each difference map into its constituent piece (one from the multiplication in either $A$ or $B$, and one from the action on $X$) and to show commutativity with respect to these maps.)
 
-The rows of this diagram are exact\footnote{When $\cD$ is only additive, not Abelian, we take this to mean they a cokernel sequences.} (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow. We may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
+The rows of this diagram are exact\footnote{When $\cD$ is only additive, not Abelian, we take this to mean they are cokernel sequences.} (since $F$ was assumed to be right exact in each variable) and hence this diagram defines a unique map $\overline{\delta}_X$, shown as the long dashed arrow. We may define the value of the extension $\overline{F}$ on the object ${}_AX_B$ as the cokernel of $\overline{\delta}_X$. We leave it to the reader to verify that this extension gives a well-defined right exact functor 
 \begin{equation*}
 	\overline{F}: \Mod{A}{B}(\cC) \to \cD,
 \end{equation*} 
