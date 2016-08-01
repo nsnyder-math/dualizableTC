@@ -914,7 +914,7 @@ In this section we establish the existence of the balanced tensor product of fin
 
 \begin{definition}
 	Let $\cC$ be a linear monoidal category. 
-	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category.  A bilinear functor $F: \cM \times \cN \to \cL$ is called right exact if it is right exact in earch variable.   A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon and triangle identities.
+	Let $\cM$ be a right $\cC$-module category and $\cN$ a left $\cC$-module category.  A bilinear functor $F: \cM \times \cN \to \cL$ is called right exact if it is right exact in each variable.   A {\em $\cC$-balanced functor} into a linear category $\cL$ is a right exact bilinear functor $F: \cM \times \cN \to \cL$ together with a natural isomorphism $F(\otimes^{\cM} \times \id_{\cN}) \cong F(\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon and triangle identities.
 	A {\em $\cC$-balanced transformation} is a natural transformation $\eta:F \to G$ of $\cC$-balanced functors such that the following diagram commutes for all $m \in \cM$, $c \in \cC$, and $n \in \cN$:
 \begin{center}
 \begin{tikzpicture}
@@ -959,12 +959,13 @@ We give an alternative construction of the balanced tensor product for finite te
 
 
 \begin{proof}  
-	 By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. The linear category $\Mod{A }{B}(\cC)$ is finite by Lemma~\ref{lem:recognizefinitecats} (using the free-forgetful adjunction to $\cC$).
+	 By Theorem \ref{thm:EGNO2.11.6}, there exist algebra objects $A, B \in \cC$ and equivalences $\cM \simeq \Mod{A}{}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$. The linear category $\Mod{A }{B}(\cC)$ is finite by Lemma~\ref{lem:recognizefinitecats} (using the free-forgetful adjunction to $\cC$).   Thus (2) implies (1).
+	 
 	 By Lemma \ref{lma:RigidIsExact}, the tensor product functor
 	\begin{equation*}
 		\cM \times \cN \simeq \Mod{A}{}(\cC) \times  \Mod{}{B}(\cC) \to \Mod{A}{B}(\cC)
 	\end{equation*}
-	is exact in each variable separately. Moreover we have
+	is exact in each variable separately. This bilinear functor is also $\cC$-balanced by the associator of $\cC$. Moreover we have
 	\begin{align*}
 		&\Hom_{\cC}(1, \IHom_{\cM}(x,x') \otimes \IHom_{\cN}(y, y')) \\
 		& = \Hom_{\cC}(1, \IHom_{\Mod{A}{}}(x,x') \otimes \IHom_{\cN}(y, y')) \\
@@ -974,9 +975,9 @@ We give an alternative construction of the balanced tensor product for finite te
 		& \cong \Hom_{\Mod{A}{}}(x,  \IHom_{\Mod{}{B}}(y, x' \otimes y') )\\
 		& \cong \Hom_{\Mod{A}{B}}(x \otimes y, x' \otimes y')
 	\end{align*} 
-where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Cor.~\ref{cor:module-adjoint}). This establishes the formula in (3). This bilinear functor is also $\cC$-balanced by the associator of $\cC$.  Thus $(2)$ implies both  $(1)$ and $(3)$. 
+where the second and fifth isomorphisms use the fact that the enriched hom is a $\cC$-module functor (see Cor.~\ref{cor:module-adjoint}). This establishes the formula in (3), and so $(2)$ implies $(3)$. 
 
-	We will first prove (2), and then establish (4).  We wish to show that for any linear category $\cD$ the category of right exact functors 
+	We now prove (2), and then later establish (4).  We wish to show that for any linear category $\cD$ the category of right exact functors 
 \begin{equation*}
 	\overline{F}:\Mod{A}{B}(\cC) \to \cD
 \end{equation*}
@@ -1073,8 +1074,12 @@ The balanced (Deligne) tensor product, constructed above for finite module categ
 The proof of the preceding theorem shows that when $\cC$ is a finite tensor category, and $\cM_{\cC}$ and ${}_{\cC}\cN$ are finite right and left $\cC$-module categories, the balanced Deligne tensor product is equivalent to the balanced Kelly tensor product.  This equivalence follows because the proof that $\Mod{A}{B}(\cC)$ corepresents $\cC$-balanced functors into linear categories just as well shows that $\Mod{A}{B}(\cC)$ corepresents $\cC$-balanced functors into finitely cocomplete $k$-additive categories.  (In the displayed commutative diagram, when the target category $\cD$ is not abelian but merely additive, the rows are `exact' in the sense that they are cokernel sequences.)
 \end{remark}
 
+\begin{remark}
+The construction of the balanced tensor product outlined in~\cite{MR3107567} expresses the tensor $\cM \boxtimes_{\cC} \cN$ as a category of right exact $\cC$-module functors.  The expression~\cite[Eq~13]{MR3107567} for this functor category is cited from~\cite{0909.3140}, and in both places is not quite correct (being off by a twist by a double dual functor).  The functor category that is a balanced tensor product is $\mathrm{Fun}_{\cC\textrm{-}\mathrm{mod}}^{\mathrm{r.e.}}(\cM^{\ast},\cN)$, where the left $\cC$-module category $\cM^{\ast}$ has underlying linear category $\cM^{\mathrm{op}}$ and has the left action by an object $c \in \cC$ given by acting on the right by the \emph{left} dual object ${}^{\ast} c \in \cC$.  This functor-category description of the balanced tensor is related to our bimodule description as follows: when $\cM = \Mod{A}{}(\cC)$ and $\cN = \Mod{}{B}(\cC)$, there is a functor equivalence $\Mod{A}{B}(\cC) \ra \mathrm{Fun}_{\cC\textrm{-}\mathrm{mod}}^{\mathrm{r.e.}}(\cM^{\ast},\cN)$ taking a bimodule object ${}_A X_B$ to the functor that takes the object $m \in \cM = \Mod{A}{}(\cC)$ viewed as an object of $\cM^{\ast}$ to the object $m^\ast \otimes_A X \in \Mod{}{B}(\cC) = \cN$, where $m^\ast$ is the right dual of $m$ viewed as an object of $\cC$.
+\end{remark}
+
 \begin{example}
-The balanced product $\Vect \boxtimes_{\Vect[K]} \Vect$ is the category of $k[K]$-bimodules in $\Vect[K]$. As mentioned in Example~\ref{eg:vect}, the category of $k[K]$-modules in $\Vect[K]$ is equivalent to $\Vect$, so the $k[K]$-bimodules in $\Vect[K]$ can be identified with $\text{mod-}k[K] \cong \Rep(K)$.
+Let $\Vect[K]$ denote the category of $K$-graded vector spaces for a finite group $K$.  The balanced product $\Vect \boxtimes_{\Vect[K]} \Vect$ is the category of $k[K]$-bimodules in $\Vect[K]$. As mentioned in Example~\ref{eg:vect}, the category of $k[K]$-modules in $\Vect[K]$ is equivalent to $\Vect$, so the $k[K]$-bimodules in $\Vect[K]$ can be identified with $\text{mod-}k[K] \cong \Rep(K)$.
 \end{example}
 
 \begin{remark}
