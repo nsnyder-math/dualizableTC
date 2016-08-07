@@ -964,7 +964,7 @@ The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D
 
 Given a $Quad$ action $\alpha: BQuad \ra B\Aut(X)$ on a 3-type $X$, there is of course an induced $\Omega S^2$ action.
 
-\begin{proposition}
+\begin{proposition} \label{prop-quadvs2fp}
 The homotopy fixed points of a $Quad$ action on a 3-type $X$ are the same as the homotopy fixed points of the underlying $\Omega S^2$ action on $X$.
 \end{proposition}
 \begin{proof}
@@ -983,6 +983,263 @@ By Proposition~\ref{prop-hofptrunc}, to understand the homotopy fixed points of 
 
 \subsection{For $Spin(3)$ actions} %and other groups?
 .
+\appendix
+\renewcommand{\thetheorem}{A.\arabic{theorem}}
+\setcounter{theorem}{0}
+
+
+\section{Structure groups of 3-manifolds} \label{sec-lft-struc}
+
+\CDcomm{The point of this appendix is to explain why we only care about n-types (see the Proposition), and to motivate from the perspective of structured field theory why we'd look at spaces over $BSO(3)$, and to introduce the most important of these spaces ($BOrpo(3)$, $BQuad$, $BSO(2)$, $S^2$, $Spin(3)$, etc) and their relationships.}
+
+\subsection{Structure groups for discrete field theories}
+
+The second half of the cobordism hypothesis says that TFTs with other topological structures correspond to homotopy fixed points of certain group actions on the space of fully dualizable objects.  Thus different topological structures correspond to different kinds of structures on dualizable tensor categories.
+
+\begin{definition}
+An \emph{structure} for $n$-dimensional vector bundles is a space $T$ together with a fibration $f: T \ra BO(n)$.  A $T$-structure on an n-dimensional vector bundle $V$ on $X$ is a lift of the classifying map $X \xra{V} BO(n)$ along $f$ to $T$.
+\end{definition}
+
+Because we are concentrating on structures on manifolds of low dimension, the full homotopy type of the structure spaces is not relevant---it suffices to keep track only of the low-dimensional homotopical information of $BO(3)$ and the other structure spaces.  Recall that the $k$-homotopy type (or simply the ``$k$-type") of a space $X$ refers to the homotopical information contained in the $k$-Postnikov section $P_k X$ of the space; the $k$-Postnikov section $P_k X$ is the initial space in the category of spaces $Y$ equipped with a map $X \ra Y$ inducing an isomorphism on $\pi_i$ for $i \leq k$ and such that $\pi_i(Y) = 0$ for $i > k$. Said directly, the $k$-Postnikov section is the space you get by killing all the homotopy groups above dimension $k$. %!%\CD{Prefer to define $P_k X$ otherwise?}
+
+The following proposition explains how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories:
+\begin{proposition} \label{prop-fixedpointntypes}
+Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the structure map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map $\phi^*: \Hom(\mathrm{TBord}_0^n,\cC) \ra \Hom(\mathrm{SBord}_0^n,\cC)$ is a homotopy equivalence of spaces.
+\end{proposition}
+
+\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+
+\CD{This proposition is phrased in terms of the field theories, but maybe should be also explicitly translated into the fixed point view.  Unclear if / where we will state the cobordism hypothesis.}
+
+\subsection{The `sub'-structures}
+
+
+We will be primarily interested in five structures for 3-dimensional vector bundles, namely \emph{orientation}, \emph{combing}, \emph{oriented $p_1$ structure}, \emph{quadratic structure}, and \emph{framing}.  The structure spaces for an orientation, combing, and framing are respectively $BSO(3)$, $BSO(2)$, and $BSO(1) = *$, all with the obvious maps to $BO(3)$.  The structure spaces for oriented $p_1$ structure and quadratic structure are as follows:
+\begin{definition}
+The following two spaces, together with the obvious maps to $BO(3)$, define the aforementioned bundle structures:
+\begin{itemize}
+\item[Orpo:] $BOrpo(3) := \hofib(BSO(3) \ra BSO \xra{p_1} K(\ZZ,4))$
+\item[Quad:] $BQuad := \hofib(BSO(2) = BU(1) \xra{c_1^2} K(\ZZ,4))$
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+``Orpo structure" is short for ``oriented $p_1$ structure", and sometimes goes under the name ``$p_1$ structure" in the literature.  We reserve the name ``$p_1$ structure" for the structure group where only $p_1$ has been killed, rather than $w_1$ and $p_1$.  The terminology ``quadratic" refers to the fact that the single k-invariant of the structure space $BQuad$ is the fundamental quadratic map.
+\end{remark}
+
+
+We now precisely identify the 4-homotopy type of the four nontrivial structure spaces under consideration.  The framing structure space is of course contractible.  The homotopy type of the combing structure space is simply $K(\ZZ,2)$, so in particular that is also its 4-type.
+
+\begin{proposition}
+The following fibrations constitute the Postnikov towers of the 4-homotopy types of the structure spaces $BSO(3)$, $BOrpo(3)$, and $BQuad$.
+\begin{align}
+K(\ZZ,4) \ra & \; BSO(3)_4 \ra K(\ZZ/2,2) \overset{\gamma}{\dashrightarrow} K(\ZZ,5) \nn \\
+K(\ZZ/4,3) \ra & \; BOrpo(3)_4 \ra K(\ZZ/2,2) \overset{\delta}{\dashrightarrow} K(\ZZ/4,4) \nn \\
+K(\ZZ,3) \ra & \; BQuad_4 \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4) \nn
+\end{align}
+\nid Here the dashed arrow indicates the k-invariant of the preceding fibration.  The class $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$ is a generator, and the class $\gamma \in H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$ is, up to sign, the integral Bockstein of $\delta$. % The sign is not well defined, because you can always modify \gamma by an automorphism of K(Z,5); ie this is the best you can do.
+\end{proposition}
+
+\begin{proof}
+The quadratic structure group is defined as the homotopy fiber of the square of the first chern class, so in that case there is nothing to prove.
+
+The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed.
+
+The structure space $BOrpo(3)$ is defined as the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$; as before we refer to this composite simply as $p_1$.  In the appendix, it is shown that this map $p_1: BSO(3) \ra K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, and, somewhat non-obviously, that it induces multiplication by \emph{four} in homotopy.  The first four homotopy groups of $BOrpo(3)$ are therefore $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = \ZZ/4$, $\pi_4 = 0$.  The Postnikov tower of the 4-type of $BOrpo(3)$ is therefore as indicated for some k-invariant in $H^4(K(\ZZ/2,2);\ZZ/4) = \ZZ/4$.  The Postnikov tower of a space is functorial, so the existence of a map $BOrpo(3) \ra BSO(3)$ inducing an isomorphism on $\pi_2$ forces the k-invariant of $BOrpo(3)$ to be a generator $\delta \in H^4(K(\ZZ/2,2);\ZZ/4)$, and in fact shows that $\pm \beta_{\ZZ} \delta = \gamma$. \CD{Probably that proof could be improved, it's just the first thing that came to mind.}
+\end{proof}
+
+We have the following diagram of structure spaces:
+\begin{equation} \nn
+\xymatrix{
+BQuad_{K(\ZZ,2)}^{K(\ZZ,3)} \ar[r] \ar[d] & BSO(2)_{K(\ZZ,2)} \ar[d] \\
+BOrpo(3)_{K(\ZZ/2,2)}^{K(\ZZ/4,3)} \ar[r] & BSO(3)_{K(\ZZ/2,2)}^{K(\ZZ,4)}
+}
+\end{equation}
+Here we have indicated in the subscripts and superscripts the stages of the respective Postnikov towers of the homotopy 4-types.  The two horizontal maps exist by definition, and the righthand vertical map is the standard inclusion.  The lefthand vertical map may be constructed as follows.  At the first layer of the Postnikov tower, the map $\pi: K(\ZZ,2) \ra K(\ZZ/2,2)$ is induced by the projection $\ZZ \ra \ZZ/2$.  To produce a map $BQuad \ra BOrpo(3)$ it suffices to factor the composite $K(\ZZ,2) \xra{\pi} K(\ZZ/2,2) \xra{\delta} K(\ZZ/4,4)$ through the map $K(\ZZ,2) \xra{c_1^2} K(\ZZ,4)$; this is accomplished by (plus or minus) the projection $K(\ZZ,4) \ra K(\ZZ/4,4)$.  %%% {This is because the path loop construction is functorial so any map K(\ZZ,4) \ra K(\ZZ/4,4) induces a map of fibrations, which pulls back across c_1^2, resp \delta, to give a map of fibrations whose total spaces are BQuad and BOrpo(3) respectively.  To check the factorization, just look at the induced maps in cohomology.
+
+By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrpo(3))$ and $\pi_3(BQuad \ra BOrpo(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrpo(3) \ra BSO(3))$ is an isomorphism.  
+
+\begin{remark}
+There is a map of structure spaces $S^2 \ra BQuad$ which is an isomorphism on $\pi_i$ for $i \leq 3$ and a surjection on $\pi_4$.  The homotopy fixed points of a $Quad$ action and the corresponding $\Omega S^2$ action are therefore the same, by Proposition~\ref{prop-fixedpointsntypes} or as explicitly recorded in Proposition~\ref{prop-quadvs2fp}.
+\end{remark}
+
+\subsection{The `super'-structures}.
+
+\CDcomm{This subsection discusses those structure groups that factor through $BSpin(3)$. }
+
+In this section we describe a few auxiliary structure groups, including the spin and string groups.
+
+\begin{definition}
+The following spaces, together with the obvious maps to $BO(3)$, define 3-dimensional bundle structures:
+\begin{itemize}
+\item[Spin:] $BSpin(3) := \hofib(BSO(3) \xra{w_2} K(\ZZ/2,2))$
+\item[Spinpo:] $BSpinpo(3) := \hofib(BSpin(3) \xra{p_1} K(\ZZ,4)$
+\item[String:] $BString(3) := \hofib(BSpin(3) \xra{(p_1)/2} K(\ZZ,4))$
+\item[hString:] $BhString(3) := \hofib(BSpin(3) \xra{(p_1)/4} K(\ZZ,4))$
+\end{itemize}
+\end{definition}
+
+\nid In order for the definitions of $BString(3)$ and $BhString(3)$ to be sensible, the composite $BSpin(3) \ra BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, which we have referred to simply as $p_1$, must be uniquely 4-divisible; we will see presently that this is indeed the case.  Note that for our purposes it suffices to define the first Pontryagin class $p_1 \in H^4(BSO;\ZZ)$ as a generator.
+
+\begin{proposition} \label{prop-H4}
+The diagram of structure spaces
+\begin{equation} \nn
+\xymatrix@R=5pt{
+& BSpin \ar[dr] & & \\
+BSpin(3) \ar[ur] \ar[dr] && BSO \ar[r]^{p_1} & K(\ZZ,4) \\
+& BSO(3) \ar[ur] & &
+}
+\end{equation}
+induces on fourth homotopy and fourth homology respectively the maps
+\begin{equation} \nn
+\xymatrix@R=5pt{
+\save[]+<-1cm,0cm>*{\pi_4:}\restore & \ZZ \ar[dr]^{1} & & \\
+\ZZ \ar[ur]^{2} \ar[dr]_{1} && \ZZ \ar[r]^{2} & \ZZ \\
+& \ZZ \ar[ur]_{2} & & \\
+&&& \\
+\save[]+<-1cm,0cm>*{H^4:}\restore & \ZZ \ar[dl]_{2} & & \\
+\ZZ && \ZZ \ar[ul]_{2} \ar[dl]^{1} & \ZZ \ar[l]_{1} \\
+& \ZZ \ar[ul]^{4} & &
+}
+\end{equation}
+\end{proposition}
+
+We emphasize from this proposition two facts that were directly needed for the structure group computations in Section~\ref{sec-lft-struc}: the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, which we refer to also as $p_1$, and the map $\pi_4(BSO(3)) \xra{\pi_4(p_1)} \pi_4(K(\ZZ,4))$ is multiplication by $4$.
+
+\begin{proof}
+The defining long exact sequences show that $\pi_4(BSpin(3) \ra BSO(3))$ and $\pi_4(BSpin \ra BSO)$ are isomorphisms.  The map $\pi_4(BSpin(3) \ra BSpin)$ is the same as $\pi_3(Spin(3) \ra Spin(5))$; the map $\pi_3(Spin(3) \ra Spin(4))$ is diagonal, and $\pi_3(Spin(4) \ra Spin(5))$ is addition. %!% Is there a nice clean way to see those two facts?
+The map $\pi_4(BSO(3) \ra BSO)$ follows by commutativity, and the map $H^4(BSpin(3) \ra BSpin)$ follows by Hurewicz.
+
+That the map $H^4(BSpin \ra BSO)$ is multiplication by 2 can be seen in the integral cohomology Serre spectral sequence for the fibration $BSpin \ra BSO \ra K(\ZZ/2,2)$, given knowledge of the cohomology of $BSO$ and $BSpin$.  Similarly that $H^4(BSpin(3) \ra BSO(3))$ is multiplication by 4 follows from the fibration $BSpin(3) \ra BSO(3) \ra K(\ZZ/2,2)$.  That $H^4(BSO(3) \ra BSO)$ is an isomorphism follows by commutativity.
+
+The map $H^4(BSO \xra{p_1} K(\ZZ,4))$ is an isomorphism by definition of $p_1$.  The map $H^4(BSpin \xra{p_1} K(\ZZ,4))$ is thus multiplication by 2.  By Hurewicz it follows that $\pi_4(BSpin \xra{p_1} K(\ZZ,4)$ is multiplication by 2, and therefore that $\pi_4(BSO \xra{p_1} K(\ZZ,4))$ is also multiplication by 2.
+\end{proof}
+
+
+Figure~\ref{fig-structuregroups} organizes some of the 3-dimensional structure groups we have considered.
+\begin{figure}[!ht]
+\begin{equation} \nn
+\xymatrix@!R@!C@R=10pt@C=5pt{
+&& \ast \ar[dl] \ar[ddrr] && \\
+& BString(3) \ar[dl] &&& \\
+BSpinpo(3) \ar[ddrr] \ar[dddd] &&&& BQuad \ar[ddll] \ar[dddd] \\
+&&&& \\
+&& BOrpo(3) \ar[dddd] && \\
+&&&& \\
+BSpin(3) \ar[ddrr] &&&& BSO(2) \ar[ddll] \\
+&&&& \\
+&& BSO(3) &&
+}
+\end{equation}
+\caption{Three-dimensional structure groups} \label{fig-structuregroups}
+\end{figure}
+
+\subsection{Miscellaneous structures}
+
+\begin{definition}
+The following spaces, together with the obvious maps to $BO(3)$, define 3-dimensional bundle structures:
+\begin{itemize}
+\item[2-Frame:] $BTwFrame(3) := \hofib(BSO(3) \ra BSpin(6)) = B\Omega(Spin(6)/SO(3))$
+\item[StFrame:] $BStFrame(3) := \hofib(BO(3) \ra BO(\infty)) = B\Omega(O(\infty)/O(3))$
+\end{itemize}
+\end{definition}
+
+\nid In the definition of 2-Frame, the inclusion from $SO(3)$ to $Spin(6)$ is the canonical lift of the map $SO(3) \ra SO(6)$ sending $\phi$ to $\phi \oplus \phi$; hence the idea of framing twice the vector bundle, hence the name.  
+
+
+\section{Homotopy types of 3-dimensional structure groups}
+
+\CDcomm{The point of this appendix is to say a bunch about the cohomology and homotopy groups of all the structure spaces encountered.}  
+
+In this appendix we record some computations regarding the homotopy and homology of the various structure spaces.
+%!% Need to credit Andre with helping understand all this.
+
+In Table~\ref{table-structurecalc}, we record the low-dimensional homology and homotopy of the structure spaces we have considered.  All these structure spaces are simply connected.  The remaining homology and homotopy groups follow from the above proposition, along with a number of classical computations, using a flurry of interconnected spectral sequences.  
+
+\begin{table}[!ht]
+\begin{tabular}{|r||c|c|c|c||c|c|c|c|}
+\hline
+& $H^2$ & $H^3$ & $H^4$ & $H^5$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ \\
+\hline
+$BSO(2)$ % is K(Z,2)
+& $\ZZ$ & $0$ & $\ZZ$ & $0$ 
+& $\ZZ$ & $0$ & $0$ & $0$ \\
+$BQuad$ % K(Z,3) --> BQuad --> BSO(2)
+& $\ZZ$ & $0$ & $0$ & $0$
+& $\ZZ$ & $\ZZ$ & $0$ & $0$ \\
+$BSO(3)$ % SO(3) --> * --> BSO(3) for Z and Z/2
+& $0$ & $\ZZ/2$ & $\ZZ$ & $0$
+& $\ZZ/2$ & $0$ & $\ZZ$ & $\ZZ/2$ \\ % Mimura
+$BSO$
+& $0$ & $\ZZ/2$ & $\ZZ$ & $\ZZ/2$ % cell structure from mod 2 cohom
+& $\ZZ/2$ & $0$ & $\ZZ$ & $0$ \\ % Bott
+$BOrpo(3)$ % K(Z,3) --> BOrpo(3) --> BSO(3)
+& $0$ & $\ZZ/2$ & $0$ & $0$ 
+& $\ZZ/2$ & $\ZZ/4$ & $0$ & $\ZZ/2$  \\
+$Spin(6)/SO(3)$ % SO(3) --> Spin(6) --> Spin(6)/SO(3) in htpy
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ$ % Spin(6) is torsion free (Mimura), from this can use SO(3) --> Spin(6) --> Spin(6)/SO(3) integrally and mod 2 to calculation the cohom.
+& $\ZZ/2$ & $\ZZ/4$ & $0$ & \CDcomm{$??$} \\
+$BSpin(3)$ % S^3 --> * --> BSpin(3)
+& $0$ & $0$ & $\ZZ$ & $0$
+& $0$ & $0$ & $\ZZ$ & $\ZZ/2$ \\
+$BSpin$
+& $0$ & $0$ & $\ZZ$ & $0$ % BZ/2 --> BSpin --> BSO painful
+& $0$ & $0$ & $\ZZ$ & $0$ \\ % Z/2 --> Spin --> SO
+$BSpinpo(3)$
+& $0$ & $0$ & $\ZZ/4$ & $0$
+& $0$ & $\ZZ/4$ & $0$ & $\ZZ/2$ \\
+$BString(3)$ % K(Z,3) --> BString(3) --> BSpin(3)
+& $0$ & $0$ & $\ZZ/2$ & $0$
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ \\
+$O(\infty)/O(3)$ % O/O(3) --> BSO(3) --> BSO, htpy first shows quotient is 2-connected and that pi_3 is torsion, implies cohom starts in degree 4; knowing that the gen of H^4 of BSO pulls back to a gen of BSO(3) forces H^4 of the quotient to be Z/2, killing the H^5 of BSO.  Knowing also H^6 of BSO pulls back isomorphically to BSO(3) forces the rest of the cohomology.
+& $0$ & $0$ & $\ZZ/2$ & $0$
+& $0$ & $\ZZ/2$ & $0$ & $\ZZ/2$ \\
+$BhString(3)$ % K(Z,3) --> BhString(3) --> BSpin(3)
+& $0$ & $0$ & $0$ & $0$
+& $0$ & $0$ & $0$ & $\ZZ/2$ \\
+\hline 
+\end{tabular} \vspace*{8pt}
+\caption{Low-dimensional cohomology and homotopy of structure spaces.} \label{table-structurecalc}
+\end{table} \CD{Someone should recheck the cohomology of $Spin(6)/SO(3)$.}
+% H^5 and pi_5 are necessary for computing H^4 and pi_5 of some of the other groups, so you can't just delete those whole columns.
+
+The maps on $H^{\leq 4}$ and $\pi_{\leq 4}$, induced by maps between the structure spaces in the table, are as expected, aside from those already recorded in Proposition~\ref{prop-H4}.  Specifically, in addition to the homotopy of the maps between $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$ recorded in Section~\ref{sec-lft-struc}, we have the following: $H^2(BQuad \ra BSO(2))$ is iso; $H^4(BSO(2) \ra BSO(3))$ is iso; $H^3(BSO(3) \ra BSO)$ is iso; $H^3(BOrpo(3) \ra BSO(3))$ is iso; $H^4(BString(3) \ra BSpinpo(3))$ and $H^4(BSpinpo(3) \ra BSpin(3))$ are surjective; $\pi_3(BString(3) \ra BSpinpo(3))$ is injective; and $\pi_3(BSpinpo(3) \ra BOrpo(3))$ is iso. %%% The map BSO(2) --> BSO(3) is from knowing that the mod 2 reduction of p_1 is w_2^2.
+
+Note that in this table $BSO$ and $BSpin$ are not, per se, 3-dimensional structure spaces, as they do not map to $BO(3)$, and we mention them only as useful intermediary spaces.  One could define a \emph{stable} $BSO$-structure or $BSpin$-structure on a 3-dimensional vector bundle $M \ra BO(3)$ as a lift to $BSO$, respectively $BSpin$, of the composite $M \ra BO(3) \ra BO$; these might be called a stable orientation and stable spin structure respectively.  Note, though, that the pullback $\holim(BO(3) \ra BO \la BSO)$ is $BSO(3)$ and the pullback $\holim(BO(3) \ra BO \la BSpin)$ is $BSpin(3)$; it follows that a stable orientation is the same data as an orientation, and a stable spin structure is the same data as a spin structure.  (Though we will not need this fact, the same is true for orpo structures and stable orpo structures.)  This is certainly not the relation between stable framing, which is an $O(\infty)/O(3)$-structure, and framing, which is a $*$-structure.
+
+The above table suggests three homotopical coincidences.  The most apparent is that $BhString(3)$ is 4-connected.  The natural forgetful map from the set of homotopy classes of framings of a 3-manifold $M$ to the set of homotopy classes of $hString(3)$-structures on $M$ is therefore an isomorphism.  We also see a coincidence between the low-dimensional invariants of $BOrpo(3)$ and $Spin(6)/SO(3)$ and between those of $BString(3)$ and $O(\infty)/O(3)$.
+
+Orpo structures and 2-framings are different; for instance, the set of homotopy classes of parametrized families of the two structures on a vector bundle can be genuinely distinct.  However, as far individual tangential structures on a single 3-manifold are concerned, they are homotopically indistinguishable---this convergence no doubt has contributed to some of the confusion in the literature.
+\begin{proposition}
+There is a canonical 4-connected map $Spin(6)/SO(3) \ra BOrpo(3)$ lifting the natural map $Spin(6)/SO(3) \ra BSO(3)$.  In particular, for a closed 3-manifold $M$, there is a canonical bijection between the orpo structures and the 2-framings on $M$. 
+\end{proposition}
+\begin{proof}
+From Proposition~\ref{prop-H4}, we know that $p_1$ is the generator of $H^4(BSO(3);\ZZ)$, and that $(p_1)/2$ is the generator of $H^4(BSpin(6);\ZZ)$---the fourth cohomology is of $BSpin(6)$ is stable.  Observe that the map $BSO(3) \ra BSpin(6)$ induces an isomorphism on $H^4$.  The first Pontryagin class $BSO(3) \xra{p_1} K(\ZZ,4)$ therefore factors as $BSO(3) \ra BSpin(6) \xra{(p_1)/2} K(\ZZ,4)$.  The composite $Spin(6)/SO(3) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ then factors as $Spin(6)/SO(3) \ra BSO(3) \ra BSpin(6) \xra{(p_1)/2} K(\ZZ,4)$.  This last composite has a canonical null-homotopy, because the first two maps form a homotopy fibration.  There is therefore a canonical lift of $Spin(6)/SO(3) \ra BSO(3)$ to a map $Spin(6)/SO(3) \ra BOrpo(3)$.
+
+As both $Spin(6)/SO(3) \ra BSO(3)$ and $BOrpo(3) \ra BSO(3)$ are isomorphisms on $\pi_2$, the lift is certainly an isomorphism on $\pi_2$.  The map $Spin(6)/SO(3) \ra BOrpo(3)$ induces a map from $Spin(6) = \hofib(Spin(6)/SO(3) \ra BSO(3))$ to $K(\ZZ,3) = \hofib(BOrpo(3) \ra BSO(3))$ that is an isomorphisms on $\pi_3$.  Since both $Spin(6) \ra Spin(6)/SO(3)$ and $K(\ZZ,3) \ra BOrpo(3)$ are surjective on $\pi_3$, it follows that $Spin(6)/SO(3) \ra BOrpo(3)$ is an isomorphism on $\pi_3$, as needed.
+\end{proof} % "Observe" means "do some unpleasant spectral sequence computations"
+% It is implicitly used---really used---in this proof that the third homotopy groups are the same, and that depends on $BSO(3) \xra{\widetilde{\phi \oplus \phi}} BSpin(6)$ being multiplication by $4$ on $\pi_4$ --- of course this is recorded in the table.
+
+Similarly, as far as individual tangential structures on 3-manifolds are concerned, there is a homotopical coincidence between stably framed structures and string structures.
+\begin{proposition}
+There is a canonical 4-connected map $O(\infty)/O(3) \ra BString(3)$ lifting the natural map $O(\infty)/O(3) \ra BO(3)$.  In particular, for a closed 3-manifold $M$, there is a canonical bijection between the stable framings and the string structures on $M$.
+\end{proposition} 
+\begin{proof}
+As $O(\infty)/O(3)$ is the same as $SO(\infty)/SO(3)$, and the map $O(\infty)/O(3) \ra BO(3)$ is the composite $SO(\infty)/SO(3) \ra BSO(3) \ra BO(3)$, it suffices to work with the special orthogonal quotient throughout.
+
+Let $P$ denote the homotopy fiber of the generating map $K(\ZZ/2,2) \ra K(\ZZ,5)$.  By construction we have a homotopy fibration $BString(3) \ra BSO(3) \ra P$.  Moreover, appealing in part to the homotopy calculation in Proposition~\ref{prop-H4}, we see that the map $BSO(3) \ra P$ factors as $BSO(3) \ra BSO(\infty) \ra P$.  Note that the map $BSO(\infty) \ra P$ is an isomorphism on $\pi_4$.  The map $SO(\infty)/SO(3) \ra BSO(3) \ra P$ can now be factored as $SO(\infty)/SO(3) \ra BSO(3) \ra BSO(\infty) \ra P$.  The first two maps in this composite form a homotopy fibration and therefore admit a canonical null-homotopy.  There is therefore a canonical lift of $SO(\infty)/SO(3) \ra BSO(3)$ to a map $SO(\infty)/SO(3) \ra BString(3)$.
+
+The map $SO(\infty)/SO(3) \ra BString(3)$ induces a map from $SO(\infty) = \hofib(SO(\infty)/SO(3) \ra BSO(3))$ to $\Omega P = \hofib(BString(3) \ra BSO(3))$.  This map $SO(\infty) \ra \Omega P$ is an isomorphism on $\pi_3$, because the map $BSO(\infty) \ra P$ was an isomorphism on $\pi_3$.  As both the maps $SO(\infty) \ra SO(\infty)/SO(3)$ and $\Omega P \ra BString(3)$ are surjective on $\pi_3$, it follows that $SO(\infty)/SO(3) \ra BString(3)$ is an isomorphism on $\pi_3$, as needed.
+\end{proof}
+
+This proposition associates to each stable framing of a 3-manifold $M$ a string structure.  This association may be thought of as follows: because the fibration $BString(3) \ra BO(3)$ is the pullback of the fibration $BString \ra BO$ along the inclusion $BO(3) \ra BO$, the data of a lift of $M \ra BO(3)$ to $BString(3)$ is the same as the data of a lift of $M \ra BO(3) \ra BO$ to $BString$.  That is, string structures and stable string structures are identical notions.  Now note that there is a natural forgetful map from stable framings to stable string structures, since a trivialization of the composition $M \ra BO(3) \ra BO$ certainly provides a lift of that composite to, in particular, $BString$.
+
+% \CDcomm{The following proposition feels completely irrelevant now.}
+%In the main text, we have concentrated on the structure groups $BQuad$, $BSO(2)$, $BOrpo(3)$, and $BSO(3)$.  As we have seen, $hString(3)$-structures are essentially just framings, but $String(3)$-structures appear to be rather different.  It turns out, though, that provided we focus on fusion categories over the complex numbers, all $\TC$-valued field theories are in fact string:
+%\begin{proposition} \label{prop-string}
+%Every framed local field theory $\cF : {\FrBord}_0^3 \ra \TC$ with target tensor categories over $\CC$ descends to a string local field theory $\overline{\cF} : \StrBord_0^3 \ra \TC$.
+%\end{proposition}
+%\nid This result is a direct analog of the corresponding result for conformal-net-valued local field theories, given in~\cite{0912.5307}, and the proof is the same.
 
 
 
