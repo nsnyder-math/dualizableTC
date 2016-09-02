@@ -46,9 +46,7 @@ Tensor categories are a higher dimensional analogue of algebras.  Just as module
 
 Recall that the balanced tensor product $M \otimes_A N$ of modules is, by definition, the vector space corepresenting $A$-balanced bilinear functions out of $M \times N$.  In other words, giving a map $M \otimes_A N \rightarrow X$ is the same as giving a billinear map $f: M \times N \rightarrow X$ with the property that $f(ma,n) = f(m, an)$.  If the balanced tensor product exists, it is certainly unique (up to unique isomorphism), but the universal property does not guarantee existence.  Instead existence is typically established by an explicit construction as a quotient of a free abelian group on the product $M \times N$. We now describe the balanced tensor product $\cM \boxtimes_{\cC} \cN$ of module categories over a tensor category.  Again this should be universal for certain bilinear functors, however when passing from algebras to tensor categories, the analogue of the equality $f(ma,n) = f(m, an)$ is a natural system of isomorphisms $\eta_{m,a,n}: \cF(m \otimes a,n) \rightarrow \cF(m, a \otimes n)$ satisfying some natural coherence properties.  A bilinear functor $\cF$ together with a natural coherent system of isomorphisms $\eta_{m,a,n}$ is called a $\cC$-balanced functor.  Thus the balanced tensor product $\cM \boxtimes_{\cC} \cN$ is defined to be the linear category corepresenting $\cC$-balanced right-exact bilinear functors out of $\cM \times \cN$. In other words, giving a right-exact functor $\cM \boxtimes_{\cC} \cN \rightarrow \cX$ is the same as giving a right-exact bilinear functor $\cM \times \cN \rightarrow \cX$ together with isomorphisms $\eta_{m,a,n}: \cF(m \otimes a,n) \rightarrow \cF(m, a \otimes n)$ satisfying a coherence property.  Again if the balanced tensor product exists, it is unique (up to an equivalence that is unique up to unique natural isomorphism), but existence does not follow formally. 
 
-The only task is to provide an explicit construction of the balanced tensor product that satisfies the corepresentation property.  A crucial tool for our construction is the result, proved by Etingof--Gelaki--Nikshych--Ostrik \cite[Corollary 7.10.5]{egno-book}
-%\cite[Thm 2.11.6]{EGNO}
-, based on earlier work of Etingof--Ostrik \cite[\S 3.2]{EO-ftc} along the lines pioneered by Ostrik \cite[Thm 1]{MR1976459}, that any finite left module category ${}_{\cC} \cN$ over a finite tensor category $\cC$ is equivalent to the category of right module objects $\Mod{}{B}(\cC)$ in $\cC$, for some algebra object $B \in \cC$; similarly any right module category $\cM_{\cC}$ is equivalent to a category of left module objects $\Mod{A}{}(\cC)$.  
+The only task is to provide an explicit construction of the balanced tensor product that satisfies the corepresentation property.  A crucial tool for our construction is the result, proved by Etingof--Gelaki--Nikshych--Ostrik \cite[Cor. 7.10.5]{egno-book}, based on earlier work of Etingof--Ostrik \cite[\S 3.2]{EO-ftc} along the lines pioneered by Ostrik \cite[Thm 1]{MR1976459}, that any finite left module category ${}_{\cC} \cN$ over a finite tensor category $\cC$ is equivalent to the category of right module objects $\Mod{}{B}(\cC)$ in $\cC$, for some algebra object $B \in \cC$; similarly any right module category $\cM_{\cC}$ is equivalent to a category of left module objects $\Mod{A}{}(\cC)$.  
 
 \begin{theorem*}
 Let $\cC$ be a finite, rigid, monoidal linear category, and let $\cM$ be a finite right $\cC$-module category and $\cN$ a finite left $\cC$-module category.  Let $A$ and $B$ be algebra objects in $\cC$ such that $\cM \cong \Mod{A}{}(\cC)$ and $\cN \cong \Mod{}{B}(\cC)$ as module categories.  The category $\Mod{A}{B}(\cC)$ of $A$--$B$-bimodule objects in $\cC$ corepresents $\cC$-balanced right-exact bilinear functors out of $\cM \times \cN$, and therefore realizes the balanced tensor product $\cM \boxtimes_\cC \cN$.
@@ -336,7 +334,7 @@ When $K$ is a finite group, the category of finite-dimensional $K$-graded vector
 %	If $\cM$ is a finite linear category, then the category of (right exact) linear endofunctors $\Fun(\cM, \cM)$ is a finite linear monoidal category. Recall that our convention is that the monoidal structure on $\Fun(\cM, \cM)$ is given by $F \otimes G = G \circ F$. If $\cM$ is semisimple, then $\Fun(\cM, \cM)$ is rigid and hence a tensor category; Duals are obtained by taking adjoint functors.  
 %\end{example}
 
-\begin{lemma} \cite[2.1.8]{MR1797619} \cite[Proposition 4.2.1.]{egno-book}%\cite[Prop. 1.13.1]{EGNO}
+\begin{lemma} \cite[2.1.8]{MR1797619} \cite[Prop. 4.2.1]{egno-book}%\cite[Prop. 1.13.1]{EGNO}
 \label{lma:RigidIsExact}
 	Let $(\cC, \otimes)$ be a finite tensor category. The bilinear functor $\otimes: \cC \times \cC \to \cC$ is exact in both variables. 
 \end{lemma}
@@ -351,7 +349,7 @@ When $K$ is a finite group, the category of finite-dimensional $K$-graded vector
 
 
 %\NS{I don't think this corollary is needed}
-%\begin{corollary}\cite[Cor 1.13.7]{EGNO}
+%\begin{corollary}\cite[Cor. 1.13.7]{EGNO}
 %	A tensor category $\cC$ is semisimple if and only if $1 \in \cC$ is a projective object. 
 %\end{corollary}
 %\begin{proof}
@@ -687,8 +685,7 @@ Let $\cC$ and $\cD$ be tensor categories. Let  $\cM$ and  $\cN$  be  $\cC$--$\cD
 %If $\cC$ and $\cD$ are not rigid, the argument in the proof of this lemma only shows that the right adjoint to an oplax module functor has a lax module functor structure, while the left adjoint of a lax module functor has an oplax module functor structure.  %This is a serious issue as the following example shows. 
 %\end{remark}
 
-\begin{lemma}\label{lem:partially_exact_action} %\cite[Remark 2.3.2.]{EGNO}
-\cite[Ex. 7.3.2]{egno-book} \cite[Prop. 2.1.8]{MR1797619}
+\begin{lemma}\label{lem:partially_exact_action} \cite[Ex 7.3.2]{egno-book} \cite[Prop. 2.1.8]{MR1797619}
 	Let $\cC$ be a tensor category and let $\cM$ be a $\cC$-module category. Then for each object $c \in \cC$, the action map $c \otimes (-): \cM \to \cM$ is exact. 
 \end{lemma}
 
@@ -738,7 +735,7 @@ Consider $\Vect$ as a module category over $\Vect[K]$.  Then $\IHom(1,1)$ is $k[
 
 The goal of this subsection is to prove a generalization of the following result.
 
-\begin{theorem}{\cite[Corollary 7.10.5.]{egno-book}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6} %\cite[Thm 2.11.6]{EGNO}
+\begin{theorem}{\cite[Cor. 7.10.5]{egno-book}, \cite[Thm 1]{MR1976459}} \label{thm:EGNO2.11.6} %\cite[Thm 2.11.6]{EGNO}
 	Let $\cM$ be a left module category over a finite tensor category $\cC$, and assume the action is right exact in $\cC$. If $\cM$ is finite as a linear category, then there exists an algebra object $A \in \cC$ together with an equivalence $\cM \simeq \Mod{}{A} (\cC)$ as left $\cC$-module categories. 
 \end{theorem}
 
