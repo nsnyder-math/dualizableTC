@@ -221,7 +221,7 @@ For any Radford object $x$ in a symmetric monoidal $n$-category, with $n$ at lea
 
 \subsubsection{On tensor and bimodule categories}
 
-Our work relies extensively on the theory of finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik~\cite{EGNO, EO-ftc, MR2183279, MR2097289,0909.3140}.  In order to have a robust 3-categorical setting for studying the algebra of finite and separable tensor categories, we prove a number of results extending the work of EGNO, some of which are of interest independent from our topological-field-theoretic purposes.
+Our work relies extensively on the theory of finite tensor categories developed by Etingof, Gelaki, Nikshych, and Ostrik~\cite{egno-book, EO-ftc, MR2183279, MR2097289,0909.3140}.  In order to have a robust 3-categorical setting for studying the algebra of finite and separable tensor categories, we prove a number of results extending the work of EGNO, some of which are of interest independent from our topological-field-theoretic purposes.
 
 The most important ingredient in defining a 3-category of tensor categories is the composition of bimodule categories:
 \begin{maintheorem} \label{thm9}
@@ -1404,7 +1404,7 @@ Though we may think of the equivalences appearing in Theorem~\ref{thm:Cat_Radfor
 \section{Tensor categories} \label{sec:tc}
 
 
-We now investigate the target category for our local field theories, namely the 3-category of tensor categories.  We begin, in Section~\ref{sec:conventions}, by establishing systematic, compatible conventions for dualities of objects within tensor categories, and dualities and adjunctions within a higher monoidal category such as the 3-category of tensor categories.  We then, in Section~\ref{sec:tc-lincat}, review the theory of finite tensor categories and bimodule categories, following Etingof, Gelaki, Nikshych, and Ostrik~\cite{MR1976459,MR2183279,MR2097289, 0909.3140, EGNO}.  We also recall the relative Deligne tensor product~\cite{0909.3140,BTP}, which provides a composition operation on bimodules between tensor categories, and the resulting 3-category of finite tensor categories~\cite{jfs}.  In the dualizability investigation in Section~\ref{sec:dualizability}, we will need to construct adjoints of certain functors of bimodule categories, and for that we will need conditions ensuring exactness properties of bimodule functors.  To that end, in Section~\ref{sec:tc-exact}, we summarize Etingof and Ostrik's theory of exact module categories~\cite{EO-ftc} and then prove that the Deligne tensor product of exact module categories is itself exact.  
+We now investigate the target category for our local field theories, namely the 3-category of tensor categories.  We begin, in Section~\ref{sec:conventions}, by establishing systematic, compatible conventions for dualities of objects within tensor categories, and dualities and adjunctions within a higher monoidal category such as the 3-category of tensor categories.  We then, in Section~\ref{sec:tc-lincat}, review the theory of finite tensor categories and bimodule categories, following Etingof, Gelaki, Nikshych, and Ostrik~\cite{MR1976459,MR2183279,MR2097289, 0909.3140,  egno-book}.  We also recall the relative Deligne tensor product~\cite{0909.3140,BTP}, which provides a composition operation on bimodules between tensor categories, and the resulting 3-category of finite tensor categories~\cite{jfs}.  In the dualizability investigation in Section~\ref{sec:dualizability}, we will need to construct adjoints of certain functors of bimodule categories, and for that we will need conditions ensuring exactness properties of bimodule functors.  To that end, in Section~\ref{sec:tc-exact}, we summarize Etingof and Ostrik's theory of exact module categories~\cite{EO-ftc} and then prove that the Deligne tensor product of exact module categories is itself exact.  
 
 In Section~\ref{sec:tc-bimodules}, we describe the notion of the dual of a bimodule category.  The dual category is defined as a bimodule structure on the opposite category, but it can also be realized as a category of functors into the base tensor category, thus as a kind of categorical linear dual.  We also prove that relative Deligne tensor products of bimodule categories can be reexpressed as functor categories, which will later enable us to prove that dual bimodule categories provide adjoints of morphisms in our 3-category of tensor categories.  In characteristic zero, that much is more or less sufficient groundwork for the dualizability results of Section~\ref{sec:dualizability}.  However, in finite characteristic there are more subtle issues concerning adjoints of bimodule functors.  In Section~\ref{sec:tc-separable}, we introduce the notions of separable tensor categories and separable module categories, based on a suggestion of Ostrik; these separability conditions provide the proper context for the theory of finite tensor categories in arbitrary characteristic.  We prove that the relative Deligne tensor product of separable bimodule categories is separable, ensuring that there is a 3-category whose morphisms are separable bimodule categories.  Finally, in Section~\ref{sec:tc-fusion} we establish a computable criterion for the separability of a fusion category, that is a finite semisimple tensor category with simple unit over an algebraically closed field: a fusion category is separable if and only if it has nonzero global dimension.
 
@@ -1443,7 +1443,7 @@ $		(id_{({}^* x)} \otimes \varepsilon  ) \circ (  \eta \otimes id_{({}^* x)}) = 
 and $		(\varepsilon \otimes id_{x}) \circ (id_{x} \otimes \eta) = id_{x}.$
 \end{definition}
 
-Although this convention on the meaning of rigidity is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following Etingof--Gelaki--Nikshych--Ostrik \cite{EGNO} and Bakalov--Kirillov \cite{MR1797619})  or the left dual of $x$ (following Kassel \cite{MR1321145} and Chari--Pressley \cite{MR1358358}).  We believe that this choice should be determined by the following compatibility desideratum: 
+Although this convention on the meaning of rigidity is shared throughout the literature, authorities are split on whether $x^*$ should be called the right dual of $x$ (following Bakalov--Kirillov \cite{MR1797619} and the Etingof--Gelaki--Nikshych--Ostrik lecture notes \cite{EGNO})  or the left dual of $x$ (following Kassel \cite{MR1321145}, Chari--Pressley \cite{MR1358358}, and the EGNO book \cite{egno-book}).  We believe that this choice should be determined by the following compatibility desideratum: 
 \begin{itemize}
 \item[]
 	\emph{In reasonable settings where something could be called either a dual or an adjoint, the left dual should be the left adjoint.}
@@ -1475,7 +1475,7 @@ As simple examples of how these various conventions interact, observe the follow
 \subsection{Tensor categories, bimodule categories, and the Deligne tensor product} \label{sec:tc-lincat}
 
 
-We review the theory of linear categories, tensor categories, finite tensor categories, and bimodule categories; an excellent source for further details on this material is the lecture notes of Etingof--Gelaki--Nikshych--Ostrik~\cite{EGNO}.  We then recall the notion of the relative Deligne tensor product of module categories over a monoidal category, and quote the main result of~\cite{BTP}, that the relative product of finite module categories over a finite tensor category exists; this provides the most important ingredient for the construction of the 3-category of finite tensor categories, whose existence follows from a construction of Johnson-Freyd--Scheimbauer~\cite{jfs}.
+We review the theory of linear categories, tensor categories, finite tensor categories, and bimodule categories; an excellent source for further details on this material is the recent book by Etingof--Gelaki--Nikshych--Ostrik~\cite{egno-book}.  We then recall the notion of the relative Deligne tensor product of module categories over a monoidal category, and quote the main result of~\cite{BTP}, that the relative product of finite module categories over a finite tensor category exists; this provides the most important ingredient for the construction of the 3-category of finite tensor categories, whose existence follows from a construction of Johnson-Freyd--Scheimbauer~\cite{jfs}.
 
 \subsubsection{Linear categories, finite categories, monoidal categories, rigid categories}
 
@@ -1562,7 +1562,7 @@ Let $\cC$ be a finite linear monoidal category, and let $\cM$ and $\cN$ be finit
 
 As mentioned in Proposition~\ref{prop:catismod}, a finite linear category is a category of modules over an algebra.  In this statement we can replace the implicit ambient monoidal category $\Vect_k$ by any finite tensor category: to wit, any finite module category over a finite tensor category is a category of modules over an algebra object of the tensor category.
 
-\begin{theorem}{\cite[Thm 2.11.6]{EGNO}, \cite[Thm 1]{MR1976459}, \cite{BTP}} \label{thm:EGNO2.11.6}
+\begin{theorem}{\cite[Cor. 7.10.5]{egno-book}, \cite[Thm 1]{MR1976459}, \cite{BTP}} \label{thm:EGNO2.11.6}
 Let $\cC$ be a finite tensor category, and let $\cM$ be a finite left $\cC$-module category.  There is an algebra object $A \in \cC$ and an equivalence of left $\cC$-module categories $\cM \simeq \Mod{}{A}(\cC)$.
 \end{theorem}
 
@@ -1648,18 +1648,18 @@ Let $\cC$ be a semisimple finite tensor category.  A $\cC$-module category is ex
 
 \nid We will need to know that certain basic bimodules arising in the dualization of $\cC$ are exact:
 
-\begin{example}[{\cite[Ex. 3.3]{EO-ftc} \cite[Ex. 2.6.5]{EGNO}}] \label{ex:exactness}
+\begin{example}[{\cite[Ex. 3.3]{EO-ftc} \cite[Ex. 7.5.5]{egno-book}}] \label{ex:exactness}
 	A finite tensor category $\cC$ is exact when considered as a $\cC$-, or $\cC^{mp}$-, or $\cC \boxtimes \cC^{mp}$-module category. 
 \end{example}
 
 The following omnibus theorem summarizes the properties of exact module categories: 
-\begin{theorem}[\cite{EO-ftc, EGNO}] \label{Thm:ExactModCatOmnibus}
+\begin{theorem}[\cite{EO-ftc, egno-book}] \label{Thm:ExactModCatOmnibus}
 	Let $\cC$ be a finite tensor category over an arbitrary field, let $\cM$, $\cM'$, and $\cM''$ be finite exact $\cC$-module categories, and let $\cN$ be any finite $\cC$-module category.
 	\begin{enumerate}
-		\item Every projective object of $\cM$ is injective, and every injective object of $\cM$ is projective \cite[Cor. 3.6]{EO-ftc} \cite[Cor 2.7.4]{EGNO}.
-		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop 2.7.8]{EGNO}.		
-		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop 2.13.5]{EGNO}.
-		\item The composition functor $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 2.13.2]{EGNO}.	
+		\item Every projective object of $\cM$ is injective, and every injective object of $\cM$ is projective \cite[Cor. 3.6]{EO-ftc} \cite[Cor. 7.6.4.]{egno-book}.
+		\item Every additive (not a priori right exact) module functor $F:\cM \to \cN$ is exact \cite[Prop. 3.11]{EO-ftc} \cite[Prop. 7.6.9]{egno-book}.		
+		\item The category $\Fun_{\cC}(\cM, \cM')$ is finite \cite[Prop. 7.11.6.]{egno-book}.
+		\item The composition functor $\Fun_{\cC}(\cM, \cM') \times \Fun_{\cC}(\cM', \cM'') \to \Fun_{\cC}(\cM, \cM'')$ is exact in each variable \cite[Lemma 3.20]{EO-ftc} \cite[Lemma 7.11.3]{egno-book}.	
 		\item The monoidal category of endofunctors $\Fun_{\cC}(\cM,\cM)$ is rigid, therefore is a finite tensor category.
 		\item The category $\cM$ is exact when considered as a $\Fun_{\cC}(\cM,\cM)^\mp$-module category \cite[Lemma 3.25]{EO-ftc}.
 	\end{enumerate}
@@ -1667,7 +1667,7 @@ The following omnibus theorem summarizes the properties of exact module categori
 
 \nid The fifth item is seen as follows.  Any functor $\cF \in \Fun_\cC(\cM,\cM)$ is exact, therefore has left and right adjoints as a linear functor.  By Lemma~\ref{lma:module-adjoint}, the functor $\cF$ also has adjoints as a module functor---these adjoints provide the required rigidity.
 
-The second item is proven as \cite[Prop. 3.11]{EO-ftc} and \cite[Prop 2.7.8]{EGNO} under the assumption that the unit of the tensor category $\cC$ is simple; the property, that functors out of an exact module category are exact, can be seen when $\cC$ is any finite tensor category as follows.  By the finiteness assumption, the tensor category $\cC$ has enough projectives; thus there is a short exact sequence $0 \ra k \ra p \ra 1 \ra 0$, with $p \in \cC$ projective.  Let $0 \ra x \ra y \ra z \ra 0$ be a short exact sequence in $\cM$.  Tensoring each object of the first sequence by the second sequence, and applying the functor $F$ to the resulting grid, produces the following diagram:
+The second item is proven as \cite[Prop. 3.11]{EO-ftc} and \cite[Prop. 7.6.9]{egno-book} under the assumption that the unit of the tensor category $\cC$ is simple; the property, that functors out of an exact module category are exact, can be seen when $\cC$ is any finite tensor category as follows.  By the finiteness assumption, the tensor category $\cC$ has enough projectives; thus there is a short exact sequence $0 \ra k \ra p \ra 1 \ra 0$, with $p \in \cC$ projective.  Let $0 \ra x \ra y \ra z \ra 0$ be a short exact sequence in $\cM$.  Tensoring each object of the first sequence by the second sequence, and applying the functor $F$ to the resulting grid, produces the following diagram:
 	\begin{center}
 	\begin{tikzpicture}
 			\matrix (m) [matrix of math nodes, row sep = 0.5cm, column sep = 0.75cm, text height=1.5ex, text depth=0.25ex]
@@ -1910,7 +1910,7 @@ Here $\Fun_\cC$ denotes the category of (right exact) $\cC$-module functors.  If
 \begin{proof}
 We focus on the first equivalence, as the second is analogous.  The functor induced by the balanced functor is certainly a bimodule functor, so it suffices to see that it is an equivalence of linear categories.  We prove that $\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN$ and $\Fun_\cC(\cM,\cN)$ are both equivalent to a category of the form $\Mod{A}{B}(\cC)$, by equivalences intertwining the functor in question.
 
-Using Theorem~\ref{thm:EGNO2.11.6}, choose algebra objects $A \in \cC$ and $B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$.  The functor $\tau: \Mod{A}{B}(\cC) \rightarrow \Fun_\cC(\cM,\cN)$, given by $\tau(M) = - \otimes_A M$, is an equivalence, as we will see presently and as observed in \cite[Prop 2.12.2]{EGNO}.  A functor $\cF \in \Fun_\cC(\cM,\cN)$ is naturally equivalent to the functor $\tau(\cF(A)) = - \otimes_A \cF(A)$, so $\tau$ is essentially surjective.  (To see this note that $\cF$ and $\tau(\cF(A))$ agree on free $A$-modules, and any object $M \in \cM \simeq \Mod{}{A}(\cC)$ is the canonical coequalizer $\textrm{coeq}_\cC(M \otimes A \leftleftarrows M \otimes A \otimes A)$ of free $A$-modules.)  The functor $\tau$ is evidently fully faithful.  A special case of the equivalence $\tau$ gives an equivalence $\Mod{A}{}(\cC) \simeq \Fun_\cC(\cM,\cC)$.  The equivalence between $\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN$ and $\Mod{A}{B}(\cC)$ now follows from Theorem~\ref{thm:DelignePrdtOverATCExists}.
+Using Theorem~\ref{thm:EGNO2.11.6}, choose algebra objects $A \in \cC$ and $B \in \cC$ and equivalences $\cM \simeq \Mod{}{A}(\cC)$ and $\cN \simeq \Mod{}{B}(\cC)$.  The functor $\tau: \Mod{A}{B}(\cC) \rightarrow \Fun_\cC(\cM,\cN)$, given by $\tau(M) = - \otimes_A M$, is an equivalence, as we will see presently and as observed in \cite[Prop. 7.11.1.]{egno-book}.  A functor $\cF \in \Fun_\cC(\cM,\cN)$ is naturally equivalent to the functor $\tau(\cF(A)) = - \otimes_A \cF(A)$, so $\tau$ is essentially surjective.  (To see this note that $\cF$ and $\tau(\cF(A))$ agree on free $A$-modules, and any object $M \in \cM \simeq \Mod{}{A}(\cC)$ is the canonical coequalizer $\textrm{coeq}_\cC(M \otimes A \leftleftarrows M \otimes A \otimes A)$ of free $A$-modules.)  The functor $\tau$ is evidently fully faithful.  A special case of the equivalence $\tau$ gives an equivalence $\Mod{A}{}(\cC) \simeq \Fun_\cC(\cM,\cC)$.  The equivalence between $\Fun_\cC(\cM, \cC) \boxtimes_\cC \cN$ and $\Mod{A}{B}(\cC)$ now follows from Theorem~\ref{thm:DelignePrdtOverATCExists}.
 \end{proof}
 
 \begin{corollary} \label{cor:tensasfunct}
@@ -2082,7 +2082,7 @@ Equipped with this characterization of separable tensor categories, we can also 
 Let $\cC$ be a separable tensor category over any perfect field.  A finite module category ${}_\cC \cM$ is separable if and only if it is semisimple.
 \end{proposition}
 \begin{proof}
-Proposition~\ref{prop:sepmodissemi} shows separability implies semisimplicity.  By Theorem~\ref{thm:SepModCats}, the module category $\cM$ is separable provided the linear category $\Fun_\cC(\cM,\cM)$ is semisimple.  By Example~\ref{eg:semiexact}, the module category ${}_\cC \cM$ is exact and so by part (5) of Theorem~\ref{Thm:ExactModCatOmnibus}, the monoidal category $\Fun_\cC(\cM,\cM)$ is rigid. Every tensor category $\cD$ is exact over its center, by~\cite[Lemma 2.14.4]{EGNO} applied to the exact module category ${}_{\cD \boxtimes \cD^\mp} \cD$; thus $\Fun_\cC(\cM,\cM)$ is an exact $\cZ(\Fun_\cC(\cM,\cM))$-module category.  By \cite{scha} and \cite[Cor. 3.35]{EO-ftc}, there is an equivalence $\cZ(\cC) \simeq \cZ(\Fun_\cC(\cM,\cM))$.  The center $\cZ(\cC)$ is semisimple by Corollary~\ref{cor:Sep=semisimplecenter}, and so $\Fun_\cC(\cM,\cM)$ is semisimple as required.
+Proposition~\ref{prop:sepmodissemi} shows separability implies semisimplicity.  By Theorem~\ref{thm:SepModCats}, the module category $\cM$ is separable provided the linear category $\Fun_\cC(\cM,\cM)$ is semisimple.  By Example~\ref{eg:semiexact}, the module category ${}_\cC \cM$ is exact and so by part (5) of Theorem~\ref{Thm:ExactModCatOmnibus}, the monoidal category $\Fun_\cC(\cM,\cM)$ is rigid. Every tensor category $\cD$ is exact over its center, by~\cite[Lemma 7.12.7.]{egno-book} applied to the exact module category ${}_{\cD \boxtimes \cD^\mp} \cD$; thus $\Fun_\cC(\cM,\cM)$ is an exact $\cZ(\Fun_\cC(\cM,\cM))$-module category.  By \cite{scha} and \cite[Cor. 3.35]{EO-ftc}, there is an equivalence $\cZ(\cC) \simeq \cZ(\Fun_\cC(\cM,\cM))$.  The center $\cZ(\cC)$ is semisimple by Corollary~\ref{cor:Sep=semisimplecenter}, and so $\Fun_\cC(\cM,\cM)$ is semisimple as required.
 \end{proof}
 
 The full sub-3-category of $\TCss$ on the separable tensor categories is symmetric monoidal and will be of special significance: in Section~\ref{sec:separableisfd} we will prove it is a fully dualizable 3-category. 
@@ -2150,7 +2150,7 @@ Recall that we aim to characterize the separability of a fusion category in term
 \begin{definition}
 Let $\cC$ be a finite tensor category and let $\cM$ be a finite left $\cC$-module category.  For objects $m \in \cM$ and $n \in \cM$, the \emph{enriched Hom object} $\IHom_\cC(m,n) \in \cC$ is the object representing the functor $\Hom_\cM(- \otimes m,n): \cC \ra \Vect$.
 \end{definition}
-\nid See \cite{MR1976459, EO-ftc, EGNO, BTP} for further discussion about enriched endomorphisms for module categories, and in particular for a proof that the enrichment indeed exists.
+\nid See \cite{MR1976459, EO-ftc, egno-book, BTP} for further discussion about enriched endomorphisms for module categories, and in particular for a proof that the enrichment indeed exists.
 
 We specialize to the situation of interest, where the tensor category is the product $\cC \boxtimes \cC^\mp$ and the left module category is the finite tensor category $\cC$ itself.  We will denote by $A := \IHom_{\cC \boxtimes \cC^\mp}(1_\cC,1_\cC) \in \cC \boxtimes \cC^\mp$ the algebra of enriched endomorphism of the unit $1_\cC$ of $\cC$.  Note that by the definition of the enriched Hom object, we have, for any $x \in \cC$ and $y \in \cC^\mp$, natural isomorphisms
 \[
