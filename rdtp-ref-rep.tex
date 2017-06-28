@@ -1,0 +1,80 @@
+\documentclass[12pt]{letter}
+\usepackage{amssymb,xr}
+\usepackage[lmargin=1in,rmargin=1in, tmargin=1in, bmargin=1in]{geometry}
+\usepackage{xr-hyper}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+ \signature{Christopher Douglas, Noah Snyder, Christopher Schommer--Pries}
+
+ \date{1 Aug 2016}
+
+% \externaldocument{../Cornered}
+
+ \begin{document}
+
+\newcommand{\gr}{\mathrm{gr}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+ \begin{letter}{}
+ 
+ We thank the referee for his or her review and suggested changes.  We have revised the paper accordingly, and itemize here each of the suggestions and the resulting modification.
+
+\begin{enumerate}
+
+\color{black!50}
+\item ``Although the reviewer admits potential applicability of the present description, the result can be properly included where it is really needed as in the paper [DN13]; it requires fair reasons to be published as a separate article, which seems not to be thoroughly explained in the text.  The reviewer therefore would like to suggest the authors to merge this into their main paper in citation or at least to revise it to clarify the following point."  
+\color{black}
+\item[Repl] We had originally intended to include what we needed about the balanced tensor product in our paper ``Dualizable Tensor Categories".  However, we discovered that the literature on the balanced tensor product was insufficiently detailed to allow us to concisely cite the results we needed from elsewhere, and a separate paper on the balanced tensor was essential for us to be able to do the work we wanted to in 3-dimensional field theory.   We also wanted to be especially careful, since there was a subtle minor error in ENO's construction in the bimodule setting (a missing double dual), and some larger errors in the proofs of several results in Greenough's paper ``Monoidal 2-structure of Bimodule Categories."  We have several reservations about trying to combine the papers ``The balanced tensor product of module categories" and ``Dualizable tensor categories" as suggested by the referee.  First, their primary focuses are very different, and will be of interest and use to somewhat different audiences.  Second, the paper ``Dualizable tensor categories" is already too long for most journals in the opinion of several referees, and adding more material would exacerbate that situation.  We therefore have elected, of the referee's two options, to revise the present paper to clarify the point below.
+
+\color{black!50}
+\item In the original description, the balanced tensor products are identified with the category of right exact module functors from the opposite of M into N. When these are categories of A- or B- module objects in a finite tensor category C, it is quite reasonable to expect extracting A-B bimodule objects from right exact module functors according to the Morita principle: An A-B bimodule object Z in C gives rise to a right exact C-linear functor F by $F(X_A^\circ) = X^\circ \otimes_A Z_B$ and any right right exact C-linear functor should arise this way under some mild assumptions. ($X^\circ \otimes A \rightarrow X^\circ$ is defined by $(A^\ast \otimes X)^\circ \rightarrow X^\circ$, i.e., by $X \rightarrow A^\ast \otimes X$.)
+\color{black}
+\item[Repl] We have added Remark 3.5 indicating how our bimodule description of the balanced tensor is related to this functor description of the balanced tensor.  (Note that the statement of the description of the balanced tensor as a functor category in both [DN13] and [ENO10] is not quite correct when applied to bimodule categories---it is off by a double dual twist.  We include the corrected statement in this same remark.)  Note that the Morita principle comparison crucially involves taking a right dual of the underlying object $X$, even when the ambient category is pivotal. %Note that in the report, if $X^\circ$ means the object $X$ viewed as an object of the opposite category, then it is not the case that $X^\circ$ has a right $A$-module structure, not even if the ambient category is pivotal (the issue is that $X^\circ \otimes A$ is not the same object as $(A^\ast \otimes X)^\circ$); 
+%Note that this is a somewhat subtle relationship: the Morita principle association described in the referee's report is missing a crucial dual and so does not provide the desired equivalence.  (The object $X^\circ$ is not a right A-module, even when the ambient category is pivotal.  (Here we assume that $X^\circ$ means the object $X$ viewed as an object of the opposite category.  If that is not what was intended, then our apologies---in any case Remark xx in the paper gives an accurate description.))
+
+\color{black!50}
+\item p. 2 middle, supply the reference number of Johnson-Freyd- Scheimbauer.
+\color{black}
+\item[Repl] Added.
+
+\color{black!50}
+\item p. 2 middle, supply the information on the recent AMS book by Etingof et al. The reviewer suspects that the whole arguments in this article might be fairly simplified with efficient reference to this book.
+\color{black}
+\item[Repl] 
+The previous draft had many references to the online notes on which that book is based (the full book had not come out when we finished this paper).  We have added the book to the bibliography, and updated all references to the notes to refer to the book instead.  We agree that much core work is done in EGNO, but we were not able to find enough of the specific details we needed to condense this paper further than we have.  In particular, the balanced tensor product appears nowhere in EGNO's book.
+
+\color{black!50}
+\item p. 2 below, in Definition 2.3, the simplicity of unit object is assumed or not?
+\color{black}
+\item[Repl] We don't make any assumptions about simplicity of the unit (here or elsewhere).
+
+\color{black!50}
+\item p. 3 middle, Definition 2.6 lacks in explaining the definition of bimodule functor.
+\color{black}
+\item[Repl] Added a sentence.
+
+\color{black!50}
+\item p. 4 below, in Definition 3.1, ‘earch’ should be each.
+\color{black}
+\item[Repl] Fixed.
+
+\color{black!50}
+\item p. 5 middle, the structure of proof is not clear enough. At the beginning part, is the property (2) supposed or not?
+\color{black}
+\item[Repl] We have clarified which implications were handled where, and made some other small improvements to the exposition.
+
+\color{black!50}
+\item p. 7 below, is the notation Vect[K] explained anywhere?
+\color{black}
+\item[Repl] We added an explanation.
+
+\end{enumerate}
+
+\end{letter}
+
+\end{document}
+
