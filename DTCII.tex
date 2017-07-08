@@ -19,15 +19,18 @@
 \urladdr{http://people.maths.ox.ac.uk/cdouglas}
       	
 \author{Christopher Schommer-Pries}
-\address{Department of Mathematics\\ Massachusetts Institute of Technology\\ Cambridge, MA 02139\\ USA}
+\address{Department of Mathematics\\ University of Notre Dame \\ Notre Dame, IN 46556\\ USA}
 \email{schommerpries.chris.math@gmail.com}
-\urladdr{http://sites.google.com/site/chrisschommerpriesmath}
+\urladdr{http://sites.nd.edu/chris-schommer-pries/}
 
 \author{Noah Snyder}
-\address{Department of Mathematics\\ Columbia University\\ New York, NY 10027\\ USA}
-\email{nsnyder@math.columbia.edu}
-\urladdr{http://www.math.columbia.edu/\!\raisebox{-1mm}{~}nsnyder/}
+\address{Department of Mathematics\\ Indiana University\\ Bloomington, IN 47405\\ USA}
+\email{nsnyder@math.indiana.edu}
 
+
+\begin{abstract}
+We give a finite explicit descriptions of what it means to give a homotopy $SO(3)$-action on a homotopy $3$-type and what it means to give a homotopy fixed point for such an action.  To answer these questions we give a cellular description of the $4$-type of $BSO(3)$ and use Pontryagin--Thom to understand the attaching maps explicitly.  We also consider actions on $3$-types and their homotopy fixed points for a number of groups closely related to $SO(3)$.  These questions are motivated by questions in topological quantum field theory and the structure of tensor categories, and applications in those directions will be given in later papers.
+\end{abstract}
 
 \maketitle
 
@@ -62,7 +65,27 @@ If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-
 
 
 \section{Introduction}
-.
+
+This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a homotopy 3-type.  An action of $SO(3)$ on $X$ is the same thing as map of homotopy coherent groups $SO(3) \rightarrow \mathrm{Aut}(X)$ which is turn the same thing as a map of spaces $BSO(3) \rightarrow B\mathrm{Aut}(X)$.  To give an explicit collection of data describing such a map we need a CW description of $BSO(3)$.  Since $X$ is a $3$-type, $B\mathrm{Aut}(X)$ is a $4$-type, so it is enough to understand $BSO(3)$ as a $4$-type.
+
+\begin{theorem}
+$BSO(3)$ has the same $4$-type as the CW complex with one $2$-cell, one $3$-cell attached to $S^2$ via the degree $2$ map (yielding $\Sigma \mathbb{R}P^2$), one $4$-cell attached to $S^2$ via the Hopf map, and one $5$-cell attached to $\Sigma \mathbb{R}P^2$ via the generator of $\pi_4(\Sigma \mathbb{R}P^2) = \mathbb{Z}/4\mathbb{Z}$.
+\end{theorem}
+
+This yield the following explicit description of a homotopy coherent $SO(3)$ action on a $3$-type.
+
+\begin{itemize}
+\item An assignment to every point $x$ a $2$-loop $S_x: \mathrm{Id}_x \rightarrow \mathrm{Id}_x$.
+\item An assignment to every path $p:x \rightarrow y$ a $3$-path $S_p: S_x \circ p \rightarrow p \circ S_y$.
+\item For every $2$-path $\alpha: p \rightarrow q$ the condition $S_\alpha$ that $(\mathrm{Id} \ast \alpha^{-1}) \circ S_p$ is homotopic to $(\alpha \ast \mathrm{Id}) \circ S_p$.
+\end{itemize}
+
+\begin{itemize}
+\item An assignment to every point $x$ a $3$-path $R_x: S_x \circ S_x \rightarrow \mathrm{Id}_x$.
+\item For every path $p: x \rightarrow y$ the condition $R_p$ that the two $3$-paths ??? $S_x \circ S_x \circ p \rightarrow q$ are homotopic.
+\end{itemize}
+
+
 
 \CDcomm{I think much of what is currently in section I of DTCIV, introducing and discussing the 4-types of BQuad and BOrp(3), will need to be moved here for those spaces to seem less crazy.  How much?}
 
