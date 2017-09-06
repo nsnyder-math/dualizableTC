@@ -55,6 +55,17 @@ Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)
 
 \CDcomm{We should also precisely describe the data required to give a G-homotopy fixed point, for each of the discussed groups.  And for each group we should also explicitly describe the map $G \ra Aut(X)$ in terms of the given data defining $BG \ra BAut(X)$.}
 
+
+
+
+Which group actions do we care about?  The main group we care about is $SO(3)$ because that's the group that comes up in studying oriented field theories in the cobordism hypothesis.  But there are closely related groups which come up which we also want to address.  In all cases we only care about the 3-type of the group.
+
+\begin{itemize}
+\item Subgroups of $SO(3)$ (namely $SO(2)$)
+\item 
+\end{itemize}
+
+
 \subsection{General remarks}
 
 Why? The cobordism hypothesis tells us that $Hom^{\otimes}(GBord_n,C) = ((dC)^{\sim})^{hG}$, where $dC$ is the maximal symmetric monoidal sub-n-category of C with duals, and the $\sim$ denotes the maximal sub-n-groupoid.  Note that $(dC)^\sim$ is a homotopy $n$-type.  Thus we want to describe explicitly the structure of $G$ actions on $n$-types.  (In fact, the description we give will apply to actions on discrete $n$-categories that are not necessarily $n$-groupoids \CDcomm{(right?)}, but such a case is not relevant for cobordism hypothesis applications and we will not mention it explicitly.)
@@ -66,13 +77,19 @@ If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-
 
 \section{Introduction}
 
-This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a homotopy 3-type.  An action of $SO(3)$ on $X$ is the same thing as map of homotopy coherent groups $SO(3) \rightarrow \mathrm{Aut}(X)$ which is turn the same thing as a map of spaces $BSO(3) \rightarrow B\mathrm{Aut}(X)$.  To give an explicit collection of data describing such a map we need a CW description of $BSO(3)$.  Since $X$ is a $3$-type, $B\mathrm{Aut}(X)$ is a $4$-type, so it is enough to understand $BSO(3)$ as a $4$-type.
+This purpose of this paper is to give an explicit description of what it means to give a homotopy $SO(3)$-action on a homotopy 3-type and to give an explicit description of the $SO(3)$ homotopy fixed points for such an action.  These descriptions will be based on the cellular structure of the $4$-type of $BSO(3)$ with each cell giving a piece of data.  To describe this structure in sufficient detail we will need to give explicit descriptions of the attaching maps using Pontryagin--Thom.  We also explain what it means to give an action and what the homotopy fixed points are for a number of closely related groups like $SO(2)$, $\Omega S^2$, $Spin(3)$, and $Orpo(3)$.  These groups are either subgroups of $SO(3)$, groups given by killing certain characteristic classes in $SO(3)$, or loop groups of truncations of a cellular description of $BSO(3)$.
+
+All of the results in this paper are purely homotopy theoretic and for the most part elementary, but the motivation for them comes from topological field theory.  Namely, the cobordism hypothesis says that the space of fully local framed $3$-dimensional TFTs with values in a symmetric monoidal $3$-category $\cC$ is equivalent to the space $X$ of fully dualizable objects in $\cC$, that $O(n)$ has a homotopy coherent action on $X$ by changing framing, and that the $SO(n)$ homotopy fixed points classify oriented TFTs.  If $\cC$ is a discrete $3$-category (as opposed to an $(\infty,3)$-category), then $X$ is a homotopy $3$-type.  Thus it is natural to ask exactly how much information is contained in the statement that $SO(3)$ acts on $X$, and exactly how much information you need to give an $SO(3)$ homotopy fixed point.  In later papers we will give applications of the purely homotopy theoretic results in this paper to the example of finite tensor categories.  Most significantly, we will translate each part of the data of giving an action of $SO(3)$ into a theorem about finite tensor categories (one of which is Radford's theorem), and we will see that a spherical structure on a fusion category gives an $SO(3)$ homotopy fixed point and thus a fully local TFT which extends the Turaev-Viro theory, but we will also see that there are other $SO(3)$ homotopy fixed points.
+
+
+An action of $SO(3)$ on $X$ is the same thing as map of homotopy coherent groups $SO(3) \rightarrow \mathrm{Aut}(X)$ which is turn the same thing as a map of spaces $BSO(3) \rightarrow B\mathrm{Aut}(X)$.  To give an explicit collection of data describing such a map we need a CW description of $BSO(3)$.  Since $X$ is a $3$-type, $B\mathrm{Aut}(X)$ is a $4$-type, so it is enough to understand $BSO(3)$ as a $4$-type.  Recall that in order to get the right $\pi_4$ we will need to include $5$-cells in our description of $BSO(3)$.
 
 \begin{theorem}
 $BSO(3)$ has the same $4$-type as the CW complex with one $2$-cell, one $3$-cell attached to $S^2$ via the degree $2$ map (yielding $\Sigma \mathbb{R}P^2$), one $4$-cell attached to $S^2$ via the Hopf map, and one $5$-cell attached to $\Sigma \mathbb{R}P^2$ via the generator of $\pi_4(\Sigma \mathbb{R}P^2) = \mathbb{Z}/4\mathbb{Z}$.
 \end{theorem}
 
-This yield the following explicit description of a homotopy coherent $SO(3)$ action on a $3$-type.
+Using Pontryagin--Thom each of these attaching maps have explicit descriptions.  This yield the following explicit description of a homotopy coherent $SO(3)$ action on a $3$-type.
+
 
 \begin{itemize}
 \item An assignment to every point $x$ a $2$-loop $S_x: \mathrm{Id}_x \rightarrow \mathrm{Id}_x$.
@@ -93,7 +110,7 @@ This yield the following explicit description of a homotopy coherent $SO(3)$ act
 
 
 \subsection*{Acknowledgments}
-CSP would like to thank Peter Teichner for several fruitful conversations about the difference between $\Omega \Sigma \RR \PP^2$-actions and $SO(3)\langle p_1 \rangle$-actions.
+CSP would like to thank Peter Teichner for several fruitful conversations about the difference between $\Omega \Sigma \RR \PP^2$-actions and $SO(3)\langle p_1 \rangle$-actions.  NS would like to thank Prasit Bhattacharya for many long conversations in the tea room without which I would not have been able to understand much of this paper.  GRANT STUFF
 
 
 
