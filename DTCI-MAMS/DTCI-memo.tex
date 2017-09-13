@@ -216,7 +216,7 @@ Associated to every finite tensor category is a categorified 2-dimensional 2-fra
 
 \subsection{On quadruple duals}
 
-The loop bordism depicted above can be decomposed into two half-loops, which may be identified respectively as an evaluation map (witnessing the 1-dualizability of a point in the bordism category) and an adjoint to that evaluation map.  (This decomposition is depicted in Figure~\ref{fig:serrebordism}.)  Because any finite tensor category is 2-dualizable, each of these half-loops has an image under the associated field theory, and those images may be computed algebraically in the target category.  The result of that computation yields the fundamental connection between the topology of framed manifolds and the algebra of tensor categories:
+The loop bordism depicted above can be decomposed into two half-loops, which may be identified respectively as an evaluation map (witnessing the 1-dualizability of a point in the bordism category) and an adjoint to that evaluation map.  (This decomposition is depicted in Figure~\ref{fig:serrebordism} in Section~\ref{sec:Serre}.)  Because any finite tensor category is 2-dualizable, each of these half-loops has an image under the associated field theory, and those images may be computed algebraically in the target category.  The result of that computation yields the fundamental connection between the topology of framed manifolds and the algebra of tensor categories:
 \begin{maintheorem} \label{thm6}
 The field theory $\cF_\cC$ of a finite tensor category $\cC$ takes the loop bordism to the bimodule associated to the right double dual functor $(-)^{**}: \cC \ra \cC$.
 \end{maintheorem}
@@ -280,6 +280,7 @@ The $SO(2)$ action on finite tensor categories is simple to describe on objects:
 \begin{mainconj}
 Every pivotal fusion category in characteristic zero admits the structure of an $SO(2)$ homotopy fixed point, and therefore provides the structure of a combed 3-dimensional local field theory.
 \end{mainconj}
+\nid (A combed 3-manifold is one equipped with a nonvanishing vector field.)
 
 A pivotal tensor category has a chosen trivialization of the double dual; by squaring that trivialization, there is a chosen trivialization of the quadruple dual, and therefore of the bimodule associated to the quadruple dual.  But any finite tensor category has a canonical trivialization of that quadruple dual bimodule, namely the Radford equivalence.  A \emph{spherical} structure on a finite tensor category (with absolutely simple unit) is a pivotal structure whose square is the Radford equivalence.  When the tensor category is semisimple, this notion agrees with the classical notion of sphericality (a condition on the quantum trace of the pivotal structure), but this notion of sphericality as a square root of the Radford equivalence is the correct generalization to non-semisimple finite tensor categories.  
 
@@ -1496,7 +1497,7 @@ We review the theory of linear categories, tensor categories, finite tensor cate
 
 Let $k$ be an arbitrary field.  Let $\overline{\Vect}_k$ denote the category of (possibly infinite-dimensional) $k$-vector spaces, and let $\Vect_k$ denote the category of finite-dimensional $k$-vector spaces.  A \emph{linear category} is an abelian category with a compatible enrichment over $\overline{\Vect}_k$---compatible in the sense that the enriched addition of morphisms agrees with the given abelian structure.  A \emph{linear functor} is a right exact $\overline{Vect}_k$-enriched functor. 
 
-\begin{warning}
+\begin{warning} \label{warning-rightexact}
 Except where explicitly indicated otherwise, \emph{all linear functors in this paper are right exact}---a functor postulated as linear is assumed to be right exact, and the claim that a particular functor is linear includes the claim that it is right exact.  We realize this practice deviates from the convention in the literature.  However, the fundamental operation of composition of bimodule categories is only functorial with respect to right exact functors; right exactness is our proper context, and it streamlines the presentation to build it into the notion of linear functor.
 \end{warning}
 
@@ -1553,7 +1554,7 @@ satisfying the evident pentagon identity and triangle identities.  We will use t
 
 The notions of functor between module categories and transformation of such functors are as expected:
 \begin{definition}
-A \emph{left $\cC$-module functor} from the $\cC$-module category $\cM$ to the $\cC$-module category $\cN$ is a linear functor $\cF: \cM \ra \cN$ together with a natural isomorphism $f_{c,m}:\cF(c \otimes m) \rightarrow c \otimes \cF(m)$ satisfying the evident pentagon relation and triangle relation.  A right module functor and a bimodule functor are defined similarly.
+A \emph{left $\cC$-module functor} from the $\cC$-module category $\cM$ to the $\cC$-module category $\cN$ is a (right exact) linear functor $\cF: \cM \ra \cN$ together with a natural isomorphism $f_{c,m}:\cF(c \otimes m) \rightarrow c \otimes \cF(m)$ satisfying the evident pentagon relation and triangle relation.  A right module functor and a bimodule functor are defined similarly.
 \end{definition}
 \begin{definition}
 A \emph{left $\cC$-module transformation} from the $\cC$-module functor $\cF$ to the $\cC$-module functor $\cG$ is a natural transformation $\eta: \cF \ra \cG$ satisfying the condition $(\id_c \otimes \eta_m) \circ f_{c,m} = g_{c,m} \circ \eta_{c \otimes m}$.  Right module transformations and bimodule transformations are defined similarly.
@@ -1600,13 +1601,13 @@ Let $\cC$ be a finite tensor category, and let $\cM$ be a finite $\cC$-module ca
 In the 2-category of algebras, bimodules, and bimodule maps, the composition of the 1-morphisms $_A M_B$ and $_B N_C$ is given by the balanced tensor product of bimodules, $_A M \otimes_B N_C$.  A categorification of this construction, the balanced tensor product of bimodule categories over monoidal categories (also known as the relative Deligne tensor product), provides the crucial composition of 1-morphisms in the 3-category of finite tensor categories.
 
 \begin{definition}
-	Let $\cC$ be a linear monoidal category.  Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. A {\em $\cC$-balanced functor} from $\cM \times \cN$ into a linear category $\cL$ is a bilinear functor $\cF: \cM \times \cN \to \cL$ together with a natural isomorphism $\alpha: \cF \circ (\otimes^{\cM} \times \id_{\cN}) \cong \cF \circ (\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon identity. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:\cF \to \cG$ of $\cC$-balanced functors commuting with the isomorphism $\alpha$.
+	Let $\cC$ be a linear monoidal category.  Let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category. A {\em $\cC$-balanced functor} from $\cM \times \cN$ into a linear category $\cL$ is a bilinear functor $\cF: \cM \times \cN \to \cL$ (right exact in each variable), together with a natural isomorphism $\alpha: \cF \circ (\otimes^{\cM} \times \id_{\cN}) \cong \cF \circ (\id_{\cM} \times \otimes^{\cN})$ satisfying the evident pentagon and triangle identities. A {\em $\cC$-balanced transformation} is a natural transformation $\eta:\cF \to \cG$ of $\cC$-balanced functors commuting with the isomorphism $\alpha$.
 \end{definition}
 
 The relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is the initial linear category admitting a $\cC$-balanced bilinear functor from $\cM \times \cN$:
 
 \begin{definition}
-	For $\cC$ a linear monoidal category, let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category.  The {\em relative Deligne tensor product} is a linear category $\cM \boxtimes_{\cC} \cN$ together with a $\cC$-balanced bilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ that induces, for all linear categories $\cL$, an equivalence between the category of $\cC$-balanced bilinear functors $\cM \times \cN \to \cL$ and the category of linear functors $\cM \boxtimes_{\cC} \cN \to \cL$. 
+	For $\cC$ a linear monoidal category, let $\cM$ be a right $\cC$-module category and let $\cN$ be a left $\cC$-module category.  The {\em relative Deligne tensor product} is a linear category $\cM \boxtimes_{\cC} \cN$ together with a $\cC$-balanced bilinear functor $\boxtimes_{\cC}: \cM \times \cN \to \cM \boxtimes_{\cC} \cN$ that induces, for all linear categories $\cL$, an equivalence between the category of $\cC$-balanced bilinear functors $\cM \times \cN \to \cL$ and the category of (right exact) linear functors $\cM \boxtimes_{\cC} \cN \to \cL$. 
 \end{definition}
 
 \nid If it exists, the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is unique up to equivalence, and that equivalence is in turn unique up to unique natural isomorphism; in other words, the 2-category of linear categories representing the relative Deligne tensor product is either contractible or empty.  Observe that because it is defined by a universal property, when it exists the relative Deligne tensor product $\cM \boxtimes_\cC \cN$ is functorial in the module categories $\cM$ and $\cN$ and in the monoidal category $\cC$.
@@ -3366,7 +3367,7 @@ from the $(\infty,n)$-category of $(X,\xi)$-structured field theories with targe
 \backmatter
 
 \bibliographystyle{amsalpha}
-\bibliography{dtcbib}
+\bibliography{dtci-memo}
 \end{document}
 
 
