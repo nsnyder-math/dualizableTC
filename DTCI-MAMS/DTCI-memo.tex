@@ -1710,7 +1710,7 @@ The second item is proven as \cite[Prop. 3.11]{EO-ftc} and \cite[Prop. 7.6.9]{eg
 			};
 	\end{tikzpicture}
 	\end{center}
-Because $\cM$ is exact, the tensor $p \otimes z$ is projective, so the sequence $0 \ra p \otimes x \ra p \otimes y \ra p \otimes z \ra 0$ is split exact; thus the middle row of this diagram is exact. The columns are all exact because the action map is biexact, by Corollary~\ref{cor:biexact_action}.  A diagram chase shows that $F(y) \ra F(z) \ra 0$ is exact, and therefore $k \otimes F(y) \ra k \otimes F(z) \ra 0$ is exact.  Further diagram chasing then shows that $F(x) \ra F(y) \ra F(z)$ is exact, and so $k \otimes F(x) \ra k \otimes F(y) \ra k \otimes F(z)$ is too.  A final diagram chase gives that $0 \ra F(x) \ra F(y)$ is exact, completing the argument.
+Because $\cM$ is exact, the tensor $p \otimes z$ is projective, so the sequence $0 \ra p \otimes x \ra p \otimes y \ra p \otimes z \ra 0$ is split exact; thus, because the functor $F$ is additive, the middle row of this diagram is exact. The columns are all exact because the action map is biexact, by Corollary~\ref{cor:biexact_action}.  A diagram chase shows that $F(y) \ra F(z) \ra 0$ is exact; applying Corollary~\ref{cor:biexact_action}, it follows that $k \otimes F(y) \ra k \otimes F(z) \ra 0$ is exact.  Further diagram chasing then shows that $F(x) \ra F(y) \ra F(z)$ is exact, and so, again by Corollary~\ref{cor:biexact_action}, it follows that $k \otimes F(x) \ra k \otimes F(y) \ra k \otimes F(z)$ is also exact.  A final diagram chase gives that $0 \ra F(x) \ra F(y)$ is exact, completing the argument.
 
 
 \subsection{The tensor product of exact module categories is exact} \label{sec:tensorexact}
@@ -1739,7 +1739,7 @@ Let $\cC$ and $\cD$ be finite tensor categories over a perfect field.  If $\cM$ 
 
 
 \begin{proof} 
-First observe that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective.  This closure property follows from parts (4) and (5) of Theorem \ref{thm:DelignePrdtOverATCExists}.
+First observe that the Deligne tensor product preserves projective and injective objects in the following sense: if $m \in \cM$ and $n \in \cN$ are both projective, equivalently injective, objects, then $m \boxtimes n \in \cM \boxtimes \cN$ is also projective and injective.  This closure property follows from parts (4) and (6) of Theorem \ref{thm:DelignePrdtOverATCExists}.  (By part (4), the functor $\Hom_{\cM \boxtimes \cN}(m \boxtimes n,-): \cM \boxtimes \cN \to \Vect$ corresponds to the bilinear functor $\Hom_{\cM}(m,-) \otimes \Hom_{\cN}(n,-): \cM \times \cN \to \Vect$.  The latter functor is exact in each variable because $m$ and $n$ are projective; by part (6) the former functor is therefore exact, and thus $m \boxtimes n$ is projective as required.  Injectivity follows similarly.)
 
 Let $\cP$ be the collection of objects of $\cC \boxtimes \cD$ of the form $p \boxtimes q$ for all projective objects $p \in \cC$ and $q \in \cD$.  This collection is a jointly generating family of projectives, as follows from expressing $\cC \boxtimes \cD$ as $(A \otimes B)\textrm{-}\mathrm{Mod}$ (using Proposition~\ref{prop:catismod} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}).
 
