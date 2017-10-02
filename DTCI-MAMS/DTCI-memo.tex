@@ -1758,15 +1758,15 @@ is exact in each of the variables $\cM$ and $\cN$ separately.  We show exactness
 
 Fix an object $n \in \cN$ and consider an exact sequence in $\cM$,
 \begin{align*}
-	m_1 \to m_2 \to m_3 \to 0. 
+	0 \to m_1 \to m_2 \to m_3 \to 0. 
 \end{align*}
 Set $z_i := ({}^* p \otimes m_i) \boxtimes ({}^* q \otimes n)$ and consider the resulting sequence
 \begin{equation*}
-	z_1 \to z_2 \to z_3 \to 0.
+	0 \to z_1 \to z_2 \to z_3 \to 0.
 \end{equation*}
 This sequence is exact because $(c \otimes -): \cM \ra \cM$ is exact for any object $c \in \cC$ (as tensoring with appropriate duals gives the adjoint functors) and $(- \boxtimes \tilde{n}) : \cM \ra \cM \boxtimes \cN$ is exact for any $\tilde{n} \in \cN$ (by part (4) of Theorem~\ref{thm:DelignePrdtOverATCExists}).  Moreover, the objects $z_i$ are all injective: the dual of a projective object of a finite tensor category is projective \cite[Prop. 2.3]{EO-ftc}, hence the objects ${}^* p \otimes m_i$ and ${}^* q \otimes n$ are projective, hence injective by part (1) of Theorem~\ref{Thm:ExactModCatOmnibus}, and so the product $({}^* p \otimes m_i) \boxtimes ({}^* q \otimes n)$ is injective by the closure property.
 
-We are left to show that for any object $x \in \cM \boxtimes \cN$, the sequence $\Hom(x,z_1) \to \Hom(x,z_2) \to \Hom(x,z_3) \to 0$ is exact.  Using Theorem~\ref{thm:EGNO2.11.6} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}, note that there is a short exact sequence
+We are left to show that for any object $x \in \cM \boxtimes \cN$, the sequence $0 \to \Hom(x,z_1) \to \Hom(x,z_2) \to \Hom(x,z_3) \to 0$ is exact.  Using Theorem~\ref{thm:EGNO2.11.6} and part (2) of Theorem~\ref{thm:DelignePrdtOverATCExists}, note that there is a short exact sequence
 \begin{equation*}
 	0 \to x'' \to x' \to x \to 0
 \end{equation*}
@@ -1774,9 +1774,9 @@ where $x'$ is a primitive tensor, that is an object of the form $a \boxtimes b$,
 \[
 		\begin{tikzpicture} \matrix (m) [matrix of math nodes, row sep={1cm,between origins}] {
 		 &[0.5cm] 0 &[1cm] 0 &[1cm] 0 &[0.5cm]  \\ 
-		 & \Hom(x, z_1) & \Hom(x, z_2) & \Hom(x, z_3) & \\ 
-		 & \Hom(x', z_1) & \Hom(x', z_2) & \Hom(x', z_3) & 0 \\
-		 & \Hom(x'', z_1) & \Hom(x'', z_2) & \Hom(x'', z_3) & \\
+		 0 & \Hom(x, z_1) & \Hom(x, z_2) & \Hom(x, z_3) & \\ 
+		 0 & \Hom(x', z_1) & \Hom(x', z_2) & \Hom(x', z_3) & 0 \\
+		 0 & \Hom(x'', z_1) & \Hom(x'', z_2) & \Hom(x'', z_3) & \\
 		& 0 & 0 & 0 & \\
 		};
 		\foreach \sourcerow/ \sourcecol / \targetrow / \targetcol in 
@@ -1785,15 +1785,15 @@ where $x'$ is a primitive tensor, that is an object of the form $a \boxtimes b$,
 			3/2/4/2, 3/3/4/3, 3/4/4/4,  % third row of down arrows
 			4/2/5/2, 4/3/5/3, 4/4/5/4,  % fourth row of down arrows
 			%2/1/2/2, 
-			2/2/2/3, 2/3/2/4, % first row of horiz arrows
+			2/1/2/2, 2/2/2/3, 2/3/2/4, % first row of horiz arrows
 			%3/1/3/2, 
-			3/2/3/3, 3/3/3/4, 3/4/3/5, % second row of horiz arrows
+			3/1/3/2, 3/2/3/3, 3/3/3/4, 3/4/3/5, % second row of horiz arrows
 			%4/1/4/2, 
-			4/2/4/3, 4/3/4/4} % third row of horiz arrows
+			4/1/4/2, 4/2/4/3, 4/3/4/4} % third row of horiz arrows
 			\draw [->] (m-\sourcerow-\sourcecol) -- (m-\targetrow-\targetcol);
 		\end{tikzpicture}
 \]
-The columns are exact because the objects $z_i$ are injective.  The middle row is exact because $x'$ is a primitive tensor.  A diagram chase shows that the map $\Hom(x,z_2) \ra \Hom(x,z_3)$ is surjective, and hence $\Hom((p \boxtimes q) \otimes x,-)$ is right exact, as required.
+The columns are exact because the objects $z_i$ are injective.  The top and bottom rows are exact because the functor $\Hom(\tilde{x},-)$ is left exact for any $\tilde{x} \in \cM \boxtimes \cN$.  The middle row is exact because $x'$ is a primitive tensor.  A diagram chase shows that the map $\Hom(x,z_2) \ra \Hom(x,z_3)$ is surjective, and hence $\Hom((p \boxtimes q) \otimes x,-)$ is exact, as required.
 \end{proof}
 
 \begin{remark}
