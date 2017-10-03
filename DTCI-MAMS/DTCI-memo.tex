@@ -48,7 +48,7 @@ CD was partially supported by a Miller Research Fellowship and by EPSRC grant EP
 
 \mainmatter
 
-%\tikzset{external/force remake}
+\tikzset{external/force remake}
 %\tikzset{external/export next=false}
 
 %\titlespacing*{\chapter}{0pt}{-50pt}{40pt}
@@ -433,7 +433,78 @@ The following infinite list includes, up to homotopy, all normally framed immers
 }
 \quad \cdots
 \]
-As described above, each such immersion specifies a $2$-framed circle, and in fact all $2$-framed circles are so specified.  Suppose we have a $2$-framing $\tau: TM \oplus \RR \xra{\cong} \RR^2$ on a closed connected 1-manifold $M$.  Let $\jmath$ denote the orientation of $M$ such that for any point $p \in M$, the pair $(\tau(\jmath,0),\tau(0,1))$ is a positive frame of $\RR^2$.  This orientation provides another $2$-framing of $M$, namely $\sigma: TM \oplus \RR \xra{\jmath \oplus \id} \RR^2$.  The ratio $\sigma/\tau$ is a map $M \ra SO(2)$.  Because $M$ is oriented, by $\jmath$, the set of homotopy classes of maps $M \ra SO(2)$ is canonically identified with the integers.  We therefore have a $\ZZ$-valued invariant of such $2$-framed 1-manifolds, and in fact this procedure produces a bijection from the $2$-framed diffeomorphism classes of $2$-framed closed connected 1-manifolds to the integers---the above picture provides a representative from each diffeomorphism class.
+As described above, each such immersion specifies a $2$-framed circle.\footnote{The resulting $2$-framed circles can be directly depicted as follows.  Orient each normally framed immersed circle so that the orientation followed by the normal framing is a positive frame of the plane.  Identify the immersed circle with the standard circle $C := [0,1] / 0\!\!\sim\!\!1$, by an orientation-preserving diffeomorphism taking the top point of the immersed circle to $0 \in C$.  A $2$-framing of $C$ is a trivialization of $TC \oplus \RR = C \times \RR^2$; we may draw this trivialization as a sequence of frames in $\RR^2$.  The middle three immersed circles above correspond respectively to the following three sequences of frames.  Here the shorter bar is the first frame vector, and the longer bar is the second frame vector.  Note that the middle sequence of frames is homotopic to the constant framing.
+\[
+\cb{
+\begin{tikzpicture}[line cap=rect,scale=2.25]
+{ [xshift=-1.5cm]
+\draw[line width=\framebasewidth,\framebasecolor] (0,0) to (1,0);
+\draw[line width=\framewidth] (0,0) -- (0:\framelengthshort);
+\draw[line width=\framewidth] (0,0) -- (90:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(\seqstep,0) -- ++(60:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(\seqstep,0) -- ++(150:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(2*\seqstep,0) -- ++(120:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(2*\seqstep,0) -- ++(210:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(3*\seqstep,0) -- ++(180:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(3*\seqstep,0) -- ++(270:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(4*\seqstep,0) -- ++(240:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(4*\seqstep,0) -- ++(330:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(5*\seqstep,0) -- ++(300:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(5*\seqstep,0) -- ++(30:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(6*\seqstep,0) -- ++(0:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(6*\seqstep,0) -- ++(90:\framelengthlong);
+}
+{ [xshift=0cm]
+\draw[line width=\framebasewidth,\framebasecolor] (0,0) to (2,0);
+\draw[line width=\framewidth] (0,0) -- (0:\framelengthshort);
+\draw[line width=\framewidth] (0,0) -- (90:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(\seqstep,0) -- ++(60:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(\seqstep,0) -- ++(150:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(2*\seqstep,0) -- ++(120:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(2*\seqstep,0) -- ++(210:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(3*\seqstep,0) -- ++(180:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(3*\seqstep,0) -- ++(270:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(4*\seqstep,0) -- ++(120:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(4*\seqstep,0) -- ++(210:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(5*\seqstep,0) -- ++(60:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(5*\seqstep,0) -- ++(150:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(6*\seqstep,0) -- ++(0:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(6*\seqstep,0) -- ++(90:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(7*\seqstep,0) -- ++(-60:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(7*\seqstep,0) -- ++(30:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(8*\seqstep,0) -- ++(-120:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(8*\seqstep,0) -- ++(-30:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(9*\seqstep,0) -- ++(-180:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(9*\seqstep,0) -- ++(-90:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(10*\seqstep,0) -- ++(-120:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(10*\seqstep,0) -- ++(-30:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(11*\seqstep,0) -- ++(-60:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(11*\seqstep,0) -- ++(30:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(12*\seqstep,0) -- ++(0:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(12*\seqstep,0) -- ++(90:\framelengthlong);
+}
+{ [xshift=2.5cm]
+\draw[line width=\framebasewidth,\framebasecolor] (0,0) to (1,0);
+\draw[line width=\framewidth] (0,0) -- (180:\framelengthshort);
+\draw[line width=\framewidth] (0,0) -- (270:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(\seqstep,0) -- ++(120:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(\seqstep,0) -- ++(210:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(2*\seqstep,0) -- ++(60:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(2*\seqstep,0) -- ++(150:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(3*\seqstep,0) -- ++(0:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(3*\seqstep,0) -- ++(90:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(4*\seqstep,0) -- ++(-60:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(4*\seqstep,0) -- ++(30:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(5*\seqstep,0) -- ++(-120:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(5*\seqstep,0) -- ++(-30:\framelengthlong);
+\draw[line width=\framewidth] (0,0) ++(6*\seqstep,0) -- ++(-180:\framelengthshort);
+\draw[line width=\framewidth] (0,0) ++(6*\seqstep,0) -- ++(-90:\framelengthlong);
+}
+\end{tikzpicture}
+}
+\]
+}
+In fact all $2$-framed circles are specified by such an immersed circle.  Suppose we have a $2$-framing $\tau: TM \oplus \RR \xra{\cong} \RR^2$ on a closed connected 1-manifold $M$.  Let $\jmath$ denote the orientation of $M$ such that for any point $p \in M$, the pair $(\tau(\jmath,0),\tau(0,1))$ is a positive frame of $\RR^2$.  This orientation provides another $2$-framing of $M$, namely $\sigma: TM \oplus \RR \xra{\jmath \oplus \id} \RR^2$.  The ratio $\sigma/\tau$ is a map $M \ra SO(2)$.  Because $M$ is oriented, by $\jmath$, the set of homotopy classes of maps $M \ra SO(2)$ is canonically identified with the integers.  We therefore have a $\ZZ$-valued invariant of such $2$-framed 1-manifolds, and in fact this procedure produces a bijection from the $2$-framed diffeomorphism classes of $2$-framed closed connected 1-manifolds to the integers---the above picture provides a representative from each diffeomorphism class.
 \end{example}
 
 \begin{remark}
@@ -449,7 +520,11 @@ Though the 1-framing on the circle cannot be represented by a normally framed im
 
 \subsection{$n$-framings with boundary and corners}
 
-The procedure described above for associating an $n$-framed manifold to a normally framed immersion works as stated also for manifolds with boundary or manifolds with corners.  Moreover, when the immersed manifold is a bordism, we can fix conventions for how a normal framing (therefore $n$-framing) on the bulk induces a normal framing (therefore $n$-framing) on the source and target boundary.  For a bordism $M$ with boundary but without corners, each boundary component is labelled ``in" or ``out" according to whether it is part of the source or target of the bordism.  Suppose $(\iota, \phi)$ is a normally framed immersion of $M$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is simply the restriction of the immersion of $M$, and the framing is $(l,s) \subset \nu(N,\RR^n)$, where $l$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Similarly an outgoing boundary component inherits the normal framing $(-l,s)$, that is the first normal frame vector points out of the bulk manifold.  Given a higher bordism (that is a manifold $M$ with cuspidal corners representing a higher morphism in a bordism $n$-category), equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension-0 submanifolds of the boundary of $M$) inherit normal framings exactly as described for ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this process provides consistently defined normal framings to every corner of the higher bordism $M$.  We provide various examples of such manifolds and the associated induced framings in the next section.
+The procedure described above for associating an $n$-framed manifold to a normally framed immersion works as stated also for manifolds with boundary or manifolds with corners.  
+
+When the immersed manifold is a bordism, we can fix conventions for how a normal framing (therefore $n$-framing) on the bulk induces a normal framing (therefore $n$-framing) on the source and target boundary.  For a bordism $M$ with boundary but without corners, each boundary component is labelled ``in" or ``out" according to whether it is part of the source or target of the bordism.  Suppose $(\iota, \phi)$ is a normally framed immersion of $M$.  An incoming boundary component $N \subset (\partial M)_{\textrm{in}}$ inherits the structure of a normally framed immersion: the immersion is simply the restriction of the immersion of $M$, and the framing is $(l,s) \subset \nu(N,\RR^n)$, where $l$ is a section of the normal bundle of $N$ pointing into the bulk manifold $M$, and $s \subset \nu(M,\RR^n)$ is the given normal frame of $M$.  Similarly an outgoing boundary component inherits the normal framing $(-l,s)$, that is the first normal frame vector points out of the bulk manifold.  
+
+Given a higher bordism (that is a manifold $M$ with cuspidal corners representing a higher morphism in a bordism $n$-category), equipped with a normally framed immersion, the incoming and outgoing boundaries (which are now codimension-0 submanifolds of the boundary of $M$) inherit normal framings exactly as described for ordinary bordisms.  Furthermore, the boundaries of these boundaries inherit normal framings by the same procedure.  Iterating this process provides consistently defined normal framings to every corner of the higher bordism $M$.  We provide various examples of such manifolds and the associated induced framings in the next section.
 
 In drawing $n$-framed manifolds with boundary and corners, we need to specify not only the immersion and the normal framing, but also which parts of the boundary are incoming and which outgoing.  Outgoing pieces of the boundary will be indicated by small arrows pointing out of the bulk of the manifold; incoming pieces of the boundary will be undecorated---implicitly the arrows would point into the bulk.  When the immersion is codimension zero, the outgoing boundary arrows may be replaced by a gray corona, which serves to directly record the induced normal framing of those parts of the boundary; for incoming boundaries, the implicit gray corona, recording the normal framing of those parts of the boundary, is again covered by the bulk and so cannot be seen.  At corners, a combination of these indications will be used; for instance, an arrow together with a corona on a codimension-2 corner indicates respectively the first and second vectors of the induced framing on the corner.
 
@@ -669,6 +744,7 @@ We refer to the first of these points as the positively framed point, $\pt_+$, a
 	\hspace{1.5cm}
 	$\coev :=$ \cb{
 	\begin{tikzpicture}
+	\draw[emptylinestyle, white] (0,.1) -- (0,-2*\smcirclerad) -- +(0,-.1);
 	\draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
 	\begin{pgfonlayer}{background}
 		\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
@@ -788,21 +864,49 @@ As our notation for $n$-framed manifolds permits immersed rather than embedded m
 \]
 \end{example}
 
-The 1-morphism $\ev^L$ itself has a left adjoint $\ev^{LL}$, which itself has a left adjoint, and so on, and similarly $\ev^R$ itself has a right adjoint $\ev^{RR}$, which has a right adjoint, and so on.  The 1-morphism $\coev$ also has an infinite chain of left and right adjoints.  These various adjunctions are illustrated in Figure~\ref{fig:adjointchains}.  (The chain of adjoints of the evaluation extends as follows: the 1-morphism $\ev^{LLL}$ appears as $\ev^L$ except with the addition of two loops on the inside, and $\ev^{LLLL}$ appears as $\ev^{LL}$ except with four loops on the outside; in the other direction the 1-morphism $\ev^{RR}$ appears as $\ev$ except with the addition of two loops on the inside, and $\ev^{RRR}$ appears as $\ev^R$ except with four loops on the outside.)  %Similarly for the chain of adjoints for the coevaluation: in the sequence $\coev$, $\coev^{LL}$, $\coev^{LLLL}$, ..., each step has two more outer loops, while in the sequence $\coev$, $\coev^{RR}$, $\coev^{RRRR}$, ..., each step has two more inner loops; in the sequence $\coev^L$, $\coev^{LLL}$, $\coev^{LLLLL}$ ..., each step has two more inner loops, while in the sequence $\coev^L$, $\coev^R$, $\coev^{RRR}$, ..., each step has two more outer loops.)  
+The 1-morphism $\ev^L$ itself has a left adjoint $\ev^{LL}$, which itself has a left adjoint, and so on, and similarly $\ev^R$ itself has a right adjoint $\ev^{RR}$, which has a right adjoint, and so on.  The 1-morphism $\coev$ also has an infinite chain of left and right adjoints.  These various adjunctions are illustrated in Figure~\ref{fig:adjointchains}.  (The chain of adjoints of the evaluation extends as follows: the 1-morphism $\ev^{LLLL}$ appears as $\ev^{LL}$ except with four loops, while $\ev^{RRR}$ appears as $\ev^R$ except with four loops.  The chain of adjoints of the coevaluation extends similarly.) %the 1-morphism $\ev^{LLL}$ appears as $\ev^L$ except with the addition of two loops on the inside, and $\ev^{LLLL}$ appears as $\ev^{LL}$ except with four loops on the outside; in the other direction the 1-morphism $\ev^{RR}$ appears as $\ev$ except with the addition of two loops on the inside, and $\ev^{RRR}$ appears as $\ev^R$ except with four loops on the outside.)  %Similarly for the chain of adjoints for the coevaluation: in the sequence $\coev$, $\coev^{LL}$, $\coev^{LLLL}$, ..., each step has two more outer loops, while in the sequence $\coev$, $\coev^{RR}$, $\coev^{RRRR}$, ..., each step has two more inner loops; in the sequence $\coev^L$, $\coev^{LLL}$, $\coev^{LLLLL}$ ..., each step has two more inner loops, while in the sequence $\coev^L$, $\coev^R$, $\coev^{RRR}$, ..., each step has two more outer loops.)  
 The existence of these two chains of adjunctions shows that the 2-framed bordism 2-category is 2-dualizable.
 
 
 \begin{figure}[ht]
 \[
 \cdots
-\hspace{.15cm}
+\hspace{.2cm}
 \dashv
-\hspace{.3cm}
+\hspace{.2cm}
 %
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
+%
+\cb{
+\begin{tikzpicture}[rotate=-90]
+\draw[linestyle,fuzzleft]
+(.5,.2) to [out=-90, in=25] (.3,-.3)
+	to [looseness=1.6, out=-155, in=225] (.15,-.15)
+	to [looseness=1.6, out=45, in=65] (.3,-.3)
+	to [out=245, in=-65] (-.3,-.3)
+	to [looseness=1.6, out=115, in=135] (-.15,-.15)
+	to [looseness=1.6, out=-45, in=-25] (-.3,-.3)
+	to [out=155, in=-90] (-.5,.2);
+		\begin{pgfonlayer}{background}
+			\draw[->,outstyle] (.5,.2) -- +(90:\arrowlength);
+			\draw[->,outstyle] (-.5,.2) -- +(90:\arrowlength);
+		\end{pgfonlayer}	
+\end{tikzpicture}
+}
+%
+\hspace{.00cm}
+\dashv
+\hspace{.2cm}
+ %
+ %
 \setlength{\linewid}{15pt}
 \setlength{\fuzzwidth}{25pt}
 \setlength{\arrowlength}{80pt}
 \setlength{\arrowwidth}{7.5pt}
+%
 \cb{
 \scalebox{.1}{
 \begin{tikzpicture}
@@ -822,9 +926,9 @@ The existence of these two chains of adjunctions shows that the 2-framed bordism
 \setlength{\arrowlength}{8pt}
 \setlength{\arrowwidth}{.75pt}
 %
-\hspace{.25cm}
-\dashv
 \hspace{.2cm}
+\dashv
+\hspace{.1cm}
  %
 \cb{
 \begin{tikzpicture}
@@ -836,9 +940,9 @@ The existence of these two chains of adjunctions shows that the 2-framed bordism
 \end{tikzpicture}
 }
 %%%
-\hspace{.25cm}
+\hspace{.05cm}
 \dashv
-\hspace{.4cm}
+\hspace{.25cm}
 %%%
 \cb{
 \begin{tikzpicture}
@@ -846,7 +950,7 @@ The existence of these two chains of adjunctions shows that the 2-framed bordism
 \end{tikzpicture}
 }
 %
-\hspace{.2cm}
+\hspace{.1cm}
 \dashv
 \hspace{.25cm}
 %
@@ -872,18 +976,39 @@ The existence of these two chains of adjunctions shows that the 2-framed bordism
 \end{tikzpicture}
 }
 }
+%
+\hspace{.00cm}
+\dashv
+\hspace{.2cm}
+%
 \setlength{\linewid}{1.5pt}
 \setlength{\fuzzwidth}{2.5pt}
 \setlength{\arrowlength}{8pt}
 \setlength{\arrowwidth}{.75pt}
 %
-\hspace{.15cm}
+\cb{
+\begin{tikzpicture}[rotate=90]
+\draw[linestyle,fuzzleft]
+(.5,.2) to [out=-90, in=25] (.3,-.3)
+	to [looseness=1.6, out=-155, in=225] (.15,-.15)
+	to [looseness=1.6, out=45, in=65] (.3,-.3)
+	to [out=245, in=-65] (-.3,-.3)
+	to [looseness=1.6, out=115, in=135] (-.15,-.15)
+	to [looseness=1.6, out=-45, in=-25] (-.3,-.3)
+	to [out=155, in=-90] (-.5,.2);
+\end{tikzpicture}
+}
+%
+\hspace{.1cm}
 \dashv
-\hspace{.15cm}
+\hspace{.2cm}
 \cdots
 \]\vspace{1pt}
 
-\begin{tabularx}{.54\textwidth}{*4{>{\centering}X}}
+\hspace*{.1cm}
+\begin{tabularx}{.86\textwidth}{*6{>{\centering}X}}
+$\ev^{LLL}$
+&
 $\ev^{LL}$ 
 &
 $\ev^L$ 
@@ -891,14 +1016,38 @@ $\ev^L$
 $\ev$ 
 &
 $\ev^R$
+&
+$\ev^{RR}$
 \end{tabularx}
 
 \[
 \cdots 
-\hspace{.15cm}
+\hspace{.25cm}
 \dashv
 \hspace{.2cm}
 %
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
+%
+\cb{
+\begin{tikzpicture}[rotate=90]
+\draw[linestyle,fuzzright]
+(.5,.2) to [out=-90, in=25] (.3,-.3)
+	to [looseness=1.6, out=-155, in=225] (.15,-.15)
+	to [looseness=1.6, out=45, in=65] (.3,-.3)
+	to [out=245, in=-65] (-.3,-.3)
+	to [looseness=1.6, out=115, in=135] (-.15,-.15)
+	to [looseness=1.6, out=-45, in=-25] (-.3,-.3)
+	to [out=155, in=-90] (-.5,.2);
+\end{tikzpicture}
+}
+%
+\hspace{.15cm}
+\dashv
+\hspace{.25cm}
+ %
 \setlength{\linewid}{15pt}
 \setlength{\fuzzwidth}{25pt}
 \setlength{\arrowlength}{80pt}
@@ -927,9 +1076,9 @@ $\ev^R$
 \setlength{\arrowlength}{8pt}
 \setlength{\arrowwidth}{.75pt}
 %
-\hspace{.1cm}
+\hspace{-.05cm}
 \dashv
-\hspace{.35cm}
+\hspace{.25cm}
 %
 \cb{
 \begin{tikzpicture}
@@ -937,9 +1086,9 @@ $\ev^R$
 \end{tikzpicture}
 }
 %%%
-\hspace{.25cm}
+\hspace{.1cm}
 \dashv
-\hspace{.2cm}
+\hspace{.1cm}
 %%%
 \cb{
 \begin{tikzpicture}
@@ -952,7 +1101,7 @@ $\ev^R$
 \end{tikzpicture}
 }
 %
-\hspace{.2cm}
+\hspace{.05cm}
 \dashv
 \hspace{.25cm}
 %
@@ -974,17 +1123,48 @@ $\ev^R$
 \end{tikzpicture}
 }
 }
+%
+\hspace{.2cm}
+\dashv
+\hspace{.15cm}
+ %
 \setlength{\linewid}{1.5pt}
 \setlength{\fuzzwidth}{2.5pt}
 \setlength{\arrowlength}{8pt}
 \setlength{\arrowwidth}{.75pt}
 %
-\hspace{.25cm}
+\cb{
+\begin{tikzpicture}[rotate=-90]
+\draw[emptylinestyle, white] (.6,.2) -- (-.6,.2);
+\draw[linestyle,fuzzright]
+(.5,.2) to [out=-90, in=25] (.3,-.3)
+	to [looseness=1.6, out=-155, in=225] (.15,-.15)
+	to [looseness=1.6, out=45, in=65] (.3,-.3)
+	to [out=245, in=-65] (-.3,-.3)
+	to [looseness=1.6, out=115, in=135] (-.15,-.15)
+	to [looseness=1.6, out=-45, in=-25] (-.3,-.3)
+	to [out=155, in=-90] (-.5,.2);
+		\begin{pgfonlayer}{background}
+			\draw[->,outstyle] (.5,.2) -- +(90:\arrowlength);
+			\draw[->,outstyle] (-.5,.2) -- +(90:\arrowlength);
+		\end{pgfonlayer}	
+\end{tikzpicture}
+}
+\setlength{\linewid}{1.5pt}
+\setlength{\fuzzwidth}{2.5pt}
+\setlength{\arrowlength}{8pt}
+\setlength{\arrowwidth}{.75pt}
+%
+\hspace{-.05cm}
 \dashv
-\hspace{.15cm}
+\hspace{.2cm}
 \cdots
-\]
-\begin{tabularx}{.54\textwidth}{*4{>{\centering}X}}
+\]\vspace{1pt}
+
+\hspace*{.2cm}
+\begin{tabularx}{.87\textwidth}{*6{>{\centering}X}}
+$\coev^{LLL}$
+&
 $\coev^{LL}$ 
 &
 $\coev^L$ 
@@ -992,9 +1172,12 @@ $\coev^L$
 $\coev$ 
 &
 $\coev^R$
+&
+$\coev^{RR}$
 \end{tabularx}
 \caption{Two infinite chains of adjunctions of 2-framed bordisms.} \label{fig:adjointchains}
 \end{figure}
+
 
 \section{The Serre bordism and the Serre automorphism} \label{sec:Serre}
 
@@ -1002,6 +1185,7 @@ $\coev^R$
 It is possible to write any 2-framed 1-manifold bordism as a composite of the elementary pieces arising in Figure~\ref{fig:adjointchains}.  We illustrate this in practice with a crucial bordism, namely the one represented by the following normally-oriented immersed 1-manifold:
 \begin{center}
 \begin{tikzpicture}
+\draw[emptylinestyle, white] (.7,.1) -- (.7,-.1);
 \draw[linestyle,fuzzright] 
 (.7,0) to [out=180, in=-20] (0,.1)
 	to [looseness=1.6, out=160, in=180] (0,.4)
@@ -2538,7 +2722,6 @@ whose value $\cF_\cC(\pt_+)$ on the standard positively 2-framed point is the te
 \nid Note that this field theory is `categorified' in the sense that the invariants of closed 2-manifolds are not numbers, but vector spaces, and in the sense that it assigns an isomorphism of vector spaces to each isotopy class of diffeomorphisms of a surface.
 
 As in Section~\ref{sec:framed-duality}, we focus on the following standard positively 2-framed point $\pt_+$, together with the following chosen negatively 2-framed point, denoted $\pt_-$, and evaluation and coevaluation bordisms $\ev$ and $\coev$ witnessing a duality between $\pt_+$ and $\pt_-$:
-
 $$\cb{
 \begin{tikzpicture}
 \filldraw (0,0) circle (\pointrad);
@@ -2569,6 +2752,7 @@ $$\cb{
 ,
 \cb{
 \begin{tikzpicture}
+\draw[emptylinestyle, white] (0,.1) -- (0,-2*\smcirclerad) -- +(0,-.1);
 \draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
@@ -2616,6 +2800,7 @@ $\ev$ & $=$ & \cb{
 & &  \\[8pt]
 $\coev$ & $=$ & \cb{
 \begin{tikzpicture}
+\draw[emptylinestyle, white] (0,.1) -- (0,-2*\smcirclerad) -- +(0,-.1);
 \draw[linestyle,fuzzleft] (0,0) arc (90:270:\smcirclerad);
 \begin{pgfonlayer}{background}
 	\draw[->,outstyle] (0,0) -- +(0:\arrowlength);
@@ -2717,6 +2902,7 @@ The Serre automorphism $\cS_\cC$ of the finite tensor category $\cC$ is the doub
 \cF_\cC\left(
 \cb{
 \begin{tikzpicture}
+\draw[emptylinestyle, white] (.7,.1) -- (.7,-.1);
 \draw[linestyle,fuzzright] 
 (.7,0) to [out=180, in=-20] (0,.1)
 	to [looseness=1.6, out=160, in=180] (0,.4)
