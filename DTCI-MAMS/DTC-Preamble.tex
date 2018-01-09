@@ -15,17 +15,13 @@
 
 \usepackage{ifthen}		
 
-\setlength{\topskip}{0pt}
-\setlength{\footskip}{30pt}
-\headheight=0pt
-\topmargin=0pt
-\headsep=18pt
-\textheight=603pt %% 792pt to page, 648 is 9in
-\textwidth=420pt  %% 612pt to page, 468pt is 6.5in
-\oddsidemargin=25pt
-\evensidemargin=25pt
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+%\usepackage{titlesec}
 
-\pagestyle{plain}
+
+
+%\pagestyle{plain}
 
 \newcommand\ignore[1]{}
 
@@ -42,7 +38,6 @@
 %%%%%% Tikz !!! Commands and Macros %%%%%%%%%%%%%
 \usepackage{tikz}
 \usetikzlibrary{matrix}
-\usetikzlibrary{shapes}
 \usetikzlibrary{arrows,backgrounds,patterns,scopes,external,
     decorations.pathreplacing,
     decorations.pathmorphing
@@ -191,14 +186,14 @@ coverlinelefttail/.style={
 \newtheorem{maincor}[maintheorem]{Corollary}
 \newtheorem{mainconj}[maintheorem]{Conjecture}
 \newtheorem{mainquestion}[maintheorem]{Question}
-\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}          
 \newtheorem{proposition}[theorem]{Proposition}              
 \newtheorem{cor}[theorem]{Corollary}          
 \newtheorem{prop}[theorem]{Proposition}              
 
-\newtheorem{apptheorem}{Theorem}[section]
+\newtheorem{apptheorem}{Theorem}[chapter]
 
 
 

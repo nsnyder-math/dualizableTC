@@ -49,21 +49,66 @@ We give a finite explicit descriptions of what it means to give a homotopy $SO(3
 
 \section*{Sketch scratch}
 
-This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a homotopy 3-type.  That is, you say, $BSO(3)$ has cells $e_2, e_3, e_4, e_5$, where $e_3$ is attached to $e_2$ by $2$, and $e_4$ is attached to $e_2$ by a generator $q: S^3 \ra S^2$ and $e_5$ is attached to $e_3$ by yadda.  And to give a map $BSO(3) \rightarrow BAut(X)$ is to give an element $S \in Map(S^2,BAut(X))$ and a trivialization $A$ of $q S \in Map(S^3,BAut(X))$ and a trivialization $R$ of $2S$ such that a canonical element called $\frac{\eta q S}{2}$ of $\pi_4(BAut(X))$ vanishes.  (Note that the choice of 2-divisor of $\eta q S$ depends on $R$.  Here $\eta: S^4 \ra S^3$ is the generator.)
+This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a homotopy 3-type.  That is, you say, $BSO(3)$ has cells $e_2, e_3, e_4, e_5$, where $e_3$ is attached to $e_2$ by $2$, and $e_4$ is attached to $e_2$ by a generator $q: S^3 \ra S^2$ and $e_5$ is attached to $e_3$ by yadda.  And to give a map $BSO(3) \rightarrow BAut(X)$ is to give an element $S \in Map(S^2,BAut(X))$ and a trivialization $A$ of $q S \in Map(S^3,BAut(X))$ and a trivialization $R$ of $2S$ such that a canonical element called $\frac{\eta q S}{2}$ of $\pi_4(BAut(X))$ vanishes.  (Note that the choice of 2-divisor of $\eta q S$ depends on $R$.  Here $\eta: S^4 \ra S^3$ is th 	e generator.)
 
 Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)$, $\Omega S^2$, $\Omega \Sigma \RP^2$.
 
 \CDcomm{We should also precisely describe the data required to give a G-homotopy fixed point, for each of the discussed groups.  And for each group we should also explicitly describe the map $G \ra Aut(X)$ in terms of the given data defining $BG \ra BAut(X)$.}
 
 
+\begin{tikzpicture}
+\node (start) at (0,0) {$\mathrm{Id}_x$};
+\node (first top) at (4,6) {$\cS_x \cS_x^{-1}$};
+\node (second top) at (12,6) {$\cS_x^{-1} \cS_x$};
+\node (end) at (16,0) {$\mathrm{Id}_x$};
+
+\node (first middle) at (4,0) {$\cS_x \cS_x$};
+\node (second middle) at (12,0) {$\cS_x \cS_x$};
+
+\node (first bottom) at (4,-4) {$\cS_x^{-1} \cS_x$};
+\node (second bottom) at (12,-4) {$\cS_x \cS_x^{-1} $};
+
+\node (mate top left) at (6,4) {$\cS_x \cS_x \cS_x^{-1} \cS_x^{-1}$};
+\node (mate bottom left) at (6,2) {$\cS_x \cS_x \cS_x \cS_x^{-1}$};
+\node (mate top right) at (10,4) {$\cS_x \cS_x^{-1} \cS_x^{-1} \cS_x $};
+\node (mate bottom right) at (10,2) {$\cS_x \cS_x \cS_x^{-1} \cS_x$};
 
 
-Which group actions do we care about?  The main group we care about is $SO(3)$ because that's the group that comes up in studying oriented field theories in the cobordism hypothesis.  But there are closely related groups which come up which we also want to address.  In all cases we only care about the 3-type of the group.
+\draw [->] (start) .. controls (3,14) and (13,14) .. node[above] {$\mathrm{Id}_{\mathrm{Id}_x}$} (end);
 
-\begin{itemize}
-\item Subgroups of $SO(3)$ (namely $SO(2)$)
-\item 
-\end{itemize}
+\node [shape=ellipse, draw] at (8,8.5) {$W_x$};
+
+\draw [->]	(start) -- node[above, left] {$\mathrm{coev}$} (first top);
+\draw [->]	(first top) -- node[above] {$\cS_{\cS_x^{-1}}$} (second top);
+\draw [->]	(second top) -- node[above, right] {$\mathrm{ev}$} (end);
+
+\draw[->] (first middle) -- node[above] {$\cS_{\cS_x}$} (second middle);
+
+\draw[->] (first middle) -- node[left] {$\mathrm{coev}_{34}$} (mate bottom left);
+\draw[->] (second middle) edge [bend left =30]  node[left]{$\mathrm{coev}_{23}$} (mate bottom right);
+\draw[->] (mate bottom right) edge [bend left =30]  node[right]{$\mathrm{ev}_{34}$} (second middle);
+\draw[->] (mate bottom left) -- node[left]{$(\cR_x^{-1})_{3}$} (mate top left);
+\draw[->] (mate bottom right) -- node[right]{$(\cR_x^{-1})_{2}$} (mate top right);
+\draw[->] (mate bottom left) -- node[above]{$\cS_{\cS_x}$} (mate bottom right);
+\draw[->] (mate top left) -- node[above]{$\cS_{\cS_x \cS_x \cS_x^{-1}}$} (mate top right);
+\draw[->] (mate top left) -- node[right]{$\mathrm{ev}_{23}$} (first top);
+\draw[->] (mate top right) -- node[left]{$\mathrm{ev}_{12}$} (second top);
+
+
+\draw [->]	(start) -- node[above, left] {$\mathrm{coev}$} (first bottom);
+\draw [->]	(first bottom) -- node[above] {$\cS^{-1}_{\cS_x}$} (second bottom);
+\draw [->]	(second bottom) -- node[above, right] {$\mathrm{ev}$} (end);
+
+
+\node [shape=ellipse, draw]  at (11,1) {ZZ};
+\node [shape=ellipse, draw] at (8,1) {$\cS_{\mathrm{coev}_{23}}$};
+\node [shape=ellipse, draw] at (8,3) {$\cS_{(\cR_x^{-1})_2}$};
+\node [shape=ellipse, draw] at (8,5) {$\cS_{\mathrm{ev}_{12}}$};
+\end{tikzpicture}
+
+
+
+
 
 
 \subsection{General remarks}
@@ -79,8 +124,7 @@ If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-
 
 This purpose of this paper is to give an explicit description of what it means to give a homotopy $SO(3)$-action on a homotopy 3-type and to give an explicit description of the $SO(3)$ homotopy fixed points for such an action.  These descriptions will be based on the cellular structure of the $4$-type of $BSO(3)$ with each cell giving a piece of data.  To describe this structure in sufficient detail we will need to give explicit descriptions of the attaching maps using Pontryagin--Thom.  We also explain what it means to give an action and what the homotopy fixed points are for a number of closely related groups like $SO(2)$, $\Omega S^2$, $Spin(3)$, and $Orpo(3)$.  These groups are either subgroups of $SO(3)$, groups given by killing certain characteristic classes in $SO(3)$, or loop groups of truncations of a cellular description of $BSO(3)$.
 
-All of the results in this paper are purely homotopy theoretic and for the most part elementary, but the motivation for them comes from topological field theory.  Namely, the cobordism hypothesis says that the space of fully local framed $3$-dimensional TFTs with values in a symmetric monoidal $3$-category $\cC$ is equivalent to the space $X$ of fully dualizable objects in $\cC$, that $O(n)$ has a homotopy coherent action on $X$ by changing framing, and that the $SO(n)$ homotopy fixed points classify oriented TFTs.  If $\cC$ is a discrete $3$-category (as opposed to an $(\infty,3)$-category), then $X$ is a homotopy $3$-type.  Thus it is natural to ask exactly how much information is contained in the statement that $SO(3)$ acts on $X$, and exactly how much information you need to give an $SO(3)$ homotopy fixed point.  In later papers we will give applications of the purely homotopy theoretic results in this paper to the example of finite tensor categories.  Most significantly, we will translate each part of the data of giving an action of $SO(3)$ into a theorem about finite tensor categories (one of which is Radford's theorem), and we will see that a spherical structure on a fusion category gives an $SO(3)$ homotopy fixed point and thus a fully local TFT which extends the Turaev-Viro theory, but we will also see that there are other $SO(3)$ homotopy fixed points.
-
+All of the results in this paper are purely homotopy theoretic and for the most part elementary, but the motivation for them comes from topological field theory.  Namely, the cobordism hypothesis says that the space of fully local framed $3$-dimensional TFTs with values in a symmetric monoidal $3$-category $\cC$ is equivalent to the space $X$ of fully dualizable objects in $\cC$, that $O(n)$ has a homotopy coherent action on $X$ by changing framing, and that the $SO(n)$ homotopy fixed points classify oriented TFTs.  If $\cC$ is a discrete $3$-category (as opposed to an $(\infty,3)$-category), then $X$ is a homotopy $3$-type.  Thus it is natural to ask exactly how much information is contained in the statement that $SO(3)$ acts on $X$, and exactly how much information you need to give an $SO(3)$ homotopy fixed point.  In later papers we will give applications of the purely homotopy theoretic results in this paper to the example of finite tensor categories.  Most significantly, we will translate each part of the data of giving an action of $SO(3)$ into a theorem about finite tensor categories (one of which is Radford's theorem), and we will see that a spherical structure on a fusion category gives an $SO(3)$ homotopy fixed point and thus a fully local TFT which extends the Turaev-Viro theories down to points, but we will also see that there are other $SO(3)$ homotopy fixed points.
 
 An action of $SO(3)$ on $X$ is the same thing as map of homotopy coherent groups $SO(3) \rightarrow \mathrm{Aut}(X)$ which is turn the same thing as a map of spaces $BSO(3) \rightarrow B\mathrm{Aut}(X)$.  To give an explicit collection of data describing such a map we need a CW description of $BSO(3)$.  Since $X$ is a $3$-type, $B\mathrm{Aut}(X)$ is a $4$-type, so it is enough to understand $BSO(3)$ as a $4$-type.  Recall that in order to get the right $\pi_4$ we will need to include $5$-cells in our description of $BSO(3)$.
 
@@ -90,7 +134,6 @@ $BSO(3)$ has the same $4$-type as the CW complex with one $2$-cell, one $3$-cell
 
 Using Pontryagin--Thom each of these attaching maps have explicit descriptions.  This yield the following explicit description of a homotopy coherent $SO(3)$ action on a $3$-type.
 
-
 \begin{itemize}
 \item An assignment to every point $x$ a $2$-loop $S_x: \mathrm{Id}_x \rightarrow \mathrm{Id}_x$.
 \item An assignment to every path $p:x \rightarrow y$ a $3$-path $S_p: S_x \circ p \rightarrow p \circ S_y$.
@@ -98,7 +141,7 @@ Using Pontryagin--Thom each of these attaching maps have explicit descriptions. 
 \end{itemize}
 
 \begin{itemize}
-\item An assignment to every point $x$ a $3$-path $R_x: S_x \circ S_x \rightarrow \mathrm{Id}_x$.
+\item An assignment to every point $x$ a $3$-path $R_x: (S_x)^{-1}  \rightarrow S_x$.
 \item For every path $p: x \rightarrow y$ the condition $R_p$ that the two $3$-paths ??? $S_x \circ S_x \circ p \rightarrow q$ are homotopic.
 \end{itemize}
 
