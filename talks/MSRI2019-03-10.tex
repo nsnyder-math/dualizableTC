@@ -1,0 +1,397 @@
+% use options
+%  '[beamer]' for a digital projector
+%  '[trans]' for an overhead projector
+%  '[handout]' for 4-up printed notes
+\documentclass[beamer]{beamer}
+\usecolortheme{indiana}
+
+% change talk_preamble if you want to modify the slide theme, colours, and settings for trans and handout modes.
+\newcommand{\pathtotrunk}{../}
+\input{\pathtotrunk talks/talk_preamble.tex}
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows,backgrounds,patterns,scopes,external,
+    decorations.pathreplacing,
+    decorations.pathmorphing
+}
+
+%\setbeamertemplate{blocks}[default]
+
+\newlength{\fuzzwidth}
+\setlength{\fuzzwidth}{2.5pt}
+\newlength{\arrowlength}
+\setlength{\arrowlength}{8pt}
+\newlength{\arrowwidth}
+\setlength{\arrowwidth}{.75pt}
+\newlength{\pointrad}
+\setlength{\pointrad}{1.5pt}
+\newlength{\linewid}
+\setlength{\linewid}{1.5pt}
+\newlength{\circlerad}
+\setlength{\circlerad}{16pt}
+\newlength{\smcirclerad}
+\setlength{\smcirclerad}{8pt}
+\newcommand{\fillcolor}{black!60}
+\newcommand{\fuzzcolor}{black!25}
+\newcommand{\arrowcolor}{black!25}
+
+\tikzset{
+        fuzzright/.style={
+        preaction={draw,line width=\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-.5*\fuzzwidth}}},
+        fuzzleft/.style={
+        preaction={draw,line width=\fuzzwidth,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=.5*\fuzzwidth}}},
+        fuzzrightpre/.style={ %%% Doesn't work
+        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,amplitude=0,raise=-1pt,pre=moveto,pre length=12pt}}},
+        fuzzleftpre/.style={ %%% Doesn't work
+        preaction={draw,line width=2pt,\fuzzcolor,decorate,decoration={curveto,post=moveto,post length=32pt,amplitude=0,raise=1pt}}},        
+        outstyle/.style={\arrowcolor, line width=\arrowwidth},
+        linestyle/.style={line width=\linewid}
+}
+
+\newcommand{\ld}[1]
+{{}^*{#1}}
+\newcommand{\rd}[1]
+{{#1}^*}
+\newcommand{\ldd}[1]
+{{}^{**}{#1}}
+\newcommand{\rdd}[1]
+{{#1}^{**}}
+\newcommand{\ldddd}[1]
+{{}^{****}{#1}}
+\newcommand{\rdddd}[1]
+{{#1}^{****}}
+
+
+
+%\setbeameroption{previous slide on second screen=right}
+
+\author[Noah Snyder]{Noah Snyder (with C. Douglas and C. Schommer-Pries)}
+\title{What is a homotopy coherent $SO(3)$ action?}
+\date{MSRI: Tensor categories and TQFTs}
+\institute{Indiana University}
+
+\titlegraphic{\includegraphics[width=3cm]{iu_trident_web_crimson}
+}
+
+%\usepackage{multimedia}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+       \frametitle{Outline}
+       \tableofcontents
+\end{frame}
+
+\beamertemplatetransparentcovered 
+
+\beamersetuncovermixins 
+{\opaqueness<1->{60}} 
+{} 
+
+
+\AtBeginSection[]
+{
+   \begin{frame}<beamer>
+       \frametitle{Outline}
+       \tableofcontents[currentsection]
+   \end{frame}
+}
+
+\section{Introduction}
+
+\begin{frame}{Local Topological Quantum Field Theories}
+\begin{block}{TQFTs informally}
+An $n$-dimensional TQFT is an invariant of $n$-manifolds which can be computed via cutting and pasting.
+\end{block}
+
+\begin{block}{Local TFTs informally}
+\begin{itemize}
+\item Better to cut up along lower dimensional pieces
+\item Best of all cut down to points.
+\end{itemize}
+\end{block}
+
+\begin{block}{Formal Definition}
+An $n$-dimensional fully local topological field theory with values in a symmetric monoidal (not necessarily discrete) $n$-category  $\cC$ is a symmetric monoidal functor:
+$$\cF: \mathrm{Bord}_n \rightarrow \cC.$$
+\end{block}
+\end{frame}
+
+\begin{frame}{Topological structures}
+
+\begin{block}{Flavors of TFT}
+Different topological structures on bordisms give different TFTs:
+\begin{itemize}
+\item oriented
+\item spin
+\item framed (choice of trivialization of the tangent bundle)
+\item etc.
+\end{itemize}
+\end{block}
+
+\begin{block}{Lower dimensions}
+In order to glue structures, we need to pick a structure on small collars of boundaries.
+
+\vspace{.1in}
+For example, a $3$-framing on a $1$-manifold is a trivialization of $TM \oplus \mathbb{R}^2$.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Baez-Dolan Cobordism Hypothesis}
+
+\begin{block}{Dualizable objects}
+A symmetric monoidal $n$-category is fully dualizable if every object has a dual and ever $k$-morphism for $1 \leq k < n$ has a left adjoint and a right adjoint.  
+\newline
+
+Every symmetric monoidal $n$-category has a maximal fully dualizable subcategory $\cC^{fd}$.
+\end{block}
+
+\begin{theorem}[Lurie(-Hopkins) 09]
+$$\mathrm{TFT}^{fr}(\cC) \tilde{\rightarrow} \cC^{fd}$$ as \emph{spaces} via $$\cF \mapsto \cF(\mathrm{pt}_+).$$
+\end{theorem}
+\end{frame}
+
+%\begin{frame}{Where does the cobordism hypothesis come from?}
+%\begin{block}{Why is $\mathrm{Bord}_n$ fully dualizable?}
+%\begin{itemize}
+%\item The dual of the positively framed point is the negatively framed point.
+%\item The evaluation and coevaluation are given by $1$-handles.
+%\item The adjoints of the $1$-handles are other $1$-handles.
+%\item The units and counits of these adjunctions are given by $2$-handles.
+%\end{itemize}
+%\end{block}
+%\begin{block}{Why framed?}
+%The framing keeps track of the difference between left and right adjoints.  $\mathrm{Bord}_n^{fr}$ is the {\em universal} fully dualizable category.  Proof uses Igusa's version of generalized Morse theory.
+%\end{block}
+%\end{frame}
+
+\begin{frame}{$SO(n)$ action}
+\begin{block}{$SO(n)$ action on framed TFTs}
+$SO(n)$ acts on the space of framed TFTs via changing the framing.
+\end{block}
+
+\begin{block}{$SO(n)$ action on fully dualizable objects}
+By the cobordism hypothesis there's a ``homotopy coherent action" of $SO(n)$ on the \emph{space} of fully dualizable objects.
+\end{block}
+
+\begin{block}{Warnings:}
+\begin{itemize}
+\item By ``space" we mean keep only the invertible morphisms.  This is an $\infty$-groupoid, i.e. a ``space" by Grothendieck's homotopy hypothesis.
+\item Since we've translated across a homotopy equivalence, this action is only defined homotopy coherently.
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Main question}
+
+\begin{block}{Main question}
+What does it mean \emph{explicitly} to give a homotopy coherent action on a $SO(3)$ (discrete) $3$-category?
+\end{block}
+
+\begin{block}{Why we care}
+\begin{itemize}
+\item Use TFTs to give applications from topology to algebra.
+\item Fully understand all consequences of the cobordism hypothesis in simple models.
+\item Important if you want to study oriented TFTs instead of framed.
+\end{itemize}
+\end{block}
+
+\begin{theorem}[Lurie]
+The homotopy fixed points of the $SO(n)$ action on $\mathrm{Bord}_n$ are exactly the oriented local TFTs.
+\end{theorem}
+
+\end{frame}
+
+
+
+\begin{frame}{Main example}
+
+\begin{theorem}[Haugseng, Scheimbauer--Johnson-Freyd]
+There's a symmetric monoidal ``Morita" $3$-category $\cT\cC$ of tensor categories, bimodule categories, bimodule maps, and bimodule natural transformations.
+\end{theorem}
+
+\begin{theorem}[DSPS 13]
+Fusion categories (of non-zero global dimension) are fully dualizable objects in $\cT\cC$.
+\end{theorem}
+
+\begin{conj}[DSPS 13]
+Non-semisimple finite tensor categories are \emph{not} fully dualizable, but there's still an $SO(3)$-action.
+\end{conj}
+\end{frame}
+
+\begin{frame}{Other examples}
+\begin{example}
+$SO(2)$-action on separable algebras (Davidovich over $\mathbb{C}$, Patrick Chu for all fields).
+\end{example}
+
+\begin{example}
+$SO(n)$-action on $E_n$-algebras (Gwilliam--Scheimbauer).  \\ Comes from a natural action of $SO(n)$ on the $E_n$-operad
+\end{example}
+
+\begin{example}
+$SO(3)$-action on cp-rigid braided tensor categories (Brochier-Jordan-S.)  Warning: this is a $(4,3)$-category.
+\end{example}
+\end{frame}
+
+\begin{frame}{Outline:}
+\begin{block}{Algebraic topology of the $4$-truncation of $BSO(3)$.}
+Action is $BG \rightarrow B \mathrm{Aut}(X)$.  The RHS is a $4$-type.  Want to give a ``minimal" CW description of the $4$-truncation of $BSO(3)$.
+\end{block}
+
+\begin{block}{Bordism model of the braided monoidal $2$-groupoid coming from $BSO(3)$.}
+On the categorical side, this is a functor of braided monoidal $2$-categories.  Describe this ``quantum topologically" using a Pontryagin-Thom bordism model.
+\end{block}
+
+\begin{block}{Expanded description of $SO(3)$ action on a discrete $3$-category}
+Use ``Morse decompositions" in the bordism model to give a fully explicit version of the action on a $3$-category (suppressing associators).
+\end{block}
+
+\begin{block}{Homotopy fixed points.}
+\end{block}
+\end{frame}
+
+\section{Algebraic topology}
+
+\begin{frame}{What is a homotopy coherent action?}
+\begin{definition}
+A homotopy coherent action of $G$ on $X$ is a map $BG \rightarrow BAut(X)$.
+\end{definition}
+
+\begin{example}
+A homotopy coherent action of $SO(2)$ is a map $\mathbb{C}P^\infty \rightarrow BAut(X)$.  $\mathbb{C}P^\infty$ has a CW description with a cell in every even degree.  Giving a map out of $BSO(2)$ is giving the values of each of these cells in $BAut(X)$.
+\end{example}
+
+\begin{block}{What about $SO(3)$?}
+$BSO(3)$ is complicated/difficult (but see Ayala-Francis).  We can simplify the question using that our category is discrete.
+\end{block}
+\end{frame}
+
+\begin{frame}{Truncation and actions}
+\begin{block}{Truncation}
+If $X$ is a homotopy $n$-type (i.e. $\pi_k(X)$ vanishes for $k > n$).  Maps to an $n$-type only depend on the $n$-truncation of the source.  In a CW complex you only need to go to $n+1$ cells to describe the $n$-type.
+\end{block}
+
+\begin{block}{Truncations and actions}
+Under the homotopy hypothesis, $n$-groupoids correspond to homtopy $n$-types.  If $X$ is an $n$-type,  $Aut(X)$ is an $n$-type, and $BAut(X)$ is an $n+1$-type.  
+\end{block}
+
+\begin{example}
+For the $SO(2)$-action on algebras we only need to understand the $3$-type of $BSO(2)$, so we only need the first two cells.
+\end{example}
+
+\end{frame}
+
+\begin{frame}{Main topological result}
+\begin{theorem}[DSPS]
+$BSO(3)$ has the same $4$-type as the CW complex with:
+\begin{itemize}
+\item One $2$-cell,
+\item One $3$-cell attached to $S^2$ via the degree $2$ map (yielding $\Sigma \mathbb{R}P^2$),
+\item One $4$-cell attached to $S^2$ via the Hopf map (yielding $\mathbb{C}P^2$),
+\item One $5$-cell attached to $\Sigma \mathbb{R}P^2$ via the generator of $\pi_4(\Sigma \mathbb{R}P^2) = \mathbb{Z}/4\mathbb{Z}$.
+\end{itemize}
+Furthermore, any other such CW complex must have at least as many cells.
+\end{theorem}
+
+\begin{block}{Homotopy groups of $\Sigma \mathbb{R}P^2$}
+Homotopy groups of $\Sigma^k \mathbb{R}P^2$ are described in Jie Wu's monograph ``Homotopy theory of the suspensions of the projective plane."
+\end{block}
+\end{frame}
+
+\begin{frame}{Brief summary of argument}
+\begin{definition}
+$BOrp(3)$ is the homotopy fiber of $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$.  
+\end{definition}
+
+\begin{theorem}
+$BOrp(3)$ has the same $4$-type as the CW complex with
+\begin{itemize}
+\item One $2$-cell
+\item One $3$-cell attached to $S^2$ via the degree $2$ map (yielding $\Sigma \mathbb{R}P^2$)
+\item One $5$-cell attached to $\Sigma \mathbb{R}P^2$ via the generator of $\pi_4(\Sigma \mathbb{R}P^2) = \mathbb{Z}/4\mathbb{Z}$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+A cohomology calculation using Serre spectral sequences shows that the map $\Sigma \mathbb{R}P^2 \rightarrow BSO(3) \rightarrow BOrp(3)$, is an iso on $H_{\leq 4}$ and thus by Hurewicz on $\pi_{\leq 3}$.  The $5$-cell then assures that the map is an iso on $\pi_4$.
+\end{proof}
+\end{frame}
+
+\begin{frame}{More brief summary}
+In addition to the map $BOrp(3) \rightarrow BSO(3)$ using the $2$, $3$, and $5$ cells, we also have a map $BSO(2) \rightarrow BSO(3)$ using the $2$ and $4$ cells.  So we need to prove.
+
+\begin{theorem}
+The following square is a $4$-pushout.
+\begin{equation*}
+\xymatrix{
+S^2 \ar[r] \ar[d] & BOrp(3) \ar[d] \\
+BSO(2) \ar[r] & BSO(3)
+}
+\end{equation*}
+\end{theorem}
+
+This is again proved by a cohomology/Serre spectral sequence argument.  Let $P$ be the pushout, we check that $H_{\leq 5}(BSO(3),P) = 0$, thus $\pi_{\leq 5}(BSO(3), P) = 0$, and the map $P \rightarrow BSO(3)$ is an iso on $\pi_{\leq 4}$.
+\end{frame}
+
+
+\begin{frame}{How useful is this?}
+
+\begin{corollary}
+Description of the space of maps from $BSO(3)$ to any $4$-type.
+\end{corollary}
+
+\begin{block}{Is this useful?}
+We want to understand actions on a $3$-groupoid $X$.  To apply the above literally, we'd need to study $BAut(|X|)$ and then translate back into $3$-groupoids.
+\end{block}
+
+\begin{block}{Why there's hope}
+If $X$ is a $3$-groupoid, there's a $4$-groupoid whose only point is $X$, whose $1$-morphisms are autofunctors, etc.  This $4$-groupoid is equivalent to the fundamental $4$-groupoid of $BAut(X)$.
+\end{block}
+
+\begin{block}{HoTT aside (Buchholtz--van Doorn--Rijke)}
+In Homotopy Type Theory $BAut(X)$ is described directly as $\Sigma_{T: \cU} | T = X |$.
+\end{block}
+
+\end{frame}
+
+\section{10 minute break for questions}
+
+\begin{frame}{Questions?}
+Please ask questions over Zoom.
+\end{frame}
+
+\section{Bordism models}
+
+\begin{frame}{Goal of this section}
+\begin{block}{Goal}
+Describe a $4$-groupoid by generators and relations whose fundamental $4$-groupoid is equivalent to $BSO(3)$.
+\end{block}
+
+\begin{block}{But I'm afraid of $4$-categories}
+Since $BSO(3)$ is $2$-connected, we can rephrase everything in terms of the braided monoidal $2$-category $\Omega^2BSO(3)$.  Braided monoidal $2$-categories are less scary.
+\end{block}
+
+\begin{block}{Is this rigorous?}
+Most of this can be made rigorous in existing models of higher categories, with some gaps to be filled later.  In this paper, instead of working in a model we will work model independently but with clear statements about what our requirements are on the model.
+\end{block}
+
+\end{frame}
+
+
+
+
+\end{document}
+
+
+
+
+Recall we have a map from $\Sigma \mathbb{R}P^2 = M(\ZZ/2, 2) \rightarrow BSO(3)$.
+
+\begin{block}{Homotopy groups of $BSO(3)$}
+Because $SO(3) = \mathbb{R}P^3$ we have the homotopy groups of $BSO(3)$:
+$\pi_2 = \mathbb{Z}/2$, $\pi_3 = 0$, $\pi_4 = \mathbb{Z}$.
+\end{block}

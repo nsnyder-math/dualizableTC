@@ -1,0 +1,60 @@
+% indiana beamer color theme based on the IU Cream Combination
+% Han Zhang 2016-4-15
+% http://pages.iu.edu/~hz8/
+% Updated 2018-6-12: Replaced 'old gold' color with 'gold'
+% Updated 2018-11-1: Fixed block colors
+%
+% IU color scheme can be found at http://brand.iu.edu/apply/color.shtml
+% Modified on beaver color theme by Madhusudan Singh <madhusudan.singh@gmail.com> copyright 2004
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+%\ProvidesPackageRCS $Header: /Users/joseph/Documents/LaTeX/beamer/base/themes/color/beamercolorthemebeaver.sty,v d02a7cf4d8ae 2010/06/17 09:11:41 rivanvx $
+
+\mode<presentation>
+
+\definecolor{crimson}{RGB}{125,17,12}
+\definecolor{cream}{RGB}{225,216,183}
+%\definecolor{old gold}{RGB}{197,146,23}
+\definecolor{gold}{RGB}{254,197,83}
+
+\setbeamercolor*{structure}{fg=crimson}
+
+\setbeamercolor{section in toc}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=crimson!20!red} %original in beaver: {fg=darkred!80!gray}
+\setbeamercolor{example text}{fg=crimson!20!red}
+\setbeamercolor*{palette primary}{fg=crimson,bg=cream!20}
+\setbeamercolor*{palette secondary}{fg=crimson!70!black,bg=white}
+\setbeamercolor*{palette tertiary}{fg=white,bg=crimson!80!black}
+\setbeamercolor*{palette quaternary}{fg=crimson,bg=white}
+
+\setbeamercolor*{sidebar}{fg=crimson,bg=cream!15!white}
+
+\setbeamercolor*{palette sidebar primary}{fg=crimson!10!black}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar tertiary}{fg=crimson!50!black}
+\setbeamercolor*{palette sidebar quaternary}{fg=cream!10!white}
+
+\setbeamercolor*{titlelike}{parent=palette quaternary}
+%\setbeamercolor{titlelike}{parent=structure,bg=white}
+%\setbeamercolor{frametitle}{bg=white}
+%\setbeamercolor{frametitle right}{bg=cream!60!white}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{block title}{use=structure}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!75!black}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+
+\mode
+<all>
