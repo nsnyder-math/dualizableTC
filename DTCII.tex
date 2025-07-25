@@ -1062,10 +1062,25 @@ Though we have already seen the fact that the Radford-8 $e: S^3 \ra \Sigma\RP^2$
 
 \CDcomm{This section describes the meaning of a homotopy fixed point explicitly for each group.}
 
-The classifying space $B\Aut(X)$ carries a universal fibration with fiber $X$, namely $U_X := E\Aut(X) \times_{\Aut(X)} X \ra B\Aut(X)$.  \CD{Should we say something about when that really is a classifying fibration?  Can the universal fibration really be written as that bundle? Ie is $E\Aut(X)$ kosher?  If not just cite the existence of such a fibration?}  Given a homotopy action of $G$ on a space $X$, that is a map $\alpha: BG \ra B\Aut(X)$, there is an associated fibration $EG(X):=\alpha^\ast(U_X) \ra BG$, again with fiber $X$.
+The classifying space $B\Aut(X)$ carries a associated fibration with fiber $X$, namely $X_{h\Aut(X)} := E\Aut(X) \times_{\Aut(X)} X \ra B\Aut(X)$.  \CD{Should we say something about when that really is a classifying fibration?  Can the universal fibration really be written as that bundle? Ie is $E\Aut(X)$ kosher?  If not just cite the existence of such a fibration?}  Given a homotopy action of $G$ on a space $X$, that is a map $\alpha: BG \ra B\Aut(X)$, there is an associated fibration $EG(X):=\alpha^\ast(U_X) \ra BG$, again with fiber $X$.
 
 \begin{definition}
-A homotopy fixed point of a homotopy $G$-action on $X$ is a section of the fibration $X \ra EG(X) \ra BG$.
+A homotopy fixed point of a homotopy $G$-action on $X$ is a section
+\begin{center}
+\begin{tikzpicture}
+		%\node (LT) at (0, 1.5) {$  $};
+		\node (LB) at (0, 0) {$ BG$};
+		\node (RT) at (2, 1.5) {$ X_{h\Aut(X)} $};
+		\node (RB) at (2, 0) {$ B\Aut(X) $};
+		%\draw [->] (LT) -- node [left] {$ $} (LB);
+		\draw [->, dashed] (LB) -- node [above left] {$ $} (RT);
+		\draw [->] (RT) -- node [right] {$ $} (RB);
+		\draw [->] (LB) -- node [below] {$$} (RB);
+		%\node at (0.5, 1) {$\ulcorner$};
+		%\node at (1.5, 0.5) {$\lrcorner$};
+\end{tikzpicture}
+\end{center}
+of the fibration $X \ra X_{h\Aut(X)} \ra BG$.
 \end{definition}
 
 \begin{remark}
