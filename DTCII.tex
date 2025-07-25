@@ -733,7 +733,7 @@ The homotopy classes of $Spin(3)$ actions on a 3-type $X$ are the homotopy class
 Though $Spin(3)$ actions are particularly simple, the interesting question here is the following. Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$, there is a pullback action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$. When expressing the $SO(3)$ action as a triple $(S,R,W)$, how do we extract the homotopy class $V$ characterizing the resulting $Spin(3)$ action. The answer is as follows.
 
 \begin{constr}[The rain construction]
-Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$, the following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
+Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
 \[
 \CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
 \]
@@ -1061,23 +1061,27 @@ By Proposition~\ref{prop-hofptrunc}, to understand the homotopy fixed points of 
 
 \subsection{For $SO(2)$ actions}
 
-Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BSO(2) \ra B\Aut(X)$, may instead be viewed as a pair $(S,W)$ where $S : S^1 \ra \Aut(X)$ is a based map and $W$ is a null homotopy of $q(S): S^2 \to \Aut(X)$ (the figure 8 construction applied to $S$).
+Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BSO(2) \ra B\Aut(X)$, may instead be viewed as a pair $(S,W)$ where $S : S^1 \ra \Aut(X)$ is a based map and $W$ is a null homotopy of $q(S): S^2 \to \Aut(X)$.
+
+\begin{constr}[The wet construction $\wcon$]
+Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
+\[
+\CDcomm{\text{DRAW - NS board from edinburg using p pinv paint}}
+\]
+\end{constr}
+
+\nid We refer to this as the wet construction because the pictoral representation of it is a a Whitney umbrella with a hole in it, where the boundary of the hole is labeled by the pivotal data.
+
+\CDcomm{Maybe we need to distinguish notationally the identity point in $\Aut(X)$ and the homotopical identities. And check we use those consistently.}
 
 \begin{proposition}
-The space of homotopy fixed points of the $SO(2)$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $q(S) \overset{W}{\sim} 1 : S^2 \to \Aut(X)$ is the space of pairs $(x,\piv)$ satisfying a condition $\Ucon$:
+The space of homotopy fixed points of the $SO(2)$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $W :: q(S) \sim 1 : S^2 \to \Aut(X)$ is the space of pairs $(x,\piv)$ satisfying a condition $\Ucon$:
 \begin{enumerate}
 \item $x \in X$ is a point,
 \item $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$; and
-\item $\Ucon$ is the condition that ...
-
+\item $\Ucon$ is the condition that the wet construction $\wcon(S,x,\piv)$ is homotopic to the Whitney construction $W_x$.
 \end{enumerate}
 \end{proposition}
-
-Informally, the condition $\Ucon$ can be phrased as follows. The pivotal data $\piv$ provides a way to trivialize the figure 8 construction $q(S) : S^2 \to \Aut(X)$ and the condition insists that trivialization is the same as the Whitney trivialization $W$.
-
-Here is a picture representing the null homotopy of $q(S)$ provided by the pivotal data:
-\CDcomm{draw me}
-
 
 \subsection{For $\Omega \Sigma \RP^2$ and $Orp(3)$ actions}
 
@@ -1104,8 +1108,24 @@ The homotopy fixed points of a $Orp(3)$ action on a 3-type $X$ are the same as t
 
 \subsection{For $SO(3)$ actions}
 
-\subsection{For $Spin(3)$ actions} %and other groups?
-.
+\begin{theorem}
+The space of homotopy fixed points of an $SO(3)$ action on a 3-type $X$, given by the triple $(S: S^1 \ra \Aut(X),R:: S \ast S \sim \id,W:: q(S) \sim \id)$, is the space of triples $(x, \piv, \sph)$ satisfying a condition $\Ucon$, where:
+\begin{enumerate}
+\item $x \in X$ is a point,
+\item $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$; and
+\item $\sph: D^3 \ra X$ is a homotopy between $\piv^2 : S_x^2 \ra \id_x$ and $R_x: S_x^2 \ra \id_x$.
+\item $\Ucon$ is the condition that the wet construction $\wcon(S,x,\piv)$ is homotopic to the Whitney construction $W_x$.
+\end{enumerate}
+\end{theorem}
+
+\subsection{For $Spin(3)$ actions} 
+
+\begin{proposition}
+The space of homotopy fixed points of a $Spin(3)$ action on a 3-type $X$, given by a map $V: S^3 \ra \Aut(X)$, is the space of points $x \in X$ such that $V_x : S^3 \to X$ is null homotopic.
+\end{proposition}
+
+
+
 \appendix
 \renewcommand{\thetheorem}{A.\arabic{theorem}}
 \setcounter{theorem}{0}
