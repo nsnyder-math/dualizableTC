@@ -38,37 +38,6 @@ We give a finite explicit descriptions of what it means to give a homotopy $SO(3
 
 \tableofcontents
 
-\section{Introduction}
-
-
-
-\section{Cell structures}
-
-
-
-\section{Bordism models}
-
-
-
-
-\section{Actions and fixed points}
-
-
-
-\section{Decompressed actions and fixed points}
-
-
-
-
-
-
-
-
-
-
-
-
-\CDcomm{OLD MATERIAL BELOW FOR REPURPOSING}
 
 %%%%%
 
@@ -81,6 +50,12 @@ We give a finite explicit descriptions of what it means to give a homotopy $SO(3
 \end{itemize}
 }
 
+\CDcomm{NEW TO DO}
+\begin{itemize}
+\item Put all the "figure n" stuff in CONSTRUCTION environments.
+\item Maybe add headers to the environments.
+\end{itemize}
+
 \section*{Sketch scratch}
 
 This purpose of this paper is to explain what it means, cellularly, to give a homotopy $SO(3)$-action on a homotopy 3-type.  That is, you say, $BSO(3)$ has cells $e_2, e_3, e_4, e_5$, where $e_3$ is attached to $e_2$ by $2$, and $e_4$ is attached to $e_2$ by a generator $q: S^3 \ra S^2$ and $e_5$ is attached to $e_3$ by yadda.  And to give a map $BSO(3) \rightarrow BAut(X)$ is to give an element $S \in Map(S^2,BAut(X))$ and a trivialization $A$ of $q S \in Map(S^3,BAut(X))$ and a trivialization $R$ of $2S$ such that a canonical element called $\frac{\eta q S}{2}$ of $\pi_4(BAut(X))$ vanishes.  (Note that the choice of 2-divisor of $\eta q S$ depends on $R$.  Here $\eta: S^4 \ra S^3$ is th 	e generator.)
@@ -88,62 +63,6 @@ This purpose of this paper is to explain what it means, cellularly, to give a ho
 Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)$, $\Omega S^2$, $\Omega \Sigma \RP^2$.
 
 \CDcomm{We should also precisely describe the data required to give a G-homotopy fixed point, for each of the discussed groups.  And for each group we should also explicitly describe the map $G \ra Aut(X)$ in terms of the given data defining $BG \ra BAut(X)$.}
-
-
-\begin{tikzpicture}
-\node (start) at (0,0) {$\mathrm{Id}_x$};
-\node (first top) at (4,6) {$\cS_x \cS_x^{-1}$};
-\node (second top) at (12,6) {$\cS_x^{-1} \cS_x$};
-\node (end) at (16,0) {$\mathrm{Id}_x$};
-
-\node (first middle) at (4,0) {$\cS_x \cS_x$};
-\node (second middle) at (12,0) {$\cS_x \cS_x$};
-
-\node (first bottom) at (4,-4) {$\cS_x^{-1} \cS_x$};
-\node (second bottom) at (12,-4) {$\cS_x \cS_x^{-1} $};
-
-\node (mate top left) at (6,4) {$\cS_x \cS_x \cS_x^{-1} \cS_x^{-1}$};
-\node (mate bottom left) at (6,2) {$\cS_x \cS_x \cS_x \cS_x^{-1}$};
-\node (mate top right) at (10,4) {$\cS_x \cS_x^{-1} \cS_x^{-1} \cS_x $};
-\node (mate bottom right) at (10,2) {$\cS_x \cS_x \cS_x^{-1} \cS_x$};
-
-
-\draw [->] (start) .. controls (3,14) and (13,14) .. node[above] {$\mathrm{Id}_{\mathrm{Id}_x}$} (end);
-
-\node [shape=ellipse, draw] at (8,8.5) {$W_x$};
-
-\draw [->]	(start) -- node[above, left] {$\mathrm{coev}$} (first top);
-\draw [->]	(first top) -- node[above] {$\cS_{\cS_x^{-1}}$} (second top);
-\draw [->]	(second top) -- node[above, right] {$\mathrm{ev}$} (end);
-
-\draw[->] (first middle) -- node[above] {$\cS_{\cS_x}$} (second middle);
-
-\draw[->] (first middle) -- node[left] {$\mathrm{coev}_{34}$} (mate bottom left);
-\draw[->] (second middle) edge [bend left =30]  node[left]{$\mathrm{coev}_{23}$} (mate bottom right);
-\draw[->] (mate bottom right) edge [bend left =30]  node[right]{$\mathrm{ev}_{34}$} (second middle);
-\draw[->] (mate bottom left) -- node[left]{$(\cR_x^{-1})_{3}$} (mate top left);
-\draw[->] (mate bottom right) -- node[right]{$(\cR_x^{-1})_{2}$} (mate top right);
-\draw[->] (mate bottom left) -- node[above]{$\cS_{\cS_x}$} (mate bottom right);
-\draw[->] (mate top left) -- node[above]{$\cS_{\cS_x \cS_x \cS_x^{-1}}$} (mate top right);
-\draw[->] (mate top left) -- node[right]{$\mathrm{ev}_{23}$} (first top);
-\draw[->] (mate top right) -- node[left]{$\mathrm{ev}_{12}$} (second top);
-
-
-\draw [->]	(start) -- node[above, left] {$\mathrm{coev}$} (first bottom);
-\draw [->]	(first bottom) -- node[above] {$\cS^{-1}_{\cS_x}$} (second bottom);
-\draw [->]	(second bottom) -- node[above, right] {$\mathrm{ev}$} (end);
-
-
-\node [shape=ellipse, draw]  at (11,1) {ZZ};
-\node [shape=ellipse, draw] at (8,1) {$\cS_{\mathrm{coev}_{23}}$};
-\node [shape=ellipse, draw] at (8,3) {$\cS_{(\cR_x^{-1})_2}$};
-\node [shape=ellipse, draw] at (8,5) {$\cS_{\mathrm{ev}_{12}}$};
-\end{tikzpicture}
-
-
-
-
-
 
 \subsection{General remarks}
 
@@ -805,6 +724,26 @@ where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subsc
 This follows by combining Corollary~\ref{cor-bso3trunc}, Lemma~\ref{lemma-q}, and Lemma~\ref{lemma-etaq2}.
 \end{proof}
 
+\subsection{By the group $Spin(3)$}
+
+\begin{prop}
+The homotopy classes of $Spin(3)$ actions on a 3-type $X$ are the homotopy classes of maps $V: S^3 \ra \Aut(X)$.
+\end{prop}
+
+Though $Spin(3)$ actions are particularly simple, the interesting question here is the following. Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$, there is a pullback action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$. When expressing the $SO(3)$ action as a triple $(S,R,W)$, how do we extract the homotopy class $V$ characterizing the resulting $Spin(3)$ action. The answer is as follows.
+
+\begin{constr}[The rain construction]
+Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$, the following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
+\[
+\CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
+\]
+\end{constr}
+
+\begin{prop}
+Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$ on a 3-type $X$ given by the homotopy class of the triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$, the resulting action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$ is given by the homotopy class of the map $V := \vcon(S,R,W) : S^3 \ra \Aut(X)$, where $\vcon$ is the rain construction.
+\end{prop}
+
+
 \subsection{The map $SO(3) \ra \Aut(X)$}
 
 Given an $SO(3)$ action on $X$, that is a map $\alpha: BSO(3) \ra B\Aut(X)$, we have an associated map of spaces $\Omega \alpha: SO(3) \ra \Aut(X)$.  Roughly speaking, the map $\Omega \alpha$ knows everything about the action, except that it is in fact an action, i.e. a map of (homotopical) groups.  Given a point $p \in X$, we have a map $\Omega \alpha (p) : SO(3) \ra X$; it is sometimes informative to compute this map explicitly, and to that end convenient to know the map $\Omega \alpha$.  
@@ -1101,12 +1040,12 @@ In this section, for brevity we sometimes use ``is" to mean ``is homotopy equiva
 Recall that an $\Omega S^2$ action on a 3-type $X$, which a priori is a based map $\alpha: S^2 \ra B\Aut(X)$ may instead be viewed as a based map $S: S^1 \ra \Aut(X)$.
 
 \begin{proposition}
-The space of homotopy fixed points of the $\Omega S^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$, is the space of pairs $(x,P)$ where $x \in X$ is a point and $P: D^2 \ra X$ is a null homotopy of the loop $S(x): S^1 \ra X$.
+The space of homotopy fixed points of the $\Omega S^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$, is the space of pairs $(x,P)$ where $x \in X$ is a point and $P: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$.
 \end{proposition}
 \begin{proof}
 By definition a homotopy fixed point of the action is a section of the fibration $X \ra E\Omega S^2(X) \ra S^2$.  We can describe this fibration more explicitly as $X \cup_{X \times S^1} X \times D^2 \ra \ast \cup_{S^1} D^2 = S^2$, where the map $X \times S^1 \ra X \times D^2$ is the inclusion and the map $X \times S^1 \ra X$ is the adjoint of $\tilde{S}: S^1 \ra \Aut(X)$; here $\tilde{S}$ is the pointwise inverse of $S$.  %To be really pedantic, the clutching function S: S^1 \ra \Aut(X) constructs the bundle classified by \Sigma S^1 \ra \Sigma\Aut(X) \ra B\Aut(X) --- that map _is_ the image under the equivalence \Omega \Aut(X) to \Omega^2 B\Aut(X).
 
-The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D^2$, which provides the section $S(x): S^1 \ra X$ on $\partial D^2$; the null homotopy $P$ extends the section over the 2-cell of $S^2$.
+The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D^2$, which provides the section $S_x: S^1 \ra X$ on $\partial D^2$; the null homotopy $P$ extends the section over the 2-cell of $S^2$.
 \end{proof}
 
 Given a $Quad$ action $\alpha: BQuad \ra B\Aut(X)$ on a 3-type $X$, there is of course an induced $\Omega S^2$ action.
@@ -1122,10 +1061,46 @@ By Proposition~\ref{prop-hofptrunc}, to understand the homotopy fixed points of 
 
 \subsection{For $SO(2)$ actions}
 
+Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BSO(2) \ra B\Aut(X)$, may instead be viewed as a pair $(S,W)$ where $S : S^1 \ra \Aut(X)$ is a based map and $W$ is a null homotopy of $q(S): S^2 \to \Aut(X)$ (the figure 8 construction applied to $S$).
+
+\begin{proposition}
+The space of homotopy fixed points of the $SO(2)$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $q(S) \overset{W}{\sim} 1 : S^2 \to \Aut(X)$ is the space of pairs $(x,\piv)$ satisfying a condition $\Ucon$:
+\begin{enumerate}
+\item $x \in X$ is a point,
+\item $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$; and
+\item $\Ucon$ is the condition that ...
+
+\end{enumerate}
+\end{proposition}
+
+Informally, the condition $\Ucon$ can be phrased as follows. The pivotal data $\piv$ provides a way to trivialize the figure 8 construction $q(S) : S^2 \to \Aut(X)$ and the condition insists that trivialization is the same as the Whitney trivialization $W$.
+
+Here is a picture representing the null homotopy of $q(S)$ provided by the pivotal data:
+\CDcomm{draw me}
+
 
 \subsection{For $\Omega \Sigma \RP^2$ and $Orp(3)$ actions}
 
-Recall that an $\Omega \Sigma \RP^2$ action on a 3-type $X$, which a priori is a based map $\alpha: \Sigma \RP^2 \ra B\Aut(X)$ may instead be viewed as a based map $S: S^1 \ra \Aut(X)$.
+Recall that an $\Omega \Sigma \RP^2$ action on a 3-type $X$, which a priori is a based map $\alpha: \Sigma \RP^2 \ra B\Aut(X)$ may instead be viewed as ... \CDcomm{write me}
+
+
+\begin{proposition}
+The space of homotopy fixed points of the $\Omega \Sigma \RP^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $2S \overset{R}{\sim} 1 : S^1 \ra \Aut(X)$, is the space of triples $(x, \piv, \sph)$ where
+\begin{enumerate}
+\item $x \in X$ is a point,
+\item $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$; and
+\item $\sph: D^3 \ra X$ is a homotopy between $\piv^2 : S_x^2 \ra \id_x$ and $R_x: S_x^2 \ra \id_x$.
+\end{enumerate}
+\end{proposition}
+
+\CDcomm{Check that uniformly use times 2 or square throughout}
+
+\begin{proposition} \label{prop-quadvs2fp}
+The homotopy fixed points of a $Orp(3)$ action on a 3-type $X$ are the same as the homotopy fixed points of the underlying $\Omega \Sigma \RP^2$ action on $X$.
+\end{proposition}
+
+\CDcomm{Add proof: formal, sim to Quad}
+
 
 \subsection{For $SO(3)$ actions}
 
