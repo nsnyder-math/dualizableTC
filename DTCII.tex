@@ -733,14 +733,64 @@ This follows by combining Corollary~\ref{cor-bso3trunc}, Lemma~\ref{lemma-q}, an
 The homotopy classes of $Spin(3)$ actions on a 3-type $X$ are the homotopy classes of maps $V: S^3 \ra \Aut(X)$.
 \end{prop}
 
-Though $Spin(3)$ actions are particularly simple, the interesting question here is the following. Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$, there is a pullback action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$. When expressing the $SO(3)$ action as a triple $(S,R,W)$, how do we extract the homotopy class $V$ characterizing the resulting $Spin(3)$ action. The answer is as follows.
+Though $Spin(3)$ actions are particularly simple, the interesting question here is the following. Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$, there is a pullback action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$. When expressing the $SO(3)$ action as a triple $(S,R,W)$, how do we extract the homotopy class $V$ characterizing the resulting $Spin(3)$ action? The answer is as folows. 
 
 \begin{constr}[The rain construction]
-Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
+Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: \id \sim q(S)  : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
 \[
 \CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
 \]
 \end{constr}
+
+In the above several morphisms appear which are consequences of the Whitney, $W: \id \stackrel{\sim}{\to} q(S)$ (umbrella) depicted graphically as
+\[
+\emptyset
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\end{tikzpicture}}.
+\]
+These are: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$
+\[
+\emptyset
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestylegray,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\draw[linestyle,coverline,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\end{tikzpicture}},
+\]
+the traded umbrella construction $W^t: \id \stackrel{\sim}{\to} q(S^{-1})$
+\begin{constr}[The traded umbrella construction]
+\[
+\emptyset
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestylegray,looseness=1.25]
+(1.25, 0) to [out=-90,in=-90] (1.75,1);
+\draw[linestyle,looseness=1.25]
+(1.75,1) to [out=90,in=90] (1.25,1);
+\draw[linestyle,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\end{tikzpicture}},
+\]	
+\end{constr}
+
+
+The Whitney can be used to cancel appear any `right-handed' figure-eight and to cancel any `left-handed' figure-eight, while the inverse of the Whitney may be used to cancel `right-handed' figure-eights and appear `left-handed' figure-eights.
+
 
 \begin{prop}
 Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$ on a 3-type $X$ given by the homotopy class of the triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$, the resulting action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$ is given by the homotopy class of the map $V := \vcon(S,R,W) : S^3 \ra \Aut(X)$, where $\vcon$ is the rain construction.
