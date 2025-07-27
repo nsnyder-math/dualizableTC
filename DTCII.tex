@@ -41,10 +41,23 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 
 %%%%%
 
-\CDcomm{OLD TO DO}
+\CDcomm{Immediate tasks}
 \begin{itemize}
-\item Mention DTCI plus this implies we have constructed an $\Omega S^2$ action and an $\Omega \Sigma \RP^2$ action on $TC$.  DTCIII will go further.
-\item Similarly, in ho fixed point section, discuss that pivotality is $\Omega S^2$ fixed point.  For sphericality, either do it ($\Omega \Sigma \RP^2$ fixed point) or forward ref to DTCIV, considering it may require translating the usual notion of sphericality to our notion.  (Same fixed points for $\Omega S^2$ and $Quad$ and for $\Omega \Sigma \RP^2$ and $\Orp(3)$.
+\item NS: Wet construction picture
+\item CSP: Rain construction picture, Spin(3) proof
+\item CSP do you already have a picture somewhere of the proof that the radford 8 is 4-torsion? Goes at the end of section 4.6 see 'insert proof here'.
+\end{itemize}
+
+\CDcomm{Various tasks}
+\begin{itemize}
+\item Compute or find a ref computing pi5 of Spin6/SO3. (table 1)
+\item Write Homotopy io remark at end of sec 4.3
+\item Add proof of Prop at end of sec 5.3
+\item Add a proposition before Prop A.2 that is that statement just phrased in terms of fixed points, and make Prop A.2 a corollary.
+\item DTCIV has statements about h-pivotal and h-spherical that justify the existence of Quad and Orp. (h-pivotal iff descent to quadratic field theory, h-spherical iff oriented p1 field theory) Discuss these in the intro??
+\item Sketch and agree together on an outline for the intro.
+\item Draft intro
+\item Find a specific reference (not just to wu generically) for the pi4 sigma rp2 proposition and/or include a proof. This may also resolve the issue of a description of the generator that specifies the sign?
 \end{itemize}
 
 \CDcomm{NEW TO DO}
@@ -53,6 +66,13 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 \item Add key results to the intro
 \item Revise acknowledgments
 \end{itemize}
+
+\CDcomm{OLD TO DO}
+\begin{itemize}
+\item Mention DTCI plus this implies we have constructed an $\Omega S^2$ action and an $\Omega \Sigma \RP^2$ action on $TC$.  DTCIII will go further.
+\item Similarly, in ho fixed point section, discuss that pivotality is $\Omega S^2$ fixed point.  For sphericality, either do it ($\Omega \Sigma \RP^2$ fixed point) or forward ref to DTCIV, considering it may require translating the usual notion of sphericality to our notion.  (Same fixed points for $\Omega S^2$ and $Quad$ and for $\Omega \Sigma \RP^2$ and $\Orp(3)$.
+\end{itemize}
+
 
 \section*{Sketch scratch}
 
@@ -111,20 +131,20 @@ Using Pontryagin--Thom each of these attaching maps have explicit descriptions. 
 \item For every path $p: x \rightarrow y$ the condition $R_p$ that the two $3$-paths ??? $S_x \circ S_x \circ p \rightarrow q$ are homotopic.
 \end{itemize}
 
-
-
-\CDcomm{I think much of what is currently in section I of DTCIV, introducing and discussing the 4-types of BQuad and BOrp(3), will need to be moved here for those spaces to seem less crazy.  How much?}
-
-
-\SkipTocEntry
+\addtocontents{toc}{\SkipTocEntry}
 \subsection*{Acknowledgments}
-CSP would like to thank Peter Teichner for several fruitful conversations about the difference between $\Omega \Sigma \RR \PP^2$-actions and $SO(3)\langle p_1 \rangle$-actions.  NS would like to thank Prasit Bhattacharya for many long conversations in the tea room without which I would not have been able to understand much of this paper.  GRANT STUFF
 
+We would like to especially thank Andr\'e Henriques for insight regarding the homotopy theory of the various structure groups, and Peter Teichner for illuminating conversations about the distinction between $\Omega \Sigma \RP^2$-actions and $Orp(3)$-actions. We further thank Prasit Bhattacharya, \CDcomm{OTHERS} for \CDcomm{something something}.
+
+%CSP would like to thank Peter Teichner for several fruitful conversations about the difference between $\Omega \Sigma \RR \PP^2$-actions and $SO(3)\langle p_1 \rangle$-actions.  NS would like to thank Prasit Bhattacharya for many long conversations in the tea room without which I would not have been able to understand much of this paper.  
+\CDcomm{GRANT STUFF}
+
+%!% Need to credit Andre with helping understand all this.
 
 
 \section{Cell structures}
 
-\CDcomm{This section is ``pure homotopy theory", ie focuses on determining the cell structures only.  All issues about interpreting the attaching maps and computing them explicitly are left to later sections.}
+% This section is pure homotopy theory. Just determine cell structures. All issues about interpreting the attaching maps and computing the attaching maps explicitly are left to later sections.
 
 As we only care about the 4-types of our spaces, for each space we will describe a cell complex that captures the 4-type in question.  More specifically, for concreteness we will construct 4-truncations of our spaces, in the following sense.
 
@@ -256,11 +276,11 @@ We saw that $B\Omega S^2$ and $BQuad$ were interchangable in the pushout square.
 
 We could have more briefly described a 4-truncation of $BSO(3)$ without reference to $BOrp(3)$, $BSO(2)$, $BQuad$, and whatnot.  But it will be important for our applications to topological field theories associated to fusion categories that we understand the 4-truncations of those structure groups as well, and the exact relationship of those truncations to that of $BSO(3)$.
 
-\CDcomm{Later on, we'll describe the meaning of a Quad action, etc, and then refer back to see that S leads to one description, while Q leads to a slightly lengthier description that ties together the trivialization of q and the condition on eta q / 2.}
+\CDcomm{Later on, we'll describe the meaning of a Quad action, etc, and then refer back to see that one square leads to one description, while the other square leads to a slightly lengthier description that ties together the trivialization of q and the condition on eta q / 2.}
 
 \section{Homotopy actions}
 
-\CDcomm{This section describes the meaning of a homotopy action for each group.  This is where the explicit translation to computable, i.e. categorically readable, expressions occurs.  Also, for each group, the map $G \ra Aut(X)$ is described. [Well, if you only describe that map for $SO(3)$, say so.]}
+% This section describes the meaning of a homotopy action for each group.  This is where the explicit translation to computable, i.e. categorically readable, expressions occurs. Also give the orbit map for SO(3).
 
 \begin{definition}[Homotopy action] 
 \label{def-hoaction}
@@ -283,7 +303,7 @@ By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Ome
 
 \nid We typically use $S$ to denote a based map $S^1 \ra \Aut(X)$ determining the $\Omega S^2$ action on $X$, and we use $[S] \in \pi_1(\Aut(X))$ to denote the corresponding homotopy class.
 
-\CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$. Omit??}
+%\CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$. Omit??}
 
 \CD{Should tighten up what is inside the construction environment. Put ramble outside it}
 \CD{Move the pic inside the construction, I think}
@@ -373,7 +393,7 @@ By \cref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ is $\eta q:
 \end{proof}
 
 
-\CDcomm{What is a cellular 3-truncation of $Quad$? ... $Quad \ra \Aut(X)$.  Maybe omit.}
+% \CDcomm{What is a cellular 3-truncation of $Quad$? ... $Quad \ra \Aut(X)$.  Maybe omit.}
 
 \subsection{By the group $SO(2)$}
 
@@ -729,7 +749,7 @@ The homotopy classes of $Orp(3)$ actions on a 3-type $X$ are the homotopy classe
 This follows by combining \cref{prop-borptrunc} and \cref{lemma-etaq2}.
 \end{proof}
 
-\CDcomm{A cellular 3-truncation of $Orp(3)$ looks a little messy (cohom is $\ZZ, 0, \ZZ/2, \ZZ/2, \ZZ/2, \ZZ/4$ I believe.  Maybe omit.}
+% \CDcomm{A cellular 3-truncation of $Orp(3)$ looks a little messy (cohom is $\ZZ, 0, \ZZ/2, \ZZ/2, \ZZ/2, \ZZ/4$ I believe.  Maybe omit.}
 
 \CDcomm{HOMOTOPYIO. Add here a remark that if you want a formal computer verifiable version of the figure 32 construction, let's you implement in any higher groupoid, we did it in homotopyio. Embed the movie.}
 
@@ -997,7 +1017,7 @@ This lemma is of more significance that it might appear.  It means that the null
 The sequence of deformations in \cref{htpybean2e} defines a homotopy $H$ between the Radford bean map, which we have previously identified with the suspension of the antipodal projection $\Sigma p : S^3 \ra \Sigma \RP^2$, and twice the figure-8 map $\inc_*(q \cdot 2) : S^3 \ra \Sigma \RP^2$.  Note well that this homotopy could have been chosen differently---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between the corresponding constructions, namely the Radford bean construction and twice the figure-8 construction, that is for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, it provides a homotopy between the map $p(S,R): S^2 \ra \Aut(X)$ and the map $2 q(S): S^2 \ra \Aut(X)$.
 
 Equipped with the homotopy $H$ between $p(S,R)$ and $2 q(S)$, we can complete the description of the map from $SO(3)$ to the automorphisms of $X$.  Recall from \cref{thm-so3action} that a homotopy $SO(3)$ action on a 3-type $X$ is defined by a triple $(S,R,W)$, where $S: S^1 \ra \Aut(X)$, $R: D^2 \ra \Aut(X)$ is a null homotopy of the square of $S$, and $W: D^3 \ra \Aut(X)$ is a null homotopy of $q(S)$.
-\begin{proposition}[The orbit of an $SO(3)$ action] 
+\begin{proposition}[The orbit map of an $SO(3)$ action] 
 \label{prop-so3map}
 Given a homotopy $SO(3)$ action on a 3-type $X$, defined by the triple $(S,R,W)$, the associated map of spaces $SO(3) \ra \Aut(X)$ is given on the 1-, 2-, and 3-cells of $SO(3)$ by, respectively, the map $S: S^1 \ra \Aut(X)$, the map $R: D^2 \ra \Aut(X)$, and the map $M: D^3 \ra \Aut(X)$, a null homotopy of $p(S,R): S^2 \ra \Aut(X)$ defined by $M:=H \cdot (2 W)$.
 \end{proposition}
@@ -1098,7 +1118,7 @@ Though we have already seen the fact that the Radford-8 $e: S^3 \ra \Sigma\RP^2$
 
 \section{Homotopy fixed points}
 
-\CDcomm{This section describes the meaning of a homotopy fixed point explicitly for each group.}
+% This section describes the meaning of a homotopy fixed point explicitly for each group.
 
 The classifying space $B\Aut(X)$ carries a associated fibration with fiber $X$, namely $X_{h\Aut(X)} := E\Aut(X) \times_{\Aut(X)} X \ra B\Aut(X)$.  \CD{Should we say something about when that really is a classifying fibration?  Can the universal fibration really be written as that bundle? Ie is $E\Aut(X)$ kosher?  If not just cite the existence of such a fibration?}  Given a homotopy action of $G$ on a space $X$, that is a map $\alpha: BG \ra B\Aut(X)$, there is an associated fibration $EG(X):=\alpha^\ast(U_X) \ra BG$, again with fiber $X$.
 
@@ -1173,7 +1193,7 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 
 \nid We refer to this as the wet construction because the pictoral representation of it is a a Whitney umbrella with a hole in it, where the boundary of the hole is labeled by the pivotal data.
 
-\CDcomm{Maybe we need to distinguish notationally the identity point in $\Aut(X)$ and the homotopical identities. And check we use those consistently.}
+\CD{Maybe we need to distinguish notationally the identity point in $\Aut(X)$ and the homotopical identities. And check we use those consistently.}
 
 \begin{proposition}[Fixed points for $SO(2)$]
 The space of homotopy fixed points of the $SO(2)$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $W :: q(S) \sim 1 : S^2 \to \Aut(X)$ is the space of pairs $(x,\piv)$ satisfying a condition $\Ucon$:
@@ -1186,19 +1206,18 @@ The space of homotopy fixed points of the $SO(2)$ action on a 3-type $X$, given 
 
 \subsection{For $\Omega \Sigma \RP^2$ and $Orp(3)$ actions}
 
-Recall that an $\Omega \Sigma \RP^2$ action on a 3-type $X$, which a priori is a based map $\alpha: \Sigma \RP^2 \ra B\Aut(X)$ may instead be viewed as ... \CDcomm{write me}
-
+Recall that an $\Omega \Sigma \RP^2$ action on a 3-type $X$, which a priori is a based map $\alpha: \Sigma \RP^2 \ra B\Aut(X)$ may instead be viewed as a pair $(S,R)$ where $S : S^1 \ra \Aut(X)$ is a based map and $R$ is a null homotopy of $2S : S^1 \ra \Aut(X)$.
 
 \begin{proposition}[Fixed points for $\Omega \Sigma \RP^2$]
 The space of homotopy fixed points of the $\Omega \Sigma \RP^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $R:: 2S \sim 1 : S^1 \ra \Aut(X)$, is the space of triples $(x, \piv, \sph)$ where
 \begin{enumerate}
 \item $x \in X$ is a point,
 \item $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$; and
-\item $\sph: D^3 \ra X$ is a homotopy between $\piv^2 : S_x^2 \ra \id_x$ and $R_x: S_x^2 \ra \id_x$.
+\item $\sph: D^3 \ra X$ is a homotopy between $\piv^2 : 2 S_x \ra \id_x$ and $R_x: 2 S_x \ra \id_x$.
 \end{enumerate}
 \end{proposition}
 
-\CDcomm{Check that uniformly use times 2 or square throughout}
+Similarly recall that an $Orp(3)$ action on a 3-type $X$, which a priori is a based map $\alpha: BOrp(3) \ra B\Aut(X)$ may instead be viewed as a pair $(S,R)$ where $S : S^1 \ra \Aut(X)$ is a based map and $R$ is a null homotopy of $2S : S^1 \ra \Aut(X)$, such that the figure-32 construction on $(S,R)$ is zero.
 
 \begin{proposition}[Fixed points for $Orp(3)$] 
 \label{prop-quadvs2fp}
@@ -1211,11 +1230,11 @@ The homotopy fixed points of a $Orp(3)$ action on a 3-type $X$ are the same as t
 \subsection{For $SO(3)$ actions}
 
 \begin{theorem}[Fixed points for $SO(3)$]
-The space of homotopy fixed points of an $SO(3)$ action on a 3-type $X$, given by the triple $(S: S^1 \ra \Aut(X),R:: S \ast S \sim \id,W:: q(S) \sim \id)$, is the space of triples $(x, \piv, \sph)$ satisfying a condition $\Ucon$, where:
+The space of homotopy fixed points of an $SO(3)$ action on a 3-type $X$, given by the triple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id)$, is the space of triples $(x, \piv, \sph)$ satisfying a condition $\Ucon$, where:
 \begin{enumerate}
 \item $x \in X$ is a point,
 \item $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$; and
-\item $\sph: D^3 \ra X$ is a homotopy between $\piv^2 : S_x^2 \ra \id_x$ and $R_x: S_x^2 \ra \id_x$.
+\item $\sph: D^3 \ra X$ is a homotopy between $\piv^2 : 2 S_x \ra \id_x$ and $R_x: 2 S_x \ra \id_x$.
 \item $\Ucon$ is the condition that the wet construction $\wcon(S,x,\piv)$ is homotopic to the Whitney $W_x$.
 \end{enumerate}
 \end{theorem}
@@ -1237,7 +1256,7 @@ The space of homotopy fixed points of a $Spin(3)$ action on a 3-type $X$, given 
 
 \section{Structure groups of 3-manifolds} \label{sec-lft-struc}
 
-\CDcomm{The point of this appendix is to explain why we only care about n-types (see the Proposition), and to motivate from the perspective of structured field theory why we'd look at spaces over $BSO(3)$, and to introduce the most important of these spaces ($BOrp(3)$, $BQuad$, $BSO(2)$, $S^2$, $Spin(3)$, etc) and their relationships.}
+% \CDcomm{The point of this appendix is to explain why we only care about n-types (see the Proposition), and to motivate from the perspective of structured field theory why we'd look at spaces over $BSO(3)$, and to introduce the most important of these spaces ($BOrp(3)$, $BQuad$, $BSO(2)$, $S^2$, $Spin(3)$, etc) and their relationships.}
 
 \subsection{Structure groups for discrete field theories}
 
@@ -1258,7 +1277,7 @@ Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: 
 
 \nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
 
-\CD{This proposition is phrased in terms of the field theories, but maybe should be also explicitly translated into the fixed point view.  Unclear if / where we will state the cobordism hypothesis.}
+\CD{This proposition is phrased in terms of the field theories, but actually, we should explicitly state a proposition in terms of fixed points, and this proposition can be a corollary of that (and the cobordism hypothesis)}
 
 \subsection{The `sub'-structures}
 
@@ -1315,7 +1334,7 @@ There is a map of structure spaces $S^2 \ra BQuad$ which is an isomorphism on $\
 
 \subsection{The `super'-structures}.
 
-\CDcomm{This subsection discusses those structure groups that factor through $BSpin(3)$. }
+%\CDcomm{This subsection discusses those structure groups that factor through $BSpin(3)$. }
 
 In this section we describe a few auxiliary structure groups, including the spin and string groups.
 
@@ -1400,10 +1419,9 @@ The following spaces, together with the obvious maps to $BO(3)$, define 3-dimens
 
 \section{Homotopy types of 3-dimensional structure groups}
 
-\CDcomm{The point of this appendix is to say a bunch about the cohomology and homotopy groups of all the structure spaces encountered.}  
+%\CDcomm{The point of this appendix is to say a bunch about the cohomology and homotopy groups of all the structure spaces encountered.}  
 
 In this appendix we record some computations regarding the homotopy and homology of the various structure spaces.
-%!% Need to credit Andre with helping understand all this.
 
 In \cref{table-structurecalc}, we record the low-dimensional homology and homotopy of the structure spaces we have considered.  All these structure spaces are simply connected.  The remaining homology and homotopy groups follow from the above proposition, along with a number of classical computations, using a flurry of interconnected spectral sequences.  
 
