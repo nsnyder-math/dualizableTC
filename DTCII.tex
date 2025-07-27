@@ -41,19 +41,14 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 
 %%%%%
 
-\CDcomm{To do items.
+\CDcomm{OLD TO DO}
 \begin{itemize}
 \item Mention DTCI plus this implies we have constructed an $\Omega S^2$ action and an $\Omega \Sigma \RP^2$ action on $TC$.  DTCIII will go further.
 \item Similarly, in ho fixed point section, discuss that pivotality is $\Omega S^2$ fixed point.  For sphericality, either do it ($\Omega \Sigma \RP^2$ fixed point) or forward ref to DTCIV, considering it may require translating the usual notion of sphericality to our notion.  (Same fixed points for $\Omega S^2$ and $Quad$ and for $\Omega \Sigma \RP^2$ and $\Orp(3)$.
-\item Add category theory perspective/interpretation, building on Joyal/Street view of figure 8.
-\item (Research to do: what is W?)
 \end{itemize}
-}
 
 \CDcomm{NEW TO DO}
 \begin{itemize}
-\item Put all the "figure n" stuff in CONSTRUCTION environments.
-\item Change the construction numbers to memorable letters like C-8, C-64, C-32, C-RB, C-R8, .
 \item Add B2Z2 sections?
 \item Add key results to the intro
 \item Revise acknowledgments
@@ -770,12 +765,14 @@ The homotopy classes of $Spin(3)$ actions on a 3-type $X$ are the homotopy class
 
 Though $Spin(3)$ actions are particularly simple, the interesting question here is the following. Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$, there is a pullback action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$. When expressing the $SO(3)$ action as a triple $(S,R,W)$, how do we extract the homotopy class $V$ characterizing the resulting $Spin(3)$ action? The answer is as folows. 
 
-\begin{constr}[The rain construction]
+\begin{tconstr}[The rain construction]{RAIN}
 Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: \id \sim q(S)  : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
 \[
 \CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
 \]
-\end{constr}
+\end{tconstr}
+
+\CD{After CSP finishes writing this part, give any constructions tags analogous to the others}
 
 In the above several morphisms appear which are consequences of the Whitney, $W: \id \stackrel{\sim}{\to} q(S)$ (umbrella) depicted graphically as
 \[
@@ -841,7 +838,7 @@ Given an $SO(3)$ action on $X$, that is a map $\alpha: BSO(3) \ra B\Aut(X)$, we 
 
 A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$, where $p: S^2 \ra \RP^2$ is the antipodal quotient.  Given a map $\RP^2 \ra \Aut(X)$, we need to explicitly construct the pullback $S^2 \xra{p} \RP^2 \ra \Aut(X)$.  The map from $\RP^2$ provides a point $S \in \Omega \Aut(X)$ and a null homotopy $R$ of $2S$.  
 
-\begin{tconstr}[The bean construction]{F-B}
+\begin{tconstr}[The bean construction]{R-B}
 \label{bean}
 Using the previously described graphical notation for $S$ and $R$, the following picture defines a map $\Map(\RP^2,\Aut(X)) \xra{p} \Omega^2 \Aut(X)$:
 \[
@@ -1008,7 +1005,7 @@ Given a homotopy $SO(3)$ action on a 3-type $X$, defined by the triple $(S,R,W)$
 
 \CDcomm{The following discussion of the Radford-8 actually doesn't appear immediately needed for anything, but I bet it will come in handy at some point so we should include it somewhere.}
 
-\begin{constr}[The Radford-8 construction]
+\begin{tconstr}[The Radford-8 construction]{R-8}
 \label{rad8}
 Now consider the map $e: S^3 \ra \Sigma\RP^2$ defined by the (Pontryagin-Thom) construction on the following picture:
 \[
@@ -1022,7 +1019,7 @@ Now consider the map $e: S^3 \ra \Sigma\RP^2$ defined by the (Pontryagin-Thom) c
 \end{tikzpicture}}
 \]
 Equivalently, this picture defines a map $Map(\RP^2,\Aut(X)) \xra{e} \Omega^2 \Aut(X)$.  We refer to this construction as the ``Radford-8".
-\end{constr}
+\end{tconstr}
 
 \begin{lemma}[The homotopy class of the Radford-8]
 The map $e: S^3 \ra \Sigma \RP^2$ is homotopic to the composite of the \emph{negative} Hopf map $-q: S^3 \ra S^2$ with the inclusion $S^2 \ra \Sigma \RP^2$.
@@ -1167,12 +1164,12 @@ By \cref{prop-hofptrunc}, to understand the homotopy fixed points of $Quad$ it s
 
 Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BSO(2) \ra B\Aut(X)$, may instead be viewed as a pair $(S,W)$ where $S : S^1 \ra \Aut(X)$ is a based map and $W$ is a null homotopy of $q(S): S^2 \to \Aut(X)$.
 
-\begin{constr}[The wet construction $\wcon$]
+\begin{tconstr}[The wet construction $\wcon$]{WET}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
 \[
 \CDcomm{\text{DRAW - NS board from edinburg using p pinv paint}}
 \]
-\end{constr}
+\end{tconstr}
 
 \nid We refer to this as the wet construction because the pictoral representation of it is a a Whitney umbrella with a hole in it, where the boundary of the hole is labeled by the pivotal data.
 
