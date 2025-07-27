@@ -15,6 +15,15 @@
 
 \usepackage{ifthen}		
 
+\usepackage[pdftex, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black, hypertexnames=false
+	% pagebackref,
+ 	%bookmarksnumbered=true
+	]{hyperref}
+
+\PassOptionsToPackage{noabbrev}{cleveref}
+\usepackage[capitalize,nameinlink,sort]{cleveref}
+
+
 %\usepackage{graphicx}
 %\usepackage{attachfile2}      % for the downloadable attachment
 %\usepackage[bigfiles]{pdfbase}% low-level PDF objects (ships with media9)
@@ -53,6 +62,11 @@
     decorations.pathmorphing
 }
 \tikzexternalize[prefix=Pictures/]
+
+\newcommand{\changelocaltocdepth}[1]{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+  \setcounter{tocdepth}{#1}%
+}
 
 \newlength{\fuzzwidth}
 \setlength{\fuzzwidth}{2.5pt}
@@ -465,13 +479,7 @@ coverlinelefttail/.style={
 \DeclareMathSymbol{\rightmapsto}{\mathrel}{MnSyA}{40}
 
 
-%%%%%% Adds hyperlinks
-\usepackage[pdftex, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black, hypertexnames=false
-	% pagebackref,
- 	%bookmarksnumbered=true
-	]{hyperref}
 
-%%%%%%%%
 
 %%%%%% Video code %%%%%%
 
