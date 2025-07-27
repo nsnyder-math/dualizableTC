@@ -198,13 +198,14 @@ A commutative square is a pushout of $n$-types, also called an $n$-pushout, if t
 \end{definition}
 
 \begin{proposition}[$BSO(3)$ as a 4-pushout]
+\label{s2pushout}
 The commutative square
-\begin{equation}\label{s2-pushout} \tag{S}
-\xymatrix{
+\[
+\vcenter{\hbox{\xymatrix{
 B\Omega S^2 \ar[r] \ar[d] & BOrp(3) \ar[d] \\
 BSO(2) \ar[r] & BSO(3)
-}
-\end{equation}
+}}}
+\]
 is a $4$-pushout.
 \end{proposition}
 \begin{proof}
@@ -229,30 +230,31 @@ We therefore know that a minimal truncation must have exactly 4-cells.  If it ha
 Because the fourth and fifth cohomology groups of $BQuad$ are trivial, the composite $BQuad \ra BSO(2) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ is trivial and the map $BQuad \ra BSO(3)$ lifts uniquely to a map $BQuad \ra BOrp(3)$.
 
 \begin{corollary}[Another pushout for $BSO(3)$]
+\label{quadpushout}
 The commutative square
-\begin{equation} \label{quad-pushout} \tag{Q}
-\xymatrix{
+\[
+\vcenter{\hbox{\xymatrix{
 BQuad \ar[r] \ar[d] & BOrp(3) \ar[d] \\
 BSO(2) \ar[r] & BSO(3)
-}
-\end{equation}
+}}}
+\]
 is also a $4$-pushout.
 \end{corollary}
 \begin{proof}
 Though the map $B\Omega S^2 \ra BQuad$ is not a 4-equivalence, the difference of 4-types is a single additional 5-cell in $BQuad$, which results in an additional 6-cell of $BSO(2) \cup_{BQuad} BOrp(3)$ compared to $BSO(2) \cup_{B\Omega S^2} BOrp(3)$; that 6-cell does not affect the 4-type of the pushout.
 \end{proof}
 
-\nid Though the square~\eqref{s2-pushout} is more elementary, the square~\eqref{quad-pushout} encodes important conceptual information not visible in~\eqref{s2-pushout}.  Specifically, a cellular model of the pushout $BSO(2) \cup_{BQuad} BOrp(3)$ has, in addition to cells $e_2$, $e_3$, $e_4$, and $e_5$ described in Corollary~\ref{cor-bso3trunc}, a 6-cell $e_6$ attached as follows.  First note that the 5-cell of $BQuad$ maps by multiplication by $2$ to the 5-cell of $BOrp(3)$ and by the cone on $\eta$ to the 4-cell of $BSO(2)$.  % This is not at all clear, but is forced if you know 2 gamma = eta q.  Maybe rephrase in a less flippant way?
+\nid Though the square in \cref{s2pushout} is more elementary, the square in \cref{quadpushout} encodes important conceptual information not visible in the other square.  Specifically, a cellular model of the pushout $BSO(2) \cup_{BQuad} BOrp(3)$ has, in addition to cells $e_2$, $e_3$, $e_4$, and $e_5$ described in Corollary~\ref{cor-bso3trunc}, a 6-cell $e_6$ attached as follows.  First note that the 5-cell of $BQuad$ maps by multiplication by $2$ to the 5-cell of $BOrp(3)$ and by the cone on $\eta$ to the 4-cell of $BSO(2)$.  % This is not at all clear, but is forced if you know 2 gamma = eta q.  Maybe rephrase in a less flippant way?
 Now decompose the boundary $\partial e_6$ as the union $a_5 \cup (S^4 \times I) \cup b_5$, for 5-cells $a_5$ and $b_5$.  The cell $a_5$ wraps twice onto $e_5$, and the cell $b_5$ maps by the cone on $\eta: S^4 \ra S^3$ onto $e_4$, while the cylinder $S^4 \times I$ performs a homotopy between $2 \gamma : S^4 \ra \Sigma \RP^2$ and $\eta q: S^4 \ra S^2$ in $\Sigma \RP^2$.  In words, the 4-cell of $BSO(3)$ trivializes $q$ while the 5-cell trivializes $\gamma$, and the 6-cell witnesses the equivalence of $\eta$ times the trivialization of $q$ with $2$ times the trivialization of $\gamma$.
 
 \begin{remark}[A square for $BOrp(3)$]
 There is a commutative square (but not a 4-pushout),
-\begin{equation}\label{quadmoore} \tag{M}
-\xymatrix{
+\[
+\vcenter{\hbox{\xymatrix{
 B\Omega S^2 \ar[r] \ar[d] & B\Omega \Sigma \RP^2 \ar[d] \\
 BQuad \ar[r] & BOrp(3)
-}
-\end{equation}
+}}}
+\]
 % It isn't a 4-pushout because the pushout is Sigma RP2 with a 5-cell killing eta q, but you know eta q is twice the generator of pi_4 Sigma RP2, so there is pi_4 left in the pushout, which is no present in BOrp(3).
 We saw that $B\Omega S^2$ and $BQuad$ were interchangable in the pushout square.  The space $BOrp(3)$ cannot be similarly replaced by $B\Omega \Sigma \RP^2$.  Nevertheless it will sometimes be useful to consider building an $Orp(3)$ action by first building an $\Omega \Sigma \RP^2$ action.
 \end{remark}
@@ -289,16 +291,18 @@ By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Ome
 \CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$. Omit??}
 
 \CD{Should tighten up what is inside the construction environment. Put ramble outside it}
-\begin{constr}[The figure 8 construction]
+\CD{Move the pic inside the construction, I think}
+\begin{tconstr}[The figure 8 construction]{F-8}
+\label{fig8}
 As mentioned, the map $S : S^1 \ra \Aut(X)$ can be viewed as a point $S \in \Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (righthanded) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
-\begin{equation} \label{eq-q}
+\[
 q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \Omega (\Omega \Aut(X))
-\end{equation}
+\]
 Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$, and in fact a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
-\end{constr}
+\end{tconstr}
 
 We refer to this as the figure-8 construction, as it imitates the following normally framed embedding of $S^1$ in $\RR^3$:
-\begin{equation} \nn
+\[
 \begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
 (-.75,0) to [out=-90,in=-120] (0,0)
@@ -307,7 +311,7 @@ We refer to this as the figure-8 construction, as it imitates the following norm
 (.75,0) to [out=-90,in=-60] (0,0)
 	to [out=120,in=90] (-.75,0);
 \end{tikzpicture}
-\end{equation} 
+\]
 %\begin{tikzpicture}
 %\draw[linestyle,fuzzleft,looseness=1.25]
 %(-.75,0) to [out=-90,in=-120] (0,0)
@@ -316,7 +320,6 @@ We refer to this as the figure-8 construction, as it imitates the following norm
 %(.75,0) to [out=-90,in=-60] (0,0)
 %	to [out=120,in=90] (-.75,0);
 %\end{tikzpicture}
-%\end{equation} 
 %\CD{I do not know how to fix the tikz issue here --- the pre function and the raise function appear to be incompatible.}
 % Note: the vertical direction in this picture is the loop direction, and the automorphism direction is into the page, and left right is the second loop direction.
 %The gray fuzz indicates the first normal frame vector, and the second normal frame vector points uniformly out of the page.
@@ -326,41 +329,42 @@ The normal framing is implicitly determined as follows: the first normal vector 
 \begin{lemma}[The figure 8 construction as homotopical pullback] 
 \label{lemma-q}
 The figure-8 constuction represents precomposition with a generating element $q: S^3 \ra S^2$ of $\pi_3(S^2)$.  Specifically, the following square commutes up to homotopy, where ``$q$" refers to the above construction, and ``$q^\ast$" refers to pullback along the element $q$:
-\begin{equation} \nn
+\[
 \xymatrix{
 \Omega^2 B\Aut(X) \ar[r]^{q^\ast} \ar@{<->}[d]_{\simeq} & \Omega^3 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
 \Omega \Aut(X) \ar[r]_{q} & \Omega^2 \Aut(X)
 }
-\end{equation}
+\]
 \end{lemma}
 
 \begin{proof}
-In fact, the square commutes with any space $Y$ in place of $B\Aut(X)$ and correspondingly $\Omega Y$ in place of $\Aut(X)$.  Because both the constructions $q$ and $q^\ast$ are natural, to prove the general case, it suffices to check in the universal case of $Y = S^2$ on the universal point $(S^2 \xra{\id} S^2) \in \Omega^2 S^2$.  In that case, construction~\eqref{eq-q} is the Pontryagin-Thom image of the normally framed embedding of $S^1$ into $\RR^3$ depicted above; in words, take the normally framed figure-8 immersion of $S^1$ into $\RR^2$, compose with the inclusion $\RR^2 \ra \RR^3$ equipped with the trivial normal framing, and deform the composite to an embedding (having a righthanded braid).  That normally framed embedding does indeed represent a generator of $\pi_3(S^2)$ as required.
+In fact, the square commutes with any space $Y$ in place of $B\Aut(X)$ and correspondingly $\Omega Y$ in place of $\Aut(X)$.  Because both the constructions $q$ and $q^\ast$ are natural, to prove the general case, it suffices to check in the universal case of $Y = S^2$ on the universal point $(S^2 \xra{\id} S^2) \in \Omega^2 S^2$.  In that case, \cref{fig8} is the Pontryagin-Thom image of the normally framed embedding of $S^1$ into $\RR^3$ depicted above; in words, take the normally framed figure-8 immersion of $S^1$ into $\RR^2$, compose with the inclusion $\RR^2 \ra \RR^3$ equipped with the trivial normal framing, and deform the composite to an embedding (having a righthanded braid).  That normally framed embedding does indeed represent a generator of $\pi_3(S^2)$ as required.
 %NB Though this might look like it only checks on $\pi_0$, this does provide a proof of the commutativity of the square.  Specifically, you choose a single universal homotopy in the universal case, and then the image of that homotopy under a map \Omega^2 S^2 \ra \Omega^2 Y is a continuously varying homotopy showing the diagram commutes.
 \end{proof}
 
 \CD{Should really tighten up whatever is inside the following construction environment. Put ramble outside the environment}
-\begin{constr}[The stable figure 8 construction]
+\begin{tconstr}[The stable figure 8 construction]{F-$\eta$}
+\label{figeta}
 We may play the same game again.  We have $q(S) \in \Omega^2 \Aut(X)$.  Though it does not matter particularly, for definiteness let $\cdot$ as before denote the first loop composition, and $\circ$ now denote the second loop composite.  The space $\Omega^2 \Aut(X)$ is an $E_3$-space and therefore has a path $\tau_{a,b}$ from $a \circ b$ to $b \circ a$ implementing the symmetric switch.  For any point $A \in \Omega^2 \Aut(X)$ we may form the following composite
-\begin{equation} \label{eq-eta}
+\[
 \eta(A) := (I \ra A \circ A^{-1} \xra{\tau_{A,A^{-1}}} A^{-1} \circ A \ra I) \in \Omega(\Omega^2 \Aut(X))
-\end{equation}
+\]
 Here $I$ now denotes the trivial double loop at the identity automorphism.  This construction provides a map $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$, in fact a map $\Omega^2 \Aut(X) \xra{\eta} \Omega^3 \Aut(X)$, which may also be called the stable figure-8 construction.
-\end{constr}
+\end{tconstr}
 
 \begin{lemma}[The stable figure 8 construction as homotopical pullback] 
 \label{lemma-eta}
 The stable figure-8 construction represents precomposition with a nontrivial element $\eta: S^4 \ra S^3$ of $\pi_4(S^3)$.  More precisely, the following square commutes up to homotopy, where ``$\eta$" refers to the above construction, and ``$\eta^\ast$" refers to pullback along the element $\eta$:
-\begin{equation} \nn
+\[
 \xymatrix{
 \Omega^3 B\Aut(X) \ar[r]^{\eta^\ast} \ar@{<->}[d]_{\simeq} & \Omega^4 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
 \Omega^2 \Aut(X) \ar[r]_{\eta} & \Omega^3 \Aut(X)
 }
-\end{equation}
+\]
 \end{lemma}
 
 \begin{proof}
-As for the previous lemma, it suffices to check for the universal space, here $S^3$ in place of $B\Aut(X)$, and on the universal point, here $(S^3 \xra{\id} S^3) \in \Omega^3 S^3$.  In that case, construction~\eqref{eq-eta} is the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^4$: take the normally framed embedding of $S^1$ into $\RR^3$ from the proof of Lemma~\ref{lemma-q} and include it into $\RR^4$, adding a trivial normal framing direction.  This normally framed manifold represents a generator of $\pi_4(S^3)$ as required.
+As for the previous lemma, it suffices to check for the universal space, here $S^3$ in place of $B\Aut(X)$, and on the universal point, here $(S^3 \xra{\id} S^3) \in \Omega^3 S^3$.  In that case, \cref{figeta} is the Pontryagin-Thom image of the following normally framed embedding of $S^1$ into $\RR^4$: take the normally framed embedding of $S^1$ into $\RR^3$ from the proof of Lemma~\ref{lemma-q} and include it into $\RR^4$, adding a trivial normal framing direction.  This normally framed manifold represents a generator of $\pi_4(S^3)$ as required.
 \end{proof}
 
 We can now describe homotopy $Quad$ actions.
@@ -409,9 +413,10 @@ This is immediate, as multiplication by $2$ commutes through the identification 
 Recall from Proposition~\ref{prop-borptrunc} that the 4-truncation of $BOrp(3)$ is $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.  From Proposition~\ref{prop-sigmarp2action}, we know that a $\Sigma \RP^2 = S^2 \cup_2 e_3$ action is a point of $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$.  To precisely describe a full $Orp(3)$ action, we need to provide a geometric construction of a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X)$ such that the composite $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X) \simeq \Omega^4 B\Aut(X)$ is pullback along $\frac{\eta q}{2} \in \pi_4(\Sigma\RP^2)$.  
 
 \CD{Tighten up what's inside the construction, put ramble outside.}
-\begin{constr}[The figure 64 construction]
-We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Given an element $S \in \Omega \Aut(X)$, recall from Section~\ref{sec-quadaction} that we can read the standard normally framed figure 8 embedding of $S^1$ in $\RR^3$ by performing the element $S$ in a transverse 2-plane slice along the curve, to obtain construction~\eqref{eq-q}, a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.  We can similarly read the following normally framed embedding of $S^1 \times S^1$ into $\RR^4$ as representing a map $\Omega \Aut(X) \xra{\eta q} \Omega^2 \Aut(X)$:
-\begin{equation} \label{eq-etaq}
+\begin{tconstr}[The figure 64 construction]{F-64}
+\label{fig64}
+We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Given an element $S \in \Omega \Aut(X)$, recall from Section~\ref{sec-quadaction} that we can read the standard normally framed figure 8 embedding of $S^1$ in $\RR^3$ by performing the element $S$ in a transverse 2-plane slice along the curve, to obtain \cref{fig8}, a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.  We can similarly read the following normally framed embedding of $S^1 \times S^1$ into $\RR^4$ as representing a map $\Omega \Aut(X) \xra{\eta q} \Omega^2 \Aut(X)$:
+\[
 \emptyset 
 \leadsto
 \cb{\begin{tikzpicture}
@@ -496,12 +501,13 @@ We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Gi
 \end{tikzpicture}}
 \leadsto
 \emptyset
-\end{equation} 
+\]
 Here the normal framing is implicit and as before is determined as follows: the first nontrivial picture on the left has first normal vector pointing toward the center of the circle and second normal vector pointing out of the page; for the rest of the pictures, the first normal is determined by planar deformation from the first picture, and the second normal continues to point out of the page.  Also as before, the black line segments indicate the element $S \in \Omega \Aut(X)$, and the gray line segments indicate the element $S^{-1}$, where the inverse is taken in the loop direction.  That the map $\Omega \Aut(X) \xra{\eta q} \Omega^3 \Aut(X)$ produced by the above picture is given by pullback along $\eta q \in \pi_4(S^2)$ is the content of Lemmas~\ref{lemma-q} and ~\ref{lemma-eta}.
-\end{constr}
+\end{tconstr}
 
 \CD{Tighten up what's inside the construction, any ramble outside}
-\begin{constr}[The figure 32 construction]
+\begin{tconstr}[The figure 32 construction]{F-32}
+\label{fig32}
 Given a point of $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$, we have both a point $S \in \Omega\Aut(X)$ and a null homotopy $R$ of $2S$.  We represent this null homotopy and its inverse graphically by 
 $\cb{
 \begin{tikzpicture}
@@ -515,7 +521,7 @@ $\cb{
 \end{tikzpicture}
 }$
 respectively.  Combining this notation with the previous notation of a normally framed surface, the following picture encodes a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \xra{\frac{\eta q}{2}} \Omega^3 \Aut(X)$:
-\begin{equation} \label{eq-etaq2}
+\[
 \emptyset 
 \leadsto
 \cb{\begin{tikzpicture}
@@ -605,23 +611,14 @@ respectively.  Combining this notation with the previous notation of a normally 
 \end{tikzpicture}}
 \leadsto
 \emptyset
-\end{equation}
+\]
 \nid We refer to this as the figure-32 construction.
-\end{constr}
+\end{tconstr}
 
-\begin{lemma}[The figure 32 construction as homotopical pullback] 
-\label{lemma-etaq2}
-The figure-32 construction~\eqref{eq-etaq2} represents precomposition with a generator $\frac{\eta q}{2}: S^4 \ra \Sigma \RP^2$ of $\pi_4(\Sigma \RP^2)$.  More precisely, the following square commutes up to homotopy, where $\frac{\eta q}{2}$ refers to the above construction, and $(\frac{\eta q}{2})^\ast$ refers to pullback along the element $\frac{\eta q}{2}$:
-\begin{equation} \nn
-\xymatrix{
-\Map(\Sigma \RP^2,B\Aut(X)) \ar[r]^-{(\frac{\eta q}{2})^\ast} \ar@{<->}[d]_{\simeq} & \Omega^4 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
-\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ar[r]_-{\frac{\eta q}{2}} & \Omega^3 \Aut(X)
-}
-\end{equation}
-\end{lemma}
-\begin{proof}
-By Lemmas~\ref{lemma-q} and~\ref{lemma-eta}, we know that construction~\eqref{eq-etaq} represents precomposition with $\eta q : S^4 \ra S^2 \xra{\text{inc}} \Sigma\RP^2$.  Observe that construction~\eqref{eq-etaq} is homotopic to the sum of construction~\eqref{eq-etaq2} with the following construction:
-\begin{equation} \label{eq-etaq2end}
+\begin{tconstr}[Another figure 32 construction]{F-32$'$}
+\label{fig32end}
+The following picture encodes another map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X)$, which will be relevant in the proof of the subsequent lemma:
+\[
 \emptyset 
 \leadsto
 \cb{\begin{tikzpicture}
@@ -711,8 +708,21 @@ By Lemmas~\ref{lemma-q} and~\ref{lemma-eta}, we know that construction~\eqref{eq
 \end{tikzpicture}}
 \leadsto
 \emptyset
-\end{equation} 
-Next note that construction~\eqref{eq-etaq2} and the time reversal of construction~\eqref{eq-etaq2end} are vertical reflections of one another; it follows that the sum of \eqref{eq-etaq2} and $-\eqref{eq-etaq2end}$ is null, or said differently, that \eqref{eq-etaq2} and \eqref{eq-etaq2end} are homotopic.  Thus construction~\eqref{eq-etaq2} is a 2-divisor of construction~\eqref{eq-etaq}, and, because $\pi_4(\Sigma \RP^2) = \ZZ/4$, therefore represents $(\frac{\eta q}{2})^\ast$, up to sign.  As we will only be concerned with the vanishing of construction~\eqref{eq-etaq2}, the sign will not matter for us---we leave its determination to the interested reader.
+\]
+\end{tconstr}
+
+\begin{lemma}[The figure 32 construction as homotopical pullback] 
+\label{lemma-etaq2}
+The figure-32 \cref{fig32} represents precomposition with a generator $\frac{\eta q}{2}: S^4 \ra \Sigma \RP^2$ of $\pi_4(\Sigma \RP^2)$.  More precisely, the following square commutes up to homotopy, where $\frac{\eta q}{2}$ refers to the above construction, and $(\frac{\eta q}{2})^\ast$ refers to pullback along the element $\frac{\eta q}{2}$:
+\[
+\xymatrix{
+\Map(\Sigma \RP^2,B\Aut(X)) \ar[r]^-{(\frac{\eta q}{2})^\ast} \ar@{<->}[d]_{\simeq} & \Omega^4 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
+\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ar[r]_-{\frac{\eta q}{2}} & \Omega^3 \Aut(X)
+}
+\]
+\end{lemma}
+\begin{proof}
+By Lemmas~\ref{lemma-q} and~\ref{lemma-eta}, we know that \cref{fig64} represents precomposition with $\eta q : S^4 \ra S^2 \xra{\text{inc}} \Sigma\RP^2$.  Observe that \cref{fig64} is homotopic to the sum of \cref{fig32} and \cref{fig32end}. Next note that \cref{fig32} and the time reversal of \cref{fig32end} are vertical reflections of one another; it follows that the sum of \cref{fig32} and the negative of \cref{fig32end} is null, or said differently, that \cref{fig32} and \cref{fig32end} are homotopic.  Thus \cref{fig32} is a 2-divisor of \cref{fig64}, and, because $\pi_4(\Sigma \RP^2) = \ZZ/4$, therefore represents $(\frac{\eta q}{2})^\ast$, up to sign.  As we will only be concerned with the vanishing of \cref{fig32}, the sign will not matter for us---we leave its determination to the interested reader.
 \end{proof}
 \CDcomm{[This last sentence about sign doesn't make sense unless we have specified a chosen element $\frac{\eta q}{2}$ of the homotopy group.  Really, Proposition 2.5 should specify the generator we use, not just up to sign, then at least the rest is precise.]  [If we don't have a good way to specify, we can take the figure 32 construction to specify the sign, but then the proposition statements need adjusting.]}
 
@@ -736,17 +746,17 @@ The homotopy classes of $SO(3)$ actions on a 3-type $X$ are the homotopy classes
 \begin{itemize}
 \item $S: S^1 \ra \Aut(X)$ is a based loop of automorphisms of $X$,
 \item $R: D^2 \ra \Aut(X)$ is a null homotopy of $S \ast S: S^1 \ra \Aut(X)$, the pointwise (that is, automorphism) square of $S$,
-\item $W: D^3 \ra \Aut(X)$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 construction~\eqref{eq-q} applied to $S$,
+\item $W: D^3 \ra \Aut(X)$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 \cref{fig8} applied to $S$,
 \end{itemize}
 such that
 \begin{itemize}
-\item $\frac{\eta q}{2} (S,R) : S^3 \ra \Aut(X)$, that is the figure-32 construction~\eqref{eq-etaq2} applied to $(S,R)$, is null homotopic.
+\item $\frac{\eta q}{2} (S,R) : S^3 \ra \Aut(X)$, that is the figure-32 \cref{fig32} applied to $(S,R)$, is null homotopic.
 \end{itemize}
 \end{theorem}
 \nid By this point needless to say, the space of $SO(3)$ is homotopy equivalent to the space
-\begin{equation} \nn
+\[
 \ast \,_{\Omega^2 \Aut(X)}\! \times_q \left(\Omega \Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast\right)_{[\frac{\eta q}{2}]=0},
-\end{equation}
+\]
 where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subscript $[\frac{\eta q}{2}]=0$ indicates that the only components where the figure-32 construction vanishes are retained.
 \begin{proof}
 This follows by combining Corollary~\ref{cor-bso3trunc}, Lemma~\ref{lemma-q}, and Lemma~\ref{lemma-etaq2}.
@@ -831,10 +841,10 @@ Given an $SO(3)$ action on $X$, that is a map $\alpha: BSO(3) \ra B\Aut(X)$, we 
 
 A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$, where $p: S^2 \ra \RP^2$ is the antipodal quotient.  Given a map $\RP^2 \ra \Aut(X)$, we need to explicitly construct the pullback $S^2 \xra{p} \RP^2 \ra \Aut(X)$.  The map from $\RP^2$ provides a point $S \in \Omega \Aut(X)$ and a null homotopy $R$ of $2S$.  
 
-\begin{constr}[The bean construction]
+\begin{tconstr}[The bean construction]{F-B}
 \label{bean}
 Using the previously described graphical notation for $S$ and $R$, the following picture defines a map $\Map(\RP^2,\Aut(X)) \xra{p} \Omega^2 \Aut(X)$:
-\begin{equation} 
+\[
 \cb{\begin{tikzpicture}
 \draw[linestyle,out looseness=.75,in looseness=1]
 	(-.5,-.25) to [out=-90,in=-90] (.5,0)
@@ -843,25 +853,25 @@ Using the previously described graphical notation for $S$ and $R$, the following
 	(-.5,-.25) to [out=90,in=-90] (0,0)
 	(-.5,.25) to [out=-90,in=90] (0,0);
 \end{tikzpicture}}
-\end{equation}
-We refer to the construction defined in this diagram~\ref{eq-bean} as ``the Radford bean".  
-\end{constr}
+\]
+We refer to the construction defined in this diagram as ``the Radford bean".  
+\end{tconstr}
 
-Note well that in this construction the left and right facing cups are applications of the nullhomotopy $R$ of $2S$, not applications of a cancellation between $S$ and $S^{-1}$.  This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.  (This can be verified by direct geometric argument.)  Theorem~\ref{thm-so3action} provides (in $W$) a null homotopy of construction~\eqref{eq-q} applied to $S$, whereas we seem to need a null homotopy of construction~\eqref{eq-bean} applied to $S$ and $R$.  Though construction~\eqref{eq-bean} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by construction~\eqref{eq-q}, we will see that they are, in fact, closely related.
+Note well that in this construction the left and right facing cups are applications of the nullhomotopy $R$ of $2S$, not applications of a cancellation between $S$ and $S^{-1}$.  This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.  (This can be verified by direct geometric argument.)  Theorem~\ref{thm-so3action} provides (in $W$) a null homotopy of \cref{fig8} applied to $S$, whereas we seem to need a null homotopy of \cref{bean} applied to $S$ and $R$.  Though \cref{bean} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by \cref{fig8}, we will see that they are, in fact, closely related.
 
-Note that the following square commutes up to homotopy, where ``$p$" refers to the above construction~\eqref{eq-bean} and ``$(\Sigma p)^\ast$" refers to pullback along the suspension of the antipodal projection $p: S^2 \ra \RP^2$:
-\begin{equation} \nn
+Note that the following square commutes up to homotopy, where ``$p$" refers to the above \cref{bean} and ``$(\Sigma p)^\ast$" refers to pullback along the suspension of the antipodal projection $p: S^2 \ra \RP^2$:
+\[
 \xymatrix{
 \Map(\Sigma\RP^2,B\Aut(X)) \ar[r]^-{(\Sigma p)^\ast} \ar@{<->}[d]_{\simeq} & \Omega^3 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
 \Map(\RP^2,\Aut(X)) \ar[r]_-{p} & \Omega^2 \Aut(X)
 }
-\end{equation}
-That is, construction~\eqref{eq-bean} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that construction~\eqref{eq-q} represents pullback along $q: S^3 \ra S^2$.  Comparing the homotopy classes $\Sigma p \in \pi_3(\Sigma \RP^2)$ and $\inc_* q \in \pi_3(\Sigma \RP^2)$, for $\inc: S^2 \ra \Sigma \RP^2$, is therefore equivalent to comparing construction~\eqref{eq-bean} and construction~\eqref{eq-q}.  \CDcomm{(In what follows, I've written as though the Radford bean construction and the suspension of the antipodal projects are \emph{equal}; really, we should in the above paragraph or two \emph{choose} a homotopy between them, and then we can implicitly identify them via that homotopy, and everything that follows is fine.)}
+\]
+That is, \cref{bean} represents pullback along $\Sigma p: S^3 \ra \Sigma \RP^2$ in the same sense that \cref{fig8} represents pullback along $q: S^3 \ra S^2$.  Comparing the homotopy classes $\Sigma p \in \pi_3(\Sigma \RP^2)$ and $\inc_* q \in \pi_3(\Sigma \RP^2)$, for $\inc: S^2 \ra \Sigma \RP^2$, is therefore equivalent to comparing \cref{bean} and \cref{fig8}.  \CDcomm{(In what follows, I've written as though the Radford bean construction and the suspension of the antipodal projects are \emph{equal}; really, we should in the above paragraph or two \emph{choose} a homotopy between them, and then we can implicitly identify them via that homotopy, and everything that follows is fine.)}
 
 We will need the following lemma:
 \begin{lemma}[The homotopy class of the bean]
 The map $S^3 \ra \Sigma \RP^2$ defined by the normally framed manifold
-\begin{equation} \nn
+\[
 \cb{\begin{tikzpicture}
 \draw[linestyle,out looseness=.75,in looseness=1]
 	(-.5,-.25) to [out=-90,in=-90] (.5,0)
@@ -870,12 +880,12 @@ The map $S^3 \ra \Sigma \RP^2$ defined by the normally framed manifold
 	(-.5,-.25) to [out=90,in=-90] (0,0)
 	(-.5,.25) to [out=-90,in=90] (0,0);
 \end{tikzpicture}}
-\end{equation}
+\]
 represents the unique nontrivial 2-torsion class in $\pi_3(\Sigma \RP^2) = \ZZ/4$.
 \end{lemma}
 \begin{proof}
 Consider the following local deformation:
-\begin{equation} \nn
+\[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=.75]
 (0,0) to [out=0,in=-90] (1,.25)
@@ -917,9 +927,9 @@ Consider the following local deformation:
 \draw[linestylegraylight,coverline,out looseness=1.5,in looseness=.9]
 (0,0) to [out=110,in=90] (-.5,.375);
 \end{tikzpicture}}
-\end{equation}
+\]
 Applying this deformation on the top part of the bean, we obtain the following homotopy:
-\begin{equation} \label{htpybean2e}
+\begin{equation} \label{htpybean2e} \tag{H}
 \cb{\begin{tikzpicture}
 \draw[linestyle,out looseness=.75,in looseness=1]
 	(-.5,-.25) to [out=-90,in=-90] (.5,0)
@@ -987,8 +997,7 @@ That homotopy shows that the bean is homotopic to the composite $S^3 \xra{q \cdo
 \begin{remark}[The Radford cannot satisfy the snake relation]
 This lemma is of more significance that it might appear.  It means that the null homotopy $R$ of $2S$ does not, \emph{indeed cannot be chosen to}, satisfy the standard snake relation.
 \end{remark}
-The sequence of deformations in equation~\ref{htpybean2e} defines a homotopy, call it $H$, between the Radford bean map, which we have previously identified with the suspension of the antipodal projection $\Sigma p : S^3 \ra \Sigma \RP^2$, and twice the figure-8 map $\inc_*(q \cdot 2) : S^3 \ra \Sigma \RP^2$.  Note well that this homotopy could have been chosen differently---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between the corresponding constructions, namely the Radford bean construction and twice the figure-8 construction, that is for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, it provides a homotopy between the map $p(S,R): S^2 \ra \Aut(X)$ and the map $2 q(S): S^2 \ra \Aut(X)$.
-
+The sequence of deformations in \cref{htpybean2e} defines a homotopy $H$ between the Radford bean map, which we have previously identified with the suspension of the antipodal projection $\Sigma p : S^3 \ra \Sigma \RP^2$, and twice the figure-8 map $\inc_*(q \cdot 2) : S^3 \ra \Sigma \RP^2$.  Note well that this homotopy could have been chosen differently---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between the corresponding constructions, namely the Radford bean construction and twice the figure-8 construction, that is for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, it provides a homotopy between the map $p(S,R): S^2 \ra \Aut(X)$ and the map $2 q(S): S^2 \ra \Aut(X)$.
 
 Equipped with the homotopy $H$ between $p(S,R)$ and $2 q(S)$, we can complete the description of the map from $SO(3)$ to the automorphisms of $X$.  Recall from Theorem~\ref{thm-so3action} that a homotopy $SO(3)$ action on a 3-type $X$ is defined by a triple $(S,R,W)$, where $S: S^1 \ra \Aut(X)$, $R: D^2 \ra \Aut(X)$ is a null homotopy of the square of $S$, and $W: D^3 \ra \Aut(X)$ is a null homotopy of $q(S)$.
 \begin{proposition}[The orbit of an $SO(3)$ action] 
@@ -1002,7 +1011,7 @@ Given a homotopy $SO(3)$ action on a 3-type $X$, defined by the triple $(S,R,W)$
 \begin{constr}[The Radford-8 construction]
 \label{rad8}
 Now consider the map $e: S^3 \ra \Sigma\RP^2$ defined by the (Pontryagin-Thom) construction on the following picture:
-\begin{equation}
+\[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
 (0,0) to [out=-90,in=-120] (.75,0)
@@ -1011,7 +1020,7 @@ Now consider the map $e: S^3 \ra \Sigma\RP^2$ defined by the (Pontryagin-Thom) c
 (1.5,0) to [out=-90,in=-60] (.75,0)
 	to [out=120,in=90] (0,0);
 \end{tikzpicture}}
-\end{equation}
+\]
 Equivalently, this picture defines a map $Map(\RP^2,\Aut(X)) \xra{e} \Omega^2 \Aut(X)$.  We refer to this construction as the ``Radford-8".
 \end{constr}
 
@@ -1020,8 +1029,8 @@ The map $e: S^3 \ra \Sigma \RP^2$ is homotopic to the composite of the \emph{neg
 \end{lemma}
 
 \begin{proof}
-The desired equation $e = -q$ follows if $e + q = 0$, which follows if $e - q = -2q = 2q$.  It therefore suffices to show that the union of \cref{rad8} and the negative of construction~\eqref{eq-q} is homotopic to \cref{bean}.  This is indeed the case:
-\begin{equation} \nn
+The desired equation $e = -q$ follows if $e + q = 0$, which follows if $e - q = -2q = 2q$.  It therefore suffices to show that the union of \cref{rad8} and the negative of \cref{fig8} is homotopic to \cref{bean}.  This is indeed the case:
+\[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
 (0,0) to [out=-90,in=-120] (.5,0)
@@ -1074,10 +1083,10 @@ The desired equation $e = -q$ follows if $e + q = 0$, which follows if $e - q = 
 	(-.5,-.25) to [out=90,in=-90] (0,0)
 	(-.5,.25) to [out=-90,in=90] (0,0);
 \end{tikzpicture}}
-\end{equation}
+\]
 \end{proof}
 
-%\CDcomm{This next paragraph is correct, but I think no longer needed for anything. Thus we used the notation H for something else in the text} \nid Thanks to this lemma we can \emph{pick} a homotopy, call it $H$, between $e: S^3 \ra \Sigma \RP^2$ and $\inc_*(-q): S^3 \ra \Sigma \RP^2$.  Note well that this homotopy is not well defined---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between construction~\eqref{eq-rad8} and the negative of construction~\eqref{eq-q}, and therefore, for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, between the map $e(S,R): S^2 \ra \Aut(X)$ and the map $-q(S): S^2 \ra \Aut(X)$.
+%\CDcomm{This next paragraph is correct, but I think no longer needed for anything. Thus we used the notation H for something else in the text} \nid Thanks to this lemma we can \emph{pick} a homotopy, call it $H$, between $e: S^3 \ra \Sigma \RP^2$ and $\inc_*(-q): S^3 \ra \Sigma \RP^2$.  Note well that this homotopy is not well defined---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between \cref{rad8} and the negative of \cref{fig8}, and therefore, for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, between the map $e(S,R): S^2 \ra \Aut(X)$ and the map $-q(S): S^2 \ra \Aut(X)$.
 
 
 \begin{remark}[An alternative cell structure for $BSO(3)$]
@@ -1085,9 +1094,9 @@ The above considerations determined an alternative 4-truncation of $BSO(3)$, nam
 \end{remark}
 
 Though we have already seen the fact that the Radford-8 $e: S^3 \ra \Sigma\RP^2$ is 4-torsion in $\pi_3(\Sigma \RP^2) = \ZZ/4$, we cannot resist including a proof: \CDcomm{insert proof here?}
-\begin{equation} \nn
+\[
 ...
-\end{equation}
+\]
 
 
 \section{Homotopy fixed points}
@@ -1293,12 +1302,12 @@ The structure space $BOrp(3)$ is defined as the homotopy fiber of the composite 
 \end{proof}
 
 We have the following diagram of structure spaces:
-\begin{equation} \nn
+\[
 \xymatrix{
 BQuad_{K(\ZZ,2)}^{K(\ZZ,3)} \ar[r] \ar[d] & BSO(2)_{K(\ZZ,2)} \ar[d] \\
 BOrp(3)_{K(\ZZ/2,2)}^{K(\ZZ/4,3)} \ar[r] & BSO(3)_{K(\ZZ/2,2)}^{K(\ZZ,4)}
 }
-\end{equation}
+\]
 Here we have indicated in the subscripts and superscripts the stages of the respective Postnikov towers of the homotopy 4-types.  The two horizontal maps exist by definition, and the righthand vertical map is the standard inclusion.  The lefthand vertical map may be constructed as follows.  At the first layer of the Postnikov tower, the map $\pi: K(\ZZ,2) \ra K(\ZZ/2,2)$ is induced by the projection $\ZZ \ra \ZZ/2$.  To produce a map $BQuad \ra BOrp(3)$ it suffices to factor the composite $K(\ZZ,2) \xra{\pi} K(\ZZ/2,2) \xra{\delta} K(\ZZ/4,4)$ through the map $K(\ZZ,2) \xra{c_1^2} K(\ZZ,4)$; this is accomplished by (plus or minus) the projection $K(\ZZ,4) \ra K(\ZZ/4,4)$.  %%% {This is because the path loop construction is functorial so any map K(\ZZ,4) \ra K(\ZZ/4,4) induces a map of fibrations, which pulls back across c_1^2, resp \delta, to give a map of fibrations whose total spaces are BQuad and BOrp(3) respectively.  To check the factorization, just look at the induced maps in cohomology.
 
 By construction, the four maps of structure spaces above induce the `obvious' maps on homotopy, namely $\pi_2(BQuad \ra BSO(2))$ is an isomorphism, $\pi_2(BQuad \ra BOrp(3))$ and $\pi_3(BQuad \ra BOrp(3))$ are both surjective, $\pi_2(BSO(2) \ra BSO(3))$ is surjective, and $\pi_2(BOrp(3) \ra BSO(3))$ is an isomorphism.  
@@ -1328,15 +1337,15 @@ The following spaces, together with the obvious maps to $BO(3)$, define 3-dimens
 \begin{proposition}[Homotopical and homological pullbacks of the Pontryagin class] 
 \label{prop-H4}
 The diagram of structure spaces
-\begin{equation} \nn
+\[
 \xymatrix@R=5pt{
 & BSpin \ar[dr] & & \\
 BSpin(3) \ar[ur] \ar[dr] && BSO \ar[r]^{p_1} & K(\ZZ,4) \\
 & BSO(3) \ar[ur] & &
 }
-\end{equation}
+\]
 induces on fourth homotopy and fourth homology respectively the maps
-\begin{equation} \nn
+\[
 \xymatrix@R=5pt{
 \save[]+<-1cm,0cm>*{\pi_4:}\restore & \ZZ \ar[dr]^{1} & & \\
 \ZZ \ar[ur]^{2} \ar[dr]_{1} && \ZZ \ar[r]^{2} & \ZZ \\
@@ -1346,7 +1355,7 @@ induces on fourth homotopy and fourth homology respectively the maps
 \ZZ && \ZZ \ar[ul]_{2} \ar[dl]^{1} & \ZZ \ar[l]_{1} \\
 & \ZZ \ar[ul]^{4} & &
 }
-\end{equation}
+\]
 \end{proposition}
 
 We emphasize from this proposition two facts that were directly needed for the structure group computations in Section~\ref{sec-lft-struc}: the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ is a generator of $H^4(BSO(3);\ZZ)$, which we refer to also as $p_1$, and the map $\pi_4(BSO(3)) \xra{\pi_4(p_1)} \pi_4(K(\ZZ,4))$ is multiplication by $4$.
@@ -1363,7 +1372,7 @@ The map $H^4(BSO \xra{p_1} K(\ZZ,4))$ is an isomorphism by definition of $p_1$. 
 
 Figure~\ref{fig-structuregroups} organizes some of the 3-dimensional structure groups we have considered.
 \begin{figure}[!ht]
-\begin{equation} \nn
+\[
 \xymatrix@!R@!C@R=10pt@C=5pt{
 && \ast \ar[dl] \ar[ddrr] && \\
 & BString(3) \ar[dl] &&& \\
@@ -1375,7 +1384,7 @@ BSpin(3) \ar[ddrr] &&&& BSO(2) \ar[ddll] \\
 &&&& \\
 && BSO(3) &&
 }
-\end{equation}
+\]
 \caption{Three-dimensional structure groups} \label{fig-structuregroups}
 \end{figure}
 
