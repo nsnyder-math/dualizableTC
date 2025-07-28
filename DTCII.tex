@@ -950,7 +950,7 @@ There are several morphisms which are consequences of the Whitney, $W: \id \stac
 	to [out=120,in=90] (1.25,0);
 \end{tikzpicture}}.
 \]
-These are: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$:
+Some appear in the RAIN construction, above. There is: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$:
 \[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
@@ -1124,7 +1124,14 @@ Each of these uses one copy of the Whitney morphism (and not its inverse). An ea
 Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$ on a 3-type $X$ given by the homotopy class of the triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$, the resulting action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$ is given by the homotopy class of the map $V := \vcon(S,R,W) : S^3 \ra \Aut(X)$, where $\vcon$ is the rain construction.
 \end{prop}
 
-\CDcomm{Proof: compute its image in homology}
+
+\begin{proof}
+	We aim to show that map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$. This can be detected in cellular homology as the induced map, $\pi_4BSO(3) \to H_4(BSO(3))$, is multiplication by four, see Proposition~\ref{prop-H4}. The cellular homology class of $V$ counts (with multiplicity) every time the map $V$ passes over the 4-cell of $BSO(3)$, equivalently it counts
+	(with multiplicity) each occurence of the Whitney morphism $W$. The Whitney morphism is utilized precisely four times in the RAIN construction, showing that $[V]$ induces four times the generator of $H_4(BSO(3))$, just as desired. 
+\end{proof}
+
+
+
 
 \subsection{The orbit map of an $SO(3)$ action}
 
