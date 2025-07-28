@@ -807,7 +807,7 @@ In the above several morphisms appear which are consequences of the Whitney, $W:
 	to [out=120,in=90] (1.25,0);
 \end{tikzpicture}}.
 \]
-These are: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$
+These are: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$:
 \[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
@@ -820,7 +820,38 @@ These are: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$
 \leadsto
 \emptyset,
 \]
-the traded umbrella construction $W^t: \id \stackrel{\sim}{\to} q(S^{-1})$
+which induces:
+\[
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25] (0,1) to [out=90,in=90] (1,1);
+\draw [linestylegray,coverline,looseness=1.25] (1,1) to [out = -90, in = 60] (0.5,0.5) to [out = -120, in = 90] (0,0); 
+\draw[linestyle,looseness=1.25] (0,0) to [out=-90,in=-90] (1,0);
+\draw [linestylegray,coverline,looseness=1.25] (1,0) to [out=90, in = -60] (0.5,0.5) to [out = 120, in = -90] (0,1);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25] (0,2) to [out=90,in=90] (2,2);
+\draw [linestylegray,coverline,looseness=1.25] (2,2) to [out = -90, in = -60] (1,1) to [out = 120, in = 90] (0,0); 
+\draw[linestyle,looseness=1.25] (0,0) to [out=-90,in=-90] (2,0);
+\draw [linestylegray,coverline,looseness=1.25] (2,0) to [out=90, in = -90] (0.5,0.5); 
+\draw[linestyle,coverline, looseness=1.25] (0.5,0.5) to [out =90, in = -120] (1,1) to [out = 60, in = -90] (1.5,1.5);
+\draw [linestylegray,looseness=1.25] (1.5,1.5) to [out = 90, in = -90] (0,2);
+
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+	(1.25,0) to [out=-90,in=-120] (1.75,0)
+		to [out=60,in=90] (2.25,0);
+\end{tikzpicture}}
+\leadsto
+\emptyset,
+\]
+and 
+the traded umbrella construction $W^t: \id \stackrel{\sim}{\to} q(S^{-1})$:
 \begin{constr}[The traded umbrella construction]
 \[
 \emptyset
