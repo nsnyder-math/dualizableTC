@@ -786,156 +786,7 @@ The homotopy classes of $Spin(3)$ actions on a 3-type $X$ are the homotopy class
 Though $Spin(3)$ actions are particularly simple, the interesting question here is the following. Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$, there is a pullback action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$. When expressing the $SO(3)$ action as a triple $(S,R,W)$, how do we extract the homotopy class $V$ characterizing the resulting $Spin(3)$ action? The answer is as folows. 
 
 \begin{tconstr}[The rain construction]{RAIN}
-Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: \id \sim q(S)  : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
-\[
-\emptyset
-\stackrel{W, W^t}{\leadsto}
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=90] (2.25,0);
-\draw[linestylegray,coverline,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-	
-\draw[linestylegray,looseness=1.25]
-(2.5,0) to [out=-90,in=-120] (3,0)
-	to [out=60,in=90] (3.5,0);
-\draw[linestyle,coverline,looseness=1.25]
-(3.5,0) to [out=-90,in=-60] (3,0)
-	to [out=120,in=90] (2.5,0);	
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=180] (2.25,0.25);
-\draw[linestylegray,coverline,looseness=1.25]
-(2.25,-0.25) to [out=180,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\draw[linestylegray,looseness=1.25]
-(2.25,-0.25) to [out=0,in=-120] (2.75,0)
-	to [out=60,in=90] (3.25,0);
-\draw[linestyle,coverline,looseness=1.25]
-(3.25,0) to [out=-90,in=-60] (2.75,0)
-	to [out=120,in=0] (2.25,0.25);	
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.5, 0.75) to [out = -90, in = 180] (2.25,0.5) to [out = 0, in = -90] (3, 0.75);
-\draw[linestylegray,looseness=1.25] (3, 0.75) to [out = 90, in = 0] (2.25, 1) to [out = 180, in = 90] (1.5, 0.75);
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=180] (2.25,0.25);
-\draw[linestylegray,coverline,looseness=1.25]
-(2.25,-0.25) to [out=180,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\draw[linestylegray,looseness=1.25]
-(2.25,-0.25) to [out=0,in=-120] (2.75,0)
-	to [out=60,in=90] (3.25,0);
-\draw[linestyle,coverline,looseness=1.25]
-(3.25,0) to [out=-90,in=-60] (2.75,0)
-	to [out=120,in=0] (2.25,0.25);	
-\end{tikzpicture}}
-\stackrel{R, R^{-1}}{\leadsto}
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.5, 0.75) to [out = -90, in = 90] (2.25,0.25); % to [out = 0, in = -90] (3, 0.75);
-\draw[linestylegray,looseness=1.25] (3.5, 0.75) to [out = 90, in = 0] (2.5, 1) to [out = 180, in = 90] (1.5, 0.75);
-
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=-90] (2.25,0.25);
-\draw[linestylegray,coverline,looseness=1.25]
-(2.5,-0.25) to [out=180,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\draw[linestylegray,looseness=1.25]
-(2.5,-0.25) to [out=0,in=-120] (3.25,0)
-	to [out=60,in=90] (3.75,0);
-\draw[linestyle,coverline,looseness=1.25]
-(3.75,0) to [out=-90,in=-60] (3.25,0)
-	to [out=120,in=-90] (2.75,0.25) to [out = 90, in = -90] (3.5, 0.75);	
-\end{tikzpicture}}
-\leadsto
-\]
-\[
-\leadsto 
-\cb{\begin{tikzpicture}
-\draw[linestylegray,looseness=1.25] (1,1) to [out = 180, in = 60] (0.5,0.75) to [out = -120, in = 90] (0.25, 0.25);
-\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5,0) to [out = -90, in = -90] (0, 0.25);
-\draw[linestylegray,coverline,looseness=1.25] (0, 0.25) to [out = 90, in = 120] (0.5,0.75) to [out=-60, in = 180] (1,0.5);
- \draw[linestylegray,looseness=1.25] (1,0.5) to [out = 0, in = -120] (1.5,0.75) to [out = 60, in = 90] (2, 0.25);
-\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
-\draw[linestylegray,coverline,looseness=1.25] (1.75, 0.25) to [out = 90, in = -60] (1.5,0.75) to [out = 120, in= 0 ] (1,1);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25] (0.6, 1.5) to [out = -90, in = 90] (0.75, 1.25);
-\draw[linestylegray,looseness=1.25] (0.75, 1.25) to [out = -90, in = 60] (0.5, 1) to [out = -120, in = 90] (0.25, 0.75);
-\draw[linestyle,looseness=1.25] (0.25, 0.75) to [out = -90, in = 90] (0.4, 0.5);
-\draw[linestylegray,looseness=1.25] (0.4, 0.5) to [out = -90, in = 90] (0.25, 0.25);
-\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5, 0) to [out = -90, in = -90] (0, 0.25);
-\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,1.25) to [out = 90, in = 90] (0.4, 1.5); %might need more control points
-\draw[linestyle,looseness=1.25](0.4, 1.5) to [out = -90, in = 90] (0.25, 1.25);
-\draw[linestylegray,coverline,looseness=1.25] (0.25, 1.25) to [out = -90, in = 120] (0.5, 1) to [out = -60, in = 90] (0.75, 0.75);
-\draw[linestyle,looseness=1.25] (0.75, 0.75) to [out = -90, in = 90] (0.6, 0.5);
-\draw[linestylegray,looseness=1.25] (0.6, 0.5) to [out = -90, in = -90] (1.4, 0.5);
-\draw[linestyle,looseness=1.25] (1.4, 0.5) to [out = 90, in = -90 ] (1.25, 0.75);
-\draw[linestylegray,looseness=1.25] (1.25, 0.75) to [out = 90, in = -120] (1.5, 1) to [out = 60, in = -90] (1.75, 1.25);
-\draw[linestyle,looseness=1.25] (1.75, 1.25) to [out = 90, in = -90] (1.6, 1.5);
-\draw[linestylegray,looseness=1.25] (1.6, 1.5) to [out = 90, in = 90] (2,1.25) to [out = -90, in = 90] (2,0.25);
-\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
-\draw[linestylegray,looseness=1.25] (1.75, 0.25) to [out = 90, in = -90] (1.6, 0.5); 
-\draw[linestyle,looseness=1.25] (1.6, 0.5) to [out =90, in = -90] (1.75, 0.75);
-\draw[linestylegray, coverline,looseness=1.25] (1.75, 0.75) to [out = 90, in = -60] (1.5,1) to [out = 120, in = -90] (1.25, 1.25);
-\draw[linestyle,looseness=1.25] (1.25, 1.25) to [out = 90, in = -90] (1.4, 1.5);
-\draw[linestylegray,looseness=1.25] (1.4, 1.5) to [out = 90, in = 90] (0.6, 1.5);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-
-\draw[linestyle,looseness=1.25] (0.5, 1.5) to [out = 0, in = 90] (0.75, 1.25);
-\draw[linestylegray,looseness=1.25] (0.75, 1.25) to [out = -90, in = 60] (0.5, 1) to [out = -120, in = 90] (0.25, 0.75);
-\draw[linestyle,looseness=1.25] (0.25, 0.75) to [out = -90, in = 180] (0.5, 0.5);
-\draw[linestyle,looseness=1.25](0.5, 1.5) to [out = 180, in = 90] (0.25, 1.25);
-\draw[linestylegray,coverline,looseness=1.25] (0.25, 1.25) to [out = -90, in = 120] (0.5, 1) to [out = -60, in = 90] (0.75, 0.75);
-\draw[linestyle,looseness=1.25] (0.75, 0.75) to [out = -90, in = 0] (0.5, 0.5);
-
-\draw[linestyle,looseness=1.25] (1.5, 0.5) to [out = 180, in = -90 ] (1.25, 0.75);
-\draw[linestylegray,looseness=1.25] (1.25, 0.75) to [out = 90, in = -120] (1.5, 1) to [out = 60, in = -90] (1.75, 1.25);
-\draw[linestyle,looseness=1.25] (1.75, 1.25) to [out = 90, in = 0] (1.5, 1.5);
-\draw[linestyle,looseness=1.25] (1.5, 0.5) to [out =0, in = -90] (1.75, 0.75);
-\draw[linestylegray, coverline,looseness=1.25] (1.75, 0.75) to [out = 90, in = -60] (1.5,1) to [out = 120, in = -90] (1.25, 1.25);
-\draw[linestyle,looseness=1.25] (1.25, 1.25) to [out = 90, in = 180] (1.5, 1.5);
-
-\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5, 0) to [out = -90, in = -90] (0, 0.25);
-\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,1.25) to [out = 90, in = 90] (2,1.25) to [out = -90, in = 90] (2,0.25);
-\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
-\draw[linestylegray,looseness=1] (1.75, 0.25) to [out = 90, in = 0] (1, 0.35) to [out = 180, in = 90] (0.25, 0.25);
-
-\end{tikzpicture}}
-\stackrel{(W^t)^*,(W^t)^*}{\leadsto}
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5, 0) to [out = -90, in = -90] (0, 0.25);
-\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,1.25) to [out = 90, in = 90] (2,1.25) to [out = -90, in = 90] (2,0.25);
-\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
-\draw[linestylegray,looseness=1] (1.75, 0.25) to [out = 90, in = 0] (1, 0.35) to [out = 180, in = 90] (0.25, 0.25);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25] (0,0.25) to [out = -90, in = -90] (1,0.25);
-\draw[linestyle,looseness=1.25] (0.25,0.5) to [out = -90, in = -90] (0.75,0.5);
-\draw[linestylegray,looseness=1.25](0.25,0.5) to [out = 90, in = 90] (0.75,0.5);
-\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,.75) to [out = 90, in =90] (1,0.75) to [out = -90, in = 90] (1,0.25);
-\end{tikzpicture}}
-\leadsto
-\emptyset
-\]
-%\CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
-\end{tconstr}
-
-
+Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id  : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
 \[
 \emptyset
 \leadsto
@@ -964,6 +815,8 @@ Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),
 \draw[linestylegray,coverline,looseness=1.25] (0.25, 0)to [out = -90, in = -120] (0.75, 0) to [out = 60, in = -120] (1,0.25)to [out = 60, in = 90] (2,0);
 \end{tikzpicture}}
 \leadsto
+\]
+\[\leadsto
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25] (0.25, 0) to [out = -90, in = -120] (0.5, 0) to [out = 60, in = 90] (0.75,0);
 \draw[linestylegray,coverline,looseness=1.25] (0.75,0) to [out = -90, in = -60] (0.5,0) to [out = 120, in = 90] (0.25,0);
@@ -988,191 +841,347 @@ Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),
 \leadsto 
 \emptyset
 \]
+%\CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
+\end{tconstr}
+
+
+
 
 
 \CD{After CSP finishes writing this part, give any constructions tags analogous to the others}
 
-There are several morphisms which are consequences of the Whitney, $W: \id \stackrel{\sim}{\to} q(S)$ (umbrella) depicted graphically as
-\[
-\emptyset
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=90] (2.25,0);
-\draw[linestylegray,coverline,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\end{tikzpicture}}.
-\]
-Some appear in the RAIN construction, above. There is: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$:
-\[
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\draw[linestylegray,coverline,looseness=1.25]
-	(1.25,0) to [out=-90,in=-120] (1.75,0)
-		to [out=60,in=90] (2.25,0);
-\end{tikzpicture}}
-\leadsto
-\emptyset,
-\]
-and 
-the traded umbrella construction $W^t: \id \stackrel{\sim}{\to} q(S^{-1})$:
-\begin{constr}[The traded umbrella construction]
-\[
-\emptyset
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestylegray,looseness=1.25]
-(1.25, 1) to [out=-90,in=-90] (1.75,1);
-\draw[linestyle,looseness=1.25]
-(1.75,1) to [out=90,in=90] (1.25,1);
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=90] (2.25,0);
-\draw[linestylegray,coverline,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=180] (2,-0.25) to [out=0, in=-120](3.5,0.5)
-	to [out=60,in=90] (4.25,0.5);
-\draw[linestylegray,coverline,looseness=1.25]
-(4.25,0.5) to [out=-90,in=-60] (3.5,0.5) to [out=120, in=60] (2.5,1)
-	to [out=-120, in=60 ] (1.75, 0.75)  to [out=-120, in=90] (1.25,0);
-	
-\draw[linestylegray,coverline,looseness=1.25]
-(1.25, 1) to [out=-90,in=120] (1.75, 0.75) to [out = -60, in=-90] (3,0.5);
-\draw[linestyle,coverline,looseness=1.25]
-(3,0.5) to [out=90, in = -60 ]  (2.5,1) to [out = 120,in = 0]  (1.5, 1.25) to [out = 180,in=90] (1.25,1);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=180] (2,-0.25) to [out=0, in=-120](3.5,0.5)
-	to [out=60,in=90] (4.25,0.5);
-\draw[linestylegray,coverline,looseness=1.25]
-(4.25,0.5) to [out=-90,in=-60] (3.5,0.5) to [out=120, in = 90] (3,1);
-\draw[linestyle,looseness=1.25] (3,1) to [out = -90, in = 90] (3.2,0.5);
-
-\draw[linestyle,coverline,looseness=1.25] (1.25,1) to [out = 90, in = 180] (1.5, 1.25) to [out = 0, in = 90]  (2,1);
-\draw[linestylegray,coverline,looseness=1.25] (2,1) to [out = -90, in=60] (1.75, 0.75)  to [out=-120, in=90] (1.25,0);
-\draw[linestylegray,coverline,looseness=1.25] (3.2,0.5) to [out = -90, in = -60] (1.75, 0.75) to [out = 120, in = -90] (1.25, 1); %this moved later to get correct overcrossing.
-
-\draw[linestylegray,looseness=1.25] (2.75,1) to [out=90,in=60] (2.5,1) to [out = -120, in = -90] (2.25,1);
-\draw[linestyle,coverline,looseness=1.25](2.25,1) to [out = 90, in=120] (2.5,1) to [out=-60,in =-90](2.75,1);
 
 
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.25,0) to [out=-90,in=180] (2,-0.25) to [out=0, in=-120](3.5,0.5)
-	to [out=60,in=90] (4.25,0.5);
-
-
-
-\draw[linestyle,coverline,looseness=1.25] (1.25,1) to [out = 90, in = 180] (1.5, 1.25) to [out = 0, in = 90]  (2,1);
-\draw[linestylegray,coverline,looseness=1.25] (2,1) to [out = -90, in=60] (1.75, 0.75)  to [out=-120, in=90] (1.25,0);
-
-\draw[linestylegray,coverline,looseness=1.25]
-(4.25,0.5) to [out=-90,in=-60] (3.5,0.5) to [out=120,in = -60] (1.75, 0.75) to [out = 120, in = -90] (1.25, 1); %this moved later to get correct overcrossing.
-
-
-\draw[linestylegray,looseness=1.25] (2.75,1) to [out=90,in=60] (2.5,1) to [out = -120, in = -90] (2.25,1);
-\draw[linestyle,coverline,looseness=1.25](2.25,1) to [out = 90, in=120] (2.5,1) to [out=-60,in =-90](2.75,1);
-\end{tikzpicture}}
-\leadsto
-\]	
-
-\[
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25]
-(1.5,0.75) to [out=-90,in = 90] (4.25,0.5);
-	
-\draw[linestyle,coverline,looseness=1.25] (1.25,1) to [out = 90, in = 180] (1.5, 1.25) to [out = 0, in = 90]  (2,1);
-\draw[linestylegray,coverline,looseness=1.25] (2,1) to [out = -90, in = 90] (1.5,0.75);
-
-\draw[linestylegray,coverline,looseness=1.25]
-(4.25,0.5) to [out=-90, in = 0] (2.5,0) to [out = 180, in = -90](1.25, 1);
-
-\draw[linestylegray,looseness=1.25] (2.75,1) to [out=90,in=60] (2.5,1) to [out = -120, in = -90] (2.25,1);
-\draw[linestyle,coverline,looseness=1.25](2.25,1) to [out = 90, in=120] (2.5,1) to [out=-60,in =-90](2.75,1);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestylegray,looseness=1.25]
-(0, 0) to [out=-90,in=-90] (1,0);
-\draw[linestyle,looseness=1.25]
-(1,0) to [out=90,in=90] (0,0);
-
-\draw[linestylegray,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=90] (2.25,0);
-\draw[linestyle,coverline,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestylegray,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=90] (2.25,0);
-\draw[linestyle,coverline,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\end{tikzpicture}}
-\]
-\end{constr}
-and the mate of the traded umbrella $(W^t)^*: q(S^{-1})^{-1} \to id$:
-\[
-\cb{\begin{tikzpicture}
-\draw[linestylegray,coverline,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\draw[linestyle, coverline,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=90] (2.25,0);
-\end{tikzpicture}}
-\leadsto
-\emptyset
-\]
-which induces:
-\[
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25] (0,1) to [out=90,in=90] (1,1);
-\draw [linestylegray,coverline,looseness=1.25] (1,1) to [out = -90, in = 60] (0.5,0.5) to [out = -120, in = 90] (0,0); 
-\draw[linestyle,looseness=1.25] (0,0) to [out=-90,in=-90] (1,0);
-\draw [linestylegray,coverline,looseness=1.25] (1,0) to [out=90, in = -60] (0.5,0.5) to [out = 120, in = -90] (0,1);
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestyle,looseness=1.25] (0,2) to [out=90,in=90] (2,2);
-\draw [linestylegray,coverline,looseness=1.25] (2,2) to [out = -90, in = -60] (1,1) to [out = 120, in = 90] (0,0); 
-\draw[linestyle,looseness=1.25] (0,0) to [out=-90,in=-90] (2,0);
-\draw [linestylegray,coverline,looseness=1.25] (2,0) to [out=90, in = -90] (0.5,0.5); 
-\draw[linestyle,coverline, looseness=1.25] (0.5,0.5) to [out =90, in = -120] (1,1) to [out = 60, in = -90] (1.5,1.5);
-\draw [linestylegray,looseness=1.25] (1.5,1.5) to [out = 90, in = -90] (0,2);
-
-\end{tikzpicture}}
-\leadsto
-\cb{\begin{tikzpicture}
-\draw[linestylegray,coverline,looseness=1.25]
-(2.25,0) to [out=-90,in=-60] (1.75,0)
-	to [out=120,in=90] (1.25,0);
-\draw[linestyle, coverline,looseness=1.25]
-(1.25,0) to [out=-90,in=-120] (1.75,0)
-	to [out=60,in=90] (2.25,0);
-\end{tikzpicture}}
-\leadsto
-\emptyset,
-\]
-Each of these uses one copy of the Whitney morphism (and not its inverse). An easy pneumonic is that the Whitney can be used to appear any `right-handed' figure-eight and to cancel any `left-handed' figure-eight, while the inverse of the Whitney may be used to cancel `right-handed' figure-eights and appear `left-handed' figure-eights.
+%%% old RAIN construction material. Commented out in case needed later. 
+%
+%\[
+%\emptyset
+%\stackrel{W, W^t}{\leadsto}
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=90] (2.25,0);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%	
+%\draw[linestylegray,looseness=1.25]
+%(2.5,0) to [out=-90,in=-120] (3,0)
+%	to [out=60,in=90] (3.5,0);
+%\draw[linestyle,coverline,looseness=1.25]
+%(3.5,0) to [out=-90,in=-60] (3,0)
+%	to [out=120,in=90] (2.5,0);	
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=180] (2.25,0.25);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.25,-0.25) to [out=180,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\draw[linestylegray,looseness=1.25]
+%(2.25,-0.25) to [out=0,in=-120] (2.75,0)
+%	to [out=60,in=90] (3.25,0);
+%\draw[linestyle,coverline,looseness=1.25]
+%(3.25,0) to [out=-90,in=-60] (2.75,0)
+%	to [out=120,in=0] (2.25,0.25);	
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.5, 0.75) to [out = -90, in = 180] (2.25,0.5) to [out = 0, in = -90] (3, 0.75);
+%\draw[linestylegray,looseness=1.25] (3, 0.75) to [out = 90, in = 0] (2.25, 1) to [out = 180, in = 90] (1.5, 0.75);
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=180] (2.25,0.25);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.25,-0.25) to [out=180,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\draw[linestylegray,looseness=1.25]
+%(2.25,-0.25) to [out=0,in=-120] (2.75,0)
+%	to [out=60,in=90] (3.25,0);
+%\draw[linestyle,coverline,looseness=1.25]
+%(3.25,0) to [out=-90,in=-60] (2.75,0)
+%	to [out=120,in=0] (2.25,0.25);	
+%\end{tikzpicture}}
+%\stackrel{R, R^{-1}}{\leadsto}
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.5, 0.75) to [out = -90, in = 90] (2.25,0.25); % to [out = 0, in = -90] (3, 0.75);
+%\draw[linestylegray,looseness=1.25] (3.5, 0.75) to [out = 90, in = 0] (2.5, 1) to [out = 180, in = 90] (1.5, 0.75);
+%
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=-90] (2.25,0.25);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.5,-0.25) to [out=180,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\draw[linestylegray,looseness=1.25]
+%(2.5,-0.25) to [out=0,in=-120] (3.25,0)
+%	to [out=60,in=90] (3.75,0);
+%\draw[linestyle,coverline,looseness=1.25]
+%(3.75,0) to [out=-90,in=-60] (3.25,0)
+%	to [out=120,in=-90] (2.75,0.25) to [out = 90, in = -90] (3.5, 0.75);	
+%\end{tikzpicture}}
+%\leadsto
+%\]
+%\[
+%\leadsto 
+%\cb{\begin{tikzpicture}
+%\draw[linestylegray,looseness=1.25] (1,1) to [out = 180, in = 60] (0.5,0.75) to [out = -120, in = 90] (0.25, 0.25);
+%\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5,0) to [out = -90, in = -90] (0, 0.25);
+%\draw[linestylegray,coverline,looseness=1.25] (0, 0.25) to [out = 90, in = 120] (0.5,0.75) to [out=-60, in = 180] (1,0.5);
+% \draw[linestylegray,looseness=1.25] (1,0.5) to [out = 0, in = -120] (1.5,0.75) to [out = 60, in = 90] (2, 0.25);
+%\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
+%\draw[linestylegray,coverline,looseness=1.25] (1.75, 0.25) to [out = 90, in = -60] (1.5,0.75) to [out = 120, in= 0 ] (1,1);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25] (0.6, 1.5) to [out = -90, in = 90] (0.75, 1.25);
+%\draw[linestylegray,looseness=1.25] (0.75, 1.25) to [out = -90, in = 60] (0.5, 1) to [out = -120, in = 90] (0.25, 0.75);
+%\draw[linestyle,looseness=1.25] (0.25, 0.75) to [out = -90, in = 90] (0.4, 0.5);
+%\draw[linestylegray,looseness=1.25] (0.4, 0.5) to [out = -90, in = 90] (0.25, 0.25);
+%\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5, 0) to [out = -90, in = -90] (0, 0.25);
+%\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,1.25) to [out = 90, in = 90] (0.4, 1.5); %might need more control points
+%\draw[linestyle,looseness=1.25](0.4, 1.5) to [out = -90, in = 90] (0.25, 1.25);
+%\draw[linestylegray,coverline,looseness=1.25] (0.25, 1.25) to [out = -90, in = 120] (0.5, 1) to [out = -60, in = 90] (0.75, 0.75);
+%\draw[linestyle,looseness=1.25] (0.75, 0.75) to [out = -90, in = 90] (0.6, 0.5);
+%\draw[linestylegray,looseness=1.25] (0.6, 0.5) to [out = -90, in = -90] (1.4, 0.5);
+%\draw[linestyle,looseness=1.25] (1.4, 0.5) to [out = 90, in = -90 ] (1.25, 0.75);
+%\draw[linestylegray,looseness=1.25] (1.25, 0.75) to [out = 90, in = -120] (1.5, 1) to [out = 60, in = -90] (1.75, 1.25);
+%\draw[linestyle,looseness=1.25] (1.75, 1.25) to [out = 90, in = -90] (1.6, 1.5);
+%\draw[linestylegray,looseness=1.25] (1.6, 1.5) to [out = 90, in = 90] (2,1.25) to [out = -90, in = 90] (2,0.25);
+%\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
+%\draw[linestylegray,looseness=1.25] (1.75, 0.25) to [out = 90, in = -90] (1.6, 0.5); 
+%\draw[linestyle,looseness=1.25] (1.6, 0.5) to [out =90, in = -90] (1.75, 0.75);
+%\draw[linestylegray, coverline,looseness=1.25] (1.75, 0.75) to [out = 90, in = -60] (1.5,1) to [out = 120, in = -90] (1.25, 1.25);
+%\draw[linestyle,looseness=1.25] (1.25, 1.25) to [out = 90, in = -90] (1.4, 1.5);
+%\draw[linestylegray,looseness=1.25] (1.4, 1.5) to [out = 90, in = 90] (0.6, 1.5);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%
+%\draw[linestyle,looseness=1.25] (0.5, 1.5) to [out = 0, in = 90] (0.75, 1.25);
+%\draw[linestylegray,looseness=1.25] (0.75, 1.25) to [out = -90, in = 60] (0.5, 1) to [out = -120, in = 90] (0.25, 0.75);
+%\draw[linestyle,looseness=1.25] (0.25, 0.75) to [out = -90, in = 180] (0.5, 0.5);
+%\draw[linestyle,looseness=1.25](0.5, 1.5) to [out = 180, in = 90] (0.25, 1.25);
+%\draw[linestylegray,coverline,looseness=1.25] (0.25, 1.25) to [out = -90, in = 120] (0.5, 1) to [out = -60, in = 90] (0.75, 0.75);
+%\draw[linestyle,looseness=1.25] (0.75, 0.75) to [out = -90, in = 0] (0.5, 0.5);
+%
+%\draw[linestyle,looseness=1.25] (1.5, 0.5) to [out = 180, in = -90 ] (1.25, 0.75);
+%\draw[linestylegray,looseness=1.25] (1.25, 0.75) to [out = 90, in = -120] (1.5, 1) to [out = 60, in = -90] (1.75, 1.25);
+%\draw[linestyle,looseness=1.25] (1.75, 1.25) to [out = 90, in = 0] (1.5, 1.5);
+%\draw[linestyle,looseness=1.25] (1.5, 0.5) to [out =0, in = -90] (1.75, 0.75);
+%\draw[linestylegray, coverline,looseness=1.25] (1.75, 0.75) to [out = 90, in = -60] (1.5,1) to [out = 120, in = -90] (1.25, 1.25);
+%\draw[linestyle,looseness=1.25] (1.25, 1.25) to [out = 90, in = 180] (1.5, 1.5);
+%
+%\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5, 0) to [out = -90, in = -90] (0, 0.25);
+%\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,1.25) to [out = 90, in = 90] (2,1.25) to [out = -90, in = 90] (2,0.25);
+%\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
+%\draw[linestylegray,looseness=1] (1.75, 0.25) to [out = 90, in = 0] (1, 0.35) to [out = 180, in = 90] (0.25, 0.25);
+%
+%\end{tikzpicture}}
+%\stackrel{(W^t)^*,(W^t)^*}{\leadsto}
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25] (0.25, 0.25) to [out = -90, in = 90] (0.5, 0) to [out = -90, in = -90] (0, 0.25);
+%\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,1.25) to [out = 90, in = 90] (2,1.25) to [out = -90, in = 90] (2,0.25);
+%\draw[linestyle,looseness=1.25] (2, 0.25) to [out = -90, in = -90] (1.5, 0) to [out = 90, in = -90] (1.75, 0.25);
+%\draw[linestylegray,looseness=1] (1.75, 0.25) to [out = 90, in = 0] (1, 0.35) to [out = 180, in = 90] (0.25, 0.25);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25] (0,0.25) to [out = -90, in = -90] (1,0.25);
+%\draw[linestyle,looseness=1.25] (0.25,0.5) to [out = -90, in = -90] (0.75,0.5);
+%\draw[linestylegray,looseness=1.25](0.25,0.5) to [out = 90, in = 90] (0.75,0.5);
+%\draw[linestylegray,looseness=1.25] (0,0.25) to [out = 90, in = -90] (0,.75) to [out = 90, in =90] (1,0.75) to [out = -90, in = 90] (1,0.25);
+%\end{tikzpicture}}
+%\leadsto
+%\emptyset
+%\]
+%
+%
+%There are several morphisms which are consequences of the Whitney, $W: \id \stackrel{\sim}{\to} q(S)$ (umbrella) depicted graphically as
+%\[
+%\emptyset
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=90] (2.25,0);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\end{tikzpicture}}.
+%\]
+%Some appear in the RAIN construction, above. There is: the mate $W^*: q(S)^{-1} \stackrel{\sim}{\to} \id$:
+%\[
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\draw[linestylegray,coverline,looseness=1.25]
+%	(1.25,0) to [out=-90,in=-120] (1.75,0)
+%		to [out=60,in=90] (2.25,0);
+%\end{tikzpicture}}
+%\leadsto
+%\emptyset,
+%\]
+%and 
+%the traded umbrella construction $W^t: \id \stackrel{\sim}{\to} q(S^{-1})$:
+%\begin{constr}[The traded umbrella construction]
+%\[
+%\emptyset
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestylegray,looseness=1.25]
+%(1.25, 1) to [out=-90,in=-90] (1.75,1);
+%\draw[linestyle,looseness=1.25]
+%(1.75,1) to [out=90,in=90] (1.25,1);
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=90] (2.25,0);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=180] (2,-0.25) to [out=0, in=-120](3.5,0.5)
+%	to [out=60,in=90] (4.25,0.5);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(4.25,0.5) to [out=-90,in=-60] (3.5,0.5) to [out=120, in=60] (2.5,1)
+%	to [out=-120, in=60 ] (1.75, 0.75)  to [out=-120, in=90] (1.25,0);
+%	
+%\draw[linestylegray,coverline,looseness=1.25]
+%(1.25, 1) to [out=-90,in=120] (1.75, 0.75) to [out = -60, in=-90] (3,0.5);
+%\draw[linestyle,coverline,looseness=1.25]
+%(3,0.5) to [out=90, in = -60 ]  (2.5,1) to [out = 120,in = 0]  (1.5, 1.25) to [out = 180,in=90] (1.25,1);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=180] (2,-0.25) to [out=0, in=-120](3.5,0.5)
+%	to [out=60,in=90] (4.25,0.5);
+%\draw[linestylegray,coverline,looseness=1.25]
+%(4.25,0.5) to [out=-90,in=-60] (3.5,0.5) to [out=120, in = 90] (3,1);
+%\draw[linestyle,looseness=1.25] (3,1) to [out = -90, in = 90] (3.2,0.5);
+%
+%\draw[linestyle,coverline,looseness=1.25] (1.25,1) to [out = 90, in = 180] (1.5, 1.25) to [out = 0, in = 90]  (2,1);
+%\draw[linestylegray,coverline,looseness=1.25] (2,1) to [out = -90, in=60] (1.75, 0.75)  to [out=-120, in=90] (1.25,0);
+%\draw[linestylegray,coverline,looseness=1.25] (3.2,0.5) to [out = -90, in = -60] (1.75, 0.75) to [out = 120, in = -90] (1.25, 1); %this moved later to get correct overcrossing.
+%
+%\draw[linestylegray,looseness=1.25] (2.75,1) to [out=90,in=60] (2.5,1) to [out = -120, in = -90] (2.25,1);
+%\draw[linestyle,coverline,looseness=1.25](2.25,1) to [out = 90, in=120] (2.5,1) to [out=-60,in =-90](2.75,1);
+%
+%
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.25,0) to [out=-90,in=180] (2,-0.25) to [out=0, in=-120](3.5,0.5)
+%	to [out=60,in=90] (4.25,0.5);
+%
+%
+%
+%\draw[linestyle,coverline,looseness=1.25] (1.25,1) to [out = 90, in = 180] (1.5, 1.25) to [out = 0, in = 90]  (2,1);
+%\draw[linestylegray,coverline,looseness=1.25] (2,1) to [out = -90, in=60] (1.75, 0.75)  to [out=-120, in=90] (1.25,0);
+%
+%\draw[linestylegray,coverline,looseness=1.25]
+%(4.25,0.5) to [out=-90,in=-60] (3.5,0.5) to [out=120,in = -60] (1.75, 0.75) to [out = 120, in = -90] (1.25, 1); %this moved later to get correct overcrossing.
+%
+%
+%\draw[linestylegray,looseness=1.25] (2.75,1) to [out=90,in=60] (2.5,1) to [out = -120, in = -90] (2.25,1);
+%\draw[linestyle,coverline,looseness=1.25](2.25,1) to [out = 90, in=120] (2.5,1) to [out=-60,in =-90](2.75,1);
+%\end{tikzpicture}}
+%\leadsto
+%\]	
+%
+%\[
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25]
+%(1.5,0.75) to [out=-90,in = 90] (4.25,0.5);
+%	
+%\draw[linestyle,coverline,looseness=1.25] (1.25,1) to [out = 90, in = 180] (1.5, 1.25) to [out = 0, in = 90]  (2,1);
+%\draw[linestylegray,coverline,looseness=1.25] (2,1) to [out = -90, in = 90] (1.5,0.75);
+%
+%\draw[linestylegray,coverline,looseness=1.25]
+%(4.25,0.5) to [out=-90, in = 0] (2.5,0) to [out = 180, in = -90](1.25, 1);
+%
+%\draw[linestylegray,looseness=1.25] (2.75,1) to [out=90,in=60] (2.5,1) to [out = -120, in = -90] (2.25,1);
+%\draw[linestyle,coverline,looseness=1.25](2.25,1) to [out = 90, in=120] (2.5,1) to [out=-60,in =-90](2.75,1);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestylegray,looseness=1.25]
+%(0, 0) to [out=-90,in=-90] (1,0);
+%\draw[linestyle,looseness=1.25]
+%(1,0) to [out=90,in=90] (0,0);
+%
+%\draw[linestylegray,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=90] (2.25,0);
+%\draw[linestyle,coverline,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestylegray,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=90] (2.25,0);
+%\draw[linestyle,coverline,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\end{tikzpicture}}
+%\]
+%\end{constr}
+%and the mate of the traded umbrella $(W^t)^*: q(S^{-1})^{-1} \to id$:
+%\[
+%\cb{\begin{tikzpicture}
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\draw[linestyle, coverline,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=90] (2.25,0);
+%\end{tikzpicture}}
+%\leadsto
+%\emptyset
+%\]
+%which induces:
+%\[
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25] (0,1) to [out=90,in=90] (1,1);
+%\draw [linestylegray,coverline,looseness=1.25] (1,1) to [out = -90, in = 60] (0.5,0.5) to [out = -120, in = 90] (0,0); 
+%\draw[linestyle,looseness=1.25] (0,0) to [out=-90,in=-90] (1,0);
+%\draw [linestylegray,coverline,looseness=1.25] (1,0) to [out=90, in = -60] (0.5,0.5) to [out = 120, in = -90] (0,1);
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestyle,looseness=1.25] (0,2) to [out=90,in=90] (2,2);
+%\draw [linestylegray,coverline,looseness=1.25] (2,2) to [out = -90, in = -60] (1,1) to [out = 120, in = 90] (0,0); 
+%\draw[linestyle,looseness=1.25] (0,0) to [out=-90,in=-90] (2,0);
+%\draw [linestylegray,coverline,looseness=1.25] (2,0) to [out=90, in = -90] (0.5,0.5); 
+%\draw[linestyle,coverline, looseness=1.25] (0.5,0.5) to [out =90, in = -120] (1,1) to [out = 60, in = -90] (1.5,1.5);
+%\draw [linestylegray,looseness=1.25] (1.5,1.5) to [out = 90, in = -90] (0,2);
+%
+%\end{tikzpicture}}
+%\leadsto
+%\cb{\begin{tikzpicture}
+%\draw[linestylegray,coverline,looseness=1.25]
+%(2.25,0) to [out=-90,in=-60] (1.75,0)
+%	to [out=120,in=90] (1.25,0);
+%\draw[linestyle, coverline,looseness=1.25]
+%(1.25,0) to [out=-90,in=-120] (1.75,0)
+%	to [out=60,in=90] (2.25,0);
+%\end{tikzpicture}}
+%\leadsto
+%\emptyset,
+%\]
+%Each of these uses one copy of the Whitney morphism (and not its inverse). An easy pneumonic is that the Whitney can be used to appear any `right-handed' figure-eight and to cancel any `left-handed' figure-eight, while the inverse of the Whitney may be used to cancel `right-handed' figure-eights and appear `left-handed' figure-eights.
 
 
 \begin{prop}[The $Spin(3)$ action induced by an $SO(3)$ action]
