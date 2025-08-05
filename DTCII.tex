@@ -1525,8 +1525,57 @@ Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BS
 \begin{tconstr}[The wet construction $\wcon$]{WET}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
 \[
-\CDcomm{\text{DRAW - NS board from edinburg using p pinv paint}}
-\]
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(-.75,0) to [out=-90,in=-120] (0,0)
+	to [out=60,in=90] (.75,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(.75,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-.75,0);
+\end{tikzpicture}} \leadsto
+\cb{\begin{tikzpicture}
+\node(Piv) at (-.5,-.25) {$\bullet$};
+\node(PivInv) at (-.3,-.25) {$\circ$};
+\draw[linestyle, looseness=1.25]
+(-.75,0) to [out=270, in=180] (-.5,-.25);
+\draw[linestyle, looseness=1.25]
+(-.3,-.25) to [out=0,in=-120] (0,0)
+	to [out=60,in=90] (.75,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(.75,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-.75,0);
+\end{tikzpicture}}\leadsto
+\cb{\begin{tikzpicture}
+\node(Piv) at (-.5,-.25) {$\bullet$};
+\node(PivInv) at (.3,.25) {$\circ$};
+\draw[linestyle, looseness=1.25]
+(-.75,0) to [out=270, in=180] (-.5,-.25);
+\draw[linestyle, looseness=1.25]
+(.3,.25) to [out=0,in=90] (.75,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(.75,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-.75,0);
+\end{tikzpicture}}
+=
+\cb{\begin{tikzpicture}
+\node(Piv) at (.5,-.4) {$\bullet$};
+\node(PivInv) at (-.5,.4) {$\circ$};
+\draw[linestyle, looseness=.75]
+(-.3,-.2) to [out=270, in=180] (.5,-.4);
+\draw[linestyle, looseness=.75]
+(-.5,.4) to [out=0,in=90] (.3,.2);
+\draw[linestylegray,coverline,looseness=1.25]
+(.3,.2) to [out=-90,in=90] (-.3,-.2);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\node(Piv) at (.5,0) {$\bullet$};
+\node(PivInv) at (-.5,0) {$\circ$};
+\draw[linestyle] (.5,0) to (-.5,0);
+\end{tikzpicture}}
+\leadsto \emptyset
+\] 
+
 \end{tconstr}
 
 \nid We refer to this as the wet construction because the pictoral representation of it is a a Whitney umbrella with a hole in it, where the boundary of the hole is labeled by the pivotal data.
