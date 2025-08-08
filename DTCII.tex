@@ -1596,8 +1596,8 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \node (end) at (12,0) {$I$};
 
 \node (step1) at (4.5,-1.5) {$I \cdot S^{-1}$};
-\node (step2) at (4.5,-3) {$S$};
-\node (step3) at (7.5,-3) {$I \cdot S$};
+\node (step2) at (4.5,-3) {$S\cdot I$};
+\node (step3) at (9,-3) {$I \cdot S$};
 
 \draw [->] (start) -- (top1);
 \draw [->] (top1) --node[above]{$\id$} (top2);
@@ -1612,9 +1612,11 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 
 \draw[->] (step2) -- (step3);
 \draw[->] (step3) -- (top3);
+\draw[->] (step3) --node[right]{$\id \cdot \piv$} (end);
 
 \node at (4.5,-.75) {$\Downarrow$};
 \node at (4.5,-2.25) {$\Downarrow$};
+\node at (7.5,-1.5) {$\Searrow$};
 
 \end{tikzpicture}
 
