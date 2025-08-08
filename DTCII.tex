@@ -1533,6 +1533,8 @@ Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BS
 
 \begin{tconstr}[The wet construction $\wcon$]{WET}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
+
+\NS{Noah's version, should either remove or just explain that it's equivalent to CSP's version.}
 \[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
@@ -1585,6 +1587,38 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \] 
 
 \NS{Currently $\bullet$ is $\piv$ and $\circ$ is $\piv^{-1}$. This notation should be changed or explained.}
+
+\begin{tikzpicture}
+\node (start) at (0,0) {$I$};
+\node (top1) at (3,0) {$S \cdot S^{-1}$};
+\node (top2) at (6,0) {$S \cdot S^{-1}$};
+\node (top3) at (9,0) {$S^{-1} \cdot S$};
+\node (end) at (12,0) {$I$};
+
+\node (step1) at (4.5,-1.5) {$I \cdot S^{-1}$};
+\node (step2) at (4.5,-3) {$S$};
+\node (step3) at (7.5,-3) {$I \cdot S$};
+
+\draw [->] (start) -- (top1);
+\draw [->] (top1) --node[above]{$\id$} (top2);
+\draw [->] (top2) --node[above]{$\beta_{S,S^{-1}}$} (top3);
+\draw[->] (top3) -- (end);
+
+\draw[->] (top1) --node[below, left]{$\id \cdot \piv$} (step1);
+\draw[->] (step1) --node[below, right]{$\id \cdot \piv^{-1}$} (top2);
+
+\draw[->] (top1) .. controls (3,-2) .. node[below, left]{$\piv^{-1} \cdot \id$} (step2);
+\draw[->] (step2) .. controls (6,-2)  ..node[below, right]{$\piv^{-1} \cdot \id$} (top2);
+
+\draw[->] (step2) -- (step3);
+\draw[->] (step3) -- (top3);
+
+\node at (4.5,-.75) {$\Downarrow$};
+\node at (4.5,-2.25) {$\Downarrow$};
+
+\end{tikzpicture}
+
+
 
 \end{tconstr}
 
