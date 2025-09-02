@@ -160,7 +160,7 @@ By a \emph{$k$-truncation} of a space $X$, we will mean a $(k+1)$-dimensional ce
 Needless to say, the 4-truncation of $B\Omega S^2 \simeq S^2$ is simply $S^2$, and this is obviously minimal.
 
 \begin{definition}[$BQuad$]
-The space $B\Quad$ is the homotopy fiber of the map $c_1^2: BSO(2) \ra K(\ZZ,4)$ classifying the square of the first chern class.
+The space $B\Quad$ is the homotopy fiber of the map $c_1^2: BSO(2) \ra K(\ZZ,4)$ classifying the square of the first Chern class.
 \end{definition}
 %\CD{Maybe Quad will already have been introduced earlier.}
 
@@ -339,6 +339,8 @@ We refer to this as the figure-8 construction, as it imitates the following norm
 % Note: the vertical direction in this picture is the loop direction, and the automorphism direction is into the page, and left right is the second loop direction.
 %The gray fuzz indicates the first normal frame vector, and the second normal frame vector points uniformly out of the page.
 The normal framing is implicitly determined as follows: the first normal vector is approximately in the plane of the page, pointing inward on the left side of the figure and outward on the right side, and the second normal vector points uniformly out of the page.  (Here the black line segment indicates the portion that can be interpreted as $S \in \Omega \Aut(X)$ and the gray line segment indicates the portion that can be interpreted as $S^{-1}$.)
+
+Composition of $1$-paths is read from bottom-to-top, and composition of $2$-paths is read from left-to-right. \NS{Wrote this sentence, but I'm not sure it literally makes sense.}
 
 
 \begin{lemma}[The figure 8 construction as homotopical pullback] 
@@ -527,12 +529,14 @@ Given a point of $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$, we have bo
 $\cb{
 \begin{tikzpicture}
 \draw[linestyle,looseness=1.75] (0,.15) to [out=0,in=0] (0,-.15);
+\filldraw[black] (.15,0) circle (1.5pt);
 \end{tikzpicture}
 }$
 and
 $\cb{
 \begin{tikzpicture}
 \draw[linestyle,looseness=1.75] (0,.15) to [out=180,in=180] (0,-.15);
+\filldraw[black, fill=white] (-.15,0) circle (1.5pt);
 \end{tikzpicture}
 }$
 respectively.  Combining this notation with the previous notation of a normally framed surface, the following picture encodes a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \xra{\frac{\eta q}{2}} \Omega^3 \Aut(X)$:
@@ -591,11 +595,13 @@ respectively.  Combining this notation with the previous notation of a normally 
 \draw[linestyle,looseness=1.25]
 (0,0) to [out=-90,in=90] (.15,-.25)
 	to [out=-90,in=90] (0,-.5);
+\filldraw[black, fill=white] (.15,-.25) circle (1.5pt);
 \draw[linestyle,looseness=1.25]
 (1,0) to [out=90,in=60] (.5,0)
 	to [out=-120,in=90] (.3,-.25)
 	to [out=-90,in=120] (.5,-.5)
 	to [out=-60,in=-90] (1,-.5);
+\filldraw[black] (.3,-.25) circle (1.5pt);
 \draw[linestylegray,coverline,looseness=1.25]
 (0,0) to [out=90,in=120] (.5,0)
 	to [out=-60,in=-90] (1,0);
@@ -616,6 +622,8 @@ respectively.  Combining this notation with the previous notation of a normally 
 \draw[linestyle,looseness=1.25]
 (.4,.15) to [out=-90,in=90] (1,0)
 	to [out=-90,in=90] (.4,-.15);
+\filldraw[black] (.1,0) circle (1.5pt);
+\filldraw[black, fill=white] (1,0) circle (1.5pt);
 \end{tikzpicture}}
 \leadsto
 \cb{\begin{tikzpicture}
@@ -623,6 +631,8 @@ respectively.  Combining this notation with the previous notation of a normally 
 (0,0) to [out=-90,in=-90] (.5,0);
 \draw[linestyle,looseness=1.25]
 (.5,0) to [out=90,in=90] (0,0);
+\filldraw[black] (0,0) circle (1.5pt);
+\filldraw[black, fill=white] (.5,0) circle (1.5pt);
 \end{tikzpicture}}
 \leadsto
 \emptyset
@@ -1743,7 +1753,7 @@ K(\ZZ,3) \ra & \; BQuad_4 \ra K(\ZZ,2) \overset{c_1^2}{\dashrightarrow} K(\ZZ,4)
 \end{proposition}
 
 \begin{proof}
-The quadratic structure group is defined as the homotopy fiber of the square of the first chern class, so in that case there is nothing to prove.
+The quadratic structure group is defined as the homotopy fiber of the square of the first Chern class, so in that case there is nothing to prove.
 
 The first four homotopy groups of $BSO(3)$ are $\pi_1 = 0$, $\pi_2 = \ZZ/2$, $\pi_3 = 0$, $\pi_4 = \ZZ$.  The Postnikov tower of the 4-type of $BSO(3)$ is therefore as indicated for some k-invariant in $H^5(K(\ZZ/2,2);\ZZ) = \ZZ/4$.  This k-invariant isn't trivial: the cohomology group $H^5(K(\ZZ/2,2) \times K(\ZZ,4);\ZZ)$ has 4-torsion elements, while the group $H^5(BSO(3);\ZZ)$ does not.  Similarly, the k-invariant isn't twice a generator of $H^5(K(\ZZ/2,2);\ZZ)$: the group $H^4(K(\ZZ/2,2) \ltimes_{2\gamma} K(\ZZ,4);\ZZ/2)$ is rank two, while $H^4(BSO(3);\ZZ/2)$ is rank one.  The k-invariant for the 4-type of $BSO(3)$ is therefore a generator, as claimed.
 
