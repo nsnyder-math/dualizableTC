@@ -320,6 +320,8 @@ q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \
 Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$, and in fact a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
 \end{tconstr}
 
+\CD{There are a few conventions being determined here. Possibly state these explicitly as an environment. As drawn below, the conventions are the following. (1) Read diagrams bottom to top. (2) Read diagrams left to right. (3) Black is Serre, grey is Serre inverse. (4) The crossing is drawn over. (5) [later] the braiding is natural on the Serre inverse ie over strand, ie you can move bubbles on the grey strand.}
+
 We refer to this as the figure-8 construction, as it imitates the following normally framed embedding of $S^1$ in $\RR^3$:
 \[
 \begin{tikzpicture}
@@ -525,6 +527,10 @@ We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Gi
 \]
 Here the normal framing is implicit and as before is determined as follows: the first nontrivial picture on the left has first normal vector pointing toward the center of the circle and second normal vector pointing out of the page; for the rest of the pictures, the first normal is determined by planar deformation from the first picture, and the second normal continues to point out of the page.  Also as before, the black line segments indicate the element $S \in \Omega \Aut(X)$, and the gray line segments indicate the element $S^{-1}$, where the inverse is taken in the loop direction.  That the map $\Omega \Aut(X) \xra{\eta q} \Omega^3 \Aut(X)$ produced by the above picture is given by pullback along $\eta q \in \pi_4(S^2)$ is the content of \cref{lemma-q,lemma-eta}.
 \end{tconstr}
+
+\CD{Let's change notation so that the Radford and pivotal look quite different graphically}
+
+\CD{Note, the introduction of the Radford dots has not been propagated}
 
 \CD{Tighten up what's inside the construction, any ramble outside}
 \begin{tconstr}[The figure 32 construction]{F-32}
@@ -1521,6 +1527,10 @@ In this section, for brevity we sometimes use ``is" to mean ``is homotopy equiva
 
 Recall that an $\Omega S^2$ action on a 3-type $X$, which a priori is a based map $\alpha: S^2 \ra B\Aut(X)$ may instead be viewed as a based map $S: S^1 \ra \Aut(X)$.
 
+\CD{Since we use a picture for piv later, there should be a picture -- just a line ending}
+
+\CD{Note discrepancy between P and piv both used}
+
 \begin{proposition}[Fixed points for $\Omega S^2$]
 The space of homotopy fixed points of the $\Omega S^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$, is the space of pairs $(x,P)$ where $x \in X$ is a point and $P: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$.
 \end{proposition}
@@ -1545,6 +1555,10 @@ By \cref{prop-hofptrunc}, to understand the homotopy fixed points of $Quad$ it s
 \subsection{For $SO(2)$ actions}
 
 Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BSO(2) \ra B\Aut(X)$, may instead be viewed as a pair $(S,W)$ where $S : S^1 \ra \Aut(X)$ is a based map and $W$ is a null homotopy of $q(S): S^2 \to \Aut(X)$.
+
+\CD{To do: make it clear that the following pictures are *not* isotopy invariant -- only some naturalities are allowed. Explain why at the level of a remark that would remind ourselves later what's going on.}
+
+\CD{To do: replace this picture with the one where the piv pivinv appears on the grey strand.}
 
 \begin{tconstr}[The wet construction $\wcon$]{WET}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
@@ -1602,52 +1616,6 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \] 
 
 \NS{Currently $\bullet$ is $\piv$ and $\circ$ is $\piv^{-1}$. This notation should be changed or explained.}
-
-\begin{tikzpicture}
-\node (start) at (0,-1) {$I$};
-\node (top1) at (3,0) {$S \cdot S^{-1}$};
-\node (top2) at (6,0) {$S \cdot S^{-1}$};
-\node (top3) at (9,0) {$S^{-1} \cdot S$};
-\node (end) at (12,-1) {$I$};
-
-\node (step1) at (4.5,-1.5) {$I \cdot S^{-1}$};
-\node (step2) at (4.5,-3) {$S\cdot I$};
-\node (step3) at (9,-3) {$I \cdot S$};
-
-\node (trivialstep2) at (4.5,-4) {$S$};
-\node (trivialstep3) at (9,-4) {$S$};
-
-\draw [->] (start) --node[above]{$\coev$} (top1);
-\draw [->] (top1) --node[above]{$\id$} (top2);
-\draw [->] (top2) --node[above]{$\beta_{S,S^{-1}}$} (top3);
-\draw[->] (top3) --node[above]{$\ev$} (end);
-
-\draw[->] (top1) --node[below, left]{$\piv^{-1} \cdot \id$} (step1);
-\draw[->] (step1) --node[below, right]{$\piv \cdot \id$} (top2);
-
-\draw[->] (top1) .. controls (3,-2) .. node[below, left]{} (step2);
-\draw[->] (step2) .. controls (6,-2)  ..node[below, right]{} (top2);
-
-\draw[->] (step2) -- node[above]{$\beta_{S,I}$}(step3);
-\draw[->] (step3) --node[right]{$\piv^{-1} \cdot \id$} (top3);
-\draw[->] (step3) .. controls (11,-2) ..node[right]{$\id \cdot \piv$} (end);
-
-\draw[->] (step2) -- node[right]{$\mathrm{unit}$}(trivialstep2);
-\draw[->] (step3) -- node[right]{$\mathrm{unit}$}(trivialstep3);
-\draw[->] (trivialstep2) -- node[above]{$\id$}(trivialstep3);
-
-\draw[->] (start) .. controls (1,-3) .. node[left]{$\piv$} (trivialstep2);
-\draw[->] (trivialstep3) .. controls (12,-3) .. node[right]{$\piv^{-1}$} (end);
-
-\draw[->] (start) .. controls (0,-7) and (16,-7) .. node[below]{$\id$} (end);
-
-\node at (4.5,-.75) {$\Downarrow$};
-\node at (4.5,-2.25) {$\Downarrow$};
-\node at (7.5,-1.5) {$\Searrow$};
-\node at (8.1,-1.3) {$\beta_{S,\piv^{-1}}$};
-\node at (10,-1) {$\Searrow$};
-\end{tikzpicture}
-
 
 
 \end{tconstr}
