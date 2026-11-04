@@ -1552,18 +1552,30 @@ In this section, for brevity we sometimes use ``is" to mean ``is homotopy equiva
 
 Recall that an $\Omega S^2$ action on a 3-type $X$, which a priori is a based map $\alpha: S^2 \ra B\Aut(X)$ may instead be viewed as a based map $S: S^1 \ra \Aut(X)$.
 
-\CD{Since we use a picture for piv later, there should be a picture -- just a line ending}
-
-\CD{Note discrepancy between P and piv both used}
+\NS{Consider changing notation for $\piv$ and $\sph$.}
 
 \begin{proposition}[Fixed points for $\Omega S^2$]
-The space of homotopy fixed points of the $\Omega S^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$, is the space of pairs $(x,P)$ where $x \in X$ is a point and $P: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$.
+The space of homotopy fixed points of the $\Omega S^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$, is the space of pairs $(x,\piv)$ where $x \in X$ is a point and $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$.
 \end{proposition}
 \begin{proof}
 By definition a homotopy fixed point of the action is a section of the fibration $X \ra E\Omega S^2(X) \ra S^2$.  We can describe this fibration more explicitly as $X \cup_{X \times S^1} X \times D^2 \ra \ast \cup_{S^1} D^2 = S^2$, where the map $X \times S^1 \ra X \times D^2$ is the inclusion and the map $X \times S^1 \ra X$ is the adjoint of $\tilde{S}: S^1 \ra \Aut(X)$; here $\tilde{S}$ is the pointwise inverse of $S$.  %To be really pedantic, the clutching function S: S^1 \ra \Aut(X) constructs the bundle classified by \Sigma S^1 \ra \Sigma\Aut(X) \ra B\Aut(X) --- that map _is_ the image under the equivalence \Omega \Aut(X) to \Omega^2 B\Aut(X).
 
-The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D^2$, which provides the section $S_x: S^1 \ra X$ on $\partial D^2$; the null homotopy $P$ extends the section over the 2-cell of $S^2$.
+The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D^2$, which provides the section $S_x: S^1 \ra X$ on $\partial D^2$; the null homotopy $\piv$ extends the section over the 2-cell of $S^2$.
 \end{proof}
+
+Graphically we depict $\piv$ and $\piv^{-1}$ as follows:
+
+\[\cb{\begin{tikzpicture}
+\node(Piv) at (.5,0) {$\blacksquare$};
+\draw[linestyle]
+(0,0) to (.5,0);
+\end{tikzpicture}}, \quad 
+\cb{\begin{tikzpicture}
+\node(InvPiv) at (-.5,0) {$\square$};
+\draw[linestyle]
+(0,0) to (-.5,0);
+\end{tikzpicture}}.\]
+
 
 Given a $Quad$ action $\alpha: BQuad \ra B\Aut(X)$ on a 3-type $X$, there is of course an induced $\Omega S^2$ action.
 
@@ -1582,8 +1594,6 @@ By \cref{prop-hofptrunc}, to understand the homotopy fixed points of $Quad$ it s
 Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BSO(2) \ra B\Aut(X)$, may instead be viewed as a pair $(S,W)$ where $S : S^1 \ra \Aut(X)$ is a based map and $W$ is a null homotopy of $q(S): S^2 \to \Aut(X)$.
 
 \CD{To do: make it clear that the following pictures are *not* isotopy invariant -- only some naturalities are allowed. Explain why at the level of a remark that would remind ourselves later what's going on.}
-
-\CD{To do: replace this picture with the one where the piv pivinv appears on the grey strand.}
 
 \begin{tconstr}[The wet construction $\wcon$]{WET}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
@@ -1638,9 +1648,6 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \draw[linestyle] (.5,0) to (-.5,0);
 \end{tikzpicture}}
 \] 
-
-\NS{Currently $\bullet$ is $\piv$ and $\circ$ is $\piv^{-1}$. This notation should be changed or explained.}
-
 
 \end{tconstr}
 
