@@ -1563,17 +1563,16 @@ By definition a homotopy fixed point of the action is a section of the fibration
 The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D^2$, which provides the section $S_x: S^1 \ra X$ on $\partial D^2$; the null homotopy $\piv$ extends the section over the 2-cell of $S^2$.
 \end{proof}
 
-Graphically we depict $\piv$ and $\piv^{-1}$ as follows:
-
+In this section the bordism diagrams denote homotopies in $X$, rather than in $B\Aut(X)$. We denote $S_x$ and $S_x^{-1}$ by shaded strings labelled by $x$, which serves to remind us that the diagrams represent homotopies in $X$. To avoid cluttering the diagrams we only label each string once, as all parts of the diagram will always be labelled by the same $x$. We then represent $\piv_x$ and $\piv_x^{-1}$ as follows:
 \[\cb{\begin{tikzpicture}
 \node(Piv) at (.5,0) {$\blacksquare$};
 \draw[linestyle]
-(0,0) to (.5,0);
+(0,0) node[above right] {$x$} -- (.5,0);
 \end{tikzpicture}}, \quad 
 \cb{\begin{tikzpicture}
 \node(InvPiv) at (-.5,0) {$\square$};
 \draw[linestyle]
-(0,0) to (-.5,0);
+(0,0) node[above left] {$x$} to (-.5,0);
 \end{tikzpicture}}.\]
 
 
@@ -1602,16 +1601,18 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
 (-.75,0) to [out=-90,in=-120] (0,0)
-	to [out=60,in=90] (.75,0);
+	to [out=60,in=90]  (.75,0);
 \draw[linestylegray,coverline,looseness=1.25]
 (.75,0) to [out=-90,in=-60] (0,0)
 	to [out=120,in=90] (-.75,0);
+\node(TopLabel) at (-.4,.4) {$x$};
 \end{tikzpicture}} \leadsto
 \cb{\begin{tikzpicture}
+\node(TopLabel) at (-.4,.4) {$x$};
 \node(Piv) at (-.5,-.25) {$\blacksquare$};
 \node(PivInv) at (-.3,-.25) {$\square$};
 \draw[linestyle, looseness=1.25]
-(-.75,0) to [out=270, in=180] (-.5,-.25);
+(-.75,0)  to [out=270, in=180] (-.5,-.25);
 \draw[linestyle, looseness=1.25]
 (-.3,-.25) to [out=0,in=-120] (0,0)
 	to [out=60,in=90] (.75,0);
@@ -1620,6 +1621,8 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 	to [out=120,in=90] (-.75,0);
 \end{tikzpicture}}\leadsto
 \cb{\begin{tikzpicture}
+\node(TopLabel) at (-.4,.4) {$x$};
+\node(TopLabel) at (-.4,.4) {$x$};
 \node(Piv) at (-.5,-.25) {$\blacksquare$};
 \node(PivInv) at (.3,.25) {$\square$};
 \draw[linestyle, looseness=1.25]
@@ -1632,6 +1635,7 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \end{tikzpicture}}
 =
 \cb{\begin{tikzpicture}
+\node(TopLabel) at (-.15,.15) {$x$};
 \node(Piv) at (.5,-.4) {$\blacksquare$};
 \node(PivInv) at (-.5,.4) {$\square$};
 \draw[linestyle, looseness=.75]
@@ -1643,6 +1647,7 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \end{tikzpicture}}
 \leadsto
 \cb{\begin{tikzpicture}
+\node(TopLabel) at (0,.2) {$x$};
 \node(Piv) at (.5,0) {$\blacksquare$};
 \node(PivInv) at (-.5,0) {$\square$};
 \draw[linestyle] (.5,0) to (-.5,0);
