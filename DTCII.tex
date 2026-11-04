@@ -52,17 +52,22 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 \begin{itemize}
 \item Compute or find a ref computing pi5 of Spin6/SO3. (table 1)
 \item Write Homotopy io remark at end of sec 4.3
-\item Add proof of Prop at end of sec 5.3
-\item Add a proposition before Prop A.2 that is that statement just phrased in terms of fixed points, and make Prop A.2 a corollary.
+\item Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points)
+\item Add a proposition before \cref{prop-fixedpointntypes} that is that statement just phrased in terms of fixed points, and make \cref{prop-fixedpointntypes} a corollary (see the marginal comment after that proposition).
+\item Find a specific reference (not just to wu generically) for the pi4 sigma rp2 proposition and/or include a proof. This may also resolve the issue of a description of the generator that specifies the sign?
+\end{itemize}
+
+\CDcomm{Intro items}
+\begin{itemize}
 \item DTCIV has statements about h-pivotal and h-spherical that justify the existence of Quad and Orp. (h-pivotal iff descent to quadratic field theory, h-spherical iff oriented p1 field theory) Discuss these in the intro??
 \item Sketch and agree together on an outline for the intro.
 \item Draft intro
-\item Find a specific reference (not just to wu generically) for the pi4 sigma rp2 proposition and/or include a proof. This may also resolve the issue of a description of the generator that specifies the sign?
 \end{itemize}
 
 \CDcomm{NEW TO DO}
 \begin{itemize}
-\item Add B2Z2 sections?
+\item Write B2Z2 remarks.
+\item Write 4-type remarks.
 \item Add key results to the intro
 \item Revise acknowledgments
 \end{itemize}
@@ -281,6 +286,10 @@ We saw that $B\Omega S^2$ and $BQuad$ were interchangable in the pushout square.
 We could have more briefly described a 4-truncation of $BSO(3)$ without reference to $BOrp(3)$, $BSO(2)$, $BQuad$, and whatnot.  But it will be important for our applications to topological field theories associated to fusion categories that we understand the 4-truncations of those structure groups as well, and the exact relationship of those truncations to that of $BSO(3)$.
 
 \CDcomm{Later on, we'll describe the meaning of a Quad action, etc, and then refer back to see that one square leads to one description, while the other square leads to a slightly lengthier description that ties together the trivialization of q and the condition on eta q / 2.}
+
+\begin{remark}[The cell structure of $B^2 \ZZ/2$]
+\CDcomm{To write. Just need to kill that Z?}
+\end{remark}
 
 \section{Homotopy actions}
 
@@ -800,7 +809,21 @@ where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subsc
 This follows by combining \cref{cor-bso3trunc}, \cref{lemma-q}, and \cref{lemma-etaq2}.
 \end{proof}
 
+\begin{remark}[Homotopy action of $SO(3)$ on a 4-type]
+\CDcomm{To write. The condition (in the 3-type case) becomes data. There are new conditions, which we don't specify. Because the relevant map is $\pi_5$ surjective, there is no new data besides the condition-became-date.}
+\end{remark}
+
 \subsection{By the group $Spin(3)$}
+
+\CDcomm{
+...working... (add remark that the ordinary 8 is four torsion -- this is just part of the Rain construction)
+Though we have already seen the fact that the Radford-8 $e: S^3 \ra \Sigma\RP^2$ is 4-torsion in $\pi_3(\Sigma \RP^2) = \ZZ/4$, we cannot resist including a proof: \CDcomm{insert proof here?}
+-- THAT WAS ABOUT THE RADFORD 8, forget about that. Instead consider whether to include a proof that the ORDINARY 8 is order 4. Could do it this way: show the order 4 thing, then use that in the Rain construction. DO THAT.
+\[
+...
+\]
+...
+}
 
 \begin{prop}[Actions by $Spin(3)$]
 The homotopy classes of $Spin(3)$ actions on a 3-type $X$ are the homotopy classes of maps $V: S^3 \ra \Aut(X)$.
@@ -867,7 +890,7 @@ Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),
 %\CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
 \end{tconstr}
 
-\NS{Might want to switch the order of the last two steps, because then the start of this also serves as the proof that $4=0$ in $\pi_2(\Sigma \mathbb{RP}^2)$}
+\NS{Might want to switch the order of the last two steps, because then the start of this also serves as the proof that $4=0$ in $\pi_3(\Sigma \mathbb{RP}^2)$}
 
 
 
@@ -1220,6 +1243,11 @@ Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$ on a 3-type $X$ given by the homot
 
 
 
+\begin{remark}[Homotopy action of $\Omega B^2 \ZZ/2$]
+\CDcomm{To write.}
+\end{remark}
+
+
 
 \subsection{The orbit map of an $SO(3)$ action}
 
@@ -1481,12 +1509,6 @@ The desired equation $e = -q$ follows if $e + q = 0$, which follows if $e - q = 
 The above considerations determined an alternative 4-truncation of $BSO(3)$, namely $(S^2 \cup_2 e_3) \cup_{e} e_4 \cup_{\frac{\eta q}{2}} e_5$---this 4-truncation is, of course, canonically homotopy equivalent to the earlier 4-truncation.  % Use the homotopy between e and -q and a reflection to construct the homotopy equivalence to the earlier 4-truncation.  Note the 5-cell ensures that the choice of homotopy didn't affect the resulting homotopy equivalence.
 \end{remark}
 
-Though we have already seen the fact that the Radford-8 $e: S^3 \ra \Sigma\RP^2$ is 4-torsion in $\pi_3(\Sigma \RP^2) = \ZZ/4$, we cannot resist including a proof: \CDcomm{insert proof here?}
-\[
-...
-\]
-
-
 \section{Homotopy fixed points}
 
 % This section describes the meaning of a homotopy fixed point explicitly for each group.
@@ -1671,12 +1693,19 @@ The space of homotopy fixed points of an $SO(3)$ action on a 3-type $X$, given b
 \end{enumerate}
 \end{theorem}
 
+\begin{remark}[Homotopy fixed points of $BSO(3)$ on a 4-type]
+\CDcomm{To write. The condition (in the 3-type case) becomes data. There are new conditions, which we don't specify. Because the relevant map is $\pi_5$ surjective, there is no new data besides the condition-became-date.}
+\end{remark}
+
 \subsection{For $Spin(3)$ actions} 
 
 \begin{proposition}[Fixed points for $Spin(3)$]
 The space of homotopy fixed points of a $Spin(3)$ action on a 3-type $X$, given by a map $V: S^3 \ra \Aut(X)$, is the space of points $x \in X$ such that $V_x : S^3 \to X$ is null homotopic.
 \end{proposition}
 
+\begin{remark}[Homotopy fixed points of a $\Omega B^2 \ZZ/2$ action]
+\CDcomm{To write.}
+\end{remark}
 
 
 \changelocaltocdepth{1}
@@ -1851,6 +1880,9 @@ The following spaces, together with the obvious maps to $BO(3)$, define 3-dimens
 \section{Homotopy types of 3-dimensional structure groups}
 
 %\CDcomm{The point of this appendix is to say a bunch about the cohomology and homotopy groups of all the structure spaces encountered.}  
+
+\CD{Is there some overlap between appendix A and B?}
+\CD{Should the appendices be combined into one? Probably.}
 
 In this appendix we record some computations regarding the homotopy and homology of the various structure spaces.
 
