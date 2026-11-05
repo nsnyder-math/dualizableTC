@@ -214,6 +214,11 @@ The Serre spectral sequence for $SO(3) \ra * \ra BSO(3)$ shows the cohomology of
 From the cohomology of $BOrp(3)$ we see that there is a map $\Sigma \RP^2 \ra BOrp(3)$ which is an isomorphism on $H_{\leq 4}$.  By Hurewicz it follows that this map is an isomorphism on $\pi_{\leq 3}$.  To correct the $\pi_4$ discrepancy, we need to attach a 5-cell to kill $\pi_4(\Sigma \RP^2)$.  Because $\pi_4(BOrp(3))$ is zero, we may pick an extension of the map $\Sigma \RP^2 \ra BOrp(3)$ to a map $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \ra BOrp(3)$.  This latter map is now a 4-equivalence, as desired.  This truncation is clearly minimal.  Note that there were two possible choices of the extension, but both yield 4-equivalences and we will have no need to differentiate them.
 \end{proof}
 
+\begin{remark} \label{rem:WuManifold}
+\NScomm{Explain that $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$ is the Wu manifold $SU(3)/SO(3)$. See the email thread "Orp(3) and SU(3)/SO(3)"}
+\end{remark}
+
+
 \subsection{Of the space $BSO(3)$}.
 
 
@@ -250,6 +255,10 @@ That this truncation is uniquely minimal is seen as follows.  The first four hom
 
 We therefore know that a minimal truncation must have exactly 4-cells.  If it has two 2-cells or two 3-cells, the homology in dimension 2 or 3 respectively will not match that of $BSO(3)$, preventing it from being a 4-truncation.  If the putative 4-cell truncation $T$ has two 4-cells, the homotopy exact sequence of the pair $(BSO(3), T)$ shows that $\pi_4(T) \ra \pi_4(BSO(3))$ cannot be an isomorphism.  A minimal truncation must therefore have a single cell in each of dimensions 2, 3, 4, and 5; the second and third homotopy groups of $BSO(3)$ force the 4-skeleton of this truncation to be $(S^2 \cup e_3) \cup_q e_4$ as before, and in order to reproduce $\pi_4(BSO(3))$, the 5-cell must be attached by plus or minus the image of the class $\frac{\eta q}{2}$ under the map $\pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H)$, as desired.  % Notice that the class \eta q / 2 cannot be divisible in  H because then it wouldn't map nontrivially onto \pi_4 S^3.  So it is nontrivial and you have to kill it, only way to do that is plus or minus the class itself.
 \end{proof}
+
+\begin{remark}[The cell structure of $B^2 \ZZ/2$] \label{rem:B2Z2space}
+The canonical map $BSO(3) \rightarrow B^2(\ZZ/2)$ coming from \NScomm{Cohomology?} is an equivalence up to $\pi_3$ and on $\pi_4$ is the zero map $\ZZ \rightarrow 0$. Thus, from Corollary \ref{cor-bso3trunc}, we get a cell description of the 4-truncation of $B^2(\mathbb{Z}/2)$ as $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_{w} e'_5$ where $w$ is the generator of $\pi_4(BSO(3)) = \ZZ$. \NS{Is this minimal? Do we care?}
+\end{remark}
 
 Because the fourth and fifth cohomology groups of $BQuad$ are trivial, the composite $BQuad \ra BSO(2) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ is trivial and the map $BQuad \ra BSO(3)$ lifts uniquely to a map $BQuad \ra BOrp(3)$.
 
@@ -656,7 +665,7 @@ respectively.  Combining this notation with the previous notation of a normally 
 \leadsto
 \emptyset
 \]
-\nid We refer to this as the figure-32 construction.
+\nid We refer to this as the figure-32 construction.\footnote{Our figure-32 agrees with the Klein invariant construction of \NScomm{add citation} which they found independently when looking at $B\ZZ/2$ actions, see Remark \label{rem:B2Z2action}.}
 \end{tconstr}
 
 \begin{tconstr}[Another figure 32 construction]{F-32$'$}
@@ -880,6 +889,17 @@ This follows by combining \cref{cor-bso3trunc}, \cref{lemma-q}, and \cref{lemma-
 \end{proof}
 
 \begin{remark}[Homotopy action of $SO(3)$ on a 4-type]
+There's a similar description of the space of $SO(3)$ fixed points of an $SO(3)$ action on a \emph{4-type} $X$, which we sketch.
+
+Such an action is given by a triple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id)$
+
+given by the triple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id)$, is the space of triples $(x, \piv, \sph)$ satisfying a condition $\Ucon$, where:
+\begin{enumerate}
+\item $x \in X$ is a point,
+\item $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$; and
+\item $\sph: D^3 \ra X$ is a homotopy between $\piv^2 : 2 S_x \ra \id_x$ and $R_x: 2 S_x \ra \id_x$.
+\item $\Ucon$ is the condition that the wet construction $\wcon(S,x,\piv)$ is homotopic to the Whitney $W_x$.
+\end{enumerate}
 \CDcomm{To write. The condition (in the 3-type case) becomes data. There are new conditions, which we don't specify. Because the relevant map is $\pi_5$ surjective, there is no new data besides the condition-became-date.}
 \end{remark}
 
@@ -1264,9 +1284,21 @@ Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$ on a 3-type $X$ given by the homot
 \end{proof}
 
 
-
 \begin{remark}[Homotopy action of $\Omega B^2 \ZZ/2$]
-\CDcomm{To write.}
+\label{rem:B2Z2action}
+Similarly, by Remark \ref{cor-bso3trunc} and the fact that the map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$ \NS{Currently this is inside the proof of the last prop. We could also pull it out as its own lemma and then make the last prop a corollary?}, we have that the homotopy classes of $B\ZZ/2$ actions on a 3-type $X$ are the homotopy classes of quadruples $(S,R,W)$, where 
+\begin{itemize}
+\item $S: S^1 \ra \Aut(X)$ is a based loop of automorphisms of $X$,
+\item $R: D^2 \ra \Aut(X)$ is a null homotopy of $S \ast S: S^1 \ra \Aut(X)$, the pointwise (that is, automorphism) square of $S$,
+\item $W: D^3 \ra \Aut(X)$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 \cref{fig8} applied to $S$,
+\end{itemize}
+such that
+\begin{itemize}
+\item $\frac{\eta q}{2} (S,R) : S^3 \ra \Aut(X)$, that is the figure-32 \cref{fig32} applied to $(S,R)$, is null homotopic.
+\item $\vcon(S,R,W): S^3 \ra \Aut(X)$, that is the RAIN construction \NS{add ref} applied to $(S,R,W)$, is null homotopic.
+\end{itemize}
+
+This provides what is needed to make Remark 1.2 of \NScomm{Cite JFR} rigorous. %Note that our figure-32 construction is what Johnson-Freyd--Reutter call the Klein invariant.
 \end{remark}
 
 
