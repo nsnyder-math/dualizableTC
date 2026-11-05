@@ -256,9 +256,10 @@ That this truncation is uniquely minimal is seen as follows.  The first four hom
 We therefore know that a minimal truncation must have exactly 4-cells.  If it has two 2-cells or two 3-cells, the homology in dimension 2 or 3 respectively will not match that of $BSO(3)$, preventing it from being a 4-truncation.  If the putative 4-cell truncation $T$ has two 4-cells, the homotopy exact sequence of the pair $(BSO(3), T)$ shows that $\pi_4(T) \ra \pi_4(BSO(3))$ cannot be an isomorphism.  A minimal truncation must therefore have a single cell in each of dimensions 2, 3, 4, and 5; the second and third homotopy groups of $BSO(3)$ force the 4-skeleton of this truncation to be $(S^2 \cup e_3) \cup_q e_4$ as before, and in order to reproduce $\pi_4(BSO(3))$, the 5-cell must be attached by plus or minus the image of the class $\frac{\eta q}{2}$ under the map $\pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H)$, as desired.  % Notice that the class \eta q / 2 cannot be divisible in  H because then it wouldn't map nontrivially onto \pi_4 S^3.  So it is nontrivial and you have to kill it, only way to do that is plus or minus the class itself.
 \end{proof}
 
-\begin{remark}[The cell structure of $B^2 \ZZ/2$] \label{rem:B2Z2space}
-The canonical map $BSO(3) \rightarrow B^2(\ZZ/2)$ coming from \NScomm{Cohomology?} is an equivalence up to $\pi_3$ and on $\pi_4$ is the zero map $\ZZ \rightarrow 0$. Thus, from Corollary \ref{cor-bso3trunc}, we get a cell description of the 4-truncation of $B^2(\mathbb{Z}/2)$ as $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_{w} e'_5$ where $w$ is the generator of $\pi_4(BSO(3)) = \ZZ$. \NS{Is this minimal? Do we care?}
+\begin{remark} \label{rem:pi5surj}
+The above map $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is also surjective on $\pi_5$. Indeed, already the map $SU(3)/SO(3) = (S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is surjective on $\pi_5$, using the homotopy LES for $SU(3)/SO(3)$ and the fact that $\pi_4(SU(3))=0$.\NS{Cite Mimura-Toda?}.
 \end{remark}
+
 
 Because the fourth and fifth cohomology groups of $BQuad$ are trivial, the composite $BQuad \ra BSO(2) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ is trivial and the map $BQuad \ra BSO(3)$ lifts uniquely to a map $BQuad \ra BOrp(3)$.
 
@@ -296,8 +297,9 @@ We could have more briefly described a 4-truncation of $BSO(3)$ without referenc
 
 \CDcomm{Later on, we'll describe the meaning of a Quad action, etc, and then refer back to see that one square leads to one description, while the other square leads to a slightly lengthier description that ties together the trivialization of q and the condition on eta q / 2.}
 
-\begin{remark}[The cell structure of $B^2 \ZZ/2$]
-\CDcomm{To write. Just need to kill that Z?}
+
+\begin{remark}[The cell structure of $B^2 \ZZ/2$] \label{rem:B2Z2space}
+The canonical map $BSO(3) \rightarrow B^2(\ZZ/2)$ coming from \NScomm{Cohomology?} is an equivalence up to $\pi_3$ and on $\pi_4$ is the zero map $\ZZ \rightarrow 0$. Thus, from Corollary \ref{cor-bso3trunc}, we get a cell description of the 4-truncation of $B^2(\mathbb{Z}/2)$ as $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_{w} e'_5$ where $w$ is the generator of $\pi_4(BSO(3)) = \ZZ$. \NS{Is this minimal? Do we care?}
 \end{remark}
 
 \section{Homotopy actions}
@@ -889,7 +891,7 @@ This follows by combining \cref{cor-bso3trunc}, \cref{lemma-q}, and \cref{lemma-
 \end{proof}
 
 \begin{remark}[Homotopy action of $SO(3)$ on a 4-type]
-There's a similar description of the space of $SO(3)$ fixed points of an $SO(3)$ action on a \emph{4-type} $X$, which we sketch.
+There's a similar description of the space of $SO(3)$ fixed points of an $SO(3)$ action on a \emph{4-type} $X$, which we sketch. By Remark \ref{rem:pi5surj}
 
 Such an action is given by a triple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id)$
 
