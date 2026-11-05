@@ -44,8 +44,8 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 \CDcomm{Immediate tasks}
 \begin{itemize}
 \item NS: Wet construction picture
-\item CSP: Rain construction picture, Spin(3) proof
-\item CSP do you already have a picture somewhere of the proof that the radford 8 is 4-torsion? Goes at the end of section 4.6 see 'insert proof here'. NS put this hand-drawn image in email.
+\item \sout{CSP: Rain construction picture, Spin(3) proof}
+\item \sout{Draw Serre 8 is 4-torsion, then use that in the def of the rain construction.}
 \end{itemize}
 
 \CDcomm{Various tasks}
@@ -792,7 +792,8 @@ This follows by combining \cref{prop-borptrunc} and \cref{lemma-etaq2}.
 
 \CDcomm{HOMOTOPYIO. Add here a remark that if you want a formal computer verifiable version of the figure 32 construction, let's you implement in any higher groupoid, we did it in homotopyio. Embed the movie.}
 
-\subsection{By the group $SO(3)$}
+\begin{tconstr}[The silly construction]{SILLY}
+Given an action of $\Omega \Sigma \RP^2$ on a 3-type $X$, given by a pair $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X))$, the following picture encodes a nullhomotopy $\scon :: \id \sim 4 q(S) : S^2 \to \Aut(X)$.
 
 \begin{theorem}[Actions of $SO(3)$] 
 \label{thm-so3action}
@@ -842,6 +843,8 @@ Though $Spin(3)$ actions are particularly simple, the interesting question here 
 
 \begin{tconstr}[The rain construction]{RAIN}
 Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id  : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
+
+
 \[
 \emptyset
 \leadsto
@@ -886,20 +889,90 @@ Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),
 \draw[linestylegray,looseness=1.25] (3.5, 0) to [out = -90, in = -90] (2.25, -0.5) (2.5,0) to [out = 90, in = -90] (2.25, 0.5);
 \draw[linestyle,looseness=1.25] (3.5, 0) to [out = 90, in = 90] (2.25, 0.5) (2.5,0) to [out = -90, in = 90] (2.25, -0.5);
 \end{tikzpicture}}
-\stackrel{W,W,W,W}\leadsto
+\leadsto
 \cb{\begin{tikzpicture}
-\draw[linestylegray,looseness=1.25] (0,0) to [out = 90, in = 90] (1.25, 0.5) (1,0) to [out = -90, in = 90] (1.25, -0.5);
-\draw[linestyle,looseness=1.25] (0,0) to [out = -90, in = -90] (1.25, -0.5) (1, 0) to [out = 90, in = -90] (1.25, 0.5);
-\draw[linestylegray,looseness=1.25] (3.5, 0) to [out = -90, in = -90] (2.25, -0.5) (2.5,0) to [out = 90, in = -90] (2.25, 0.5);
-\draw[linestyle,looseness=1.25] (3.5, 0) to [out = 90, in = 90] (2.25, 0.5) (2.5,0) to [out = -90, in = 90] (2.25, -0.5);
+\draw[linestyle,looseness=1.25] (0.25, 0) to [out = -90, in = -120] (0.5, 0) to [out = 60, in = 90] (0.75,0);
+\draw[linestylegray,coverline,looseness=1.25] (0.75,0) to [out = -90, in = -60] (0.5,0) to [out = 120, in = 90] (0.25,0);
+\draw[linestyle,looseness=1.25] (2.75, 0) to [out = -90, in = -120] (3, 0) to [out = 60, in = 90] (3.25,0);
+\draw[linestylegray,coverline,looseness=1.25] (3.25,0) to [out = -90, in = -60] (3,0) to [out = 120, in = 90] (2.75,0);
+\draw[linestyle,looseness=1.25] (1.5, 0.5) to [out = -90, in = -120] (1.75, 0.5) to [out = 60, in = 90] (2,0.5);
+\draw[linestylegray,coverline,looseness=1.25] (2,0.5) to [out = -90, in = -60] (1.75,0.5) to [out = 120, in = 90] (1.5,0.5);
+\draw[linestyle,looseness=1.25] (1.5, -0.5) to [out = -90, in = -120] (1.75, -0.5) to [out = 60, in = 90] (2,-0.5);
+\draw[linestylegray,coverline,looseness=1.25] (2,-0.5) to [out = -90, in = -60] (1.75,-0.5) to [out = 120, in = 90] (1.5,-0.5);
+%\draw[linestylegray,looseness=1.25] (0,0) to [out = 90, in = 90] (1.25, 0.5) (1,0) to [out = -90, in = 90] (1.25, -0.5);
+%\draw[linestyle,looseness=1.25] (0,0) to [out = -90, in = -90] (1.25, -0.5) (1, 0) to [out = 90, in = -90] (1.25, 0.5);
+%\draw[linestylegray,looseness=1.25] (3.5, 0) to [out = -90, in = -90] (2.25, -0.5) (2.5,0) to [out = 90, in = -90] (2.25, 0.5);
+%\draw[linestyle,looseness=1.25] (3.5, 0) to [out = 90, in = 90] (2.25, 0.5) (2.5,0) to [out = -90, in = 90] (2.25, -0.5);
 \end{tikzpicture}}
-\leadsto 
-\emptyset
 \]
-%\CDcomm{\text{DRAW - CSP board from edinburgh using four Ws}}
+
+\CD{NOTE: a bunch happened in the last step}
+
+
 \end{tconstr}
 
-\NS{Might want to switch the order of the last two steps, because then the start of this also serves as the proof that $4=0$ in $\pi_3(\Sigma \mathbb{RP}^2)$}
+\CD{Need to say what $4 q(S)$ is unless a convention has been set. Certainly the picture will have it look like a dot composition.}
+
+\subsection{By the group $SO(3)$}
+
+\CD{ISSUE: the following theorem uses star, but maybe it should have been dot -- all the pictures us the dot direction, and since they aren't canonically homotopic, that's an issue. Actually this issue goes all the way back to the definition of the radford, where we used the star direction, but then the pictures use the dot direction.}
+
+\begin{theorem}[Actions of $SO(3)$] 
+\label{thm-so3action}
+The homotopy classes of $SO(3)$ actions on a 3-type $X$ are the homotopy classes of triples $(S,R,W)$, where 
+\begin{itemize}
+\item $S: S^1 \ra \Aut(X)$ is a based loop of automorphisms of $X$,
+\item $R: D^2 \ra \Aut(X)$ is a null homotopy of $S \ast S: S^1 \ra \Aut(X)$, the pointwise (that is, automorphism) square of $S$,
+\item $W: D^3 \ra \Aut(X)$ is a null homotopy of $q(S): S^2 \ra \Aut(X)$, the figure-8 \cref{fig8} applied to $S$,
+\end{itemize}
+such that
+\begin{itemize}
+\item $\frac{\eta q}{2} (S,R) : S^3 \ra \Aut(X)$, that is the figure-32 \cref{fig32} applied to $(S,R)$, is null homotopic.
+\end{itemize}
+\end{theorem}
+\nid By this point needless to say, the space of $SO(3)$ is homotopy equivalent to the space
+\[
+\ast \,_{\Omega^2 \Aut(X)}\! \times_q \left(\Omega \Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast\right)_{[\frac{\eta q}{2}]=0},
+\]
+where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subscript $[\frac{\eta q}{2}]=0$ indicates that the only components where the figure-32 construction vanishes are retained.
+\begin{proof}
+This follows by combining \cref{cor-bso3trunc}, \cref{lemma-q}, and \cref{lemma-etaq2}.
+\end{proof}
+
+\begin{remark}[Homotopy action of $SO(3)$ on a 4-type]
+\CDcomm{To write. The condition (in the 3-type case) becomes data. There are new conditions, which we don't specify. Because the relevant map is $\pi_5$ surjective, there is no new data besides the condition-became-date.}
+\end{remark}
+
+\subsection{By the group $Spin(3)$}
+
+\begin{prop}[Actions by $Spin(3)$]
+The homotopy classes of $Spin(3)$ actions on a 3-type $X$ are the homotopy classes of maps $V: S^3 \ra \Aut(X)$.
+\end{prop}
+
+Though $Spin(3)$ actions are particularly simple, the interesting question here is the following. Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$, there is a pullback action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$. When expressing the $SO(3)$ action as a triple $(S,R,W)$, how do we extract the homotopy class $V$ characterizing the resulting $Spin(3)$ action? The answer is as folows. 
+
+\CD{Probably change all the constructions to ordinary numbers, then have the headers carry the names}
+
+\begin{tconstr}[The rain construction]{RAIN}
+Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id  : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
+\[
+\emptyset
+\stackrel{\scon}\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25] (0.25, 0) to [out = -90, in = -120] (0.5, 0) to [out = 60, in = 90] (0.75,0);
+\draw[linestylegray,coverline,looseness=1.25] (0.75,0) to [out = -90, in = -60] (0.5,0) to [out = 120, in = 90] (0.25,0);
+\draw[linestyle,looseness=1.25] (2.75, 0) to [out = -90, in = -120] (3, 0) to [out = 60, in = 90] (3.25,0);
+\draw[linestylegray,coverline,looseness=1.25] (3.25,0) to [out = -90, in = -60] (3,0) to [out = 120, in = 90] (2.75,0);
+\draw[linestyle,looseness=1.25] (1.5, 0.5) to [out = -90, in = -120] (1.75, 0.5) to [out = 60, in = 90] (2,0.5);
+\draw[linestylegray,coverline,looseness=1.25] (2,0.5) to [out = -90, in = -60] (1.75,0.5) to [out = 120, in = 90] (1.5,0.5);
+\draw[linestyle,looseness=1.25] (1.5, -0.5) to [out = -90, in = -120] (1.75, -0.5) to [out = 60, in = 90] (2,-0.5);
+\draw[linestylegray,coverline,looseness=1.25] (2,-0.5) to [out = -90, in = -60] (1.75,-0.5) to [out = 120, in = 90] (1.5,-0.5);
+\end{tikzpicture}}
+\stackrel{W,W,W,W}\leadsto
+\emptyset
+\]
+\end{tconstr}
+
 
 
 
@@ -1674,6 +1747,8 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \node(PivInv) at (-.5,0) {$\square$};
 \draw[linestyle] (.5,0) to (-.5,0);
 \end{tikzpicture}}
+\leadsto 
+\emptyset
 \] 
 
 \end{tconstr}
@@ -1681,6 +1756,14 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \nid We refer to this as the wet construction because the pictoral representation of it is a a Whitney umbrella with a hole in it, where the boundary of the hole is labeled by the pivotal data.
 
 \CD{Maybe we need to distinguish notationally the identity point in $\Aut(X)$ and the homotopical identities. And check we use those consistently.}
+
+\CDcomm{Here's the approach for the following missing proofs.
+
+Thing 1: the definition of a homotopy fixed point is a section of the following fibration.
+
+Thing 2 (maybe): that fibration can be described in an explicit way in a form that is built up over the cell decomposition of the base in terms of the action.
+
+Thing 3: to build the section, proceed cell by cell in the base, and each cell is provided by a give piece of data or condition in the statement of the result.}
 
 \begin{proposition}[Fixed points for $SO(2)$]
 The space of homotopy fixed points of the $SO(2)$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $W :: q(S) \sim 1 : S^2 \to \Aut(X)$ is the space of pairs $(x,\piv)$ satisfying a condition $\Ucon$:
