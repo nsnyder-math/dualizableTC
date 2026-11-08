@@ -47,8 +47,12 @@
   
 \DeclareRobustCommand{\SkipTocEntry}[5]{}
 
-	
-	
+\makeatletter
+\newcommand{\headfootnote}[1]{%
+  \leavevmode\hskip-\thm@headsep\footnote{#1}%
+  \hskip\thm@headsep\ignorespaces
+}
+\makeatother	
 	
 	
 \hyphenation{endo-functors}

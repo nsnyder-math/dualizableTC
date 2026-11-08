@@ -332,14 +332,17 @@ By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Ome
 
 \CD{Should tighten up what is inside the construction environment. Put ramble outside it}
 \CD{Move the pic inside the construction, I think}
-\begin{tconstr}[The figure 8 construction]{F-8}
+
+%%% Note: if we want the constructions to have labels, it should be on the picture, not the environment.
+
+\begin{constr}[The figure 8 construction]%{F-8}
 \label{fig8}
 As mentioned, the map $S : S^1 \ra \Aut(X)$ can be viewed as a point $S \in \Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (righthanded) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
 \[
 q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \Omega (\Omega \Aut(X))
 \]
 Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$, and in fact a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
-\end{tconstr}
+\end{constr}
 
 We refer to this as the figure-8 construction, as it imitates the following normally framed embedding of $S^1$ in $\RR^3$:
 \[
@@ -387,14 +390,14 @@ In fact, the square commutes with any space $Y$ in place of $B\Aut(X)$ and corre
 \end{proof}
 
 \CD{Should really tighten up whatever is inside the following construction environment. Put ramble outside the environment}
-\begin{tconstr}[The stable figure 8 construction]{F-$\eta$}
+\begin{constr}[The stable figure 8 construction]%{F-$\eta$}
 \label{figeta}
 We may play the same game again.  We have $q(S) \in \Omega^2 \Aut(X)$.  Though it does not matter particularly, for definiteness let $\cdot$ as before denote the first loop composition, and $\circ$ now denote the second loop composite.  The space $\Omega^2 \Aut(X)$ is an $E_3$-space and therefore has a path $\tau_{a,b}$ from $a \circ b$ to $b \circ a$ implementing the symmetric switch.  For any point $A \in \Omega^2 \Aut(X)$ we may form the following composite
 \[
 \eta(A) := (I \ra A \circ A^{-1} \xra{\tau_{A,A^{-1}}} A^{-1} \circ A \ra I) \in \Omega(\Omega^2 \Aut(X))
 \]
 Here $I$ now denotes the trivial double loop at the identity automorphism.  This construction provides a map $\pi_2(\Aut(X)) \xra{\eta} \pi_3(\Aut(X))$, in fact a map $\Omega^2 \Aut(X) \xra{\eta} \Omega^3 \Aut(X)$, which may also be called the stable figure-8 construction.
-\end{tconstr}
+\end{constr}
 
 \begin{lemma}[The stable figure 8 construction as homotopical pullback] 
 \label{lemma-eta}
@@ -457,7 +460,7 @@ This is immediate, as multiplication by $2$ commutes through the identification 
 Recall from \cref{prop-borptrunc} that the 4-truncation of $BOrp(3)$ is $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.  From \cref{prop-sigmarp2action}, we know that a $\Sigma \RP^2 = S^2 \cup_2 e_3$ action is a point of $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$.  To precisely describe a full $Orp(3)$ action, we need to provide a geometric construction of a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X)$ such that the composite $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X) \simeq \Omega^4 B\Aut(X)$ is pullback along $\frac{\eta q}{2} \in \pi_4(\Sigma\RP^2)$.  
 
 \CD{Tighten up what's inside the construction, put ramble outside.}
-\begin{tconstr}[The figure 64 construction]{F-64}
+\begin{constr}[The figure 64 construction]%{F-64}
 \label{fig64}
 We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Given an element $S \in \Omega \Aut(X)$, recall from \cref{sec-quadaction} that we can read the standard normally framed figure 8 embedding of $S^1$ in $\RR^3$ by performing the element $S$ in a transverse 2-plane slice along the curve, to obtain \cref{fig8}, a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.  We can similarly read the following normally framed embedding of $S^1 \times S^1$ into $\RR^4$ as representing a map $\Omega \Aut(X) \xra{\eta q} \Omega^2 \Aut(X)$:
 \[
@@ -547,14 +550,14 @@ We first revisit the corresponding construction for $\eta q \in \pi_4(S^2)$.  Gi
 \emptyset
 \]
 Here the normal framing is implicit and as before is determined as follows: the first nontrivial picture on the left has first normal vector pointing toward the center of the circle and second normal vector pointing out of the page; for the rest of the pictures, the first normal is determined by planar deformation from the first picture, and the second normal continues to point out of the page.  Also as before, the black line segments indicate the element $S \in \Omega \Aut(X)$, and the gray line segments indicate the element $S^{-1}$, where the inverse is taken in the loop direction.  That the map $\Omega \Aut(X) \xra{\eta q} \Omega^3 \Aut(X)$ produced by the above picture is given by pullback along $\eta q \in \pi_4(S^2)$ is the content of \cref{lemma-q,lemma-eta}.
-\end{tconstr}
+\end{constr}
 
 \CD{Let's change notation so that the Radford and pivotal look quite different graphically}
 
 \CD{Note, the introduction of the Radford dots has not been propagated}
 
 \CD{Tighten up what's inside the construction, any ramble outside}
-\begin{tconstr}[The figure 32 construction]{F-32}
+\begin{constr}[The figure 32 construction]%{F-32}
 \label{fig32}
 Given a point of $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$, we have both a point $S \in \Omega\Aut(X)$ and a null homotopy $R$ of $2S$.  We represent this null homotopy and its inverse graphically by 
 $\cb{
@@ -669,9 +672,9 @@ respectively.  Combining this notation with the previous notation of a normally 
 \emptyset
 \]
 \nid We refer to this as the figure-32 construction.\footnote{Our figure-32 agrees with the Klein invariant construction of \NScomm{add citation} which they found independently when looking at $B\ZZ/2$ actions, see Remark \label{rem:B2Z2action}.}
-\end{tconstr}
+\end{constr}
 
-\begin{tconstr}[Another figure 32 construction]{F-32$'$}
+\begin{constr}[Another figure 32 construction]%{F-32$'$}
 \label{fig32end}
 The following picture encodes another map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X)$, which will be relevant in the proof of the subsequent lemma:
 \[
@@ -771,7 +774,7 @@ The following picture encodes another map $\Omega\Aut(X) \,_2\! \times_{\Omega \
 \leadsto
 \emptyset
 \]
-\end{tconstr}
+\end{constr}
 
 \begin{lemma}[The figure 32 construction as homotopical pullback] 
 \label{lemma-etaq2}
@@ -800,7 +803,7 @@ This follows by combining \cref{prop-borptrunc} and \cref{lemma-etaq2}.
 
 \CDcomm{HOMOTOPYIO. Add here a remark that if you want a formal computer verifiable version of the figure 32 construction, let's you implement in any higher groupoid, we did it in homotopyio. Do not embedd movie -- the stills are fine. Note that Noah's homotopyio file is the other version using the whitney, not this version. So if we are including the file, do this version.}
 
-\begin{tconstr}[The silly construction]{SILLY}
+\begin{constr}[The silly construction]%{SILLY}
 Given an action of $\Omega \Sigma \RP^2$ on a 3-type $X$, given by a pair $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X))$, the following picture encodes a nullhomotopy $\scon :: \id \sim 4 q(S) : S^2 \to \Aut(X)$.
 
 \[
@@ -873,7 +876,7 @@ Given an action of $\Omega \Sigma \RP^2$ on a 3-type $X$, given by a pair $(S: S
 \CD{NOTE: a bunch happened in the last step}
 
 
-\end{tconstr}
+\end{constr}
 
 \CD{Need to say what $4 q(S)$ is unless a convention has been set. Certainly the picture will have it look like a dot composition.}
 
@@ -917,7 +920,7 @@ Though $Spin(3)$ actions are particularly simple, the interesting question here 
 
 \CD{Probably change all the constructions to ordinary numbers, then have the headers carry the names}
 
-\begin{tconstr}[The rain construction]{RAIN}
+\begin{constr}[The rain construction]\headfootnote{The construction requires simultaneous use of four (Whitney) umbrellas.}
 Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id  : S^2 \to \Aut(X))$. The following picture encodes a map $\vcon(S,R,W) : S^3 \ra \Aut(X)$.
 \[
 \emptyset
@@ -935,7 +938,7 @@ Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),
 \stackrel{W,W,W,W}\leadsto
 \emptyset
 \]
-\end{tconstr}
+\end{constr}
 
 
 
@@ -1315,7 +1318,7 @@ Given an $SO(3)$ action on $X$, that is a map $\alpha: BSO(3) \ra B\Aut(X)$, we 
 
 A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$, where $p: S^2 \ra \RP^2$ is the antipodal quotient.  Given a map $\RP^2 \ra \Aut(X)$, we need to explicitly construct the pullback $S^2 \xra{p} \RP^2 \ra \Aut(X)$.  The map from $\RP^2$ provides a point $S \in \Omega \Aut(X)$ and a null homotopy $R$ of $2S$.  
 
-\begin{tconstr}[The bean construction]{R-B}
+\begin{constr}[The bean construction]%{R-B}
 \label{bean}
 Using the previously described graphical notation for $S$ and $R$, the following picture defines a map $\Map(\RP^2,\Aut(X)) \xra{p} \Omega^2 \Aut(X)$:
 \[
@@ -1333,7 +1336,7 @@ Using the previously described graphical notation for $S$ and $R$, the following
 \end{tikzpicture}}
 \]
 We refer to the construction defined in this diagram as ``the Radford bean".  
-\end{tconstr}
+\end{constr}
 
 Note well that in this construction the left and right facing cups are applications of the nullhomotopy $R$ of $2S$, not applications of a cancellation between $S$ and $S^{-1}$.  This map $p$ is homotopic to the map given by pullback along the antipodal projection $S^2 \ra \RP^2$, as desired.  (This can be verified by direct geometric argument.)  \cref{thm-so3action} provides (in $W$) a null homotopy of \cref{fig8} applied to $S$, whereas we seem to need a null homotopy of \cref{bean} applied to $S$ and $R$.  Though \cref{bean} is a priori rather different from the map $\Omega\Aut(X) \xra{q} \Omega^2 \Aut(X)$ defined by \cref{fig8}, we will see that they are, in fact, closely related.
 
@@ -1504,7 +1507,7 @@ Given a homotopy $SO(3)$ action on a 3-type $X$, defined by the triple $(S,R,W)$
 
 \CDcomm{The following discussion of the Radford-8 actually doesn't appear immediately needed for anything, but I bet it will come in handy at some point so we should include it somewhere.}
 
-\begin{tconstr}[The Radford-8 construction]{R-8}
+\begin{constr}[The Radford-8 construction]%{R-8}
 \label{rad8}
 Now consider the map $e: S^3 \ra \Sigma\RP^2$ defined by the (Pontryagin-Thom) construction on the following picture:
 \[
@@ -1520,7 +1523,7 @@ Now consider the map $e: S^3 \ra \Sigma\RP^2$ defined by the (Pontryagin-Thom) c
 \end{tikzpicture}}
 \]
 Equivalently, this picture defines a map $Map(\RP^2,\Aut(X)) \xra{e} \Omega^2 \Aut(X)$.  We refer to this construction as the ``Radford-8".
-\end{tconstr}
+\end{constr}
 
 \begin{lemma}[The homotopy class of the Radford-8]
 The map $e: S^3 \ra \Sigma \RP^2$ is homotopic to the composite of the \emph{negative} Hopf map $-q: S^3 \ra S^2$ with the inclusion $S^2 \ra \Sigma \RP^2$.
@@ -1690,7 +1693,7 @@ Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BS
 
 \CD{To do: make it clear that the following pictures are *not* isotopy invariant -- only some naturalities are allowed. Explain why at the level of a remark that would remind ourselves later what's going on.}
 
-\begin{tconstr}[The wet construction $\wcon$]{WET}
+\begin{constr}[The wet construction $\wcon$]\headfootnote{The construction is a Whitney umbrella with a (pivotal) hole in the top.}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
 
 \[
@@ -1752,9 +1755,7 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \emptyset
 \] 
 
-\end{tconstr}
-
-\nid We refer to this as the wet construction because the pictoral representation of it is a a Whitney umbrella with a hole in it, where the boundary of the hole is labeled by the pivotal data.
+\end{constr}
 
 \CD{Maybe we need to distinguish notationally the identity point in $\Aut(X)$ and the homotopical identities. And check we use those consistently.}
 
