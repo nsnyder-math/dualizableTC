@@ -1662,6 +1662,8 @@ By definition a homotopy fixed point of the action is a section of the fibration
 The point $x$ provides the section on the basepoint $\ast$ of $\ast \cup_{S^1} D^2$, which provides the section $S_x: S^1 \ra X$ on $\partial D^2$; the null homotopy $\piv$ extends the section over the 2-cell of $S^2$.
 \end{proof}
 
+\CDcomm{Right here can go a corollary whose statement is `Don't fix the action, take all the actions at once, and the space of all those fixed points for all actions is ... .' Later (!) we will comment that whole space has an E2 structure, and use that in describing the wet construction.}
+
 In this section the bordism diagrams denote homotopies in $X$, rather than in $B\Aut(X)$. We denote $S_x$ and $S_x^{-1}$ by shaded strings labelled by $x$, which serves to remind us that the diagrams represent homotopies in $X$. To avoid cluttering the diagrams we only label each string once, as all parts of the diagram will always be labelled by the same $x$. We then represent $\piv_x$ and $\piv_x^{-1}$ as follows:
 \[\cb{\begin{tikzpicture}
 \node(Piv) at (.5,0) {$\blacksquare$};
@@ -1692,6 +1694,8 @@ By \cref{prop-hofptrunc}, to understand the homotopy fixed points of $Quad$ it s
 Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BSO(2) \ra B\Aut(X)$, may instead be viewed as a pair $(S,W)$ where $S : S^1 \ra \Aut(X)$ is a based map and $W$ is a null homotopy of $q(S): S^2 \to \Aut(X)$.
 
 \CD{To do: make it clear that the following pictures are *not* isotopy invariant -- only some naturalities are allowed. Explain why at the level of a remark that would remind ourselves later what's going on.}
+
+\CDcomm{TODO. Change the Construction environment to be wet2'. Then add remark describing and maybe drawing wet0. Ie omit wet1 and wet2, or describe as `one could also do it this way' as an aside.}
 
 \begin{constr}[The wet construction $\wcon$]\headfootnote{The construction is a Whitney umbrella with a (pivotal) hole in the top.}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
@@ -1766,6 +1770,8 @@ Thing 1: the definition of a homotopy fixed point is a section of the following 
 Thing 2 (maybe): that fibration can be described in an explicit way in a form that is built up over the cell decomposition of the base in terms of the action.
 
 Thing 3: to build the section, proceed cell by cell in the base, and each cell is provided by a give piece of data or condition in the statement of the result.}
+
+\CD{Key expositional issue: we didn't explicitly say what $W_x$ is. Then maybe make contact in the proof with the fact that that has to do with trivializing the bundle over the $D^4$.}
 
 \begin{proposition}[Fixed points for $SO(2)$]
 The space of homotopy fixed points of the $SO(2)$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$ and $W :: q(S) \sim 1 : S^2 \to \Aut(X)$ is the space of pairs $(x,\piv)$ satisfying a condition $\Ucon$:
