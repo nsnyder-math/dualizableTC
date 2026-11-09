@@ -53,7 +53,7 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 \item Compute or find a ref computing pi5 of Spin6/SO3. (table 1)
 \item \sout{Write Homotopy io remark at end of sec 4.3}
 \item Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points)
-\item Add a proposition before \cref{prop-fixedpointntypes} that is that statement just phrased in terms of fixed points, and make \cref{prop-fixedpointntypes} a corollary (see the marginal comment after that proposition).
+\item \sout{Add a proposition before \cref{cor-fixedpointntypes} that is that statement just phrased in terms of fixed points, and make \cref{cor-fixedpointntypes} a corollary (see the marginal comment after that proposition).}
 \item \sout{Find a specific reference (not just to wu generically) for the pi4 sigma rp2 proposition and/or include a proof.}
 \end{itemize}
 
@@ -1859,16 +1859,26 @@ An \emph{structure} for $n$-dimensional vector bundles is a space $T$ together w
 
 Because we are concentrating on structures on manifolds of low dimension, the full homotopy type of the structure spaces is not relevant---it suffices to keep track only of the low-dimensional homotopical information of $BO(3)$ and the other structure spaces.  Recall that the $k$-homotopy type (or simply the ``$k$-type") of a space $X$ refers to the homotopical information contained in the $k$-Postnikov section $P_k X$ of the space; the $k$-Postnikov section $P_k X$ is the initial space in the category of spaces $Y$ equipped with a map $X \ra Y$ inducing an isomorphism on $\pi_i$ for $i \leq k$ and such that $\pi_i(Y) = 0$ for $i > k$. Said directly, the $k$-Postnikov section is the space you get by killing all the homotopy groups above dimension $k$. %!%\CD{Prefer to define $P_k X$ otherwise?}
 
-The following proposition explains how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories:
+The following proposition and corollary explain how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories.
 
-\begin{proposition}[Structure maps on field theories] 
-\label{prop-fixedpointntypes}
-Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the structure map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map $\phi^*: \Hom(\mathrm{TBord}_0^n,\cC) \ra \Hom(\mathrm{SBord}_0^n,\cC)$ is a homotopy equivalence of spaces.
+\begin{proposition}[Comparison of homotopy fixed points]
+Suppose $Y$ is an $n$-type, and we have spaces $S$ and $T$ together with maps $S \ra T \ra B\Aut(Y)$; in other words, $\Omega T$ acts on $Y$, and an action of $\Omega S$ on $Y$ is obtained by restriction. If the comparison map $S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map of homotopy fixed point spaces $Y^{h \Omega T} \ra Y^{h \Omega S}$ is a homotopy equivalence.
 \end{proposition}
 
-\nid We leave the proof to the reader.  Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+\CD{Crucial. Is that correct? Are the numbers right? Should the conclusion have been about n-types rather than spaces? CSP, could you check this proposition?}
 
-\CD{This proposition is phrased in terms of the field theories, but actually, we should explicitly state a proposition in terms of fixed points, and this proposition can be a corollary of that (and the cobordism hypothesis)}
+\CD{Should we include a proof? CSP, do you know whether there's something concise to write for a proof?}
+
+\nid We leave the proof to the reader. That homotopical fact, together with the cobordism hypothesis, implies the following.
+
+\begin{corollary}[Structure maps on field theories] 
+\label{prop-fixedpointntypes}
+Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map from the space of $\cC$-valued $T$-structured field theories to the space of $\cC$-valued $S$-structured field theories is a homotopy equivalence.
+\end{corollary}
+
+\nid Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+
+\CD{Remove mention of TC here?}
 
 \subsection{The `sub'-structures}
 
