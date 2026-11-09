@@ -51,7 +51,7 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 \CDcomm{Various tasks}
 \begin{itemize}
 \item Compute or find a ref computing pi5 of Spin6/SO3. (table 1)
-\item Write Homotopy io remark at end of sec 4.3
+\item \sout{Write Homotopy io remark at end of sec 4.3}
 \item Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points)
 \item Add a proposition before \cref{prop-fixedpointntypes} that is that statement just phrased in terms of fixed points, and make \cref{prop-fixedpointntypes} a corollary (see the marginal comment after that proposition).
 \item \sout{Find a specific reference (not just to wu generically) for the pi4 sigma rp2 proposition and/or include a proof.}
@@ -671,8 +671,10 @@ respectively.  Combining this notation with the previous notation of a normally 
 \leadsto
 \emptyset
 \]
-\nid We refer to this as the figure-32 construction.\footnote{Our figure-32 agrees with the Klein invariant construction of \NScomm{add citation} which they found independently when looking at $B\ZZ/2$ actions, see Remark \label{rem:B2Z2action}.}
+\nid We refer to this as the figure-32 construction.\footnote{Our figure-32 agrees with the `Klein invariant construction' of \cite{mne} which they found independently when looking at $B\ZZ/2$ actions, see Remark \ref{rem:B2Z2action}.}\textsuperscript{,}\footnote{The reader may, and we did, encode this construction in a computational higher algebra system, such as \texttt{homotopy.io} \cite{hoio}.}
 \end{constr}
+
+\CD{Issue re that footnote: `agrees with' is ambiguous ... since the constructions actually aren't the same right, so the thing that's true is that it's the same invariant or same PT class. What's the minimal thing to say that's accurate?}
 
 \begin{constr}[Another figure 32 construction]%{F-32$'$}
 \label{fig32end}
@@ -800,8 +802,6 @@ This follows by combining \cref{prop-borptrunc} and \cref{lemma-etaq2}.
 \end{proof}
 
 % \CDcomm{A cellular 3-truncation of $Orp(3)$ looks a little messy (cohom is $\ZZ, 0, \ZZ/2, \ZZ/2, \ZZ/2, \ZZ/4$ I believe.  Maybe omit.}
-
-\CDcomm{HOMOTOPYIO. Add here a remark that if you want a formal computer verifiable version of the figure 32 construction, let's you implement in any higher groupoid, we did it in homotopyio. Do not embedd movie -- the stills are fine. Note that Noah's homotopyio file is the other version using the whitney, not this version. So if we are including the file, do this version.}
 
 \begin{constr}[The silly construction]%{SILLY}
 Given an action of $\Omega \Sigma \RP^2$ on a 3-type $X$, given by a pair $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X))$, the following picture encodes a nullhomotopy $\scon :: \id \sim 4 q(S) : S^2 \to \Aut(X)$.
