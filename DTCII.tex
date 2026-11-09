@@ -1697,6 +1697,83 @@ Recall that an $SO(2)$ action on a 3-type $X$, which a priori is a based map $BS
 
 \CDcomm{TODO. Change the Construction environment to be wet2'. Then add remark describing and maybe drawing wet0. Ie omit wet1 and wet2, or describe as `one could also do it this way' as an aside.}
 
+From the last subsection \NScomm{better ref}, $\Omega_x^2 (EG \times_G X)$ is equivalent to the space of pairs $(\alpha: S^2 \rightarrow \Aut(X), p_\alpha: \alpha_x \rightarrow \id_x)$. Given an element of $\Omega_x^2 (EG \times_G X)$ we can apply the figure-8 construction to it to obtain a loop in $\Omega_x^2 (EG \times_G X)$. Translating across the equivalence we get a construction which starts with a pair $(S,\piv)$ and obtains a loop based at that pair, $(q(S): S^1 \to X, w:: q(S)_x \ra \id_{\id_x}): S^2 \to X$.
+
+\[
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(-.75,0) to [out=-90,in=-120] (0,0)
+	to [out=60,in=90]  (.75,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(.75,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-.75,0);
+\node(Crossing) [circle, draw, fill=white] at (0,0) {$\beta_x$};
+\node(TopLeftLabel) at (-.6,.5) {$S_x^{-1}$};
+\node(BottomLeftLabel) at (-.6,-.5) {$S_x$};
+\node(TopRightLabel) at (.6,.5) {$S_x$};
+\node(BottomRightLabel) at (.6,-.5) {$S_x^{-1}$};
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\node(Piv) at (-.75,-.25) {$\blacksquare$};
+\node(PivInv) at (-.5,-.25) {$\square$};
+\draw[linestyle, looseness=1.25]
+(-1,0)  to [out=270, in=180] (-.75,-.25);
+\draw[linestyle, looseness=1.25]
+(-.5,-.25) to [out=0,in=-120] (0,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-1,0);
+\node(Crossing)  [circle, draw, fill=white] at (0,0) {$\beta_x$};
+\node(TopLeftLabel) at (-.6,.5) {$S_x^{-1}$};
+\node(BottomLeftLabela) at (-.9,-.5) {$S_x$};
+\node(BottomLeftLabelb) at (-.3,-.5) {$S_x$};
+\node(TopRightLabel) at (.6,.5) {$S_x$};
+\node(BottomRightLabel) at (.6,-.5) {$S_x^{-1}$};
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\node(Piv) at (-.5,-.25) {$\blacksquare$};
+\node(PivInv) at (.3,.25) {$\square$};
+\draw[linestyle, looseness=1.25]
+(-.75,0) to [out=270, in=180] (-.5,-.25);
+\draw[linestyle, looseness=1.25]
+(.3,.25) to [out=0,in=90] (.75,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(.75,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-.75,0);
+\node(TopLeftLabel) at (-.6,.5) {$S_x^{-1}$};
+\node(BottomLeftLabel) at (-.7,-.5) {$S_x$};
+\node(TopRightLabel) at (.7,.5) {$S_x$};
+\end{tikzpicture}}
+=
+\cb{\begin{tikzpicture}
+\node(Piv) at (.5,-.4) {$\blacksquare$};
+\node(PivInv) at (-.5,.4) {$\square$};
+\draw[linestyle, looseness=.75]
+(-.3,-.2) to [out=270, in=180] (.5,-.4);
+\draw[linestyle, looseness=.75]
+(-.5,.4) to [out=0,in=90] (.3,.2);
+\draw[linestylegray,coverline,looseness=1.25]
+(.3,.2) to [out=-90,in=90] (-.3,-.2);
+\node(TopLabel) at (0,.6) {$S_x$};
+\node(MiddleLabel) at (-.35,.1) {$S_x^{-1}$};
+\node(TopRightLabel) at (0,-.6) {$S_x$};
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\node(TopLabel) at (0,.2) {$S_x$};
+\node(Piv) at (.5,0) {$\blacksquare$};
+\node(PivInv) at (-.5,0) {$\square$};
+\draw[linestyle] (.5,0) to (-.5,0);
+\end{tikzpicture}}
+\leadsto 
+\emptyset
+\] 
+
+Here the square represent $\piv$ and $\piv^{-1}$, the $\beta_x$ is shorthand for $(\beta_{S^{-1},S})_x: S_x^{-1} \cdot S_x \rightarrow S_x \cdot S_x^{-1}$, and the second arrow uses the naturality of $\beta$ with respect to $\piv$. 
+
 \begin{constr}[The wet construction $\wcon$]\headfootnote{The construction is a Whitney umbrella with a (pivotal) hole in the top.}
 Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Given also an $\Omega S^2$ fixed point structure $(x,\piv)$. The following picture encodes a map $\wcon(S,x,\piv):: q(S)_x \sim \id_{\id_x} : S^2 \to X$.
 
@@ -1724,7 +1801,6 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 	to [out=120,in=90] (-.75,0);
 \end{tikzpicture}}\leadsto
 \cb{\begin{tikzpicture}
-\node(TopLabel) at (-.4,.4) {$x$};
 \node(TopLabel) at (-.4,.4) {$x$};
 \node(Piv) at (-.5,-.25) {$\blacksquare$};
 \node(PivInv) at (.3,.25) {$\square$};
