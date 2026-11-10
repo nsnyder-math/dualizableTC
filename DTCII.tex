@@ -126,7 +126,7 @@ That, however, is the purpose of the current paper. We will give an explicit des
 
 \section{Introduction}
 
-This purpose of this paper is to give an explicit description of what it means to give a homotopy $SO(3)$-action on a homotopy 3-type and to give an explicit description of the $SO(3)$ homotopy fixed points for such an action.  These descriptions will be based on the cellular structure of the $4$-type of $BSO(3)$ with each cell giving a piece of data.  To describe this structure in sufficient detail we will need to give explicit descriptions of the attaching maps using Pontryagin--Thom.  We also explain what it means to give an action and what the homotopy fixed points are for a number of closely related groups like $SO(2)$, $\Omega S^2$, $Spin(3)$, and $Orp(3)$.  These groups are either subgroups of $SO(3)$, groups given by killing certain characteristic classes in $SO(3)$, or loop groups of truncations of a cellular description of $BSO(3)$.
+This purpose of this paper is to give an explicit description of what it means to give a homotopy $SO(3)$-action on a homotopy 3-type and to give an explicit description of the $SO(3)$ homotopy fixed points for such an action.  These descriptions will be based on the cellular structure of the $4$-type of $BSO(3)$ with each cell giving a piece of data.  To describe this structure in sufficient detail we will need to give explicit descriptions of the attaching maps using Pontryagin--Thom.  We also explain what it means to give an action and what the homotopy fixed points are for a number of closely related groups like $SO(2)$, $\Omega S^2$, $Spin(3)$, and $Orp(3)$.  These groups are either subgroups of $SO(3)$, groups given by killing certain characteristic classes in $SO(3)$, or loop groups of presentations of a cellular description of $BSO(3)$.
 
 All of the results in this paper are purely homotopy theoretic and for the most part elementary, but the motivation for them comes from topological field theory.  Namely, the cobordism hypothesis says that the space of fully local framed $3$-dimensional TFTs with values in a symmetric monoidal $3$-category $\cC$ is equivalent to the space $X$ of fully dualizable objects in $\cC$, that $O(n)$ has a homotopy coherent action on $X$ by changing framing, and that the $SO(n)$ homotopy fixed points classify oriented TFTs.  If $\cC$ is a discrete $3$-category (as opposed to an $(\infty,3)$-category), then $X$ is a homotopy $3$-type.  Thus it is natural to ask exactly how much information is contained in the statement that $SO(3)$ acts on $X$, and exactly how much information you need to give an $SO(3)$ homotopy fixed point.  In later papers we will give applications of the purely homotopy theoretic results in this paper to the example of finite tensor categories.  Most significantly, we will translate each part of the data of giving an action of $SO(3)$ into a theorem about finite tensor categories (one of which is Radford's theorem), and we will see that a spherical structure on a fusion category gives an $SO(3)$ homotopy fixed point and thus a fully local TFT which extends the Turaev-Viro theories down to points, but we will also see that there are other $SO(3)$ homotopy fixed points.
 
@@ -170,18 +170,18 @@ We would like to especially thank Andr\'e Henriques for insight regarding the ho
 
 % This section is pure homotopy theory. Just determine cell structures. All issues about interpreting the attaching maps and computing the attaching maps explicitly are left to later sections.
 
-As we only care about the 4-types of our spaces, for each space we will describe a cell complex that captures the 4-type in question.  More specifically, for concreteness we will construct 4-truncations of our spaces, in the following sense.
+As we only care about the 4-types of our spaces, for each space we will describe a cell complex that captures the 4-type in question.  More specifically, for concreteness we will construct 4-presentations of our spaces, in the following sense.
 
-\begin{definition}[Truncation]
-By a \emph{$k$-truncation} of a space $X$, we will mean a $(k+1)$-dimensional cell complex, denoted $_k X$, together with a $k$-equivalence $_{k} X \ra X$.
+\begin{definition}[Higher presentations]
+By a \emph{$k$-presentation} of a space $X$, we will mean a $(k+1)$-dimensional cell complex, denoted $_k X$, together with a $k$-equivalence $_{k} X \ra X$.
 \end{definition}
-\nid Note that the homotopy type of a $k$-truncation is not uniquely determined, but the $k$-type is.  Moreover the homotopy class of the $k$-equivalence $_k X \ra X$ is not, in general, uniquely determined.  Though it is by no means a necessity, it is sometimes reassuring to know that a given truncation is as small as possible: we call a $k$-truncation \emph{minimal} if it has the minimum number of cells among all $k$-truncations.  Note that the cell structure of a minimal $k$-truncation is not in general uniquely determined, though it happens that it is in all the examples we consider.
+\nid Note that the homotopy type of a $k$-presentation is not uniquely determined, but the $k$-type is.  Moreover the homotopy class of the $k$-equivalence $_k X \ra X$ is not, in general, uniquely determined.  Though it is by no means a necessity, it is sometimes reassuring to know that a given presentation is as small as possible: we call a $k$-presentation \emph{minimal} if it has the minimum number of cells among all $k$-presentations.  Note that the cell structure of a minimal $k$-presentation is not in general uniquely determined, though it happens that it is in all the examples we consider.
 
 %\CD{For better or worse the notation here is meant to suggest that $_4 X$ is a subobject, as opposed to the usual ``4-quotient" $X_4$ obtained by adding cells to $X$.  This notation is a bit questionable.  Note that $_4 X$ is not a 4-type.}
 
 \subsection{Of the spaces $B\Omega S^2$ and $B\Quad$}.
 
-Needless to say, the 4-truncation of $B\Omega S^2 \simeq S^2$ is simply $S^2$, and this is obviously minimal. \NS{Do we want these statements in environments to refer to later? Or maybe just a theorem at the beginning of the section stating all of them?}
+Needless to say, the 4-presentation of $B\Omega S^2 \simeq S^2$ is simply $S^2$, and this is obviously minimal. \NS{Do we want these statements in environments to refer to later? Or maybe just a theorem at the beginning of the section stating all of them?}
 
 \begin{definition}[$BQuad$]
 The space $B\Quad$ is the homotopy fiber of the map $c_1^2: BSO(2) \ra K(\ZZ,4)$ classifying the square of the first Chern class.
@@ -191,20 +191,20 @@ The space $B\Quad$ is the homotopy fiber of the map $c_1^2: BSO(2) \ra K(\ZZ,4)$
 
 \begin{proposition}[The cell structure of $BQuad$] 
 \label{prop-quadtrunc}
-The minimal 4-trunctation of $BQuad$ is the 2-cell complex $S^2 \cup_{\eta q} e_5$.  Here the attaching map is the composite of the generator $\eta: S^4 \ra S^3$ and the generator $q: S^3 \ra S^2$.
+The minimal 4-presentation of $BQuad$ is the 2-cell complex $S^2 \cup_{\eta q} e_5$.  Here the attaching map is the composite of the generator $\eta: S^4 \ra S^3$ and the generator $q: S^3 \ra S^2$.
 \end{proposition}
 
 \begin{proof}
-From the long exact sequence of the fibration $K(\ZZ,3) \ra B\Quad \ra BSO(2)$, we see that the first four homotopy groups ($\pi_1$--$\pi_4$) of $B\Quad$ are $0$, $\ZZ$, $\ZZ$, $0$, and from the corresponding Serre spectral sequence, that the first six cohomology groups ($H^1$--$H^6$) are $0$, $\ZZ$, $0$, $0$, $0$, $\ZZ/2$.  From the cohomology, we see there is a 4-truncation with a single 2-cell and a single 5-cell, and the homotopy groups force the attaching map to be $\eta q$.  This truncation is clearly minimal.
+From the long exact sequence of the fibration $K(\ZZ,3) \ra B\Quad \ra BSO(2)$, we see that the first four homotopy groups ($\pi_1$--$\pi_4$) of $B\Quad$ are $0$, $\ZZ$, $\ZZ$, $0$, and from the corresponding Serre spectral sequence, that the first six cohomology groups ($H^1$--$H^6$) are $0$, $\ZZ$, $0$, $0$, $0$, $\ZZ/2$.  From the cohomology, we see there is a 4-presentation with a single 2-cell and a single 5-cell, and the homotopy groups force the attaching map to be $\eta q$.  This presentation is clearly minimal.
 \end{proof}
 
 \subsection{Of the space $BSO(2)$}.
 
-The 4-truncation of $BSO(2)$ is $\CP^2 = S^2 \cup_q e_4$, and this is certainly minimal.
+The 4-presentation of $BSO(2)$ is $\CP^2 = S^2 \cup_q e_4$, and this is certainly minimal.
 
 \subsection{Of the spaces $B \Omega \Sigma \RP^2$ and $B Orp(3)$}.
 
-The space $B \Omega \Sigma \RP^2 \simeq \Sigma \RP^2 \simeq S^2 \cup_2 e_3$ is its own minimal 4-truncation.
+The space $B \Omega \Sigma \RP^2 \simeq \Sigma \RP^2 \simeq S^2 \cup_2 e_3$ is its own minimal 4-presentation.
 
 \begin{definition}[$BOrp(3)$]
 The space $BOrp(3)$ is the homotopy fiber of the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$, where $p_1$ is the first Pontryagin class.
@@ -223,17 +223,17 @@ The fact that $\pi_4(\Sigma \RP^2) = \ZZ/4$ is shown in Wu's explicit calculatio
 
 \begin{proposition}[The cell structure of $BOrp(3)$] 
 \label{prop-borptrunc}
-The minimal 4-truncation of $BOrp(3)$ is the 3-cell complex $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.
+The minimal 4-presentation of $BOrp(3)$ is the 3-cell complex $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.
 \end{proposition}
 \begin{proof}
 The homotopy groups of $S^3$ determine the homotopy groups of $SO(3)$ which determine the homotopy groups of $BSO(3)$ as $0$, $\ZZ/2$, $0$, $\ZZ$, $\ZZ/2$ for $\pi_1$ through $\pi_5$.  Using the slightly surprising fact that the composite $BSO(3) \ra BSO \xra{p_1} K(\ZZ,4)$ \NS{Add reference to appendix?} induces multiplication by 4 on $\pi_4$, this in turn determines the homotopy groups of $BOrp(3)$ as $0$, $\ZZ/2$, $\ZZ/4$, $0$, $\ZZ/2$.  
 
 The Serre spectral sequence for $SO(3) \ra * \ra BSO(3)$ shows the cohomology of $BSO(3)$ is $0$, $0$, $\ZZ/2$, $\ZZ$, $0$, $\ZZ/2$ for $H^1$ through $H^6$, and the Serre spectral sequence for $K(\ZZ,3) \ra BOrp(3) \ra BSO(3)$ then gives the cohomology of $BOrp(3)$ as $0$, $0$, $\ZZ/2$, $0$, $0$, $\ZZ/4$.  (The extension in degree 6 is resolved by the corresponding mod 2 spectral sequence.)
 
-From the cohomology of $BOrp(3)$ we see that there is a map $\Sigma \RP^2 \ra BOrp(3)$ which is an isomorphism on $H_{\leq 4}$.  By Hurewicz it follows that this map is an isomorphism on $\pi_{\leq 3}$.  To correct the $\pi_4$ discrepancy, we need to attach a 5-cell to kill $\pi_4(\Sigma \RP^2)$.  Because $\pi_4(BOrp(3))$ is zero, we may pick an extension of the map $\Sigma \RP^2 \ra BOrp(3)$ to a map $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \ra BOrp(3)$.  This latter map is now a 4-equivalence, as desired.  This truncation is clearly minimal.  Note that there were two possible choices of the extension, but both yield 4-equivalences and we will have no need to differentiate them.
+From the cohomology of $BOrp(3)$ we see that there is a map $\Sigma \RP^2 \ra BOrp(3)$ which is an isomorphism on $H_{\leq 4}$.  By Hurewicz it follows that this map is an isomorphism on $\pi_{\leq 3}$.  To correct the $\pi_4$ discrepancy, we need to attach a 5-cell to kill $\pi_4(\Sigma \RP^2)$.  Because $\pi_4(BOrp(3))$ is zero, we may pick an extension of the map $\Sigma \RP^2 \ra BOrp(3)$ to a map $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \ra BOrp(3)$.  This latter map is now a 4-equivalence, as desired.  This presentation is clearly minimal.  Note that there were two possible choices of the extension, but both yield 4-equivalences and we will have no need to differentiate them.
 \end{proof}
 
-\begin{remark}[The truncation of $BOrp(3)$ is the Wu manifold] \label{rem:WuManifold}
+\begin{remark}[The presentation of $BOrp(3)$ is the Wu manifold] \label{rem:WuManifold}
 Observe that the 3-cell complex $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$ appearing in the previous \cref{prop-borptrunc} is homotopy equivalent to the Wu manifold $SU(3)/SO(3)$, cf.\ \cite[Eg.\ 6.15]{wu}. %Proof and discussion is in the email thread "Orp(3) and SU(3)/SO(3)"
 \end{remark}
 
@@ -260,24 +260,24 @@ is a $4$-pushout.
 We need to show that the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-equivalence.  By the exact sequence of the pair $(P, BOrp(3))$, the homology of $P$ in degrees 1 through 5 is $0$, $\ZZ/2$, $0$, $\ZZ$, $\ZZ/4$.  Now consider the map $P \ra BSO(3)$ in homology.  The maps $H_2(BOrp(3)) \ra H_2(P)$ and $H_5(BOrp(3)) \ra H_5(P)$ are isomorphisms, and $H_2(BOrp(3)) \ra H_2(BSO(3))$ is an isomorphism and $H_5(BOrp(3)) \ra H_5(BSO(3))$ is surjective by the Serre spectral sequence of $K(\ZZ,3) \ra BOrp(3) \ra BSO(3)$.  The map $H_4(BSO(2)) \ra H_4(P)$ is an isomorphism, and the map $H_4(BSO(2)) \ra H_4(BSO(3))$ is an isomorphism (by for instance noting that the mod 2 reduction of $p_1$ is $w_2^2$ and that considered with $\ZZ[\frac{1}{2}]$ coefficients, the pullback of $p_1$ to $BU(1)$ is $c_1^2$).  It follows that $H_{\leq 5}(BSO(3),P) = 0$, thus $\pi_{\leq 5}(BSO(3),P) = 0$ and so the map $P \ra BSO(3)$ is a 4-equivalence, as desired.
 \end{proof}
 
-%\CD{I suggest that in writing we try to be fairly careful to denote the difference between a space $X$ and its $k$-truncation or $k$-quotient, ie never leave the truncation/quotient implicit.}
+%\CD{I suggest that in writing we try to be fairly careful to denote the difference between a space $X$ and its $k$-presentation or $k$-quotient, ie never leave the presentation/quotient implicit.}
 
 \begin{corollary}[The cell structure of $BSO(3)$]
 \label{cor-bso3trunc}
-The minimal 4-truncation of $BSO(3)$ is the 4-cell complex $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$, where $q: S^3 \ra S^2$ and $\frac{\eta q}{2}: S^4 \ra (S^2 \cup_2 e_3)$ are generators.
+The minimal 4-presentation of $BSO(3)$ is the 4-cell complex $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$, where $q: S^3 \ra S^2$ and $\frac{\eta q}{2}: S^4 \ra (S^2 \cup_2 e_3)$ are generators.
 \end{corollary}
 
 \begin{proof}
-By the proposition, the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-equivalence.  Note that $_4 BSO(2) \cup_{S^2} {}_4 BOrp(3)$ is a 4-truncation of $P$ and therefore provides a 4-truncation of $BSO(3)$.  Using \cref{prop-borptrunc} the cell structure of that space is as described.  
+By the proposition, the map $P := BSO(2) \cup_{S^2} BOrp(3) \ra BSO(3)$ is a 4-equivalence.  Note that $_4 BSO(2) \cup_{S^2} {}_4 BOrp(3)$ is a 4-presentation of $P$ and therefore provides a 4-presentation of $BSO(3)$.  Using \cref{prop-borptrunc} the cell structure of that space is as described.  
 
-That this truncation is uniquely minimal is seen as follows.  The first four homology groups of $BSO(3)$ force any truncation to have at least one cell in each of the dimensions 2, 3, and 4.  If the truncation has only three cells, the attaching map of the 3-cell must be multiplication by 2, and the third homotopy group of $BSO(3)$ forces the attaching map of the 4-cell to be a generator; call the resulting complex $H := (S^2 \cup_2 e_3) \cup_q e_4$.\NS{Should we also talk about $\Omega H$ actions? This would be convenient in the fixed point section as a $BSO(3)$ fixed point or a $B^2 \ZZ/2$ fixed point determined completely by the underlying $\Omega H$ fixed point.}  The complex $H$ cannot be a 4-truncation of $BSO(3)$ because $\pi_4(BSO(3)) = \ZZ$ whereas $\pi_4(H)$ contains a nontrivial torsion element, namely the image of $\frac{\eta q}{2}$ under the map $\pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H)$.  (This element is nontrivial because the composite $\ZZ/4 = \pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H) \ra \pi_4(S^3) = \ZZ/2$ is surjective, where the map $H \ra S^3$ kills the 2- and 4-cells.) \NS{Yes, but it is a \emph{3-truncation} of $BSO(3)$ because that map on $\pi_4$ is surjective!}
+That this presentation is uniquely minimal is seen as follows.  The first four homology groups of $BSO(3)$ force any presentation to have at least one cell in each of the dimensions 2, 3, and 4.  If the presentation has only three cells, the attaching map of the 3-cell must be multiplication by 2, and the third homotopy group of $BSO(3)$ forces the attaching map of the 4-cell to be a generator; call the resulting complex $H := (S^2 \cup_2 e_3) \cup_q e_4$.\NS{Should we also talk about $\Omega H$ actions? This would be convenient in the fixed point section as a $BSO(3)$ fixed point or a $B^2 \ZZ/2$ fixed point determined completely by the underlying $\Omega H$ fixed point.}  The complex $H$ cannot be a 4-presentation of $BSO(3)$ because $\pi_4(BSO(3)) = \ZZ$ whereas $\pi_4(H)$ contains a nontrivial torsion element, namely the image of $\frac{\eta q}{2}$ under the map $\pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H)$.  (This element is nontrivial because the composite $\ZZ/4 = \pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H) \ra \pi_4(S^3) = \ZZ/2$ is surjective, where the map $H \ra S^3$ kills the 2- and 4-cells.) \NS{Yes, but it is a \emph{3-presentation} of $BSO(3)$ because that map on $\pi_4$ is surjective!}
 
-We therefore know that a minimal truncation must have exactly 4-cells.  If it has two 2-cells or two 3-cells, the homology in dimension 2 or 3 respectively will not match that of $BSO(3)$, preventing it from being a 4-truncation.  If the putative 4-cell truncation $T$ has two 4-cells, the homotopy exact sequence of the pair $(BSO(3), T)$ shows that $\pi_4(T) \ra \pi_4(BSO(3))$ cannot be an isomorphism.  A minimal truncation must therefore have a single cell in each of dimensions 2, 3, 4, and 5; the second and third homotopy groups of $BSO(3)$ force the 4-skeleton of this truncation to be $(S^2 \cup e_3) \cup_q e_4$ as before, and in order to reproduce $\pi_4(BSO(3))$, the 5-cell must be attached by plus or minus the image of the class $\frac{\eta q}{2}$ under the map $\pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H)$, as desired.  % Notice that the class \eta q / 2 cannot be divisible in  H because then it wouldn't map nontrivially onto \pi_4 S^3.  So it is nontrivial and you have to kill it, only way to do that is plus or minus the class itself.
+We therefore know that a minimal presentation must have exactly 4-cells.  If it has two 2-cells or two 3-cells, the homology in dimension 2 or 3 respectively will not match that of $BSO(3)$, preventing it from being a 4-presentation.  If the putative 4-cell presentation $T$ has two 4-cells, the homotopy exact sequence of the pair $(BSO(3), T)$ shows that $\pi_4(T) \ra \pi_4(BSO(3))$ cannot be an isomorphism.  A minimal presentation must therefore have a single cell in each of dimensions 2, 3, 4, and 5; the second and third homotopy groups of $BSO(3)$ force the 4-skeleton of this presentation to be $(S^2 \cup e_3) \cup_q e_4$ as before, and in order to reproduce $\pi_4(BSO(3))$, the 5-cell must be attached by plus or minus the image of the class $\frac{\eta q}{2}$ under the map $\pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H)$, as desired.  % Notice that the class \eta q / 2 cannot be divisible in  H because then it wouldn't map nontrivially onto \pi_4 S^3.  So it is nontrivial and you have to kill it, only way to do that is plus or minus the class itself.
 \end{proof}
 
-\begin{remark}[On the 5-truncation of $BSO(3)$] 
+\begin{remark}[On the 5-presentation of $BSO(3)$] 
 \label{rem:pi5surj}
-The above map $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is also surjective on $\pi_5$. Indeed, already the map $SU(3)/SO(3) = (S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is surjective on $\pi_5$, using the homotopy LES for $SU(3)/SO(3)$ and the fact that $\pi_4(SU(3))=0$.\NS{Cite Mimura-Toda?} In particular, the 5-truncation of $BSO(3)$ is a 5-cell complex given by attaching some $6$-cells to $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$ along some attaching maps. In fact, since $\pi_5(BSO(3)) = \ZZ/2$ is cyclic, we need only use one six cell $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_r e_6$ but we do not know the attaching map $r$.
+The above map $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is also surjective on $\pi_5$. Indeed, already the map $SU(3)/SO(3) = (S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is surjective on $\pi_5$, using the homotopy LES for $SU(3)/SO(3)$ and the fact that $\pi_4(SU(3))=0$.\NS{Cite Mimura-Toda?} In particular, the 5-presentation of $BSO(3)$ is a 5-cell complex given by attaching some $6$-cells to $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$ along some attaching maps. In fact, since $\pi_5(BSO(3)) = \ZZ/2$ is cyclic, we need only use one six cell $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_r e_6$ but we do not know the attaching map $r$.
 \end{remark}
 
 Because the fourth and fifth cohomology groups of $BQuad$ are trivial, the composite $BQuad \ra BSO(2) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ is trivial and the map $BQuad \ra BSO(3)$ lifts uniquely to a map $BQuad \ra BOrp(3)$.
@@ -312,13 +312,13 @@ BQuad \ar[r] & BOrp(3)
 We saw that $B\Omega S^2$ and $BQuad$ were interchangable in the pushout square.  The space $BOrp(3)$ cannot be similarly replaced by $B\Omega \Sigma \RP^2$.  Nevertheless it will sometimes be useful to consider building an $Orp(3)$ action by first building an $\Omega \Sigma \RP^2$ action.
 \end{remark}
 
-We could have more briefly described a 4-truncation of $BSO(3)$ without reference to $BOrp(3)$, $BSO(2)$, $BQuad$, and whatnot.  But it will be important for our applications to topological field theories associated to fusion categories that we understand the 4-truncations of those structure groups as well, and the exact relationship of those truncations to that of $BSO(3)$.
+We could have more briefly described a 4-presentation of $BSO(3)$ without reference to $BOrp(3)$, $BSO(2)$, $BQuad$, and whatnot.  But it will be important for our applications to topological field theories associated to fusion categories that we understand the 4-presentations of those structure groups as well, and the exact relationship of those presentations to that of $BSO(3)$.
 
 \CDcomm{Later on, we'll describe the meaning of a Quad action, etc, and then refer back to see that one square leads to one description, while the other square leads to a slightly lengthier description that ties together the trivialization of q and the condition on eta q / 2.}
 
 
 \begin{remark}[The cell structure of $B^2 \ZZ/2$] \label{rem:B2Z2space}
-The canonical map $BSO(3) \rightarrow B^2(\ZZ/2)$ (coming from the nontrivial element $H^2(BSO(3);\ZZ/2)$) is an equivalence up to $\pi_3$ and on $\pi_4$ is the zero map $\ZZ \rightarrow 0$. Thus, from Corollary \ref{cor-bso3trunc}, we get a cell description of the 4-truncation of $B^2(\mathbb{Z}/2)$ as $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_{w} e'_5$\NS{Does this need more parens?} where $w$ is the generator of $\pi_4(BSO(3)) = \ZZ$. \NS{Is this minimal? Do we care?}
+The canonical map $BSO(3) \rightarrow B^2(\ZZ/2)$ (coming from the nontrivial element $H^2(BSO(3);\ZZ/2)$) is an equivalence up to $\pi_3$ and on $\pi_4$ is the zero map $\ZZ \rightarrow 0$. Thus, from Corollary \ref{cor-bso3trunc}, we get a cell description of the 4-presentation of $B^2(\mathbb{Z}/2)$ as $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_{w} e'_5$\NS{Does this need more parens?} where $w$ is the generator of $\pi_4(BSO(3)) = \ZZ$. \NS{Is this minimal? Do we care?}
 \end{remark}
 
 \section{Homotopy actions}
@@ -346,7 +346,7 @@ By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Ome
 
 \nid We typically use $S$ to denote a based map $S^1 \ra \Aut(X)$ determining the $\Omega S^2$ action on $X$, and we use $[S] \in \pi_1(\Aut(X))$ to denote the corresponding homotopy class.
 
-%\CDcomm{Um, what is a cellular 3-truncation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$. Omit??}
+%\CDcomm{Um, what is a cellular 3-presentation of $\Omega \Sigma S^1$? ... $\Omega S^2 \ra \Aut(X)$. Omit??}
 
 \CD{Should tighten up what is inside the construction environment. Put ramble outside it}
 \CD{Move the pic inside the construction, I think}
@@ -443,7 +443,7 @@ By \cref{prop-quadtrunc}, the attaching map of the 5-cell of $BQuad$ is $\eta q:
 \end{proof}
 
 
-% \CDcomm{What is a cellular 3-truncation of $Quad$? ... $Quad \ra \Aut(X)$.  Maybe omit.}
+% \CDcomm{What is a cellular 3-presentation of $Quad$? ... $Quad \ra \Aut(X)$.  Maybe omit.}
 
 \subsection{By the group $SO(2)$}
 
@@ -453,7 +453,7 @@ The homotopy classes of $SO(2)$ actions on a 3-type $X$ are the homotopy classes
 \end{prop}
 % The construction of q really does provide a map from \Omega \Aut(X) to \Omega^2 \Aut(X) so the statement of the proposition makes sense.
 \begin{proof}
-As mentioned, the 4-truncation of $BSO(2)$ is $S^2 \cup_q e_4$.  An $SO(2)$ action is therefore a map $S^2 \cup_q e_4 \ra B\Aut(X)$.  On the 2-cell, this map is provided by $S \in \Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.  An extension of the map $S^2 \xra{S} B\Aut(X)$ over the 4-cell is a null homotopy of the composite $S^3 \xra{q} S^2 \xra{S} B\Aut(X)$, that is a path in $\Omega^3 B\Aut(X)$ from $q^\ast S$ to the identity.  By \cref{lemma-q}, providing such a null homotopy is equivalent to providing a null homotopy of $q(S) \in \Omega^2\Aut(X) \simeq \Omega^3 B\Aut(X)$.
+As mentioned, the 4-presentation of $BSO(2)$ is $S^2 \cup_q e_4$.  An $SO(2)$ action is therefore a map $S^2 \cup_q e_4 \ra B\Aut(X)$.  On the 2-cell, this map is provided by $S \in \Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.  An extension of the map $S^2 \xra{S} B\Aut(X)$ over the 4-cell is a null homotopy of the composite $S^3 \xra{q} S^2 \xra{S} B\Aut(X)$, that is a path in $\Omega^3 B\Aut(X)$ from $q^\ast S$ to the identity.  By \cref{lemma-q}, providing such a null homotopy is equivalent to providing a null homotopy of $q(S) \in \Omega^2\Aut(X) \simeq \Omega^3 B\Aut(X)$.
 \end{proof}
 
 We can restrict attention to 3-types that happen to be 2-types.
@@ -475,7 +475,7 @@ The homotopy classes of $\Omega \Sigma \RP^2$ actions on a 3-type $X$ are the ho
 This is immediate, as multiplication by $2$ commutes through the identification $\Omega \Aut(X) \simeq \Omega^2 B\Aut(X)$.
 \end{proof}
 
-Recall from \cref{prop-borptrunc} that the 4-truncation of $BOrp(3)$ is $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.  From \cref{prop-sigmarp2action}, we know that a $\Sigma \RP^2 = S^2 \cup_2 e_3$ action is a point of $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$.  To precisely describe a full $Orp(3)$ action, we need to provide a geometric construction of a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X)$ such that the composite $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X) \simeq \Omega^4 B\Aut(X)$ is pullback along $\frac{\eta q}{2} \in \pi_4(\Sigma\RP^2)$.  
+Recall from \cref{prop-borptrunc} that the 4-presentation of $BOrp(3)$ is $(S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5$.  From \cref{prop-sigmarp2action}, we know that a $\Sigma \RP^2 = S^2 \cup_2 e_3$ action is a point of $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$.  To precisely describe a full $Orp(3)$ action, we need to provide a geometric construction of a map $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X)$ such that the composite $\Map(\Sigma \RP^2,B\Aut(X)) \simeq \Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast \ra \Omega^3 \Aut(X) \simeq \Omega^4 B\Aut(X)$ is pullback along $\frac{\eta q}{2} \in \pi_4(\Sigma\RP^2)$.  
 
 \CD{Tighten up what's inside the construction, put ramble outside.}
 \begin{constr}[The figure-64 construction]%{F-64}
@@ -819,7 +819,7 @@ The homotopy classes of $Orp(3)$ actions on a 3-type $X$ are the homotopy classe
 This follows by combining \cref{prop-borptrunc} and \cref{lemma-etaq2}.
 \end{proof}
 
-% \CDcomm{A cellular 3-truncation of $Orp(3)$ looks a little messy (cohom is $\ZZ, 0, \ZZ/2, \ZZ/2, \ZZ/2, \ZZ/4$ I believe.  Maybe omit.}
+% \CDcomm{A cellular 3-presentation of $Orp(3)$ looks a little messy (cohom is $\ZZ, 0, \ZZ/2, \ZZ/2, \ZZ/2, \ZZ/4$ I believe.  Maybe omit.}
 
 \begin{constr}[The silly construction]%{SILLY}
 Given an action of $\Omega \Sigma \RP^2$ on a 3-type $X$, given by a pair $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X))$, the following picture encodes a nullhomotopy $\scon :: \id \sim 4 q(S) : S^2 \to \Aut(X)$.
@@ -1334,7 +1334,7 @@ Given an $SO(3)$ action on $X$, that is a map $\alpha: BSO(3) \ra B\Aut(X)$, we 
 
 \CD{Tighten what is inside the construction, ramble outside}
 
-A cellular 3-truncation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$, where $p: S^2 \ra \RP^2$ is the antipodal quotient.  Given a map $\RP^2 \ra \Aut(X)$, we need to explicitly construct the pullback $S^2 \xra{p} \RP^2 \ra \Aut(X)$.  The map from $\RP^2$ provides a point $S \in \Omega \Aut(X)$ and a null homotopy $R$ of $2S$.  
+A cellular 3-presentation of $SO(3)$ is, of course, $(S^1 \cup_2 e_2) \cup_p e_3$, where $p: S^2 \ra \RP^2$ is the antipodal quotient.  Given a map $\RP^2 \ra \Aut(X)$, we need to explicitly construct the pullback $S^2 \xra{p} \RP^2 \ra \Aut(X)$.  The map from $\RP^2$ provides a point $S \in \Omega \Aut(X)$ and a null homotopy $R$ of $2S$.  
 
 \begin{constr}[The bean construction]%{R-B}
 \label{bean}
@@ -1623,7 +1623,7 @@ The desired equation $e = -q$ follows if $e + q = 0$, which follows if $e - q = 
 
 
 \begin{remark}[An alternative cell structure for $BSO(3)$]
-The above considerations determined an alternative 4-truncation of $BSO(3)$, namely $(S^2 \cup_2 e_3) \cup_{e} e_4 \cup_{\frac{\eta q}{2}} e_5$---this 4-truncation is, of course, canonically homotopy equivalent to the earlier 4-truncation.  % Use the homotopy between e and -q and a reflection to construct the homotopy equivalence to the earlier 4-truncation.  Note the 5-cell ensures that the choice of homotopy didn't affect the resulting homotopy equivalence.
+The above considerations determined an alternative 4-presentation of $BSO(3)$, namely $(S^2 \cup_2 e_3) \cup_{e} e_4 \cup_{\frac{\eta q}{2}} e_5$---this 4-presentation is, of course, canonically homotopy equivalent to the earlier 4-presentation.  % Use the homotopy between e and -q and a reflection to construct the homotopy equivalence to the earlier 4-presentation.  Note the 5-cell ensures that the choice of homotopy didn't affect the resulting homotopy equivalence.
 \end{remark}
 
 \section{Homotopy fixed points}
@@ -1655,9 +1655,9 @@ of the fibration $X \ra \alpha^*X_{h\Aut(X)} \ra BG$.
 In case $G$ is an honest group with an honest action on $X$, the fibration $EG(X) \ra BG$ can be taken to be the bundle projection $EG \times_G X \ra BG$.  The data of a section of that bundle is precisely the same as the data of a $G$-equivariant map $EG \ra X$, that is of a homotopy fixed point in the ordinary sense.
 \end{remark}
 
-\begin{proposition}[Homotopy fixed points via truncations] 
+\begin{proposition}[Homotopy fixed points via presentations] 
 \label{prop-hofptrunc}
-Given a homotopy action $BG \ra B\Aut(X)$ on a 3-type $X$, the natural map from the space of sections of $X \ra EG(X) \ra BG$ to the space of sections of that fibration over the 4-truncation ${}_4 BG \ra BG$, is a homotopy equivalence.
+Given a homotopy action $BG \ra B\Aut(X)$ on a 3-type $X$, the natural map from the space of sections of $X \ra EG(X) \ra BG$ to the space of sections of that fibration over the 4-presentation ${}_4 BG \ra BG$, is a homotopy equivalence.
 \end{proposition}
 \begin{proof}
 Given a section over ${}_4 BG$, extensions of the section to $BG$ are controlled by the obstruction groups $H^k(BG;\pi_{k-1} X)$ for $k \geq 5$, and choices of extensions are controlled by the groups $H^k(BG;\pi_k X)$ for $k \geq 5$.  All of those groups vanish.
@@ -1702,7 +1702,7 @@ Given a $Quad$ action $\alpha: BQuad \ra B\Aut(X)$ on a 3-type $X$, there is of 
 The homotopy fixed points of a $Quad$ action on a 3-type $X$ are the same as the homotopy fixed points of the underlying $\Omega S^2$ action on $X$.
 \end{proposition}
 \begin{proof}
-By \cref{prop-hofptrunc}, to understand the homotopy fixed points of $Quad$ it suffices to consider sections of the bundle $X \ra EQuad(X) \ra BQuad$ over the 4-truncation of $BQuad$, which by \cref{prop-quadtrunc} is $S^2 \cup_{\eta q} e_5$.  An $\Omega S^2$ homotopy fixed point is a section of the bundle over the 2-skeleton of ${}_4 BQuad$.  The obstruction to extending this section over the 5-cell of ${}_4 BQuad$ lives in $H^5({}_4 BQuad;\pi_4(X)) = 0$ and the homotopy classes of choices of lift is a torsor for $H^5({}_4 BQuad;\pi_5(X)) = 0$.
+By \cref{prop-hofptrunc}, to understand the homotopy fixed points of $Quad$ it suffices to consider sections of the bundle $X \ra EQuad(X) \ra BQuad$ over the 4-presentation of $BQuad$, which by \cref{prop-quadtrunc} is $S^2 \cup_{\eta q} e_5$.  An $\Omega S^2$ homotopy fixed point is a section of the bundle over the 2-skeleton of ${}_4 BQuad$.  The obstruction to extending this section over the 5-cell of ${}_4 BQuad$ lives in $H^5({}_4 BQuad;\pi_4(X)) = 0$ and the homotopy classes of choices of lift is a torsor for $H^5({}_4 BQuad;\pi_5(X)) = 0$.
 \end{proof}
 \CD{That proof could probably be phrased better.}
 
@@ -1978,7 +1978,7 @@ The space of homotopy fixed points of a $Spin(3)$ action on a 3-type $X$, given 
 \end{proposition}
 
 \begin{remark}[Homotopy fixed points of a $\Omega B^2 \ZZ/2$ action]
-\CDcomm{To write.} \NScomm{Isn't this literally the same answer as $BSO(3)$ fixed points, since they have the same 3-truncation?}
+\CDcomm{To write.} \NScomm{Isn't this literally the same answer as $BSO(3)$ fixed points, since they have the same 3-presentation?}
 \end{remark}
 
 
