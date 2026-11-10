@@ -55,6 +55,7 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 \item Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points)
 \item \sout{Add a proposition before \cref{cor-fixedpointntypes} that is that statement just phrased in terms of fixed points, and make \cref{cor-fixedpointntypes} a corollary (see the marginal comment after that proposition).}
 \item \sout{Find a specific reference (not just to wu generically) for the pi4 sigma rp2 proposition and/or include a proof.}
+\item Restructure appendix, eg merge? separate the abstract from the 3d stuff?
 \end{itemize}
 
 \CDcomm{Intro items}
@@ -91,7 +92,19 @@ Along the way, we also discuss what it means to have actions by $Orp(3)$, $SO(2)
 
 Why? The cobordism hypothesis tells us that $Hom^{\otimes}(GBord_n,C) = ((dC)^{\sim})^{hG}$, where $dC$ is the maximal symmetric monoidal sub-n-category of C with duals, and the $\sim$ denotes the maximal sub-n-groupoid.  Note that $(dC)^\sim$ is a homotopy $n$-type.  Thus we want to describe explicitly the structure of $G$ actions on $n$-types.  (In fact, the description we give will apply to actions on discrete $n$-categories that are not necessarily $n$-groupoids \CDcomm{(right?)}, but such a case is not relevant for cobordism hypothesis applications and we will not mention it explicitly.)
 
-If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-groupoid of automorphisms of $C$ --- the objects are the automorphisms of $C$ in the discrete $(n+1)$-category of $n$-categories, the morphisms are the automorphisms of automorphisms, etc.  Thus $Aut(C)$ is an $n$-type and $BAut(C)$ is an $(n+1)$-type.  By definition, an action of $G$ on $C$ is a map $BG \ra BAut(C)$.  Observe that if a map $A \ra B$ is a $k$-equivalence (i.e. an isomorphism on $\pi_i$ for $i \leq k$) and $X$ is a $k$-type (i.e. has $\pi_i = 0$ for $i > k$), then the induced map $[B,X] \ra [A,X]$ is an isomorphism.  As a result, we will only be concerned with the $(n+1)$-type of $BG$ when we are considering actions on $n$-categories.
+If $C$ is a discrete $n$-category (eg an $n$-type), let $Aut(C)$ denote the $n$-groupoid of automorphisms of $C$ --- the objects are the automorphisms of $C$ in the discrete $(n+1)$-category of $n$-categories, the morphisms are the automorphisms of automorphisms, etc.  Thus $Aut(C)$ is an $n$-type and $BAut(C)$ is an $(n+1)$-type.  By definition, an action of $G$ on $C$ is a map $BG \ra BAut(C)$.
+
+\begin{definition}[$k$-Equivalence]
+A map $A \ra B$ of spaces is a \emph{$k$-equivalence} when it is an isomorphism on $\pi_i$ for $i \leq k$.
+\end{definition}
+
+\begin{definition}[$k$-Type]
+A space A is a \emph{$k$-type} when its homotopy groups $\pi_i$ vanish for $i > k$.
+\end{definition}
+
+Observe that if a map $A \ra B$ is a $k$-equivalence and $X$ is a $k$-type, then the induced map $[B,X] \ra [A,X]$ is an isomorphism.  As a result, we will only be concerned with the $(n+1)$-type of $BG$ when we are considering actions on $n$-categories.
+
+\CD{Should we add a comment that this notion of k-equivalence is basically `turn them into k-types and then ask if they are equivalent'. If that's literally true, we should definitely say that.}
 
 ... the techniques are for the most part elementary, but we believe the results are of fundamental importance for the study of 3-dimensional quantum topology.
 
@@ -257,10 +270,10 @@ That this truncation is uniquely minimal is seen as follows.  The first four hom
 We therefore know that a minimal truncation must have exactly 4-cells.  If it has two 2-cells or two 3-cells, the homology in dimension 2 or 3 respectively will not match that of $BSO(3)$, preventing it from being a 4-truncation.  If the putative 4-cell truncation $T$ has two 4-cells, the homotopy exact sequence of the pair $(BSO(3), T)$ shows that $\pi_4(T) \ra \pi_4(BSO(3))$ cannot be an isomorphism.  A minimal truncation must therefore have a single cell in each of dimensions 2, 3, 4, and 5; the second and third homotopy groups of $BSO(3)$ force the 4-skeleton of this truncation to be $(S^2 \cup e_3) \cup_q e_4$ as before, and in order to reproduce $\pi_4(BSO(3))$, the 5-cell must be attached by plus or minus the image of the class $\frac{\eta q}{2}$ under the map $\pi_4(\Sigma \RP^2) \xra{\mathrm{inc}_*} \pi_4(H)$, as desired.  % Notice that the class \eta q / 2 cannot be divisible in  H because then it wouldn't map nontrivially onto \pi_4 S^3.  So it is nontrivial and you have to kill it, only way to do that is plus or minus the class itself.
 \end{proof}
 
-\begin{remark} \label{rem:pi5surj}
-The above map $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is also surjective on $\pi_5$\NS{Wait, we already proved this above, it's part of $4$-equivalence!}. Indeed, already the map $SU(3)/SO(3) = (S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is surjective on $\pi_5$, using the homotopy LES for $SU(3)/SO(3)$ and the fact that $\pi_4(SU(3))=0$.\NS{Cite Mimura-Toda?}. In particular, the 5-truncation of $BSO(3)$ is a 5-cell complex given by attaching some $6$-cells to $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$ along some attaching maps. In fact, since $\pi_5(BSO(3)) = \ZZ/2$ is cyclic, we need only use one six cell $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_r e_6$ but we do not know the attaching map $r$.
+\begin{remark}[On the 5-truncation of $BSO(3)$] 
+\label{rem:pi5surj}
+The above map $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is also surjective on $\pi_5$. Indeed, already the map $SU(3)/SO(3) = (S^2 \cup_2 e_3) \cup_{\frac{\eta q}{2}} e_5 \rightarrow BSO(3)$ is surjective on $\pi_5$, using the homotopy LES for $SU(3)/SO(3)$ and the fact that $\pi_4(SU(3))=0$.\NS{Cite Mimura-Toda?} In particular, the 5-truncation of $BSO(3)$ is a 5-cell complex given by attaching some $6$-cells to $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5$ along some attaching maps. In fact, since $\pi_5(BSO(3)) = \ZZ/2$ is cyclic, we need only use one six cell $(S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5 \cup_r e_6$ but we do not know the attaching map $r$.
 \end{remark}
-
 
 Because the fourth and fifth cohomology groups of $BQuad$ are trivial, the composite $BQuad \ra BSO(2) \ra BSO(3) \xra{p_1} K(\ZZ,4)$ is trivial and the map $BQuad \ra BSO(3)$ lifts uniquely to a map $BQuad \ra BOrp(3)$.
 
@@ -1861,8 +1874,12 @@ Because we are concentrating on structures on manifolds of low dimension, the fu
 
 The following proposition and corollary explain how much of the homotopy type of the structure space you need to keep track of in order to recover the homotopy type of the space of structured field theories.
 
+\begin{definition}[$n$-Connected]
+A map of spaces $S \ra T$ is \emph{$n$-connected} when it is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$.
+\end{definition}
+
 \begin{proposition}[Comparison of homotopy fixed points]
-Suppose $Y$ is an $n$-type, and we have spaces $S$ and $T$ together with maps $S \ra T \ra B\Aut(Y)$; in other words, $\Omega T$ acts on $Y$, and an action of $\Omega S$ on $Y$ is obtained by restriction. If the comparison map $S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map of homotopy fixed point spaces $Y^{h \Omega T} \ra Y^{h \Omega S}$ is a homotopy equivalence.
+Suppose $Y$ is an $n$-type, and we have spaces $S$ and $T$ together with maps $S \ra T \ra B\Aut(Y)$; in other words, $\Omega T$ acts on $Y$, and an action of $\Omega S$ on $Y$ is obtained by restriction. If the comparison map $S \ra T$ is $n$-connected, then the induced map of homotopy fixed point spaces $Y^{h \Omega T} \ra Y^{h \Omega S}$ is a homotopy equivalence.
 \end{proposition}
 
 \CD{Crucial. Is that correct? Are the numbers right? Should the conclusion have been about n-types rather than spaces? CSP, could you check this proposition?}
@@ -1873,12 +1890,16 @@ Suppose $Y$ is an $n$-type, and we have spaces $S$ and $T$ together with maps $S
 
 \begin{corollary}[Structure maps on field theories] 
 \label{prop-fixedpointntypes}
-Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued field theories.  If the map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map from the space of $\cC$-valued $T$-structured field theories to the space of $\cC$-valued $S$-structured field theories is a homotopy equivalence.
+Suppose $S \ra BO(n)$ and $T \ra BO(n)$ are $n$-dimensional structures, and $p: S \ra T$ is a map of structures, that is a map over $BO(n)$.  Let $\cC$ be a symmetric monoidal $n$-category.  The map of structures induces a map of bordism categories $\phi: \mathrm{SBord}_0^n \ra \mathrm{TBord}_0^n$, which in turn induces a map $\phi^*$ between the spaces of $\cC$-valued topological field theories.  If the map $p: S \ra T$ is an isomorphism on $\pi_i$ for $i \leq n$ and is surjective on $\pi_{n+1}$, then the induced map from the space of $\cC$-valued $T$-structured topological field theories to the space of $\cC$-valued $S$-structured topological field theories is a homotopy equivalence.
 \end{corollary}
 
-\nid Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.  As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+\nid Note that this proposition certainly fails to be true if the discrete symmetric monoidal $n$-category $\cC$ is replaced by a symmetric monoidal $(\infty,n)$-category with nontrivial homotopy in its spaces of $n$-morphisms.
 
-\CD{Remove mention of TC here?}
+As we are concentrating on 3-dimensional bordism categories and using the discrete 3-category $\TC$ as our target, it suffices to understand the 4-types of our various structure spaces.
+
+\CD{This mention of $n=3$ and the target TC really belongs elsewhere. Rethink appendix organization.}
+
+\TEX{The infty glyph is weird, some package must have changed that font}
 
 \subsection{The `sub'-structures}
 
