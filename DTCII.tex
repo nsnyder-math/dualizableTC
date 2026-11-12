@@ -1679,18 +1679,54 @@ of the fibration $X \ra \alpha^*X_{h\Aut(X)} \ra BG$.
 In case $G$ is an honest group with an honest action on $X$, the fibration $EG(X) \ra BG$ can be taken to be the bundle projection $EG \times_G X \ra BG$.  The data of a section of that bundle is precisely the same as the data of a $G$-equivariant map $EG \ra X$, that is of a homotopy fixed point in the ordinary sense.
 \end{remark}
 
-From the definition of $X_{h\Aut(X)}$ and the contractibility of $E\Aut(X)$, the space $\Omega_x X_{h\Aut(X)}$ of loops based at $x: X$ is equivalent to the space of pairs $(\alpha: \Aut(X), p_\alpha:: \alpha(x) \sim x)$. \NScomm{Notation $\alpha(x)$ or $\alpha_x$? I think the latter is just defined as the former?} Since this is a based loop space it has a composition, and again unpacking the definition of $X_{h\Aut(X)}$ the composition is given by
-\[(\alpha, p_\alpha) \ast (\beta, q_\beta) \sim (\alpha \ast \beta, p_\alpha \circ \alpha(q_\beta)).\]
+We now unpack the structure of (higher) loops and paths in $X_{h\Aut(X)}$ for use in future lemmas.
 
-A homotopy between pairs $(\alpha, p_\alpha) \sim (\beta, q_\beta)$ is a homotopy $h: \alpha \sim \beta$ and a homotopy $h \circ q_\beta \sim p_\alpha: $. Similarly, an element of $\Omega_x^2 X_{h\Aut(X)}$ is given by a pair $(\alpha: \Omega \Aut(X), p_\alpha: \alpha(x) \rightarrow \id_x)$, etc. There's an asymmetry now in the direction of composition, if $(\alpha,p_\alpha)$ and $(\beta,q_\beta)$ correspond to $2$-loops, then we have
+\begin{lemma}
+$\Omega_x X_{h\Aut(X)}$ is homotopy equivalent to the space of pairs \[(\alpha: \Aut(X), p_\alpha:: \alpha(x) \sim x)\] (by which we mean the subset of $\Aut(X) \times \mathrm{Path}_x(X)$ such that the endpoint of the path is $\alpha(x)$).
+\end{lemma}
+
+Of course $\Omega_x X_{h\Aut(X)}$ is an $E_1$ algebra, so the space of pairs $(\alpha: \Aut(X), p_\alpha:: \alpha(x) \sim x)$ inherits an $E_1$ structure which we denote $\ast$ (since it corresponds to the composition direction in $\Aut(X)$).
+
+\begin{lemma}
+The $E_1$ structure on pairs satisfies 
+\[(\alpha, p_\alpha) \ast (\beta, q_\beta) \sim (\alpha \ast \beta, p_\alpha \circ \alpha(q_\beta)).\]
+\end{lemma}
+
+\begin{lemma}
+$\Omega_x^2 X_{h\Aut(X)}$ is homotopy equivalent to the space of pairs $(\alpha: \Omega \Aut(X), p_\alpha:: \alpha_x \sim \id_x)$.
+\end{lemma}
+\begin{proof}
+A loop in the space of pairs $(\alpha: \Aut(X), p_\alpha:: \alpha(x) \sim x)$ consists of an element or $\Omega_{\id_x} \Aut(X)$ together with a homotopy of paths from $\id_x$ to $\id_x$ such that the starting points of the path trace out the constant path $\id_x$ and the ending points trace out $\alpha_x$. Reading this square sideways proves the lemma.
+\end{proof}
+
+Again, the space of pairs $(\alpha: \Omega \Aut(X), p_\alpha:: \alpha_x \sim \id_x)$ inherits an $E_2$ structure.
+
+\NScomm{Need to find better notation! Don't use $\alpha$ for both automorphisms and loops of automorphisms. Don't use $\beta$ for crossings and first coordinates of pairs.}
+
+\begin{lemma}
+For pairs $(\alpha,p_\alpha)$ and $(\beta,q_\beta)$, we have
 \[(\alpha,p_\alpha) \cdot (\beta,q_\beta) \sim (\alpha \cdot \beta, p_\alpha \cdot q_\alpha)\] but
 \[(\alpha,p_\alpha) \ast (\beta,q_\beta) \sim (\alpha \ast \beta, \alpha(q_\beta) \star p_\alpha)\] 
 
-This asymmetry also leads to a non-trivial formula for the braiding in $\Omega_x^2 X_{h\Aut(X)}$. That is, the second component of the homotopy $\beta: (\alpha \cdot \beta, p_\alpha \cdot q_\beta) \sim (\alpha \cdot \beta, p_\alpha \cdot q_\beta)$ is given by $\alpha(q_\beta)$.
+The inverse satisfies $(\alpha, p_\alpha)^{-1} \sim (\alpha, \coev \circ (p_\alpha^{-1} \cdot \id_{\alpha^{-1}}))$ \NS{Say somewhere `Since $p_\alpha: \alpha(x) \sim \id_x$, the usual meaning of $p_\alpha$ is the inverse in that last path direction, i.e. left-to-right in diagrams'.}. The unit and counit maps are given by \NScomm{Todo}
 
-Since $p_\alpha: \alpha(x) \sim \id_x$, the usual meaning of $p_\alpha$ is the inverse in that last path direction, i.e. left-to-right in diagrams, so we need to take a mate to calculate the second coordinate of the $\cdot$ inverse of $(\alpha, p_\alpha)$. Namely, $(\alpha, p_\alpha)^{-1} \sim (\alpha, \coev \circ (p_\alpha^{-1} \cdot \id_{\alpha^{-1}}))$.
+The braiding on the $E_2$ structure on pairs  $(\alpha \cdot \beta, p_\alpha \cdot q_\beta) \sim (\alpha \cdot \beta, p_\alpha \cdot q_\beta)$ has second component given by $\alpha(q_\beta)$ \NS{Split lemma into parts? Or at least number?}
+\end{lemma}
 
 \NS{Needs to be checked for notation and errors.}
+
+%\NScomm{Below is the old stuff getting pulled out as lemmas}
+%
+%From the definition of $X_{h\Aut(X)}$ and the contractibility of $E\Aut(X)$, the space $\Omega_x X_{h\Aut(X)}$ of loops based at $x: X$ is equivalent to the space of pairs $(\alpha: \Aut(X), p_\alpha:: \alpha(x) \sim x)$. \NScomm{Notation $\alpha(x)$ or $\alpha_x$? I think the latter is just defined as the former?} Since this is a based loop space it has a composition, and again unpacking the definition of $X_{h\Aut(X)}$ the composition is given by
+%\[(\alpha, p_\alpha) \ast (\beta, q_\beta) \sim (\alpha \ast \beta, p_\alpha \circ \alpha(q_\beta)).\]
+%
+%A homotopy between pairs $(\alpha, p_\alpha) \sim (\beta, q_\beta)$ is a homotopy $h: \alpha \sim \beta$ and a homotopy $h \circ q_\beta \sim p_\alpha: $. Similarly, an element of $\Omega_x^2 X_{h\Aut(X)}$ is given by a pair $(\alpha: \Omega \Aut(X), p_\alpha: \alpha(x) \rightarrow \id_x)$, etc. There's an asymmetry now in the direction of composition, if $(\alpha,p_\alpha)$ and $(\beta,q_\beta)$ correspond to $2$-loops, then we have
+%\[(\alpha,p_\alpha) \cdot (\beta,q_\beta) \sim (\alpha \cdot \beta, p_\alpha \cdot q_\alpha)\] but
+%\[(\alpha,p_\alpha) \ast (\beta,q_\beta) \sim (\alpha \ast \beta, \alpha(q_\beta) \star p_\alpha)\] 
+%
+%This asymmetry also leads to a non-trivial formula for the braiding in $\Omega_x^2 X_{h\Aut(X)}$. That is, the second component of the homotopy $\beta: (\alpha \cdot \beta, p_\alpha \cdot q_\beta) \sim (\alpha \cdot \beta, p_\alpha \cdot q_\beta)$ is given by $\alpha(q_\beta)$.
+%
+%Since $p_\alpha: \alpha(x) \sim \id_x$, the usual meaning of $p_\alpha$ is the inverse in that last path direction, i.e. left-to-right in diagrams, so we need to take a mate to calculate the second coordinate of the $\cdot$ inverse of $(\alpha, p_\alpha)$. Namely, $(\alpha, p_\alpha)^{-1} \sim (\alpha, \coev \circ (p_\alpha^{-1} \cdot \id_{\alpha^{-1}}))$.
 
 \begin{proposition}[Fixed points via presentations] 
 \label{prop-hofptrunc}
@@ -1898,7 +1934,7 @@ The second arrow above is $S$ applied to $\piv$ \NScomm{add more unpacking here?
 Suppose that $(S,\piv)$ is the pair corresponding to an element of $\Omega_x^2 X_{h\Aut(X)}$, then the figure-8 construction applied to $(S,\piv)$ is the pair $(\mathrm{f8}(S), w(S, \piv, x))$.
 \end{proposition}
 \begin{proof}
-It is clear that the first component is $\mathrm{f8}(S)$. By definition, the second component is given by 
+It is clear that the first component is $\mathrm{f8}(S)$. By definition, the second component is given by \NScomm{Probably better to write this in formulas than pictures?}
 \[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
