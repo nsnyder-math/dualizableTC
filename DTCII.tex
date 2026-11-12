@@ -332,8 +332,9 @@ We could have more briefly described a 4-presentation of $BSO(3)$ without refere
 
 \begin{remark}[The cell structure of $B^2 \ZZ/2$] 
 \label{rem:B2Z2space}
-The nontrivial map $BSO(3) \rightarrow B^2(\ZZ/2)$ is a 3-equivalence. Thus it follows from \cref{cor-bso3trunc} that there is a minimal 4-presentation of $B^2(\mathbb{Z}/2)$ as $((S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5) \cup_{\alpha} e'_5$, where $\alpha \in \pi_4(BSO(3)) = \ZZ$ is the generator.
+The nontrivial map $BSO(3) \rightarrow B^2(\ZZ/2)$ is a 3-equivalence. Thus it follows from \cref{cor-bso3trunc} that there is a minimal 4-presentation of $B^2(\mathbb{Z}/2)$ as $((S^2 \cup_2 e_3) \cup_q e_4 \cup_{\frac{\eta q}{2}} e_5) \cup_{\rho} e'_5$, where $\rho \in \pi_4(BSO(3)) = \ZZ$ is the generator.
 \end{remark}
+%%% Note for us: we call it $\rho$ because it will be the rain construction.
 
 \section{Homotopy actions}
 
@@ -938,7 +939,7 @@ where the maps from $\Omega \Aut(X)$ are $q$ and $2$ respectively, and the subsc
 This follows by combining \cref{cor-bso3trunc}, \cref{lemma-q}, and \cref{lemma-etaq2}.
 \end{proof}
 
-\begin{remark}[Homotopy action of $SO(3)$ on a 4-type]
+\begin{remark}[Action of $SO(3)$ on a 4-type]
 There's a related description of an $SO(3)$ action on a \emph{4-type} $X$, as follows. By \cref{rem:pi5surj},  an action of $SO(3)$ on a $4$-type is given by a quadruple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id, Z:: \frac{\eta q}{2} (S,R) \sim \id)$ satisfying some unknown condition coming from the attaching map of the $6$-cell.
 \end{remark}
 
@@ -1313,19 +1314,22 @@ Given an $SO(3)$ action on a 3-type $X$, given by a triple $(S: S^1 \to \Aut(X),
 
 
 \begin{prop}[The $Spin(3)$ action induced by an $SO(3)$ action]
+\label{prop:spin3}
 Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$ on a 3-type $X$ given by the homotopy class of the triple $(S: S^1 \to \Aut(X),R:: S \ast S \sim \id : S^1 \to \Aut(X),W:: q(S) \sim \id : S^2 \to \Aut(X))$, the resulting action $BSpin(3) \ra BSO(3) \ra B\Aut(X)$ is given by the homotopy class of the map $V := \vcon(S,R,W) : S^3 \ra \Aut(X)$, where $\vcon$ is the rain construction.
 \end{prop}
 
 
 \begin{proof}
-	We aim to show that map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$. This can be detected in cellular homology as the induced map, $\pi_4BSO(3) \to H_4(BSO(3))$, is multiplication by four, see \cref{prop-H4}. The cellular homology class of $V$ counts (with multiplicity) every time the map $V$ passes over the 4-cell of $BSO(3)$, equivalently it counts
-	(with multiplicity) each occurence of the Whitney morphism $W$. The Whitney morphism is utilized precisely four times in the RAIN construction, showing that $[V]$ induces four times the generator of $H_4(BSO(3))$, just as desired. 
+	We aim to show that map $V:S^4 \to BSO(3)$ corresponding to the rain construction is a generator of $\pi_4(BSO(3)) \cong \ZZ$. This can be detected in cellular homology as the induced map, $\pi_4(BSO(3)) \to H_4(BSO(3))$, is multiplication by four, see \cref{prop-H4}. The cellular homology class of $V$ counts (with multiplicity) every time the map $V$ passes over the 4-cell of $BSO(3)$, equivalently it counts
+	(with multiplicity) each occurence of the Whitney morphism $W$. The Whitney morphism is utilized precisely four times in the rain construction, showing that $[V]$ induces four times the generator of $H_4(BSO(3))$, just as desired. 
 \end{proof}
 
+\CD{What is the logical structure of this proof of \cref{prop:spin3} -- is the argument that we check it in a universal case, and the proposition is obvious from there? If so, is the case in question $X=S^3$ and so are we in fact using a fact about $\Aut(S^3)$?}
 
-\begin{remark}[Homotopy action of $\Omega B^2 \ZZ/2$]
+
+\begin{remark}[Actions of $B \ZZ/2$]
 \label{rem:B2Z2action}
-Similarly, by \cref{cor-bso3trunc} and the fact that the map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$ \NS{Currently this is inside the proof of the last prop. We could also pull it out as its own lemma and then make the last prop a corollary?}, we have that the homotopy classes of $B\ZZ/2$ actions on a 3-type $X$ are the homotopy classes of quadruples $(S,R,W)$, where 
+Similarly, by \cref{cor-bso3trunc} and the fact that the map $V:S^4 \to BSO(3)$ corresponding to the \rain construction is a generator of $\pi_4(BSO(3)) \cong \ZZ$ \NS{Currently this is inside the proof of the last prop. We could also pull it out as its own lemma and then make the last prop a corollary?}, we have that the homotopy classes of $B\ZZ/2$ actions on a 3-type $X$ are the homotopy classes of quadruples $(S,R,W)$, where 
 \begin{itemize}
 \item $S: S^1 \ra \Aut(X)$ is a based loop of automorphisms of $X$,
 \item $R: D^2 \ra \Aut(X)$ is a null homotopy of $S \ast S: S^1 \ra \Aut(X)$, the pointwise (that is, automorphism) square of $S$,
@@ -1334,10 +1338,10 @@ Similarly, by \cref{cor-bso3trunc} and the fact that the map $V:S^4 \to BSO(3)$ 
 such that
 \begin{itemize}
 \item $\frac{\eta q}{2} (S,R) : S^3 \ra \Aut(X)$, that is the figure-32 \cref{fig32} applied to $(S,R)$, is null homotopic.
-\item $\vcon(S,R,W): S^3 \ra \Aut(X)$, that is the RAIN construction \NS{add ref} applied to $(S,R,W)$, is null homotopic.
+\item $\vcon(S,R,W): S^3 \ra \Aut(X)$, that is the \rain construction \NS{add ref} applied to $(S,R,W)$, is null homotopic.
 \end{itemize}
 
-This provides what is needed to make Remark 1.2 of \NScomm{Cite JFR} rigorous. %Note that our figure-32 construction is what Johnson-Freyd--Reutter call the Klein invariant.
+This provides what is needed to make Remark 1.2 of \cite{mne} rigorous. %Note that our figure-32 construction is what Johnson-Freyd--Reutter call the Klein invariant.
 \end{remark}
 
 
@@ -1636,7 +1640,7 @@ The desired equation $e = -q$ follows if $e + q = 0$, which follows if $e - q = 
 %\CDcomm{This next paragraph is correct, but I think no longer needed for anything. Thus we used the notation H for something else in the text} \nid Thanks to this lemma we can \emph{pick} a homotopy, call it $H$, between $e: S^3 \ra \Sigma \RP^2$ and $\inc_*(-q): S^3 \ra \Sigma \RP^2$.  Note well that this homotopy is not well defined---there is a $\pi_4(\Sigma\RP^2) = \ZZ/4$ ambiguity in the choice.  The homotopy $H$ also provides a distinguished homotopy between \cref{rad8} and the negative of \cref{fig8}, and therefore, for any pair $(S, R) \in \left(\Omega\Aut(X) \,_2\! \times_{\Omega\Aut(X)} \ast\right)$, between the map $e(S,R): S^2 \ra \Aut(X)$ and the map $-q(S): S^2 \ra \Aut(X)$.
 
 
-\begin{remark}[An alternative cell structure for $BSO(3)$]
+\begin{remark}[An alternative 4-presentation of $BSO(3)$]
 The above considerations determined an alternative 4-presentation of $BSO(3)$, namely $(S^2 \cup_2 e_3) \cup_{e} e_4 \cup_{\frac{\eta q}{2}} e_5$---this 4-presentation is, of course, canonically homotopy equivalent to the earlier 4-presentation.  % Use the homotopy between e and -q and a reflection to construct the homotopy equivalence to the earlier 4-presentation.  Note the 5-cell ensures that the choice of homotopy didn't affect the resulting homotopy equivalence.
 \end{remark}
 
@@ -1669,7 +1673,7 @@ of the fibration $X \ra \alpha^*X_{h\Aut(X)} \ra BG$.
 In case $G$ is an honest group with an honest action on $X$, the fibration $EG(X) \ra BG$ can be taken to be the bundle projection $EG \times_G X \ra BG$.  The data of a section of that bundle is precisely the same as the data of a $G$-equivariant map $EG \ra X$, that is of a homotopy fixed point in the ordinary sense.
 \end{remark}
 
-\begin{proposition}[Homotopy fixed points via presentations] 
+\begin{proposition}[Fixed points via presentations] 
 \label{prop-hofptrunc}
 Given a homotopy action $BG \ra B\Aut(X)$ on a 3-type $X$, the natural map from the space of sections of $X \ra EG(X) \ra BG$ to the space of sections of that fibration over the 4-presentation ${}_4 BG \ra BG$, is a homotopy equivalence.
 \end{proposition}
@@ -1975,7 +1979,7 @@ The space of homotopy fixed points of an $SO(3)$ action on a 3-type $X$, given b
 \end{enumerate}
 \end{theorem}
 
-\begin{remark}[Homotopy fixed points of $BSO(3)$ on a 4-type]
+\begin{remark}[Fixed points of $BSO(3)$ on a 4-type]
 The space of homotopy fixed points of an $SO(3)$ action on a 4-type $X$, given by the triple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id, Z:: \frac{\eta q}{2} (S,R) \sim \id) )$, is the space of quadruples $(x, \piv, \sph, \Ucon)$ satisfying a condition, where:
 \begin{enumerate}
 \item $x \in X$ is a point,
@@ -1992,7 +1996,7 @@ The space of homotopy fixed points of an $SO(3)$ action on a 4-type $X$, given b
 The space of homotopy fixed points of a $Spin(3)$ action on a 3-type $X$, given by a map $V: S^3 \ra \Aut(X)$, is the space of points $x \in X$ such that $V_x : S^3 \to X$ is null homotopic.
 \end{proposition}
 
-\begin{remark}[Homotopy fixed points of a $\Omega B^2 \ZZ/2$ action]
+\begin{remark}[Fixed points of a $B \ZZ/2$ action]
 \CDcomm{To write.} \NScomm{Isn't this literally the same answer as $BSO(3)$ fixed points, since they have the same 3-presentation?}
 \end{remark}
 
