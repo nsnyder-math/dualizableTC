@@ -703,7 +703,7 @@ respectively.  Combining this notation with the previous notation of a normally 
 \leadsto
 \emptyset
 \]
-\nid We refer to this as the figure-32 construction.\footnote{Our figure-32 agrees with the `Klein invariant construction' of \cite{mne} which they found independently when looking at $B\ZZ/2$ actions, see Remark \ref{rem:B2Z2action}.}\textsuperscript{,}\footnote{The reader may, and we did, encode this construction in a computational higher algebra system, such as \texttt{homotopy.io} \cite{hoio}.}
+\nid We refer to this as the figure-32 construction.\footnote{Our figure-32 agrees with the `Klein invariant construction' of \cite{mne} which they found independently when looking at $B\ZZ/2$ actions, see \cref{rem:B2Z2action}.}\textsuperscript{,}\footnote{The reader may, and we did, encode this construction in a computational higher algebra system, such as \texttt{homotopy.io} \cite{hoio}.}
 \end{constr}
 
 \CD{Issue re that footnote: `agrees with' is ambiguous ... since the constructions actually aren't the same right, so the thing that's true is that it's the same invariant or same PT class. What's the minimal thing to say that's accurate?}
@@ -939,7 +939,7 @@ This follows by combining \cref{cor-bso3trunc}, \cref{lemma-q}, and \cref{lemma-
 \end{proof}
 
 \begin{remark}[Homotopy action of $SO(3)$ on a 4-type]
-There's a related description of an $SO(3)$ action on a \emph{4-type} $X$, as follows. By Remark \ref{rem:pi5surj},  an action of $SO(3)$ on a $4$-type is given by a quadruple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id, Z:: \frac{\eta q}{2} (S,R) \sim \id)$ satisfying some unknown condition coming from the attaching map of the $6$-cell.
+There's a related description of an $SO(3)$ action on a \emph{4-type} $X$, as follows. By \cref{rem:pi5surj},  an action of $SO(3)$ on a $4$-type is given by a quadruple $(S: S^1 \ra \Aut(X),R:: 2 S \sim \id,W:: q(S) \sim \id, Z:: \frac{\eta q}{2} (S,R) \sim \id)$ satisfying some unknown condition coming from the attaching map of the $6$-cell.
 \end{remark}
 
 \subsection{By the group $Spin(3)$}
@@ -1318,14 +1318,14 @@ Given an $SO(3)$ action $BSO(3) \ra B\Aut(X)$ on a 3-type $X$ given by the homot
 
 
 \begin{proof}
-	We aim to show that map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$. This can be detected in cellular homology as the induced map, $\pi_4BSO(3) \to H_4(BSO(3))$, is multiplication by four, see Proposition~\ref{prop-H4}. The cellular homology class of $V$ counts (with multiplicity) every time the map $V$ passes over the 4-cell of $BSO(3)$, equivalently it counts
+	We aim to show that map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$. This can be detected in cellular homology as the induced map, $\pi_4BSO(3) \to H_4(BSO(3))$, is multiplication by four, see \cref{prop-H4}. The cellular homology class of $V$ counts (with multiplicity) every time the map $V$ passes over the 4-cell of $BSO(3)$, equivalently it counts
 	(with multiplicity) each occurence of the Whitney morphism $W$. The Whitney morphism is utilized precisely four times in the RAIN construction, showing that $[V]$ induces four times the generator of $H_4(BSO(3))$, just as desired. 
 \end{proof}
 
 
 \begin{remark}[Homotopy action of $\Omega B^2 \ZZ/2$]
 \label{rem:B2Z2action}
-Similarly, by Remark \ref{cor-bso3trunc} and the fact that the map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$ \NS{Currently this is inside the proof of the last prop. We could also pull it out as its own lemma and then make the last prop a corollary?}, we have that the homotopy classes of $B\ZZ/2$ actions on a 3-type $X$ are the homotopy classes of quadruples $(S,R,W)$, where 
+Similarly, by \cref{cor-bso3trunc} and the fact that the map $V:S^4 \to BSO(3)$ corresponding to the RAIN construction is a generator of $\pi_4BSO(3) \cong \ZZ$ \NS{Currently this is inside the proof of the last prop. We could also pull it out as its own lemma and then make the last prop a corollary?}, we have that the homotopy classes of $B\ZZ/2$ actions on a 3-type $X$ are the homotopy classes of quadruples $(S,R,W)$, where 
 \begin{itemize}
 \item $S: S^1 \ra \Aut(X)$ is a based loop of automorphisms of $X$,
 \item $R: D^2 \ra \Aut(X)$ is a null homotopy of $S \ast S: S^1 \ra \Aut(X)$, the pointwise (that is, automorphism) square of $S$,
