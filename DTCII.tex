@@ -64,7 +64,8 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 
 \CDcomm{FOR CD}
 \begin{itemize}
-\item \item Restructure appendix, eg merge? separate the abstract from the 3d stuff?
+\item Propogate new construction plan in Action section.
+\item Restructure appendix, eg merge? separate the abstract from the 3d stuff?
 \item Revise Noah's proofs. (Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points))
 \end{itemize}
 
@@ -77,6 +78,7 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 
 \CDcomm{FOR NS}
 \begin{itemize}
+\item Propogate new construction plan in fixed point section.
 \item Finish proof of \cref{lem:fig-8-doubleloop}.
 \item Sketch the following. Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points)
 \item Pontryagin--Thom viewpoint: either write Appendix explaining this, or write remarks, or write nothing.
@@ -367,14 +369,58 @@ By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Ome
 
 \CDcomm{Commentary. We do (1) pure htpy theory, (2) formulas for attaching maps ie constructions in any $E_k$ algebra, (3) actions ie those formulas in the Aut case, ie translate those from $\Omega^2 BAut(X)$ to $\Omega Aut(X)$, (4) fixed points. Some confusion is arising because we use some constructions using (2) even though the named constructions all are phrased in (3).}
 
-\begin{constr}[The figure-8 construction]%{F-8}
-\label{fig8}
-As mentioned, the map $S : S^1 \ra \Aut(X)$ can be viewed as a point $S \in \Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (righthanded) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
+\TEX{Maybe change to a different font for the lowercase s,r}
+
+\begin{constr}[The figure-8 construction (universal case)]
+Suppose we have a based map $s: S^2 \to Y$. Then the \emph{figure-8 construction} on that map is a based map $q(s): S^3 \to Y$, given by the composite
+\[
+q(s) := (\star \ra s \cdot s^{-1} \xra{\beta_{s,s^{-1}}} s^{-1} \cdot s \ra \star) \in \Omega(\Omega^2 Y)
+\]
+Here $\cdot$ is the composition $\beta$ is the braiding on 2-loops in the space $Y$. \CDcomm{Say what the first and third maps are -- you do actually need them to be the standard ones. Actually put that before the beta.} This composite is represented graphically as
+\[
+\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(-.75,0) to [out=-90,in=-120] (0,0)
+	to [out=60,in=90] (.75,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(.75,0) to [out=-90,in=-60] (0,0)
+	to [out=120,in=90] (-.75,0);
+\end{tikzpicture}
+\]
+Here the black line segment indicates $s \in \Omega^2 Y$ and the gray line segment indicates $s^{-1} \in \Omega^2 Y$. \CDcomm{In fact, this provides a map $\Omega^2 Y \to \Omega^3 Y$.}
+\end{constr}
+
+\CD{Should we pin down the directions in the 2-loop above? Unclear.}
+
+\begin{lemma}[The figure-8 construction as homotopical pullback]
+The figure-8 construction represents precomposition with a generating element $q: S^3 \to S^2$ of $\pi_3(S^2)$; that is, $q^\star = q(-) : \Omega^2 Y \to \Omega^3 Y$.
+\end{lemma}
+
+\begin{proof}
+\CDcomm{Pull PT comment from old proof}
+\end{proof}
+
+%%% Switch gears to automorphism case
+
+\begin{constr}[The figure-8 construction (automorphism case)]%{F-8}
+Suppose we have a based map $S: S^1 \to \Aut(X)$. The space $\Omega \Aut(X)$ is an $E_2$-space.  Let $\ast$ denote automorphism composition and $\cdot$ denote loop composition. Let $\beta$ denote the braiding. Then the \emph{figure-8 construction} on $S: S^1 \to \Aut(X)$ is a based map $q(s) : S^1 \to \Omega \Aut(X)$, given by the composite
 \[
 q(S) := (I \ra S \cdot S^{-1} \xra{\beta_{S,S^{-1}}} S^{-1} \cdot S \ra I) \in \Omega (\Omega \Aut(X))
 \]
-Here $I$ denotes the trivial loop at the identity automorphism.  The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$.  Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$, and in fact a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
+Here $I$ denotes the trivial loop at the identity automorphism. The first map of that composite is the standard loop-retraction null-homotopy of the composite of the loop $S \in \Omega \Aut(X)$ with its reverse loop $S^{-1}$, and the last map is similar for the composite of $S^{-1}$ with $S$. 
+Altogether, this construction provides a map $\pi_1(\Aut(X)) \xra{q} \pi_2(\Aut(X))$, and in fact a map $\Omega \Aut(X) \xra{q} \Omega^2 \Aut(X)$.
 \end{constr}
+
+\begin{obs}
+\CDcomm{The following square commutes}
+\[
+\xymatrix{
+\Omega^2 B\Aut(X) \ar[r]^{q} \ar@{<->}[d]_{\simeq} & \Omega^3 B\Aut(X)  \ar@{<->}[d]^{\simeq} \\
+\Omega \Aut(X) \ar[r]_{q} & \Omega^2 \Aut(X)
+}
+\]
+\CDcomm{where the top map is the universal figure-8 for the space $Y = B\Aut(X)$, and the bottom map is the automorphism figure-8.}
+\end{obs}
 
 We refer to this as the figure-8 construction, as it imitates the following normally framed embedding of $S^1$ in $\RR^3$:
 \[
@@ -589,7 +635,116 @@ Here the normal framing is implicit and as before is determined as follows: the 
 \CD{Note, the introduction of the Radford dots has not been propagated}
 
 \CD{Tighten up what's inside the construction, any ramble outside}
-\begin{constr}[The figure-32 construction]%{F-32}
+
+\begin{constr}[The figure-32 construction (universal case)]
+Suppose we have a based map $\Sigma \RP^2 \to Y$, given by a pair $(s: S^2 \to Y, r :: 2s \sim \star : S^2 \to Y)$. Denote as before the map $s: S^2 \to Y$ by a black dot
+
+the \emph{figure-32 construction} $F32(s,r) : S^4 \to Y$ is
+
+ IN PROCESS
+
+\[
+\emptyset 
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestylegray,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=120] (1,0)
+	to [out=-60,in=-90] (1.5,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1.5,0) to [out=90,in=60] (1,0)
+	to [out=-120,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestyle,looseness=1.25]
+(2.25,0) to [out=-90,in=-60] (1.75,0)
+	to [out=120,in=90] (1.25,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1.25,0) to [out=-90,in=-120] (1.75,0)
+	to [out=60,in=90] (2.25,0);
+\end{tikzpicture}}
+\stackrel{\lcurvearrowse}{\leadsto}
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-120] (.5,0)
+	to [out=60,in=90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(1,0) to [out=-90,in=-60] (.5,0)
+	to [out=120,in=90] (0,0);
+\draw[linestyle,looseness=1.25]
+(1,-.5) to [out=-90,in=-60] (.5,-.5)
+	to [out=120,in=90] (0,-.5);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=90] (.15,-.25)
+	to [out=-90,in=90] (0,-.5);
+\filldraw[black, fill=white] (.15,-.25) circle (1.5pt);
+\draw[linestyle,looseness=1.25]
+(1,0) to [out=90,in=60] (.5,0)
+	to [out=-120,in=90] (.3,-.25)
+	to [out=-90,in=120] (.5,-.5)
+	to [out=-60,in=-90] (1,-.5);
+\filldraw[black] (.3,-.25) circle (1.5pt);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,0) to [out=90,in=120] (.5,0)
+	to [out=-60,in=-90] (1,0);
+\draw[linestylegray,coverline,looseness=1.25]
+(0,-.5) to [out=-90,in=-120] (.5,-.5)
+	to [out=60,in=90] (1,-.5);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(.1,0) to [out=90,in=90] (.75,.25);
+\draw[linestyle,looseness=1.25]
+(.1,0) to [out=-90,in=-90] (.75,-.25);
+\draw[linestylegray,looseness=1.75]
+(.75,.25) to [out=-90,in=90] (.4,.15);
+\draw[linestylegray,looseness=1.75]
+(.75,-.25) to [out=90,in=-90] (.4,-.15);
+\draw[linestyle,looseness=1.25]
+(.4,.15) to [out=-90,in=90] (1,0)
+	to [out=-90,in=90] (.4,-.15);
+\filldraw[black] (.1,0) circle (1.5pt);
+\filldraw[black, fill=white] (1,0) circle (1.5pt);
+\end{tikzpicture}}
+\leadsto
+\cb{\begin{tikzpicture}
+\draw[linestyle,looseness=1.25]
+(0,0) to [out=-90,in=-90] (.5,0);
+\draw[linestyle,looseness=1.25]
+(.5,0) to [out=90,in=90] (0,0);
+\filldraw[black] (0,0) circle (1.5pt);
+\filldraw[black, fill=white] (.5,0) circle (1.5pt);
+\end{tikzpicture}}
+\leadsto
+\emptyset
+\]
+\end{constr}
+
+\TEX{Change star to six pointed, as the basepoint}
+
+\begin{constr}[The figure-32 construction (automorphism case)]%{F-32}
 \label{fig32}
 Given a point of $\Omega\Aut(X) \,_2\! \times_{\Omega \Aut(X)} \ast$, we have both a point $S \in \Omega\Aut(X)$ and a null homotopy $R$ of $2S$.  We represent this null homotopy and its inverse graphically by 
 $\cb{
