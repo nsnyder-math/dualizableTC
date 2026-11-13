@@ -41,23 +41,6 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 
 %%%%%
 
-\CDcomm{Immediate tasks}
-\begin{itemize}
-\item NS: Wet construction picture
-\item \sout{CSP: Rain construction picture, Spin(3) proof}
-\item \sout{Draw Serre 8 is 4-torsion, then use that in the def of the rain construction.}
-\end{itemize}
-
-\CDcomm{Various tasks}
-\begin{itemize}
-\item Compute or find a ref computing pi5 of Spin6/SO3. (table 1)
-\item \sout{Write Homotopy io remark at end of sec 4.3}
-\item Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points)
-\item \sout{Add a proposition before \cref{cor-fixedpointntypes} that is that statement just phrased in terms of fixed points, and make \cref{cor-fixedpointntypes} a corollary (see the marginal comment after that proposition).}
-\item \sout{Find a specific reference (not just to wu generically) for the pi4 sigma rp2 proposition and/or include a proof.}
-\item Restructure appendix, eg merge? separate the abstract from the 3d stuff?
-\end{itemize}
-
 \CDcomm{Intro items}
 \begin{itemize}
 \item DTCIV has statements about h-pivotal and h-spherical that justify the existence of Quad and Orp. (h-pivotal iff descent to quadratic field theory, h-spherical iff oriented p1 field theory) Discuss these in the intro??
@@ -79,10 +62,24 @@ We give finite explicit descriptions of what it means to give a homotopy $SO(3)$
 \item Similarly, in ho fixed point section, discuss that pivotality is $\Omega S^2$ fixed point.  For sphericality, either do it ($\Omega \Sigma \RP^2$ fixed point) or forward ref to DTCIV, considering it may require translating the usual notion of sphericality to our notion.  (Same fixed points for $\Omega S^2$ and $Quad$ and for $\Omega \Sigma \RP^2$ and $\Orp(3)$.
 \end{itemize}
 
+\CDcomm{FOR CD}
+\begin{itemize}
+\item \item Restructure appendix, eg merge? separate the abstract from the 3d stuff?
+\item Revise Noah's proofs. (Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points))
+\end{itemize}
+
 \CDcomm{FOR CSP}
 \begin{itemize}
-\item Do you have any bright idea for how to compute $\pi_5(Spin(6)/SO(3))$? [Here the map is the lift of $SO(3) \to SO(6)$ by $p \mapsto p + p$.] I think the LES in homotopy is $0 \to Z \to ? \to Z/2 \to 0$. So the only issue is resolving that extension.
+\item $\pi_5(Spin(6)/SO(3))$. Do you have any bright idea for how to compute $\pi_5(Spin(6)/SO(3))$? [Here the map is the lift of $SO(3) \to SO(6)$ by $p \mapsto p + p$.] I think the LES in homotopy is $0 \to Z \to ? \to Z/2 \to 0$. So the only issue is resolving that extension.
 \item I've added \cref{prop:comparison-fixed-points} with the statement (that we had been using implicitly) about comparisons of homotopy fixed points in terms of a sufficiently connected map of structures. 1--Could you look at this and see if you think it is correct, or if I got the numbers shifted (and/or a more serious error in the statement)? 2--Can you think of something concise to write for a proof? (Maybe this is just a souped up version of the proof that there's an equivalence of mapping spaces $[T,Z] \to [S,Z]$. Ie for sections rather than maps.)
+\item Spin(3) proof ie \cref{prop:spin3}. The proof here --- it certainly contains the key right idea. But also, it refers to the wet construction (which by definition gives something in $Aut(X)$) while making claims in $BSO(3)$. It's meant to be sort of a universal case that implies the general thing ... but it isn't obviously literally like that. I'm not sure if the thing to do is have a different 'pre-construction? in $BSO(3)$, or reword the proof, or what.
+\end{itemize}
+
+\CDcomm{FOR NS}
+\begin{itemize}
+\item Finish proof of \cref{lem:fig-8-doubleloop}.
+\item Sketch the following. Add proof of Prop 5.3.2 (orp fixed points), and Thm 5.4.1 (so3 fixed points), and Prop 5.5.1 (spin fixed points)
+\item Pontryagin--Thom viewpoint: either write Appendix explaining this, or write remarks, or write nothing.
 \end{itemize}
 
 
@@ -368,6 +365,8 @@ By definition a homotopy action of $\Omega S^2$ on a 3-type $X$ is a map $B \Ome
 
 %%% Note: if we want the constructions to have labels, it should be on the picture, not the environment.
 
+\CDcomm{Commentary. We do (1) pure htpy theory, (2) formulas for attaching maps ie constructions in any $E_k$ algebra, (3) actions ie those formulas in the Aut case, ie translate those from $\Omega^2 BAut(X)$ to $\Omega Aut(X)$, (4) fixed points. Some confusion is arising because we use some constructions using (2) even though the named constructions all are phrased in (3).}
+
 \begin{constr}[The figure-8 construction]%{F-8}
 \label{fig8}
 As mentioned, the map $S : S^1 \ra \Aut(X)$ can be viewed as a point $S \in \Omega \Aut(X)$.  The space $\Omega \Aut(X)$ is an $E_2$-space.  Letting $\ast$ denote automorphism composition and $\cdot$ denote loop composition, there is, for any two points $a, b \in \Omega \Aut(X)$ a well-defined-up-to-homotopy path $\beta_{a,b}$ from $a \cdot b$ to $b \cdot a$ implementing a half (righthanded) braiding.  Using this braiding, we may form the following loop in $\Omega \Aut(X)$:
@@ -478,7 +477,7 @@ The homotopy classes of $SO(2)$ actions on a 2-type $X$ are the homotopy classes
 
 \subsection{By the groups $\Omega \Sigma \RP^2$ and $Orp(3)$}
 
-Given a loop $S: S^1 \ra \Aut(X)$ of automorphisms of $X$, we can form $S \ast S : S^1 \ra \Aut(X)$ by sending each point $p \in S^1$ to the square $S(p) \ast S(p)$ of the automorphism $S(p) \in \Aut(X)$, or we can form $S \cdot S : S^1 \ra \Aut(X)$ by taking the loop composition of $S$ with itself.  Of course, $S \ast S$ and $S \cdot S$ are homotopic maps $S^1 \ra \Aut(X)$, but there is no canonical homotopy between them so it will occasionally be important to distinguish them.  We will use the expression ``$2S$" as shorthand for $S \ast S$.
+Given a loop $S: S^1 \ra \Aut(X)$ of automorphisms of $X$, we can form $S \ast S : S^1 \ra \Aut(X)$ by sending each point $p \in S^1$ to the square $S(p) \ast S(p)$ of the automorphism $S(p) \in \Aut(X)$, or we can form $S \cdot S : S^1 \ra \Aut(X)$ by taking the loop composition of $S$ with itself.  Of course, $S \ast S$ and $S \cdot S$ are homotopic maps $S^1 \ra \Aut(X)$, but there is no canonical homotopy between them so it will occasionally be important to distinguish them.  We will use the expression ``$2S$" as shorthand for $S \cdot S$.
 \CDcomm{What is the group of self-homotopy equivalences of $\Sigma \RP^2$?  If it has more than just reflections, then there is a subtlety in the identification of $\Omega \Sigma \RP^2$ actions that we should address/comment on.}
 
 \begin{prop}[Actions of $\Omega \Sigma \RP^2$] 
@@ -914,8 +913,6 @@ Given an action of $\Omega \Sigma \RP^2$ on a 3-type $X$, given by a pair $(S: S
 
 
 \end{constr}
-
-\CD{Need to say what $4 q(S)$ is unless a convention has been set. Certainly the picture will have it look like a dot composition.}
 
 \subsection{By the group $SO(3)$}
 
@@ -1608,8 +1605,8 @@ The desired equation $e = -q$ follows if $e + q = 0$, which follows if $e - q = 
 	to [out=-120,in=-90] (-1,-.5);
 \filldraw[black] (-1,0) circle (1.5pt);
 \filldraw[black, fill=white] (0,0) circle (1.5pt);
-\filldraw[black] (-.3,-.25) circle (1.5pt);
-\filldraw[black, fill=white] (-.15,-.25) circle (1.5pt);
+\filldraw[black, fill=white] (-.3,-.25) circle (1.5pt);
+\filldraw[black] (-.15,-.25) circle (1.5pt);
 \end{tikzpicture}}
 =
 \cb{\begin{tikzpicture}
@@ -1693,6 +1690,7 @@ The $E_1$ structure on pairs satisfies
 \end{lemma}
 
 \begin{lemma}
+\label{lem:doublelooptotal}
 $\Omega_x^2 X_{h\Aut(X)}$ is homotopy equivalent to the space of pairs $(\alpha: \Omega \Aut(X), p_\alpha:: \alpha_x \sim \id_x)$.
 \end{lemma}
 \begin{proof}
@@ -1743,6 +1741,8 @@ In this section, for brevity we sometimes use ``is" to mean ``is homotopy equiva
 Recall that an $\Omega S^2$ action on a 3-type $X$, which a priori is a based map $\alpha: S^2 \ra B\Aut(X)$ may instead be viewed as a based map $S: S^1 \ra \Aut(X)$.
 
 \NS{Consider changing notation for $\piv$ and $\sph$.}
+
+\CD{In the following proposition or its proof or hereabouts, need to explain what $S_x$ is ie applied to $x \in X$. Or possibility this will have happened above already for a general $\alpha$ in which case just remind this is a special case.}
 
 \begin{proposition}[Fixed points for $\Omega S^2$]
 The space of homotopy fixed points of the $\Omega S^2$ action on a 3-type $X$, given by $S: S^1 \ra \Aut(X)$, is the space of pairs $(x,\piv)$ where $x \in X$ is a point and $\piv: D^2 \ra X$ is a null homotopy of the loop $S_x: S^1 \ra X$.
@@ -1866,7 +1866,9 @@ Given an $\Omega S^2$ action on a 3-type $X$ given by $S : S^1 \ra \Aut(X)$. Giv
 \emptyset
 \] 
 
-Note that unlike previous diagrams which represented higher paths in $B\Aut(X)$, this diagram represents a path $q(S)_x \ra \id_{\id_x}$ in $X$. Now the black strand is $S_x$ and the grey strand is $S_x^{-1}$. The squares represent $\piv$ and $\piv^{-1}$ (depending on shading), and $\beta_x$ is shorthand for $(\beta_{S^{-1},S})_x: S_x^{-1} \cdot S_x \rightarrow S_x \cdot S_x^{-1}$. We have not used the crossing to denote $\beta_{S^{-1},S})_x$ to emphasize that this diagram does \emph{not} take place in an $E_2$ algebra. We do not have a braiding map, but instead we can apply the braiding $\beta_{S^{-1},S}$ in the $E_2$ algebra $\Omega(\Aut(X))$ to $x$ to get a path in $\Omega_x(X)$ which is $\beta_x$. 
+Note that unlike previous diagrams which represented higher paths in $B\Aut(X)$, this diagram represents a path $q(S)_x \ra \id_{\id_x}$ in $X$. Now the black strand is $S_x$ and the grey strand is $S_x^{-1}$. The squares represent $\piv$ and $\piv^{-1}$ (depending on shading), and $\beta_x$ is shorthand for $(\beta_{S^{-1},S})_x: S_x^{-1} \cdot S_x \rightarrow S_x \cdot S_x^{-1}$. We do not have a braiding map, but instead we can apply the braiding $\beta_{S^{-1},S}$ in the $E_2$ algebra $\Omega(\Aut(X))$ to $x \in X$ to get a path in $\Omega_x(X)$ which is $\beta_x$. We have not used the crossing to denote $(\beta_{S^{-1},S})_x$ to emphasize that this diagram does \emph{not} take place in an $E_2$ algebra. 
+
+\CD{Maybe the order of the sentences in the previous paragraph could be smoother.}
 
 The second arrow above is $S$ applied to $\piv$ \NScomm{add more unpacking here?}. 
 
@@ -1930,11 +1932,14 @@ The second arrow above is $S$ applied to $\piv$ \NScomm{add more unpacking here?
 
 \end{constr}
 
-\begin{proposition}
-Suppose that $(S,\piv)$ is the pair corresponding to an element of $\Omega_x^2 X_{h\Aut(X)}$, then the figure-8 construction applied to $(S,\piv)$ is the pair $(\mathrm{f8}(S), w(S, \piv, x))$.
-\end{proposition}
+\begin{lemma}
+\label{lem:fig-8-doubleloop}
+Suppose that $(S,\piv) \in \Omega_x^2 X_{h\Aut(X)}$ (by \cref{lem:doublelooptotal}), then the figure-8 construction applied to $(S,\piv)$ is $(\mathrm{f8}(S), w(S, \piv, x)) \in \Omega_x^3 X_{h\Aut(X)}$.
+\CD{Need lemma for the triple loop space?}
+%Suppose that $(S,\piv)$ is the pair corresponding to an element of $\Omega_x^2 X_{h\Aut(X)}$, then the figure-8 construction applied to $(S,\piv)$ is the pair $(\mathrm{f8}(S), w(S, \piv, x))$.
+\end{lemma}
 \begin{proof}
-It is clear that the first component is $\mathrm{f8}(S)$. By definition, the second component is given by \NScomm{Probably better to write this in formulas than pictures?}
+It is clear that the first component is $\mathrm{f8}(S)$. By definition, the second component is given by \NScomm{Probably better to write this in formulas than pictures? Yes, do that and remove picture.}
 \[
 \cb{\begin{tikzpicture}
 \draw[linestyle,looseness=1.25]
